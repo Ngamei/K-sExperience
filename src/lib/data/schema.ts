@@ -125,8 +125,10 @@ export type Dish = z.infer<typeof DishSchema>;
 
 export const DishCatalogueSchema = z.object({
   metadata: z.object({
-    dataset: z.enum(DATASETS),
+    /** "mixed" = master import merged into the seed catalogue (seed dishes kept). */
+    dataset: z.enum([...DATASETS, "mixed"]),
     label: z.string(),
+    seedCount: z.number().optional(),
     generatedAt: z.string(),
     sourceFile: z.string(),
     recordCount: z.number(),

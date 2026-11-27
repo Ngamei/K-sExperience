@@ -41,7 +41,13 @@ export const ImportRowSchema = z.object({
 export type ImportRow = z.input<typeof ImportRowSchema>;
 
 export interface ImportIssue { row: number; name?: string; level: "error" | "warning"; message: string }
-export interface ImportResult { dishes: Dish[]; issues: ImportIssue[]; stats: { rows: number; imported: number; skipped: number } }
+export interface ImportResult {
+  dishes: Dish[];
+  issues: ImportIssue[];
+  stats: { rows: number; imported: number; skipped: number };
+  /** Dish fields actually present in each source row (defaults are NOT "provided") — used by the merge. */
+  provided: Record<string, (keyof Dish)[]>;
+}
 
 const CATEGORY_ALIASES: Record<string, (typeof CATEGORIES)[number]> = {
   savory: "savory", savoury: "savory", "mon man": "savory", man: "savory",
@@ -101,6 +107,7 @@ export function importCatalogue(
   const resolve = buildProvinceResolver(ctx.provinces, ctx.regions);
   const issues: ImportIssue[] = [];
   const dishes: Dish[] = [];
+  const provided: Record<string, (keyof Dish)[]> = {};
   const seen = new Set<string>();
 
   rawRows.forEach((raw, i) => {
@@ -185,6 +192,20 @@ export function importCatalogue(
     const valid = DishSchema.safeParse(candidate);
     if (!valid.success) return err(valid.error.issues.map((x) => `${x.path.join(".")}: ${x.message}`).join("; "));
     dishes.push(valid.data);
+    const rawObj = raw as Record<string, unknown>;
+    const has = (k: string) => rawObj[k] !== undefined && rawObj[k] !== null && String(rawObj[k]).trim() !== "";
+    const p: (keyof Dish)[] = ["nameVi", "nameEn", "category", "dishType"];
+    if (has("altNames")) p.push("altNames");
+    if (has("family")) p.push("family");
+    if (has("origins")) p.push("origins", "regionIds");
+    if (has("ingredients")) p.push("ingredients");
+    if (has("taste")) p.push("taste");
+    if (has("spiceLevel")) p.push("spiceLevel");
+    if (has("dietary")) p.push("dietary");
+    if (has("mealTimes")) p.push("mealTimes");
+    if (has("descriptionEn") || has("descriptionVi")) p.push("description");
+    if (has("prominence")) p.push("prominence");
+    provided[valid.data.id] = p;
   });
 
   // Validate family references are consistent (a family should have >1 member to be meaningful)
@@ -192,7 +213,7 @@ export function importCatalogue(
   dishes.forEach((d) => d.family && fam.set(d.family, (fam.get(d.family) ?? 0) + 1));
   fam.forEach((n, f) => n < 2 && issues.push({ row: 0, level: "warning", message: `Family "${f}" has a single member` }));
 
-  return { dishes, issues, stats: { rows: rawRows.length, imported: dishes.length, skipped: rawRows.length - dishes.length } };
+  return { dishes, issues, provided, stats: { rows: rawRows.length, imported: dishes.length, skipped: rawRows.length - dishes.length } };
 }
 
 export { REGION_IDS };

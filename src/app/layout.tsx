@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full">
         <Providers>
-          <AppShell seedCount={catalogue.dataset === "seed" ? catalogue.recordCount : null}>
+          <AppShell seedCount={catalogue.dataset === "master" ? null : (catalogue.seedCount ?? catalogue.recordCount)}>
             <FoodDataProvider>{children}</FoodDataProvider>
           </AppShell>
         </Providers>

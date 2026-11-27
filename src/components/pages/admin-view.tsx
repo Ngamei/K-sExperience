@@ -37,7 +37,7 @@ export function AdminView() {
       const rows = filename.endsWith(".csv") || (!raw.trim().startsWith("[") && !raw.trim().startsWith("{")) ? parseCsv(raw) : (() => { const j = JSON.parse(raw); return Array.isArray(j) ? j : j.dishes; })();
       setResult(importCatalogue(rows, { provinces, regions, dataset }));
     } catch (e) {
-      setResult({ dishes: [], issues: [{ row: 0, level: "error", message: `Could not parse input: ${(e as Error).message}` }], stats: { rows: 0, imported: 0, skipped: 0 } });
+      setResult({ dishes: [], issues: [{ row: 0, level: "error", message: `Could not parse input: ${(e as Error).message}` }], stats: { rows: 0, imported: 0, skipped: 0 }, provided: {} });
     }
   };
 
