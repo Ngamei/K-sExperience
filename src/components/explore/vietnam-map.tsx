@@ -123,7 +123,7 @@ export function VietnamMap(props: Props) {
         return;
       }
       map.touchZoomRotate.disableRotation();
-      map.addControl(new ml.NavigationControl({ showCompass: false }), "top-right");
+      map.addControl(new ml.NavigationControl({ showCompass: false }), "bottom-right");
       mapRef.current = map;
       // Exposed for end-to-end tests (read-only use).
       (window as unknown as { __ksxMap?: MLMap }).__ksxMap = map;
@@ -174,7 +174,7 @@ export function VietnamMap(props: Props) {
       add(p.labelPoint as [number, number], `<div class="text-[10px] font-medium tracking-wide text-charcoal/60 whitespace-nowrap" style="text-shadow:0 0 3px #fffdf8,0 0 3px #fffdf8">${esc(p.nameVi)}</div>`, "map-label map-label-province");
     }
     for (const a of archipelagos) {
-      add([a.labelPoint[0], a.labelPoint[1] + 0.9], `<div class="text-center text-[10.5px] font-semibold leading-tight text-[#6b4e10] whitespace-nowrap" style="text-shadow:0 0 3px #E4EBE4">${esc(a.nameVi)}<br/><span class="font-normal opacity-75">(${esc(provinceById.get(a.parentProvinceId)?.nameVi ?? "")})</span></div>`, "map-label map-label-arch");
+      add([a.labelPoint[0] - (a.id === "truong-sa" ? 0.9 : 0), a.labelPoint[1] + 0.9], `<div class="text-center text-[10.5px] font-semibold leading-tight text-[#6b4e10] whitespace-nowrap" style="text-shadow:0 0 3px #E4EBE4">${esc(a.nameVi)}<br/><span class="font-normal opacity-75">(${esc(provinceById.get(a.parentProvinceId)?.nameVi ?? "")})</span></div>`, "map-label map-label-arch");
     }
     add([112.6, 13.0], `<div class="font-display text-[14px] italic tracking-[0.18em] text-[#7d9a95]/80 whitespace-nowrap">${esc(t("explore.eastSea"))}</div>`, "map-label map-label-sea");
     return () => labels.forEach((m) => m.remove());

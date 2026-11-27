@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# K's Experience
 
-## Getting Started
+**Explore Vietnam. Experience it in Sài Gòn.**
 
-First, run the development server:
+A dish-first lifestyle discovery platform. The first experience, **Vietnamese Food**, maps dishes from every
+region of Vietnam to their culinary origins on an illustrated interactive map, and shows where to taste them in
+Ho Chi Minh City. Bars, Coffee, Spa and Shopping are planned modules (Settings → Experience Mode).
+
+> **Checkpoint status:** runnable MVP in local mode. Catalogue = 138 clearly-labelled **seed** dishes.
+> No real HCMC establishments are verified yet — see `docs/IMPLEMENTATION_PLAN.md` → *Release blockers*.
+
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install        # also copies the MapLibre worker into public/vendor
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+No credentials are needed: the app runs in **local mode** from the JSON files in `data/`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Offline preview (no install needed by the reviewer)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build:preview   # → preview/ks-experience-preview-<commit>.zip
+```
 
-## Learn More
+Unzip, run `node serve.mjs` inside the folder, open http://localhost:4173 (Node 18+, works offline).
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Dev server |
+| `npm run build` / `npm start` | Production build / server (Vercel-compatible) |
+| `npm run build:preview` | Static export to `out/` + offline zip in `preview/` |
+| `npm run typecheck` | `tsc --noEmit` |
+| `npm run lint` | ESLint (next/core-web-vitals + TypeScript) |
+| `npm test` | Vitest unit + integration tests |
+| `npm run test:e2e` | Playwright (desktop + Pixel 7) against the production build — run `npm run build` first |
+| `npm run qa` | All of the above in order |
+| `npm run data:geo` | Rebuild geography files from the geoBoundaries source |
+| `npm run data:seed` | Regenerate the seed catalogue through the importer |
+| `npm run data:import -- <file.json\|csv> --dataset master` | Import the master catalogue |
+| `npm run data:validate` | Integrity checks across all data files (incl. HCMC-only rule) |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Repository map
 
-## Deploy on Vercel
+```
+data/                    canonical datasets (see docs/DATA_SOURCES.md)
+  source/                raw inputs (geoBoundaries, seed import file)
+  samples/               fictional SAMPLE venues for UI preview only
+scripts/                 geo build, importer CLI, preview packaging
+src/app/                 Next.js App Router routes (one folder per screen)
+src/components/          UI: shell, food, explore (map), dish, nearby, pages
+src/experiences/         experience-module registry (food active; 4 coming soon)
+src/lib/                 schema (Zod), importer, filters, search, availability, hours, recommend, passport, i18n, stores
+supabase/migrations/     PostgreSQL + PostGIS schema with RLS (not yet applied)
+tests/                   Vitest unit + integration;  e2e/  Playwright
+docs/                    PRD, architecture, plan, decisions, data sources, QA report, screenshots
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Documentation
+`AGENTS.md` · `docs/PRD.md` · `docs/ARCHITECTURE.md` · `docs/IMPLEMENTATION_PLAN.md` · `docs/DECISIONS.md` · `docs/DATA_SOURCES.md` · `docs/QA_REPORT.md`

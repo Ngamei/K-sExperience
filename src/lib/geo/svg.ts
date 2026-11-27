@@ -11,12 +11,12 @@ export function makeProjector(bbox: [number, number, number, number], width: num
   return { project, width, height };
 }
 
-export function geometryToPath(geom: { type: string; coordinates: unknown }, project: (p: [number, number]) => [number, number]): string {
+export function geometryToPath(geom: { type: string; coordinates: unknown }, project: (p: [number, number]) => [number, number], digits = 1): string {
   const polys = (geom.type === "Polygon" ? [geom.coordinates] : geom.coordinates) as Ring[][];
   return polys
     .map((poly) =>
       poly
-        .map((ring) => "M" + ring.map((p) => project(p).map((v) => v.toFixed(1)).join(",")).join("L") + "Z")
+        .map((ring) => "M" + ring.map((p) => project(p).map((v) => v.toFixed(digits)).join(",")).join("L") + "Z")
         .join(""),
     )
     .join("");

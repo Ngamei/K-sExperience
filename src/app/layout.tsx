@@ -21,15 +21,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#294C3D", width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  const data = getFoodData();
-  const { catalogue } = data;
+  const { catalogue } = getFoodData(); // metadata only — the dataset itself is fetched once from /data/food.json
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full">
         <Providers>
-          <FoodDataProvider data={data}>
-          <AppShell seedCount={catalogue.dataset === "seed" ? catalogue.recordCount : null}>{children}</AppShell>
-          </FoodDataProvider>
+          <AppShell seedCount={catalogue.dataset === "seed" ? catalogue.recordCount : null}>
+            <FoodDataProvider>{children}</FoodDataProvider>
+          </AppShell>
         </Providers>
       </body>
     </html>

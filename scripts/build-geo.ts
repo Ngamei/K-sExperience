@@ -186,6 +186,8 @@ const run = (args: string[]) => execFileSync(process.execPath, [ms, ...args], { 
 mkdirSync(path.join(root, "public/geo"), { recursive: true });
 run(["data/vietnam.geojson", "-simplify", "40%", "keep-shapes", "-o", "public/geo/vietnam.json", "precision=0.0005", "format=geojson"]);
 run(["data/vietnam.geojson", "-filter", "kind === 'province'", "-dissolve", "regionId", "-simplify", "30%", "keep-shapes", "-o", "public/geo/regions.json", "precision=0.0005", "format=geojson"]);
+// Tiny geometry for static per-dish origin locator SVGs (rendered into every dish page).
+run(["data/vietnam.geojson", "-simplify", "6%", "keep-shapes", "-o", "public/geo/vietnam-locator.json", "precision=0.01", "format=geojson"]);
 run(["data/hcmc-boundary.geojson", "-dissolve", "-simplify", "60%", "-o", "public/geo/hcmc.json", "precision=0.0002", "format=geojson"]);
 
 console.log(`✓ ${provinces.length} provinces, ${archipelagoRecords.length} archipelagos, ${REGIONS.length} regions written.`);

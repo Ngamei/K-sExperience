@@ -22,7 +22,7 @@ export default defineConfig({
   ],
   webServer: {
     // Runs against the production build (`npm run build` first).
-    command: process.env.E2E_STATIC ? `npx serve out -l ${PORT}` : `npx next start -p ${PORT}`,
+    command: process.env.E2E_STATIC ? `node scripts/serve-static.mjs out ${PORT}` : `npx next start -p ${PORT}`,
     port: PORT,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

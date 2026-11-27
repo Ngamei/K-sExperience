@@ -2,7 +2,7 @@
  * - Static assets (/_next/static, /geo, /vendor, icons): cache-first.
  * - Page navigations: network-first, falling back to the cached copy when offline.
  * Redirected or non-OK responses are never cached. */
-const CACHE = "ksx-v2";
+const CACHE = "ksx-v3";
 const PRECACHE = ["/geo/vietnam.json", "/geo/regions.json", "/geo/hcmc.json", "/vendor/maplibre-gl-worker.mjs", "/icon.svg"];
 
 self.addEventListener("install", (e) => {
@@ -19,7 +19,7 @@ self.addEventListener("fetch", (e) => {
   const url = new URL(req.url);
   if (req.method !== "GET" || url.origin !== location.origin) return;
 
-  if (req.mode === "navigate") {
+  if (req.mode === "navigate" || url.pathname.startsWith("/data/")) {
     e.respondWith(
       fetch(req)
         .then((r) => { if (cacheable(r)) { const copy = r.clone(); caches.open(CACHE).then((c) => c.put(req, copy)); } return r; })

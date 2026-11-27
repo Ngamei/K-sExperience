@@ -1,4 +1,5 @@
 "use client";
+import { useQuery } from "@tanstack/react-query";
 import { createContext, useContext, useMemo } from "react";
 import type { FoodData } from "@/lib/data/catalogue";
 import { buildAvailabilityIndex } from "@/lib/food/availability";
@@ -13,16 +14,37 @@ interface Ctx extends FoodData {
 }
 const FoodDataContext = createContext<Ctx | null>(null);
 
-export function FoodDataProvider({ data, children }: { data: FoodData; children: React.ReactNode }) {
+async function fetchFoodData(): Promise<FoodData> {
+  const r = await fetch("/data/food.json");
+  if (!r.ok) throw new Error(`Failed to load catalogue (${r.status})`);
+  return r.json();
+}
+
+/** Loads the dataset once (client-side, cached) and provides indexed lookups to the app. */
+export function FoodDataProvider({ children }: { children: React.ReactNode }) {
+  const { data, error, refetch } = useQuery({ queryKey: ["food-data"], queryFn: fetchFoodData, staleTime: Infinity });
   const value = useMemo(
-    () => ({
-      ...data,
-      dishById: new Map(data.dishes.map((d) => [d.id, d])),
-      provinceById: new Map(data.provinces.map((p) => [p.id, p])),
-      regionById: new Map(data.regions.map((r) => [r.id, r])),
-    }),
+    () =>
+      data && {
+        ...data,
+        dishById: new Map(data.dishes.map((d) => [d.id, d])),
+        provinceById: new Map(data.provinces.map((p) => [p.id, p])),
+        regionById: new Map(data.regions.map((r) => [r.id, r])),
+      },
     [data],
   );
+  if (error)
+    return (
+      <div className="mx-auto max-w-md px-4 py-20 text-center text-sm text-muted" role="alert">
+        Could not load the catalogue. <button className="text-terracotta underline" onClick={() => refetch()}>Retry</button>
+      </div>
+    );
+  if (!value)
+    return (
+      <div className="flex min-h-[50vh] items-center justify-center" aria-busy="true" data-testid="loading">
+        <div className="size-8 animate-spin rounded-full border-2 border-sage border-t-forest" />
+      </div>
+    );
   return <FoodDataContext.Provider value={value}>{children}</FoodDataContext.Provider>;
 }
 
