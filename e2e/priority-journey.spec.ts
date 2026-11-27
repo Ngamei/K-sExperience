@@ -8,7 +8,7 @@ import { enableSamples, isMobile, visible, waitForIdle, waitForMap } from "./hel
 test("priority journey: explore → region + category → dish → HCMC availability → settings", async ({ page }) => {
   // The culinary map is the home page.
   await page.goto("/");
-  await expect(page.getByTestId("data-banner")).toContainText("Seed data");
+  await expect(page.getByTestId("data-banner")).toHaveCount(0); // no development/seed banner in the consumer UI
   await waitForMap(page);
 
   // Region filter (Bắc Trung Bộ) + category (Sweet)

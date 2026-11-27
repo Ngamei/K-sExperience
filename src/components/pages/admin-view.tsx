@@ -16,6 +16,8 @@ import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { useFoodData } from "@/components/food/food-data";
 import { DishEditor, EvidenceEditor, RestaurantEditor, field, label, type Saver } from "@/components/admin/admin-forms";
+import { ModuleAdmin } from "@/components/admin/module-admin";
+import { EXPERIENCES, isSelectable, loc, type ExperienceId } from "@/experiences/registry";
 
 function download(name: string, data: unknown) {
   const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));
@@ -34,6 +36,7 @@ export function AdminView() {
   const qc = useQueryClient();
   const sb = getSupabase();
   const [tab, setTab] = useState<Tab>("Overview");
+  const [mode, setMode] = useState<ExperienceId>("food");
   const [user, setUser] = useState<User | null>(null);
   const [editor, setEditor] = useState(false);
   const [email, setEmail] = useState("");
@@ -95,6 +98,16 @@ export function AdminView() {
         </div>
       </header>
 
+      <div className="flex flex-wrap items-center gap-2" data-testid="admin-modes" aria-label="Experience mode">
+        <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">Experience</span>
+        {EXPERIENCES.filter((e) => e.implemented).map((e) => (
+          <Chip key={e.id} active={mode === e.id} onClick={() => setMode(e.id)} data-testid={`admin-mode-${e.id}`}>
+            {loc(e.name, "en")}{e.id !== "food" && !isSelectable(e) ? " · hidden" : ""}
+          </Chip>
+        ))}
+      </div>
+
+      {mode !== "food" ? <ModuleAdmin key={mode} id={mode} canPersist={canPersist} inHcmc={inHcmc} /> : <>
       <nav className="no-scrollbar flex gap-2 overflow-x-auto" aria-label="Admin sections">
         {TABS.map((x) => <Chip key={x} active={tab === x} onClick={() => setTab(x)} data-testid={`admin-tab-${x.toLowerCase()}`}>{x}</Chip>)}
       </nav>
@@ -107,6 +120,7 @@ export function AdminView() {
       {tab === "Photos" && <Photos canPersist={canPersist} />}
       {tab === "Import" && <ImportTool canPersist={canPersist} />}
       {tab === "Audit" && <Audit enabled={canPersist} />}
+      </>}
     </div>
   );
 }
@@ -120,7 +134,15 @@ function Overview() {
   const stat = (l: string, v: React.ReactNode) => <div key={l} className="rounded-2xl border border-line/80 bg-paper p-4"><dt className="text-xs text-muted">{l}</dt><dd className="font-display text-3xl text-forest">{v}</dd></div>;
   return (
     <section>
-      <p className="mb-3 text-sm text-muted">Dataset: <Badge tone="sample">{catalogue.dataset}</Badge> · {catalogue.label}</p>
+      <div className="mb-3 rounded-2xl border border-[#e9d9a6] bg-[#fbf3d9] p-3 text-sm text-[#5f4a0f]" data-testid="admin-data-quality">
+        <p><strong>Data quality</strong> · dataset <Badge tone="sample">{catalogue.dataset}</Badge> · {catalogue.label}</p>
+        {catalogue.dataset !== "master" && (
+          <p className="mt-1" data-testid="admin-seed-notice">
+            {catalogue.seedCount ?? catalogue.recordCount} seed dishes authored from general culinary knowledge are not yet source-verified; the master catalogue will be merged
+            in with the non-destructive importer (IDs, photos and venue links preserved). Consumers see per-dish verification status, not this notice.
+          </p>
+        )}
+      </div>
       <dl className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {stat("Dishes", dishes.length)}
         {CATEGORIES.map((c) => stat(t(`cat.${c}`), dishes.filter((d) => d.category === c).length))}

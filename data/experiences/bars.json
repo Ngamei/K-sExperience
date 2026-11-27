@@ -1,0 +1,10 @@
+{
+  "metadata": {
+    "experienceId": "bars",
+    "dataset": "empty",
+    "note": "Pilot dataset on the shared Experience Engine. Items, establishments and offerings are added only from sourced research through the importer and validators — never invented."
+  },
+  "items": [],
+  "establishments": [],
+  "offerings": []
+}

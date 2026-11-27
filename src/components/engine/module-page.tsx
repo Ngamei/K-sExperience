@@ -1,6 +1,7 @@
 "use client";
 import type { ExperienceId } from "@/experiences/registry";
 import { ModuleGate } from "./experience-data";
+import { PassportGate } from "@/components/auth/auth-gate";
 import { EstablishmentsView, ItemCatalogue, ItemDetail, ModuleDiscover, ModulePassport } from "./module-views";
 
 export type ModuleSlot = "map" | "discover" | "catalogue" | "item" | "nearby" | "passport";
@@ -16,7 +17,7 @@ export function ModulePage({ id, slot }: { id: ExperienceId; slot: ModuleSlot })
           case "discover": return <ModuleDiscover d={d} />;
           case "catalogue": return <ItemCatalogue d={d} />;
           case "item": return <ItemDetail d={d} />;
-          case "passport": return <ModulePassport d={d} />;
+          case "passport": return <PassportGate><ModulePassport d={d} /></PassportGate>;
         }
       }}
     </ModuleGate>

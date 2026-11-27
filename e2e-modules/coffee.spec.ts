@@ -20,8 +20,8 @@ const PHOTO = "https://img.test/ca-phe-muoi-at-cafe-a.png";
 const FIXTURE = {
   metadata: { experienceId: "coffee", dataset: "seed", note: "TEST FIXTURE — not real data" },
   items: [
-    item("test-ca-phe-muoi", "Cà phê muối", "Salt coffee", "vietnamese-coffee", { coffeeType: "Phin", preparation: "Phin with salted cream", flavour: ["salty", "sweet"] }),
-    item("test-bac-xiu", "Bạc xỉu", "White coffee", "vietnamese-coffee", { coffeeType: "Phin", preparation: "Milk-forward" }),
+    item("test-ca-phe-muoi", "Cà phê muối", "Salt coffee", "vietnamese-coffee", { coffeeType: "robusta", preparation: "phin", flavour: ["salty", "sweet"], served: ["hot", "iced"] }),
+    item("test-bac-xiu", "Bạc xỉu", "White coffee", "vietnamese-coffee", { coffeeType: "robusta", preparation: "phin", flavour: ["milky", "sweet"] }),
   ],
   establishments: [est("test-cafe-a", "TEST Café A"), est("test-sample", "[SAMPLE] Café", true)],
   offerings: [
@@ -65,8 +65,9 @@ test("Coffee catalogue: module categories, attributes and accent-insensitive sea
   await page.goto("/coffee/catalogue/");
   await expect(page.getByTestId("item-count")).toHaveText("2 coffees");
   await expect(page.getByTestId("item-categories")).toContainText("Vietnamese coffee");
-  await expect(page.getByTestId("item-card").first().getByTestId("card-attr-coffeeType")).toHaveText("Phin");
-  for (const foodOnly of ["open-filters", "filter-panel", "cat-snack", "map-region-chips"]) await expect(page.getByTestId(foodOnly)).toHaveCount(0);
+  await expect(page.getByTestId("item-card").first().getByTestId("card-attr-coffeeType")).toHaveText("Robusta");
+  for (const foodOnly of ["filter-panel", "cat-snack", "province-select", "region-all", "avail-none-found"]) await expect(page.getByTestId(foodOnly)).toHaveCount(0);
+  await expect(page.getByTestId("module-filter-panel").first()).toBeAttached(); // the shared drawer with Coffee definitions
   await expect(page.getByText("Tây Nam Bộ")).toHaveCount(0);
   await page.getByTestId("item-search").fill("ca phe muoi");
   await expect(page.getByTestId("item-count")).toHaveText("1 coffee");
@@ -76,7 +77,7 @@ test("Coffee catalogue: module categories, attributes and accent-insensitive sea
 test("item detail: module sections, shared establishment card with offering photo, evidence; samples never listed", async ({ page }) => {
   await serveFixture(page);
   await page.goto("/coffee/item/?id=test-ca-phe-muoi");
-  await expect(page.getByTestId("attr-coffeeType")).toContainText("Phin");
+  await expect(page.getByTestId("attr-coffeeType")).toContainText("Robusta");
   await expect(page.getByTestId("section-offerings")).toContainText("Where to try it in Ho Chi Minh City");
   const rows = page.getByTestId("section-offerings").getByTestId("venue-row");
   await expect(rows).toHaveCount(1); // the [SAMPLE] café is excluded
@@ -119,7 +120,7 @@ test("passports and saved items are isolated per experience on the same device",
 
 test("with the real (empty) dataset the pilot shows honest empty states", async ({ page }) => {
   await page.goto("/coffee/catalogue/");
-  await expect(page.getByTestId("pilot-banner")).toBeVisible();
+  await expect(page.getByTestId("pilot-banner")).toHaveCount(0); // development notice only (not in production-like builds)
   await expect(page.getByTestId("data-banner")).toHaveCount(0); // Food's seed banner is Food-only
   await expect(page.getByTestId("module-empty")).toContainText("No coffees have been researched yet");
   await page.goto("/coffee/");

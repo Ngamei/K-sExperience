@@ -7,6 +7,9 @@ import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { DishCatalogueSchema, MappingFileSchema, RestaurantFileSchema } from "../src/lib/data/schema";
 import { EXPERIENCES } from "../src/experiences/registry";
+import { ExperienceDataSchema } from "../src/engine/schema";
+import { moduleDataProblems } from "../src/engine/validate";
+import { toItemRow, toOfferingRow } from "../src/engine/db-rows";
 
 const root = path.resolve(__dirname, "..");
 const read = (p: string) => JSON.parse(readFileSync(path.join(root, p), "utf8"));
@@ -61,6 +64,7 @@ if (dsrc.length) out.push(`insert into dish_sources (dish_id, title, url, access
 out.push(`insert into restaurants (id, name, is_sample, address, neighbourhood, location, coordinate_precision, google_maps_url, highlights, venue_type, price_range, opening_hours, contact, delivery_links, last_verified) values
 ${restaurants.map((r) => `(${q(r.id)}, ${q(r.name)}, false, ${q(r.address)}, ${q(r.neighbourhood)}, ${pt(r.coordinates)}, ${q(r.coordinatePrecision)}, ${q(r.googleMapsUrl)}, ${arr(r.highlights)}, ${q(r.venueType)}, ${q(r.priceRange)}, ${json(r.openingHours)}, ${json(r.contact)}, ${json(r.deliveryLinks)}, ${q(r.lastVerified)})`).join(",\n")}
 on conflict (id) do update set name = excluded.name, address = excluded.address, neighbourhood = excluded.neighbourhood, location = excluded.location, coordinate_precision = excluded.coordinate_precision, google_maps_url = excluded.google_maps_url, highlights = excluded.highlights, venue_type = excluded.venue_type, price_range = excluded.price_range, opening_hours = excluded.opening_hours, contact = excluded.contact, delivery_links = excluded.delivery_links, last_verified = excluded.last_verified;`);
+out.push(`insert into establishment_experiences (establishment_id, experience_id) values ${restaurants.map((r) => `(${q(r.id)}, 'food')`).join(", ")} on conflict do nothing;`);
 const rids = restaurants.map((r) => q(r.id)).join(",");
 out.push(`delete from restaurant_sources where restaurant_id in (${rids});`);
 out.push(`insert into restaurant_sources (restaurant_id, title, url, accessed, note) values
@@ -68,6 +72,30 @@ ${restaurants.flatMap((r) => r.sources.map((s) => `(${q(r.id)}, ${q(s.title)}, $
 out.push(`insert into dish_restaurant_links (dish_id, restaurant_id, status, menu_evidence, price_min_vnd, price_max_vnd, last_verified, primary_photo_url, photo_kind, photo_source_url, photo_attribution, photo_license, photo_last_checked_at) values
 ${links.map((l) => `(${q(l.dishId)}, ${q(l.restaurantId)}, ${q(l.status)}, ${json(l.menuEvidence)}, ${num(l.priceVnd?.min)}, ${num(l.priceVnd?.max)}, ${q(l.lastVerified)}, ${q(l.photo?.url)}, ${q(l.photo?.kind)}, ${q(l.photo?.sourceUrl)}, ${q(l.photo?.attribution)}, ${q(l.photo?.license)}, ${q(l.photo?.lastCheckedAt)})`).join(",\n")}
 on conflict (dish_id, restaurant_id) do update set status = excluded.status, menu_evidence = excluded.menu_evidence, price_min_vnd = excluded.price_min_vnd, price_max_vnd = excluded.price_max_vnd, last_verified = excluded.last_verified, primary_photo_url = excluded.primary_photo_url, photo_kind = excluded.photo_kind, photo_source_url = excluded.photo_source_url, photo_attribution = excluded.photo_attribution, photo_license = excluded.photo_license, photo_last_checked_at = excluded.photo_last_checked_at;`);
+// ---- Shared-engine modules (data/experiences/<id>.json): items, establishments (+ attributes, mode tags), offerings
+for (const m of EXPERIENCES.filter((e) => e.id !== "food" && e.implemented)) {
+  const d = ExperienceDataSchema.parse(read(`data/experiences/${m.id}.json`));
+  const problems = moduleDataProblems(m, d);
+  if (problems.length) throw new Error(`${m.id}: ${problems.join("; ")}`);
+  const ests = d.establishments.filter((e) => !e.isSample);
+  out.push(`-- ${m.id}: ${d.items.length} items, ${ests.length} establishments, ${d.offerings.filter((o) => !o.isSample).length} offerings`);
+  if (d.items.length) out.push(`insert into experience_items (id, experience_id, name_vi, name_en, alt_names, category, attributes, description_vi, description_en, photos, sources, verification_status, dataset) values
+${d.items.map(toItemRow).map((r) => `(${q(r.id)}, ${q(r.experience_id)}, ${q(r.name_vi)}, ${q(r.name_en)}, ${arr(r.alt_names)}, ${q(r.category)}, ${json(r.attributes)}, ${q(r.description_vi)}, ${q(r.description_en)}, ${json(r.photos)}, ${json(r.sources)}, ${q(r.verification_status)}, ${q(r.dataset)})`).join(",\n")}
+on conflict (id) do update set name_vi = excluded.name_vi, name_en = excluded.name_en, alt_names = excluded.alt_names, category = excluded.category, attributes = excluded.attributes, description_vi = excluded.description_vi, description_en = excluded.description_en, photos = excluded.photos, sources = excluded.sources, verification_status = excluded.verification_status, dataset = excluded.dataset;`);
+  if (ests.length) {
+    out.push(`insert into restaurants (id, name, is_sample, address, neighbourhood, location, coordinate_precision, google_maps_url, highlights, venue_type, price_range, opening_hours, contact, delivery_links, last_verified, attributes) values
+${ests.map((e) => `(${q(e.id)}, ${q(e.name)}, false, ${q(e.address)}, ${q(e.neighbourhood)}, ${pt(e.coordinates)}, ${q(e.coordinatePrecision)}, ${q(e.googleMapsUrl)}, ${arr(e.highlights)}, ${q(e.venueType)}, ${q(e.priceRange)}, ${json(e.openingHours)}, ${json(e.contact)}, ${json(e.deliveryLinks)}, ${q(e.lastVerified)}, ${json(e.attributes)})`).join(",\n")}
+on conflict (id) do update set name = excluded.name, address = excluded.address, neighbourhood = excluded.neighbourhood, location = excluded.location, coordinate_precision = excluded.coordinate_precision, google_maps_url = excluded.google_maps_url, highlights = excluded.highlights, venue_type = excluded.venue_type, price_range = excluded.price_range, opening_hours = excluded.opening_hours, contact = excluded.contact, delivery_links = excluded.delivery_links, last_verified = excluded.last_verified, attributes = excluded.attributes;`);
+    out.push(`insert into establishment_experiences (establishment_id, experience_id) values ${ests.flatMap((e) => e.experiences.map((x) => `(${q(e.id)}, ${q(x)})`)).join(", ")} on conflict do nothing;`);
+    out.push(`delete from restaurant_sources where restaurant_id in (${ests.map((e) => q(e.id)).join(",")});`);
+    out.push(`insert into restaurant_sources (restaurant_id, title, url, accessed, note) values
+${ests.flatMap((e) => e.sources.map((s) => `(${q(e.id)}, ${q(s.title)}, ${q(s.url)}, ${q(s.accessed)}, ${q(s.note)})`)).join(",\n")};`);
+  }
+  const offs = d.offerings.filter((o) => !o.isSample).map(toOfferingRow);
+  if (offs.length) out.push(`insert into offerings (item_id, establishment_id, status, menu_evidence, price_min_vnd, price_max_vnd, price_unit, last_verified, primary_photo_url, photo_kind, photo_source_url, photo_attribution, photo_license, photo_last_checked_at) values
+${offs.map((o) => `(${q(o.item_id)}, ${q(o.establishment_id)}, ${q(o.status)}, ${json(o.menu_evidence)}, ${num(o.price_min_vnd)}, ${num(o.price_max_vnd)}, ${q(o.price_unit)}, ${q(o.last_verified)}, ${q(o.primary_photo_url)}, ${q(o.photo_kind)}, ${q(o.photo_source_url)}, ${q(o.photo_attribution)}, ${q(o.photo_license)}, ${q(o.photo_last_checked_at)})`).join(",\n")}
+on conflict (item_id, establishment_id) do update set status = excluded.status, menu_evidence = excluded.menu_evidence, price_min_vnd = excluded.price_min_vnd, price_max_vnd = excluded.price_max_vnd, price_unit = excluded.price_unit, last_verified = excluded.last_verified, primary_photo_url = excluded.primary_photo_url, photo_kind = excluded.photo_kind, photo_source_url = excluded.photo_source_url, photo_attribution = excluded.photo_attribution, photo_license = excluded.photo_license, photo_last_checked_at = excluded.photo_last_checked_at;`);
+}
 out.push("commit;");
 writeFileSync(path.join(root, "supabase/seed.sql"), out.join("\n\n") + "\n");
 console.log(`✓ supabase/seed.sql — ${cat.dishes.length} dishes, ${restaurants.length} restaurants, ${links.length} links`);

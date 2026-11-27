@@ -4,7 +4,8 @@ import dynamic from "next/dynamic";
 import { MapPin, Store } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useT } from "@/lib/i18n/use-t";
-import { useUser } from "@/lib/store/user";
+import { useShowSamples, useUser } from "@/lib/store/user";
+import { DEV_DATA } from "@/lib/env";
 import { useFilters } from "@/lib/store/filters";
 import { HCMC_NEIGHBOURHOODS } from "@/lib/food/hcmc";
 import { haversineKm } from "@/lib/geo/geo";
@@ -24,7 +25,7 @@ export function NearbyView() {
   const { t, locale } = useT();
   const { dishById } = useFoodData();
   const availability = useBrowseAvailability();
-  const showSamples = useUser((s) => s.showSamples);
+  const showSamples = useShowSamples();
   const setShowSamples = useUser((s) => s.setShowSamples);
   const filters = useFilters((s) => s.filters);
   const set = useFilters((s) => s.set);
@@ -70,7 +71,7 @@ export function NearbyView() {
             <Store className="mx-auto size-8 text-muted" />
             <h2 className="mt-2 font-display text-xl">{t("nearby.empty")}</h2>
             <p className="mx-auto mt-1 max-w-sm text-sm text-muted">{t("nearby.emptyBody")}</p>
-            {!showSamples && <Button className="mt-4" variant="outline" onClick={() => setShowSamples(true)} data-testid="enable-samples">{t("nearby.enableSamples")}</Button>}
+            {DEV_DATA && !showSamples && <Button className="mt-4" variant="outline" onClick={() => setShowSamples(true)} data-testid="enable-samples">{t("nearby.enableSamples")}</Button>}
           </div>
         ) : (
           <ul className="mt-5 grid gap-2.5" data-testid="venue-list">

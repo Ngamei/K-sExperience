@@ -15,6 +15,7 @@ import { Chip } from "@/components/ui/chip";
 import { useFoodData } from "@/components/food/food-data";
 import { AccountCard } from "@/components/auth/account-card";
 import { cn } from "@/lib/utils";
+import { DEV_DATA } from "@/lib/env";
 
 function Card({ title, children, id }: { title: string; children: React.ReactNode; id?: string }) {
   return (
@@ -85,12 +86,12 @@ export function SettingsView() {
         </div>
       </Card>
 
-      <Card title={t("settings.samples")} id="samples">
+      {DEV_DATA && <Card title={t("settings.samples")} id="samples">
         <label className="flex cursor-pointer items-start gap-3">
           <input type="checkbox" className="mt-1 size-5 accent-[#294C3D]" checked={u.showSamples} onChange={(e) => u.setShowSamples(e.target.checked)} data-testid="toggle-samples" />
           <span className="text-sm text-charcoal/80">{t("settings.samplesBody")}</span>
         </label>
-      </Card>
+      </Card>}
 
       <Card title={t("settings.preferences")} id="preferences">
         <div className="space-y-4 text-sm">

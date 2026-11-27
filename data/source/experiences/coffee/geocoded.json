@@ -1,0 +1,37 @@
+{
+ "Cà phê Vợt Cheo Leo|109/36 Nguyễn Thiện Thuật, Quận 3, TP. Hồ Chí Minh|Quận 3": {
+  "lon": 106.699182,
+  "lat": 10.805488,
+  "precision": "street",
+  "ward": "Phường Bình Thạnh",
+  "displayName": "Nguyễn Thiện Thuật, Khu phố 3, Phường Bình Thạnh, Thành phố Hồ Chí Minh, 72326, Việt Nam"
+ },
+ "Cộng Cà Phê (Lý Tự Trọng)|26 Lý Tự Trọng, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.701026,
+  "lat": 10.778168,
+  "precision": "exact",
+  "ward": "Phường Sài Gòn",
+  "displayName": "Cộng Cà Phê, 26, Lý Tự Trọng, Khu phố 3, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+ },
+ "Okkio Caffe (Lê Lợi)|122 Lê Lợi, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.698948,
+  "lat": 10.772524,
+  "precision": "exact",
+  "ward": "Phường Bến Thành",
+  "displayName": "OKKIO Cafe, 120-122, Lê Lợi, Khu phố 1, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+ },
+ "The Workshop Coffee|27 Ngô Đức Kế, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.705539,
+  "lat": 10.773406,
+  "precision": "exact",
+  "ward": "Phường Sài Gòn",
+  "displayName": "The Workshop Coffee, 27, Ngô Đức Kế, Khu phố 9, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+ },
+ "Góc Hà Nội|102 Nguyễn Văn Thủ, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.701032,
+  "lat": 10.792089,
+  "precision": "street",
+  "ward": "Phường Tân Định",
+  "displayName": "Nguyễn Văn Thủ, Khu phố 13, Phường Tân Định, Thành phố Hồ Chí Minh, 71008, Việt Nam"
+ }
+}

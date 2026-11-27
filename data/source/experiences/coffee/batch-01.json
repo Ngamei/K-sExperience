@@ -1,0 +1,39 @@
+{
+  "researchedOn": "2026-11-27",
+  "method": "Desk research (published guides naming the café AND the exact drink). Coordinates: OpenStreetMap Nominatim (street-level unless the building matched). Status source-listed only; no prices, hours or photos are recorded without a source.",
+  "venues": [
+    {
+      "id": "cheo-leo-cafe", "name": "Cà phê Vợt Cheo Leo", "address": "109/36 Nguyễn Thiện Thuật, Quận 3, TP. Hồ Chí Minh", "district": "Quận 3", "venueType": "café",
+      "sources": ["https://saigoneer.com/saigon-street-food-restaurants/8085-hem-gems-a-cuppa-in-saigon-s-oldest-cafe", "https://vietnamnet.vn/en/hcm-city-s-70-year-old-sock-filter-coffee-stall-keeps-brewing-memories-2472050.html"],
+      "attributes": { "cafeTypes": ["traditional"] },
+      "offerings": [{ "item": "ca-phe-vot", "evidence": "Saigoneer (Hẻm Gems): family café brewing cà phê vợt (cloth 'sock' filter coffee) since 1938.", "url": "https://saigoneer.com/saigon-street-food-restaurants/8085-hem-gems-a-cuppa-in-saigon-s-oldest-cafe" }]
+    },
+    {
+      "id": "cong-caphe-ly-tu-trong", "name": "Cộng Cà Phê (Lý Tự Trọng)", "address": "26 Lý Tự Trọng, Quận 1, TP. Hồ Chí Minh", "district": "Quận 1", "venueType": "café",
+      "sources": ["https://www.trvlogue.com/en/cong-caphe-ho-chi-minh-review", "https://www.foody.vn/ho-chi-minh/cong-ca-phe-saigon-ly-tu-trong/binh-luan"],
+      "attributes": {},
+      "offerings": [{ "item": "ca-phe-cot-dua", "evidence": "Travel review of the Lý Tự Trọng branch names coconut coffee as its signature drink.", "url": "https://www.trvlogue.com/en/cong-caphe-ho-chi-minh-review" }]
+    },
+    {
+      "id": "okkio-caffe-le-loi", "name": "Okkio Caffe (Lê Lợi)", "address": "122 Lê Lợi, Quận 1, TP. Hồ Chí Minh", "district": "Quận 1", "venueType": "café",
+      "sources": ["https://wanderingwheatleys.com/best-egg-coffee-in-saigon-vietnam-ho-chi-minh-city/", "https://tablejourney.com/vietnam/ho-chi-minh-city/cafes/okkio-caffe/"],
+      "attributes": {},
+      "offerings": [
+        { "item": "ca-phe-trung", "evidence": "Egg-coffee guide lists Okkio Caffe (Lê Lợi, near Bến Thành) for egg coffee topped with cocoa.", "url": "https://wanderingwheatleys.com/best-egg-coffee-in-saigon-vietnam-ho-chi-minh-city/" },
+        { "item": "ca-phe-cot-dua", "evidence": "Café guide names coconut coffee as Okkio's signature drink.", "url": "https://tablejourney.com/vietnam/ho-chi-minh-city/cafes/okkio-caffe/" }
+      ]
+    },
+    {
+      "id": "the-workshop-coffee", "name": "The Workshop Coffee", "address": "27 Ngô Đức Kế, Quận 1, TP. Hồ Chí Minh", "district": "Quận 1", "venueType": "café",
+      "sources": ["https://silverkris.singaporeair.com/guide/vietnam/sgn/eat-ho-chi-minh-city/the-workshop-coffee/", "https://freakingnomads.com/workspace/the-workshop-coffee"],
+      "attributes": { "cafeTypes": ["specialty", "working"] },
+      "offerings": [{ "item": "pour-over", "evidence": "SilverKris guide: speciality café serving single-origin beans by manual brew methods (pour-over).", "url": "https://silverkris.singaporeair.com/guide/vietnam/sgn/eat-ho-chi-minh-city/the-workshop-coffee/" }]
+    },
+    {
+      "id": "goc-ha-noi-nguyen-van-thu", "name": "Góc Hà Nội", "address": "102 Nguyễn Văn Thủ, Quận 1, TP. Hồ Chí Minh", "district": "Quận 1", "venueType": "café",
+      "sources": ["https://wanderingwheatleys.com/best-egg-coffee-in-saigon-vietnam-ho-chi-minh-city/", "https://www.vietnamescapetours.com/travel-blog/where-to-drink-egg-coffee-in-saigon.html"],
+      "attributes": {},
+      "offerings": [{ "item": "ca-phe-trung", "evidence": "Egg-coffee guides list Góc Hà Nội (Nguyễn Văn Thủ, Đa Kao) for Hanoi-style egg coffee.", "url": "https://www.vietnamescapetours.com/travel-blog/where-to-drink-egg-coffee-in-saigon.html" }]
+    }
+  ]
+}

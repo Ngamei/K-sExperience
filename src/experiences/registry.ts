@@ -27,7 +27,14 @@ export const NAV_SLOTS = ["map", "discover", "catalogue", "nearby", "passport", 
 export type NavSlot = (typeof NAV_SLOTS)[number];
 
 /** A module-specific attribute shown on cards, detail pages and filters (values live on items/offerings). */
-export interface AttributeDef { id: string; label: L; kind: "text" | "list" | "number" | "boolean"; unit?: L }
+export interface AttributeDef {
+  id: string; label: L; kind: "text" | "list" | "number" | "boolean"; unit?: L;
+  /** Controlled vocabulary (validated on import/admin; rendered as filter chips). */
+  options?: { id: string; label: L }[];
+  /** Shown in the module's filter drawer. */
+  filterable?: boolean;
+}
+const o = (id: string, en: string, vi: string) => ({ id, label: { en, vi } });
 
 export interface ExperienceModule {
   id: ExperienceId;
@@ -49,8 +56,10 @@ export interface ExperienceModule {
   routes: Record<NavSlot, string> & { item: string; establishment: string };
   /** Item fields the shared search matches (accent-insensitive). */
   searchable: ("nameVi" | "nameEn" | "altNames" | "description" | `attr:${string}`)[];
-  /** Module attributes (definitions; values live on items). */
+  /** Item attributes (definitions; values live on items — e.g. a drink's preparation). */
   attributes: AttributeDef[];
+  /** Establishment attributes (values live on establishments — e.g. a café's Wi-Fi). Never mixed with item attributes. */
+  establishmentAttributes: AttributeDef[];
   /** Catalogue configuration: attributes shown on cards, sort options. */
   catalogue: { cardAttributes: string[]; sorts: ("name" | "availability")[] };
   /** Detail-page sections, in order. "offerings" = the shared "where to find it in HCMC" block. */
@@ -110,6 +119,8 @@ export const EXPERIENCES: ExperienceModule[] = [
       { id: "dietary", label: { en: "Dietary", vi: "Chế độ ăn" }, kind: "list" },
       { id: "origin", label: { en: "Origin", vi: "Xuất xứ" }, kind: "text" },
     ],
+    // Food's establishment fields (venue type, price range, hours) are typed columns of the Food extension.
+    establishmentAttributes: [],
     catalogue: { cardAttributes: ["origin"], sorts: ["name", "availability"] },
     detailSections: [
       { id: "origin", title: { en: "Origin", vi: "Xuất xứ" }, attributes: ["origin"] },
@@ -129,16 +140,20 @@ export const EXPERIENCES: ExperienceModule[] = [
   },
   {
     id: "bars", labelKey: "exp.bars", name: { en: "Bars", vi: "Quán bar" }, status: "coming-soon", icon: "wine",
-    implemented: false, featureFlag: "NEXT_PUBLIC_FEATURE_BARS", basePath: "/bars/",
+    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_BARS", basePath: "/bars/",
     navLabels: nav({ en: "Bar Map", vi: "Bản đồ quán bar" }, { en: "Drinks Catalogue", vi: "Danh mục đồ uống" }, { en: "Bar Passport", vi: "Hộ chiếu quán bar" }),
     navShort: SHORT,
     routes: routesFor("/bars/"),
     searchable: ["nameVi", "nameEn", "altNames", "attr:ingredients"],
     attributes: [
       { id: "ingredients", label: { en: "Ingredients", vi: "Thành phần" }, kind: "list" },
-      { id: "taste", label: { en: "Taste", vi: "Hương vị" }, kind: "list" },
-      { id: "abv", label: { en: "Alcohol content", vi: "Nồng độ cồn" }, kind: "number", unit: { en: "% ABV", vi: "% cồn" } },
-      { id: "atmosphere", label: { en: "Atmosphere", vi: "Không khí" }, kind: "list" },
+      { id: "taste", label: { en: "Taste", vi: "Hương vị" }, kind: "list", filterable: true, options: [o("sweet", "Sweet", "Ngọt"), o("sour", "Sour", "Chua"), o("bitter", "Bitter", "Đắng"), o("herbal", "Herbal", "Thảo mộc"), o("fruity", "Fruity", "Trái cây"), o("strong", "Strong", "Đậm"), o("creamy", "Creamy", "Béo")] },
+      { id: "abv", label: { en: "Alcohol content", vi: "Nồng độ cồn" }, kind: "text", unit: { en: "", vi: "" }, filterable: true, options: [o("none", "Alcohol-free", "Không cồn"), o("low", "Low", "Nhẹ"), o("medium", "Medium", "Vừa"), o("high", "High", "Mạnh")] },
+    ],
+    establishmentAttributes: [
+      { id: "barTypes", label: { en: "Bar type", vi: "Loại quán" }, kind: "list", filterable: true, options: [o("cocktail-bar", "Cocktail bar", "Cocktail bar"), o("wine-bar", "Wine bar", "Quán rượu vang"), o("craft-beer", "Craft beer", "Bia thủ công"), o("rooftop", "Rooftop", "Sân thượng"), o("speakeasy", "Speakeasy", "Speakeasy"), o("hotel-bar", "Hotel bar", "Bar khách sạn")] },
+      { id: "atmosphere", label: { en: "Atmosphere", vi: "Không khí" }, kind: "list", filterable: true, options: [o("quiet", "Quiet", "Yên tĩnh"), o("lively", "Lively", "Sôi động"), o("live-music", "Live music", "Nhạc sống"), o("view", "City view", "View thành phố")] },
+      { id: "smoking", label: { en: "Smoking policy", vi: "Hút thuốc" }, kind: "text", options: [o("no-smoking", "No smoking", "Không hút thuốc"), o("smoking-area", "Smoking area", "Khu hút thuốc"), o("smoking-allowed", "Smoking allowed", "Cho phép hút thuốc")] },
     ],
     catalogue: { cardAttributes: ["taste", "abv"], sorts: ["name", "availability"] },
     detailSections: [
@@ -151,7 +166,10 @@ export const EXPERIENCES: ExperienceModule[] = [
       findIn: { en: "Where to drink it in Ho Chi Minh City", vi: "Uống ở đâu tại TP.HCM" }, completed: { en: "Tasted", vi: "Đã thử" }, note: { en: "Tasting note", vi: "Ghi chú nếm thử" },
     },
     map: { layers: ["hcmc-establishments"] },
-    categories: [{ id: "cocktail", name: { en: "Cocktails", vi: "Cocktail" } }, { id: "beer", name: { en: "Beer", vi: "Bia" } }, { id: "wine", name: { en: "Wine", vi: "Rượu vang" } }, { id: "spirits", name: { en: "Spirits", vi: "Rượu mạnh" } }, { id: "zero-proof", name: { en: "Zero-proof", vi: "Không cồn" } }],
+    categories: [
+      { id: "classic-cocktail", name: { en: "Classic cocktails", vi: "Cocktail kinh điển" } }, { id: "signature-cocktail", name: { en: "Signature cocktails", vi: "Cocktail đặc trưng" } },
+      { id: "wine", name: { en: "Wine", vi: "Rượu vang" } }, { id: "beer", name: { en: "Beer", vi: "Bia" } }, { id: "mocktail", name: { en: "Mocktails", vi: "Mocktail" } },
+    ],
     filters: [...SHARED_FILTERS, "bars:drink-type", "bars:taste", "bars:alcohol-content", "bars:atmosphere"],
     pricingUnits: ["drink"],
     passport: { name: { en: "Bar Passport", vi: "Hộ chiếu quán bar" }, summary: { en: "Drinks tasted · bars visited", vi: "Đồ uống đã thử · quán đã ghé" } },
@@ -164,11 +182,20 @@ export const EXPERIENCES: ExperienceModule[] = [
     navShort: SHORT,
     routes: routesFor("/coffee/"),
     searchable: ["nameVi", "nameEn", "altNames", "attr:preparation"],
+    // Drinks are catalogue items; café characteristics are establishment attributes (below). Never mix them.
     attributes: [
-      { id: "coffeeType", label: { en: "Coffee type", vi: "Loại cà phê" }, kind: "text" },
-      { id: "flavour", label: { en: "Flavour", vi: "Hương vị" }, kind: "list" },
-      { id: "preparation", label: { en: "Preparation", vi: "Cách pha" }, kind: "text" },
-      { id: "served", label: { en: "Served", vi: "Phục vụ" }, kind: "list" },
+      { id: "coffeeType", label: { en: "Base", vi: "Thành phần chính" }, kind: "text", filterable: true, options: [o("robusta", "Robusta", "Robusta"), o("arabica", "Arabica", "Arabica"), o("blend", "Blend", "Pha trộn"), o("matcha", "Matcha", "Matcha"), o("tea", "Tea", "Trà"), o("none", "No coffee", "Không cà phê")] },
+      { id: "flavour", label: { en: "Flavour", vi: "Hương vị" }, kind: "list", filterable: true, options: [o("strong", "Strong", "Đậm"), o("sweet", "Sweet", "Ngọt"), o("milky", "Milky", "Nhiều sữa"), o("salty", "Salty", "Mặn"), o("fruity", "Fruity", "Trái cây"), o("creamy", "Creamy", "Béo"), o("bitter", "Bitter", "Đắng")] },
+      { id: "preparation", label: { en: "Preparation", vi: "Cách pha" }, kind: "text", filterable: true, options: [o("phin", "Phin filter", "Pha phin"), o("espresso", "Espresso machine", "Pha máy"), o("pour-over", "Pour-over", "Pour-over"), o("cold-brew", "Cold brew", "Ủ lạnh"), o("whisked", "Whisked", "Đánh bọt"), o("brewed", "Brewed / steeped", "Pha / ủ")] },
+      { id: "served", label: { en: "Served", vi: "Phục vụ" }, kind: "list", filterable: true, options: [o("hot", "Hot", "Nóng"), o("iced", "Iced", "Đá")] },
+    ],
+    establishmentAttributes: [
+      { id: "cafeTypes", label: { en: "Café type", vi: "Loại quán" }, kind: "list", filterable: true, options: [o("book", "Book café", "Cà phê sách"), o("working", "Working café", "Cà phê làm việc"), o("garden", "Garden café", "Cà phê sân vườn"), o("concept", "Concept café", "Cà phê concept"), o("scenic", "Scenic café", "Cà phê view đẹp"), o("specialty", "Speciality coffee shop", "Cà phê đặc sản"), o("traditional", "Traditional café", "Cà phê truyền thống")] },
+      { id: "wifi", label: { en: "Wi-Fi", vi: "Wi-Fi" }, kind: "boolean", filterable: true },
+      { id: "powerSockets", label: { en: "Power sockets", vi: "Ổ cắm điện" }, kind: "boolean", filterable: true },
+      { id: "seating", label: { en: "Seating", vi: "Chỗ ngồi" }, kind: "list", filterable: true, options: [o("indoor", "Indoor", "Trong nhà"), o("outdoor", "Outdoor", "Ngoài trời"), o("rooftop", "Rooftop", "Sân thượng"), o("sidewalk", "Sidewalk", "Vỉa hè"), o("large-tables", "Large tables", "Bàn lớn")] },
+      { id: "noise", label: { en: "Noise level", vi: "Độ ồn" }, kind: "text", filterable: true, options: [o("quiet", "Quiet", "Yên tĩnh"), o("moderate", "Moderate", "Vừa phải"), o("lively", "Lively", "Nhộn nhịp")] },
+      { id: "smoking", label: { en: "Smoking policy", vi: "Hút thuốc" }, kind: "text", options: [o("no-smoking", "No smoking", "Không hút thuốc"), o("smoking-area", "Smoking area", "Khu hút thuốc"), o("smoking-allowed", "Smoking allowed", "Cho phép hút thuốc")] },
     ],
     catalogue: { cardAttributes: ["coffeeType", "preparation"], sorts: ["name", "availability"] },
     detailSections: [
@@ -182,26 +209,36 @@ export const EXPERIENCES: ExperienceModule[] = [
       findIn: { en: "Where to try it in Ho Chi Minh City", vi: "Thưởng thức ở đâu tại TP.HCM" }, completed: { en: "Tried", vi: "Đã thử" }, note: { en: "Tasting note", vi: "Ghi chú nếm thử" },
     },
     map: { layers: ["hcmc-establishments"] },
-    categories: [{ id: "vietnamese-coffee", name: { en: "Vietnamese coffee", vi: "Cà phê Việt" } }, { id: "espresso", name: { en: "Espresso-based", vi: "Pha máy" } }, { id: "tea", name: { en: "Tea", vi: "Trà" } }],
+    categories: [
+      { id: "vietnamese-coffee", name: { en: "Traditional Vietnamese coffee", vi: "Cà phê Việt truyền thống" } }, { id: "espresso", name: { en: "Espresso-based", vi: "Pha máy" } },
+      { id: "specialty", name: { en: "Speciality coffee", vi: "Cà phê đặc sản" } }, { id: "cold-brew", name: { en: "Cold brew", vi: "Cold brew" } },
+      { id: "matcha", name: { en: "Matcha", vi: "Matcha" } }, { id: "tea", name: { en: "Tea", vi: "Trà" } }, { id: "non-coffee", name: { en: "Non-coffee", vi: "Không cà phê" } },
+    ],
     filters: [...SHARED_FILTERS, "coffee:drink-type", "coffee:preparation", "coffee:work-friendly", "coffee:ambience"],
     pricingUnits: ["cup"],
     passport: { name: { en: "Coffee Passport", vi: "Hộ chiếu cà phê" }, summary: { en: "Coffees tried · cafés visited", vi: "Cà phê đã thử · quán đã ghé" } },
   },
   {
     id: "spa", labelKey: "exp.spa", name: { en: "Spa", vi: "Spa & chăm sóc sức khỏe" }, status: "coming-soon", icon: "flower",
-    implemented: false, featureFlag: "NEXT_PUBLIC_FEATURE_SPA", basePath: "/spa/",
+    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_SPA", basePath: "/spa/",
     navLabels: nav({ en: "Spa Map", vi: "Bản đồ spa" }, { en: "Treatment Catalogue", vi: "Danh mục liệu trình" }, { en: "Wellness Passport", vi: "Hộ chiếu chăm sóc" }),
     navShort: SHORT,
     routes: routesFor("/spa/"),
     searchable: ["nameVi", "nameEn", "altNames", "description"],
     attributes: [
       { id: "treatmentType", label: { en: "Treatment", vi: "Liệu trình" }, kind: "text" },
-      { id: "durationMin", label: { en: "Duration", vi: "Thời lượng" }, kind: "number", unit: { en: "min", vi: "phút" } },
-      { id: "benefits", label: { en: "Benefits", vi: "Lợi ích" }, kind: "list" },
+      { id: "durationMin", label: { en: "Typical duration", vi: "Thời lượng thường gặp" }, kind: "text", unit: { en: "min", vi: "phút" } },
+      { id: "focus", label: { en: "Focus", vi: "Tác dụng" }, kind: "list", filterable: true, options: [o("relaxation", "Relaxation", "Thư giãn"), o("pain-relief", "Muscle relief", "Giảm đau cơ"), o("skin", "Skin", "Da"), o("hair-scalp", "Hair & scalp", "Tóc & da đầu"), o("nails", "Nails", "Móng"), o("wellbeing", "Wellbeing", "Sức khỏe tổng thể")] },
     ],
-    catalogue: { cardAttributes: ["treatmentType", "durationMin"], sorts: ["name", "availability"] },
+    establishmentAttributes: [
+      { id: "spaTypes", label: { en: "Venue type", vi: "Loại cơ sở" }, kind: "list", filterable: true, options: [o("day-spa", "Day spa", "Day spa"), o("hotel-spa", "Hotel spa", "Spa khách sạn"), o("head-spa", "Head spa", "Gội đầu dưỡng sinh"), o("nail-salon", "Nail salon", "Tiệm nail"), o("hair-salon", "Hair salon", "Salon tóc"), o("wellness-centre", "Wellness centre", "Trung tâm chăm sóc sức khỏe")] },
+      { id: "privateRooms", label: { en: "Private rooms", vi: "Phòng riêng" }, kind: "boolean", filterable: true },
+      { id: "couplesRoom", label: { en: "Couples' room", vi: "Phòng đôi" }, kind: "boolean", filterable: true },
+      { id: "shower", label: { en: "Shower", vi: "Phòng tắm" }, kind: "boolean" },
+    ],
+    catalogue: { cardAttributes: ["durationMin"], sorts: ["name", "availability"] },
     detailSections: [
-      { id: "treatment", title: { en: "Treatment", vi: "Liệu trình" }, attributes: ["treatmentType", "durationMin", "benefits"] },
+      { id: "treatment", title: { en: "Treatment", vi: "Liệu trình" }, attributes: ["treatmentType", "durationMin", "focus"] },
       OFFERINGS_SECTION({ en: "Where to experience it in Ho Chi Minh City", vi: "Trải nghiệm ở đâu tại TP.HCM" }),
     ],
     offerings: [{ en: "Treatments", vi: "Liệu trình" }, { en: "Packages", vi: "Gói dịch vụ" }],
@@ -210,7 +247,11 @@ export const EXPERIENCES: ExperienceModule[] = [
       findIn: { en: "Where to experience it in Ho Chi Minh City", vi: "Trải nghiệm ở đâu tại TP.HCM" }, completed: { en: "Experienced", vi: "Đã trải nghiệm" }, note: { en: "Personal note", vi: "Ghi chú cá nhân" },
     },
     map: { layers: ["hcmc-establishments"] },
-    categories: [{ id: "massage", name: { en: "Massage", vi: "Massage" } }, { id: "hair-wash", name: { en: "Hair wash & scalp care", vi: "Gội đầu dưỡng sinh" } }, { id: "facial", name: { en: "Facial", vi: "Chăm sóc da mặt" } }],
+    categories: [
+      { id: "massage", name: { en: "Massage", vi: "Massage" } }, { id: "head-spa", name: { en: "Head spa", vi: "Gội đầu dưỡng sinh" } }, { id: "facial", name: { en: "Facial", vi: "Chăm sóc da mặt" } },
+      { id: "nails", name: { en: "Nail treatments", vi: "Làm móng" } }, { id: "hair", name: { en: "Hair treatments", vi: "Chăm sóc tóc" } }, { id: "body-care", name: { en: "Body care", vi: "Chăm sóc cơ thể" } },
+      { id: "wellness", name: { en: "Wellness treatments", vi: "Liệu pháp sức khỏe" } },
+    ],
     filters: [...SHARED_FILTERS, "spa:treatment-type", "spa:duration", "spa:package"],
     pricingUnits: ["session", "package"],
     passport: { name: { en: "Wellness Passport", vi: "Hộ chiếu chăm sóc" }, summary: { en: "Treatments · spas visited", vi: "Liệu trình · spa đã ghé" } },
@@ -223,6 +264,7 @@ export const EXPERIENCES: ExperienceModule[] = [
     routes: routesFor("/shopping/"),
     searchable: ["nameVi", "nameEn", "altNames"],
     attributes: [],
+    establishmentAttributes: [],
     catalogue: { cardAttributes: [], sorts: ["name"] },
     detailSections: [OFFERINGS_SECTION({ en: "Where to find it in Ho Chi Minh City", vi: "Tìm ở đâu tại TP.HCM" })],
     offerings: [],
@@ -238,20 +280,27 @@ export const EXPERIENCES: ExperienceModule[] = [
   },
   {
     id: "sport", labelKey: "exp.sport", name: { en: "Sport", vi: "Thể thao" }, status: "pilot-planned", icon: "activity",
-    implemented: false, featureFlag: "NEXT_PUBLIC_FEATURE_SPORT", basePath: "/sport/",
+    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_SPORT", basePath: "/sport/",
     navLabels: nav({ en: "Sport Map", vi: "Bản đồ thể thao" }, { en: "Activity Catalogue", vi: "Danh mục hoạt động" }, { en: "Sport Passport", vi: "Hộ chiếu thể thao" }),
     navShort: SHORT,
     routes: routesFor("/sport/"),
     searchable: ["nameVi", "nameEn", "altNames", "attr:equipment"],
     attributes: [
-      { id: "sport", label: { en: "Sport", vi: "Môn" }, kind: "text" },
-      { id: "equipment", label: { en: "Equipment", vi: "Dụng cụ" }, kind: "list" },
-      { id: "difficulty", label: { en: "Difficulty", vi: "Độ khó" }, kind: "text" },
-      { id: "classSize", label: { en: "Class size", vi: "Sĩ số lớp" }, kind: "text" },
+      { id: "sport", label: { en: "Sport", vi: "Môn" }, kind: "text", options: [o("pickleball", "Pickleball", "Pickleball"), o("pilates", "Pilates", "Pilates")] },
+      { id: "format", label: { en: "Format", vi: "Hình thức" }, kind: "list", filterable: true, options: [o("court-rental", "Court rental", "Thuê sân"), o("coaching", "Coaching", "Huấn luyện"), o("social", "Social sessions", "Giao lưu"), o("equipment-rental", "Equipment rental", "Thuê dụng cụ"), o("trial", "Trial session", "Buổi tập thử"), o("private", "Private session", "Tập riêng"), o("group", "Group class", "Lớp nhóm")] },
+      { id: "equipment", label: { en: "Equipment", vi: "Dụng cụ" }, kind: "list", filterable: true, options: [o("reformer", "Reformer", "Reformer"), o("mat", "Mat", "Mat"), o("cadillac", "Cadillac", "Cadillac"), o("chair", "Chair", "Chair"), o("barrel", "Barrel", "Barrel"), o("paddle-ball", "Paddle & ball", "Vợt & bóng")] },
+      { id: "level", label: { en: "Level", vi: "Trình độ" }, kind: "list", filterable: true, options: [o("beginner", "Beginner", "Mới bắt đầu"), o("intermediate", "Intermediate", "Trung bình"), o("advanced", "Advanced", "Nâng cao"), o("all-levels", "All levels", "Mọi trình độ")] },
     ],
-    catalogue: { cardAttributes: ["sport", "difficulty"], sorts: ["name", "availability"] },
+    establishmentAttributes: [
+      { id: "venueKinds", label: { en: "Venue", vi: "Cơ sở" }, kind: "list", filterable: true, options: [o("pickleball-courts", "Pickleball courts", "Sân pickleball"), o("sports-club", "Sports club", "Câu lạc bộ thể thao"), o("pilates-studio", "Pilates studio", "Studio Pilates")] },
+      { id: "indoorOutdoor", label: { en: "Indoor / outdoor", vi: "Trong nhà / ngoài trời" }, kind: "list", filterable: true, options: [o("indoor", "Indoor", "Trong nhà"), o("outdoor", "Outdoor", "Ngoài trời")] },
+      { id: "courtSurface", label: { en: "Court surface", vi: "Mặt sân" }, kind: "text", options: [o("acrylic", "Acrylic", "Acrylic"), o("concrete", "Concrete", "Bê tông"), o("modular", "Modular tiles", "Tấm ghép"), o("other", "Other", "Khác")] },
+      { id: "facilities", label: { en: "Facilities", vi: "Tiện ích" }, kind: "list", filterable: true, options: [o("shower", "Shower", "Phòng tắm"), o("changing-room", "Changing room", "Phòng thay đồ"), o("parking", "Parking", "Chỗ đậu xe"), o("lockers", "Lockers", "Tủ đồ")] },
+      { id: "instructorLanguages", label: { en: "Instructor languages", vi: "Ngôn ngữ huấn luyện viên" }, kind: "list", filterable: true, options: [o("vi", "Vietnamese", "Tiếng Việt"), o("en", "English", "Tiếng Anh")] },
+    ],
+    catalogue: { cardAttributes: ["sport", "level"], sorts: ["name", "availability"] },
     detailSections: [
-      { id: "activity", title: { en: "Equipment & difficulty", vi: "Dụng cụ & độ khó" }, attributes: ["equipment", "difficulty", "classSize"] },
+      { id: "activity", title: { en: "Format, equipment & level", vi: "Hình thức, dụng cụ & trình độ" }, attributes: ["sport", "format", "equipment", "level"] },
       OFFERINGS_SECTION({ en: "Where to practise it in Ho Chi Minh City", vi: "Tập ở đâu tại TP.HCM" }),
     ],
     offerings: [{ en: "Courts", vi: "Sân" }, { en: "Coaching", vi: "Huấn luyện" }, { en: "Classes", vi: "Lớp học" }, { en: "Trial sessions", vi: "Buổi tập thử" }],

@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
 import { useEffect } from "react";
+import { recordPath } from "@/lib/nav-history";
 import { usePathname } from "next/navigation";
 import { Settings } from "lucide-react";
 import { getExperience, loc, moduleForPath, navFor } from "@/experiences/registry";
 import { useT } from "@/lib/i18n/use-t";
-import { useUser } from "@/lib/store/user";
+import { useShowSamples, useUser } from "@/lib/store/user";
 import { cn } from "@/lib/utils";
 import { NAV_ICONS } from "./icons";
 
@@ -24,7 +25,7 @@ const norm = (p: string) => (p.endsWith("/") ? p : p + "/");
 const isActive = (path: string, href: string, base: string) =>
   href === "/" ? path === "/" || path.startsWith("/explore") : href === base ? norm(path) === href : norm(path).startsWith(norm(href));
 
-export function AppShell({ children, seedCount }: { children: React.ReactNode; seedCount: number | null }) {
+export function AppShell({ children }: { children: React.ReactNode }) {
   const path = usePathname() ?? "/";
   const { t, locale } = useT();
   const stored = useUser((s) => s.experience);
@@ -36,9 +37,10 @@ export function AppShell({ children, seedCount }: { children: React.ReactNode; s
   const setExperience = useUser((s) => s.setExperience);
   const hydrated = useUser((s) => s.hydrated);
   useEffect(() => { if (hydrated && foodPage && stored !== "food") setExperience("food"); }, [hydrated, foodPage, stored, setExperience]);
+  useEffect(() => { recordPath(path); }, [path]);
   const nav = navFor(exp);
   const setLocale = useUser((s) => s.setLocale);
-  const showSamples = useUser((s) => s.showSamples);
+  const showSamples = useShowSamples();
   const fullBleed = path === "/" || path.startsWith("/explore") || path.startsWith("/nearby") ||
     Boolean(mod && (norm(path) === mod.routes.map || norm(path).startsWith(mod.routes.nearby))); // module establishment maps
 
@@ -90,22 +92,12 @@ export function AppShell({ children, seedCount }: { children: React.ReactNode; s
             </Link>
           </div>
         </div>
-        {exp.id === "food" && (seedCount !== null || showSamples) && ( /* Food dataset banners only */
+        {showSamples && ( /* development/test builds only — never in production */
           <div className="border-t border-[#e9d9a6] bg-[#fbf3d9] text-[11.5px] leading-snug text-[#5f4a0f]" data-testid="data-banner">
-            <div className="mx-auto max-w-7xl px-4 py-1.5 md:px-6">
-              {seedCount !== null && (
-                <p>
-                  <strong className="mr-1 rounded bg-[#f0d878] px-1 py-px text-[10px] uppercase tracking-wider">Seed data</strong>
-                  {t("seed.banner", { n: seedCount })}
-                </p>
-              )}
-              {showSamples && (
-                <p className="mt-0.5">
-                  <strong className="mr-1 rounded bg-[#f0d878] px-1 py-px text-[10px] uppercase tracking-wider">Sample</strong>
-                  {t("sample.banner")}
-                </p>
-              )}
-            </div>
+            <p className="mx-auto max-w-7xl px-4 py-1.5 md:px-6">
+              <strong className="mr-1 rounded bg-[#f0d878] px-1 py-px text-[10px] uppercase tracking-wider">Sample</strong>
+              {t("sample.banner")}
+            </p>
           </div>
         )}
       </header>

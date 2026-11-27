@@ -138,8 +138,8 @@ describe("experience module data (shared engine)", () => {
       const d = ExperienceDataSchema.parse(read(`data/experiences/${f}`));
       const mod = EXPERIENCES.find((e) => e.id === d.metadata.experienceId)!;
       expect(`${mod.id}.json`).toBe(f);
-      const cats = new Set(mod.categories.map((c) => c.id));
-      for (const i of d.items) { expect(i.experienceId).toBe(mod.id); expect(cats.has(i.category)).toBe(true); }
+      const { moduleDataProblems } = await import("@/engine/validate");
+      expect(moduleDataProblems(mod, d)).toEqual([]);
       for (const e of d.establishments) {
         expect(e.experiences).toContain(mod.id);
         if (!e.isSample) { expect(e.sources.some((s) => s.url)).toBe(true); expect(e.lastVerified).toBeTruthy(); }

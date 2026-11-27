@@ -140,5 +140,14 @@ do $$ begin
   exception when check_violation then insert into results values ('public status requires last-checked date', true); end;
 end $$;
 
+-- 0007: establishment attributes; new establishments are not implicitly tagged Food
+insert into restaurants (id, name, address, neighbourhood, location, venue_type, last_verified, attributes)
+values ('test-cafe', 'Test Café', '1 Lê Lợi', 'Bến Thành', extensions.st_setsrid(extensions.st_makepoint(106.70, 10.775), 4326)::extensions.geography, 'café', '2026-11-27', '{"wifi": true, "cafeTypes": ["working"]}');
+insert into results select 'establishment attributes stored', (attributes->>'wifi')::boolean from restaurants where id = 'test-cafe';
+insert into results select 'new establishment not tagged Food implicitly', count(*) = 0 from establishment_experiences where establishment_id = 'test-cafe';
+insert into establishment_experiences values ('test-cafe', 'coffee');
+insert into results select 'mode tag audited', count(*) = 1 from content_audit where table_name = 'establishment_experiences' and row_key = 'test-cafe@coffee';
+insert into results select 'seed tagged every Food establishment', (select count(*) from establishment_experiences where experience_id = 'food') >= 113;
+
 select (case when ok then 'PASS ' else 'FAIL ' end) || name from results;
 select case when bool_and(ok) then 'ALL DB TESTS PASSED' else 'DB TESTS FAILED' end from results;

@@ -1,33 +1,27 @@
 "use client";
-import { ArrowLeft, ArrowUpRight, Bookmark, Check, Copy, FolderPlus, MapPin, Utensils } from "lucide-react";
+import { ArrowLeft, Bookmark, Check, Copy, FolderPlus, Utensils } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useFilters } from "@/lib/store/filters";
 import { EMPTY_FILTERS } from "@/lib/food/filters";
 import { useT } from "@/lib/i18n/use-t";
 import { DIETARY_TAG_LABELS, DISH_TYPE_LABELS, lbl, MEAL_LABELS, SPICE_LABELS, TASTE_LABELS, VENUE_LABELS } from "@/lib/i18n/labels";
-import { useUser } from "@/lib/store/user";
+import { useShowSamples, useUser } from "@/lib/store/user";
 import { buildAvailabilityIndex, statusOf } from "@/lib/food/availability";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DishArt } from "@/components/food/dish-art";
 import { DishHeroPhoto } from "@/components/food/dish-image";
 import { OfferingRow } from "@/components/engine/offering-row";
+import { DetailBlock, OfferingsSection } from "@/components/engine/detail";
 import { venueCardImage } from "@/lib/food/venue-photo";
 import { MyNotes } from "./my-notes";
-import { CategoryBadge, StatusDot } from "@/components/food/badges";
+import { CategoryBadge } from "@/components/food/badges";
 import { DishCard } from "@/components/food/dish-card";
 import { useFoodData } from "@/components/food/food-data";
 import type { Dish, DishRestaurantLink, Restaurant } from "@/lib/data/schema";
 
-function Block({ title, children, testid }: { title: string; children: React.ReactNode; testid?: string }) {
-  return (
-    <section className="rounded-3xl border border-line/80 bg-paper p-5 md:p-6" data-testid={testid}>
-      <h2 className="mb-3 font-display text-xl text-forest">{title}</h2>
-      {children}
-    </section>
-  );
-}
+const Block = DetailBlock;
 
 /** Food's establishment card = the shared engine OfferingRow fed with a dish ↔ restaurant link. */
 function VenueRow({ l, dish: d, restaurant: r }: { l: DishRestaurantLink; dish: Dish; restaurant: Restaurant }) {
@@ -53,7 +47,7 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
   const tried = useUser((s) => s.tried[id]);
   const toggleSaved = useUser((s) => s.toggleSaved);
   const toggleTried = useUser((s) => s.toggleTried);
-  const showSamples = useUser((s) => s.showSamples);
+  const showSamples = useShowSamples();
   const collections = useUser((s) => s.collections);
   const toggleInCollection = useUser((s) => s.toggleInCollection);
   const override = useUser((s) => s.verificationOverrides[id]);
@@ -169,35 +163,14 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
       <div className="mt-6"><MyNotes dishId={d.id} /></div>
 
       <div className="mt-6">
-        <Block title={t("dish.hcmc")} testid="hcmc-block">
-          {realLinks.length > 0 ? (
-            <div className="grid gap-2">
-              {realLinks.map((l) => <VenueRow key={l.restaurantId} l={l} dish={d} restaurant={restaurants.find((x) => x.id === l.restaurantId)!} />)}
-              <p className="text-[11.5px] text-muted">{t("dish.hcmcNote")}</p>
-            </div>
-          ) : (
-            <div className="rounded-2xl border border-dashed border-line bg-ivory/60 p-4" data-testid="none-found">
-              <StatusDot status={realStatus} />
-              <p className="mt-2 max-w-2xl text-sm text-charcoal/80">{t("status.noneFoundBody")}</p>
-            </div>
-          )}
-          <a
-            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${d.nameVi}, Hồ Chí Minh`)}`}
-            target="_blank"
-            rel="noreferrer"
-            className="group mt-3 flex items-center gap-3 rounded-2xl border border-line/80 bg-paper p-3.5 transition-colors hover:border-forest/40 hover:bg-sage-soft/40"
-            data-testid="google-maps-search"
-          >
-            <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-forest text-ivory">
-              <MapPin className="size-5" />
-            </span>
-            <span className="min-w-0 flex-1">
-              <span className="block text-sm font-medium text-charcoal group-hover:text-forest">{t("dish.searchMaps")}</span>
-              <span className="block truncate text-xs text-muted">{t("dish.searchMapsSub", { name: d.nameVi })}</span>
-              <span className="mt-0.5 block text-[11px] text-muted/80">{t("dish.searchMapsNote")}</span>
-            </span>
-            <ArrowUpRight className="size-4 shrink-0 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-forest" />
-          </a>
+        <OfferingsSection
+          title={t("dish.hcmc")}
+          rows={realLinks.map((l) => <VenueRow key={l.restaurantId} l={l} dish={d} restaurant={restaurants.find((x) => x.id === l.restaurantId)!} />)}
+          status={realStatus}
+          noneFoundBody={t("status.noneFoundBody")}
+          note={t("dish.hcmcNote")}
+          mapsQuery={d.nameVi}
+        >
           <div className="mt-2.5 flex flex-wrap gap-2">
             <button
               type="button"
@@ -233,7 +206,7 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
               <div className="grid gap-2">{sampleLinks.map((l) => <VenueRow key={l.restaurantId} l={l} dish={d} restaurant={restaurants.find((x) => x.id === l.restaurantId)!} />)}</div>
             </div>
           )}
-        </Block>
+        </OfferingsSection>
       </div>
 
       {variants.length > 0 && (

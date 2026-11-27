@@ -5,6 +5,8 @@ import { useState } from "react";
 import type { EvidenceType, LinkStatus } from "@/lib/data/evidence";
 import type { OfferingImage } from "@/engine/offering-image";
 import { useT } from "@/lib/i18n/use-t";
+import { loc } from "@/experiences/registry";
+import { COPY, fill } from "@/engine/copy";
 import { SampleBadge, StatusDot } from "@/components/food/badges";
 import { VenueThumb } from "@/components/food/dish-image";
 
@@ -23,6 +25,8 @@ export interface OfferingRowProps {
   image: OfferingImage | null;
   /** Item name for the image alt text. */
   itemName: string;
+  /** Module noun for photo captions ("dish", "coffee", "treatment", "activity"). Defaults to the Food wording. */
+  itemNoun?: string;
 }
 
 /**
@@ -30,8 +34,12 @@ export interface OfferingRowProps {
  * Shows the offering photo (with fallback to the icon), name, address, type, price, evidence,
  * evidence status, last-checked date, phone and directions.
  */
-export function OfferingRow({ establishment: e, typeLabel, href, offering: o, priceText, image, itemName }: OfferingRowProps) {
-  const { t } = useT();
+export function OfferingRow({ establishment: e, typeLabel, href, offering: o, priceText, image, itemName, itemNoun }: OfferingRowProps) {
+  const { t, locale } = useT();
+  const noun = itemNoun ?? (locale === "vi" ? "món" : "dish");
+  // Captions never present a reference image as the venue's own photo.
+  const caption = (k: OfferingImage["kind"]) =>
+    fill(loc(k === "venue-specific" ? COPY.photoVenue : k === "menu-photo" ? COPY.photoMenu : k === "delivery-listing" ? COPY.photoDelivery : COPY.photoReference, locale), { item: noun });
   // Remember a failed image so the card falls back to the icon and drops the photo credit.
   const [failedUrl, setFailedUrl] = useState<string | null>(null);
   const img = image && image.url !== failedUrl ? image : null;
@@ -49,7 +57,7 @@ export function OfferingRow({ establishment: e, typeLabel, href, offering: o, pr
           {e.highlights?.length ? <p className="mt-1 text-xs text-forest">{e.highlights.join(" · ")}</p> : null}
           {img && (
             <p className="mt-1 text-[11px] leading-snug text-muted" data-testid="venue-photo-credit">
-              {t(`venuePhoto.${img.kind}`)} · {img.attribution} ·{" "}
+              {caption(img.kind)} · {img.attribution} ·{" "}
               {img.sourceUrl ? <a href={img.sourceUrl} target="_blank" rel="noreferrer" className="underline hover:text-forest">{img.license}</a> : img.license}
             </p>
           )}

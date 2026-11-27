@@ -31,7 +31,6 @@ async function saveDish(page: Page, id: string) {
 }
 async function signup(page: Page, email: string, password = "correct-horse-1") {
   await page.goto("/signup/");
-  await page.getByTestId("signup-name").fill("Test Explorer");
   await page.getByTestId("signup-email").fill(email);
   await page.getByTestId("signup-password").fill(password);
   await page.getByTestId("signup-submit").click();
@@ -48,17 +47,90 @@ async function login(page: Page, email: string, password = "correct-horse-1") {
   await expect(page.getByTestId("passport-account")).toBeVisible();
   await expect(page.getByTestId("migration-running")).toHaveCount(0);
 }
+async function logout(page: Page) {
+  await page.goto("/profile/");
+  await page.getByTestId("logout").click();
+  await expect(page).toHaveURL(/localhost:3500\/$/); // sign-out finished
+}
 const triedCount = async (page: Page) => Number((await page.getByTestId("passport-tried").textContent())!.split("/")[0]);
 
 test.beforeEach(async () => { await fetch(`${MOCK}/__fail?on=0`); });
 
-test("guests explore and build a temporary passport without an account", async ({ page }) => {
+const openPassportFromNav = async (page: Page, isMobile: boolean) =>
+  (isMobile ? page.getByTestId("tab-passport") : page.getByTestId("nav-passport")).click();
+const gate = (page: Page) => page.getByTestId("auth-dialog");
+
+test("guests browse freely; Passport asks to sign in and cancelling returns to where they were", async ({ page, isMobile }) => {
   await page.goto("/");
   await expect(page.getByTestId("vietnam-map")).toBeVisible();
+  await expect(page.getByRole("banner").getByTestId("account-login")).toHaveCount(0); // no auth buttons in the header
   await tryDish(page, "mi-quang");
+  await page.goto("/catalogue/");
+  await expect(page.getByTestId("result-count").filter({ visible: true }).first()).toHaveText("138 dishes");
+  await openPassportFromNav(page, isMobile);
+  await expect(gate(page)).toBeVisible();
+  await expect(gate(page).getByTestId("google-login")).toBeVisible();
+  await expect(page.getByTestId("passport-tried")).toHaveCount(0); // nothing personal behind the gate
+  await gate(page).getByTestId("auth-dialog-close").click();
+  await expect(page).toHaveURL(/\/catalogue\/$/);
+});
+
+test("signing in from the Passport gate opens the requested Passport with guest progress migrated", async ({ page }) => {
+  const email = unique("gate");
+  await signup(page, email);
+  await logout(page);
+  await tryDish(page, "mi-quang"); // guest progress
+  await page.goto("/passport/"); // direct URL is protected too
+  await expect(gate(page)).toBeVisible();
+  // switch between modes without leaving the dialog
+  await gate(page).getByTestId("auth-to-signup").click();
+  await expect(gate(page).getByTestId("auth-panel")).toHaveAttribute("data-mode", "signup");
+  await gate(page).getByTestId("auth-to-login").click();
+  await gate(page).getByTestId("auth-to-forgot").click();
+  await expect(gate(page).getByTestId("forgot-submit")).toBeVisible();
+  await gate(page).getByTestId("auth-to-login").click();
+  await gate(page).getByTestId("login-email").fill(email);
+  await gate(page).getByTestId("login-password").fill("correct-horse-1");
+  await gate(page).getByTestId("login-submit").click();
+  await expect(gate(page)).toHaveCount(0);
+  await expect(page).toHaveURL(/\/passport\/$/);
+  await expect(page.getByTestId("passport-account")).toBeVisible();
+  await expect.poll(() => triedCount(page)).toBe(1);
+  await expect.poll(async () => (await historyOf(email)).filter((r) => r.item_id === "mi-quang").length).toBe(1);
+  // signed in: Passport opens directly, no repeated prompt
+  await page.goto("/catalogue/");
   await page.goto("/passport/");
-  await expect(page.getByTestId("passport-guest-cta")).toContainText("Make this passport yours");
-  expect(await triedCount(page)).toBe(1);
+  await expect(page.getByTestId("passport-account")).toBeVisible();
+  await expect(gate(page)).toHaveCount(0);
+});
+
+test("an expired session falls back to the sign-in prompt without showing personal data", async ({ page }) => {
+  await signup(page, unique("expire"));
+  await tryDish(page, "bun-bo-hue");
+  await page.evaluate(() => Object.keys(localStorage).filter((k) => k.startsWith("sb-")).forEach((k) => localStorage.removeItem(k)));
+  await page.goto("/passport/");
+  await expect(gate(page)).toBeVisible();
+  await expect(page.getByTestId("passport-tried")).toHaveCount(0);
+});
+
+test("Settings shows Account first: sign in / sign up for guests, profile and log out when signed in", async ({ page }) => {
+  await page.goto("/settings/");
+  await expect(page.getByTestId("experience-mode")).toBeVisible();
+  const sections = await page.locator("[data-testid=account-section], [data-testid=experience-mode]").evaluateAll((els) => els.map((e) => e.getAttribute("data-testid")));
+  expect(sections).toEqual(["account-section", "experience-mode"]);
+  await expect(page.getByTestId("account-guest")).toContainText("synced across your devices");
+  await page.getByTestId("account-signup").click();
+  await expect(gate(page).getByTestId("auth-panel")).toHaveAttribute("data-mode", "signup");
+  const email = unique("settings");
+  await gate(page).getByTestId("signup-email").fill(email);
+  await gate(page).getByTestId("signup-password").fill("correct-horse-1");
+  await gate(page).getByTestId("signup-submit").click();
+  await expect(page).toHaveURL(/\/settings\/$/);
+  await expect(page.getByTestId("account-email")).toHaveText(email);
+  await expect(page.getByTestId("account-avatar")).toBeVisible();
+  await expect(page.getByTestId("account-profile-link")).toBeVisible();
+  await page.getByTestId("account-logout").click();
+  await expect(page.getByTestId("account-guest")).toBeVisible();
 });
 
 test("signup keeps guest progress, persists it, and survives logout + login", async ({ page }) => {
@@ -80,11 +152,10 @@ test("signup keeps guest progress, persists it, and survives logout + login", as
   expect(mine(state.tasting_notes)[0]).toMatchObject({ item_id: "mi-quang", rating: 5 });
 
   // logout clears the device; nothing of this user remains visible
-  await page.goto("/profile/");
-  await page.getByTestId("logout").click();
+  await logout(page);
   await page.goto("/passport/");
-  await expect(page.getByTestId("passport-guest-cta")).toBeVisible();
-  expect(await triedCount(page)).toBe(0);
+  await expect(gate(page)).toBeVisible();
+  await expect(page.getByTestId("passport-tried")).toHaveCount(0);
 
   // login again → data comes back from the account
   await login(page, email);
@@ -122,23 +193,21 @@ test("accounts are isolated: user B never sees user A's passport on the same dev
   await signup(page, a);
   await tryDish(page, "bun-cha-ha-noi");
   await expect.poll(async () => (await historyOf(a)).filter((r) => r.item_id === "bun-cha-ha-noi").length).toBe(1);
-  await page.goto("/profile/");
-  await page.getByTestId("logout").click();
+  await logout(page);
   await signup(page, b);
   expect(await triedCount(page)).toBe(0);
-  await expect(page.getByTestId("passport-account")).toContainText(/Test Explorer|bob/);
+  await expect(page.getByTestId("passport-account")).toContainText(/bob/);
 });
 
 test("wrong password is rejected with a message", async ({ page }) => {
   const email = unique("wrong");
   await signup(page, email);
-  await page.goto("/profile/");
-  await page.getByTestId("logout").click();
+  await logout(page);
   await page.goto("/login/");
   await page.getByTestId("login-email").fill(email);
   await page.getByTestId("login-password").fill("not-the-password");
   await page.getByTestId("login-submit").click();
-  await expect(page.getByTestId("auth-message")).toContainText("Invalid login credentials");
+  await expect(page.getByTestId("auth-message")).toContainText("don't match");
 });
 
 test("password recovery and reset", async ({ page }) => {
@@ -153,8 +222,7 @@ test("password recovery and reset", async ({ page }) => {
   await page.getByTestId("reset-password").fill("new-password-42");
   await page.getByTestId("reset-submit").click();
   await expect(page.getByTestId("auth-message")).toContainText("Password updated");
-  await page.goto("/profile/");
-  await page.getByTestId("logout").click();
+  await logout(page);
   await login(page, email, "new-password-42");
 });
 
@@ -195,8 +263,8 @@ test("users can delete their account and all personal data", async ({ page }) =>
   await expect(page).toHaveURL(/localhost:3500\/$/);
   await expect.poll(async () => (await db()).users.some((u) => u.id === uid)).toBe(false);
   await page.goto("/passport/");
-  await expect(page.getByTestId("passport-guest-cta")).toBeVisible();
-  expect(await triedCount(page)).toBe(0);
+  await expect(gate(page)).toBeVisible();
+  await expect(page.getByTestId("passport-tried")).toHaveCount(0);
   const state = await db();
   expect(state.users.some((u) => u.id === uid)).toBe(false);
   expect(state.experience_history.some((r) => r.user_id === uid)).toBe(false);

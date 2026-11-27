@@ -41,6 +41,8 @@ export type ExperienceItem = z.infer<typeof ExperienceItemSchema>;
 export const EstablishmentSchema = RestaurantSchema.extend({
   venueType: z.string().min(1),
   experiences: z.array(z.enum(EXPERIENCE_IDS)).min(1),
+  /** Establishment attributes (registry `establishmentAttributes`, e.g. a café's Wi-Fi) — never item attributes. */
+  attributes: attributes.default({}),
 });
 export type Establishment = z.infer<typeof EstablishmentSchema>;
 
@@ -61,7 +63,7 @@ export const OfferingSchema = z.object({
 export type Offering = z.infer<typeof OfferingSchema>;
 
 export const ExperienceDataSchema = z.object({
-  metadata: z.object({ experienceId: z.enum(EXPERIENCE_IDS), note: z.string(), dataset: z.enum(["seed", "master", "empty"]) }),
+  metadata: z.object({ experienceId: z.enum(EXPERIENCE_IDS), note: z.string(), dataset: z.enum(["seed", "master", "mixed", "empty"]), generatedAt: z.string().optional() }),
   items: z.array(ExperienceItemSchema),
   establishments: z.array(EstablishmentSchema),
   offerings: z.array(OfferingSchema),

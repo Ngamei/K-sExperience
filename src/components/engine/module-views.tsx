@@ -13,7 +13,6 @@ import { loc, navFor, type AttributeDef, type ExperienceId, type L } from "@/exp
 import type { ExperienceItem, Offering } from "@/engine/schema";
 import { offeringImage } from "@/engine/offering-image";
 import { COPY, fill } from "@/engine/copy";
-import { matchesQuery } from "@/lib/search/normalize";
 import { haversineKm } from "@/lib/geo/geo";
 import { HCMC_CENTER } from "@/lib/food/hcmc";
 import { useT } from "@/lib/i18n/use-t";
@@ -22,6 +21,10 @@ import { EMPTY_PASSPORT } from "@/lib/passport/model";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
+import { ActiveFilterBar, CatalogueLayout, FilterDrawer, type ActiveChip, type FilterDef } from "./filter-drawer";
+import { DetailBlock, OfferingsSection } from "./detail";
+import { filterEstablishments, filterItems, type ModuleFilters } from "@/engine/filters";
+import { useModuleFilters, useModuleFilterState } from "@/lib/store/module-filters";
 import { StatusDot } from "@/components/food/badges";
 import { NAV_ICONS } from "@/components/shell/icons";
 import { OfferingRow } from "./offering-row";
@@ -32,11 +35,57 @@ const HcmcMap = dynamic(() => import("@/components/nearby/hcmc-map").then((m) =>
 const priceText = (o: Offering) =>
   o.price ? `${o.price.minVnd.toLocaleString("vi-VN")}–${o.price.maxVnd.toLocaleString("vi-VN")} ₫ / ${o.price.unit}` : undefined;
 
-/** Renders one module attribute value ("3 min", "Phin, Espresso"). */
+/** Renders one attribute value with its option labels ("Phin filter", "Wi-Fi ✓"). */
 function attrValue(def: AttributeDef, v: ExperienceItem["attributes"][string] | undefined, locale: "en" | "vi") {
   if (v === undefined || v === "" || (Array.isArray(v) && !v.length)) return null;
-  const s = Array.isArray(v) ? v.join(", ") : typeof v === "boolean" ? (v ? "✓" : "—") : String(v);
-  return def.unit ? `${s} ${loc(def.unit, locale)}` : s;
+  const label = (x: string) => { const opt = def.options?.find((o) => o.id === x); return opt ? loc(opt.label, locale) : x; };
+  const s = Array.isArray(v) ? v.map(label).join(", ") : typeof v === "boolean" ? (v ? "✓" : "—") : label(String(v));
+  return def.unit && loc(def.unit, locale) ? `${s} ${loc(def.unit, locale)}` : s;
+}
+
+/** Filter definitions for a module, generated from its registry config (no per-module code). */
+function useModuleFilterDefs(d: ModuleData): { defs: FilterDef[]; chips: ActiveChip[]; f: ModuleFilters; clear: () => void } {
+  const { locale } = useT();
+  const m = d.module;
+  const f = useModuleFilterState(m.id);
+  const set = (patch: Partial<ModuleFilters>) => useModuleFilters.getState().set(m.id, patch);
+  const toggle = (xs: string[], v: string) => (xs.includes(v) ? xs.filter((x) => x !== v) : [...xs, v]);
+  const optionsOf = (a: AttributeDef, values: ExperienceItem["attributes"][string][]) =>
+    a.kind === "boolean" ? [{ value: "yes", label: loc(COPY.yes, locale) }]
+      : (a.options ?? [...new Set(values.flatMap((v) => (Array.isArray(v) ? v : v === undefined ? [] : [String(v)])))].map((x) => ({ id: x, label: { en: x, vi: x } })))
+          .map((o) => ({ value: o.id, label: loc(o.label, locale) }));
+  const ests = [...d.index.establishments.values()];
+  const defs: FilterDef[] = [
+    { kind: "chips", id: "category", title: loc(COPY.categories, locale), options: m.categories.map((c) => ({ value: c.id, label: loc(c.name, locale), testid: `filter-cat-${c.id}` })), selected: f.categories, onToggle: (v) => set({ categories: toggle(f.categories, v) }) },
+    ...m.attributes.filter((a) => a.filterable).map((a): FilterDef => ({
+      kind: "chips", id: `item-${a.id}`, title: loc(a.label, locale), options: optionsOf(a, d.items.map((i) => i.attributes[a.id])),
+      selected: f.item[a.id] ?? [], onToggle: (v) => set({ item: { ...f.item, [a.id]: toggle(f.item[a.id] ?? [], v) } }),
+    })),
+    { kind: "heading", id: "hcmc", title: fill(loc(COPY.inHcmc, locale), { establishments: loc(m.terms.establishments, locale) }), note: loc(COPY.estFilterNote, locale) },
+    { kind: "chips", id: "available", title: loc(COPY.availability, locale), options: [{ value: "yes", label: loc(COPY.availableOnly, locale), testid: "filter-available" }], selected: f.availableOnly ? ["yes"] : [], onToggle: () => set({ availableOnly: !f.availableOnly }) },
+    ...m.establishmentAttributes.filter((a) => a.filterable).map((a): FilterDef => ({
+      kind: "chips", id: `est-${a.id}`, title: loc(a.label, locale), options: optionsOf(a, ests.map((e) => e.attributes?.[a.id])).map((o) => ({ ...o, testid: `filter-est-${a.id}-${o.value}` })),
+      selected: f.est[a.id] ?? [], onToggle: (v) => set({ est: { ...f.est, [a.id]: toggle(f.est[a.id] ?? [], v) } }),
+    })),
+    { kind: "heading", id: "personal", title: loc(COPY.personal, locale) },
+    { kind: "single", id: "tried", title: loc(m.terms.completed, locale), value: f.tried, onPick: (v) => set({ tried: v as ModuleFilters["tried"] }),
+      options: [{ value: "any", label: loc(COPY.all, locale) }, { value: "tried", label: loc(m.terms.completed, locale) }, { value: "untried", label: loc(COPY.notYet, locale) }] },
+    { kind: "chips", id: "saved", title: loc(COPY.saved, locale), options: [{ value: "yes", label: loc(COPY.savedOnly, locale) }], selected: f.savedOnly ? ["yes"] : [], onToggle: () => set({ savedOnly: !f.savedOnly }) },
+  ];
+  const labelFor = (defs_: FilterDef[], id: string, v: string) => {
+    const dd = defs_.find((x) => x.id === id);
+    return dd && (dd.kind === "chips" || dd.kind === "single") ? dd.options.find((o) => o.value === v)?.label ?? v : v;
+  };
+  const chips: ActiveChip[] = [
+    ...(f.query.trim() ? [{ key: "q", label: `“${f.query}”`, onRemove: () => set({ query: "" }) }] : []),
+    ...f.categories.map((c) => ({ key: `c-${c}`, label: labelFor(defs, "category", c), onRemove: () => set({ categories: f.categories.filter((x) => x !== c) }) })),
+    ...Object.entries(f.item).flatMap(([k, vs]) => vs.map((v) => ({ key: `i-${k}-${v}`, label: labelFor(defs, `item-${k}`, v), onRemove: () => set({ item: { ...f.item, [k]: vs.filter((x) => x !== v) } }) }))),
+    ...Object.entries(f.est).flatMap(([k, vs]) => vs.map((v) => ({ key: `e-${k}-${v}`, label: `${loc(m.establishmentAttributes.find((a) => a.id === k)?.label ?? { en: k, vi: k }, locale)}: ${labelFor(defs, `est-${k}`, v)}`, onRemove: () => set({ est: { ...f.est, [k]: vs.filter((x) => x !== v) } }) }))),
+    ...(f.availableOnly ? [{ key: "avail", label: loc(COPY.availableOnly, locale), onRemove: () => set({ availableOnly: false }) }] : []),
+    ...(f.tried !== "any" ? [{ key: "tried", label: f.tried === "tried" ? loc(m.terms.completed, locale) : loc(COPY.notYet, locale), onRemove: () => set({ tried: "any" }) }] : []),
+    ...(f.savedOnly ? [{ key: "saved", label: loc(COPY.savedOnly, locale), onRemove: () => set({ savedOnly: false }) }] : []),
+  ];
+  return { defs, chips, f, clear: () => useModuleFilters.getState().clear(m.id) };
 }
 
 function usePassport(id: ExperienceId) {
@@ -85,7 +134,7 @@ export function ItemCard({ d, item }: { d: ModuleData; item: ExperienceItem }) {
         <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
           {cat && <Badge tone="outline">{loc(cat.name, locale)}</Badge>}
           {defs.map((a) => { const v = attrValue(a, item.attributes[a.id], locale); return v ? <Badge key={a.id} tone="outline" data-testid={`card-attr-${a.id}`}>{v}</Badge> : null; })}
-          {item.dataset === "seed" && <Badge tone="sample">{loc(COPY.seed, locale)}</Badge>}
+          {item.verification.status !== "verified" && <Badge tone="outline" data-testid="item-unverified">{loc(COPY.unverified, locale)}</Badge>}
           {status !== "none-found" && <StatusDot status={status} />}
         </div>
       </div>
@@ -96,38 +145,32 @@ export function ItemCard({ d, item }: { d: ModuleData; item: ExperienceItem }) {
 export function ItemCatalogue({ d }: { d: ModuleData }) {
   const { locale } = useT();
   const m = d.module;
-  const [q, setQ] = useState("");
-  const [cat, setCat] = useState<string | null>(null);
-  const items = useMemo(() => {
-    const hay = (i: ExperienceItem) =>
-      m.searchable.map((f) => {
-        if (f === "nameVi") return i.nameVi;
-        if (f === "nameEn") return i.nameEn;
-        if (f === "altNames") return i.altNames.join(" ");
-        if (f === "description") return `${i.description.en} ${i.description.vi}`;
-        const v = i.attributes[f.slice(5)];
-        return Array.isArray(v) ? v.join(" ") : String(v ?? "");
-      }).join(" ");
-    return d.items
-      .filter((i) => (!cat || i.category === cat) && (!q.trim() || matchesQuery(hay(i), q)))
-      .sort((a, b) => a.nameVi.localeCompare(b.nameVi, "vi"));
-  }, [d.items, m.searchable, q, cat]);
+  const { p } = usePassport(m.id);
+  const { defs, chips, f, clear } = useModuleFilterDefs(d);
+  const set = (patch: Partial<ModuleFilters>) => useModuleFilters.getState().set(m.id, patch);
+  const items = useMemo(
+    () => filterItems(m, d.items, f, { index: d.index, saved: p.saved, tried: p.tried }).sort((a, b) => a.nameVi.localeCompare(b.nameVi, "vi")),
+    [m, d.items, d.index, f, p.saved, p.tried],
+  );
   const items_ = loc(m.terms.items, locale);
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6 md:px-6 md:py-10">
-      <Header eyebrow={loc(m.name, locale)} title={loc(m.navLabels.catalogue, locale)} />
-      <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={fill(loc(COPY.search, locale), { items: items_ })} className="h-11 w-full rounded-full border border-line bg-paper px-4 text-sm" data-testid="item-search" />
-      <div className="mt-3 flex flex-wrap gap-2" data-testid="item-categories">
-        <Chip active={!cat} onClick={() => setCat(null)}>{loc(COPY.all, locale)}</Chip>
-        {m.categories.map((c) => <Chip key={c.id} active={cat === c.id} onClick={() => setCat(cat === c.id ? null : c.id)} data-testid={`item-cat-${c.id}`}>{loc(c.name, locale)}</Chip>)}
-      </div>
-      <p className="mt-3 text-sm text-muted" data-testid="item-count">{fill(loc(COPY.results, locale), { n: items.length, items: items.length === 1 ? loc(m.terms.item, locale) : items_ })}</p>
-      {d.items.length === 0 ? (
-        <div className="mt-4"><Empty text={fill(loc(COPY.emptyItems, locale), { items: items_ })} /></div>
-      ) : (
-        <div className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-3" data-testid="item-results">{items.map((i) => <ItemCard key={i.id} d={d} item={i} />)}</div>
-      )}
-    </div>
+    <CatalogueLayout
+      eyebrow={loc(m.name, locale)}
+      title={loc(m.navLabels.catalogue, locale)}
+      filters={<FilterDrawer defs={defs} testid="module-filter-panel" />}
+      search={<input type="search" value={f.query} onChange={(e) => set({ query: e.target.value })} placeholder={fill(loc(COPY.search, locale), { items: items_ })} className="h-11 w-full rounded-full border border-line bg-paper px-4 text-sm outline-none focus:border-forest/50" data-testid="item-search" aria-label={fill(loc(COPY.search, locale), { items: items_ })} />}
+      chipsRow={
+        <div className="flex gap-2" data-testid="item-categories">
+          {m.categories.map((c) => <Chip key={c.id} active={f.categories.includes(c.id)} onClick={() => set({ categories: f.categories.includes(c.id) ? f.categories.filter((x) => x !== c.id) : [...f.categories, c.id] })} data-testid={`item-cat-${c.id}`}>{loc(c.name, locale)}</Chip>)}
+        </div>
+      }
+      activeBar={<ActiveFilterBar countTestId="item-count" countLabel={fill(loc(COPY.results, locale), { n: items.length, items: items.length === 1 ? loc(m.terms.item, locale) : items_ })} chips={chips} onClear={clear} clearLabel={loc(COPY.clearAll, locale)} />}
+      filtersLabel={loc(COPY.filters, locale)}
+      resultsTestId="item-results"
+      empty={d.items.length === 0 ? <div className="mt-4"><Empty text={fill(loc(COPY.emptyItems, locale), { items: items_ })} /></div> : items.length === 0 ? <p className="py-16 text-center text-muted" data-testid="item-no-match">{loc(COPY.noMatch, locale)}</p> : null}
+    >
+      {items.map((i) => <ItemCard key={i.id} d={d} item={i} />)}
+    </CatalogueLayout>
   );
 }
 
@@ -141,53 +184,52 @@ export function ItemDetail({ d }: { d: ModuleData }) {
   const { p, toggleSaved, toggleTried } = usePassport(m.id);
   if (!item) return <p className="px-4 py-20 text-center text-muted" data-testid="item-not-found">{loc(COPY.notFound, locale)}</p>;
   const offerings = d.index.byItem.get(item.id) ?? [];
+  const status = d.index.statusByItem.get(item.id) ?? "none-found";
   const photo = item.photos[0];
+  const cat = m.categories.find((c) => c.id === item.category);
   return (
     <article className="mx-auto max-w-4xl space-y-5 px-4 py-6 md:px-6 md:py-10" data-testid="item-detail" data-item-id={item.id}>
-      <Header eyebrow={loc(m.name, locale)} title={item.nameVi} sub={item.nameEn} />
+      <Header eyebrow={`${loc(m.name, locale)}${cat ? ` · ${loc(cat.name, locale)}` : ""}`} title={item.nameVi} sub={item.nameEn} />
       {photo && (
         <figure className="overflow-hidden rounded-3xl border border-line/80 bg-paper" data-testid="item-photo">
           {/* eslint-disable-next-line @next/next/no-img-element -- remote licensed image */}
           <img src={photo.url} alt={`${item.nameVi} — ${item.nameEn}`} className="aspect-[4/3] w-full object-cover" />
-          <figcaption className="px-4 py-2 text-[11px] text-muted">{photo.credit} · {photo.license}</figcaption>
+          <figcaption className="px-4 py-2 text-[11px] text-muted">{loc(COPY.referencePhoto, locale)} · {photo.credit} · {photo.sourceUrl ? <a href={photo.sourceUrl} target="_blank" rel="noreferrer" className="underline">{photo.license}</a> : photo.license}</figcaption>
         </figure>
       )}
       <p className="text-charcoal/85">{item.description[locale]}</p>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         <Button variant={p.saved.includes(item.id) ? "primary" : "outline"} size="sm" onClick={() => toggleSaved(item.id)} data-testid="item-save"><Bookmark /> {loc(p.saved.includes(item.id) ? COPY.saved : COPY.save, locale)}</Button>
         <Button variant={p.tried[item.id] ? "primary" : "outline"} size="sm" onClick={() => toggleTried(item.id)} data-testid="item-tried"><Check /> {loc(m.terms.completed, locale)}</Button>
-        {item.dataset === "seed" && <Badge tone="sample">{loc(COPY.seed, locale)}</Badge>}
       </div>
-      {m.detailSections.map((sec) => (
-        <section key={sec.id} className="rounded-3xl border border-line/80 bg-paper p-5" data-testid={`section-${sec.id}`}>
-          <h2 className="mb-3 font-display text-xl text-forest">{loc(sec.title, locale)}</h2>
-          {sec.id === "offerings" ? (
-            offerings.length ? (
-              <div className="grid gap-2">
-                {offerings.map((o) => {
-                  const e = d.index.establishments.get(o.establishmentId)!;
-                  return (
-                    <OfferingRow key={o.establishmentId} establishment={e} typeLabel={e.venueType} href={`${m.routes.establishment}?id=${e.id}`} offering={o}
-                      priceText={priceText(o)} image={offeringImage(item, o)} itemName={item.nameVi} />
-                  );
-                })}
-              </div>
-            ) : <div data-testid="none-found"><StatusDot status="none-found" /><p className="mt-2 text-sm text-charcoal/80">{loc(COPY.noneFound, locale)}</p></div>
-          ) : (
+      {m.detailSections.map((sec) =>
+        sec.id === "offerings" ? (
+          <OfferingsSection key={sec.id} testid="section-offerings" title={loc(sec.title, locale)} status={status} noneFoundBody={loc(COPY.noneFound, locale)} mapsQuery={item.nameVi}
+            rows={offerings.map((o) => {
+              const e = d.index.establishments.get(o.establishmentId)!;
+              const vt = m.establishmentAttributes[0];
+              const typeLabel = (vt && attrValue(vt, e.attributes?.[vt.id], locale)) || e.venueType;
+              return <OfferingRow key={o.establishmentId} establishment={e} typeLabel={typeLabel} href={`${m.routes.establishment}?id=${e.id}`} offering={o} priceText={priceText(o)} image={offeringImage(item, o)} itemName={item.nameVi} itemNoun={loc(m.terms.item, locale)} />;
+            })} />
+        ) : (
+          <DetailBlock key={sec.id} title={loc(sec.title, locale)} testid={`section-${sec.id}`}>
             <dl className="grid gap-2 sm:grid-cols-2">
               {m.attributes.filter((a) => sec.attributes?.includes(a.id)).map((a) => {
                 const v = attrValue(a, item.attributes[a.id], locale);
                 return v ? <div key={a.id} data-testid={`attr-${a.id}`}><dt className="text-xs text-muted">{loc(a.label, locale)}</dt><dd>{v}</dd></div> : null;
               })}
             </dl>
-          )}
-        </section>
-      ))}
-      {item.sources.length > 0 && (
-        <section className="text-xs text-muted" data-testid="item-sources">
-          {item.sources.map((s) => <p key={s.title}>{s.url ? <a href={s.url} target="_blank" rel="noreferrer" className="underline">{s.title}</a> : s.title}</p>)}
-        </section>
+          </DetailBlock>
+        ),
       )}
+      <DetailBlock title={loc(COPY.sourcesTitle, locale)} testid="item-sources">
+        <p className="mb-2 text-sm" data-testid="item-verification">
+          {item.verification.status === "verified" ? loc(COPY.verifiedItem, locale) : loc(COPY.unverifiedItem, locale)}
+        </p>
+        <ul className="space-y-1 text-xs text-muted">
+          {item.sources.map((s) => <li key={s.title}>{s.url ? <a href={s.url} target="_blank" rel="noreferrer" className="underline">{s.title}</a> : s.title}</li>)}
+        </ul>
+      </DetailBlock>
     </article>
   );
 }
@@ -201,10 +243,13 @@ export function EstablishmentsView({ d, title }: { d: ModuleData; title: L }) {
   const id = useSearchParams().get("id");
   const [selected, setSelected] = useState<string | null>(null);
   const { p, toggleVisited } = usePassport(m.id);
+  const f = useModuleFilterState(m.id);
+  const set = (patch: Partial<ModuleFilters>) => useModuleFilters.getState().set(m.id, patch);
   const list = useMemo(
-    () => [...d.index.establishments.values()].map((e) => ({ e, km: haversineKm(HCMC_CENTER, e.coordinates) })).sort((a, b) => a.km - b.km),
-    [d.index],
+    () => filterEstablishments([...d.index.establishments.values()], f).map((e) => ({ e, km: haversineKm(HCMC_CENTER, e.coordinates) })).sort((a, b) => a.km - b.km),
+    [d.index, f],
   );
+  const estFilters = m.establishmentAttributes.filter((a) => a.filterable);
   const detail = id ? d.index.establishments.get(id) : undefined;
   if (detail) {
     const offers = d.index.byEstablishment.get(detail.id) ?? [];
@@ -212,6 +257,26 @@ export function EstablishmentsView({ d, title }: { d: ModuleData; title: L }) {
       <div className="mx-auto max-w-3xl space-y-4 px-4 py-6 md:px-6 md:py-10" data-testid="establishment-detail">
         <Header eyebrow={loc(m.terms.establishment, locale)} title={detail.name} sub={detail.address} />
         <Button variant={p.visited[detail.id] ? "primary" : "outline"} size="sm" onClick={() => toggleVisited(detail.id)} data-testid="establishment-visited"><Check /> {loc(COPY.visited, locale)}</Button>
+        {m.establishmentAttributes.some((a) => attrValue(a, detail.attributes?.[a.id], locale)) && (
+          <DetailBlock title={loc(COPY.features, locale)} testid="establishment-features">
+            <dl className="grid gap-2 sm:grid-cols-2">
+              {m.establishmentAttributes.map((a) => {
+                const v = attrValue(a, detail.attributes?.[a.id], locale);
+                return v ? <div key={a.id} data-testid={`est-attr-${a.id}`}><dt className="text-xs text-muted">{loc(a.label, locale)}</dt><dd>{v}</dd></div> : null;
+              })}
+            </dl>
+          </DetailBlock>
+        )}
+        {detail.openingHours && (
+          <DetailBlock title={loc(COPY.hours, locale)} testid="establishment-hours">
+            <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
+              {(["mon", "tue", "wed", "thu", "fri", "sat", "sun"] as const).map((day) => (
+                <div key={day} className="contents"><dt className="text-muted">{day}</dt><dd>{detail.openingHours![day].map(([a, b]) => `${a}–${b}`).join(", ") || "—"}</dd></div>
+              ))}
+            </dl>
+          </DetailBlock>
+        )}
+        <p className="text-xs text-muted" data-testid="establishment-sources">{detail.sources.map((src) => src.url ? <a key={src.title} href={src.url} target="_blank" rel="noreferrer" className="mr-2 underline">{src.title}</a> : <span key={src.title} className="mr-2">{src.title}</span>)}{detail.lastVerified ? ` · ${loc(COPY.lastChecked, locale)} ${detail.lastVerified}` : ""}</p>
         <h2 className="font-display text-xl text-forest">{loc(COPY.offers, locale)}</h2>
         <div className="grid gap-2">
           {offers.map((o) => {
@@ -235,6 +300,14 @@ export function EstablishmentsView({ d, title }: { d: ModuleData; title: L }) {
       <section className="min-h-0 flex-1 overflow-y-auto px-4 py-4 lg:max-w-xl lg:px-6 lg:py-6">
         <h1 className="font-display text-3xl text-forest">{loc(title, locale)}</h1>
         <p className="mb-3 text-sm text-muted">{loc(m.name, locale)} · {loc(m.terms.establishments, locale)}</p>
+        {estFilters.length > 0 && d.index.establishments.size > 0 && (
+          <div className="no-scrollbar mb-3 flex gap-2 overflow-x-auto" data-testid="establishment-filters">
+            {estFilters.flatMap((a) => (a.kind === "boolean" ? [{ v: "yes", l: loc(a.label, locale) }] : (a.options ?? []).map((o) => ({ v: o.id, l: loc(o.label, locale) }))).map(({ v, l }) => {
+              const on = (f.est[a.id] ?? []).includes(v);
+              return <Chip key={`${a.id}-${v}`} active={on} onClick={() => set({ est: { ...f.est, [a.id]: on ? (f.est[a.id] ?? []).filter((x) => x !== v) : [...(f.est[a.id] ?? []), v] } })} data-testid={`est-chip-${a.id}-${v}`}>{l}</Chip>;
+            }))}
+          </div>
+        )}
         {list.length === 0 ? <Empty text={fill(loc(COPY.emptyEstablishments, locale), { establishments: loc(m.terms.establishments, locale) })} /> : (
           <div className="grid gap-2" data-testid="establishment-list">
             {list.map(({ e, km }) => (

@@ -1,8 +1,9 @@
 // Geocodes venue research batches with OpenStreetMap Nominatim (≤1 req/s, cached).
-//   NODE_USE_ENV_PROXY=1 node scripts/geocode-venue-research.mjs
+//   NODE_USE_ENV_PROXY=1 node scripts/geocode-venue-research.mjs [research-dir]
+//   default dir: data/source/venue-research (Food); experiences use data/source/experiences/<module>
 // Output: data/source/venue-research/geocoded.json  { "<name>|<address>": { lon, lat, precision, ward, displayName } | { failed: true } }
 import { readdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
-const dir = "data/source/venue-research";
+const dir = process.argv[2] ?? "data/source/venue-research";
 const cacheFile = `${dir}/geocoded.json`;
 const cache = existsSync(cacheFile) ? JSON.parse(readFileSync(cacheFile, "utf8")) : {};
 const UA = { "User-Agent": "KsExperienceGeocode/0.1 (low-volume venue address lookup)" };

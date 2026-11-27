@@ -2,6 +2,7 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import type { Locale } from "../i18n/dict";
+import { DEV_DATA } from "../env";
 import { DEFAULT_PREFERENCES, type Preferences } from "../food/recommend";
 import type { ExperienceId } from "@/experiences/registry";
 import { EMPTY_PASSPORT, FOOD, isEmptyPassport, type Note, type PassportData, type Passports } from "../passport/model";
@@ -53,6 +54,9 @@ interface UserState {
   setSync: (sync: UserState["sync"], syncError?: string | null) => void;
   reset: () => void;
 }
+
+/** Sample venues are shown only in development/test builds (DEV_DATA) and only when the toggle is on. */
+export const useShowSamples = () => useUser((s) => DEV_DATA && s.showSamples);
 
 /** The personal part of the store as passport data. */
 export function passportOf(s: Pick<UserState, "saved" | "savedVenues" | "tried" | "visited" | "notes" | "collections">): PassportData {

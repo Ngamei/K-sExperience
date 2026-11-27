@@ -7,7 +7,6 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import "./globals.css";
 import { AppShell } from "@/components/shell/app-shell";
 import { Providers } from "@/components/shell/providers";
-import { getFoodData } from "@/lib/data/catalogue";
 import { FoodDataProvider } from "@/components/food/food-data";
 
 export const metadata: Metadata = {
@@ -21,12 +20,12 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#294C3D", width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  const { catalogue } = getFoodData(); // metadata only — the dataset itself is fetched once from /data/food.json
+  // Dataset provenance (seed/master counts) is shown in Admin → Overview, not in the consumer shell.
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full">
         <Providers>
-          <AppShell seedCount={catalogue.dataset === "master" ? null : (catalogue.seedCount ?? catalogue.recordCount)}>
+          <AppShell>
             <FoodDataProvider>{children}</FoodDataProvider>
           </AppShell>
         </Providers>

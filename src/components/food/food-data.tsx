@@ -6,7 +6,7 @@ import { getSupabase } from "@/lib/supabase/client";
 import { fetchSupabaseFood } from "@/lib/supabase/food";
 import { buildAvailabilityIndex } from "@/lib/food/availability";
 import type { FilterContext } from "@/lib/food/filters";
-import { useUser } from "@/lib/store/user";
+import { useShowSamples, useUser } from "@/lib/store/user";
 import type { Dish, Province, Region } from "@/lib/data/schema";
 
 interface Ctx extends FoodData {
@@ -77,7 +77,7 @@ export function useFoodData() {
 /** Availability index for browsing (samples only when the user enabled them). */
 export function useBrowseAvailability() {
   const { restaurants, links } = useFoodData();
-  const showSamples = useUser((s) => s.showSamples);
+  const showSamples = useShowSamples();
   return useMemo(() => buildAvailabilityIndex(restaurants, links, { includeSamples: showSamples }), [restaurants, links, showSamples]);
 }
 

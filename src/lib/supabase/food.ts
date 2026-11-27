@@ -11,9 +11,12 @@ export const READ_COLUMNS = {
   dish_origins: "dish_id,province_id,region_id,role,sort_order",
   dish_photos: "dish_id,url,credit,license,source_url,sort_order",
   dish_sources: "dish_id,title,url,accessed,note",
-  restaurants: "id,name,is_sample,address,neighbourhood,lon,lat,coordinate_precision,google_maps_url,highlights,venue_type,price_range,opening_hours,contact,delivery_links,last_verified",
+  restaurants: "id,name,is_sample,address,neighbourhood,lon,lat,coordinate_precision,google_maps_url,highlights,venue_type,price_range,opening_hours,contact,delivery_links,last_verified,attributes",
   restaurant_sources: "restaurant_id,title,url,accessed,note",
   dish_restaurant_links: "dish_id,restaurant_id,status,menu_evidence,price_min_vnd,price_max_vnd,last_verified,primary_photo_url,photo_kind,photo_source_url,photo_attribution,photo_license,photo_last_checked_at",
+  establishment_experiences: "establishment_id,experience_id",
+  experience_items: "id,experience_id,name_vi,name_en,alt_names,category,attributes,description_vi,description_en,photos,sources,verification_status,dataset",
+  offerings: "item_id,establishment_id,status,menu_evidence,price_min_vnd,price_max_vnd,price_unit,last_verified,primary_photo_url,photo_kind,photo_source_url,photo_attribution,photo_license,photo_last_checked_at",
 } as const;
 
 async function all<T>(sb: SupabaseClient, table: string, columns: string): Promise<T[]> {
@@ -28,7 +31,7 @@ async function all<T>(sb: SupabaseClient, table: string, columns: string): Promi
 
 /** Reads the public catalogue + real establishments from Supabase (RLS hides candidates and samples). */
 export async function fetchSupabaseFood(sb: SupabaseClient, opts: { includeCandidates?: boolean } = {}) {
-  const [regions, provinces, dishes, origins, photos, dishSources, restaurants, restaurantSources, links] = await Promise.all([
+  const [regions, provinces, dishes, origins, photos, dishSources, restaurants, tags, restaurantSources, links] = await Promise.all([
     all<RegionRow>(sb, "regions", READ_COLUMNS.regions),
     all<ProvinceRow>(sb, "provinces", READ_COLUMNS.provinces),
     all<DishRow>(sb, "dishes", READ_COLUMNS.dishes),
@@ -36,10 +39,13 @@ export async function fetchSupabaseFood(sb: SupabaseClient, opts: { includeCandi
     all<PhotoRow>(sb, "dish_photos", READ_COLUMNS.dish_photos),
     all<SourceRow>(sb, "dish_sources", READ_COLUMNS.dish_sources),
     all<RestaurantRow>(sb, "restaurants", READ_COLUMNS.restaurants),
+    all<{ establishment_id: string; experience_id: string }>(sb, "establishment_experiences", READ_COLUMNS.establishment_experiences),
     all<SourceRow>(sb, "restaurant_sources", READ_COLUMNS.restaurant_sources),
     all<LinkRow>(sb, "dish_restaurant_links", READ_COLUMNS.dish_restaurant_links),
   ]);
-  const mapped = fromRows({ regions, provinces, dishes, origins, photos, dishSources, restaurants: restaurants.filter((r) => !r.is_sample), restaurantSources, links });
+  // Only establishments tagged with Food appear in Food (a café added for Coffee must not show up in Food's Nearby).
+  const foodIds = new Set(tags.filter((t) => t.experience_id === "food").map((t) => t.establishment_id));
+  const mapped = fromRows({ regions, provinces, dishes, origins, photos, dishSources, restaurants: restaurants.filter((r) => !r.is_sample && foodIds.has(r.id)), restaurantSources, links });
   if (!opts.includeCandidates) mapped.links = mapped.links.filter((l) => l.status !== "candidate");
   return mapped;
 }

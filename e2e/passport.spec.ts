@@ -30,6 +30,6 @@ test.describe("Guest passport (local mode)", () => {
       await expect(page.getByTestId("auth-disabled")).toBeVisible();
     }
     await page.goto("/settings/");
-    await expect(page.getByTestId("account-section")).toContainText("not enabled");
+    await expect(page.getByTestId("account-section")).toContainText("Accounts are coming soon");
   });
 });

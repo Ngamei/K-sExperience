@@ -45,6 +45,8 @@ export async function saveRestaurant(sb: SupabaseClient, restaurant: Restaurant)
   fail("establishment", (await sb.from("restaurants").upsert(toRestaurantWrite(r))).error);
   fail("sources (delete)", (await sb.from("restaurant_sources").delete().eq("restaurant_id", r.id)).error);
   fail("sources", (await sb.from("restaurant_sources").insert(toRestaurantSourceRows(r))).error);
+  // Food establishments are tagged explicitly (migration 0007 removed the implicit tag).
+  fail("mode", (await sb.from("establishment_experiences").upsert({ establishment_id: r.id, experience_id: "food" }, { onConflict: "establishment_id,experience_id", ignoreDuplicates: true })).error);
 }
 
 export async function saveLink(sb: SupabaseClient, link: DishRestaurantLink) {
