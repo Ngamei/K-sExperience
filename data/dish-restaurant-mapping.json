@@ -1242,6 +1242,102 @@
         "url": "https://toplist.vn/top-list/dia-chi-an-banh-khot-ngon-nhat-tai-sai-gon-31549.htm"
       },
       "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "com-ga-hoi-an",
+      "restaurantId": "hoi-an-quan-457-1-cach-mang-thang-8",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Source names cơm gà Hội An as the best-rated dish on the menu.",
+        "url": "https://mytour.vn/vi/blog/bai-viet/top-5-mon-an-tuyet-voi-hoi-an-tai-sai-gon.html"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-cha-ca-quy-nhon",
+      "restaurantId": "bun-cha-ca-quy-nhon-le-8-dong-nai",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Source lists hours 08:00–21:00.",
+        "url": "https://mytour.vn/vi/blog/bai-viet/10-dia-chi-bun-cha-ca-ngon-nhat-tai-sai-gon.html"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "nem-nuong-ninh-hoa",
+      "restaurantId": "nem-nuong-ninh-hoa-bau-cat-97-bau-cat",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Source lists hours 09:00–22:00.",
+        "url": "https://www.toplist.vn/top-list/quan-nem-nuong-ngon-noi-tieng-nhat-sai-gon-dia-chi-cu-the-4875.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "nem-nuong-ninh-hoa",
+      "restaurantId": "nem-nuong-thanh-hung-151-nguyen-van-khoi",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide (regional style not confirmed). Source lists hours 10:00–21:00.",
+        "url": "https://www.toplist.vn/top-list/quan-nem-nuong-ngon-noi-tieng-nhat-sai-gon-dia-chi-cu-the-4875.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "nem-nuong-ninh-hoa",
+      "restaurantId": "nem-nuong-nu-91-7b-hoa-hung",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide (regional style not confirmed).",
+        "url": "https://www.greensm.com/vn-vi/news/nem-nuong-sai-gon"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-da-cua-hai-phong",
+      "restaurantId": "banh-da-cua-lao-ngu-105-duong-so-53",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-banh-da-cua-sai-gon-20867"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-da-cua-hai-phong",
+      "restaurantId": "banh-da-cua-co-bong-19-hat-giang",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://toplist.vn/top-list/quan-banh-da-cua-ngon-nhat-quan-tan-binh-tphcm-64584.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-da-cua-hai-phong",
+      "restaurantId": "banh-da-cua-thuy-linh-14-hong-ha",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://toplist.vn/top-list/quan-banh-da-cua-ngon-nhat-quan-tan-binh-tphcm-64584.htm"
+      },
+      "lastVerified": "2026-11-27"
     }
   ]
 }

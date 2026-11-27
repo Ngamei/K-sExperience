@@ -1,0 +1,15 @@
+{
+  "researchedOn": "2026-11-27",
+  "method": "Web search of published HCMC food guides (mytour, toplist.vn, mia.vn, greensm, Znews). Venues located outside HCMC (Hội An, Đà Nẵng, Quy Nhơn) excluded. Dropped: '63B Trần Quốc Thảo' (now attributed to three different shops), 'F10 Hoàng Kế Viêm' (incomplete address), unnamed address-only entries.",
+  "venues": [
+    { "name": "Hội An Quán", "address": "457/1 Cách Mạng Tháng 8", "district": "Quận 10", "dishes": ["com-ga-hoi-an"], "sources": ["https://mytour.vn/vi/blog/bai-viet/top-5-mon-an-tuyet-voi-hoi-an-tai-sai-gon.html"], "note": "Source names cơm gà Hội An as the best-rated dish on the menu." },
+    { "name": "Bún Chả Cá Đà Nẵng", "address": "8 Phan Xích Long", "dishes": ["bun-cha-ca-da-nang"], "sources": ["https://www.toplist.vn/top-list/bun-cha-ca-ngon-nhat-tai-sai-gon-30125.htm"] },
+    { "name": "Bún Chả Cá Quy Nhơn Lệ", "address": "8 Đồng Nai", "district": "Quận 10", "dishes": ["bun-cha-ca-quy-nhon"], "sources": ["https://mytour.vn/vi/blog/bai-viet/10-dia-chi-bun-cha-ca-ngon-nhat-tai-sai-gon.html"], "note": "Source lists hours 08:00–21:00." },
+    { "name": "Nem Nướng Ninh Hòa Bàu Cát", "address": "97 Bàu Cát", "district": "Tân Bình", "dishes": ["nem-nuong-ninh-hoa"], "sources": ["https://www.toplist.vn/top-list/quan-nem-nuong-ngon-noi-tieng-nhat-sai-gon-dia-chi-cu-the-4875.htm"], "note": "Source lists hours 09:00–22:00." },
+    { "name": "Nem Nướng Thanh Hùng", "address": "151 Nguyễn Văn Khối", "district": "Gò Vấp", "dishes": ["nem-nuong-ninh-hoa"], "styleNote": true, "sources": ["https://www.toplist.vn/top-list/quan-nem-nuong-ngon-noi-tieng-nhat-sai-gon-dia-chi-cu-the-4875.htm"], "note": "Source lists hours 10:00–21:00." },
+    { "name": "Nem Nướng Nụ", "address": "91/7B Hòa Hưng", "dishes": ["nem-nuong-ninh-hoa"], "styleNote": true, "sources": ["https://www.greensm.com/vn-vi/news/nem-nuong-sai-gon"] },
+    { "name": "Bánh Đa Cua Lão Ngư", "address": "105 Đường số 53", "district": "Quận 7", "dishes": ["banh-da-cua-hai-phong"], "sources": ["https://mia.vn/cam-nang-du-lich/quan-banh-da-cua-sai-gon-20867"] },
+    { "name": "Bánh Đa Cua Cô Bông", "address": "19 Hát Giang", "district": "Tân Bình", "dishes": ["banh-da-cua-hai-phong"], "sources": ["https://toplist.vn/top-list/quan-banh-da-cua-ngon-nhat-quan-tan-binh-tphcm-64584.htm"] },
+    { "name": "Bánh Đa Cua Thùy Linh", "address": "14 Hồng Hà", "district": "Tân Bình", "dishes": ["banh-da-cua-hai-phong"], "sources": ["https://toplist.vn/top-list/quan-banh-da-cua-ngon-nhat-quan-tan-binh-tphcm-64584.htm"] }
+  ]
+}

@@ -2908,6 +2908,230 @@
         }
       ],
       "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "hoi-an-quan-457-1-cach-mang-thang-8",
+      "name": "Hội An Quán",
+      "isSample": false,
+      "address": "457/1 Cách Mạng Tháng 8, Quận 10, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Sơn Nhất",
+      "coordinates": [
+        106.664116,
+        10.788507
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%E1%BB%99i%20An%20Qu%C3%A1n%2C%20457%2F1%20C%C3%A1ch%20M%E1%BA%A1ng%20Th%C3%A1ng%208%2C%20Qu%E1%BA%ADn%2010%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mytour.vn",
+          "url": "https://mytour.vn/vi/blog/bai-viet/top-5-mon-an-tuyet-voi-hoi-an-tai-sai-gon.html",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bun-cha-ca-quy-nhon-le-8-dong-nai",
+      "name": "Bún Chả Cá Quy Nhơn Lệ",
+      "isSample": false,
+      "address": "8 Đồng Nai, Quận 10, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Hòa Hưng",
+      "coordinates": [
+        106.663588,
+        10.778024
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20Ch%E1%BA%A3%20C%C3%A1%20Quy%20Nh%C6%A1n%20L%E1%BB%87%2C%208%20%C4%90%E1%BB%93ng%20Nai%2C%20Qu%E1%BA%ADn%2010%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mytour.vn",
+          "url": "https://mytour.vn/vi/blog/bai-viet/10-dia-chi-bun-cha-ca-ngon-nhat-tai-sai-gon.html",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "nem-nuong-ninh-hoa-bau-cat-97-bau-cat",
+      "name": "Nem Nướng Ninh Hòa Bàu Cát",
+      "isSample": false,
+      "address": "97 Bàu Cát, Tân Bình, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Bình",
+      "coordinates": [
+        106.641074,
+        10.793057
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nem%20N%C6%B0%E1%BB%9Bng%20Ninh%20H%C3%B2a%20B%C3%A0u%20C%C3%A1t%2C%2097%20B%C3%A0u%20C%C3%A1t%2C%20T%C3%A2n%20B%C3%ACnh%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://www.toplist.vn/top-list/quan-nem-nuong-ngon-noi-tieng-nhat-sai-gon-dia-chi-cu-the-4875.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "nem-nuong-thanh-hung-151-nguyen-van-khoi",
+      "name": "Nem Nướng Thanh Hùng",
+      "isSample": false,
+      "address": "151 Nguyễn Văn Khối, Gò Vấp, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Thông Tây Hội",
+      "coordinates": [
+        106.649063,
+        10.843629
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nem%20N%C6%B0%E1%BB%9Bng%20Thanh%20H%C3%B9ng%2C%20151%20Nguy%E1%BB%85n%20V%C4%83n%20Kh%E1%BB%91i%2C%20G%C3%B2%20V%E1%BA%A5p%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://www.toplist.vn/top-list/quan-nem-nuong-ngon-noi-tieng-nhat-sai-gon-dia-chi-cu-the-4875.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "nem-nuong-nu-91-7b-hoa-hung",
+      "name": "Nem Nướng Nụ",
+      "isSample": false,
+      "address": "91/7B Hòa Hưng, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Hòa Hưng",
+      "coordinates": [
+        106.67369,
+        10.778382
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nem%20N%C6%B0%E1%BB%9Bng%20N%E1%BB%A5%2C%2091%2F7B%20H%C3%B2a%20H%C6%B0ng%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "greensm.com",
+          "url": "https://www.greensm.com/vn-vi/news/nem-nuong-sai-gon",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "banh-da-cua-lao-ngu-105-duong-so-53",
+      "name": "Bánh Đa Cua Lão Ngư",
+      "isSample": false,
+      "address": "105 Đường số 53, Quận 7, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Hưng",
+      "coordinates": [
+        106.708283,
+        10.738026
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20%C4%90a%20Cua%20L%C3%A3o%20Ng%C6%B0%2C%20105%20%C4%90%C6%B0%E1%BB%9Dng%20s%E1%BB%91%2053%2C%20Qu%E1%BA%ADn%207%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-banh-da-cua-sai-gon-20867",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "banh-da-cua-co-bong-19-hat-giang",
+      "name": "Bánh Đa Cua Cô Bông",
+      "isSample": false,
+      "address": "19 Hát Giang, Tân Bình, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Sơn Hòa",
+      "coordinates": [
+        106.667739,
+        10.812559
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20%C4%90a%20Cua%20C%C3%B4%20B%C3%B4ng%2C%2019%20H%C3%A1t%20Giang%2C%20T%C3%A2n%20B%C3%ACnh%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://toplist.vn/top-list/quan-banh-da-cua-ngon-nhat-quan-tan-binh-tphcm-64584.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "banh-da-cua-thuy-linh-14-hong-ha",
+      "name": "Bánh Đa Cua Thùy Linh",
+      "isSample": false,
+      "address": "14 Hồng Hà, Tân Bình, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Đức Nhuận",
+      "coordinates": [
+        106.672038,
+        10.810024
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20%C4%90a%20Cua%20Th%C3%B9y%20Linh%2C%2014%20H%E1%BB%93ng%20H%C3%A0%2C%20T%C3%A2n%20B%C3%ACnh%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://toplist.vn/top-list/quan-banh-da-cua-ngon-nhat-quan-tan-binh-tphcm-64584.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
     }
   ]
 }

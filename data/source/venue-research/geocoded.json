@@ -691,5 +691,65 @@
   "precision": "street",
   "ward": "Phường Bến Thành",
   "displayName": "Lê Thị Hồng Gấm, Khu phố 15, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+ },
+ "Hội An Quán|457/1 Cách Mạng Tháng 8|Quận 10": {
+  "lon": 106.664116,
+  "lat": 10.788507,
+  "precision": "street",
+  "ward": "Phường Tân Sơn Nhất",
+  "displayName": "Hẻm 686/17 Cách Mạng Tháng 8, Khu phố 14, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh, 72121, Việt Nam"
+ },
+ "Bún Chả Cá Đà Nẵng|8 Phan Xích Long|": {
+  "failed": true,
+  "reason": "ambiguous street name, no district in source"
+ },
+ "Bún Chả Cá Quy Nhơn Lệ|8 Đồng Nai|Quận 10": {
+  "lon": 106.663588,
+  "lat": 10.778024,
+  "precision": "street",
+  "ward": "Phường Hòa Hưng",
+  "displayName": "Đồng Nai, Khu phố 16, Phường Hòa Hưng, Thành phố Hồ Chí Minh, 72523, Việt Nam"
+ },
+ "Nem Nướng Ninh Hòa Bàu Cát|97 Bàu Cát|Tân Bình": {
+  "lon": 106.641074,
+  "lat": 10.793057,
+  "precision": "street",
+  "ward": "Phường Tân Bình",
+  "displayName": "Bàu Cát, Khu phố 27, Phường Tân Bình, Thành phố Hồ Chí Minh, 72123, Việt Nam"
+ },
+ "Nem Nướng Thanh Hùng|151 Nguyễn Văn Khối|Gò Vấp": {
+  "lon": 106.649063,
+  "lat": 10.843629,
+  "precision": "street",
+  "ward": "Phường Thông Tây Hội",
+  "displayName": "Nguyễn Văn Khối, Khu phố 25, Phường Thông Tây Hội, Thành phố Hồ Chí Minh, 71426, Việt Nam"
+ },
+ "Nem Nướng Nụ|91/7B Hòa Hưng|": {
+  "lon": 106.67369,
+  "lat": 10.778382,
+  "precision": "street",
+  "ward": "Phường Hòa Hưng",
+  "displayName": "Hẻm 91/6 Hòa Hưng, Khu phố 3, Phường Hòa Hưng, Thành phố Hồ Chí Minh, 72523, Việt Nam"
+ },
+ "Bánh Đa Cua Lão Ngư|105 Đường số 53|Quận 7": {
+  "lon": 106.708283,
+  "lat": 10.738026,
+  "precision": "street",
+  "ward": "Phường Tân Hưng",
+  "displayName": "Đường Số 53, Khu phố 28, Phường Tân Hưng, Thành phố Hồ Chí Minh, 72912, Việt Nam"
+ },
+ "Bánh Đa Cua Cô Bông|19 Hát Giang|Tân Bình": {
+  "lon": 106.667739,
+  "lat": 10.812559,
+  "precision": "street",
+  "ward": "Phường Tân Sơn Hòa",
+  "displayName": "Hát Giang, Khu phố 16, Phường Tân Sơn Hòa, Thành phố Hồ Chí Minh, 72122, Việt Nam"
+ },
+ "Bánh Đa Cua Thùy Linh|14 Hồng Hà|Tân Bình": {
+  "lon": 106.672038,
+  "lat": 10.810024,
+  "precision": "street",
+  "ward": "Phường Đức Nhuận",
+  "displayName": "Hồng Hà, Khu phố 17, Phường Đức Nhuận, Thành phố Hồ Chí Minh, 72223, Việt Nam"
  }
 }
