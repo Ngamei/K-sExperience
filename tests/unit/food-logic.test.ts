@@ -13,10 +13,12 @@ const ctx = { availability: real, saved: new Set<string>(), tried: new Set<strin
 
 describe("availability", () => {
   it("sample venues never count unless explicitly included", () => {
-    // bot-chien has only a (fictional) sample venue
-    expect(statusOf(real, "bot-chien")).toBe("none-found");
-    expect(statusOf(withSamples, "bot-chien")).toBe("verified-available");
-    expect(statusOf(withSamples, "banh-beo-hue")).toBe("temporarily-unavailable");
+    // banh-flan has only a (fictional) sample venue
+    expect(statusOf(real, "banh-flan")).toBe("none-found");
+    expect(statusOf(withSamples, "banh-flan")).toBe("verified-available");
+    // The sample venue's link is temporarily unavailable; real listed venues outrank it.
+    expect(withSamples.linksByDish.get("banh-beo-hue")?.find((l) => l.isSample)?.status).toBe("temporarily-unavailable");
+    expect(statusOf(withSamples, "banh-beo-hue")).toBe(statusOf(real, "banh-beo-hue"));
   });
 });
 
