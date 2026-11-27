@@ -786,5 +786,19 @@
   "precision": "street",
   "ward": "Phường Tân Sơn Nhì",
   "displayName": "Tân Sơn Nhì, Khu phố 42, Phường Tân Sơn Nhì, Thành phố Hồ Chí Minh, 72008, Việt Nam"
+ },
+ "Xôi xéo Hà Nội|81 Ngô Thời Nhiệm|Quận 3": {
+  "lon": 106.686801,
+  "lat": 10.777453,
+  "precision": "street",
+  "ward": "Phường Xuân Hòa",
+  "displayName": "Ngô Thời Nhiệm, Khu phố 1, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+ },
+ "Bún Đỏ Bún Riêu Cô Bé Ban Mê|40 Nguyễn Hồng Đào|Tân Bình": {
+  "lon": 106.641308,
+  "lat": 10.791057,
+  "precision": "street",
+  "ward": "Phường Tân Bình",
+  "displayName": "Nguyễn Hồng Đào, Khu phố 31, Phường Tân Bình, Thành phố Hồ Chí Minh, 72123, Việt Nam"
  }
 }

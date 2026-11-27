@@ -1398,6 +1398,30 @@
         "url": "https://mia.vn/cam-nang-du-lich/pho-kho-gia-lai-sai-gon-19415"
       },
       "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "xoi-xeo",
+      "restaurantId": "xoi-xeo-ha-noi-81-ngo-thoi-nhiem",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Znews: Hanoi-style xôi xéo at 81 Ngô Thời Nhiệm, Q3; 6:30–10:30, closed Sundays (per article).",
+        "url": "https://znews.vn/huong-vi-xoi-mien-bac-o-tphcm-post1130970.html"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-do-buon-ma-thuot",
+      "restaurantId": "bun-do-bun-rieu-co-be-ban-me-40-nguyen-hong-dao",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. MIA.vn lists this HCMC shop for Buôn Ma Thuột bún đỏ (07:30–22:00 per article). Spot-check source.",
+        "url": "https://mia.vn/cam-nang-du-lich/dac-san-bun-do-dak-lak-14200"
+      },
+      "lastVerified": "2026-11-27"
     }
   ]
 }

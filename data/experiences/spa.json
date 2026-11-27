@@ -392,6 +392,83 @@
           "head-spa"
         ]
       }
+    },
+    {
+      "id": "la-maison-de-lapothiquaire-truong-dinh",
+      "name": "La Maison de L'Apothiquaire",
+      "isSample": false,
+      "address": "64A Trương Định, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Xuân Hòa",
+      "coordinates": [
+        106.685412,
+        10.781287
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=La%20Maison%20de%20L'Apothiquaire%2C%2064A%20Tr%C6%B0%C6%A1ng%20%C4%90%E1%BB%8Bnh%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "day spa",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "fodors.com",
+          "url": "https://www.fodors.com/world/asia/vietnam/ho-chi-minh-city/things-to-do/shopping/reviews/la-maison-de-l’apothiquaire-614329",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "spa"
+      ],
+      "attributes": {
+        "spaTypes": [
+          "day-spa"
+        ]
+      }
+    },
+    {
+      "id": "le-spa-des-artistes",
+      "name": "Le Spa des Artistes by L'Apothiquaire (Hôtel des Arts Saigon)",
+      "isSample": false,
+      "address": "76-78 Nguyễn Thị Minh Khai, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.685314,
+        10.769203
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Le%20Spa%20des%20Artistes%20by%20L'Apothiquaire%20(H%C3%B4tel%20des%20Arts%20Saigon)%2C%2076-78%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Minh%20Khai%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "hotel spa",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mgallery.accor.com",
+          "url": "https://mgallery.accor.com/en/hotels/9231/wellness-spa.html",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "hoteldesartssaigon.com",
+          "url": "https://www.hoteldesartssaigon.com/?p=35",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "spa"
+      ],
+      "attributes": {
+        "spaTypes": [
+          "hotel-spa"
+        ]
+      }
     }
   ],
   "offerings": [
@@ -440,6 +517,90 @@
         "type": "published-source",
         "note": "Toplist and Mytour (Quận 3 lists) name Mâm Xôi Đỏ Hair Spa for gội đầu dưỡng sinh / scalp care.",
         "url": "https://toplist.vn/top-list/dia-chi-goi-dau-duong-sinh-chat-luong-tot-nhat-tai-quan-3-tphcm-52643.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "facial",
+      "establishmentId": "la-maison-de-lapothiquaire-truong-dinh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Fodor's: day spa in a colonial villa with a full range of face and body treatments.",
+        "url": "https://www.fodors.com/world/asia/vietnam/ho-chi-minh-city/things-to-do/shopping/reviews/la-maison-de-l’apothiquaire-614329"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "manicure",
+      "establishmentId": "la-maison-de-lapothiquaire-truong-dinh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Fodor's lists manicures.",
+        "url": "https://www.fodors.com/world/asia/vietnam/ho-chi-minh-city/things-to-do/shopping/reviews/la-maison-de-l’apothiquaire-614329"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "pedicure",
+      "establishmentId": "la-maison-de-lapothiquaire-truong-dinh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Fodor's lists pedicures.",
+        "url": "https://www.fodors.com/world/asia/vietnam/ho-chi-minh-city/things-to-do/shopping/reviews/la-maison-de-l’apothiquaire-614329"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "foot-reflexology",
+      "establishmentId": "le-spa-des-artistes",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Hotel spa listing includes reflexology.",
+        "url": "https://mgallery.accor.com/en/hotels/9231/wellness-spa.html"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "facial",
+      "establishmentId": "le-spa-des-artistes",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Hotel spa listing includes facials.",
+        "url": "https://mgallery.accor.com/en/hotels/9231/wellness-spa.html"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "manicure",
+      "establishmentId": "le-spa-des-artistes",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Hotel spa listing includes manicures.",
+        "url": "https://mgallery.accor.com/en/hotels/9231/wellness-spa.html"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "pedicure",
+      "establishmentId": "le-spa-des-artistes",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Hotel spa listing includes pedicures.",
+        "url": "https://mgallery.accor.com/en/hotels/9231/wellness-spa.html"
       },
       "lastVerified": "2026-11-27"
     }

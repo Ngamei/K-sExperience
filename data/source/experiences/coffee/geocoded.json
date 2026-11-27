@@ -33,5 +33,19 @@
   "precision": "street",
   "ward": "Phường Tân Định",
   "displayName": "Nguyễn Văn Thủ, Khu phố 13, Phường Tân Định, Thành phố Hồ Chí Minh, 71008, Việt Nam"
+ },
+ "Japanit Matcha & Coffee (Trần Hưng Đạo)|130 Trần Hưng Đạo, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.693386,
+  "lat": 10.76566,
+  "precision": "street",
+  "ward": "Phường Cầu Ông Lãnh",
+  "displayName": "Trần Hưng Đạo, Khu phố 16, Phường Cầu Ông Lãnh, Thành phố Hồ Chí Minh, 71011, Việt Nam"
+ },
+ "Trà Việt — Tea Experience & Boutique|19 Hải Triều, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.704876,
+  "lat": 10.771668,
+  "precision": "street",
+  "ward": "Phường Sài Gòn",
+  "displayName": "Hải Triều, Khu phố 9, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
  }
 }

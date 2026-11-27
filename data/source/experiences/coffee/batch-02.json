@@ -1,0 +1,50 @@
+{
+  "researchedOn": "2026-11-27",
+  "method": "Desk research from published guides naming the venue AND the exact item (pages read via search-result excerpts; direct fetches blocked in the research environment — spot-check). Coordinates: OpenStreetMap Nominatim. Status source-listed; no prices/hours/photos without a source.",
+  "venues": [
+    {
+      "id": "japanit-matcha-tran-hung-dao",
+      "name": "Japanit Matcha & Coffee (Trần Hưng Đạo)",
+      "address": "130 Trần Hưng Đạo, Quận 1, TP. Hồ Chí Minh",
+      "district": "Quận 1",
+      "venueType": "café",
+      "sources": [
+        "https://thesmartlocal.com/vietnam/japanit-matcha-coffee/"
+      ],
+      "attributes": {
+        "cafeTypes": [
+          "concept"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "matcha-latte",
+          "evidence": "TheSmartLocal review of Japanit Matcha & Coffee (130 Trần Hưng Đạo) features its matcha latte.",
+          "url": "https://thesmartlocal.com/vietnam/japanit-matcha-coffee/"
+        }
+      ]
+    },
+    {
+      "id": "tra-viet-hai-trieu",
+      "name": "Trà Việt — Tea Experience & Boutique",
+      "address": "19 Hải Triều, Quận 1, TP. Hồ Chí Minh",
+      "district": "Quận 1",
+      "venueType": "tea house",
+      "sources": [
+        "https://en.traviet.com/p/lotus-tea-experience/"
+      ],
+      "attributes": {
+        "cafeTypes": [
+          "traditional"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "tra-sen",
+          "evidence": "Trà Việt's own page offers a hands-on Vietnamese lotus tea experience at 19 Hải Triều.",
+          "url": "https://en.traviet.com/p/lotus-tea-experience/"
+        }
+      ]
+    }
+  ]
+}

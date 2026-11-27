@@ -3277,6 +3277,62 @@
         }
       ],
       "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "xoi-xeo-ha-noi-81-ngo-thoi-nhiem",
+      "name": "Xôi xéo Hà Nội",
+      "isSample": false,
+      "address": "81 Ngô Thời Nhiệm, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Xuân Hòa",
+      "coordinates": [
+        106.686801,
+        10.777453
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=X%C3%B4i%20x%C3%A9o%20H%C3%A0%20N%E1%BB%99i%2C%2081%20Ng%C3%B4%20Th%E1%BB%9Di%20Nhi%E1%BB%87m%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "znews.vn",
+          "url": "https://znews.vn/huong-vi-xoi-mien-bac-o-tphcm-post1130970.html",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bun-do-bun-rieu-co-be-ban-me-40-nguyen-hong-dao",
+      "name": "Bún Đỏ Bún Riêu Cô Bé Ban Mê",
+      "isSample": false,
+      "address": "40 Nguyễn Hồng Đào, Tân Bình, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Bình",
+      "coordinates": [
+        106.641308,
+        10.791057
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20%C4%90%E1%BB%8F%20B%C3%BAn%20Ri%C3%AAu%20C%C3%B4%20B%C3%A9%20Ban%20M%C3%AA%2C%2040%20Nguy%E1%BB%85n%20H%E1%BB%93ng%20%C4%90%C3%A0o%2C%20T%C3%A2n%20B%C3%ACnh%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/dac-san-bun-do-dak-lak-14200",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
     }
   ]
 }

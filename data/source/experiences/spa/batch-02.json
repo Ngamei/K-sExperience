@@ -1,0 +1,76 @@
+{
+  "researchedOn": "2026-11-27",
+  "method": "Desk research from published guides naming the venue AND the exact item (pages read via search-result excerpts; direct fetches blocked in the research environment — spot-check). Coordinates: OpenStreetMap Nominatim. Status source-listed; no prices/hours/photos without a source.",
+  "venues": [
+    {
+      "id": "la-maison-de-lapothiquaire-truong-dinh",
+      "name": "La Maison de L'Apothiquaire",
+      "address": "64A Trương Định, Quận 3, TP. Hồ Chí Minh",
+      "district": "Quận 3",
+      "venueType": "day spa",
+      "sources": [
+        "https://www.fodors.com/world/asia/vietnam/ho-chi-minh-city/things-to-do/shopping/reviews/la-maison-de-l’apothiquaire-614329"
+      ],
+      "attributes": {
+        "spaTypes": [
+          "day-spa"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "facial",
+          "evidence": "Fodor's: day spa in a colonial villa with a full range of face and body treatments.",
+          "url": "https://www.fodors.com/world/asia/vietnam/ho-chi-minh-city/things-to-do/shopping/reviews/la-maison-de-l’apothiquaire-614329"
+        },
+        {
+          "item": "manicure",
+          "evidence": "Fodor's lists manicures.",
+          "url": "https://www.fodors.com/world/asia/vietnam/ho-chi-minh-city/things-to-do/shopping/reviews/la-maison-de-l’apothiquaire-614329"
+        },
+        {
+          "item": "pedicure",
+          "evidence": "Fodor's lists pedicures.",
+          "url": "https://www.fodors.com/world/asia/vietnam/ho-chi-minh-city/things-to-do/shopping/reviews/la-maison-de-l’apothiquaire-614329"
+        }
+      ]
+    },
+    {
+      "id": "le-spa-des-artistes",
+      "name": "Le Spa des Artistes by L'Apothiquaire (Hôtel des Arts Saigon)",
+      "address": "76-78 Nguyễn Thị Minh Khai, Quận 3, TP. Hồ Chí Minh",
+      "district": "Quận 3",
+      "venueType": "hotel spa",
+      "sources": [
+        "https://mgallery.accor.com/en/hotels/9231/wellness-spa.html",
+        "https://www.hoteldesartssaigon.com/?p=35"
+      ],
+      "attributes": {
+        "spaTypes": [
+          "hotel-spa"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "foot-reflexology",
+          "evidence": "Hotel spa listing includes reflexology.",
+          "url": "https://mgallery.accor.com/en/hotels/9231/wellness-spa.html"
+        },
+        {
+          "item": "facial",
+          "evidence": "Hotel spa listing includes facials.",
+          "url": "https://mgallery.accor.com/en/hotels/9231/wellness-spa.html"
+        },
+        {
+          "item": "manicure",
+          "evidence": "Hotel spa listing includes manicures.",
+          "url": "https://mgallery.accor.com/en/hotels/9231/wellness-spa.html"
+        },
+        {
+          "item": "pedicure",
+          "evidence": "Hotel spa listing includes pedicures.",
+          "url": "https://mgallery.accor.com/en/hotels/9231/wellness-spa.html"
+        }
+      ]
+    }
+  ]
+}

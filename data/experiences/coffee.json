@@ -627,6 +627,78 @@
         "coffee"
       ],
       "attributes": {}
+    },
+    {
+      "id": "japanit-matcha-tran-hung-dao",
+      "name": "Japanit Matcha & Coffee (Trần Hưng Đạo)",
+      "isSample": false,
+      "address": "130 Trần Hưng Đạo, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Cầu Ông Lãnh",
+      "coordinates": [
+        106.693386,
+        10.76566
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Japanit%20Matcha%20%26%20Coffee%20(Tr%E1%BA%A7n%20H%C6%B0ng%20%C4%90%E1%BA%A1o)%2C%20130%20Tr%E1%BA%A7n%20H%C6%B0ng%20%C4%90%E1%BA%A1o%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "café",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "thesmartlocal.com",
+          "url": "https://thesmartlocal.com/vietnam/japanit-matcha-coffee/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "coffee"
+      ],
+      "attributes": {
+        "cafeTypes": [
+          "concept"
+        ]
+      }
+    },
+    {
+      "id": "tra-viet-hai-trieu",
+      "name": "Trà Việt — Tea Experience & Boutique",
+      "isSample": false,
+      "address": "19 Hải Triều, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Sài Gòn",
+      "coordinates": [
+        106.704876,
+        10.771668
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tr%C3%A0%20Vi%E1%BB%87t%20%E2%80%94%20Tea%20Experience%20%26%20Boutique%2C%2019%20H%E1%BA%A3i%20Tri%E1%BB%81u%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "tea house",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "en.traviet.com",
+          "url": "https://en.traviet.com/p/lotus-tea-experience/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "coffee"
+      ],
+      "attributes": {
+        "cafeTypes": [
+          "traditional"
+        ]
+      }
     }
   ],
   "offerings": [
@@ -687,6 +759,30 @@
         "type": "published-source",
         "note": "Egg-coffee guides list Góc Hà Nội (Nguyễn Văn Thủ, Đa Kao) for Hanoi-style egg coffee.",
         "url": "https://www.vietnamescapetours.com/travel-blog/where-to-drink-egg-coffee-in-saigon.html"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "matcha-latte",
+      "establishmentId": "japanit-matcha-tran-hung-dao",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "TheSmartLocal review of Japanit Matcha & Coffee (130 Trần Hưng Đạo) features its matcha latte.",
+        "url": "https://thesmartlocal.com/vietnam/japanit-matcha-coffee/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "tra-sen",
+      "establishmentId": "tra-viet-hai-trieu",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Trà Việt's own page offers a hands-on Vietnamese lotus tea experience at 19 Hải Triều.",
+        "url": "https://en.traviet.com/p/lotus-tea-experience/"
       },
       "lastVerified": "2026-11-27"
     }

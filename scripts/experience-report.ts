@@ -37,9 +37,9 @@ for (const m of EXPERIENCES.filter((e) => e.id !== "food")) {
 }
 out.push("", "Shopping stays Coming soon (not implemented). Sport shows Pickleball and Pilates as pilots.", "", ...details,
   "## Gaps to close before enabling a pilot", "", "- Every pilot: review item descriptions (seed → verified), add licensed reference photos, research verified HCMC venues per item (evidence per offering).",
-  "- Coffee: salt coffee, cold brew, matcha, tea and non-coffee items have no verified venue yet; Cheo Leo (cà phê vợt) awaits confirmed coordinates.",
+  "- Coffee: salt coffee, cold brew and non-coffee have no venue yet (cold-brew sources found were from 2018; no salt-coffee café with a confirmed address); Cheo Leo (cà phê vợt) awaits confirmed coordinates.",
   "- Bars: 2 venues (Stir — Truffle Martini; Pasteur Street Brewing — craft beer). No published source tied a specific classic cocktail (Negroni, Espresso Martini, Mojito…) to an HCMC bar; the D1 bia hơi in Saigoneer has closed.",
-  "- Spa: 4 head-spa venues (gội đầu dưỡng sinh). Massage/facial/nail venues found had conflicting addresses or closed branches (e.g. Miu Miu, Golden Lotus) and were not added.",
+  "- Spa: head spa (4 venues), facial / manicure / pedicure / foot reflexology (L'Apothiquaire, Le Spa des Artistes). Swedish and hot-stone massage and body scrub still have no venue; Miu Miu and Golden Lotus withheld (conflicting addresses).",
   "- Sport: 4 pickleball venues (court rental, social play, equipment rental), 1 reformer-pilates studio. Rudal, HitPark and Olaben were withheld: their numbered-street addresses geocoded to the wrong ward. No source confirmed pickleball coaching or Pilates trial/private formats at a specific venue.",
   "- All pilot offerings are source-listed from directory/guide excerpts; page fetches were blocked in the research environment, so PO/Codex should spot-check each source URL before enabling a pilot.", "");
 writeFileSync(path.join(root, "docs/EXPERIENCE_DATA_REPORT.md"), out.join("\n"));

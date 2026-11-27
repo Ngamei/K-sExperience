@@ -26,5 +26,19 @@
   "precision": "street",
   "ward": "Phường Xuân Hòa",
   "displayName": "Nam Kỳ Khởi Nghĩa, Khu phố 16, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+ },
+ "La Maison de L'Apothiquaire|64A Trương Định, Quận 3, TP. Hồ Chí Minh|Quận 3": {
+  "lon": 106.685412,
+  "lat": 10.781287,
+  "precision": "street",
+  "ward": "Phường Xuân Hòa",
+  "displayName": "Trương Định, Khu phố 6, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+ },
+ "Le Spa des Artistes by L'Apothiquaire (Hôtel des Arts Saigon)|76-78 Nguyễn Thị Minh Khai, Quận 3, TP. Hồ Chí Minh|Quận 3": {
+  "lon": 106.685314,
+  "lat": 10.769203,
+  "precision": "street",
+  "ward": "Phường Bến Thành",
+  "displayName": "Nguyễn Thị Minh Khai, Khu phố 7, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
  }
 }
