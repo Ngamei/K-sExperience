@@ -88,6 +88,8 @@ for (const r of src.restaurants) {
       menuEvidence: { type: d.evidenceType ?? "published-source", note: d.evidence, url: d.url },
       priceVnd: d.priceVnd,
       lastVerified: date,
+      // Optional dish-at-place photo (LinkPhotoSchema): must show this exact dish; licence + source required.
+      ...((d as { photo?: unknown }).photo ? { photo: (d as { photo?: unknown }).photo } : {}),
     });
     if (!link.success) { errors.push(`${r.id}/${d.dishId}: ${link.error.message}`); continue; }
     links.push(link.data);

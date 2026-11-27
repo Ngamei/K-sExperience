@@ -13,7 +13,7 @@ export const READ_COLUMNS = {
   dish_sources: "dish_id,title,url,accessed,note",
   restaurants: "id,name,is_sample,address,neighbourhood,lon,lat,coordinate_precision,google_maps_url,highlights,venue_type,price_range,opening_hours,contact,delivery_links,last_verified",
   restaurant_sources: "restaurant_id,title,url,accessed,note",
-  dish_restaurant_links: "dish_id,restaurant_id,status,menu_evidence,price_min_vnd,price_max_vnd,last_verified",
+  dish_restaurant_links: "dish_id,restaurant_id,status,menu_evidence,price_min_vnd,price_max_vnd,last_verified,primary_photo_url,photo_kind,photo_source_url,photo_attribution,photo_license,photo_last_checked_at",
 } as const;
 
 async function all<T>(sb: SupabaseClient, table: string, columns: string): Promise<T[]> {

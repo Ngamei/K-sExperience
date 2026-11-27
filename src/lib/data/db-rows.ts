@@ -2,7 +2,7 @@
  * Conversions between the app's domain model (src/lib/data/schema.ts) and Supabase table rows
  * (supabase/migrations/0001_init.sql). Shared by the read path, the Admin CMS and tests.
  */
-import type { Dish, DishRestaurantLink, Province, Region, Restaurant } from "./schema";
+import type { Dish, DishRestaurantLink, LinkPhoto, Province, Region, Restaurant } from "./schema";
 import type { LinkStatus, EvidenceType } from "./evidence";
 
 export interface DishRow {
@@ -23,6 +23,8 @@ export interface RestaurantRow {
 export interface LinkRow {
   dish_id: string; restaurant_id: string; status: LinkStatus; menu_evidence: { type: EvidenceType; note: string; url?: string } | null;
   price_min_vnd: number | null; price_max_vnd: number | null; last_verified: string | null;
+  primary_photo_url?: string | null; photo_kind?: LinkPhoto["kind"] | null; photo_source_url?: string | null;
+  photo_attribution?: string | null; photo_license?: string | null; photo_last_checked_at?: string | null;
 }
 export interface RegionRow { id: string; name_vi: string; name_en: string; color: string; sort_order: number; blurb_vi: string; blurb_en: string }
 export interface ProvinceRow {
@@ -57,6 +59,8 @@ export const toRestaurantSourceRows = (r: Restaurant): SourceRow[] =>
 export const toLinkRow = (l: DishRestaurantLink): LinkRow => ({
   dish_id: l.dishId, restaurant_id: l.restaurantId, status: l.status, menu_evidence: nn(l.menuEvidence) as LinkRow["menu_evidence"],
   price_min_vnd: nn(l.priceVnd?.min), price_max_vnd: nn(l.priceVnd?.max), last_verified: nn(l.lastVerified),
+  primary_photo_url: nn(l.photo?.url), photo_kind: nn(l.photo?.kind), photo_source_url: nn(l.photo?.sourceUrl),
+  photo_attribution: nn(l.photo?.attribution), photo_license: nn(l.photo?.license), photo_last_checked_at: nn(l.photo?.lastCheckedAt),
 });
 
 // ---- rows → domain -------------------------------------------------------------------------------
@@ -115,6 +119,9 @@ export function fromRows(rows: {
     ...(l.menu_evidence ? { menuEvidence: l.menu_evidence } : {}),
     ...(l.price_min_vnd !== null && l.price_max_vnd !== null ? { priceVnd: { min: l.price_min_vnd, max: l.price_max_vnd } } : {}),
     ...(l.last_verified ? { lastVerified: l.last_verified } : {}),
+    ...(l.primary_photo_url && l.photo_kind && l.photo_source_url && l.photo_attribution && l.photo_license && l.photo_last_checked_at
+      ? { photo: { url: l.primary_photo_url, kind: l.photo_kind, sourceUrl: l.photo_source_url, attribution: l.photo_attribution, license: l.photo_license, lastCheckedAt: l.photo_last_checked_at } }
+      : {}),
   }));
   return { regions, provinces, dishes, restaurants, links };
 }

@@ -35,6 +35,13 @@ insert into results select 'editor sees candidate links', count(*) = 1 from dish
 update dishes set name_en = 'Quảng noodles (edited)' where id = 'mi-quang';
 insert into results select 'editor cannot see other user saved rows', count(*) = 0 from saved_experiences;
 reset role;
+-- link photos (0004): incomplete photo rejected, complete photo accepted
+do $$ begin
+  begin update dish_restaurant_links set primary_photo_url = 'https://x.test/a.jpg' where dish_id = 'thang-co'; insert into results values ('incomplete link photo rejected', false);
+  exception when check_violation then insert into results values ('incomplete link photo rejected', true); end;
+end $$;
+update dish_restaurant_links set primary_photo_url = 'https://x.test/a.jpg', photo_kind = 'venue-specific', photo_source_url = 'https://x.test/post', photo_attribution = 'Venue', photo_license = 'Permission', photo_last_checked_at = '2026-11-27' where dish_id = 'thang-co';
+insert into results select 'complete link photo accepted', count(*) = 1 from dish_restaurant_links where primary_photo_url is not null;
 insert into results select 'editor update persisted', name_en = 'Quảng noodles (edited)' from dishes where id = 'mi-quang';
 
 -- 3b. storage + audit

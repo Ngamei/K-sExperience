@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import type { Dish } from "@/lib/data/schema";
+import { MapPin } from "lucide-react";
+import type { VenueCardImage } from "@/lib/food/venue-photo";
 import { cn } from "@/lib/utils";
 import { DishArt } from "./dish-art";
 
@@ -41,5 +43,27 @@ export function DishHeroPhoto({ dish, creditLabel }: { dish: Dish; creditLabel: 
         ) : photo.license}
       </figcaption>
     </figure>
+  );
+}
+
+/**
+ * Square, rounded venue-card thumbnail on dish pages (fixed aspect ratio, object-cover).
+ * Shows the generic location icon when there is no image; the parent passes null after onError.
+ */
+export function VenueThumb({ image, alt, onError }: { image: VenueCardImage | null; alt: string; onError: (url: string) => void }) {
+  const box = "size-14 shrink-0 overflow-hidden rounded-xl sm:size-16";
+  if (!image)
+    return (
+      <span className={cn(box, "flex items-center justify-center bg-sage-soft text-forest")} data-testid="venue-thumb" data-kind="icon">
+        <MapPin className="size-5" />
+      </span>
+    );
+  // Commons hot-links accept a width parameter; other sources are used as-is.
+  const src = image.url.includes("Special:FilePath") ? image.url.replace(/width=\d+/, "width=160") : image.url;
+  return (
+    <span className={cn(box, "relative bg-ivory-deep")} data-testid="venue-thumb" data-kind={image.kind}>
+      {/* eslint-disable-next-line @next/next/no-img-element -- remote images; static export has no image optimizer */}
+      <img src={src} alt={alt} loading="lazy" onError={() => onError(image.url)} className="aspect-square size-full object-cover" data-testid="venue-thumb-img" />
+    </span>
   );
 }

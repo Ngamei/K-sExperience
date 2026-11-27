@@ -31,6 +31,18 @@ data/*.json + data/samples/*.json ──src/lib/data/catalogue.ts──▶ /data
 - **Accounts:** `AuthProvider` (in `Providers`) listens to Supabase Auth. Personal data lives in the Zustand `useUser` store with an `ownerId` (null = guest). On sign-in: load account passport → `mergePassports(account, guest)` → upsert → adopt (`ownerId = user.id`). Changes are then synced as diffs (`syncPassportDiff`). Sign-out → `clearPersonal()`. Local mode: no AuthProvider effects; guest only.
 - **Evidence levels** live in `src/lib/data/evidence.ts` and are enforced in Zod, importers, Admin and the DB.
 - **Catalogue merge** (`src/lib/data/merge.ts`) is shared by the CLI importer and Admin import.
+- **Dish-at-place photos** are stored on the dish ↔ establishment link (`DishRestaurantLink.photo`, `LinkPhotoSchema` in
+  `src/lib/data/schema.ts`; DB columns `primary_photo_url`, `photo_kind`, `photo_source_url`, `photo_attribution`,
+  `photo_license`, `photo_last_checked_at` on `dish_restaurant_links`, migration `0004_link_photos.sql`, all-or-nothing CHECK).
+  `photo_kind` ∈ `venue-specific | menu-photo | delivery-listing | generic-dish`. Establishments have no photo field, so a
+  venue photo can only ever appear next to the dish it shows.
+  The venue cards on a dish page pick their thumbnail with `venueCardImage(dish, link)` (`src/lib/food/venue-photo.ts`):
+  link photo of this dish (venue-specific, or the venue's menu / delivery-listing image) → the dish's generic primary photo
+  (`dish.photos[0]`, labelled "not from this venue") → `null` = the location icon. A link photo is ignored unless
+  `link.dishId === dish.id`. `VenueThumb` (`src/components/food/dish-image.tsx`) renders a 56/64 px square, `rounded-xl`,
+  `object-cover`; if the image fails to load the card shows the icon and drops the photo credit.
+  Link photos flow through the batch importer (`dishes[].photo` in a curated source), Admin → Evidence editor (optional
+  photo fieldset; saving without photo fields keeps the existing photo), `supabase/seed.sql` and the Supabase read path.
 
 ## Module layout
 ```

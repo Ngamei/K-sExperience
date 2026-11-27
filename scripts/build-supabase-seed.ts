@@ -65,9 +65,9 @@ const rids = restaurants.map((r) => q(r.id)).join(",");
 out.push(`delete from restaurant_sources where restaurant_id in (${rids});`);
 out.push(`insert into restaurant_sources (restaurant_id, title, url, accessed, note) values
 ${restaurants.flatMap((r) => r.sources.map((s) => `(${q(r.id)}, ${q(s.title)}, ${q(s.url)}, ${q(s.accessed)}, ${q(s.note)})`)).join(",\n")};`);
-out.push(`insert into dish_restaurant_links (dish_id, restaurant_id, status, menu_evidence, price_min_vnd, price_max_vnd, last_verified) values
-${links.map((l) => `(${q(l.dishId)}, ${q(l.restaurantId)}, ${q(l.status)}, ${json(l.menuEvidence)}, ${num(l.priceVnd?.min)}, ${num(l.priceVnd?.max)}, ${q(l.lastVerified)})`).join(",\n")}
-on conflict (dish_id, restaurant_id) do update set status = excluded.status, menu_evidence = excluded.menu_evidence, price_min_vnd = excluded.price_min_vnd, price_max_vnd = excluded.price_max_vnd, last_verified = excluded.last_verified;`);
+out.push(`insert into dish_restaurant_links (dish_id, restaurant_id, status, menu_evidence, price_min_vnd, price_max_vnd, last_verified, primary_photo_url, photo_kind, photo_source_url, photo_attribution, photo_license, photo_last_checked_at) values
+${links.map((l) => `(${q(l.dishId)}, ${q(l.restaurantId)}, ${q(l.status)}, ${json(l.menuEvidence)}, ${num(l.priceVnd?.min)}, ${num(l.priceVnd?.max)}, ${q(l.lastVerified)}, ${q(l.photo?.url)}, ${q(l.photo?.kind)}, ${q(l.photo?.sourceUrl)}, ${q(l.photo?.attribution)}, ${q(l.photo?.license)}, ${q(l.photo?.lastCheckedAt)})`).join(",\n")}
+on conflict (dish_id, restaurant_id) do update set status = excluded.status, menu_evidence = excluded.menu_evidence, price_min_vnd = excluded.price_min_vnd, price_max_vnd = excluded.price_max_vnd, last_verified = excluded.last_verified, primary_photo_url = excluded.primary_photo_url, photo_kind = excluded.photo_kind, photo_source_url = excluded.photo_source_url, photo_attribution = excluded.photo_attribution, photo_license = excluded.photo_license, photo_last_checked_at = excluded.photo_last_checked_at;`);
 out.push("commit;");
 writeFileSync(path.join(root, "supabase/seed.sql"), out.join("\n\n") + "\n");
 console.log(`✓ supabase/seed.sql — ${cat.dishes.length} dishes, ${restaurants.length} restaurants, ${links.length} links`);

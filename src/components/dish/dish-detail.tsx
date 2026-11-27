@@ -12,12 +12,13 @@ import { buildAvailabilityIndex, statusOf } from "@/lib/food/availability";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DishArt } from "@/components/food/dish-art";
-import { DishHeroPhoto } from "@/components/food/dish-image";
+import { DishHeroPhoto, VenueThumb } from "@/components/food/dish-image";
+import { venueCardImage } from "@/lib/food/venue-photo";
 import { MyNotes } from "./my-notes";
 import { CategoryBadge, SampleBadge, StatusDot } from "@/components/food/badges";
 import { DishCard } from "@/components/food/dish-card";
 import { useFoodData } from "@/components/food/food-data";
-import type { DishRestaurantLink } from "@/lib/data/schema";
+import type { Dish, DishRestaurantLink, Restaurant } from "@/lib/data/schema";
 
 function Block({ title, children, testid }: { title: string; children: React.ReactNode; testid?: string }) {
   return (
@@ -25,6 +26,51 @@ function Block({ title, children, testid }: { title: string; children: React.Rea
       <h2 className="mb-3 font-display text-xl text-forest">{title}</h2>
       {children}
     </section>
+  );
+}
+
+function VenueRow({ l, dish: d, restaurant: r }: { l: DishRestaurantLink; dish: Dish; restaurant: Restaurant }) {
+  const { t, locale } = useT();
+  const found = venueCardImage(d, l);
+  // Remember a failed image so the card falls back to the icon and drops the photo credit.
+  const [failedUrl, setFailedUrl] = useState<string | null>(null);
+  const img = found && found.url !== failedUrl ? found : null;
+  return (
+    <div className="rounded-2xl border border-line/80 bg-ivory/60 p-3.5" data-testid="venue-row" data-venue-id={r.id}>
+      <div className="flex items-start gap-3">
+        <VenueThumb image={img} alt={`${d.nameVi} — ${r.name}`} onError={setFailedUrl} />
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <Link href={`/places/${r.id}/`} className="font-medium hover:text-forest hover:underline">{r.name}</Link>
+            {r.isSample && <SampleBadge />}
+          </div>
+          <p className="text-xs text-muted">{r.address}</p>
+          <p className="text-xs text-muted">{r.neighbourhood} · {lbl(VENUE_LABELS, r.venueType, locale)}{r.priceRange ? ` · ${r.priceRange}` : ""}{l.priceVnd ? ` · ${l.priceVnd.min.toLocaleString("vi-VN")}–${l.priceVnd.max.toLocaleString("vi-VN")} ₫` : ""}</p>
+          {r.highlights?.length ? <p className="mt-1 text-xs text-forest">{r.highlights.join(" · ")}</p> : null}
+          {img && (
+            <p className="mt-1 text-[11px] leading-snug text-muted" data-testid="venue-photo-credit">
+              {t(`venuePhoto.${img.kind}`)} · {img.attribution} ·{" "}
+              {img.sourceUrl ? <a href={img.sourceUrl} target="_blank" rel="noreferrer" className="underline hover:text-forest">{img.license}</a> : img.license}
+            </p>
+          )}
+          {l.menuEvidence && !r.isSample && (
+            <p className="mt-1.5 text-[11.5px] leading-snug text-charcoal/70">
+              <span className="font-medium">{t("place.evidence")}:</span> {l.menuEvidence.note}{" "}
+              {l.menuEvidence.url && <a href={l.menuEvidence.url} target="_blank" rel="noreferrer" className="underline hover:text-forest">↗</a>}
+            </p>
+          )}
+        </div>
+      </div>
+      <div className="mt-2.5 flex flex-wrap items-center gap-2 sm:pl-[76px]">
+        <StatusDot status={l.status} />
+        {l.lastVerified && !r.isSample && <span className="text-[11px] text-muted" data-testid="last-checked">{t("status.lastChecked", { date: l.lastVerified })}</span>}
+        {r.googleMapsUrl && (
+          <a href={r.googleMapsUrl} target="_blank" rel="noreferrer" className="inline-flex h-7 items-center gap-1 rounded-full bg-forest px-3 text-[11.5px] font-medium text-ivory hover:bg-forest-soft" data-testid="google-maps-link">
+            <MapPin className="size-3.5" /> {t("place.googleMaps")}
+          </a>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -52,41 +98,6 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
   const sampleLinks = showSamples ? sample.linksByDish.get(id) ?? [] : [];
   const variants = d.family ? dishes.filter((x) => x.family === d.family && x.id !== d.id) : [];
   const verification = (override as typeof d.verification.status | undefined) ?? d.verification.status;
-
-  const VenueRow = ({ l }: { l: DishRestaurantLink }) => {
-    const r = restaurants.find((x) => x.id === l.restaurantId)!;
-    return (
-      <div className="rounded-2xl border border-line/80 bg-ivory/60 p-3.5" data-testid="venue-row" data-venue-id={r.id}>
-        <div className="flex items-start gap-3">
-          <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-sage-soft text-forest"><MapPin className="size-5" /></span>
-          <div className="min-w-0 flex-1">
-            <div className="flex flex-wrap items-center gap-1.5">
-              <Link href={`/places/${r.id}/`} className="font-medium hover:text-forest hover:underline">{r.name}</Link>
-              {r.isSample && <SampleBadge />}
-            </div>
-            <p className="text-xs text-muted">{r.address}</p>
-            <p className="text-xs text-muted">{r.neighbourhood} · {lbl(VENUE_LABELS, r.venueType, locale)}{r.priceRange ? ` · ${r.priceRange}` : ""}{l.priceVnd ? ` · ${l.priceVnd.min.toLocaleString("vi-VN")}–${l.priceVnd.max.toLocaleString("vi-VN")} ₫` : ""}</p>
-            {r.highlights?.length ? <p className="mt-1 text-xs text-forest">{r.highlights.join(" · ")}</p> : null}
-            {l.menuEvidence && !r.isSample && (
-              <p className="mt-1.5 text-[11.5px] leading-snug text-charcoal/70">
-                <span className="font-medium">{t("place.evidence")}:</span> {l.menuEvidence.note}{" "}
-                {l.menuEvidence.url && <a href={l.menuEvidence.url} target="_blank" rel="noreferrer" className="underline hover:text-forest">↗</a>}
-              </p>
-            )}
-          </div>
-        </div>
-        <div className="mt-2.5 flex flex-wrap items-center gap-2 pl-[52px]">
-          <StatusDot status={l.status} />
-          {l.lastVerified && !r.isSample && <span className="text-[11px] text-muted" data-testid="last-checked">{t("status.lastChecked", { date: l.lastVerified })}</span>}
-          {r.googleMapsUrl && (
-            <a href={r.googleMapsUrl} target="_blank" rel="noreferrer" className="inline-flex h-7 items-center gap-1 rounded-full bg-forest px-3 text-[11.5px] font-medium text-ivory hover:bg-forest-soft" data-testid="google-maps-link">
-              <MapPin className="size-3.5" /> {t("place.googleMaps")}
-            </a>
-          )}
-        </div>
-      </div>
-    );
-  };
 
   return (
     <article className="mx-auto max-w-6xl px-4 pt-4 md:px-6 md:pt-8" data-testid="dish-detail" data-dish-id={d.id}>
@@ -190,7 +201,7 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
         <Block title={t("dish.hcmc")} testid="hcmc-block">
           {realLinks.length > 0 ? (
             <div className="grid gap-2">
-              {realLinks.map((l) => <VenueRow key={l.restaurantId} l={l} />)}
+              {realLinks.map((l) => <VenueRow key={l.restaurantId} l={l} dish={d} restaurant={restaurants.find((x) => x.id === l.restaurantId)!} />)}
               <p className="text-[11.5px] text-muted">{t("dish.hcmcNote")}</p>
             </div>
           ) : (
@@ -248,7 +259,7 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
           {sampleLinks.length > 0 && (
             <div className="mt-4 rounded-2xl bg-[#fff8e1] p-3 ring-1 ring-[#efd98c]" data-testid="sample-venues">
               <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#6b4e00]">Sample venues — fictional, for interface preview only</p>
-              <div className="grid gap-2">{sampleLinks.map((l) => <VenueRow key={l.restaurantId} l={l} />)}</div>
+              <div className="grid gap-2">{sampleLinks.map((l) => <VenueRow key={l.restaurantId} l={l} dish={d} restaurant={restaurants.find((x) => x.id === l.restaurantId)!} />)}</div>
             </div>
           )}
         </Block>

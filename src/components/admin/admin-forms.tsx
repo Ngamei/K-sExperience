@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { CATEGORIES, DIETARY, DISH_TYPES, MEAL_TIMES, PRICE_RANGES, TASTES, VENUE_TYPES, DishRestaurantLinkSchema, DishSchema, RestaurantSchema, type Dish, type DishRestaurantLink, type Restaurant } from "@/lib/data/schema";
+import { CATEGORIES, DIETARY, DISH_TYPES, MEAL_TIMES, PRICE_RANGES, TASTES, VENUE_TYPES, DishRestaurantLinkSchema, DishSchema, LINK_PHOTO_KINDS, type LinkPhotoKind, RestaurantSchema, type Dish, type DishRestaurantLink, type Restaurant } from "@/lib/data/schema";
 import { ALLOWED_EVIDENCE, LINK_STATUSES, type EvidenceType, type LinkStatus } from "@/lib/data/evidence";
 import { slugify } from "@/lib/search/normalize";
 import { Button } from "@/components/ui/button";
@@ -224,6 +224,10 @@ export function EvidenceEditor({ onSave, canPersist }: { onSave: Saver; canPersi
     menuEvidence: { type: f.type as EvidenceType, note: f.note ?? "", ...(f.url ? { url: f.url } : {}) },
     ...(f.priceMin && f.priceMax ? { priceVnd: { min: Number(f.priceMin), max: Number(f.priceMax) } } : {}),
     ...(f.lastVerified ? { lastVerified: f.lastVerified } : {}),
+    // Dish-at-place photo: only when entered; otherwise keep the link's existing photo (saving must not drop it).
+    ...(f.photoUrl
+      ? { photo: { url: f.photoUrl, kind: (f.photoKind ?? "venue-specific") as LinkPhotoKind, sourceUrl: f.photoSourceUrl ?? "", attribution: f.photoAttribution ?? "", license: f.photoLicense ?? "", lastCheckedAt: f.photoChecked ?? today } }
+      : existing?.photo ? { photo: existing.photo } : {}),
   };
   const issues = [
     ...issuesOf(DishRestaurantLinkSchema.safeParse(record)),
@@ -248,6 +252,15 @@ export function EvidenceEditor({ onSave, canPersist }: { onSave: Saver; canPersi
           <div><span className={label}>Price min ₫</span><input className={field} value={f.priceMin ?? ""} onChange={set("priceMin")} /></div>
           <div><span className={label}>Price max ₫</span><input className={field} value={f.priceMax ?? ""} onChange={set("priceMax")} /></div>
         </div>
+        <fieldset className="grid gap-3 rounded-xl border border-line p-3 md:col-span-2 md:grid-cols-2" data-testid="link-photo-fields">
+          <legend className="px-1 text-xs text-muted">Photo of this dish at this venue (optional — must show this exact dish; licence or written permission required)</legend>
+          <div><span className={label}>Photo URL</span><input className={field} value={f.photoUrl ?? ""} onChange={set("photoUrl")} data-testid="link-photo-url" /></div>
+          <div><span className={label}>Photo kind</span><select className={field} value={f.photoKind ?? "venue-specific"} onChange={set("photoKind")}>{LINK_PHOTO_KINDS.map((k) => <option key={k}>{k}</option>)}</select></div>
+          <div><span className={label}>Photo source page</span><input className={field} value={f.photoSourceUrl ?? ""} onChange={set("photoSourceUrl")} /></div>
+          <div><span className={label}>Attribution</span><input className={field} value={f.photoAttribution ?? ""} onChange={set("photoAttribution")} /></div>
+          <div><span className={label}>Licence / permission</span><input className={field} value={f.photoLicense ?? ""} onChange={set("photoLicense")} /></div>
+          <div><span className={label}>Photo last checked</span><input type="date" className={field} value={f.photoChecked ?? today} onChange={set("photoChecked")} /></div>
+        </fieldset>
       </div>
       {existing && <p className="text-xs text-muted">Existing link: <strong>{existing.status}</strong> · last checked {existing.lastVerified ?? "—"} — saving replaces it.</p>}
       <Issues items={issues} />

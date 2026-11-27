@@ -177,6 +177,32 @@ export const RestaurantSchema = z.object({
 });
 export type Restaurant = z.infer<typeof RestaurantSchema>;
 
+/**
+ * Dish-at-place imagery (stored on the dish ↔ establishment link, never on the establishment alone,
+ * so a venue photo can only ever be shown for the exact dish it depicts).
+ *   venue-specific   — photo of this dish taken at / published by this venue
+ *   menu-photo       — this venue's own menu image of this dish
+ *   delivery-listing — this venue's delivery-app listing image of this dish
+ *   generic-dish     — a representative photo of the dish, not from this venue
+ */
+export const LINK_PHOTO_KINDS = ["venue-specific", "menu-photo", "delivery-listing", "generic-dish"] as const;
+export type LinkPhotoKind = (typeof LINK_PHOTO_KINDS)[number];
+export const LinkPhotoSchema = z.object({
+  /** DB: primary_photo_url */
+  url: z.url(),
+  /** DB: photo_kind */
+  kind: z.enum(LINK_PHOTO_KINDS),
+  /** DB: photo_source_url — page where the photo was found (venue post, menu, delivery listing, Commons page). */
+  sourceUrl: z.url(),
+  /** DB: photo_attribution */
+  attribution: z.string().min(1),
+  /** DB: photo_license — licence or written permission under which we may show it. */
+  license: z.string().min(1),
+  /** DB: photo_last_checked_at — date the photo was last confirmed to show this dish at this venue. */
+  lastCheckedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}/),
+});
+export type LinkPhoto = z.infer<typeof LinkPhotoSchema>;
+
 export const DishRestaurantLinkSchema = z.object({
   dishId: z.string(),
   restaurantId: z.string(),
@@ -186,6 +212,8 @@ export const DishRestaurantLinkSchema = z.object({
   priceVnd: z.object({ min: z.number(), max: z.number() }).optional(),
   /** Date the evidence was last checked (shown as "Last checked"). */
   lastVerified: z.string().optional(),
+  /** Photo of this exact dish for this venue (see LinkPhotoSchema). */
+  photo: LinkPhotoSchema.optional(),
 }).superRefine((l, ctx) => {
   const problem = evidenceProblem(l.status, l.menuEvidence?.type, l.isSample);
   if (problem) ctx.addIssue({ code: "custom", message: problem, path: ["menuEvidence"] });
