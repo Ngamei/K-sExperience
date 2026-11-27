@@ -118,10 +118,11 @@ test("passports and saved items are isolated per experience on the same device",
   await expect(page.getByTestId("passport-tried")).toHaveText(/^0\//);
 });
 
-test("with the real (empty) dataset the pilot shows honest empty states", async ({ page }) => {
+test("an empty module dataset shows honest empty states", async ({ page }) => {
+  await page.route("**/data/experiences/coffee.json", (r) => r.fulfill({ json: { metadata: { experienceId: "coffee", dataset: "empty", note: "t" }, items: [], establishments: [], offerings: [] } }));
   await page.goto("/coffee/catalogue/");
   await expect(page.getByTestId("pilot-banner")).toHaveCount(0); // development notice only (not in production-like builds)
-  await expect(page.getByTestId("data-banner")).toHaveCount(0); // Food's seed banner is Food-only
+  await expect(page.getByTestId("data-banner")).toHaveCount(0); // Food's seed banner is gone everywhere
   await expect(page.getByTestId("module-empty")).toContainText("No coffees have been researched yet");
   await page.goto("/coffee/");
   await expect(page.getByTestId("module-empty")).toContainText("No cafés in Ho Chi Minh City have been verified yet");

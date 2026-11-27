@@ -269,3 +269,29 @@ test("users can delete their account and all personal data", async ({ page }) =>
   expect(state.users.some((u) => u.id === uid)).toBe(false);
   expect(state.experience_history.some((r) => r.user_id === uid)).toBe(false);
 });
+
+test("one account, separate passports: Coffee progress syncs across devices and never mixes with Food", async ({ browser }) => {
+  const email = unique("coffee");
+  const phone = await (await browser.newContext()).newPage();
+  await signup(phone, email);
+  await phone.goto("/coffee/item/?id=ca-phe-trung");
+  await phone.getByTestId("item-tried").click();
+  await expect.poll(async () => (await historyOf(email)).filter((r) => r.item_id === "ca-phe-trung").length).toBe(1);
+
+  const laptop = await (await browser.newContext()).newPage();
+  await login(laptop, email);
+  expect(await triedCount(laptop)).toBe(0); // Food passport untouched by Coffee activity
+  await laptop.goto("/coffee/passport/");
+  await expect(laptop.getByTestId("module-passport-tried")).toHaveText(/^1\//);
+  // rows carry their experience: the coffee row is not a Food row
+  const state = await db();
+  const uid = state.users.find((u) => u.email === email)!.id;
+  const coffeeRows = state.experience_history.filter((r) => r.user_id === uid) as (Row & { experience_id?: string; item_type?: string })[];
+  expect(coffeeRows.map((r) => [r.experience_id, r.item_type, r.item_id])).toEqual([["coffee", "item", "ca-phe-trung"]]);
+});
+
+test("Coffee Passport is behind the same sign-in gate", async ({ page }) => {
+  await page.goto("/coffee/passport/");
+  await expect(page.getByTestId("auth-dialog")).toBeVisible();
+  await expect(page.getByTestId("module-passport")).toHaveCount(0);
+});

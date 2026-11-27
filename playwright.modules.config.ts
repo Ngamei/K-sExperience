@@ -10,8 +10,8 @@ export default defineConfig({
   testDir: "e2e-modules",
   timeout: 60_000,
   expect: { timeout: 15_000 },
-  fullyParallel: true,
-  workers: 2,
+  fullyParallel: false,
+  workers: 1, // cache.spec rewrites a data file of the served build
   reporter: [["list"]],
   use: { baseURL: "http://localhost:3600", trace: "off", serviceWorkers: "block", // fixtures are served via page.route
     launchOptions: { args: glArgs } },

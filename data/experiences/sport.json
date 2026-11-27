@@ -1,10 +1,258 @@
 {
   "metadata": {
     "experienceId": "sport",
-    "dataset": "empty",
-    "note": "Pilot dataset on the shared Experience Engine. Items, establishments and offerings are added only from sourced research through the importer and validators — never invented."
+    "note": "sport pilot: catalogue items from published references (seed, not yet reviewed); venues and offerings from desk research — every offering cites a published source; status source-listed. Built by scripts/build-experience-research.ts.",
+    "dataset": "seed",
+    "generatedAt": "2026-11-27"
   },
-  "items": [],
+  "items": [
+    {
+      "id": "pickleball-court-rental",
+      "experienceId": "sport",
+      "nameVi": "Thuê sân pickleball",
+      "nameEn": "Pickleball court rental",
+      "altNames": [],
+      "category": "pickleball",
+      "attributes": {
+        "sport": "pickleball",
+        "format": [
+          "court-rental"
+        ],
+        "level": [
+          "all-levels"
+        ]
+      },
+      "description": {
+        "vi": "Đặt sân chơi pickleball — môn thể thao dùng vợt kết hợp quần vợt, cầu lông và bóng bàn.",
+        "en": "Book a court to play pickleball, a paddle sport combining elements of tennis, badminton and table tennis."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Pickleball",
+          "url": "https://en.wikipedia.org/wiki/Pickleball"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "pickleball-coaching",
+      "experienceId": "sport",
+      "nameVi": "Học pickleball có huấn luyện viên",
+      "nameEn": "Pickleball coaching",
+      "altNames": [],
+      "category": "pickleball",
+      "attributes": {
+        "sport": "pickleball",
+        "format": [
+          "coaching",
+          "private",
+          "group"
+        ],
+        "level": [
+          "beginner",
+          "intermediate",
+          "advanced"
+        ]
+      },
+      "description": {
+        "vi": "Học với huấn luyện viên, từ cơ bản đến thi đấu.",
+        "en": "Lessons with a coach, from first rallies to match play."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Pickleball",
+          "url": "https://en.wikipedia.org/wiki/Pickleball"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "pickleball-social-play",
+      "experienceId": "sport",
+      "nameVi": "Giao lưu pickleball",
+      "nameEn": "Pickleball social play",
+      "altNames": [],
+      "category": "pickleball",
+      "attributes": {
+        "sport": "pickleball",
+        "format": [
+          "social"
+        ],
+        "level": [
+          "all-levels"
+        ]
+      },
+      "description": {
+        "vi": "Giao lưu, ghép trận cùng người chơi khác.",
+        "en": "Drop-in social games with other players."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Pickleball",
+          "url": "https://en.wikipedia.org/wiki/Pickleball"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "pickleball-equipment-rental",
+      "experienceId": "sport",
+      "nameVi": "Thuê vợt và bóng pickleball",
+      "nameEn": "Pickleball equipment rental",
+      "altNames": [],
+      "category": "pickleball",
+      "attributes": {
+        "sport": "pickleball",
+        "format": [
+          "equipment-rental"
+        ],
+        "equipment": [
+          "paddle-ball"
+        ]
+      },
+      "description": {
+        "vi": "Thuê vợt và bóng tại sân.",
+        "en": "Paddles and balls to rent at the court."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Pickleball",
+          "url": "https://en.wikipedia.org/wiki/Pickleball"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "reformer-pilates",
+      "experienceId": "sport",
+      "nameVi": "Pilates Reformer",
+      "nameEn": "Reformer Pilates",
+      "altNames": [],
+      "category": "pilates",
+      "attributes": {
+        "sport": "pilates",
+        "equipment": [
+          "reformer"
+        ],
+        "format": [
+          "trial",
+          "private",
+          "group"
+        ],
+        "level": [
+          "beginner",
+          "intermediate",
+          "advanced"
+        ]
+      },
+      "description": {
+        "vi": "Pilates trên máy Reformer — bàn trượt dùng lò xo tạo lực cản.",
+        "en": "Pilates on the reformer, a sliding carriage with springs for resistance."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Pilates",
+          "url": "https://en.wikipedia.org/wiki/Pilates"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "mat-pilates",
+      "experienceId": "sport",
+      "nameVi": "Pilates Mat",
+      "nameEn": "Mat Pilates",
+      "altNames": [],
+      "category": "pilates",
+      "attributes": {
+        "sport": "pilates",
+        "equipment": [
+          "mat"
+        ],
+        "format": [
+          "trial",
+          "group"
+        ],
+        "level": [
+          "all-levels"
+        ]
+      },
+      "description": {
+        "vi": "Các bài tập Pilates trên thảm với trọng lượng cơ thể.",
+        "en": "Pilates exercises on a mat using body weight."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Pilates",
+          "url": "https://en.wikipedia.org/wiki/Pilates"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "pilates-apparatus",
+      "experienceId": "sport",
+      "nameVi": "Pilates Cadillac, Chair & Barrel",
+      "nameEn": "Pilates on Cadillac, Chair and Barrel",
+      "altNames": [],
+      "category": "pilates",
+      "attributes": {
+        "sport": "pilates",
+        "equipment": [
+          "cadillac",
+          "chair",
+          "barrel"
+        ],
+        "format": [
+          "private",
+          "group"
+        ],
+        "level": [
+          "intermediate",
+          "advanced"
+        ]
+      },
+      "description": {
+        "vi": "Pilates trên các thiết bị Cadillac, Chair và Barrel.",
+        "en": "Pilates on the Cadillac, Chair and Barrel apparatus."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Pilates",
+          "url": "https://en.wikipedia.org/wiki/Pilates"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    }
+  ],
   "establishments": [],
   "offerings": []
 }

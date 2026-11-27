@@ -1,10 +1,694 @@
 {
   "metadata": {
     "experienceId": "coffee",
-    "dataset": "empty",
-    "note": "Coffee reference pilot for the shared Experience Engine. No items, cafés or offerings yet: they are added only from sourced research (step G) through the importer and validators — never invented."
+    "note": "coffee pilot: catalogue items from published references (seed, not yet reviewed); venues and offerings from desk research — every offering cites a published source; status source-listed. Built by scripts/build-experience-research.ts.",
+    "dataset": "seed",
+    "generatedAt": "2026-11-27"
   },
-  "items": [],
-  "establishments": [],
-  "offerings": []
+  "items": [
+    {
+      "id": "ca-phe-sua-da",
+      "experienceId": "coffee",
+      "nameVi": "Cà phê sữa đá",
+      "nameEn": "Iced coffee with condensed milk",
+      "altNames": [
+        "ca phe sua da",
+        "Vietnamese iced coffee"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "phin",
+        "flavour": [
+          "strong",
+          "sweet",
+          "milky"
+        ],
+        "served": [
+          "iced"
+        ]
+      },
+      "description": {
+        "vi": "Cà phê pha phin pha cùng sữa đặc, uống với đá.",
+        "en": "Phin-filtered coffee stirred with sweetened condensed milk and poured over ice."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Vietnamese iced coffee",
+          "url": "https://en.wikipedia.org/wiki/Vietnamese_iced_coffee"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "ca-phe-den-da",
+      "experienceId": "coffee",
+      "nameVi": "Cà phê đen đá",
+      "nameEn": "Iced black coffee",
+      "altNames": [
+        "ca phe den da"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "phin",
+        "flavour": [
+          "strong",
+          "bitter"
+        ],
+        "served": [
+          "iced",
+          "hot"
+        ]
+      },
+      "description": {
+        "vi": "Cà phê đen pha phin, thường thêm đường và uống với đá.",
+        "en": "Strong phin-filtered black coffee, usually sweetened and served over ice."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Vietnamese iced coffee",
+          "url": "https://en.wikipedia.org/wiki/Vietnamese_iced_coffee"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "bac-xiu",
+      "experienceId": "coffee",
+      "nameVi": "Bạc xỉu",
+      "nameEn": "White coffee (bạc xỉu)",
+      "altNames": [
+        "bac xiu"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "phin",
+        "flavour": [
+          "milky",
+          "sweet"
+        ],
+        "served": [
+          "iced"
+        ]
+      },
+      "description": {
+        "vi": "Món quen thuộc của Sài Gòn với nhiều sữa hơn cà phê.",
+        "en": "A Saigon favourite with much more milk than coffee."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Vietnamese iced coffee",
+          "url": "https://en.wikipedia.org/wiki/Vietnamese_iced_coffee"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "ca-phe-trung",
+      "experienceId": "coffee",
+      "nameVi": "Cà phê trứng",
+      "nameEn": "Egg coffee",
+      "altNames": [
+        "ca phe trung"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "whisked",
+        "flavour": [
+          "creamy",
+          "sweet"
+        ],
+        "served": [
+          "hot",
+          "iced"
+        ]
+      },
+      "description": {
+        "vi": "Cà phê gốc Hà Nội, phủ lớp lòng đỏ trứng đánh bông với đường và sữa đặc.",
+        "en": "Hanoi-born coffee topped with egg yolk whipped with sugar and condensed milk."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Egg coffee",
+          "url": "https://en.wikipedia.org/wiki/Egg_coffee"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "ca-phe-muoi",
+      "experienceId": "coffee",
+      "nameVi": "Cà phê muối",
+      "nameEn": "Salt coffee",
+      "altNames": [
+        "ca phe muoi",
+        "salted coffee"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "phin",
+        "flavour": [
+          "salty",
+          "sweet",
+          "creamy"
+        ],
+        "served": [
+          "hot",
+          "iced"
+        ]
+      },
+      "description": {
+        "vi": "Đặc sản Huế: cà phê phin phủ lớp kem sữa có chút muối.",
+        "en": "A Huế speciality: phin coffee topped with lightly salted cream."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress International — Salted coffee: a Hue specialty",
+          "url": "https://e.vnexpress.net/news/food/salted-coffee-a-hue-specialty-4554556.html"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "ca-phe-cot-dua",
+      "experienceId": "coffee",
+      "nameVi": "Cà phê cốt dừa",
+      "nameEn": "Coconut coffee",
+      "altNames": [
+        "ca phe cot dua"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "phin",
+        "flavour": [
+          "creamy",
+          "sweet"
+        ],
+        "served": [
+          "iced"
+        ]
+      },
+      "description": {
+        "vi": "Cà phê xay cùng nước cốt dừa, sữa đặc và đá.",
+        "en": "Coffee blended with coconut milk, condensed milk and ice."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Vietnam Airlines travel guide — coconut coffee",
+          "url": "https://www.vietnamairlines.com/at/en/plan-book/travel/travel-guide/coconut-coffee-hanoi"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "ca-phe-vot",
+      "experienceId": "coffee",
+      "nameVi": "Cà phê vợt",
+      "nameEn": "Sock-filter coffee",
+      "altNames": [
+        "ca phe vot",
+        "cloth-filter coffee"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "brewed",
+        "flavour": [
+          "strong"
+        ],
+        "served": [
+          "hot",
+          "iced"
+        ]
+      },
+      "description": {
+        "vi": "Cà phê Sài Gòn xưa, lọc qua vợt vải.",
+        "en": "Old-Saigon coffee strained through a cloth ‘sock’ filter."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Saigoneer — Hẻm Gems: a cuppa in Saigon's oldest café",
+          "url": "https://saigoneer.com/saigon-street-food-restaurants/8085-hem-gems-a-cuppa-in-saigon-s-oldest-cafe"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "espresso",
+      "experienceId": "coffee",
+      "nameVi": "Espresso",
+      "nameEn": "Espresso",
+      "altNames": [],
+      "category": "espresso",
+      "attributes": {
+        "preparation": "espresso",
+        "flavour": [
+          "strong",
+          "bitter"
+        ],
+        "served": [
+          "hot"
+        ]
+      },
+      "description": {
+        "vi": "Cà phê đậm đặc pha bằng máy, nước nóng nén qua bột cà phê mịn.",
+        "en": "Concentrated coffee brewed by forcing hot water through finely ground coffee."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Espresso",
+          "url": "https://en.wikipedia.org/wiki/Espresso"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "cappuccino",
+      "experienceId": "coffee",
+      "nameVi": "Cappuccino",
+      "nameEn": "Cappuccino",
+      "altNames": [],
+      "category": "espresso",
+      "attributes": {
+        "preparation": "espresso",
+        "flavour": [
+          "milky",
+          "creamy"
+        ],
+        "served": [
+          "hot"
+        ]
+      },
+      "description": {
+        "vi": "Espresso với sữa nóng và lớp bọt sữa.",
+        "en": "Espresso with steamed milk and milk foam."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Cappuccino",
+          "url": "https://en.wikipedia.org/wiki/Cappuccino"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "pour-over",
+      "experienceId": "coffee",
+      "nameVi": "Cà phê pha thủ công (pour-over)",
+      "nameEn": "Pour-over coffee",
+      "altNames": [
+        "V60",
+        "Chemex",
+        "hand drip"
+      ],
+      "category": "specialty",
+      "attributes": {
+        "coffeeType": "arabica",
+        "preparation": "pour-over",
+        "flavour": [
+          "fruity"
+        ],
+        "served": [
+          "hot",
+          "iced"
+        ]
+      },
+      "description": {
+        "vi": "Cà phê lọc rót tay, thường dùng hạt một nguồn gốc.",
+        "en": "Hand-poured filter coffee, often single-origin beans."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Drip coffee (pour-over)",
+          "url": "https://en.wikipedia.org/wiki/Drip_coffee"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "cold-brew",
+      "experienceId": "coffee",
+      "nameVi": "Cold brew",
+      "nameEn": "Cold brew",
+      "altNames": [
+        "cà phê ủ lạnh"
+      ],
+      "category": "cold-brew",
+      "attributes": {
+        "preparation": "cold-brew",
+        "flavour": [
+          "strong"
+        ],
+        "served": [
+          "iced"
+        ]
+      },
+      "description": {
+        "vi": "Cà phê ngâm ủ trong nước lạnh nhiều giờ.",
+        "en": "Coffee steeped in cold water for many hours."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Cold brew coffee",
+          "url": "https://en.wikipedia.org/wiki/Cold_brew_coffee"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "matcha-latte",
+      "experienceId": "coffee",
+      "nameVi": "Matcha latte",
+      "nameEn": "Matcha latte",
+      "altNames": [
+        "trà xanh sữa"
+      ],
+      "category": "matcha",
+      "attributes": {
+        "coffeeType": "matcha",
+        "preparation": "whisked",
+        "flavour": [
+          "milky",
+          "creamy"
+        ],
+        "served": [
+          "hot",
+          "iced"
+        ]
+      },
+      "description": {
+        "vi": "Bột trà xanh đánh tan, pha cùng sữa.",
+        "en": "Powdered green tea whisked and mixed with milk."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Matcha",
+          "url": "https://en.wikipedia.org/wiki/Matcha"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "tra-sen",
+      "experienceId": "coffee",
+      "nameVi": "Trà sen",
+      "nameEn": "Lotus tea",
+      "altNames": [
+        "tra sen"
+      ],
+      "category": "tea",
+      "attributes": {
+        "coffeeType": "tea",
+        "preparation": "brewed",
+        "served": [
+          "hot"
+        ]
+      },
+      "description": {
+        "vi": "Trà xanh ướp hương hoa sen.",
+        "en": "Green tea scented with lotus flowers."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Lotus tea",
+          "url": "https://en.wikipedia.org/wiki/Lotus_tea"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    }
+  ],
+  "establishments": [
+    {
+      "id": "cong-caphe-ly-tu-trong",
+      "name": "Cộng Cà Phê (Lý Tự Trọng)",
+      "isSample": false,
+      "address": "26 Lý Tự Trọng, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Sài Gòn",
+      "coordinates": [
+        106.701026,
+        10.778168
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%99ng%20C%C3%A0%20Ph%C3%AA%20(L%C3%BD%20T%E1%BB%B1%20Tr%E1%BB%8Dng)%2C%2026%20L%C3%BD%20T%E1%BB%B1%20Tr%E1%BB%8Dng%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "café",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "trvlogue.com",
+          "url": "https://www.trvlogue.com/en/cong-caphe-ho-chi-minh-review",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "foody.vn",
+          "url": "https://www.foody.vn/ho-chi-minh/cong-ca-phe-saigon-ly-tu-trong/binh-luan",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "coffee"
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "okkio-caffe-le-loi",
+      "name": "Okkio Caffe (Lê Lợi)",
+      "isSample": false,
+      "address": "122 Lê Lợi, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.698948,
+        10.772524
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Okkio%20Caffe%20(L%C3%AA%20L%E1%BB%A3i)%2C%20122%20L%C3%AA%20L%E1%BB%A3i%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "café",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "wanderingwheatleys.com",
+          "url": "https://wanderingwheatleys.com/best-egg-coffee-in-saigon-vietnam-ho-chi-minh-city/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "tablejourney.com",
+          "url": "https://tablejourney.com/vietnam/ho-chi-minh-city/cafes/okkio-caffe/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "coffee"
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "the-workshop-coffee",
+      "name": "The Workshop Coffee",
+      "isSample": false,
+      "address": "27 Ngô Đức Kế, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Sài Gòn",
+      "coordinates": [
+        106.705539,
+        10.773406
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Workshop%20Coffee%2C%2027%20Ng%C3%B4%20%C4%90%E1%BB%A9c%20K%E1%BA%BF%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "café",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "silverkris.singaporeair.com",
+          "url": "https://silverkris.singaporeair.com/guide/vietnam/sgn/eat-ho-chi-minh-city/the-workshop-coffee/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "freakingnomads.com",
+          "url": "https://freakingnomads.com/workspace/the-workshop-coffee",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "coffee"
+      ],
+      "attributes": {
+        "cafeTypes": [
+          "specialty",
+          "working"
+        ]
+      }
+    },
+    {
+      "id": "goc-ha-noi-nguyen-van-thu",
+      "name": "Góc Hà Nội",
+      "isSample": false,
+      "address": "102 Nguyễn Văn Thủ, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Định",
+      "coordinates": [
+        106.701032,
+        10.792089
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=G%C3%B3c%20H%C3%A0%20N%E1%BB%99i%2C%20102%20Nguy%E1%BB%85n%20V%C4%83n%20Th%E1%BB%A7%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "café",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "wanderingwheatleys.com",
+          "url": "https://wanderingwheatleys.com/best-egg-coffee-in-saigon-vietnam-ho-chi-minh-city/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "vietnamescapetours.com",
+          "url": "https://www.vietnamescapetours.com/travel-blog/where-to-drink-egg-coffee-in-saigon.html",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "coffee"
+      ],
+      "attributes": {}
+    }
+  ],
+  "offerings": [
+    {
+      "itemId": "ca-phe-cot-dua",
+      "establishmentId": "cong-caphe-ly-tu-trong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Travel review of the Lý Tự Trọng branch names coconut coffee as its signature drink.",
+        "url": "https://www.trvlogue.com/en/cong-caphe-ho-chi-minh-review"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "ca-phe-trung",
+      "establishmentId": "okkio-caffe-le-loi",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Egg-coffee guide lists Okkio Caffe (Lê Lợi, near Bến Thành) for egg coffee topped with cocoa.",
+        "url": "https://wanderingwheatleys.com/best-egg-coffee-in-saigon-vietnam-ho-chi-minh-city/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "ca-phe-cot-dua",
+      "establishmentId": "okkio-caffe-le-loi",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Café guide names coconut coffee as Okkio's signature drink.",
+        "url": "https://tablejourney.com/vietnam/ho-chi-minh-city/cafes/okkio-caffe/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "pour-over",
+      "establishmentId": "the-workshop-coffee",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "SilverKris guide: speciality café serving single-origin beans by manual brew methods (pour-over).",
+        "url": "https://silverkris.singaporeair.com/guide/vietnam/sgn/eat-ho-chi-minh-city/the-workshop-coffee/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "ca-phe-trung",
+      "establishmentId": "goc-ha-noi-nguyen-van-thu",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Egg-coffee guides list Góc Hà Nội (Nguyễn Văn Thủ, Đa Kao) for Hanoi-style egg coffee.",
+        "url": "https://www.vietnamescapetours.com/travel-blog/where-to-drink-egg-coffee-in-saigon.html"
+      },
+      "lastVerified": "2026-11-27"
+    }
+  ]
 }

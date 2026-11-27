@@ -44,6 +44,10 @@ Unzip, run `node serve.mjs` inside the folder, open http://localhost:4173 (Node 
 | `npm run data:coverage` | Regenerate `docs/VENUE_COVERAGE.md` (venues per dish, target ≥ 5) |
 | `npm run build:auth-test` / `npm run test:e2e-auth` | Build in Supabase mode against a mock Supabase and run the account-flow e2e |
 | `npm run build:modules-test` / `npm run test:e2e-modules` | Build with the Coffee pilot flag on and run the cross-module e2e (mode switching, shared engine screens; fixtures injected) |
+| `npm run data:research -- <module>` | Build a pilot dataset from `data/source/experiences/<module>/` (catalogue + researched venue batches + geocoding) |
+| `npm run data:import-module -- <module> <file> [--kind …] [--write]` | CSV/JSON import into a module (dry run by default; report in `docs/imports/`) |
+| `npm run data:experiences` | Data completeness report by experience → `docs/EXPERIENCE_DATA_REPORT.md` |
+| `npm run build:e2e` | Build with development data (sample venues) for the e2e suite |
 | `npm run test:db` | Apply Supabase migrations + seed to a throwaway local PostgreSQL/PostGIS DB and run RLS/integrity tests |
 | `npm run db:seed-sql` | Regenerate `supabase/seed.sql` from the repository data |
 | `npm run db:export` | Export the live Supabase catalogue to `backups/` (needs public URL + anon key) |

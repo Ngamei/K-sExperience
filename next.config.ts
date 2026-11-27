@@ -8,7 +8,11 @@ import type { NextConfig } from "next";
  */
 const isStaticExport = process.env.STATIC_EXPORT === "1";
 
+/** Identifies a deployment (service-worker cache version). Vercel provides the commit; local builds use the build time. */
+const BUILD_ID = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 12) ?? `local-${Date.now().toString(36)}`;
+
 const nextConfig: NextConfig = {
+  env: { NEXT_PUBLIC_BUILD_ID: BUILD_ID },
   // Separate output folder for the account-flow test build (see playwright.auth.config.ts).
   ...(process.env.BUILD_DIST_DIR ? { distDir: process.env.BUILD_DIST_DIR } : {}),
   ...(isStaticExport ? { output: "export" as const } : {}),

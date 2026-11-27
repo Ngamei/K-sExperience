@@ -1,0 +1,213 @@
+{
+  "note": "bars pilot catalogue — well-documented items only, each with a published reference; seed-unverified until reviewed. No venues yet (no researched venues).",
+  "items": [
+    {
+      "id": "espresso-martini",
+      "nameVi": "Espresso Martini",
+      "nameEn": "Espresso Martini",
+      "altNames": [],
+      "category": "classic-cocktail",
+      "attributes": {
+        "ingredients": [
+          "vodka",
+          "espresso",
+          "coffee liqueur"
+        ],
+        "taste": [
+          "bitter",
+          "sweet",
+          "strong"
+        ],
+        "abv": "high"
+      },
+      "description": {
+        "en": "Vodka shaken with espresso and coffee liqueur.",
+        "vi": "Vodka lắc cùng espresso và rượu mùi cà phê."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Espresso martini",
+          "url": "https://en.wikipedia.org/wiki/Espresso_martini"
+        }
+      ]
+    },
+    {
+      "id": "negroni",
+      "nameVi": "Negroni",
+      "nameEn": "Negroni",
+      "altNames": [],
+      "category": "classic-cocktail",
+      "attributes": {
+        "ingredients": [
+          "gin",
+          "Campari",
+          "sweet vermouth"
+        ],
+        "taste": [
+          "bitter",
+          "herbal",
+          "strong"
+        ],
+        "abv": "high"
+      },
+      "description": {
+        "en": "Equal parts gin, Campari and sweet vermouth.",
+        "vi": "Gin, Campari và vermouth ngọt với tỉ lệ bằng nhau."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Negroni",
+          "url": "https://en.wikipedia.org/wiki/Negroni"
+        }
+      ]
+    },
+    {
+      "id": "mojito",
+      "nameVi": "Mojito",
+      "nameEn": "Mojito",
+      "altNames": [],
+      "category": "classic-cocktail",
+      "attributes": {
+        "ingredients": [
+          "white rum",
+          "lime",
+          "mint",
+          "sugar",
+          "soda water"
+        ],
+        "taste": [
+          "sour",
+          "sweet",
+          "herbal"
+        ],
+        "abv": "medium"
+      },
+      "description": {
+        "en": "White rum with lime, mint, sugar and soda.",
+        "vi": "Rum trắng với chanh, bạc hà, đường và soda."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Mojito",
+          "url": "https://en.wikipedia.org/wiki/Mojito"
+        }
+      ]
+    },
+    {
+      "id": "old-fashioned",
+      "nameVi": "Old Fashioned",
+      "nameEn": "Old Fashioned",
+      "altNames": [],
+      "category": "classic-cocktail",
+      "attributes": {
+        "ingredients": [
+          "whiskey",
+          "sugar",
+          "bitters"
+        ],
+        "taste": [
+          "strong",
+          "sweet",
+          "bitter"
+        ],
+        "abv": "high"
+      },
+      "description": {
+        "en": "Whiskey stirred with sugar and bitters.",
+        "vi": "Whiskey khuấy cùng đường và bitters."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Old fashioned (cocktail)",
+          "url": "https://en.wikipedia.org/wiki/Old_fashioned_(cocktail)"
+        }
+      ]
+    },
+    {
+      "id": "margarita",
+      "nameVi": "Margarita",
+      "nameEn": "Margarita",
+      "altNames": [],
+      "category": "classic-cocktail",
+      "attributes": {
+        "ingredients": [
+          "tequila",
+          "triple sec",
+          "lime"
+        ],
+        "taste": [
+          "sour",
+          "strong"
+        ],
+        "abv": "high"
+      },
+      "description": {
+        "en": "Tequila with orange liqueur and lime.",
+        "vi": "Tequila với rượu cam và chanh."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Margarita",
+          "url": "https://en.wikipedia.org/wiki/Margarita"
+        }
+      ]
+    },
+    {
+      "id": "bia-hoi",
+      "nameVi": "Bia hơi",
+      "nameEn": "Draught beer (bia hơi)",
+      "altNames": [],
+      "category": "beer",
+      "attributes": {
+        "ingredients": [
+          "beer"
+        ],
+        "taste": [
+          "bitter"
+        ],
+        "abv": "low"
+      },
+      "description": {
+        "en": "Light, freshly brewed Vietnamese draught beer.",
+        "vi": "Bia tươi nhẹ, sản xuất và uống trong ngày."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Bia hơi",
+          "url": "https://en.wikipedia.org/wiki/Bia_hơi"
+        }
+      ]
+    },
+    {
+      "id": "virgin-mojito",
+      "nameVi": "Mojito không cồn",
+      "nameEn": "Virgin mojito",
+      "altNames": [],
+      "category": "mocktail",
+      "attributes": {
+        "ingredients": [
+          "lime",
+          "mint",
+          "sugar",
+          "soda water"
+        ],
+        "taste": [
+          "sour",
+          "sweet",
+          "herbal"
+        ],
+        "abv": "none"
+      },
+      "description": {
+        "en": "A mojito without rum.",
+        "vi": "Mojito không có rượu rum."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Mojito",
+          "url": "https://en.wikipedia.org/wiki/Mojito"
+        }
+      ]
+    }
+  ]
+}

@@ -80,3 +80,11 @@ Establishments can belong to several modes (`establishment_experiences`, migrati
 - No secrets in repo; `.env.example` documents variables; only `NEXT_PUBLIC_*` reach the browser.
 - Admin is unauthenticated in local mode (clearly flagged in UI) — production requires Supabase Auth + `user_roles`
   RLS policies (in the migration).
+
+## Shared engine — current shape (CC-22 / CC-25)
+- **Shared UI:** `components/engine/filter-drawer.tsx` (FilterDrawer, ActiveFilterBar, CatalogueLayout), `detail.tsx` (DetailBlock, OfferingsSection), `offering-row.tsx`, `module-views.tsx`, `module-page.tsx`. Food's `CatalogueView` and `DishDetail` render through them.
+- **Data:** `engine/schema.ts` (items, establishments with `attributes`, offerings), `engine/validate.ts` (registry rules; item vs establishment attributes), `engine/filters.ts`, `engine/import.ts` (CSV/JSON → dry run → non-destructive merge → report), `engine/db-rows.ts`.
+- **Supabase:** `lib/supabase/modules.ts` (read with fallback; validated writes that throw on any error). Migrations 0006 (items/offerings) and 0007 (establishment attributes, explicit tags). `fetchSupabaseFood` reads only Food-tagged establishments.
+- **Accounts:** `components/auth/auth-forms.tsx` `AuthPanel` (one sign-in/sign-up/recovery panel), `auth-gate.tsx` (`AuthDialog`, `PassportGate` for every passport), `account-card.tsx` (Settings, first section).
+- **Pipelines:** `npm run data:research -- <module>` (catalogue + researched venue batches + geocoding → module file), `npm run data:import-module -- <module> <file> [--write]`, `npm run data:experiences` (completeness report).
+- **Builds:** `NEXT_PUBLIC_FEATURE_{BARS,COFFEE,SPA,SPORT}` enable implemented pilots; `NEXT_PUBLIC_DEV_DATA=1` enables samples/dev notices (tests and designated previews only); `NEXT_PUBLIC_BUILD_ID` versions the service-worker cache.

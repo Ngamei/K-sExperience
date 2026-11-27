@@ -11,7 +11,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     Promise.resolve(useUser.persist.rehydrate()).finally(() => useUser.setState({ hydrated: true }));
     if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator && location.protocol !== "file:") {
-      navigator.serviceWorker.register("/sw.js").catch(() => {});
+      navigator.serviceWorker.register(`/sw.js?v=${encodeURIComponent(process.env.NEXT_PUBLIC_BUILD_ID ?? "dev")}`).catch(() => {});
     }
   }, []);
   useEffect(() => {

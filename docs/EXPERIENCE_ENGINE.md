@@ -33,7 +33,7 @@ Legend: ✅ shared now · 🔧 still Food-specific, generalise next · 🍜 Food
 | Passport | Food only | ✅ `Passports` per experience; `ModulePassport` | Sport milestones, instructors (needs pilot) |
 | Saved | Food only | ✅ follows the active mode | collections for modules |
 | Catalogue page / cards | Food | ✅ engine `ItemCatalogue` / `ItemCard` (registry categories, card attributes, searchable fields) | 🔧 move Food's catalogue onto it once filter definitions are generic |
-| Filters | `lib/food/filters.ts`, `FilterPanel` (Food) | category + accent-insensitive search in the engine; Food filters never shown in modules (e2e) | 🔧 generic filter-definition drawer (distance, budget, open now, verified only, module filters) |
+| Filters | `lib/food/filters.ts`, `FilterPanel` (Food) | ✅ shared `FilterDrawer` renders Food definitions and module definitions (item + establishment attributes) | distance/open-now for modules once venues have hours |
 | Search | `normalize.ts` | ✅ reused | — |
 | Detail page | `DishDetail` | ✅ engine `ItemDetail` with registry `detailSections` + shared offerings block | 🔧 Food sections onto the template (origin locator stays a Food section) |
 | Establishment card | `VenueRow` in Food | ✅ `OfferingRow`, used by Food and modules | — |
@@ -43,9 +43,9 @@ Legend: ✅ shared now · 🔧 still Food-specific, generalise next · 🍜 Food
 | HCMC map | Food Nearby | ✅ `HcmcMap` shared; module map + Nearby + establishment page | module marker styles |
 | Surprise me / Discover | Food | ✅ engine `ModuleDiscover` (categories, Surprise me) | ranking with module constraints |
 | Vietnam culinary map, origins, provinces | — | 🍜 Food only (registry `map.layers`, unit-tested) | — |
-| Admin | Food fields | 🔧 not yet configurable per module | field sets from registry `attributes`; shared evidence + photo editors for offerings |
-| Import / validation | Food importer | module files validated by Zod + integration test (schema, HCMC boundary, sources, references, categories) | 🔧 shared CSV/JSON importer with module validation |
-| Supabase read path | Food | tables ready (0006) | 🔧 read `experience_items` / `offerings` in Supabase mode |
+| Admin | Food fields | ✅ experience selector; module editors generated from the registry; module import | — |
+| Import / validation | Food importer | ✅ shared CSV/JSON importer with module validation (`engine/import.ts`, CLI + Admin) | — |
+| Supabase read path | Food | ✅ modules read/write (`lib/supabase/modules.ts`), fallback + states | — |
 | Tests | Food | ✅ cross-module unit, integration, DB and e2e (flag-off build + Coffee-flag build) | — |
 
 ### Concept mapping (no renames, no data loss)
@@ -64,11 +64,11 @@ Legend: ✅ shared now · 🔧 still Food-specific, generalise next · 🍜 Food
 | Step | Status |
 | --- | --- |
 | A. Audit and reuse matrix | ✅ |
-| B. Extract shared components | 🔄 Done: nav, establishment card, offering index, offering image, map, passport, saved, data gate. Next: generic filter drawer, then move Food catalogue and detail onto the engine templates (Food regression suite after each). |
+| B. Extract shared components | ✅ nav, establishment card, offering index/image, map, passport, saved, data gate, filter drawer, catalogue layout, detail blocks, offerings section; Food catalogue + dish page migrated |
 | C. Food regression | ✅ every existing suite green |
 | D. Registry and dynamic navigation | ✅ (mode switching verified in the Coffee-flag build) |
-| E. Coffee reference pilot | ✅ screens, routes, data file, tables, tests. **Dataset intentionally empty**: needs a sourced item list and verified cafés (G). Flag `NEXT_PUBLIC_FEATURE_COFFEE` stays off until Codex QA and PO approval. |
-| F. Bars, Spa, Sport | ⬜ configuration exists; set `implemented: true` + add `data/experiences/<id>.json` once their extensions are reviewed |
+| E. Coffee reference pilot | ✅ screens, routes, data, tables, Admin, import, tests; sourced pilot data (13 drinks, 4 cafés, 5 offerings). Flag stays off until Codex QA + PO approval. |
+| F. Bars, Spa, Sport | ✅ implemented through configuration (flags off); sourced catalogues, no venues yet |
 | G. Verified HCMC data per pilot | ⬜ PO/Codex research (no invented items, cafés, prices or schedules) |
 | H. Independent QA before enabling | ⬜ Codex |
 

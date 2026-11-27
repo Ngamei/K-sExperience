@@ -1,10 +1,248 @@
 {
   "metadata": {
     "experienceId": "spa",
-    "dataset": "empty",
-    "note": "Pilot dataset on the shared Experience Engine. Items, establishments and offerings are added only from sourced research through the importer and validators — never invented."
+    "note": "spa pilot: catalogue items from published references (seed, not yet reviewed); venues and offerings from desk research — every offering cites a published source; status source-listed. Built by scripts/build-experience-research.ts.",
+    "dataset": "seed",
+    "generatedAt": "2026-11-27"
   },
-  "items": [],
+  "items": [
+    {
+      "id": "goi-dau-duong-sinh",
+      "experienceId": "spa",
+      "nameVi": "Gội đầu dưỡng sinh",
+      "nameEn": "Vietnamese head spa",
+      "altNames": [],
+      "category": "head-spa",
+      "attributes": {
+        "treatmentType": "Hair wash with scalp, neck and shoulder massage",
+        "focus": [
+          "relaxation",
+          "hair-scalp"
+        ]
+      },
+      "description": {
+        "vi": "Gội đầu thảo dược kết hợp xoa bóp da đầu, cổ và vai.",
+        "en": "Herbal hair wash combined with scalp, neck and shoulder massage."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Vinpearl — Gội đầu dưỡng sinh",
+          "url": "https://vinpearl.com/vi/goi-dau-duong-sinh"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "foot-reflexology",
+      "experienceId": "spa",
+      "nameVi": "Massage chân (bấm huyệt)",
+      "nameEn": "Foot reflexology",
+      "altNames": [],
+      "category": "massage",
+      "attributes": {
+        "treatmentType": "Pressure applied to points on the feet",
+        "focus": [
+          "relaxation",
+          "wellbeing"
+        ]
+      },
+      "description": {
+        "vi": "Xoa bóp ấn vào các điểm trên bàn chân.",
+        "en": "Massage applying pressure to points on the feet."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Reflexology",
+          "url": "https://en.wikipedia.org/wiki/Reflexology"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "swedish-massage",
+      "experienceId": "spa",
+      "nameVi": "Massage Thụy Điển",
+      "nameEn": "Swedish massage",
+      "altNames": [],
+      "category": "massage",
+      "attributes": {
+        "treatmentType": "Long, gliding full-body strokes",
+        "focus": [
+          "relaxation",
+          "pain-relief"
+        ]
+      },
+      "description": {
+        "vi": "Massage toàn thân với các động tác vuốt dài.",
+        "en": "Full-body massage with long, gliding strokes."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Swedish massage",
+          "url": "https://en.wikipedia.org/wiki/Swedish_massage"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "hot-stone-massage",
+      "experienceId": "spa",
+      "nameVi": "Massage đá nóng",
+      "nameEn": "Hot stone massage",
+      "altNames": [],
+      "category": "massage",
+      "attributes": {
+        "treatmentType": "Massage using heated stones",
+        "focus": [
+          "relaxation",
+          "pain-relief"
+        ]
+      },
+      "description": {
+        "vi": "Massage với đá nóng.",
+        "en": "Massage using smooth heated stones."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Stone massage",
+          "url": "https://en.wikipedia.org/wiki/Stone_massage"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "facial",
+      "experienceId": "spa",
+      "nameVi": "Chăm sóc da mặt",
+      "nameEn": "Facial",
+      "altNames": [],
+      "category": "facial",
+      "attributes": {
+        "treatmentType": "Cleansing, exfoliation and mask",
+        "focus": [
+          "skin"
+        ]
+      },
+      "description": {
+        "vi": "Liệu trình chăm sóc da mặt: làm sạch, tẩy tế bào chết và đắp mặt nạ.",
+        "en": "Skin treatment for the face: cleansing, exfoliation and mask."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Facial",
+          "url": "https://en.wikipedia.org/wiki/Facial"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "manicure",
+      "experienceId": "spa",
+      "nameVi": "Làm móng tay",
+      "nameEn": "Manicure",
+      "altNames": [],
+      "category": "nails",
+      "attributes": {
+        "treatmentType": "Hand and fingernail care",
+        "focus": [
+          "nails"
+        ]
+      },
+      "description": {
+        "vi": "Chăm sóc thẩm mỹ cho bàn tay và móng tay.",
+        "en": "Cosmetic care of the hands and fingernails."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Manicure",
+          "url": "https://en.wikipedia.org/wiki/Manicure"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "pedicure",
+      "experienceId": "spa",
+      "nameVi": "Làm móng chân",
+      "nameEn": "Pedicure",
+      "altNames": [],
+      "category": "nails",
+      "attributes": {
+        "treatmentType": "Foot and toenail care",
+        "focus": [
+          "nails"
+        ]
+      },
+      "description": {
+        "vi": "Chăm sóc thẩm mỹ cho bàn chân và móng chân.",
+        "en": "Cosmetic care of the feet and toenails."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Pedicure",
+          "url": "https://en.wikipedia.org/wiki/Pedicure"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "body-scrub",
+      "experienceId": "spa",
+      "nameVi": "Tẩy tế bào chết toàn thân",
+      "nameEn": "Body scrub",
+      "altNames": [],
+      "category": "body-care",
+      "attributes": {
+        "treatmentType": "Exfoliation of the body's skin",
+        "focus": [
+          "skin"
+        ]
+      },
+      "description": {
+        "vi": "Liệu trình tẩy tế bào chết cho da toàn thân.",
+        "en": "Exfoliating treatment for the skin of the body."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Exfoliation (cosmetology)",
+          "url": "https://en.wikipedia.org/wiki/Exfoliation_(cosmetology)"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    }
+  ],
   "establishments": [],
   "offerings": []
 }

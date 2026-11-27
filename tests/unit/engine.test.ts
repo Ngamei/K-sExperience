@@ -38,10 +38,14 @@ describe("shared offering image (all modules)", () => {
 });
 
 describe("module data files", () => {
-  it("coffee.json is valid and contains nothing invented (empty until researched)", () => {
-    const d = ExperienceDataSchema.parse(JSON.parse(readFileSync("data/experiences/coffee.json", "utf8")));
-    expect(d.metadata.experienceId).toBe("coffee");
-    expect(d.items.length + d.establishments.length + d.offerings.length).toBe(0);
+  it("pilot data files cite sources for every item, establishment and offering", () => {
+    for (const id of ["coffee", "bars", "spa", "sport"]) {
+      const d = ExperienceDataSchema.parse(JSON.parse(readFileSync(`data/experiences/${id}.json`, "utf8")));
+      expect(d.metadata.experienceId).toBe(id);
+      for (const i of d.items) expect(i.sources.some((s) => s.url), i.id).toBe(true);
+      for (const e of d.establishments) { expect(e.sources.some((s) => s.url), e.id).toBe(true); expect(e.lastVerified).toBeTruthy(); }
+      for (const o of d.offerings) { expect(o.menuEvidence?.url, `${o.itemId}@${o.establishmentId}`).toMatch(/^https:\/\//); expect(o.lastVerified).toBeTruthy(); expect(o.photo).toBeUndefined(); }
+    }
   });
   it("offerings use the same evidence rules as Food links", () => {
     const base = { itemId: "x", establishmentId: "a", isSample: false, lastVerified: "2026-11-27" };

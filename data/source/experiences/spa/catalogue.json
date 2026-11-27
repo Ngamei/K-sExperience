@@ -1,0 +1,193 @@
+{
+  "note": "spa pilot catalogue — well-documented items only, each with a published reference; seed-unverified until reviewed. No venues yet (no researched venues).",
+  "items": [
+    {
+      "id": "goi-dau-duong-sinh",
+      "nameVi": "Gội đầu dưỡng sinh",
+      "nameEn": "Vietnamese head spa",
+      "altNames": [],
+      "category": "head-spa",
+      "attributes": {
+        "treatmentType": "Hair wash with scalp, neck and shoulder massage",
+        "focus": [
+          "relaxation",
+          "hair-scalp"
+        ]
+      },
+      "description": {
+        "en": "Herbal hair wash combined with scalp, neck and shoulder massage.",
+        "vi": "Gội đầu thảo dược kết hợp xoa bóp da đầu, cổ và vai."
+      },
+      "sources": [
+        {
+          "title": "Vinpearl — Gội đầu dưỡng sinh",
+          "url": "https://vinpearl.com/vi/goi-dau-duong-sinh"
+        }
+      ]
+    },
+    {
+      "id": "foot-reflexology",
+      "nameVi": "Massage chân (bấm huyệt)",
+      "nameEn": "Foot reflexology",
+      "altNames": [],
+      "category": "massage",
+      "attributes": {
+        "treatmentType": "Pressure applied to points on the feet",
+        "focus": [
+          "relaxation",
+          "wellbeing"
+        ]
+      },
+      "description": {
+        "en": "Massage applying pressure to points on the feet.",
+        "vi": "Xoa bóp ấn vào các điểm trên bàn chân."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Reflexology",
+          "url": "https://en.wikipedia.org/wiki/Reflexology"
+        }
+      ]
+    },
+    {
+      "id": "swedish-massage",
+      "nameVi": "Massage Thụy Điển",
+      "nameEn": "Swedish massage",
+      "altNames": [],
+      "category": "massage",
+      "attributes": {
+        "treatmentType": "Long, gliding full-body strokes",
+        "focus": [
+          "relaxation",
+          "pain-relief"
+        ]
+      },
+      "description": {
+        "en": "Full-body massage with long, gliding strokes.",
+        "vi": "Massage toàn thân với các động tác vuốt dài."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Swedish massage",
+          "url": "https://en.wikipedia.org/wiki/Swedish_massage"
+        }
+      ]
+    },
+    {
+      "id": "hot-stone-massage",
+      "nameVi": "Massage đá nóng",
+      "nameEn": "Hot stone massage",
+      "altNames": [],
+      "category": "massage",
+      "attributes": {
+        "treatmentType": "Massage using heated stones",
+        "focus": [
+          "relaxation",
+          "pain-relief"
+        ]
+      },
+      "description": {
+        "en": "Massage using smooth heated stones.",
+        "vi": "Massage với đá nóng."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Stone massage",
+          "url": "https://en.wikipedia.org/wiki/Stone_massage"
+        }
+      ]
+    },
+    {
+      "id": "facial",
+      "nameVi": "Chăm sóc da mặt",
+      "nameEn": "Facial",
+      "altNames": [],
+      "category": "facial",
+      "attributes": {
+        "treatmentType": "Cleansing, exfoliation and mask",
+        "focus": [
+          "skin"
+        ]
+      },
+      "description": {
+        "en": "Skin treatment for the face: cleansing, exfoliation and mask.",
+        "vi": "Liệu trình chăm sóc da mặt: làm sạch, tẩy tế bào chết và đắp mặt nạ."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Facial",
+          "url": "https://en.wikipedia.org/wiki/Facial"
+        }
+      ]
+    },
+    {
+      "id": "manicure",
+      "nameVi": "Làm móng tay",
+      "nameEn": "Manicure",
+      "altNames": [],
+      "category": "nails",
+      "attributes": {
+        "treatmentType": "Hand and fingernail care",
+        "focus": [
+          "nails"
+        ]
+      },
+      "description": {
+        "en": "Cosmetic care of the hands and fingernails.",
+        "vi": "Chăm sóc thẩm mỹ cho bàn tay và móng tay."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Manicure",
+          "url": "https://en.wikipedia.org/wiki/Manicure"
+        }
+      ]
+    },
+    {
+      "id": "pedicure",
+      "nameVi": "Làm móng chân",
+      "nameEn": "Pedicure",
+      "altNames": [],
+      "category": "nails",
+      "attributes": {
+        "treatmentType": "Foot and toenail care",
+        "focus": [
+          "nails"
+        ]
+      },
+      "description": {
+        "en": "Cosmetic care of the feet and toenails.",
+        "vi": "Chăm sóc thẩm mỹ cho bàn chân và móng chân."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Pedicure",
+          "url": "https://en.wikipedia.org/wiki/Pedicure"
+        }
+      ]
+    },
+    {
+      "id": "body-scrub",
+      "nameVi": "Tẩy tế bào chết toàn thân",
+      "nameEn": "Body scrub",
+      "altNames": [],
+      "category": "body-care",
+      "attributes": {
+        "treatmentType": "Exfoliation of the body's skin",
+        "focus": [
+          "skin"
+        ]
+      },
+      "description": {
+        "en": "Exfoliating treatment for the skin of the body.",
+        "vi": "Liệu trình tẩy tế bào chết cho da toàn thân."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Exfoliation (cosmetology)",
+          "url": "https://en.wikipedia.org/wiki/Exfoliation_(cosmetology)"
+        }
+      ]
+    }
+  ]
+}

@@ -10,18 +10,18 @@ headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is
 | 1 | `npm ci` | ✅ installed, **0 vulnerabilities**; postinstall copied MapLibre worker |
 | 2 | `npm run typecheck` (`next typegen && tsc --noEmit`) | ✅ exit 0 |
 | 3 | `npm run lint` | ✅ exit 0, 0 errors, 0 warnings |
-| 4 | `npx vitest run tests/unit` | ✅ **9 files, 73 tests passed** (+ venue photos, registry/nav/routes, passport per experience, shared engine index/image/data files) |
-| 5 | `npx vitest run tests/integration` (= `npm run data:validate`) | ✅ **1 file, 17 tests passed** (+ module data files: schema, HCMC boundary, sources, references) |
-| 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **31 checks** — migrations 0001–0006, shared items/offerings (mode-tag trigger, evidence rule, audit key, anon read-only), link-photo all-or-nothing constraint, six experience modules (Sport pilot-planned last), every establishment tagged Food, Sport history row on the same account, seed ×2 (idempotent), app read columns as anon, RLS (anon/user/editor), candidates hidden, storage, audit, HCMC trigger, evidence constraints, account isolation, own-folder photos, guest-merge upsert, account deletion |
-| 6 | `npm run build` | ✅ exit 0 — 164 static pages (138 dishes, 5 real + 8 sample venues, screens, manifest, `/data/food.json`) |
-| 7 | `npx playwright test` (against `next start`) | ✅ **64 passed** (32 scenarios × desktop + Pixel 7) |
-| 7b | `npm run build:auth-test && npm run test:e2e-auth` (Supabase-mode static build + mock Supabase) | ✅ **18 passed** (9 account scenarios × desktop + Pixel 7); stable over `--repeat-each=2` (36/36) |
-| 7c | `npm run build:modules-test && npm run test:e2e-modules` (static build with Coffee pilot flag on) | ✅ **12 passed** (6 scenarios × desktop + Pixel 7) |
-| 8 | `STATIC_EXPORT=1 npx next build` | ✅ exit 0 — `out/` 22 MB |
-| 9 | `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` (against the static export) | ✅ **64 passed** |
-| 10 | `npm run build:preview` | ✅ `preview/ks-experience-preview-<commit>.zip` (~6.4 MB) |
+| 4–5 | `npx vitest run` (unit + integration; integration = `npm run data:validate`) | ✅ **12 files, 102 tests passed** — + shared engine rows round-trip, module rules (item vs establishment attributes, vocabularies, categories, price units), writes never report false success (failing client), module import (CSV/JSON, merge, duplicates, HCMC boundary, evidence), pilot data sources |
+| 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **35 checks** — migrations 0001–0007 + seed ×2 (incl. pilot data); establishment attributes; no implicit Food tag; tag audit; every establishment has an experience tag; seeded coffee offerings readable by anon; items/offerings rules; plus all earlier RLS/account/evidence checks |
+| 6 | `npm run build` (production config) | ✅ exit 0 — no sample venues in `/data/food.json` |
+| 6b | `npm run build:e2e` (`NEXT_PUBLIC_DEV_DATA=1`) | ✅ exit 0 |
+| 7 | `npx playwright test` (against `next start`) | ✅ **64 passed** (32 Food + cross-module scenarios × desktop + Pixel 7) |
+| 7b | `npm run build:auth-test && npm run test:e2e-auth` (**mock** Supabase Auth + REST; Coffee flag on) | ✅ **28 passed** (14 scenarios × desktop + Pixel 7) |
+| 7c | `npm run build:modules-test && npm run test:e2e-modules` (production-like static build, Coffee flag on, real pilot data; real service worker in cache.spec) | ✅ **24 passed** (12 scenarios × desktop + Pixel 7) |
+| 8–9 | `NEXT_PUBLIC_DEV_DATA=1 STATIC_EXPORT=1 npx next build` + `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` | ✅ **64 passed** (offline static export) |
 
-Shortcut: `npm run qa` runs 2 → 3 → 4/5 → 6 → 7 → 7b → 7c (5b needs local PostgreSQL).
+**Mock vs real:** every account/passport browser test runs against `e2e-auth/mock-supabase.mjs` (GoTrue + PostgREST subset, owner-only RLS emulated). Real Postgres RLS/constraints are covered by `npm run test:db`. **Not yet tested against a live Supabase project:** Google OAuth round-trip, real verification/recovery emails, network latency — pending provisioning (docs/PREVIEW_CHECKLIST.md).
+
+Shortcut: `npm run qa` runs 2 → 3 → 4/5 → 6 → 6b → 7 → 7b → 7c (5b needs local PostgreSQL).
 
 ## P0 accounts — acceptance criteria evidence
 | # | Criterion | Evidence |
@@ -107,6 +107,23 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 | Only HCMC establishments recommended | module files validated against the HCMC boundary (integration); samples/candidates excluded by the shared index (unit + e2e-modules) |
 | Feature flags block unfinished modules | flag-off build: `/coffee/…` shows "not available yet" (e2e); unimplemented modules unselectable even with flags (unit) |
 | Cross-module tests | added (unit, integration, DB, e2e, e2e-modules) |
+
+## Engine completion, pilots, auth gate, cache — acceptance evidence
+| Requirement | Evidence |
+| --- | --- |
+| Food on shared components, no regressions (regions, provinces, Savory/Sweet/Snack, map, URLs, venues, photos, evidence, saved, passport) | all 32 Food scenarios × 2 devices green on server + static builds |
+| No consumer seed banner; samples dev-only; provenance in Admin | `priority-journey` (no data-banner), `journeys` production check (no sample venues in data, no toggle, no banners); Admin → Overview `admin-data-quality` |
+| Account first in Settings; no header auth buttons | e2e-auth "Settings shows Account first…", "guests browse freely…" |
+| Passport gate: immediate prompt, Google + email, mode switching, recovery, cancel returns, success opens the requested passport, guest progress migrated, no repeat prompt, direct URLs, session expiry, Coffee passport gated | e2e-auth gate tests (desktop modal / mobile sheet) |
+| One account, separate passports per experience; cross-device | e2e-auth "Coffee progress syncs across devices and never mixes with Food" |
+| Mode switching repeatedly; direct URLs; back; refresh | e2e-modules `journeys.spec.ts` |
+| Module filters (item + establishment attributes) | journeys: speciality-café filter → pour-over only |
+| Disabled flags | journeys: Bars/Spa/Sport unavailable; e2e flag-off build: Coffee unavailable |
+| Service-worker cache invalidation + updated data visible | e2e-modules `cache.spec.ts` (real SW) |
+| Offering photos honest | engine unit tests; Coffee rows show icon (no photos), Food venue-photo suite |
+| Failed writes never report success | unit "writes never report false success"; Admin shows ✗ with the database message |
+
+Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-catalogue`, `*-food-dish`, `*-settings`, `*-settings-account-guest`, `*-passport-gate`, `*-coffee-map`, `*-coffee-catalogue`, `*-coffee-item`, `*-coffee-cafe`.
 
 ## Browser evidence (screenshots, `docs/screenshots/`)
 Desktop: `desktop-01-discover`, `02-explore-national` (home page), `03-explore-region-sweet`, `04-explore-mien-bac`, `05-dish-detail`,

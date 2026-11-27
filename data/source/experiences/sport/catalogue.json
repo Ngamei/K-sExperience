@@ -1,0 +1,209 @@
+{
+  "note": "sport pilot catalogue — well-documented items only, each with a published reference; seed-unverified until reviewed. No venues yet (no researched venues).",
+  "items": [
+    {
+      "id": "pickleball-court-rental",
+      "nameVi": "Thuê sân pickleball",
+      "nameEn": "Pickleball court rental",
+      "altNames": [],
+      "category": "pickleball",
+      "attributes": {
+        "sport": "pickleball",
+        "format": [
+          "court-rental"
+        ],
+        "level": [
+          "all-levels"
+        ]
+      },
+      "description": {
+        "en": "Book a court to play pickleball, a paddle sport combining elements of tennis, badminton and table tennis.",
+        "vi": "Đặt sân chơi pickleball — môn thể thao dùng vợt kết hợp quần vợt, cầu lông và bóng bàn."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Pickleball",
+          "url": "https://en.wikipedia.org/wiki/Pickleball"
+        }
+      ]
+    },
+    {
+      "id": "pickleball-coaching",
+      "nameVi": "Học pickleball có huấn luyện viên",
+      "nameEn": "Pickleball coaching",
+      "altNames": [],
+      "category": "pickleball",
+      "attributes": {
+        "sport": "pickleball",
+        "format": [
+          "coaching",
+          "private",
+          "group"
+        ],
+        "level": [
+          "beginner",
+          "intermediate",
+          "advanced"
+        ]
+      },
+      "description": {
+        "en": "Lessons with a coach, from first rallies to match play.",
+        "vi": "Học với huấn luyện viên, từ cơ bản đến thi đấu."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Pickleball",
+          "url": "https://en.wikipedia.org/wiki/Pickleball"
+        }
+      ]
+    },
+    {
+      "id": "pickleball-social-play",
+      "nameVi": "Giao lưu pickleball",
+      "nameEn": "Pickleball social play",
+      "altNames": [],
+      "category": "pickleball",
+      "attributes": {
+        "sport": "pickleball",
+        "format": [
+          "social"
+        ],
+        "level": [
+          "all-levels"
+        ]
+      },
+      "description": {
+        "en": "Drop-in social games with other players.",
+        "vi": "Giao lưu, ghép trận cùng người chơi khác."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Pickleball",
+          "url": "https://en.wikipedia.org/wiki/Pickleball"
+        }
+      ]
+    },
+    {
+      "id": "pickleball-equipment-rental",
+      "nameVi": "Thuê vợt và bóng pickleball",
+      "nameEn": "Pickleball equipment rental",
+      "altNames": [],
+      "category": "pickleball",
+      "attributes": {
+        "sport": "pickleball",
+        "format": [
+          "equipment-rental"
+        ],
+        "equipment": [
+          "paddle-ball"
+        ]
+      },
+      "description": {
+        "en": "Paddles and balls to rent at the court.",
+        "vi": "Thuê vợt và bóng tại sân."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Pickleball",
+          "url": "https://en.wikipedia.org/wiki/Pickleball"
+        }
+      ]
+    },
+    {
+      "id": "reformer-pilates",
+      "nameVi": "Pilates Reformer",
+      "nameEn": "Reformer Pilates",
+      "altNames": [],
+      "category": "pilates",
+      "attributes": {
+        "sport": "pilates",
+        "equipment": [
+          "reformer"
+        ],
+        "format": [
+          "trial",
+          "private",
+          "group"
+        ],
+        "level": [
+          "beginner",
+          "intermediate",
+          "advanced"
+        ]
+      },
+      "description": {
+        "en": "Pilates on the reformer, a sliding carriage with springs for resistance.",
+        "vi": "Pilates trên máy Reformer — bàn trượt dùng lò xo tạo lực cản."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Pilates",
+          "url": "https://en.wikipedia.org/wiki/Pilates"
+        }
+      ]
+    },
+    {
+      "id": "mat-pilates",
+      "nameVi": "Pilates Mat",
+      "nameEn": "Mat Pilates",
+      "altNames": [],
+      "category": "pilates",
+      "attributes": {
+        "sport": "pilates",
+        "equipment": [
+          "mat"
+        ],
+        "format": [
+          "trial",
+          "group"
+        ],
+        "level": [
+          "all-levels"
+        ]
+      },
+      "description": {
+        "en": "Pilates exercises on a mat using body weight.",
+        "vi": "Các bài tập Pilates trên thảm với trọng lượng cơ thể."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Pilates",
+          "url": "https://en.wikipedia.org/wiki/Pilates"
+        }
+      ]
+    },
+    {
+      "id": "pilates-apparatus",
+      "nameVi": "Pilates Cadillac, Chair & Barrel",
+      "nameEn": "Pilates on Cadillac, Chair and Barrel",
+      "altNames": [],
+      "category": "pilates",
+      "attributes": {
+        "sport": "pilates",
+        "equipment": [
+          "cadillac",
+          "chair",
+          "barrel"
+        ],
+        "format": [
+          "private",
+          "group"
+        ],
+        "level": [
+          "intermediate",
+          "advanced"
+        ]
+      },
+      "description": {
+        "en": "Pilates on the Cadillac, Chair and Barrel apparatus.",
+        "vi": "Pilates trên các thiết bị Cadillac, Chair và Barrel."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Pilates",
+          "url": "https://en.wikipedia.org/wiki/Pilates"
+        }
+      ]
+    }
+  ]
+}

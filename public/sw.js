@@ -2,7 +2,10 @@
  * - Static assets (/_next/static, /geo, /vendor, icons): cache-first.
  * - Page navigations: network-first, falling back to the cached copy when offline.
  * Redirected or non-OK responses are never cached. */
-const CACHE = "ksx-v3";
+// The cache is versioned per build (sw.js?v=<build id>): a new deployment installs a new worker, which
+// deletes every older cache on activation, so stale assets never outlive an update. Data and pages are network-first.
+const VERSION = new URL(self.location.href).searchParams.get("v") || "dev";
+const CACHE = `ksx-${VERSION}`;
 const PRECACHE = ["/geo/vietnam.json", "/geo/regions.json", "/geo/hcmc.json", "/vendor/maplibre-gl-worker.mjs", "/icon.svg"];
 
 self.addEventListener("install", (e) => {

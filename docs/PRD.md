@@ -72,7 +72,27 @@ Sample venues are opt-in and excluded from recommendations.
 - Non-Food modules: item catalogue (categories, module attributes, accent-insensitive search) → item detail (module sections + "Where to … in Ho Chi Minh City" with the shared establishment cards) → HCMC establishment map / Nearby / establishment page → module passport. Food keeps the Vietnam culinary map.
 - **Coffee** is the first pilot: built, but switched off and without data until sourced items and verified cafés exist.
 
-## Sport (pilot planned — not implemented)
+## Pilot modules (implemented behind feature flags — hidden in production)
+| Module | Catalogue categories | Establishment characteristics (separate from items) | Data today |
+| --- | --- | --- | --- |
+| Coffee | Traditional Vietnamese coffee, Espresso-based, Speciality, Cold brew, Matcha, Tea, Non-coffee | Café type (book, working, garden, concept, scenic, speciality, traditional), Wi-Fi, power sockets, seating, noise, smoking policy, opening hours | 13 sourced drinks; 4 HCMC cafés; 5 drink offerings (source-listed, each with evidence) |
+| Bars | Classic cocktails, Signature cocktails, Wine, Beer, Mocktails | Bar type, atmosphere, smoking | 7 sourced items; no venues yet |
+| Spa | Massage, Head spa, Facial, Nails, Hair, Body care, Wellness | Venue type, private / couples' rooms, shower | 8 sourced treatments; no venues yet |
+| Sport | Pickleball (court rental, coaching, social play, equipment rental), Pilates (Reformer, Mat, Cadillac/Chair/Barrel; trial, private, group) | Venue kind, indoor/outdoor, court surface, facilities, instructor languages | 7 sourced activities; no venues yet |
+
+Every module uses the same screens (catalogue with module filters, item page with "Where to … in HCMC", HCMC map/Nearby, establishment page with characteristics and hours, passport). Offering photos follow one rule everywhere: the establishment's own photo of this offering → its menu/service/listing image → a reference photo labelled "not from this venue" → icon.
+
+## Consumer UI and data provenance
+- No development/seed banners in the consumer interface. Dataset provenance and seed counts are in Admin → Overview (data quality) and `docs/EXPERIENCE_DATA_REPORT.md`.
+- Items show a concise "Not yet verified" label and a Sources & verification block; establishment cards keep evidence level and last-checked date.
+- Fictional sample venues exist only in development/test builds (`NEXT_PUBLIC_DEV_DATA=1`) and are stripped from production data.
+
+## Accounts UX (P0, revised)
+- Settings: **Account first** (guest: Sign in / Sign up + benefits; signed in: avatar, name, email, Manage account, Log out). No sign-in buttons in the header.
+- Every Passport (Food, Bar, Coffee, Wellness, Sport; Shopping later) is behind one sign-in gate: modal on desktop, bottom sheet on mobile; Google first, email sign-in/sign-up and password recovery in the same panel; cancel returns to the previous page; signing in opens the requested Passport with guest progress migrated. Direct passport URLs are protected; an expired session shows the prompt again. Browsing (map, discover, catalogue, Nearby, establishment pages) never requires an account.
+- Local demo builds without an account service keep the on-device guest passport (accounts cannot exist there) — see D44.
+
+## Sport (pilot)
 Sixth experience mode, directly below Shopping. Pilots: **Pickleball** (courts, clubs, coaches, beginner/group sessions, social games, equipment rental) and **Pilates** (studios, instructors, trial/private/group classes, Reformer, Mat, Cadillac/Chair/Barrel). HCMC only.
 Planned filters: sport type, HCMC area, distance, budget, level, opening hours, trial, private/group, facilities (shower, changing room, parking), instructor language and certification, verified information; Pickleball adds equipment rental, indoor/outdoor, court surface, court availability (partner finding later); Pilates adds Reformer, Mat, Cadillac/Chair/Barrel, class size.
 This sprint: Settings entry, registry, translations, passport compatibility, schema review, feature flags, docs and regression tests only. No venues, schedules, availability or prices are added until verified data exists.

@@ -13,7 +13,7 @@ grant all on results to anon, authenticated;
 set role anon;
 insert into results select 'anon reads 138 dishes', count(*) = 138 from dishes;
 insert into results select 'six experience modules, sport pilot-planned last', (select count(*) from experience_modules) = 6 and (select status from experience_modules where id = 'sport') = 'pilot-planned' and (select max(sort_order) from experience_modules) = (select sort_order from experience_modules where id = 'sport');
-insert into results select 'every establishment tagged food', (select count(*) from establishment_experiences where experience_id = 'food') = (select count(*) from restaurants);
+insert into results select 'every establishment has an experience tag', not exists (select 1 from restaurants r where not exists (select 1 from establishment_experiences e where e.establishment_id = r.id));
 insert into results select 'anon cannot see candidate links', count(*) = 0 from dish_restaurant_links where status = 'candidate';
 do $$ begin
   begin update dishes set name_en = 'x' where id = 'mi-quang'; exception when others then null; end;
@@ -64,7 +64,8 @@ insert into offerings (item_id, establishment_id, status, menu_evidence, last_ve
 insert into results select 'editor offering audited', count(*) = 1 from content_audit where table_name = 'offerings' and row_key = 'test-ca-phe-muoi@pho-hoa-pasteur';
 reset role;
 set role anon;
-insert into results select 'anon reads public offerings', count(*) = 1 from offerings;
+insert into results select 'anon reads public offerings', count(*) = 1 from offerings where item_id = 'test-ca-phe-muoi';
+insert into results select 'seeded coffee offerings readable', count(*) >= 5 from offerings where item_id <> 'test-ca-phe-muoi';
 do $$ begin
   begin insert into experience_items (id, experience_id, name_vi, name_en, category) values ('x', 'coffee', 'x', 'x', 'tea'); exception when others then null; end;
 end $$;
