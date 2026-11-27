@@ -46,7 +46,7 @@ export const dict = {
     "place.googleMaps": "Open in Google Maps", "place.approx": "Approximate location — only the street could be matched. Use Google Maps for the exact spot.",
     "place.sources": "Sources", "place.evidence": "Evidence", "dish.photoCredit": "Photo", "dish.hcmcNote": "Listed by published sources (e.g. the MICHELIN Guide). K's Experience has not yet confirmed availability on site — check before you go.",
     "nav.map": "Food Map", "nav.discoverShort": "Discover",
-    "dish.searchMaps": "Find {name} on Google Maps (Ho Chi Minh City)", "dish.searchMapsNote": "Opens a live Google Maps search — results are Google's, not checked by K's Experience.",
+    "dish.searchMaps": "Search on Google Maps", "dish.searchMapsSub": "{name} · Ho Chi Minh City", "dish.searchMapsNote": "Live Google results — not checked by K's Experience",
   },
   vi: {
     tagline: "Khám phá Việt Nam. Trải nghiệm tại Sài Gòn.",
@@ -94,7 +94,7 @@ export const dict = {
     "place.googleMaps": "Mở Google Maps", "place.approx": "Vị trí gần đúng — chỉ khớp được tên đường. Dùng Google Maps để biết chính xác.",
     "place.sources": "Nguồn", "place.evidence": "Bằng chứng", "dish.photoCredit": "Ảnh", "dish.hcmcNote": "Theo các nguồn đã công bố (ví dụ MICHELIN Guide). K's Experience chưa xác nhận tại quán — hãy kiểm tra trước khi đến.",
     "nav.map": "Bản đồ ẩm thực", "nav.discoverShort": "Khám phá",
-    "dish.searchMaps": "Tìm {name} trên Google Maps (TP.HCM)", "dish.searchMapsNote": "Mở kết quả tìm kiếm trực tiếp của Google Maps — K's Experience chưa kiểm tra các kết quả này.",
+    "dish.searchMaps": "Tìm trên Google Maps", "dish.searchMapsSub": "{name} · TP. Hồ Chí Minh", "dish.searchMapsNote": "Kết quả trực tiếp từ Google — K's Experience chưa kiểm tra",
   },
 } as const;
 

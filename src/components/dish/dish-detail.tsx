@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ArrowLeft, Bookmark, Check, FolderPlus, MapPin } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Bookmark, Check, FolderPlus, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useT } from "@/lib/i18n/use-t";
@@ -191,18 +191,23 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
               <p className="mt-2 max-w-2xl text-sm text-charcoal/80">{t("status.noneFoundBody")}</p>
             </div>
           )}
-          <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-line/70 pt-4" data-testid="maps-search">
-            <a
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${d.nameVi}, Hồ Chí Minh`)}`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-9 items-center gap-1.5 rounded-full border border-forest/40 bg-paper px-4 text-sm font-medium text-forest hover:bg-forest hover:text-ivory"
-              data-testid="google-maps-search"
-            >
-              <MapPin className="size-4" /> {t("dish.searchMaps", { name: d.nameVi })}
-            </a>
-            <span className="text-[11.5px] text-muted">{t("dish.searchMapsNote")}</span>
-          </div>
+          <a
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${d.nameVi}, Hồ Chí Minh`)}`}
+            target="_blank"
+            rel="noreferrer"
+            className="group mt-3 flex items-center gap-3 rounded-2xl border border-line/80 bg-paper p-3.5 transition-colors hover:border-forest/40 hover:bg-sage-soft/40"
+            data-testid="google-maps-search"
+          >
+            <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-forest text-ivory">
+              <MapPin className="size-5" />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-sm font-medium text-charcoal group-hover:text-forest">{t("dish.searchMaps")}</span>
+              <span className="block truncate text-xs text-muted">{t("dish.searchMapsSub", { name: d.nameVi })}</span>
+              <span className="mt-0.5 block text-[11px] text-muted/80">{t("dish.searchMapsNote")}</span>
+            </span>
+            <ArrowUpRight className="size-4 shrink-0 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-forest" />
+          </a>
           {sampleLinks.length > 0 && (
             <div className="mt-4 rounded-2xl bg-[#fff8e1] p-3 ring-1 ring-[#efd98c]" data-testid="sample-venues">
               <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#6b4e00]">Sample venues — fictional, for interface preview only</p>
