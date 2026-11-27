@@ -37,6 +37,22 @@ insert into results select 'editor cannot see other user saved rows', count(*) =
 reset role;
 insert into results select 'editor update persisted', name_en = 'Quảng noodles (edited)' from dishes where id = 'mi-quang';
 
+-- 3b. storage + audit
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000001';
+insert into storage.objects (bucket_id, name) values ('dish-photos', 'mi-quang/1.jpg');
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000002';
+do $$ begin
+  begin insert into storage.objects (bucket_id, name) values ('dish-photos', 'x.jpg'); exception when others then null; end;
+end $$;
+reset role;
+insert into results select 'only editors upload photos', count(*) = 1 from storage.objects;
+insert into results select 'editor edit recorded in audit with editor id', count(*) >= 1 from content_audit
+  where table_name = 'dishes' and row_key = 'mi-quang' and action = 'UPDATE' and changed_by = '00000000-0000-0000-0000-000000000001';
+set role anon;
+insert into results select 'anon cannot read audit', count(*) = 0 from content_audit;
+reset role;
+
 -- 4. integrity rules
 do $$ begin
   begin
