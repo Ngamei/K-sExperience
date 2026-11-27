@@ -1587,6 +1587,1327 @@
         }
       ],
       "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "oc-thao-383-vinh-khanh",
+      "name": "Ốc Thảo",
+      "isSample": false,
+      "address": "383 Vĩnh Khánh, Quận 4, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Khánh Hội",
+      "coordinates": [
+        106.704643,
+        10.760856
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E1%BB%90c%20Th%E1%BA%A3o%2C%20383%20V%C4%A9nh%20Kh%C3%A1nh%2C%20Qu%E1%BA%ADn%204%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "greensm.com",
+          "url": "https://www.greensm.com/vn-vi/news/oc-quan-4",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/pho-am-thuc-vinh-khanh-14606",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "be-oc-58-44-vinh-khanh",
+      "name": "Bé Ốc",
+      "isSample": false,
+      "address": "58/44 Vĩnh Khánh, Quận 4, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Khánh Hội",
+      "coordinates": [
+        106.702059,
+        10.761839
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A9%20%E1%BB%90c%2C%2058%2F44%20V%C4%A9nh%20Kh%C3%A1nh%2C%20Qu%E1%BA%ADn%204%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "greensm.com",
+          "url": "https://www.greensm.com/vn-vi/news/oc-quan-4",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "oc-vu-37-vinh-khanh",
+      "name": "Ốc Vũ",
+      "isSample": false,
+      "address": "37 Vĩnh Khánh, Quận 4, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Khánh Hội",
+      "coordinates": [
+        106.704794,
+        10.760844
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E1%BB%90c%20V%C5%A9%2C%2037%20V%C4%A9nh%20Kh%C3%A1nh%2C%20Qu%E1%BA%ADn%204%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "greensm.com",
+          "url": "https://www.greensm.com/vn-vi/news/oc-quan-4",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "oc-35k-6-vinh-khanh",
+      "name": "Ốc 35k",
+      "isSample": false,
+      "address": "6 Vĩnh Khánh, Quận 4, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Khánh Hội",
+      "coordinates": [
+        106.704643,
+        10.760856
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E1%BB%90c%2035k%2C%206%20V%C4%A9nh%20Kh%C3%A1nh%2C%20Qu%E1%BA%ADn%204%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "greensm.com",
+          "url": "https://www.greensm.com/vn-vi/news/oc-quan-4",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bot-chien-51-51-nguyen-van-lac",
+      "name": "Bột Chiên 51",
+      "isSample": false,
+      "address": "51 Nguyễn Văn Lạc, Bình Thạnh, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Thạnh Mỹ Tây",
+      "coordinates": [
+        106.709142,
+        10.79275
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%E1%BB%99t%20Chi%C3%AAn%2051%2C%2051%20Nguy%E1%BB%85n%20V%C4%83n%20L%E1%BA%A1c%2C%20B%C3%ACnh%20Th%E1%BA%A1nh%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinwonders.com",
+          "url": "https://vinwonders.com/vi/wonderpedia/news/bot-chien-sai-gon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bot-chien-sau-426-ten-lua",
+      "name": "Bột Chiên Sáu",
+      "isSample": false,
+      "address": "426 Tên Lửa, Bình Tân, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường An Lạc",
+      "coordinates": [
+        106.61441,
+        10.741281
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%E1%BB%99t%20Chi%C3%AAn%20S%C3%A1u%2C%20426%20T%C3%AAn%20L%E1%BB%ADa%2C%20B%C3%ACnh%20T%C3%A2n%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinwonders.com",
+          "url": "https://vinwonders.com/vi/wonderpedia/news/bot-chien-sai-gon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bot-chien-chu-thai-161-ly-chinh-thang",
+      "name": "Bột Chiên Chú Thái",
+      "isSample": false,
+      "address": "161 Lý Chính Thắng, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Xuân Hòa",
+      "coordinates": [
+        106.684639,
+        10.786453
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%E1%BB%99t%20Chi%C3%AAn%20Ch%C3%BA%20Th%C3%A1i%2C%20161%20L%C3%BD%20Ch%C3%ADnh%20Th%E1%BA%AFng%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "bachhoaxanh.com",
+          "url": "https://www.bachhoaxanh.com/kinh-nghiem-hay/top-5-quan-bot-chien-an-mai-chang-ngan-tai-sai-gon-1324431",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bot-chien-hai-van-134-121-doan-van-bo",
+      "name": "Bột Chiên Hải Vân",
+      "isSample": false,
+      "address": "134/121 Đoàn Văn Bơ, Quận 4, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Khánh Hội",
+      "coordinates": [
+        106.709392,
+        10.759966
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%E1%BB%99t%20Chi%C3%AAn%20H%E1%BA%A3i%20V%C3%A2n%2C%20134%2F121%20%C4%90o%C3%A0n%20V%C4%83n%20B%C6%A1%2C%20Qu%E1%BA%ADn%204%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinwonders.com",
+          "url": "https://vinwonders.com/vi/wonderpedia/news/bot-chien-sai-gon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "banh-trang-co-giang-8a-nguyen-trai",
+      "name": "Bánh Tráng Cô Giang",
+      "isSample": false,
+      "address": "8A Nguyễn Trãi, Quận 5, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường An Đông",
+      "coordinates": [
+        106.675415,
+        10.755552
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20Tr%C3%A1ng%20C%C3%B4%20Giang%2C%208A%20Nguy%E1%BB%85n%20Tr%C3%A3i%2C%20Qu%E1%BA%ADn%205%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinwonders.com",
+          "url": "https://vinwonders.com/vi/wonderpedia/news/15-dia-chi-banh-trang-tron-sai-gon-ngon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "banh-trang-long-34-34-nguyen-thuong-hien",
+      "name": "Bánh Tráng Long 34",
+      "isSample": false,
+      "address": "34 Nguyễn Thượng Hiền, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Đức Nhuận",
+      "coordinates": [
+        106.684006,
+        10.806865
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20Tr%C3%A1ng%20Long%2034%2C%2034%20Nguy%E1%BB%85n%20Th%C6%B0%E1%BB%A3ng%20Hi%E1%BB%81n%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "fptshop.com.vn",
+          "url": "https://fptshop.com.vn/tin-tuc/dien-may/banh-trang-sai-gon-189627",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "banh-trang-di-hong-23-duong-11",
+      "name": "Bánh Tráng Dì Hồng",
+      "isSample": false,
+      "address": "23 Đường 11, Quận 4, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Phú Thuận",
+      "coordinates": [
+        106.736733,
+        10.731982
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20Tr%C3%A1ng%20D%C3%AC%20H%E1%BB%93ng%2C%2023%20%C4%90%C6%B0%E1%BB%9Dng%2011%2C%20Qu%E1%BA%ADn%204%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "fptshop.com.vn",
+          "url": "https://fptshop.com.vn/tin-tuc/dien-may/banh-trang-sai-gon-189627",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "quan-tui-22-pham-huy-thong",
+      "name": "Quán Tui",
+      "isSample": false,
+      "address": "22 Phạm Huy Thông, Gò Vấp, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Gò Vấp",
+      "coordinates": [
+        106.681002,
+        10.832888
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Qu%C3%A1n%20Tui%2C%2022%20Ph%E1%BA%A1m%20Huy%20Th%C3%B4ng%2C%20G%C3%B2%20V%E1%BA%A5p%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "fptshop.com.vn",
+          "url": "https://fptshop.com.vn/tin-tuc/dien-may/banh-can-gan-day-169259",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "dalatown-448-le-van-tho",
+      "name": "Dalatown",
+      "isSample": false,
+      "address": "448 Lê Văn Thọ, Gò Vấp, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Thông Tây Hội",
+      "coordinates": [
+        106.658235,
+        10.836822
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dalatown%2C%20448%20L%C3%AA%20V%C4%83n%20Th%E1%BB%8D%2C%20G%C3%B2%20V%E1%BA%A5p%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "fptshop.com.vn",
+          "url": "https://fptshop.com.vn/tin-tuc/dien-may/banh-can-gan-day-169259",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "lau-mam-ba-du-436-nguyen-thi-thap",
+      "name": "Lẩu Mắm Bà Dú",
+      "isSample": false,
+      "address": "436 Nguyễn Thị Thập, Quận 7, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Thuận",
+      "coordinates": [
+        106.721371,
+        10.738081
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=L%E1%BA%A9u%20M%E1%BA%AFm%20B%C3%A0%20D%C3%BA%2C%20436%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Th%E1%BA%ADp%2C%20Qu%E1%BA%ADn%207%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-lau-mam-ngon-sai-gon-17580",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "co-7-bac-lieu-139l-nguyen-trai",
+      "name": "Cô 7 Bạc Liêu",
+      "isSample": false,
+      "address": "139L Nguyễn Trãi, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Chợ Lớn",
+      "coordinates": [
+        106.663993,
+        10.753505
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=C%C3%B4%207%20B%E1%BA%A1c%20Li%C3%AAu%2C%20139L%20Nguy%E1%BB%85n%20Tr%C3%A3i%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinpearl.com",
+          "url": "https://vinpearl.com/vi/quan-lau-mam-ngon-sai-gon",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "lau-mam-co-loan-65a-do-xuan-hop",
+      "name": "Lẩu Mắm Cô Loan",
+      "isSample": false,
+      "address": "65A Đỗ Xuân Hợp, Thủ Đức, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Phước Long",
+      "coordinates": [
+        106.774317,
+        10.816587
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=L%E1%BA%A9u%20M%E1%BA%AFm%20C%C3%B4%20Loan%2C%2065A%20%C4%90%E1%BB%97%20Xu%C3%A2n%20H%E1%BB%A3p%2C%20Th%E1%BB%A7%20%C4%90%E1%BB%A9c%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinpearl.com",
+          "url": "https://vinpearl.com/vi/quan-lau-mam-ngon-sai-gon",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "am-thuc-sen-nam-bo-560-vo-chi-cong",
+      "name": "Ẩm Thực Sen Nam Bộ",
+      "isSample": false,
+      "address": "560 Võ Chí Công, Thủ Đức, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Long Trường",
+      "coordinates": [
+        106.792253,
+        10.812285
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E1%BA%A8m%20Th%E1%BB%B1c%20Sen%20Nam%20B%E1%BB%99%2C%20560%20V%C3%B5%20Ch%C3%AD%20C%C3%B4ng%2C%20Th%E1%BB%A7%20%C4%90%E1%BB%A9c%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinpearl.com",
+          "url": "https://vinpearl.com/vi/quan-lau-mam-ngon-sai-gon",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "lau-mam-song-nhi-6-tran-thi-trong",
+      "name": "Lẩu Mắm Song Nhi",
+      "isSample": false,
+      "address": "6 Trần Thị Trọng, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Sơn",
+      "coordinates": [
+        106.633842,
+        10.826113
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=L%E1%BA%A9u%20M%E1%BA%AFm%20Song%20Nhi%2C%206%20Tr%E1%BA%A7n%20Th%E1%BB%8B%20Tr%E1%BB%8Dng%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinwonders.com",
+          "url": "https://vinwonders.com/vi/wonderpedia/news/lau-mam-ngon-sai-gon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "tiem-lau-cu-lao-337-le-van-luong",
+      "name": "Tiệm Lẩu Cù Lao",
+      "isSample": false,
+      "address": "337 Lê Văn Lương, Quận 7, TP. Hồ Chí Minh",
+      "neighbourhood": "Xã Nhà Bè",
+      "coordinates": [
+        106.699973,
+        10.716879
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ti%E1%BB%87m%20L%E1%BA%A9u%20C%C3%B9%20Lao%2C%20337%20L%C3%AA%20V%C4%83n%20L%C6%B0%C6%A1ng%2C%20Qu%E1%BA%ADn%207%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinwonders.com",
+          "url": "https://vinwonders.com/vi/wonderpedia/news/lau-mam-ngon-sai-gon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "banh-beo-hue-thuy-linh-209-le-van-sy",
+      "name": "Bánh Bèo Huế Thùy Linh",
+      "isSample": false,
+      "address": "209 Lê Văn Sỹ, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Sơn Hòa",
+      "coordinates": [
+        106.665982,
+        10.795976
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20B%C3%A8o%20Hu%E1%BA%BF%20Th%C3%B9y%20Linh%2C%20209%20L%C3%AA%20V%C4%83n%20S%E1%BB%B9%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "grab.com",
+          "url": "https://www.grab.com/vn/food-blog/trending-food/tphcm-luu-lai-dia-chi-cac-loai-banh-hue-ngon-re-o-sai-gon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "banh-beo-xiu-284-le-van-sy",
+      "name": "Bánh Bèo Xíu",
+      "isSample": false,
+      "address": "284 Lê Văn Sỹ, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Nhiêu Lộc",
+      "coordinates": [
+        106.679614,
+        10.78682
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20B%C3%A8o%20X%C3%ADu%2C%20284%20L%C3%AA%20V%C4%83n%20S%E1%BB%B9%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "grab.com",
+          "url": "https://www.grab.com/vn/food-blog/talk-of-the-town/tphcm-banh-beo-hue-lung-lay-hon-40-nam-o-sai-gon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "banh-beo-hue-o-trinh-126-bui-thi-xuan",
+      "name": "Bánh Bèo Huế O Trinh",
+      "isSample": false,
+      "address": "126 Bùi Thị Xuân, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Sơn Hòa",
+      "coordinates": [
+        106.665437,
+        10.792243
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20B%C3%A8o%20Hu%E1%BA%BF%20O%20Trinh%2C%20126%20B%C3%B9i%20Th%E1%BB%8B%20Xu%C3%A2n%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "grab.com",
+          "url": "https://www.grab.com/vn/food-blog/trending-food/tphcm-luu-lai-dia-chi-cac-loai-banh-hue-ngon-re-o-sai-gon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "goc-hue-ky-dong-41-ky-dong",
+      "name": "Góc Huế – Kỳ Đồng",
+      "isSample": false,
+      "address": "41 Kỳ Đồng, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Nhiêu Lộc",
+      "coordinates": [
+        106.682823,
+        10.783991
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=G%C3%B3c%20Hu%E1%BA%BF%20%E2%80%93%20K%E1%BB%B3%20%C4%90%E1%BB%93ng%2C%2041%20K%E1%BB%B3%20%C4%90%E1%BB%93ng%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "goc-hue-nguyen-thai-binh-155-nguyen-thai-binh",
+      "name": "Góc Huế – Nguyễn Thái Bình",
+      "isSample": false,
+      "address": "155 Nguyễn Thái Bình, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.699386,
+        10.768919
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=G%C3%B3c%20Hu%E1%BA%BF%20%E2%80%93%20Nguy%E1%BB%85n%20Th%C3%A1i%20B%C3%ACnh%2C%20155%20Nguy%E1%BB%85n%20Th%C3%A1i%20B%C3%ACnh%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "goc-hue-an-duong-vuong-400-an-duong-vuong",
+      "name": "Góc Huế – An Dương Vương",
+      "isSample": false,
+      "address": "400 An Dương Vương, Quận 5, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường An Đông",
+      "coordinates": [
+        106.671751,
+        10.75713
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=G%C3%B3c%20Hu%E1%BA%BF%20%E2%80%93%20An%20D%C6%B0%C6%A1ng%20V%C6%B0%C6%A1ng%2C%20400%20An%20D%C6%B0%C6%A1ng%20V%C6%B0%C6%A1ng%2C%20Qu%E1%BA%ADn%205%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "che-ba-mau-142-nguyen-phi-khanh",
+      "name": "Chè Ba Màu",
+      "isSample": false,
+      "address": "142 Nguyễn Phi Khanh, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Định",
+      "coordinates": [
+        106.69363,
+        10.791741
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ch%C3%A8%20Ba%20M%C3%A0u%2C%20142%20Nguy%E1%BB%85n%20Phi%20Khanh%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinwonders.com",
+          "url": "https://vinwonders.com/vi/wonderpedia/news/quan-che-ngon-o-sai-gon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "che-den-dau-504-nguyen-kiem",
+      "name": "Chè Đèn Dầu",
+      "isSample": false,
+      "address": "504 Nguyễn Kiệm, Phú Nhuận, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Hạnh Thông",
+      "coordinates": [
+        106.678531,
+        10.812559
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ch%C3%A8%20%C4%90%C3%A8n%20D%E1%BA%A7u%2C%20504%20Nguy%E1%BB%85n%20Ki%E1%BB%87m%2C%20Ph%C3%BA%20Nhu%E1%BA%ADn%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinwonders.com",
+          "url": "https://vinwonders.com/vi/wonderpedia/news/quan-che-ngon-o-sai-gon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "che-ngon-co-ba-176-co-giang",
+      "name": "Chè Ngon Cô Ba",
+      "isSample": false,
+      "address": "176 Cô Giang, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Cầu Ông Lãnh",
+      "coordinates": [
+        106.693423,
+        10.761995
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ch%C3%A8%20Ngon%20C%C3%B4%20Ba%2C%20176%20C%C3%B4%20Giang%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinwonders.com",
+          "url": "https://vinwonders.com/vi/wonderpedia/news/quan-che-ngon-o-sai-gon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "che-via-he-co-diep-241-vo-van-tan",
+      "name": "Chè Vỉa Hè Cô Điệp",
+      "isSample": false,
+      "address": "241 Võ Văn Tần, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bàn Cờ",
+      "coordinates": [
+        106.685605,
+        10.771487
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ch%C3%A8%20V%E1%BB%89a%20H%C3%A8%20C%C3%B4%20%C4%90i%E1%BB%87p%2C%20241%20V%C3%B5%20V%C4%83n%20T%E1%BA%A7n%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "greensm.com",
+          "url": "https://www.greensm.com/vn-vi/news/che-quan-3",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "banh-xeo-mien-tay-139-139-tran-van-dang",
+      "name": "Bánh Xèo Miền Tây 139",
+      "isSample": false,
+      "address": "139 Trần Văn Đang, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Nhiêu Lộc",
+      "coordinates": [
+        106.674696,
+        10.783561
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20X%C3%A8o%20Mi%E1%BB%81n%20T%C3%A2y%20139%2C%20139%20Tr%E1%BA%A7n%20V%C4%83n%20%C4%90ang%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "grab.com",
+          "url": "https://www.grab.com/vn/food-blog/trending-food/tphcm-dan-da-thom-ngon-mon-banh-xeo-mien-tay-giua-long-quan-3/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "infinity-tam-444-hoang-ngan",
+      "name": "Infinity Tám",
+      "isSample": false,
+      "address": "444 Hoàng Ngân, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Phú Định",
+      "coordinates": [
+        106.627698,
+        10.725631
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Infinity%20T%C3%A1m%2C%20444%20Ho%C3%A0ng%20Ng%C3%A2n%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinwonders.com",
+          "url": "https://vinwonders.com/vi/wonderpedia/news/bo-bia-sai-gon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bun-bo-hue-o-le-cach-mang-thang-8-48-cach-mang-thang-8",
+      "name": "Bún Bò Huế O Lê – Cách Mạng Tháng 8",
+      "isSample": false,
+      "address": "48 Cách Mạng Tháng 8, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Hòa Hưng",
+      "coordinates": [
+        106.66768,
+        10.783452
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20B%C3%B2%20Hu%E1%BA%BF%20O%20L%C3%AA%20%E2%80%93%20C%C3%A1ch%20M%E1%BA%A1ng%20Th%C3%A1ng%208%2C%2048%20C%C3%A1ch%20M%E1%BA%A1ng%20Th%C3%A1ng%208%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/thuong-thuc-quan-bun-bo-quan-3-16092",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bun-bo-hue-o-le-cao-thang-169-cao-thang",
+      "name": "Bún Bò Huế O Lê – Cao Thắng",
+      "isSample": false,
+      "address": "169 Cao Thắng, Quận 10, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bàn Cờ",
+      "coordinates": [
+        106.682701,
+        10.769553
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20B%C3%B2%20Hu%E1%BA%BF%20O%20L%C3%AA%20%E2%80%93%20Cao%20Th%E1%BA%AFng%2C%20169%20Cao%20Th%E1%BA%AFng%2C%20Qu%E1%BA%ADn%2010%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://toplist.vn/top-list/quan-bun-bo-hue-ngon-o-quan-10-tp-hcm-37623.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bun-bo-mo-noi-co-nhu-274-29-vo-van-tan",
+      "name": "Bún Bò Mỡ Nổi Cô Như",
+      "isSample": false,
+      "address": "274/29 Võ Văn Tần, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bàn Cờ",
+      "coordinates": [
+        106.685605,
+        10.771487
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20B%C3%B2%20M%E1%BB%A1%20N%E1%BB%95i%20C%C3%B4%20Nh%C6%B0%2C%20274%2F29%20V%C3%B5%20V%C4%83n%20T%E1%BA%A7n%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/bun-bo-hue-mo-noi-co-nhu-17406",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bun-bo-hue-kim-huong-rach-bung-binh-17-rach-bung-binh",
+      "name": "Bún Bò Huế Kim Hương – Rạch Bùng Binh",
+      "isSample": false,
+      "address": "17 Rạch Bùng Binh, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Nhiêu Lộc",
+      "coordinates": [
+        106.679698,
+        10.780562
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20B%C3%B2%20Hu%E1%BA%BF%20Kim%20H%C6%B0%C6%A1ng%20%E2%80%93%20R%E1%BA%A1ch%20B%C3%B9ng%20Binh%2C%2017%20R%E1%BA%A1ch%20B%C3%B9ng%20Binh%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/thuong-thuc-quan-bun-bo-quan-3-16092",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bun-bo-hue-170b-170b-tran-nhan-ton",
+      "name": "Bún Bò Huế 170B",
+      "isSample": false,
+      "address": "170B Trần Nhân Tôn, Quận 10, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường An Đông",
+      "coordinates": [
+        106.6753,
+        10.760078
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20B%C3%B2%20Hu%E1%BA%BF%20170B%2C%20170B%20Tr%E1%BA%A7n%20Nh%C3%A2n%20T%C3%B4n%2C%20Qu%E1%BA%ADn%2010%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://toplist.vn/top-list/quan-bun-bo-hue-ngon-o-quan-10-tp-hcm-37623.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bun-bo-5t-606-86-duong-3-thang-2",
+      "name": "Bún Bò 5T",
+      "isSample": false,
+      "address": "606/86 Đường 3 Tháng 2, Quận 10, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Phú Thọ",
+      "coordinates": [
+        106.658791,
+        10.763249
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20B%C3%B2%205T%2C%20606%2F86%20%C4%90%C6%B0%E1%BB%9Dng%203%20Th%C3%A1ng%202%2C%20Qu%E1%BA%ADn%2010%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://toplist.vn/top-list/quan-bun-bo-hue-ngon-o-quan-10-tp-hcm-37623.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "banh-mi-110-110-hoang-van-thu",
+      "name": "Bánh Mì 110",
+      "isSample": false,
+      "address": "110 Hoàng Văn Thụ, Phú Nhuận, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Sơn Nhất",
+      "coordinates": [
+        106.654885,
+        10.794519
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20M%C3%AC%20110%2C%20110%20Ho%C3%A0ng%20V%C4%83n%20Th%E1%BB%A5%2C%20Ph%C3%BA%20Nhu%E1%BA%ADn%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://toplist.vn/top-list/quan-banh-mi-ngon-nhat-quan-phu-nhuan-tp-hcm-54624.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "banh-mi-hoang-lam-168-nguyen-thuong-hien",
+      "name": "Bánh Mì Hoàng Lam",
+      "isSample": false,
+      "address": "168 Nguyễn Thượng Hiền, Phú Nhuận, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bàn Cờ",
+      "coordinates": [
+        106.683812,
+        10.774438
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20M%C3%AC%20Ho%C3%A0ng%20Lam%2C%20168%20Nguy%E1%BB%85n%20Th%C6%B0%E1%BB%A3ng%20Hi%E1%BB%81n%2C%20Ph%C3%BA%20Nhu%E1%BA%ADn%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/banh-mi-hoang-lam-phu-nhuan-20293",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "oc-bac-351-nguyen-thuong-hien",
+      "name": "Ốc Bắc",
+      "isSample": false,
+      "address": "351 Nguyễn Thượng Hiền, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bàn Cờ",
+      "coordinates": [
+        106.682161,
+        10.776728
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E1%BB%90c%20B%E1%BA%AFc%2C%20351%20Nguy%E1%BB%85n%20Th%C6%B0%E1%BB%A3ng%20Hi%E1%BB%81n%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vinpearl.com",
+          "url": "https://vinpearl.com/vi/quan-oc-ngon-sai-gon",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "oc-chi-em-24-nguyen-thai-binh",
+      "name": "Ốc Chị Em",
+      "isSample": false,
+      "address": "24 Nguyễn Thái Bình, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.700524,
+        10.770057
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E1%BB%90c%20Ch%E1%BB%8B%20Em%2C%2024%20Nguy%E1%BB%85n%20Th%C3%A1i%20B%C3%ACnh%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://toplist.vn/top-list/quan-oc-ngon-nhat-o-quan-1-tp-hcm-18487.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "oc-beo-ha-noi-10-ban-co",
+      "name": "Ốc Béo Hà Nội",
+      "isSample": false,
+      "address": "10 Bàn Cờ, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bàn Cờ",
+      "coordinates": [
+        106.679192,
+        10.770813
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E1%BB%90c%20B%C3%A9o%20H%C3%A0%20N%E1%BB%99i%2C%2010%20B%C3%A0n%20C%E1%BB%9D%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://toplist.vn/top-list/quan-oc-noi-tieng-sai-gon-2695.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "oc-chi-hong-210-15-cach-mang-thang-8",
+      "name": "Ốc Chị Hồng",
+      "isSample": false,
+      "address": "210/15 Cách Mạng Tháng 8, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Hòa Hưng",
+      "coordinates": [
+        106.666654,
+        10.784765
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E1%BB%90c%20Ch%E1%BB%8B%20H%E1%BB%93ng%2C%20210%2F15%20C%C3%A1ch%20M%E1%BA%A1ng%20Th%C3%A1ng%208%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bun-rieu-co-huong-beo-110-cao-thang",
+      "name": "Bún Riêu Cô Hương Béo",
+      "isSample": false,
+      "address": "110 Cao Thắng, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bàn Cờ",
+      "coordinates": [
+        106.679613,
+        10.772433
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20Ri%C3%AAu%20C%C3%B4%20H%C6%B0%C6%A1ng%20B%C3%A9o%2C%20110%20Cao%20Th%E1%BA%AFng%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "greensm.com",
+          "url": "https://www.greensm.com/vn-vi/news/bun-rieu-quan-3",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bun-rieu-chi-tuyen-193-2-ba-hat",
+      "name": "Bún Riêu Chị Tuyền",
+      "isSample": false,
+      "address": "193/2 Bà Hạt, Quận 10, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Diên Hồng",
+      "coordinates": [
+        106.662949,
+        10.764627
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20Ri%C3%AAu%20Ch%E1%BB%8B%20Tuy%E1%BB%81n%2C%20193%2F2%20B%C3%A0%20H%E1%BA%A1t%2C%20Qu%E1%BA%ADn%2010%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "grab.com",
+          "url": "https://www.grab.com/vn/en/food-blog/talk-of-the-town/tphcm-bun-rieu-cua-oc-sieu-re-tap-nap-nguoi-an-o-quan-10/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bun-rieu-cua-hoa-hung-77-hoa-hung",
+      "name": "Bún Riêu Cua Hòa Hưng",
+      "isSample": false,
+      "address": "77 Hòa Hưng, Quận 10, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Hòa Hưng",
+      "coordinates": [
+        106.674525,
+        10.779251
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20Ri%C3%AAu%20Cua%20H%C3%B2a%20H%C6%B0ng%2C%2077%20H%C3%B2a%20H%C6%B0ng%2C%20Qu%E1%BA%ADn%2010%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "grab.com",
+          "url": "https://www.grab.com/vn/en/food-blog/talk-of-the-town/tphcm-bun-rieu-gia-re-tron-trong-khu-chung-cu-quan-10/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "hidden-house-55-3-le-thi-hong-gam",
+      "name": "Hidden House",
+      "isSample": false,
+      "address": "55/3 Lê Thị Hồng Gấm, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.6975,
+        10.768831
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hidden%20House%2C%2055%2F3%20L%C3%AA%20Th%E1%BB%8B%20H%E1%BB%93ng%20G%E1%BA%A5m%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "toplist.vn",
+          "url": "https://toplist.vn/top-list/dia-chi-an-banh-khot-ngon-nhat-tai-sai-gon-31549.htm",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
     }
   ]
 }

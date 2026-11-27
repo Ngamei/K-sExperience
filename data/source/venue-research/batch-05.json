@@ -1,0 +1,26 @@
+{
+  "researchedOn": "2026-11-27",
+  "method": "Web search of published HCMC food guides (mia.vn, toplist.vn, greensm, Vinpearl, VinWonders, Grab Food blog), district-targeted. Dropped for conflicting addresses: Ốc Đào (212B/D48 vs 212B/C79 Nguyễn Trãi), Bún Riêu Nhà / Bún Riêu Gánh (both at 63B Trần Quốc Thảo), Song Anh / 725 Hoàng Sa (both at 28A Bàn Cờ), Bún bò Út Hưng (two addresses), Huỳnh Hoa '189 Hai Bà Trưng'. Dropped generic street names without a precise area (Nhà hàng Cối Đá, Đường số 1 / Đường số 53).",
+  "venues": [
+    { "name": "Bún Bò Huế O Lê – Cách Mạng Tháng 8", "address": "48 Cách Mạng Tháng 8", "district": "Quận 3", "dishes": ["bun-bo-hue"], "sources": ["https://mia.vn/cam-nang-du-lich/thuong-thuc-quan-bun-bo-quan-3-16092"] },
+    { "name": "Bún Bò Huế O Lê – Cao Thắng", "address": "169 Cao Thắng", "district": "Quận 10", "dishes": ["bun-bo-hue"], "sources": ["https://toplist.vn/top-list/quan-bun-bo-hue-ngon-o-quan-10-tp-hcm-37623.htm"] },
+    { "name": "Bún Bò Mỡ Nổi Cô Như", "address": "274/29 Võ Văn Tần", "district": "Quận 3", "dishes": ["bun-bo-hue"], "sources": ["https://mia.vn/cam-nang-du-lich/bun-bo-hue-mo-noi-co-nhu-17406"], "note": "Source: MICHELIN Guide 'Selected' in 2024; in an alley." },
+    { "name": "Bún Bò Huế Kim Hương – Rạch Bùng Binh", "address": "17 Rạch Bùng Binh", "district": "Quận 3", "dishes": ["bun-bo-hue"], "sources": ["https://mia.vn/cam-nang-du-lich/thuong-thuc-quan-bun-bo-quan-3-16092"] },
+    { "name": "Bún Bò Huế 170B", "address": "170B Trần Nhân Tôn", "district": "Quận 10", "dishes": ["bun-bo-hue"], "sources": ["https://toplist.vn/top-list/quan-bun-bo-hue-ngon-o-quan-10-tp-hcm-37623.htm"] },
+    { "name": "Bún Bò 5T", "address": "606/86 Đường 3 Tháng 2", "district": "Quận 10", "dishes": ["bun-bo-hue"], "sources": ["https://toplist.vn/top-list/quan-bun-bo-hue-ngon-o-quan-10-tp-hcm-37623.htm"] },
+
+    { "name": "Bánh Mì 110", "address": "110 Hoàng Văn Thụ", "district": "Phú Nhuận", "dishes": ["banh-mi-sai-gon"], "sources": ["https://toplist.vn/top-list/quan-banh-mi-ngon-nhat-quan-phu-nhuan-tp-hcm-54624.htm"] },
+    { "name": "Bánh Mì Hoàng Lam", "address": "168 Nguyễn Thượng Hiền", "district": "Phú Nhuận", "dishes": ["banh-mi-sai-gon"], "sources": ["https://mia.vn/cam-nang-du-lich/banh-mi-hoang-lam-phu-nhuan-20293"], "note": "Source lists hours 10:00–19:30, Monday–Saturday." },
+
+    { "name": "Ốc Bắc", "address": "351 Nguyễn Thượng Hiền", "district": "Quận 3", "dishes": ["oc-sai-gon"], "sources": ["https://vinpearl.com/vi/quan-oc-ngon-sai-gon"], "note": "Another branch listed at 35 Lý Tự Trọng, Quận 1." },
+    { "name": "Ốc Chị Em", "address": "24 Nguyễn Thái Bình", "district": "Quận 1", "dishes": ["oc-sai-gon"], "sources": ["https://toplist.vn/top-list/quan-oc-ngon-nhat-o-quan-1-tp-hcm-18487.htm"] },
+    { "name": "Ốc Béo Hà Nội", "address": "10 Bàn Cờ", "district": "Quận 3", "dishes": ["oc-sai-gon"], "sources": ["https://toplist.vn/top-list/quan-oc-noi-tieng-sai-gon-2695.htm"] },
+    { "name": "Ốc Chị Hồng", "address": "210/15 Cách Mạng Tháng 8", "district": "Quận 3", "dishes": ["oc-sai-gon"], "sources": ["https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"] },
+
+    { "name": "Bún Riêu Cô Hương Béo", "address": "110 Cao Thắng", "district": "Quận 3", "dishes": ["bun-rieu-cua"], "sources": ["https://www.greensm.com/vn-vi/news/bun-rieu-quan-3"] },
+    { "name": "Bún Riêu Chị Tuyền", "address": "193/2 Bà Hạt", "district": "Quận 10", "dishes": ["bun-rieu-cua"], "sources": ["https://www.grab.com/vn/en/food-blog/talk-of-the-town/tphcm-bun-rieu-cua-oc-sieu-re-tap-nap-nguoi-an-o-quan-10/"], "note": "Grab lists hours 07:00–21:00." },
+    { "name": "Bún Riêu Cua Hòa Hưng", "address": "77 Hòa Hưng", "district": "Quận 10", "dishes": ["bun-rieu-cua"], "sources": ["https://www.grab.com/vn/en/food-blog/talk-of-the-town/tphcm-bun-rieu-gia-re-tron-trong-khu-chung-cu-quan-10/"], "note": "Grab lists hours 14:00–20:00." },
+
+    { "name": "Hidden House", "address": "55/3 Lê Thị Hồng Gấm", "district": "Quận 1", "dishes": ["banh-khot-vung-tau"], "sources": ["https://toplist.vn/top-list/dia-chi-an-banh-khot-ngon-nhat-tai-sai-gon-31549.htm"] }
+  ]
+}

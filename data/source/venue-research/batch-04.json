@@ -1,0 +1,21 @@
+{
+  "researchedOn": "2026-11-27",
+  "method": "Web search of published HCMC food guides (Grab Food blog, toplist.vn, mia.vn, VinWonders, Vinpearl). Named venues with street address only. Dropped: 'Phở Thìn 13 Lò Đúc' (a Hà Nội address), Bánh xèo Ngọc Sơn and Bà Hai (conflicting addresses), 18 Đinh Tiên Hoàng (listed for two different shops), unnamed address-only entries.",
+  "venues": [
+    { "name": "Bánh Bèo Huế Thùy Linh", "address": "209 Lê Văn Sỹ", "district": "Quận 3", "dishes": ["banh-beo-hue"], "sources": ["https://www.grab.com/vn/food-blog/trending-food/tphcm-luu-lai-dia-chi-cac-loai-banh-hue-ngon-re-o-sai-gon/"], "note": "Source lists hours 12:30–19:00 (Nguyễn Văn Trỗi market food area)." },
+    { "name": "Bánh Bèo Xíu", "address": "284 Lê Văn Sỹ", "district": "Quận 3", "dishes": ["banh-beo-hue"], "sources": ["https://www.grab.com/vn/food-blog/talk-of-the-town/tphcm-banh-beo-hue-lung-lay-hon-40-nam-o-sai-gon/"], "note": "In the alley at 284 Lê Văn Sỹ; Huế-born owner, 40+ years in Sài Gòn; hours 06:00–14:00 per source." },
+    { "name": "Bánh Bèo Huế O Trinh", "address": "126 Bùi Thị Xuân", "district": "Quận 1", "dishes": ["banh-beo-hue"], "sources": ["https://www.grab.com/vn/food-blog/trending-food/tphcm-luu-lai-dia-chi-cac-loai-banh-hue-ngon-re-o-sai-gon/"], "note": "Source lists hours 07:30–20:00." },
+    { "name": "Góc Huế – Kỳ Đồng", "address": "41 Kỳ Đồng", "district": "Quận 3", "dishes": ["banh-khoai", "banh-nam"], "sources": ["https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm"], "note": "Huế restaurant; source lists bánh khoái, bánh nậm lá, bánh ướt and chè bột lọc." },
+    { "name": "Góc Huế – Nguyễn Thái Bình", "address": "155 Nguyễn Thái Bình", "district": "Quận 1", "dishes": ["banh-khoai", "banh-nam"], "sources": ["https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm"] },
+    { "name": "Góc Huế – An Dương Vương", "address": "400 An Dương Vương", "district": "Quận 5", "dishes": ["banh-khoai", "banh-nam"], "sources": ["https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm"] },
+
+    { "name": "Chè Ba Màu", "address": "142 Nguyễn Phi Khanh", "district": "Quận 1", "dishes": ["che-ba-mau"], "sources": ["https://vinwonders.com/vi/wonderpedia/news/quan-che-ngon-o-sai-gon/"], "note": "Source lists chè ba màu, chè thập cẩm, sương sa hạt lựu." },
+    { "name": "Chè Đèn Dầu", "address": "504 Nguyễn Kiệm", "district": "Phú Nhuận", "dishes": ["che-ba-mau"], "styleNote": true, "sources": ["https://vinwonders.com/vi/wonderpedia/news/quan-che-ngon-o-sai-gon/"] },
+    { "name": "Chè Ngon Cô Ba", "address": "176 Cô Giang", "district": "Quận 1", "dishes": ["che-ba-mau"], "styleNote": true, "sources": ["https://vinwonders.com/vi/wonderpedia/news/quan-che-ngon-o-sai-gon/"] },
+    { "name": "Chè Vỉa Hè Cô Điệp", "address": "241 Võ Văn Tần", "district": "Quận 3", "dishes": ["che-ba-mau"], "styleNote": true, "sources": ["https://www.greensm.com/vn-vi/news/che-quan-3"] },
+    { "name": "Chè Thanh Tâm", "address": "98 Bùi Hữu Nghĩa", "dishes": ["che-ba-mau"], "styleNote": true, "sources": ["https://vinwonders.com/vi/wonderpedia/news/quan-che-ngon-o-sai-gon/"] },
+
+    { "name": "Bánh Xèo Miền Tây 139", "address": "139 Trần Văn Đang", "district": "Quận 3", "dishes": ["banh-xeo-nam-bo"], "sources": ["https://www.grab.com/vn/food-blog/trending-food/tphcm-dan-da-thom-ngon-mon-banh-xeo-mien-tay-giua-long-quan-3/"], "note": "Small shop, mostly take-away (per source)." },
+    { "name": "Infinity Tám", "address": "444 Hoàng Ngân", "dishes": ["bo-bia"], "sources": ["https://vinwonders.com/vi/wonderpedia/news/bo-bia-sai-gon/"] }
+  ]
+}

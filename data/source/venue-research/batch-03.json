@@ -1,0 +1,30 @@
+{
+  "researchedOn": "2026-11-27",
+  "method": "Web search of published HCMC food guides (greensm, mia.vn, VinWonders, Vinpearl, Bách Hóa Xanh, fptshop). Named venues with a street address only; conflicting entries dropped (e.g. Bột chiên Đạt Thành listed at both 227 and 277 Võ Văn Tần).",
+  "venues": [
+    { "name": "Ốc Thảo", "address": "383 Vĩnh Khánh", "district": "Quận 4", "dishes": ["oc-sai-gon"], "sources": ["https://www.greensm.com/vn-vi/news/oc-quan-4", "https://mia.vn/cam-nang-du-lich/pho-am-thuc-vinh-khanh-14606"] },
+    { "name": "Bé Ốc", "address": "58/44 Vĩnh Khánh", "district": "Quận 4", "dishes": ["oc-sai-gon"], "sources": ["https://www.greensm.com/vn-vi/news/oc-quan-4"] },
+    { "name": "Ốc Vũ", "address": "37 Vĩnh Khánh", "district": "Quận 4", "dishes": ["oc-sai-gon"], "sources": ["https://www.greensm.com/vn-vi/news/oc-quan-4"] },
+    { "name": "Ốc 35k", "address": "6 Vĩnh Khánh", "district": "Quận 4", "dishes": ["oc-sai-gon"], "sources": ["https://www.greensm.com/vn-vi/news/oc-quan-4"] },
+
+    { "name": "Bột Chiên 51", "address": "51 Nguyễn Văn Lạc", "district": "Bình Thạnh", "dishes": ["bot-chien"], "sources": ["https://vinwonders.com/vi/wonderpedia/news/bot-chien-sai-gon/"] },
+    { "name": "Bột Chiên Sáu", "address": "426 Tên Lửa", "district": "Bình Tân", "dishes": ["bot-chien"], "sources": ["https://vinwonders.com/vi/wonderpedia/news/bot-chien-sai-gon/"] },
+    { "name": "Bột Chiên Chú Thái", "address": "161 Lý Chính Thắng", "district": "Quận 3", "dishes": ["bot-chien"], "sources": ["https://www.bachhoaxanh.com/kinh-nghiem-hay/top-5-quan-bot-chien-an-mai-chang-ngan-tai-sai-gon-1324431"], "note": "Listed as operating for 40+ years." },
+    { "name": "Bột Chiên Hải Vân", "address": "134/121 Đoàn Văn Bơ", "district": "Quận 4", "dishes": ["bot-chien"], "sources": ["https://vinwonders.com/vi/wonderpedia/news/bot-chien-sai-gon/"] },
+
+    { "name": "Bánh Tráng Cô Giang", "address": "8A Nguyễn Trãi", "district": "Quận 5", "dishes": ["banh-trang-tron"], "sources": ["https://vinwonders.com/vi/wonderpedia/news/15-dia-chi-banh-trang-tron-sai-gon-ngon/"] },
+    { "name": "Bánh Tráng Long 34", "address": "34 Nguyễn Thượng Hiền", "district": "Quận 3", "dishes": ["banh-trang-tron"], "sources": ["https://fptshop.com.vn/tin-tuc/dien-may/banh-trang-sai-gon-189627"] },
+    { "name": "Bánh Tráng Dì Hồng", "address": "23 Đường 11", "district": "Quận 4", "dishes": ["banh-trang-tron"], "sources": ["https://fptshop.com.vn/tin-tuc/dien-may/banh-trang-sai-gon-189627"] },
+
+    { "name": "Quán Tui", "address": "22 Phạm Huy Thông", "district": "Gò Vấp", "dishes": ["banh-can"], "sources": ["https://fptshop.com.vn/tin-tuc/dien-may/banh-can-gan-day-169259"] },
+    { "name": "Dalatown", "address": "448 Lê Văn Thọ", "district": "Gò Vấp", "dishes": ["banh-can"], "sources": ["https://fptshop.com.vn/tin-tuc/dien-may/banh-can-gan-day-169259"] },
+
+    { "name": "Lẩu Mắm Bà Dú", "address": "436 Nguyễn Thị Thập", "district": "Quận 7", "dishes": ["lau-mam"], "sources": ["https://mia.vn/cam-nang-du-lich/quan-lau-mam-ngon-sai-gon-17580"], "note": "Source lists hours 10:00–23:30." },
+    { "name": "Cô 7 Bạc Liêu", "address": "139L Nguyễn Trãi", "district": "Quận 1", "dishes": ["lau-mam"], "sources": ["https://vinpearl.com/vi/quan-lau-mam-ngon-sai-gon"] },
+    { "name": "Lẩu Mắm Cô Út", "address": "41/6B Phan Văn Hớn", "dishes": ["lau-mam"], "sources": ["https://vinwonders.com/vi/wonderpedia/news/lau-mam-ngon-sai-gon/"], "note": "Other branches listed at 140 Trương Công Định and 74 Út Tịch." },
+    { "name": "Lẩu Mắm Cô Loan", "address": "65A Đỗ Xuân Hợp", "district": "Thủ Đức", "dishes": ["lau-mam"], "sources": ["https://vinpearl.com/vi/quan-lau-mam-ngon-sai-gon"] },
+    { "name": "Ẩm Thực Sen Nam Bộ", "address": "560 Võ Chí Công", "district": "Thủ Đức", "dishes": ["lau-mam"], "sources": ["https://vinpearl.com/vi/quan-lau-mam-ngon-sai-gon"] },
+    { "name": "Lẩu Mắm Song Nhi", "address": "6 Trần Thị Trọng", "dishes": ["lau-mam"], "sources": ["https://vinwonders.com/vi/wonderpedia/news/lau-mam-ngon-sai-gon/"], "note": "Source lists hours 06:30–22:00." },
+    { "name": "Tiệm Lẩu Cù Lao", "address": "337 Lê Văn Lương", "district": "Quận 7", "dishes": ["lau-mam"], "sources": ["https://vinwonders.com/vi/wonderpedia/news/lau-mam-ngon-sai-gon/"] }
+  ]
+}

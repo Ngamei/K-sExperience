@@ -642,6 +642,606 @@
         "url": "https://mia.vn/cam-nang-du-lich/top-quan-banh-xeo-quan-3-18238"
       },
       "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "oc-thao-383-vinh-khanh",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://www.greensm.com/vn-vi/news/oc-quan-4"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "be-oc-58-44-vinh-khanh",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://www.greensm.com/vn-vi/news/oc-quan-4"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "oc-vu-37-vinh-khanh",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://www.greensm.com/vn-vi/news/oc-quan-4"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "oc-35k-6-vinh-khanh",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://www.greensm.com/vn-vi/news/oc-quan-4"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bot-chien",
+      "restaurantId": "bot-chien-51-51-nguyen-van-lac",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://vinwonders.com/vi/wonderpedia/news/bot-chien-sai-gon/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bot-chien",
+      "restaurantId": "bot-chien-sau-426-ten-lua",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://vinwonders.com/vi/wonderpedia/news/bot-chien-sai-gon/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bot-chien",
+      "restaurantId": "bot-chien-chu-thai-161-ly-chinh-thang",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Listed as operating for 40+ years.",
+        "url": "https://www.bachhoaxanh.com/kinh-nghiem-hay/top-5-quan-bot-chien-an-mai-chang-ngan-tai-sai-gon-1324431"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bot-chien",
+      "restaurantId": "bot-chien-hai-van-134-121-doan-van-bo",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://vinwonders.com/vi/wonderpedia/news/bot-chien-sai-gon/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-trang-tron",
+      "restaurantId": "banh-trang-co-giang-8a-nguyen-trai",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://vinwonders.com/vi/wonderpedia/news/15-dia-chi-banh-trang-tron-sai-gon-ngon/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-trang-tron",
+      "restaurantId": "banh-trang-long-34-34-nguyen-thuong-hien",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://fptshop.com.vn/tin-tuc/dien-may/banh-trang-sai-gon-189627"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-trang-tron",
+      "restaurantId": "banh-trang-di-hong-23-duong-11",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://fptshop.com.vn/tin-tuc/dien-may/banh-trang-sai-gon-189627"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-can",
+      "restaurantId": "quan-tui-22-pham-huy-thong",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://fptshop.com.vn/tin-tuc/dien-may/banh-can-gan-day-169259"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-can",
+      "restaurantId": "dalatown-448-le-van-tho",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://fptshop.com.vn/tin-tuc/dien-may/banh-can-gan-day-169259"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "lau-mam",
+      "restaurantId": "lau-mam-ba-du-436-nguyen-thi-thap",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Source lists hours 10:00–23:30.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-lau-mam-ngon-sai-gon-17580"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "lau-mam",
+      "restaurantId": "co-7-bac-lieu-139l-nguyen-trai",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://vinpearl.com/vi/quan-lau-mam-ngon-sai-gon"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "lau-mam",
+      "restaurantId": "lau-mam-co-loan-65a-do-xuan-hop",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://vinpearl.com/vi/quan-lau-mam-ngon-sai-gon"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "lau-mam",
+      "restaurantId": "am-thuc-sen-nam-bo-560-vo-chi-cong",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://vinpearl.com/vi/quan-lau-mam-ngon-sai-gon"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "lau-mam",
+      "restaurantId": "lau-mam-song-nhi-6-tran-thi-trong",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Source lists hours 06:30–22:00.",
+        "url": "https://vinwonders.com/vi/wonderpedia/news/lau-mam-ngon-sai-gon/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "lau-mam",
+      "restaurantId": "tiem-lau-cu-lao-337-le-van-luong",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://vinwonders.com/vi/wonderpedia/news/lau-mam-ngon-sai-gon/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-beo-hue",
+      "restaurantId": "banh-beo-hue-thuy-linh-209-le-van-sy",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Source lists hours 12:30–19:00 (Nguyễn Văn Trỗi market food area).",
+        "url": "https://www.grab.com/vn/food-blog/trending-food/tphcm-luu-lai-dia-chi-cac-loai-banh-hue-ngon-re-o-sai-gon/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-beo-hue",
+      "restaurantId": "banh-beo-xiu-284-le-van-sy",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. In the alley at 284 Lê Văn Sỹ; Huế-born owner, 40+ years in Sài Gòn; hours 06:00–14:00 per source.",
+        "url": "https://www.grab.com/vn/food-blog/talk-of-the-town/tphcm-banh-beo-hue-lung-lay-hon-40-nam-o-sai-gon/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-beo-hue",
+      "restaurantId": "banh-beo-hue-o-trinh-126-bui-thi-xuan",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Source lists hours 07:30–20:00.",
+        "url": "https://www.grab.com/vn/food-blog/trending-food/tphcm-luu-lai-dia-chi-cac-loai-banh-hue-ngon-re-o-sai-gon/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-khoai",
+      "restaurantId": "goc-hue-ky-dong-41-ky-dong",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Huế restaurant; source lists bánh khoái, bánh nậm lá, bánh ướt and chè bột lọc.",
+        "url": "https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-nam",
+      "restaurantId": "goc-hue-ky-dong-41-ky-dong",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Huế restaurant; source lists bánh khoái, bánh nậm lá, bánh ướt and chè bột lọc.",
+        "url": "https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-khoai",
+      "restaurantId": "goc-hue-nguyen-thai-binh-155-nguyen-thai-binh",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-nam",
+      "restaurantId": "goc-hue-nguyen-thai-binh-155-nguyen-thai-binh",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-khoai",
+      "restaurantId": "goc-hue-an-duong-vuong-400-an-duong-vuong",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-nam",
+      "restaurantId": "goc-hue-an-duong-vuong-400-an-duong-vuong",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "che-ba-mau",
+      "restaurantId": "che-ba-mau-142-nguyen-phi-khanh",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Source lists chè ba màu, chè thập cẩm, sương sa hạt lựu.",
+        "url": "https://vinwonders.com/vi/wonderpedia/news/quan-che-ngon-o-sai-gon/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "che-ba-mau",
+      "restaurantId": "che-den-dau-504-nguyen-kiem",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide (regional style not confirmed).",
+        "url": "https://vinwonders.com/vi/wonderpedia/news/quan-che-ngon-o-sai-gon/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "che-ba-mau",
+      "restaurantId": "che-ngon-co-ba-176-co-giang",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide (regional style not confirmed).",
+        "url": "https://vinwonders.com/vi/wonderpedia/news/quan-che-ngon-o-sai-gon/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "che-ba-mau",
+      "restaurantId": "che-via-he-co-diep-241-vo-van-tan",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide (regional style not confirmed).",
+        "url": "https://www.greensm.com/vn-vi/news/che-quan-3"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-xeo-nam-bo",
+      "restaurantId": "banh-xeo-mien-tay-139-139-tran-van-dang",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Small shop, mostly take-away (per source).",
+        "url": "https://www.grab.com/vn/food-blog/trending-food/tphcm-dan-da-thom-ngon-mon-banh-xeo-mien-tay-giua-long-quan-3/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bo-bia",
+      "restaurantId": "infinity-tam-444-hoang-ngan",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://vinwonders.com/vi/wonderpedia/news/bo-bia-sai-gon/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-bo-hue",
+      "restaurantId": "bun-bo-hue-o-le-cach-mang-thang-8-48-cach-mang-thang-8",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://mia.vn/cam-nang-du-lich/thuong-thuc-quan-bun-bo-quan-3-16092"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-bo-hue",
+      "restaurantId": "bun-bo-hue-o-le-cao-thang-169-cao-thang",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://toplist.vn/top-list/quan-bun-bo-hue-ngon-o-quan-10-tp-hcm-37623.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-bo-hue",
+      "restaurantId": "bun-bo-mo-noi-co-nhu-274-29-vo-van-tan",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Source: MICHELIN Guide 'Selected' in 2024; in an alley.",
+        "url": "https://mia.vn/cam-nang-du-lich/bun-bo-hue-mo-noi-co-nhu-17406"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-bo-hue",
+      "restaurantId": "bun-bo-hue-kim-huong-rach-bung-binh-17-rach-bung-binh",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://mia.vn/cam-nang-du-lich/thuong-thuc-quan-bun-bo-quan-3-16092"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-bo-hue",
+      "restaurantId": "bun-bo-hue-170b-170b-tran-nhan-ton",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://toplist.vn/top-list/quan-bun-bo-hue-ngon-o-quan-10-tp-hcm-37623.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-bo-hue",
+      "restaurantId": "bun-bo-5t-606-86-duong-3-thang-2",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://toplist.vn/top-list/quan-bun-bo-hue-ngon-o-quan-10-tp-hcm-37623.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-sai-gon",
+      "restaurantId": "banh-mi-110-110-hoang-van-thu",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://toplist.vn/top-list/quan-banh-mi-ngon-nhat-quan-phu-nhuan-tp-hcm-54624.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-sai-gon",
+      "restaurantId": "banh-mi-hoang-lam-168-nguyen-thuong-hien",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Source lists hours 10:00–19:30, Monday–Saturday.",
+        "url": "https://mia.vn/cam-nang-du-lich/banh-mi-hoang-lam-phu-nhuan-20293"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "oc-bac-351-nguyen-thuong-hien",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Another branch listed at 35 Lý Tự Trọng, Quận 1.",
+        "url": "https://vinpearl.com/vi/quan-oc-ngon-sai-gon"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "oc-chi-em-24-nguyen-thai-binh",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://toplist.vn/top-list/quan-oc-ngon-nhat-o-quan-1-tp-hcm-18487.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "oc-beo-ha-noi-10-ban-co",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://toplist.vn/top-list/quan-oc-noi-tieng-sai-gon-2695.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "oc-chi-hong-210-15-cach-mang-thang-8",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-rieu-cua",
+      "restaurantId": "bun-rieu-co-huong-beo-110-cao-thang",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://www.greensm.com/vn-vi/news/bun-rieu-quan-3"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-rieu-cua",
+      "restaurantId": "bun-rieu-chi-tuyen-193-2-ba-hat",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Grab lists hours 07:00–21:00.",
+        "url": "https://www.grab.com/vn/en/food-blog/talk-of-the-town/tphcm-bun-rieu-cua-oc-sieu-re-tap-nap-nguoi-an-o-quan-10/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-rieu-cua",
+      "restaurantId": "bun-rieu-cua-hoa-hung-77-hoa-hung",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Grab lists hours 14:00–20:00.",
+        "url": "https://www.grab.com/vn/en/food-blog/talk-of-the-town/tphcm-bun-rieu-gia-re-tron-trong-khu-chung-cu-quan-10/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-khot-vung-tau",
+      "restaurantId": "hidden-house-55-3-le-thi-hong-gam",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://toplist.vn/top-list/dia-chi-an-banh-khot-ngon-nhat-tai-sai-gon-31549.htm"
+      },
+      "lastVerified": "2026-11-27"
     }
   ]
 }
