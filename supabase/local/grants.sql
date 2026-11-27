@@ -6,3 +6,4 @@ grant usage on all sequences in schema public to authenticated;
 grant usage on schema storage to anon, authenticated;
 grant select on storage.objects, storage.buckets to anon, authenticated;
 grant insert, update, delete on storage.objects to authenticated;
+grant execute on all functions in schema public to authenticated;

@@ -23,8 +23,8 @@ insert into results select 'anon update had no effect', name_en <> 'x' from dish
 set role authenticated;
 set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000002';
 update dishes set name_en = 'y' where id = 'mi-quang';
-insert into user_saved (user_id, dish_id) values ('00000000-0000-0000-0000-000000000002', 'mi-quang');
-insert into results select 'user sees own saved row', count(*) = 1 from user_saved;
+insert into saved_experiences (user_id, experience_id, item_type, item_id) values ('00000000-0000-0000-0000-000000000002', 'food', 'dish', 'mi-quang');
+insert into results select 'user sees own saved row', count(*) = 1 from saved_experiences;
 reset role;
 insert into results select 'non-editor update had no effect', name_en <> 'y' from dishes where id = 'mi-quang';
 
@@ -33,7 +33,7 @@ set role authenticated;
 set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000001';
 insert into results select 'editor sees candidate links', count(*) = 1 from dish_restaurant_links where status = 'candidate';
 update dishes set name_en = 'Quảng noodles (edited)' where id = 'mi-quang';
-insert into results select 'editor cannot see other user saved rows', count(*) = 0 from user_saved;
+insert into results select 'editor cannot see other user saved rows', count(*) = 0 from saved_experiences;
 reset role;
 insert into results select 'editor update persisted', name_en = 'Quảng noodles (edited)' from dishes where id = 'mi-quang';
 
@@ -51,6 +51,41 @@ insert into results select 'editor edit recorded in audit with editor id', count
   where table_name = 'dishes' and row_key = 'mi-quang' and action = 'UPDATE' and changed_by = '00000000-0000-0000-0000-000000000001';
 set role anon;
 insert into results select 'anon cannot read audit', count(*) = 0 from content_audit;
+reset role;
+
+-- 3c. accounts & passport isolation
+reset role;
+insert into results select 'profile auto-created for new users', count(*) = 2 from user_profiles;
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000002';  -- user B
+insert into experience_history (user_id, experience_id, item_type, item_id, action, occurred_on) values ('00000000-0000-0000-0000-000000000002', 'food', 'dish', 'bun-bo-hue', 'tried', '2026-11-01');
+insert into experience_history values ('00000000-0000-0000-0000-000000000002', 'food', 'dish', 'bun-bo-hue', 'tried', '2026-10-01') on conflict (user_id, experience_id, item_type, item_id, action) do update set occurred_on = least(experience_history.occurred_on, excluded.occurred_on);
+insert into results select 'guest merge upsert keeps one row with earliest date', count(*) = 1 and min(occurred_on) = '2026-10-01' from experience_history;
+insert into tasting_notes (user_id, experience_id, item_type, item_id, rating, note) values ('00000000-0000-0000-0000-000000000002', 'food', 'dish', 'bun-bo-hue', 5, 'cay quá!');
+do $$ begin
+  begin insert into tasting_notes (user_id, experience_id, item_type, item_id, rating) values ('00000000-0000-0000-0000-000000000001', 'food', 'dish', 'x', 1);
+  insert into results values ('user cannot write rows for another user', false);
+  exception when others then insert into results values ('user cannot write rows for another user', true); end;
+end $$;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000001';  -- user A (an editor) reads
+insert into results select 'user A cannot read user B passport', (select count(*) from experience_history) = 0 and (select count(*) from tasting_notes) = 0 and (select count(*) from user_profiles) = 1;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000002';
+insert into storage.objects (bucket_id, name) values ('user-media', '00000000-0000-0000-0000-000000000002/bun.jpg');
+do $$ begin
+  begin insert into storage.objects (bucket_id, name) values ('user-media', '00000000-0000-0000-0000-000000000001/x.jpg');
+  insert into results values ('user photos only in own folder', false);
+  exception when others then insert into results values ('user photos only in own folder', true); end;
+end $$;
+select delete_my_account();
+reset role;
+insert into results select 'account deletion removes the user and all personal rows',
+  (select count(*) from auth.users where id = '00000000-0000-0000-0000-000000000002') = 0
+  and (select count(*) from experience_history) = 0 and (select count(*) from tasting_notes) = 0 and (select count(*) from saved_experiences) = 0;
+set role anon;
+do $$ begin
+  begin perform delete_my_account(); insert into results values ('anon cannot call delete_my_account', false);
+  exception when others then insert into results values ('anon cannot call delete_my_account', true); end;
+end $$;
 reset role;
 
 -- 4. integrity rules
