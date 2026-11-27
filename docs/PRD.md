@@ -72,7 +72,9 @@ Sample venues are opt-in and excluded from recommendations.
 - Non-Food modules: item catalogue (categories, module attributes, accent-insensitive search) → item detail (module sections + "Where to … in Ho Chi Minh City" with the shared establishment cards) → HCMC establishment map / Nearby / establishment page → module passport. Food keeps the Vietnam culinary map.
 - **Coffee** is the first pilot: built, but switched off and without data until sourced items and verified cafés exist.
 
-## Pilot modules (implemented behind feature flags — hidden in production)
+## Pilot modules (open to everyone as pilots — PO decision 2026-11-27, D47)
+Bars, Coffee, Spa and Sport are selectable in Settings with a "Pilot" badge; Shopping stays Coming soon. Items show "Not yet verified"; venues show their evidence level and last-checked date.
+
 | Module | Catalogue categories | Establishment characteristics (separate from items) | Data today |
 | --- | --- | --- | --- |
 | Coffee | Traditional Vietnamese coffee, Espresso-based, Speciality, Cold brew, Matcha, Tea, Non-coffee | Café type (book, working, garden, concept, scenic, speciality, traditional), Wi-Fi, power sockets, seating, noise, smoking policy, opening hours | 13 sourced drinks; 4 HCMC cafés; 5 drink offerings (source-listed, each with evidence) |

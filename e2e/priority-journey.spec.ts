@@ -51,12 +51,9 @@ test("priority journey: explore → region + category → dish → HCMC availabi
   await page.getByTestId("nav-settings").click();
   await expect(page).toHaveURL(/\/settings\/?$/);
   await expect(page.getByTestId("experience-food")).toHaveAttribute("aria-pressed", "true");
-  for (const id of ["bars", "coffee", "spa", "shopping"]) {
-    await expect(page.getByTestId(`experience-${id}`)).toBeDisabled();
-    await expect(page.getByTestId(`experience-${id}`)).toContainText("Coming soon");
-  }
-  await expect(page.getByTestId("experience-sport")).toBeDisabled();
-  await expect(page.getByTestId("experience-sport")).toContainText("Pilot planned");
+  for (const id of ["bars", "coffee", "spa", "sport"]) await expect(page.getByTestId(`pilot-badge-${id}`)).toHaveText("Pilot");
+  await expect(page.getByTestId("experience-shopping")).toBeDisabled();
+  await expect(page.getByTestId("experience-shopping")).toContainText("Coming soon");
 });
 
 test("sample venues are opt-in, always labelled, and never verified-real", async ({ page }) => {

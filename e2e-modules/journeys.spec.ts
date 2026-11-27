@@ -70,15 +70,17 @@ test("real Coffee data: sourced cafés per drink, establishment filters, no unve
   await expect(page.getByTestId("establishment-offering")).toHaveCount(1);
 });
 
-test("unfinished modules stay hidden: flags off for Bars, Spa and Sport; Shopping coming soon", async ({ page }) => {
+test("open pilots Bars, Spa and Sport render real sourced data; Shopping stays Coming soon", async ({ page }) => {
   for (const id of ["bars", "spa", "sport"]) {
     await page.goto(`/${id}/catalogue/`);
-    await expect(page.getByTestId("module-unavailable")).toBeVisible();
-    await expect(page.getByTestId("item-card")).toHaveCount(0);
+    await expect(page.getByTestId("module-unavailable")).toHaveCount(0);
+    await expect(page.getByTestId("item-card").first()).toBeVisible();
   }
+  await page.goto("/sport/item/?id=pickleball-court-rental");
+  await expect(page.getByTestId("section-offerings").getByTestId("venue-row").first()).toBeVisible();
   await page.goto("/settings/");
-  for (const id of ["bars", "spa", "shopping", "sport"]) await expect(page.getByTestId(`experience-${id}`)).toBeDisabled();
-  await expect(page.getByTestId("experience-sport")).toContainText("Pilot planned");
+  await expect(page.getByTestId("experience-shopping")).toBeDisabled();
+  await expect(page.getByTestId("experience-shopping")).toContainText("Coming soon");
   await expect(page.getByTestId("pilots-sport")).toHaveText(/Pickleball.*Pilates/);
 });
 

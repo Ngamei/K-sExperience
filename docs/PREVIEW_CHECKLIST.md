@@ -6,8 +6,8 @@ _For the Product Owner and Codex before Preview QA and before any production rel
 
 | Build | Command | Who sees what |
 | --- | --- | --- |
-| **Production (default)** | `npm run build` (Vercel) | Vietnamese Food only. No sample venues (stripped from `/data/food.json`), no development notices. Bars, Coffee, Spa and Sport hidden: their URLs say "not available yet". Shopping coming soon. |
-| **Preview for pilot QA** | Vercel **Preview** env: `NEXT_PUBLIC_FEATURE_COFFEE=1` (and/or `_BARS`, `_SPA`, `_SPORT`) | The flagged pilots become selectable in Settings with their own navigation. |
+| **Production (default)** | `npm run build` (Vercel) | Vietnamese Food plus the open pilots Bars, Coffee, Spa and Sport (labelled "Pilot", D47). No sample venues (stripped from `/data/food.json`), no development notices. Shopping coming soon. |
+| Feature flags | `NEXT_PUBLIC_FEATURE_*` | Only needed for a future module that is implemented but not opened by default. |
 | Preview with development data | add `NEXT_PUBLIC_DEV_DATA=1` | Sample venues toggle + "Sample" banner + pilot notice (for testers only — never in Production). |
 | Accounts | `NEXT_PUBLIC_DATA_MODE=supabase`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Account in Settings, Passport sign-in gate, cross-device passports. Without them the app is the local demo (guest passport on the device, "Accounts are coming soon"). |
 

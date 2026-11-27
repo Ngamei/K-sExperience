@@ -73,7 +73,7 @@ Legend: ✅ shared now · 🔧 still Food-specific, generalise next · 🍜 Food
 | H. Independent QA before enabling | ⬜ Codex |
 
 ## 4. Guard rails
-- `isSelectable` requires `implemented` **and** (active **or** flag "1"). Shopping, Bars, Spa and Sport cannot be enabled by a flag yet. Coffee is off by default, and its URLs then show "not available yet".
+- `isSelectable` requires `implemented` **and** (active **or** `enabledByDefault` **or** flag "1"). Bars, Coffee, Spa and Sport are open pilots (D47, "Pilot" badge); Shopping is not implemented and never selectable.
 - Food filters and the Vietnam origin map never appear in other modules (unit + e2e).
 - Only HCMC establishments are recommended: the boundary is validated for every module file, and samples and candidates are excluded by the shared index.
 - An offering photo is shown only for its own item (unit + e2e in Food and Coffee).

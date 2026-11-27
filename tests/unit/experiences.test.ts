@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { EXPERIENCES, EXPERIENCE_IDS, NAV_SLOTS, getExperience, isSelectable, moduleForPath, navFor } from "@/experiences/registry";
+import { EXPERIENCES, EXPERIENCE_IDS, NAV_SLOTS, getExperience, isPilot, isSelectable, moduleForPath, navFor } from "@/experiences/registry";
 import { fromRows, toRows, EMPTY_PASSPORT, type HistoryRow, type SavedRow } from "@/lib/passport/model";
 import { SportOfferingSchema } from "@/experiences/sport/schema";
 
@@ -8,8 +8,9 @@ describe("experience registry", () => {
     expect(EXPERIENCES.map((e) => e.id)).toEqual(["food", "bars", "coffee", "spa", "shopping", "sport"]);
     expect([...EXPERIENCE_IDS]).toEqual(EXPERIENCES.map((e) => e.id));
   });
-  it("only Vietnamese Food is active and selectable; Sport is pilot-planned with Pickleball and Pilates", () => {
-    expect(EXPERIENCES.filter((e) => isSelectable(e)).map((e) => e.id)).toEqual(["food"]);
+  it("Food is active; Bars, Coffee, Spa and Sport are open pilots (PO decision); Shopping stays locked; Sport lists Pickleball and Pilates", () => {
+    expect(EXPERIENCES.filter((e) => isSelectable(e)).map((e) => e.id)).toEqual(["food", "bars", "coffee", "spa", "sport"]);
+    expect(EXPERIENCES.filter((e) => isPilot(e)).map((e) => e.id)).toEqual(["bars", "coffee", "spa", "sport"]);
     const sport = EXPERIENCES.find((e) => e.id === "sport")!;
     expect(sport.status).toBe("pilot-planned");
     expect(sport.name).toEqual({ en: "Sport", vi: "Thể thao" });
@@ -20,11 +21,12 @@ describe("experience registry", () => {
     const allOn = () => true;
     for (const e of EXPERIENCES.filter((x) => !x.implemented)) expect(isSelectable(e, allOn)).toBe(false);
   });
-  it("Coffee is the implemented reference pilot, selectable only with its flag", () => {
+  it("a pilot is selectable when opened by default or by its flag; unimplemented modules never", () => {
     const coffee = EXPERIENCES.find((e) => e.id === "coffee")!;
     expect(coffee.implemented).toBe(true);
-    expect(isSelectable(coffee)).toBe(false);
-    expect(isSelectable(coffee, (f) => f === "NEXT_PUBLIC_FEATURE_COFFEE")).toBe(true);
+    expect(isSelectable(coffee)).toBe(true);
+    expect(isSelectable({ ...coffee, enabledByDefault: false })).toBe(false);
+    expect(isSelectable({ ...coffee, enabledByDefault: false }, (f) => f === "NEXT_PUBLIC_FEATURE_COFFEE")).toBe(true);
     expect(isSelectable(EXPERIENCES.find((e) => e.id === "shopping")!, () => true)).toBe(false);
   });
   it("navigation: same slots, icons and positions in every module; module labels and routes", () => {
@@ -57,9 +59,10 @@ describe("experience registry", () => {
     }
   });
   it("falls back to Food for unknown or unavailable modes", () => {
-    expect(getExperience("sport").id).toBe("food");
+    expect(getExperience("sport").id).toBe("sport");
     expect(getExperience("nonsense").id).toBe("food");
-    expect(getExperience("coffee").id).toBe("food"); // flag off
+    expect(getExperience("coffee").id).toBe("coffee");
+    expect(getExperience("shopping").id).toBe("food"); // not implemented
     expect(navFor(getExperience("food")).length).toBe(6);
   });
   it("every module labels the same navigation slots in both languages", () => {

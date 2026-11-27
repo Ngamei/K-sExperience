@@ -47,7 +47,7 @@ test("switching experience mode changes the navigation, and switching back resto
   await serveFixture(page);
   await page.goto("/settings/");
   await expect(page.getByTestId("experience-coffee")).toBeEnabled();
-  await expect(page.getByTestId("experience-sport")).toBeDisabled(); // not implemented: flag-independent
+  await expect(page.getByTestId("experience-shopping")).toBeDisabled(); // not implemented: never selectable
   await page.getByTestId("experience-coffee").click();
   await expect(page).toHaveURL(/\/coffee\/$/);
   await expect(page.getByTestId("module-page")).toHaveAttribute("data-experience", "coffee");

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Check, Lock, ShieldCheck } from "lucide-react";
-import { EXPERIENCES, isSelectable, loc } from "@/experiences/registry";
+import { EXPERIENCES, isPilot, isSelectable, loc } from "@/experiences/registry";
 import { NAV_ICONS } from "@/components/shell/icons";
 import { CATEGORIES, MEAL_TIMES } from "@/lib/data/schema";
 import { DIET_PREFS, type DietPref, toggleIn } from "@/lib/food/filters";
@@ -71,7 +71,7 @@ export function SettingsView() {
                       </span>
                     )}
                   </span>
-                  {soon ? <Badge tone="outline"><Lock className="size-3" /> {e.status === "pilot-planned" ? t("settings.pilot") : t("settings.soon")}</Badge> : active ? <Badge tone="forest"><Check className="size-3" /> {t("settings.active")}</Badge> : null}
+                  {soon ? <Badge tone="outline"><Lock className="size-3" /> {e.status === "pilot-planned" ? t("settings.pilot") : t("settings.soon")}</Badge> : active ? <Badge tone="forest"><Check className="size-3" /> {t("settings.active")}</Badge> : isPilot(e) ? <Badge tone="outline" data-testid={`pilot-badge-${e.id}`}>{t("settings.pilotBadge")}</Badge> : null}
                 </button>
               </li>
             );

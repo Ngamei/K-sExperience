@@ -8,19 +8,23 @@ test("Settings lists six experience modes in order; Sport is a pilot with Pickle
   await expect(page.getByTestId("experience-food")).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByTestId("experience-food")).toContainText("Ẩm thực Việt Nam");
   const sport = page.getByTestId("experience-sport");
-  await expect(sport).toBeDisabled();
+  // PO decision: Bars, Coffee, Spa and Sport are open pilots, labelled "Pilot"; Shopping stays Coming soon.
+  for (const id of ["bars", "coffee", "spa", "sport"]) {
+    await expect(page.getByTestId(`experience-${id}`)).toBeEnabled();
+    await expect(page.getByTestId(`pilot-badge-${id}`)).toHaveText("Pilot");
+  }
   await expect(sport).toContainText("Sport");
   await expect(sport).toContainText("Thể thao");
-  await expect(sport).toContainText("Pilot planned");
   await expect(page.getByTestId("pilots-sport")).toHaveText(/Pickleball.*Pilates/);
+  await expect(page.getByTestId("experience-shopping")).toBeDisabled();
   await expect(page.getByTestId("experience-shopping")).toContainText("Coming soon");
 
   await page.getByTestId("locale-vi").click();
-  await expect(sport).toContainText("Dự kiến thí điểm");
-  await expect(page.getByTestId("experience-bars")).toContainText("Sắp ra mắt");
+  await expect(page.getByTestId("pilot-badge-sport")).toHaveText("Thí điểm");
+  await expect(page.getByTestId("experience-shopping")).toContainText("Sắp ra mắt");
 });
 
-test("Food stays the only working module: navigation and passport are unchanged", async ({ page, isMobile }) => {
+test("Food navigation and passport are unchanged; all six passports listed, Shopping locked", async ({ page, isMobile }) => {
   await page.goto("/catalogue/");
   if (!isMobile) {
     const nav = page.getByRole("navigation", { name: "Main" });
@@ -32,14 +36,15 @@ test("Food stays the only working module: navigation and passport are unchanged"
   await expect(mods.locator('[data-testid^="passport-module-"]')).toHaveCount(6);
   await expect(page.getByTestId("passport-module-sport")).toContainText("Sport Passport");
   await expect(page.getByTestId("passport-module-food")).toHaveClass(/border-forest/);
-  await expect(page.getByTestId("passport-module-sport")).toHaveClass(/opacity-60/);
+  await expect(page.getByTestId("passport-module-sport")).toHaveClass(/border-forest/);
+  await expect(page.getByTestId("passport-module-shopping")).toHaveClass(/opacity-60/);
 });
 
-test("with feature flags off, a module URL never looks functional", async ({ page }) => {
-  await page.goto("/coffee/catalogue/");
-  await expect(page.getByTestId("module-unavailable")).toContainText("not available yet");
-  await expect(page.getByTestId("item-results")).toHaveCount(0);
-  await expect(page.getByTestId("experience-coffee")).toHaveCount(0);
+test("open pilots work from Settings without any flag; Shopping has no pages", async ({ page, request }) => {
   await page.goto("/settings/");
-  await expect(page.getByTestId("experience-coffee")).toBeDisabled();
+  await page.getByTestId("experience-bars").click();
+  await expect(page).toHaveURL(/\/bars\/$/);
+  await page.goto("/bars/catalogue/");
+  await expect(page.getByTestId("item-card").first()).toBeVisible();
+  expect((await request.get("/shopping/")).status()).toBe(404);
 });
