@@ -1,0 +1,217 @@
+{
+  "researchedOn": "2026-11-27",
+  "method": "Desk research from published guides/directories naming the venue AND the exact item (pages read via search-result excerpts; direct page fetches were blocked in the research environment — PO/Codex should spot-check). Coordinates: OpenStreetMap Nominatim. Status source-listed only; no prices, hours or photos without a source.",
+  "venues": [
+    {
+      "id": "court-one-club-new-world-saigon",
+      "name": "Court One Club (New World Saigon Hotel)",
+      "address": "76 Lê Lai, Quận 1, TP. Hồ Chí Minh",
+      "district": "Quận 1",
+      "venueType": "pickleball courts",
+      "sources": [
+        "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/court-one-club-at-new-world-saigon-hotel",
+        "https://saigon.newworldhotels.com/en/facilities/pickleball-court/"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pickleball-courts"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "pickleball-court-rental",
+          "evidence": "Pickleheads directory and the hotel's facilities page list pickleball courts that can be reserved.",
+          "url": "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/court-one-club-at-new-world-saigon-hotel"
+        }
+      ]
+    },
+    {
+      "id": "hcmc-cultural-palace-for-labors",
+      "name": "Nhà Văn hóa Lao động TP.HCM (pickleball)",
+      "address": "55B Nguyễn Thị Minh Khai, Quận 1, TP. Hồ Chí Minh",
+      "district": "Quận 1",
+      "venueType": "sports centre",
+      "sources": [
+        "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/hcmc-cultural-palace-for-labors"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pickleball-courts"
+        ],
+        "indoorOutdoor": [
+          "indoor"
+        ],
+        "courtSurface": "other"
+      },
+      "offerings": [
+        {
+          "item": "pickleball-court-rental",
+          "evidence": "Pickleheads lists 2 indoor hard courts at the HCMC Cultural Palace for Labors.",
+          "url": "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/hcmc-cultural-palace-for-labors"
+        }
+      ]
+    },
+    {
+      "id": "pickoland-thao-dien",
+      "name": "PickoLand Thảo Điền Pickleball Club",
+      "address": "188A6 Nguyễn Văn Hưởng, Thủ Đức, TP. Hồ Chí Minh",
+      "district": "Thủ Đức",
+      "venueType": "pickleball club",
+      "sources": [
+        "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/pickoland-thao-djien-pickleball-club"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pickleball-courts",
+          "sports-club"
+        ],
+        "indoorOutdoor": [
+          "outdoor"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "pickleball-court-rental",
+          "evidence": "Pickleheads lists 5 outdoor hard courts with court reservations (membership required).",
+          "url": "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/pickoland-thao-djien-pickleball-club"
+        }
+      ]
+    },
+    {
+      "id": "rudal-pickleball-center",
+      "name": "Rudal Pickleball Center",
+      "address": "28 Đường số 12, An Khánh, Thủ Đức, TP. Hồ Chí Minh",
+      "district": "Thủ Đức",
+      "venueType": "pickleball courts",
+      "sources": [
+        "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/rudal-pickleball-center"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pickleball-courts"
+        ],
+        "indoorOutdoor": [
+          "outdoor"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "pickleball-court-rental",
+          "evidence": "Pickleheads lists 6 outdoor hard courts, pay-to-play.",
+          "url": "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/rudal-pickleball-center"
+        }
+      ],
+      "excluded": "Geocoding ambiguous: numbered street (Đường số …) matched a different ward. Not published until coordinates are confirmed (official listing or first-hand)."
+    },
+    {
+      "id": "hitpark-pickleball",
+      "name": "HitPark Pickleball",
+      "address": "1 Đường số 26, An Khánh, Thủ Đức, TP. Hồ Chí Minh",
+      "district": "Thủ Đức",
+      "venueType": "pickleball courts",
+      "sources": [
+        "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/hitpark-pickleball"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pickleball-courts"
+        ],
+        "indoorOutdoor": [
+          "outdoor"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "pickleball-court-rental",
+          "evidence": "Pickleheads lists 2 outdoor hard courts, pay-to-play.",
+          "url": "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/hitpark-pickleball"
+        }
+      ],
+      "excluded": "Geocoding ambiguous: numbered street (Đường số …) matched a different ward. Not published until coordinates are confirmed (official listing or first-hand)."
+    },
+    {
+      "id": "bang-bang-pickleball-club",
+      "name": "Bang Bang Pickleball Club",
+      "address": "247 Nguyễn Văn Hưởng, Thủ Đức, TP. Hồ Chí Minh",
+      "district": "Thủ Đức",
+      "venueType": "pickleball club",
+      "sources": [
+        "https://vietcetera.com/en/the-future-of-pickleball-in-ho-chi-minh-city",
+        "https://reclub.co/m/ZVV7YJ"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pickleball-courts",
+          "sports-club"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "pickleball-social-play",
+          "evidence": "Vietcetera: casual drop-in games almost daily at Bang Bang.",
+          "url": "https://vietcetera.com/en/the-future-of-pickleball-in-ho-chi-minh-city"
+        },
+        {
+          "item": "pickleball-equipment-rental",
+          "evidence": "Vietcetera: Bang Bang is known for its rental gear.",
+          "url": "https://vietcetera.com/en/the-future-of-pickleball-in-ho-chi-minh-city"
+        }
+      ]
+    },
+    {
+      "id": "olaben-studio-thao-dien",
+      "name": "Olaben Studio",
+      "address": "1M Đường số 10, Thảo Điền, Thủ Đức, TP. Hồ Chí Minh",
+      "district": "Thủ Đức",
+      "venueType": "pilates studio",
+      "sources": [
+        "https://olaben.com/pages/olaben-studio"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pilates-studio"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "reformer-pilates",
+          "evidence": "The studio's own page lists reformer pilates classes.",
+          "url": "https://olaben.com/pages/olaben-studio"
+        },
+        {
+          "item": "mat-pilates",
+          "evidence": "The studio's own page lists mat pilates.",
+          "url": "https://olaben.com/pages/olaben-studio"
+        },
+        {
+          "item": "pilates-apparatus",
+          "evidence": "The studio's own page lists cadillac pilates.",
+          "url": "https://olaben.com/pages/olaben-studio"
+        }
+      ],
+      "excluded": "Geocoding ambiguous: numbered street (Đường số …) matched a different ward. Not published until coordinates are confirmed (official listing or first-hand)."
+    },
+    {
+      "id": "ufitu-pilates-dang-thi-nhu",
+      "name": "UFiTU Pilates+ (Đặng Thị Nhu)",
+      "address": "41 Đặng Thị Nhu, Quận 1, TP. Hồ Chí Minh",
+      "district": "Quận 1",
+      "venueType": "pilates studio",
+      "sources": [
+        "https://business.mammothtimes.com/mammothtimes/article/abnewswire-2026-2-4-ufitu-pilates-named-best-reformer-pilates-studio-in-ho-chi-minh-city-vietnam"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pilates-studio"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "reformer-pilates",
+          "evidence": "Press release (2026) describes UFiTU Pilates+ as a reformer pilates studio with an Express studio at 41 Đặng Thị Nhu (3rd floor).",
+          "url": "https://business.mammothtimes.com/mammothtimes/article/abnewswire-2026-2-4-ufitu-pilates-named-best-reformer-pilates-studio-in-ho-chi-minh-city-vietnam"
+        }
+      ]
+    }
+  ]
+}

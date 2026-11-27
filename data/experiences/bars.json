@@ -255,8 +255,177 @@
         "status": "seed-unverified"
       },
       "dataset": "seed"
+    },
+    {
+      "id": "stir-truffle-martini",
+      "experienceId": "bars",
+      "nameVi": "Truffle Martini (Stir)",
+      "nameEn": "Truffle Martini (Stir)",
+      "altNames": [],
+      "category": "signature-cocktail",
+      "attributes": {
+        "taste": [
+          "strong"
+        ],
+        "abv": "high"
+      },
+      "description": {
+        "vi": "Martini đặc trưng trong thực đơn của Stir Modern Classic Cocktail Bar.",
+        "en": "A signature martini on the menu of Stir Modern Classic Cocktail Bar."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Tatler Asia — Stir Modern Classic Cocktail Bar",
+          "url": "https://www.tatlerasia.com/dining/stir-modern-classic-cocktail-bar-vn-en"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
+    },
+    {
+      "id": "craft-beer",
+      "experienceId": "bars",
+      "nameVi": "Bia thủ công",
+      "nameEn": "Craft beer",
+      "altNames": [
+        "bia craft"
+      ],
+      "category": "beer",
+      "attributes": {
+        "taste": [
+          "bitter"
+        ],
+        "abv": "medium"
+      },
+      "description": {
+        "vi": "Bia từ các nhà nấu bia độc lập nhỏ, thường đậm hương hoa bia.",
+        "en": "Beer from small independent breweries, often hop-forward."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Wikipedia — Craft beer",
+          "url": "https://en.wikipedia.org/wiki/Craft_beer"
+        }
+      ],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed"
     }
   ],
-  "establishments": [],
-  "offerings": []
+  "establishments": [
+    {
+      "id": "stir-modern-classic-cocktail-bar",
+      "name": "Stir Modern Classic Cocktail Bar",
+      "isSample": false,
+      "address": "136 Lê Thánh Tôn, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Sài Gòn",
+      "coordinates": [
+        106.705483,
+        10.781661
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Stir%20Modern%20Classic%20Cocktail%20Bar%2C%20136%20L%C3%AA%20Th%C3%A1nh%20T%C3%B4n%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "cocktail bar",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "tatlerasia.com",
+          "url": "https://www.tatlerasia.com/dining/stir-modern-classic-cocktail-bar-vn-en",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "theworlds50best.com",
+          "url": "https://www.theworlds50best.com/discovery/Establishments/Vietnam/Ho-Chi-Minh-City/Stir-Modern-Classic-Cocktail-Bar.html",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "cocktail-bar",
+          "speakeasy"
+        ]
+      }
+    },
+    {
+      "id": "pasteur-street-brewing-pasteur",
+      "name": "Pasteur Street Brewing Company",
+      "isSample": false,
+      "address": "144 Pasteur, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Sài Gòn",
+      "coordinates": [
+        106.700746,
+        10.775184
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Street%20Brewing%20Company%2C%20144%20Pasteur%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "saigoneer.com",
+          "url": "https://saigoneer.com/saigon-street-food-restaurants/3635-hẻm-gems-craft-beer-makes-its-debut-in-saigon-pasteur-street-brewing",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "e.vnexpress.net",
+          "url": "https://e.vnexpress.net/news/travel-life/three-really-cool-crafty-draughty-weekend-haunts-in-saigon-3868280.html",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ]
+      }
+    }
+  ],
+  "offerings": [
+    {
+      "itemId": "stir-truffle-martini",
+      "establishmentId": "stir-modern-classic-cocktail-bar",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Tatler Asia's listing for Stir names its Truffle Martini on a menu of classic and reimagined cocktails.",
+        "url": "https://www.tatlerasia.com/dining/stir-modern-classic-cocktail-bar-vn-en"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "pasteur-street-brewing-pasteur",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Saigoneer and VnExpress International feature Pasteur Street Brewing's craft-beer taproom at 144 Pasteur.",
+        "url": "https://e.vnexpress.net/news/travel-life/three-really-cool-crafty-draughty-weekend-haunts-in-saigon-3868280.html"
+      },
+      "lastVerified": "2026-11-27"
+    }
+  ]
 }

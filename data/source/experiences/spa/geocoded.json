@@ -1,0 +1,30 @@
+{
+ "An Miên Spa|16/22B Đinh Tiên Hoàng, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.702387,
+  "lat": 10.785864,
+  "precision": "street",
+  "ward": "Phường Sài Gòn",
+  "displayName": "Đinh Tiên Hoàng, Khu phố 2, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+ },
+ "Dưỡng Sinh Cô Ba (Nguyễn Bỉnh Khiêm)|25/65 Nguyễn Bỉnh Khiêm, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.698939,
+  "lat": 10.792858,
+  "precision": "street",
+  "ward": "Phường Tân Định",
+  "displayName": "Nguyễn Bỉnh Khiêm, Khu phố 12, Phường Tân Định, Thành phố Hồ Chí Minh, 71008, Việt Nam"
+ },
+ "Dưỡng Sinh Cô Ba (Võ Văn Tần)|59 Võ Văn Tần, Quận 3, TP. Hồ Chí Minh|Quận 3": {
+  "lon": 106.685605,
+  "lat": 10.771487,
+  "precision": "street",
+  "ward": "Phường Bàn Cờ",
+  "displayName": "Võ Văn Tần, Khu phố 9, Phường Bàn Cờ, Thành phố Hồ Chí Minh, 72420, Việt Nam"
+ },
+ "Mâm Xôi Đỏ Hair Spa|211A Nam Kỳ Khởi Nghĩa, Quận 3, TP. Hồ Chí Minh|Quận 3": {
+  "lon": 106.683988,
+  "lat": 10.789617,
+  "precision": "street",
+  "ward": "Phường Xuân Hòa",
+  "displayName": "Nam Kỳ Khởi Nghĩa, Khu phố 16, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+ }
+}

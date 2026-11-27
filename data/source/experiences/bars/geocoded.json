@@ -1,0 +1,16 @@
+{
+ "Stir Modern Classic Cocktail Bar|136 Lê Thánh Tôn, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.705483,
+  "lat": 10.781661,
+  "precision": "exact",
+  "ward": "Phường Sài Gòn",
+  "displayName": "Cửa Hàng Thời Trang Mayhem Saigon, 136/1, Lê Thánh Tôn, Khu phố 4, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+ },
+ "Pasteur Street Brewing Company|144 Pasteur, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.700746,
+  "lat": 10.775184,
+  "precision": "exact",
+  "ward": "Phường Sài Gòn",
+  "displayName": "Công Ty Sản Xuất Bia Pasteur, 144, Pasteur, Khu phố 5, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+ }
+}

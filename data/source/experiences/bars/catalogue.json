@@ -208,6 +208,54 @@
           "url": "https://en.wikipedia.org/wiki/Mojito"
         }
       ]
+    },
+    {
+      "id": "stir-truffle-martini",
+      "nameVi": "Truffle Martini (Stir)",
+      "nameEn": "Truffle Martini (Stir)",
+      "altNames": [],
+      "category": "signature-cocktail",
+      "attributes": {
+        "taste": [
+          "strong"
+        ],
+        "abv": "high"
+      },
+      "description": {
+        "en": "A signature martini on the menu of Stir Modern Classic Cocktail Bar.",
+        "vi": "Martini đặc trưng trong thực đơn của Stir Modern Classic Cocktail Bar."
+      },
+      "sources": [
+        {
+          "title": "Tatler Asia — Stir Modern Classic Cocktail Bar",
+          "url": "https://www.tatlerasia.com/dining/stir-modern-classic-cocktail-bar-vn-en"
+        }
+      ]
+    },
+    {
+      "id": "craft-beer",
+      "nameVi": "Bia thủ công",
+      "nameEn": "Craft beer",
+      "altNames": [
+        "bia craft"
+      ],
+      "category": "beer",
+      "attributes": {
+        "taste": [
+          "bitter"
+        ],
+        "abv": "medium"
+      },
+      "description": {
+        "en": "Beer from small independent breweries, often hop-forward.",
+        "vi": "Bia từ các nhà nấu bia độc lập nhỏ, thường đậm hương hoa bia."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Craft beer",
+          "url": "https://en.wikipedia.org/wiki/Craft_beer"
+        }
+      ]
     }
   ]
 }

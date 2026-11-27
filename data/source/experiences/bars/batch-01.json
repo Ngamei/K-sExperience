@@ -1,0 +1,53 @@
+{
+  "researchedOn": "2026-11-27",
+  "method": "Desk research from published guides/directories naming the venue AND the exact item (pages read via search-result excerpts; direct page fetches were blocked in the research environment — PO/Codex should spot-check). Coordinates: OpenStreetMap Nominatim. Status source-listed only; no prices, hours or photos without a source.",
+  "venues": [
+    {
+      "id": "stir-modern-classic-cocktail-bar",
+      "name": "Stir Modern Classic Cocktail Bar",
+      "address": "136 Lê Thánh Tôn, Quận 1, TP. Hồ Chí Minh",
+      "district": "Quận 1",
+      "venueType": "cocktail bar",
+      "sources": [
+        "https://www.tatlerasia.com/dining/stir-modern-classic-cocktail-bar-vn-en",
+        "https://www.theworlds50best.com/discovery/Establishments/Vietnam/Ho-Chi-Minh-City/Stir-Modern-Classic-Cocktail-Bar.html"
+      ],
+      "attributes": {
+        "barTypes": [
+          "cocktail-bar",
+          "speakeasy"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "stir-truffle-martini",
+          "evidence": "Tatler Asia's listing for Stir names its Truffle Martini on a menu of classic and reimagined cocktails.",
+          "url": "https://www.tatlerasia.com/dining/stir-modern-classic-cocktail-bar-vn-en"
+        }
+      ]
+    },
+    {
+      "id": "pasteur-street-brewing-pasteur",
+      "name": "Pasteur Street Brewing Company",
+      "address": "144 Pasteur, Quận 1, TP. Hồ Chí Minh",
+      "district": "Quận 1",
+      "venueType": "taproom",
+      "sources": [
+        "https://saigoneer.com/saigon-street-food-restaurants/3635-hẻm-gems-craft-beer-makes-its-debut-in-saigon-pasteur-street-brewing",
+        "https://e.vnexpress.net/news/travel-life/three-really-cool-crafty-draughty-weekend-haunts-in-saigon-3868280.html"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "Saigoneer and VnExpress International feature Pasteur Street Brewing's craft-beer taproom at 144 Pasteur.",
+          "url": "https://e.vnexpress.net/news/travel-life/three-really-cool-crafty-draughty-weekend-haunts-in-saigon-3868280.html"
+        }
+      ]
+    }
+  ]
+}

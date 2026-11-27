@@ -253,6 +253,279 @@
       "dataset": "seed"
     }
   ],
-  "establishments": [],
-  "offerings": []
+  "establishments": [
+    {
+      "id": "court-one-club-new-world-saigon",
+      "name": "Court One Club (New World Saigon Hotel)",
+      "isSample": false,
+      "address": "76 Lê Lai, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.694532,
+        10.770794
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Court%20One%20Club%20(New%20World%20Saigon%20Hotel)%2C%2076%20L%C3%AA%20Lai%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "pickleball courts",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "pickleheads.com",
+          "url": "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/court-one-club-at-new-world-saigon-hotel",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "saigon.newworldhotels.com",
+          "url": "https://saigon.newworldhotels.com/en/facilities/pickleball-court/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "sport"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pickleball-courts"
+        ]
+      }
+    },
+    {
+      "id": "hcmc-cultural-palace-for-labors",
+      "name": "Nhà Văn hóa Lao động TP.HCM (pickleball)",
+      "isSample": false,
+      "address": "55B Nguyễn Thị Minh Khai, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.693128,
+        10.776738
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nh%C3%A0%20V%C4%83n%20h%C3%B3a%20Lao%20%C4%91%E1%BB%99ng%20TP.HCM%20(pickleball)%2C%2055B%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Minh%20Khai%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "sports centre",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "pickleheads.com",
+          "url": "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/hcmc-cultural-palace-for-labors",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "sport"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pickleball-courts"
+        ],
+        "indoorOutdoor": [
+          "indoor"
+        ],
+        "courtSurface": "other"
+      }
+    },
+    {
+      "id": "pickoland-thao-dien",
+      "name": "PickoLand Thảo Điền Pickleball Club",
+      "isSample": false,
+      "address": "188A6 Nguyễn Văn Hưởng, Thủ Đức, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường An Khánh",
+      "coordinates": [
+        106.728262,
+        10.81642
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=PickoLand%20Th%E1%BA%A3o%20%C4%90i%E1%BB%81n%20Pickleball%20Club%2C%20188A6%20Nguy%E1%BB%85n%20V%C4%83n%20H%C6%B0%E1%BB%9Fng%2C%20Th%E1%BB%A7%20%C4%90%E1%BB%A9c%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "pickleball club",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "pickleheads.com",
+          "url": "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/pickoland-thao-djien-pickleball-club",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "sport"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pickleball-courts",
+          "sports-club"
+        ],
+        "indoorOutdoor": [
+          "outdoor"
+        ]
+      }
+    },
+    {
+      "id": "bang-bang-pickleball-club",
+      "name": "Bang Bang Pickleball Club",
+      "isSample": false,
+      "address": "247 Nguyễn Văn Hưởng, Thủ Đức, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường An Khánh",
+      "coordinates": [
+        106.728262,
+        10.81642
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bang%20Bang%20Pickleball%20Club%2C%20247%20Nguy%E1%BB%85n%20V%C4%83n%20H%C6%B0%E1%BB%9Fng%2C%20Th%E1%BB%A7%20%C4%90%E1%BB%A9c%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "pickleball club",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vietcetera.com",
+          "url": "https://vietcetera.com/en/the-future-of-pickleball-in-ho-chi-minh-city",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "reclub.co",
+          "url": "https://reclub.co/m/ZVV7YJ",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "sport"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pickleball-courts",
+          "sports-club"
+        ]
+      }
+    },
+    {
+      "id": "ufitu-pilates-dang-thi-nhu",
+      "name": "UFiTU Pilates+ (Đặng Thị Nhu)",
+      "isSample": false,
+      "address": "41 Đặng Thị Nhu, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.697306,
+        10.769364
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=UFiTU%20Pilates%2B%20(%C4%90%E1%BA%B7ng%20Th%E1%BB%8B%20Nhu)%2C%2041%20%C4%90%E1%BA%B7ng%20Th%E1%BB%8B%20Nhu%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "pilates studio",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "business.mammothtimes.com",
+          "url": "https://business.mammothtimes.com/mammothtimes/article/abnewswire-2026-2-4-ufitu-pilates-named-best-reformer-pilates-studio-in-ho-chi-minh-city-vietnam",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27",
+      "experiences": [
+        "sport"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pilates-studio"
+        ]
+      }
+    }
+  ],
+  "offerings": [
+    {
+      "itemId": "pickleball-court-rental",
+      "establishmentId": "court-one-club-new-world-saigon",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Pickleheads directory and the hotel's facilities page list pickleball courts that can be reserved.",
+        "url": "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/court-one-club-at-new-world-saigon-hotel"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "pickleball-court-rental",
+      "establishmentId": "hcmc-cultural-palace-for-labors",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Pickleheads lists 2 indoor hard courts at the HCMC Cultural Palace for Labors.",
+        "url": "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/hcmc-cultural-palace-for-labors"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "pickleball-court-rental",
+      "establishmentId": "pickoland-thao-dien",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Pickleheads lists 5 outdoor hard courts with court reservations (membership required).",
+        "url": "https://www.pickleheads.com/courts/vn/ho-chi-minh/vietnam/pickoland-thao-djien-pickleball-club"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "pickleball-social-play",
+      "establishmentId": "bang-bang-pickleball-club",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Vietcetera: casual drop-in games almost daily at Bang Bang.",
+        "url": "https://vietcetera.com/en/the-future-of-pickleball-in-ho-chi-minh-city"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "pickleball-equipment-rental",
+      "establishmentId": "bang-bang-pickleball-club",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Vietcetera: Bang Bang is known for its rental gear.",
+        "url": "https://vietcetera.com/en/the-future-of-pickleball-in-ho-chi-minh-city"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "reformer-pilates",
+      "establishmentId": "ufitu-pilates-dang-thi-nhu",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Press release (2026) describes UFiTU Pilates+ as a reformer pilates studio with an Express studio at 41 Đặng Thị Nhu (3rd floor).",
+        "url": "https://business.mammothtimes.com/mammothtimes/article/abnewswire-2026-2-4-ufitu-pilates-named-best-reformer-pilates-studio-in-ho-chi-minh-city-vietnam"
+      },
+      "lastVerified": "2026-11-27"
+    }
+  ]
 }

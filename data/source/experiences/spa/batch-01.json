@@ -1,0 +1,95 @@
+{
+  "researchedOn": "2026-11-27",
+  "method": "Desk research from published guides/directories naming the venue AND the exact item (pages read via search-result excerpts; direct page fetches were blocked in the research environment — PO/Codex should spot-check). Coordinates: OpenStreetMap Nominatim. Status source-listed only; no prices, hours or photos without a source.",
+  "venues": [
+    {
+      "id": "an-mien-spa-dinh-tien-hoang",
+      "name": "An Miên Spa",
+      "address": "16/22B Đinh Tiên Hoàng, Quận 1, TP. Hồ Chí Minh",
+      "district": "Quận 1",
+      "venueType": "spa",
+      "sources": [
+        "https://www.toplist.vn/top-list/dia-chi-goi-dau-duong-sinh-tot-nhat-quan-1-tphcm-52615.htm"
+      ],
+      "attributes": {
+        "spaTypes": [
+          "head-spa"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "goi-dau-duong-sinh",
+          "evidence": "Toplist (Quận 1 head-spa list) names An Miên Spa for gội đầu dưỡng sinh.",
+          "url": "https://www.toplist.vn/top-list/dia-chi-goi-dau-duong-sinh-tot-nhat-quan-1-tphcm-52615.htm"
+        }
+      ]
+    },
+    {
+      "id": "duong-sinh-co-ba-nguyen-binh-khiem",
+      "name": "Dưỡng Sinh Cô Ba (Nguyễn Bỉnh Khiêm)",
+      "address": "25/65 Nguyễn Bỉnh Khiêm, Quận 1, TP. Hồ Chí Minh",
+      "district": "Quận 1",
+      "venueType": "spa",
+      "sources": [
+        "https://www.toplist.vn/top-list/dia-chi-goi-dau-duong-sinh-tot-nhat-quan-1-tphcm-52615.htm"
+      ],
+      "attributes": {
+        "spaTypes": [
+          "head-spa"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "goi-dau-duong-sinh",
+          "evidence": "Toplist (Quận 1 head-spa list) names the Dưỡng Sinh Cô Ba Quận 1 branch for gội đầu dưỡng sinh.",
+          "url": "https://www.toplist.vn/top-list/dia-chi-goi-dau-duong-sinh-tot-nhat-quan-1-tphcm-52615.htm"
+        }
+      ]
+    },
+    {
+      "id": "duong-sinh-co-ba-vo-van-tan",
+      "name": "Dưỡng Sinh Cô Ba (Võ Văn Tần)",
+      "address": "59 Võ Văn Tần, Quận 3, TP. Hồ Chí Minh",
+      "district": "Quận 3",
+      "venueType": "spa",
+      "sources": [
+        "https://toplist.vn/top-list/dia-chi-goi-dau-duong-sinh-chat-luong-tot-nhat-tai-quan-3-tphcm-52643.htm"
+      ],
+      "attributes": {
+        "spaTypes": [
+          "head-spa"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "goi-dau-duong-sinh",
+          "evidence": "Toplist (Quận 3 head-spa list) names the Dưỡng Sinh Cô Ba Quận 3 branch for gội đầu dưỡng sinh.",
+          "url": "https://toplist.vn/top-list/dia-chi-goi-dau-duong-sinh-chat-luong-tot-nhat-tai-quan-3-tphcm-52643.htm"
+        }
+      ]
+    },
+    {
+      "id": "mam-xoi-do-hair-spa",
+      "name": "Mâm Xôi Đỏ Hair Spa",
+      "address": "211A Nam Kỳ Khởi Nghĩa, Quận 3, TP. Hồ Chí Minh",
+      "district": "Quận 3",
+      "venueType": "hair spa",
+      "sources": [
+        "https://toplist.vn/top-list/dia-chi-goi-dau-duong-sinh-chat-luong-tot-nhat-tai-quan-3-tphcm-52643.htm",
+        "https://mytour.vn/en/blog/xep-hang/top-8-best-wellness-hair-treatment-and-scalp-detox-spots-in-district-3-ho-chi-minh-city-mytour.html"
+      ],
+      "attributes": {
+        "spaTypes": [
+          "head-spa"
+        ]
+      },
+      "offerings": [
+        {
+          "item": "goi-dau-duong-sinh",
+          "evidence": "Toplist and Mytour (Quận 3 lists) name Mâm Xôi Đỏ Hair Spa for gội đầu dưỡng sinh / scalp care.",
+          "url": "https://toplist.vn/top-list/dia-chi-goi-dau-duong-sinh-chat-luong-tot-nhat-tai-quan-3-tphcm-52643.htm"
+        }
+      ]
+    }
+  ]
+}

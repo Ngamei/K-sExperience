@@ -36,7 +36,7 @@ Status: ✅ done · 🔄 in progress · ⬜ todo · ⛔ blocked (reason).
 | CC-26 | P0 | CC | Settings Account first + one Passport sign-in gate (modal/sheet) for every experience | account e2e (mock) desktop + mobile | ✅ mock-auth tested; live Google/email after provisioning |
 | CC-27 | P0 | CC | Remove consumer seed banners; dev-only samples; provenance in Admin | e2e | ✅ |
 | CC-28 | P1 | CC | SW cache versioning + cache/mode-switching/back/refresh/isolation/flag tests | e2e | ✅ |
-| CX-07 | P1 | CX/PO | Research verified venues for Bars, Spa, Sport and remaining Coffee items (salt coffee, cold brew, matcha, tea); confirm Cheo Leo coordinates | `npm run data:research -- <module>` clean | ⬜ |
+| CX-07 | P1 | CX/PO | Research verified venues for Bars, Spa, Sport and remaining Coffee items (salt coffee, cold brew, matcha, tea); confirm Cheo Leo coordinates | `npm run data:research -- <module>` clean | 🔄 CC added Bars 2, Spa 4, Sport 5 venues (source-listed); Codex to spot-check sources; confirm Rudal/HitPark/Olaben/Cheo Leo coordinates; find sources for classic cocktails, massage/facial/nails, pickleball coaching, Pilates trial/private |
 | PO-03 | P0 | PO | Enable pilots on Preview only (`NEXT_PUBLIC_FEATURE_*`) for Codex QA — see docs/PREVIEW_CHECKLIST.md | checklist complete | ⬜ |
 | CX-05 | P0 | CX | Architecture review of `docs/EXPERIENCE_ENGINE.md` reuse matrix | approved / changes requested | ⬜ |
 | CX-04 | P0 | CX/PO | Supply `data/source/master-catalogue.csv` (from the ChatGPT conversation — Claude Code has no access to it) | file committed | ⛔ input missing |
