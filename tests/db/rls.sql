@@ -12,6 +12,8 @@ grant all on results to anon, authenticated;
 -- 1. anonymous read: catalogue visible, candidate hidden, writes refused
 set role anon;
 insert into results select 'anon reads 138 dishes', count(*) = 138 from dishes;
+insert into results select 'six experience modules, sport pilot-planned last', (select count(*) from experience_modules) = 6 and (select status from experience_modules where id = 'sport') = 'pilot-planned' and (select max(sort_order) from experience_modules) = (select sort_order from experience_modules where id = 'sport');
+insert into results select 'every establishment tagged food', (select count(*) from establishment_experiences where experience_id = 'food') = (select count(*) from restaurants);
 insert into results select 'anon cannot see candidate links', count(*) = 0 from dish_restaurant_links where status = 'candidate';
 do $$ begin
   begin update dishes set name_en = 'x' where id = 'mi-quang'; exception when others then null; end;
@@ -25,6 +27,9 @@ set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000002';
 update dishes set name_en = 'y' where id = 'mi-quang';
 insert into saved_experiences (user_id, experience_id, item_type, item_id) values ('00000000-0000-0000-0000-000000000002', 'food', 'dish', 'mi-quang');
 insert into results select 'user sees own saved row', count(*) = 1 from saved_experiences;
+-- 0005: the same account can hold Sport passport rows next to Food ones
+insert into experience_history (user_id, experience_id, item_type, item_id, action, occurred_on) values ('00000000-0000-0000-0000-000000000002', 'sport', 'item', 'reformer-pilates', 'attended', '2026-11-27');
+insert into results select 'sport history row stored for same account', count(*) = 1 from experience_history where experience_id = 'sport';
 reset role;
 insert into results select 'non-editor update had no effect', name_en <> 'y' from dishes where id = 'mi-quang';
 
@@ -67,7 +72,7 @@ set role authenticated;
 set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000002';  -- user B
 insert into experience_history (user_id, experience_id, item_type, item_id, action, occurred_on) values ('00000000-0000-0000-0000-000000000002', 'food', 'dish', 'bun-bo-hue', 'tried', '2026-11-01');
 insert into experience_history values ('00000000-0000-0000-0000-000000000002', 'food', 'dish', 'bun-bo-hue', 'tried', '2026-10-01') on conflict (user_id, experience_id, item_type, item_id, action) do update set occurred_on = least(experience_history.occurred_on, excluded.occurred_on);
-insert into results select 'guest merge upsert keeps one row with earliest date', count(*) = 1 and min(occurred_on) = '2026-10-01' from experience_history;
+insert into results select 'guest merge upsert keeps one row with earliest date', count(*) = 1 and min(occurred_on) = '2026-10-01' from experience_history where experience_id = 'food';
 insert into tasting_notes (user_id, experience_id, item_type, item_id, rating, note) values ('00000000-0000-0000-0000-000000000002', 'food', 'dish', 'bun-bo-hue', 5, 'cay quá!');
 do $$ begin
   begin insert into tasting_notes (user_id, experience_id, item_type, item_id, rating) values ('00000000-0000-0000-0000-000000000001', 'food', 'dish', 'x', 1);

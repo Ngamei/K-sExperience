@@ -52,9 +52,17 @@ export function mergePassports(account: PassportData, guest: PassportData): Pass
 
 // ---- Database rows (tables from supabase/migrations/0003_user_accounts.sql) ----------------------
 export const FOOD = "food";
-export interface SavedRow { user_id: string; experience_id: string; item_type: "dish" | "establishment"; item_id: string; collection: string }
-export interface HistoryRow { user_id: string; experience_id: string; item_type: "dish" | "establishment"; item_id: string; action: "tried" | "visited"; occurred_on: string }
-export interface NoteRow { user_id: string; experience_id: string; item_type: "dish"; item_id: string; rating: number | null; note: string | null; updated_at: string }
+/**
+ * Rows are shared by every experience (migration 0005 adds item types "item"/"instructor" and actions
+ * "attended"/"completed" for Bars, Coffee, Spa, Shopping and Sport). The Food passport reads and writes
+ * only experience_id = "food" rows; rows of other experiences on the same account are left untouched
+ * (sync sends diffs between two Food snapshots, so it never deletes them).
+ */
+export type ItemType = "dish" | "establishment" | "item" | "instructor";
+export type HistoryAction = "tried" | "visited" | "attended" | "completed";
+export interface SavedRow { user_id: string; experience_id: string; item_type: ItemType; item_id: string; collection: string }
+export interface HistoryRow { user_id: string; experience_id: string; item_type: ItemType; item_id: string; action: HistoryAction; occurred_on: string }
+export interface NoteRow { user_id: string; experience_id: string; item_type: ItemType; item_id: string; rating: number | null; note: string | null; updated_at: string }
 
 export function toRows(userId: string, p: PassportData) {
   const saved: SavedRow[] = [

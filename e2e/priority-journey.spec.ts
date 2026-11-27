@@ -55,6 +55,8 @@ test("priority journey: explore → region + category → dish → HCMC availabi
     await expect(page.getByTestId(`experience-${id}`)).toBeDisabled();
     await expect(page.getByTestId(`experience-${id}`)).toContainText("Coming soon");
   }
+  await expect(page.getByTestId("experience-sport")).toBeDisabled();
+  await expect(page.getByTestId("experience-sport")).toContainText("Pilot planned");
 });
 
 test("sample venues are opt-in, always labelled, and never verified-real", async ({ page }) => {

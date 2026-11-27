@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Check, Lock, ShieldCheck } from "lucide-react";
-import { EXPERIENCES } from "@/experiences/registry";
+import { EXPERIENCES, isSelectable, loc } from "@/experiences/registry";
 import { NAV_ICONS } from "@/components/shell/icons";
 import { CATEGORIES, MEAL_TIMES } from "@/lib/data/schema";
 import { DIET_PREFS, type DietPref, toggleIn } from "@/lib/food/filters";
@@ -37,11 +37,13 @@ export function SettingsView() {
       <AccountCard />
 
       <Card title={t("settings.experience")} id="experience-mode">
+        <p className="-mt-2 mb-3 text-sm text-muted">{t("settings.experienceIntro")}</p>
         <ul className="grid gap-2 sm:grid-cols-2">
           {EXPERIENCES.map((e) => {
             const Icon = NAV_ICONS[e.icon];
             const active = u.experience === e.id;
-            const soon = e.status === "coming-soon";
+            const soon = !isSelectable(e);
+            const other = locale === "en" ? "vi" : "en";
             return (
               <li key={e.id}>
                 <button
@@ -57,8 +59,16 @@ export function SettingsView() {
                   aria-pressed={active}
                 >
                   <span className={cn("flex size-10 items-center justify-center rounded-full", active ? "bg-forest text-ivory" : "bg-ivory-deep text-charcoal")}><Icon className="size-5" /></span>
-                  <span className="flex-1 font-medium">{t(e.labelKey)}</span>
-                  {soon ? <Badge tone="outline"><Lock className="size-3" /> {t("settings.soon")}</Badge> : active ? <Badge tone="forest"><Check className="size-3" /> {t("settings.active")}</Badge> : null}
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-medium">{loc(e.name, locale)}</span>
+                    <span className="block text-xs text-muted" lang={other}>{loc(e.name, other)}</span>
+                    {e.pilots && (
+                      <span className="mt-1 flex flex-wrap gap-1" data-testid={`pilots-${e.id}`} aria-label={t("settings.pilots")}>
+                        {e.pilots.map((pl) => <span key={pl.id} className="rounded-full bg-ivory-deep px-2 py-0.5 text-[10.5px] text-charcoal/80" title={loc(pl.offerings, locale)}>{loc(pl.name, locale)}</span>)}
+                      </span>
+                    )}
+                  </span>
+                  {soon ? <Badge tone="outline"><Lock className="size-3" /> {e.status === "pilot-planned" ? t("settings.pilot") : t("settings.soon")}</Badge> : active ? <Badge tone="forest"><Check className="size-3" /> {t("settings.active")}</Badge> : null}
                 </button>
               </li>
             );

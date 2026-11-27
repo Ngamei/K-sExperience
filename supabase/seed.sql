@@ -6,7 +6,7 @@ begin;
 
 set local search_path = public, extensions;
 
-insert into experience_modules (id, status, sort_order) values ('food', 'active', 0), ('bars', 'coming-soon', 1), ('coffee', 'coming-soon', 2), ('spa', 'coming-soon', 3), ('shopping', 'coming-soon', 4)
+insert into experience_modules (id, status, sort_order) values ('food', 'active', 0), ('bars', 'coming-soon', 1), ('coffee', 'coming-soon', 2), ('spa', 'coming-soon', 3), ('shopping', 'coming-soon', 4), ('sport', 'pilot-planned', 5)
 on conflict (id) do update set status = excluded.status, sort_order = excluded.sort_order;
 
 insert into regions (id, name_vi, name_en, color, sort_order, blurb_vi, blurb_en) values

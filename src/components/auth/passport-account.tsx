@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
-import { Coffee, Flower2, Lock, ShoppingBag, Utensils, Wine } from "lucide-react";
+import { Lock } from "lucide-react";
+import { EXPERIENCES, isSelectable, loc } from "@/experiences/registry";
+import { NAV_ICONS } from "@/components/shell/icons";
 import { supabaseEnabled } from "@/lib/supabase/client";
 import { authDict } from "@/lib/i18n/auth-dict";
 import { useT } from "@/lib/i18n/use-t";
@@ -9,24 +11,22 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { forceResync, useAuth } from "@/components/shell/auth-provider";
 
-/** One account, one Experience Passport with a module per experience (only Food is active in the MVP). */
+/** One account, one Experience Passport with a module per experience, in registry order (only Food is active). */
 export function ExperienceModules() {
-  const mods = [
-    { id: "food", name: "Food Passport", sub: "Dishes tried · culinary regions", icon: Utensils, active: true },
-    { id: "coffee", name: "Coffee Passport", sub: "Cafés visited", icon: Coffee },
-    { id: "bars", name: "Bar Passport", sub: "Venues visited", icon: Wine },
-    { id: "spa", name: "Wellness Passport", sub: "Spa visits", icon: Flower2 },
-    { id: "shopping", name: "Shopping Passport", sub: "Stores discovered", icon: ShoppingBag },
-  ];
+  const { locale } = useT();
   return (
     <div className="no-scrollbar mb-4 flex gap-2 overflow-x-auto" data-testid="experience-passports" aria-label="My Experience Passport">
-      {mods.map((m) => (
-        <div key={m.id} className={`flex min-w-44 items-center gap-2 rounded-2xl border p-3 ${m.active ? "border-forest bg-forest/5" : "border-line opacity-60"}`} data-testid={`passport-module-${m.id}`}>
-          <m.icon className="size-5 text-forest" />
-          <div className="text-xs"><strong className="block text-sm">{m.name}</strong>{m.sub}</div>
-          {!m.active && <Lock className="ml-auto size-3.5 text-muted" />}
-        </div>
-      ))}
+      {EXPERIENCES.map((m) => {
+        const Icon = NAV_ICONS[m.icon];
+        const active = isSelectable(m);
+        return (
+          <div key={m.id} className={`flex min-w-44 items-center gap-2 rounded-2xl border p-3 ${active ? "border-forest bg-forest/5" : "border-line opacity-60"}`} data-testid={`passport-module-${m.id}`}>
+            <Icon className="size-5 text-forest" />
+            <div className="text-xs"><strong className="block text-sm">{loc(m.passport.name, locale)}</strong>{loc(m.passport.summary, locale)}</div>
+            {!active && <Lock className="ml-auto size-3.5 text-muted" />}
+          </div>
+        );
+      })}
     </div>
   );
 }

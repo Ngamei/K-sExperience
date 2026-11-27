@@ -1,6 +1,6 @@
 # QA report
 
-_Run date: 2026-11-27 (re-run after PO update: map home page, EN/VI switch, real venues, photos) · Branch `claude/trusting-clarke-44sf7b` · Environment: Linux cloud container, Node 22.23.5, npm 10.9.9,
+_Run date: 2026-11-27 (re-run after venue imagery + multi-experience foundations) · Branch `claude/trusting-clarke-44sf7b` · Environment: Linux cloud container, Node 22.23.5, npm 10.9.9,
 headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is the branch head that contains this file.
 
 ## Commands and results (clean checkout)
@@ -10,14 +10,14 @@ headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is
 | 1 | `npm ci` | ✅ installed, **0 vulnerabilities**; postinstall copied MapLibre worker |
 | 2 | `npm run typecheck` (`next typegen && tsc --noEmit`) | ✅ exit 0 |
 | 3 | `npm run lint` | ✅ exit 0, 0 errors, 0 warnings |
-| 4 | `npx vitest run tests/unit` | ✅ **6 files, 47 tests passed** (+ passport merge) |
+| 4 | `npx vitest run tests/unit` | ✅ **8 files, 62 tests passed** (+ venue photos 7, experience registry / passport compatibility / Sport schema 8) |
 | 5 | `npx vitest run tests/integration` (= `npm run data:validate`) | ✅ **1 file, 15 tests passed** |
-| 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **21 checks** — migrations 0001–0003, seed ×2 (idempotent), app read columns as anon, RLS (anon/user/editor), candidates hidden, storage, audit, HCMC trigger, evidence constraints, account isolation, own-folder photos, guest-merge upsert, account deletion |
+| 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **26 checks** — migrations 0001–0005, link-photo all-or-nothing constraint, six experience modules (Sport pilot-planned last), every establishment tagged Food, Sport history row on the same account, seed ×2 (idempotent), app read columns as anon, RLS (anon/user/editor), candidates hidden, storage, audit, HCMC trigger, evidence constraints, account isolation, own-folder photos, guest-merge upsert, account deletion |
 | 6 | `npm run build` | ✅ exit 0 — 164 static pages (138 dishes, 5 real + 8 sample venues, screens, manifest, `/data/food.json`) |
-| 7 | `npx playwright test` (against `next start`) | ✅ **50 passed** (25 scenarios × desktop + Pixel 7) |
+| 7 | `npx playwright test` (against `next start`) | ✅ **62 passed** (31 scenarios × desktop + Pixel 7) |
 | 7b | `npm run build:auth-test && npm run test:e2e-auth` (Supabase-mode static build + mock Supabase) | ✅ **18 passed** (9 account scenarios × desktop + Pixel 7); stable over `--repeat-each=2` (36/36) |
 | 8 | `STATIC_EXPORT=1 npx next build` | ✅ exit 0 — `out/` 22 MB |
-| 9 | `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` (against the static export) | ✅ **50 passed** |
+| 9 | `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` (against the static export) | ✅ **62 passed** |
 | 10 | `npm run build:preview` | ✅ `preview/ks-experience-preview-<commit>.zip` (~6.4 MB) |
 
 Shortcut: `npm run qa` runs 2 → 3 → 4/5 → 6 → 7 → 7b (5b needs local PostgreSQL).
@@ -71,6 +71,26 @@ verified real links need evidence; a Hà Nội point is rejected by the HCMC bou
 | Admin import validator: 1 valid row, 1 rejected with reason | ✅ | ✅ |
 | All 10 screens return 200 with no uncaught page errors | ✅ | ✅ |
 
+## Dish-at-place photos (venue cards) — `e2e/venue-photos.spec.ts`, `tests/unit/venue-photo.test.ts`
+The real dataset has no venue photos yet, so the e2e test injects one venue-specific photo (Góc Huế, 41 Kỳ Đồng × bánh khoái) into the served `/data/food.json`.
+| Requirement | Evidence | Desktop | Mobile |
+| --- | --- | --- | --- |
+| Venue-specific image shown when present | bánh khoái page: that card `data-kind="venue-specific"`, correct `src`, caption "Photo of this dish at this venue" | ✅ | ✅ |
+| Generic dish image fallback | bánh nặm page: every card `generic-dish`, caption "not from this venue" | ✅ | ✅ |
+| Icon fallback when no image exists | bánh khoái (no generic photo): other venues show the icon, no credit | ✅ | ✅ |
+| Broken image → icon, credit removed | image 404 | ✅ | ✅ |
+| No layout break on mobile | no horizontal overflow; square 56/64 px thumbnail inside the card; status + Google Maps CTA inside the card | ✅ | ✅ |
+| No wrong-dish image for a different relation | same venue on the bánh nặm page never shows the bánh khoái photo; unit test for link/dish mismatch | ✅ | ✅ |
+| Schema / DB | photo needs source, attribution, licence, date (unit); incomplete photo rejected by CHECK (DB); row round-trip (unit) | ✅ | — |
+
+## Multi-experience foundations / Sport — `e2e/experiences.spec.ts`, `tests/unit/experiences.test.ts`
+| Check | Result |
+| --- | --- |
+| Settings lists Food, Bars, Coffee, Spa, Shopping, Sport in order; Food active; EN + VI names; Sport "Pilot planned" with Pickleball + Pilates; VI labels | ✅ e2e desktop + mobile |
+| Food regression: nav labels unchanged (Food Map … Saved), catalogue 138 dishes, passport shows 6 modules with only Food active; existing priority journey + passport suites unchanged | ✅ e2e |
+| Feature flags cannot enable unimplemented modules; unknown mode falls back to Food; food-only filters/map absent from other modules; nav labels for every module in EN/VI | ✅ unit |
+| Food passport ignores/never emits other experiences' rows | ✅ unit + DB |
+
 ## Browser evidence (screenshots, `docs/screenshots/`)
 Desktop: `desktop-01-discover`, `02-explore-national` (home page), `03-explore-region-sweet`, `04-explore-mien-bac`, `05-dish-detail`,
 `06-catalogue`, `07-settings`, `08-nearby-empty`, `09-nearby-samples`, `10-dish-hcmc-with-samples`, `11-admin`, `12-dish-real-venues`, `13-place-real`.
@@ -95,6 +115,8 @@ Mobile (Pixel 7): `mobile-01-discover`, `02-explore`, `03-explore-region`, `04-e
 | Q6 | Hoàng Sa/Trường Sa islands sub-pixel at national zoom | Always-visible island dots + labels |
 
 ## Known issues / not verified
+- **Local e2e pitfall:** Playwright reuses any server already on port 3100 (`reuseExistingServer` outside CI). A leftover `next-server` from an older build serves 500s for new JS chunks and makes ~40 tests fail. Stop it (`pkill -f next-server`) before `npm run test:e2e`.
+- No real venue-specific dish photos yet (licensing, D31); the venue-photo e2e uses an injected test fixture.
 - **Dish photos from Wikimedia Commons were not rendered inside the sandbox** (Wikimedia applies its bot policy to automated clients). URLs come from the Commons API; e2e stubs the image. Please confirm photos display in a normal browser; the illustration is shown if a photo fails.
 - Google Maps links were checked for correct format, not opened (google.com is not reachable from the sandbox).
 - No-WebGL SVG fallback map is implemented but not exercised by e2e.

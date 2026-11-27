@@ -27,6 +27,11 @@ Status: ✅ done · 🔄 in progress · ⬜ todo · ⛔ blocked (reason).
 | CC-19 | P1 | CC | Personalised recommendations from account history/notes | Surprise me/Discover use ratings + history | ⬜ |
 | CC-20 | P1 | CC | Dish-at-place photos on dish-page venue cards (link-level photo model, priority venue → menu/delivery → generic → icon) | schema + migration 0004 + importer/Admin/seed/read path; unit, DB and e2e (desktop + mobile) tests | ✅ code + tests; no real venue photos yet (see PO-02) |
 | PO-02 | P1 | PO | Collect permitted venue photos of exact dishes (venue posts, own menus, delivery listings) with written permission or licence | Admin → Evidence → photo fields filled with source, attribution, licence, date | ⬜ needs permission process (D31) |
+| CC-21 | P0 | CC | Sport mode in Settings (pilot planned; Pickleball, Pilates), registry for six modules with feature flags, EN/VI, passport compatibility, schema review (migration 0005, Sport draft schemas), regression tests | Food unaffected; unit/DB/e2e green | ✅ |
+| CC-22 | P0 | CC | Shared Experience Engine step B: extract nav-from-slots, ItemCard/CatalogueView, filter definitions, ItemDetail sections, OfferingRow, offering index, passport slices — Food behaviour unchanged | full Food regression suite green after each step; reuse matrix updated | ⬜ next |
+| CC-23 | P1 | CC | Coffee reference pilot (config, `experience_items` + `offerings`, catalogue, detail, HCMC map layer) behind `NEXT_PUBLIC_FEATURE_COFFEE` | needs PO go-ahead + sourced coffee item list; Codex QA before enabling | ⬜ |
+| CC-24 | P2 | CC | Bars, Spa, Sport (Pickleball, Pilates) via configuration + extensions | after CC-23 | ⬜ |
+| CX-05 | P0 | CX | Architecture review of `docs/EXPERIENCE_ENGINE.md` reuse matrix | approved / changes requested | ⬜ |
 | CX-04 | P0 | CX/PO | Supply `data/source/master-catalogue.csv` (from the ChatGPT conversation — Claude Code has no access to it) | file committed | ⛔ input missing |
 | CC-13 | P2 | CC | Server-render dish text for SEO | dish page HTML contains name + description | ⬜ |
 | CC-14 | P2 | CC | Discovery engine v2: "what to eat now" (time of day, budget, nearby listed venues, preferences) | Discover shows ranked suggestions with reasons; unit tested | ⬜ |

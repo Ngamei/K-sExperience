@@ -46,7 +46,9 @@ data/*.json + data/samples/*.json ──src/lib/data/catalogue.ts──▶ /data
 
 ## Module layout
 ```
-src/experiences/registry.ts     Experience modules (food active; bars/coffee/spa/shopping coming soon) + nav
+src/experiences/registry.ts     Typed registry of 6 modules (food active; bars/coffee/spa/shopping coming soon; sport pilot planned):
+                                names, nav labels per shared slot, terminology, filters, pricing units, passport terms, feature flags
+src/experiences/sport/schema.ts Draft Sport (Pickleball/Pilates) structures — not wired to data
 src/components/shell/           AppShell (header, data banners, desktop nav, mobile tab bar), Providers
 src/components/food/            FoodDataProvider, DishCard, badges, FilterPanel/chips, illustrations
 src/components/explore/         VietnamMap (MapLibre), SvgVietnamMap (no-WebGL fallback), ExploreView
@@ -58,8 +60,10 @@ src/lib/food/                   filters, availability, hours, recommend, passpor
 src/lib/search/normalize.ts     Vietnamese accent-insensitive normalisation
 src/lib/geo/                    haversine, point-in-polygon, SVG projection, locator
 ```
-Adding a future experience: add an entry in `src/experiences/registry.ts`, its routes under `src/app/`,
-and reuse shell, i18n, Saved, maps and the data-provider pattern.
+Adding an experience: configure it in `src/experiences/registry.ts` and reuse the shared engine (shell, catalogue,
+detail, establishment cards, offering photos, evidence, map, passport, Admin) — see `docs/EXPERIENCE_ENGINE.md` for the
+reuse matrix and what still needs extracting. Selectable only when `implemented` and active or flagged on.
+Establishments can belong to several modes (`establishment_experiences`, migration 0005).
 
 ## Key invariants (tested)
 - `buildAvailabilityIndex(..., { includeSamples: false })` for anything presented as a recommendation.

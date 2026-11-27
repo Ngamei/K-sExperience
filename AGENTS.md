@@ -22,6 +22,7 @@ The repository and the canonical docs below are the source of truth between agen
 | `docs/BACKLOG.md` | Prioritised sprint tickets with owners and status |
 | `docs/AGENT_HANDOVER.md` | Coordination between Codex and Claude Code, file ownership, session log |
 | `docs/AUDIT.md` | Feature audit against the PRD with evidence |
+| `docs/EXPERIENCE_ENGINE.md` | Multi-experience architecture: registry, reuse matrix, sequence |
 | `docs/RESTAURANT_VERIFICATION_PLAN.md` | Evidence levels and workflow for HCMC venues |
 | `docs/DATA_REPORT.md`, `docs/VENUE_COVERAGE.md` | Generated data reports (`npm run data:report`, `npm run data:coverage`) |
 
