@@ -28,7 +28,13 @@ async function loadStyle(): Promise<{ style: StyleSpecification | string; basema
 }
 
 /** Shared HCMC establishment map (Food Nearby and every other module's map slot). */
-export function HcmcMap({ venues, origin, selected, onSelect }: { venues: Pick<Restaurant, "id" | "name" | "isSample" | "coordinates">[]; origin: LngLat; selected: string | null; onSelect: (id: string) => void }) {
+export interface MarkerVisual { svg: string; accent: string }
+
+export function HcmcMap({ venues, origin, selected, onSelect, marker }: {
+  venues: Pick<Restaurant, "id" | "name" | "isSample" | "coordinates">[]; origin: LngLat; selected: string | null; onSelect: (id: string) => void;
+  /** Experience-specific marker art per venue (shared engine modules); Food keeps its dot markers. */
+  marker?: (id: string) => MarkerVisual;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MLMap | null>(null);
   const mlRef = useRef<typeof import("maplibre-gl") | null>(null);
@@ -36,7 +42,8 @@ export function HcmcMap({ venues, origin, selected, onSelect }: { venues: Pick<R
   const [ready, setReady] = useState(false);
   const [basemap, setBasemap] = useState(false);
   const onSelectRef = useRef(onSelect);
-  useEffect(() => { onSelectRef.current = onSelect; });
+  const markerRef = useRef(marker);
+  useEffect(() => { onSelectRef.current = onSelect; markerRef.current = marker; });
 
   useEffect(() => {
     let cancelled = false;
@@ -77,7 +84,10 @@ export function HcmcMap({ venues, origin, selected, onSelect }: { venues: Pick<R
       el.dataset.testid = "venue-marker";
       el.className = "dish-marker flex flex-col items-center";
       const sel = v.id === selected;
-      el.innerHTML = `<span class="flex size-8 items-center justify-center rounded-full border-2 ${sel ? "border-[#B66B50] bg-[#B66B50] text-white" : "border-[#294C3D] bg-[#FFFDF8] text-[#294C3D]"} text-[11px] font-bold shadow">${v.isSample ? "S" : "●"}</span>`;
+      const vis = markerRef.current?.(v.id);
+      el.innerHTML = vis
+        ? `<span class="flex size-10 items-center justify-center rounded-full border-2 bg-[#FFFDF8] shadow" style="border-color:${sel ? "#B66B50" : vis.accent}" data-testid="venue-marker-art">${vis.svg}</span>`
+        : `<span class="flex size-8 items-center justify-center rounded-full border-2 ${sel ? "border-[#B66B50] bg-[#B66B50] text-white" : "border-[#294C3D] bg-[#FFFDF8] text-[#294C3D]"} text-[11px] font-bold shadow">${v.isSample ? "S" : "●"}</span>`;
       el.title = v.name;
       el.onclick = () => onSelectRef.current(v.id);
       markers.current.push(new ml.Marker({ element: el }).setLngLat(v.coordinates).addTo(map));

@@ -15,6 +15,7 @@ import { Chip } from "@/components/ui/chip";
 import { useFoodData } from "@/components/food/food-data";
 import { AccountCard } from "@/components/auth/account-card";
 import { cn } from "@/lib/utils";
+import { ItemArt } from "@/components/engine/item-art";
 import { DEV_DATA } from "@/lib/env";
 
 function Card({ title, children, id }: { title: string; children: React.ReactNode; id?: string }) {
@@ -67,7 +68,7 @@ export function SettingsView() {
                     <span className="block text-xs text-muted" lang={other}>{loc(e.name, other)}</span>
                     {e.pilots && (
                       <span className="mt-1 flex flex-wrap gap-1" data-testid={`pilots-${e.id}`} aria-label={t("settings.pilots")}>
-                        {e.pilots.map((pl) => <span key={pl.id} className="rounded-full bg-ivory-deep px-2 py-0.5 text-[10.5px] text-charcoal/80" title={loc(pl.offerings, locale)}>{loc(pl.name, locale)}</span>)}
+                        {e.pilots.map((pl) => <span key={pl.id} className="inline-flex items-center gap-1 rounded-full bg-ivory-deep py-0.5 pl-0.5 pr-2 text-[10.5px] text-charcoal/80" title={loc(pl.offerings, locale)}><ItemArt moduleId={e.id} category={pl.id} accent={e.accent} size={18} />{loc(pl.name, locale)}</span>)}
                       </span>
                     )}
                   </span>

@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Sheet } from "@/components/ui/sheet";
 
-export interface FilterOption { value: string; label: string; color?: string; testid?: string }
+export interface FilterOption { value: string; label: string; color?: string; testid?: string; icon?: React.ReactNode }
 export type FilterDef =
   | { kind: "heading"; id: string; title: string; note?: string }
   | { kind: "chips"; id: string; title: string; note?: string; options: FilterOption[]; selected: readonly string[]; onToggle: (v: string) => void }
@@ -43,7 +43,7 @@ export function FilterDrawer({ defs, testid = "filter-panel" }: { defs: FilterDe
         return (
           <FilterSection key={d.id} id={d.id} title={d.title} note={d.note}>
             {d.kind === "chips" && d.options.map((o) => (
-              <Chip key={o.value} active={d.selected.includes(o.value)} color={o.color} onClick={() => d.onToggle(o.value)} data-testid={o.testid}>{o.label}</Chip>
+              <Chip key={o.value} active={d.selected.includes(o.value)} color={o.color} onClick={() => d.onToggle(o.value)} data-testid={o.testid}>{o.icon}{o.label}</Chip>
             ))}
             {d.kind === "single" && d.options.map((o) => (
               <Chip key={o.value} active={d.value === o.value} onClick={() => d.onPick(o.value)} data-testid={o.testid}>{o.label}</Chip>

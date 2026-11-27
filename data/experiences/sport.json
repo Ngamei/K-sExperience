@@ -26,7 +26,14 @@
         "vi": "Đặt sân chơi pickleball — môn thể thao dùng vợt kết hợp quần vợt, cầu lông và bóng bàn.",
         "en": "Book a court to play pickleball, a paddle sport combining elements of tennis, badminton and table tennis."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Harry_B._Anderson_Tennis_Center_-_Pickleball_Courts_1-3.jpg?width=960",
+          "credit": "GA Kevin / Wikimedia Commons",
+          "license": "CC0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Harry_B._Anderson_Tennis_Center_-_Pickleball_Courts_1-3.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Pickleball",
@@ -94,7 +101,14 @@
         "vi": "Giao lưu, ghép trận cùng người chơi khác.",
         "en": "Drop-in social games with other players."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pickle_Pro_Tour_2025_2.jpg?width=960",
+          "credit": "CarVeFe / Wikimedia Commons",
+          "license": "CC0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pickle_Pro_Tour_2025_2.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Pickleball",
@@ -126,7 +140,14 @@
         "vi": "Thuê vợt và bóng tại sân.",
         "en": "Paddles and balls to rent at the court."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/A_pickleball_paddle_with_two_pickleballs.jpg?width=960",
+          "credit": "OvertAnalyzer / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_pickleball_paddle_with_two_pickleballs.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Pickleball",
@@ -165,7 +186,14 @@
         "vi": "Pilates trên máy Reformer — bàn trượt dùng lò xo tạo lực cản.",
         "en": "Pilates on the reformer, a sliding carriage with springs for resistance."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pilates_reformer.jpg?width=960",
+          "credit": "Maddi Bazzocco / Wikimedia Commons",
+          "license": "CC0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pilates_reformer.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Pilates",

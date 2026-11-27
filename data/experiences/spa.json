@@ -54,7 +54,14 @@
         "vi": "Xoa bóp ấn vào các điểm trên bàn chân.",
         "en": "Massage applying pressure to points on the feet."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Foot_massage_at_a_spa.jpg?width=960",
+          "credit": "Kolobetsoo / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Foot_massage_at_a_spa.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Reflexology",
@@ -114,7 +121,14 @@
         "vi": "Massage với đá nóng.",
         "en": "Massage using smooth heated stones."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hot_Stone_Massage_at_Witches_Falls_Cottages.jpg?width=960",
+          "credit": "Daniela / Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hot_Stone_Massage_at_Witches_Falls_Cottages.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Stone massage",
@@ -143,7 +157,14 @@
         "vi": "Liệu trình chăm sóc da mặt: làm sạch, tẩy tế bào chết và đắp mặt nạ.",
         "en": "Skin treatment for the face: cleansing, exfoliation and mask."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Facial_mask.jpg?width=960",
+          "credit": "Sérgio Savarese / Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Facial_mask.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Facial",

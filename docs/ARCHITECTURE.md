@@ -88,3 +88,8 @@ Establishments can belong to several modes (`establishment_experiences`, migrati
 - **Accounts:** `components/auth/auth-forms.tsx` `AuthPanel` (one sign-in/sign-up/recovery panel), `auth-gate.tsx` (`AuthDialog`, `PassportGate` for every passport), `account-card.tsx` (Settings, first section).
 - **Pipelines:** `npm run data:research -- <module>` (catalogue + researched venue batches + geocoding → module file), `npm run data:import-module -- <module> <file> [--write]`, `npm run data:experiences` (completeness report).
 - **Builds:** `NEXT_PUBLIC_FEATURE_{BARS,COFFEE,SPA,SPORT}` enable implemented pilots; `NEXT_PUBLIC_DEV_DATA=1` enables samples/dev notices (tests and designated previews only); `NEXT_PUBLIC_BUILD_ID` versions the service-worker cache.
+
+## Media & visual identity (P1 visual parity)
+- `components/food/dish-image.tsx` is the shared media module: `PhotoThumb` (catalogue circle), `HeroPhoto` (detail hero with credit/licence/source; optional fallback), `VenueThumb` (establishment cards; fallback = illustration, then icon). Food and all modules use it.
+- `components/engine/item-illustrations.ts` + `item-art.tsx`: one SVG per `<module>:<category>` (Bars, Coffee, Spa, Sport incl. distinct Pickleball/Pilates), reused for cards, category chips, filter drawer, discover, passport stamps, empty states, establishment medallions and HCMC map markers (`HcmcMap` `marker` prop per venue).
+- Registry `accent` colours the module's rings, badges and markers.

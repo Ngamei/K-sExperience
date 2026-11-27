@@ -7,6 +7,7 @@ import path from "node:path";
 import { EXPERIENCES, isSelectable, loc } from "../src/experiences/registry";
 import { ExperienceDataSchema } from "../src/engine/schema";
 import { moduleDataProblems } from "../src/engine/validate";
+import { hasItemArt } from "../src/components/engine/item-illustrations";
 import { DishCatalogueSchema, MappingFileSchema, RestaurantFileSchema } from "../src/lib/data/schema";
 
 const root = path.resolve(__dirname, "..");
@@ -42,5 +43,60 @@ out.push("", "Shopping stays Coming soon (not implemented). Sport shows Pickleba
   "- Spa: head spa (4 venues), facial / manicure / pedicure / foot reflexology (L'Apothiquaire, Le Spa des Artistes). Swedish and hot-stone massage and body scrub still have no venue; Miu Miu and Golden Lotus withheld (conflicting addresses).",
   "- Sport: 4 pickleball venues (court rental, social play, equipment rental), 1 reformer-pilates studio. Rudal, HitPark and Olaben were withheld: their numbered-street addresses geocoded to the wrong ward. No source confirmed pickleball coaching or Pilates trial/private formats at a specific venue.",
   "- All pilot offerings are source-listed from directory/guide excerpts; page fetches were blocked in the research environment, so PO/Codex should spot-check each source URL before enabling a pilot.", "");
-writeFileSync(path.join(root, "docs/EXPERIENCE_DATA_REPORT.md"), out.join("\n"));
+// ---- Visual assets (P1 visual parity) --------------------------------------------------------------
+type Photo = { url: string; credit?: string; license?: string; sourceUrl?: string };
+const allPhotos: { owner: string; p: Photo }[] = [];
+const vis: string[] = ["", "## Visual assets by experience", "",
+  "| Experience | Catalogue items | Items with photo | Items with illustration | Items missing any visual | Establishments with photographs | Offerings with establishment-specific photo | Photos missing attribution | Photos missing licence | Broken image URLs |",
+  "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"];
+const dishArtTypes = new Set(["noodle-soup","noodles","rice","banh","bread","rolls","hotpot","grilled","salad","stew","porridge","soup","che","dessert","fried","cured","seafood","confection"]);
+dishes.forEach((d) => d.photos.forEach((p) => allPhotos.push({ owner: `food:${d.id}`, p })));
+links.filter((l) => l.photo).forEach((l) => allPhotos.push({ owner: `food:${l.dishId}@${l.restaurantId}`, p: { url: l.photo!.url, credit: l.photo!.attribution, license: l.photo!.license, sourceUrl: l.photo!.sourceUrl } }));
+const rowFor = (name: string, items: { id: string; photos: Photo[]; art: boolean }[], estPhotos: number, offerPhotos: number, prefix: string) => {
+  const ph = allPhotos.filter((x) => x.owner.startsWith(prefix)).map((x) => x.p);
+  return `| ${name} | ${items.length} | ${items.filter((i) => i.photos.length).length} | ${items.filter((i) => i.art).length} | ${items.filter((i) => !i.photos.length && !i.art).length} | ${estPhotos} | ${offerPhotos} | ${ph.filter((p) => !p.credit).length} | ${ph.filter((p) => !p.license).length} | BROKEN:${prefix} |`;
+};
+vis.push(rowFor("Vietnamese Food", dishes.map((d) => ({ id: d.id, photos: d.photos, art: dishArtTypes.has(d.dishType) })), 0, links.filter((l) => l.photo).length, "food:"));
+for (const m of EXPERIENCES.filter((e) => e.id !== "food" && e.implemented)) {
+  const d = ExperienceDataSchema.parse(read(`data/experiences/${m.id}.json`));
+  d.items.forEach((i) => i.photos.forEach((p) => allPhotos.push({ owner: `${m.id}:${i.id}`, p })));
+  d.offerings.filter((o) => o.photo).forEach((o) => allPhotos.push({ owner: `${m.id}:${o.itemId}@${o.establishmentId}`, p: { url: o.photo!.url, credit: o.photo!.attribution, license: o.photo!.license, sourceUrl: o.photo!.sourceUrl } }));
+  vis.push(rowFor(loc(m.name, "en"), d.items.map((i) => ({ id: i.id, photos: i.photos, art: hasItemArt(`${m.id}:${i.category}`) })), 0, d.offerings.filter((o) => o.photo && ["venue-specific", "menu-photo", "delivery-listing"].includes(o.photo.kind)).length, `${m.id}:`));
+}
+vis.push("", "Establishments have no photo field yet: offering photos (this item at this venue) are preferred over venue exteriors, which are never used as offering images.",
+  "Items without a licensed photo show their category illustration (labelled \"Illustration\"); reference photos on venue cards are labelled \"not from this venue\".");
+
+/** Commons files referenced via Special:FilePath must exist (checked through the Commons API, which is reachable from CI). */
+async function brokenImages(): Promise<Map<string, number> | null> {
+  if (!process.argv.includes("--check-images")) return null;
+  const titles = [...new Set(allPhotos.map((x) => x.p.url).filter((u) => u.includes("Special:FilePath/")).map((u) => "File:" + decodeURIComponent(u.split("Special:FilePath/")[1].split("?")[0]).replace(/_/g, " ")))];
+  const missing = new Set<string>();
+  for (let i = 0; i < titles.length; i += 40) {
+    const q = titles.slice(i, i + 40);
+    let j: { query: { pages: Record<string, { title: string; missing?: string }>; normalized?: { from: string; to: string }[] } } | null = null;
+    for (let attempt = 0; attempt < 6 && !j; attempt++) {
+      await new Promise((res) => setTimeout(res, 2000 + attempt * 4000)); // the API rate-limits bursts
+      const t = await (await fetch(`https://commons.wikimedia.org/w/api.php?action=query&format=json&titles=${encodeURIComponent(q.join("|"))}`, { headers: { "User-Agent": "KsExperienceMediaCheck/0.1" } })).text();
+      try { j = JSON.parse(t); } catch { /* retry */ }
+    }
+    if (!j) throw new Error("Commons API unavailable — run the image check again later");
+    for (const p of Object.values(j.query.pages)) if ("missing" in p) missing.add(p.title);
+    const norm = new Map((j.query.normalized ?? []).map((n) => [n.to, n.from]));
+    for (const t of [...missing]) if (norm.has(t)) missing.add(norm.get(t) as string);
+  }
+  const counts = new Map<string, number>();
+  for (const x of allPhotos) {
+    const u = x.p.url;
+    const t = u.includes("Special:FilePath/") ? "File:" + decodeURIComponent(u.split("Special:FilePath/")[1].split("?")[0]).replace(/_/g, " ") : null;
+    const key = x.owner.split(":")[0] + ":";
+    if (t && missing.has(t)) counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+  return counts;
+}
+
+(async () => {
+  const broken = await brokenImages();
+  const final = [...out, ...vis].join("\n").replace(/BROKEN:([a-z]+:)/g, (_, k) => (broken ? String(broken.get(k) ?? 0) : "not checked"));
+  writeFileSync(path.join(root, "docs/EXPERIENCE_DATA_REPORT.md"), final + (broken ? `\n\nImage URLs checked against the Commons API on ${date}.\n` : "\n\nRun \`npm run data:experiences -- --check-images\` to verify image URLs.\n"));
+  })();
 console.log("✓ docs/EXPERIENCE_DATA_REPORT.md");

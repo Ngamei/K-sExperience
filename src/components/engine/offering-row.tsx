@@ -27,6 +27,8 @@ export interface OfferingRowProps {
   itemName: string;
   /** Module noun for photo captions ("dish", "coffee", "treatment", "activity"). Defaults to the Food wording. */
   itemNoun?: string;
+  /** Item illustration shown when no photo exists (fallback level 4 before the generic icon). */
+  fallback?: React.ReactNode;
 }
 
 /**
@@ -34,7 +36,7 @@ export interface OfferingRowProps {
  * Shows the offering photo (with fallback to the icon), name, address, type, price, evidence,
  * evidence status, last-checked date, phone and directions.
  */
-export function OfferingRow({ establishment: e, typeLabel, href, offering: o, priceText, image, itemName, itemNoun }: OfferingRowProps) {
+export function OfferingRow({ establishment: e, typeLabel, href, offering: o, priceText, image, itemName, itemNoun, fallback }: OfferingRowProps) {
   const { t, locale } = useT();
   const noun = itemNoun ?? (locale === "vi" ? "món" : "dish");
   // Captions never present a reference image as the venue's own photo.
@@ -46,7 +48,7 @@ export function OfferingRow({ establishment: e, typeLabel, href, offering: o, pr
   return (
     <div className="rounded-2xl border border-line/80 bg-ivory/60 p-3.5" data-testid="venue-row" data-venue-id={e.id}>
       <div className="flex items-start gap-3">
-        <VenueThumb image={img} alt={`${itemName} — ${e.name}`} onError={setFailedUrl} />
+        <VenueThumb image={img} alt={`${itemName} — ${e.name}`} onError={setFailedUrl} fallback={fallback} />
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-1.5">
             <Link href={href} className="font-medium hover:text-forest hover:underline">{e.name}</Link>

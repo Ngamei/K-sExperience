@@ -4,6 +4,8 @@ import { expect, test, type Page } from "@playwright/test";
  * Cross-module journeys on the Coffee-flag build with the REAL pilot dataset (no fixtures):
  * mode switching, back/refresh/direct URLs, module filters, flags, production data hygiene.
  */
+const PNG = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==", "base64");
+const stubCommons = (page: Page) => page.route(/wikimedia\.org/, (r) => r.fulfill({ status: 200, contentType: "image/png", body: PNG }));
 const navTexts = (page: Page, isMobile: boolean) =>
   isMobile ? page.locator('[aria-label="Main mobile"] a').allInnerTexts() : page.getByRole("navigation", { name: "Main" }).getByRole("link").allInnerTexts();
 const FOOD = { desktop: ["Food Map", "Discover", "Food Catalogue", "Nearby", "Food Passport", "Saved"], mobile: ["Explore", "Discover", "Catalogue", "Nearby", "Passport"] };
@@ -46,13 +48,16 @@ test("direct URLs, back navigation and refresh keep the right experience", async
 });
 
 test("real Coffee data: sourced cafés per drink, establishment filters, no unverified claims", async ({ page, isMobile }) => {
+  await stubCommons(page);
   await page.goto("/coffee/item/?id=ca-phe-trung");
   const rows = page.getByTestId("section-offerings").getByTestId("venue-row");
   await expect(rows).toHaveCount(2);
   for (const r of await rows.all()) {
     await expect(r.getByTestId("availability-status")).toHaveAttribute("data-status", "source-listed");
     await expect(r.getByTestId("last-checked")).toBeVisible();
-    await expect(r.getByTestId("venue-thumb")).toHaveAttribute("data-kind", "icon"); // no photo → icon, never a borrowed image
+    // no venue photo → the drink's reference photo, labelled as not from this venue (never a borrowed venue image)
+    await expect(r.getByTestId("venue-thumb")).toHaveAttribute("data-kind", "generic-dish");
+    await expect(r.getByTestId("venue-photo-credit")).toContainText("not from this venue");
   }
   await expect(page.getByTestId("item-verification")).toContainText("not yet verified");
   // café characteristics are establishment filters: Speciality coffee shop → only drinks such a café offers

@@ -16,7 +16,7 @@ headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is
 | 6b | `npm run build:e2e` (`NEXT_PUBLIC_DEV_DATA=1`) | ✅ exit 0 |
 | 7 | `npx playwright test` (against `next start`) | ✅ **64 passed** (32 Food + cross-module scenarios × desktop + Pixel 7) |
 | 7b | `npm run build:auth-test && npm run test:e2e-auth` (**mock** Supabase Auth + REST; Coffee flag on) | ✅ **28 passed** (14 scenarios × desktop + Pixel 7) |
-| 7c | `npm run build:modules-test && npm run test:e2e-modules` (production-like static build, Coffee flag on, real pilot data; real service worker in cache.spec) | ✅ **24 passed** (12 scenarios × desktop + Pixel 7) |
+| 7c | `npm run build:modules-test && npm run test:e2e-modules` (production-like static build, Coffee flag on, real pilot data; real service worker in cache.spec) | ✅ **36 passed** (18 scenarios × desktop + Pixel 7, incl. visual parity) |
 | 8–9 | `NEXT_PUBLIC_DEV_DATA=1 STATIC_EXPORT=1 npx next build` + `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` | ✅ **64 passed** (offline static export) |
 
 **Mock vs real:** every account/passport browser test runs against `e2e-auth/mock-supabase.mjs` (GoTrue + PostgREST subset, owner-only RLS emulated). Real Postgres RLS/constraints are covered by `npm run test:db`. **Not yet tested against a live Supabase project:** Google OAuth round-trip, real verification/recovery emails, network latency — pending provisioning (docs/PREVIEW_CHECKLIST.md).
@@ -124,6 +124,20 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 | Failed writes never report success | unit "writes never report false success"; Admin shows ✗ with the database message |
 
 Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-catalogue`, `*-food-dish`, `*-settings`, `*-settings-account-guest`, `*-passport-gate`, `*-coffee-map`, `*-coffee-catalogue`, `*-coffee-item`, `*-coffee-cafe`.
+
+## P1 visual parity — `e2e-modules/visual.spec.ts` + screenshots
+| Criterion | Evidence |
+| --- | --- |
+| Catalogue cards are not text-only (all four modules) | every card has a photo thumbnail or category illustration + illustrated category badge |
+| Every category has an icon (chips, filter drawer, discover, badges) | category chips contain `item-art` |
+| Detail pages support hero imagery | item page shows the reference photo (credit, licence, source) or a labelled illustration |
+| Establishment cards prioritise offering photos; no misleading images | venue thumb kinds limited to offering photo / labelled reference / illustration; reference photos captioned "not from this venue" |
+| No broken image elements | no loaded `<img>` with zero natural width; all 69 Commons files verified via the API (`npm run data:experiences -- --check-images`) |
+| Sport: distinct Pickleball / Pilates identity | Settings pilot chips, establishment medallions and map markers differ |
+| Map markers carry module identity | `venue-marker-art` on module maps |
+| Food unaffected | all Food suites green; Food venue fallback is now its dish illustration (was a pin) |
+
+Before/after screenshots for Bars, Coffee, Spa and Sport (catalogue, item, map; Sport discover; Food catalogue for comparison), desktop and Pixel 7: `docs/screenshots/parity/before-*` and `after-*`. **Known:** inside this sandbox Wikimedia refuses automated image downloads, so screenshots show the illustration fallback where a real browser shows the Commons photo (same as Food's photos).
 
 ## Browser evidence (screenshots, `docs/screenshots/`)
 Desktop: `desktop-01-discover`, `02-explore-national` (home page), `03-explore-region-sweet`, `04-explore-mien-bac`, `05-dish-detail`,

@@ -40,7 +40,7 @@ test("venue-specific photo is shown on its own dish; other venues fall back to t
   const others = page.locator(`[data-testid="venue-row"]:not([data-venue-id="${VENUE}"])`);
   expect(await others.count()).toBeGreaterThan(0);
   for (const r of await others.all()) {
-    await expect(r.getByTestId("venue-thumb")).toHaveAttribute("data-kind", "icon");
+    await expect(r.getByTestId("venue-thumb")).toHaveAttribute("data-kind", "illustration");
     await expect(r.getByTestId("venue-photo-credit")).toHaveCount(0);
   }
 });
@@ -62,7 +62,7 @@ test("a broken image falls back to the icon", async ({ page }) => {
   await page.route(VENUE_PHOTO, (r) => r.fulfill({ status: 404, body: "" }));
   await page.goto("/dishes/banh-khoai/");
   const own = card(page, VENUE);
-  await expect(own.getByTestId("venue-thumb")).toHaveAttribute("data-kind", "icon");
+  await expect(own.getByTestId("venue-thumb")).toHaveAttribute("data-kind", "illustration");
   await expect(own.getByTestId("venue-photo-credit")).toHaveCount(0); // no credit for an image that isn't shown
 });
 

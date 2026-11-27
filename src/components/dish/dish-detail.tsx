@@ -35,6 +35,7 @@ function VenueRow({ l, dish: d, restaurant: r }: { l: DishRestaurantLink; dish: 
       priceText={l.priceVnd ? `${l.priceVnd.min.toLocaleString("vi-VN")}–${l.priceVnd.max.toLocaleString("vi-VN")} ₫` : undefined}
       image={venueCardImage(d, l)}
       itemName={d.nameVi}
+      fallback={<DishArt type={d.dishType} category={d.category} size={52} />}
     />
   );
 }

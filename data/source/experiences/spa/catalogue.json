@@ -47,6 +47,14 @@
           "title": "Wikipedia — Reflexology",
           "url": "https://en.wikipedia.org/wiki/Reflexology"
         }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Foot_massage_at_a_spa.jpg?width=960",
+          "credit": "Kolobetsoo / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Foot_massage_at_a_spa.jpg"
+        }
       ]
     },
     {
@@ -95,6 +103,14 @@
           "title": "Wikipedia — Stone massage",
           "url": "https://en.wikipedia.org/wiki/Stone_massage"
         }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hot_Stone_Massage_at_Witches_Falls_Cottages.jpg?width=960",
+          "credit": "Daniela / Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hot_Stone_Massage_at_Witches_Falls_Cottages.jpg"
+        }
       ]
     },
     {
@@ -117,6 +133,14 @@
         {
           "title": "Wikipedia — Facial",
           "url": "https://en.wikipedia.org/wiki/Facial"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Facial_mask.jpg?width=960",
+          "credit": "Sérgio Savarese / Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Facial_mask.jpg"
         }
       ]
     },

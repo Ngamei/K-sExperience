@@ -1,57 +1,466 @@
 {
   "note": "Coffee pilot catalogue — well-documented drinks only, each with a published reference. Descriptions are short, general and marked seed-unverified until reviewed. No prices here: prices belong to venue offerings with evidence.",
   "items": [
-    { "id": "ca-phe-sua-da", "nameVi": "Cà phê sữa đá", "nameEn": "Iced coffee with condensed milk", "altNames": ["ca phe sua da", "Vietnamese iced coffee"], "category": "vietnamese-coffee",
-      "attributes": { "coffeeType": "robusta", "preparation": "phin", "flavour": ["strong", "sweet", "milky"], "served": ["iced"] },
-      "description": { "en": "Phin-filtered coffee stirred with sweetened condensed milk and poured over ice.", "vi": "Cà phê pha phin pha cùng sữa đặc, uống với đá." },
-      "sources": [{ "title": "Wikipedia — Vietnamese iced coffee", "url": "https://en.wikipedia.org/wiki/Vietnamese_iced_coffee" }] },
-    { "id": "ca-phe-den-da", "nameVi": "Cà phê đen đá", "nameEn": "Iced black coffee", "altNames": ["ca phe den da"], "category": "vietnamese-coffee",
-      "attributes": { "coffeeType": "robusta", "preparation": "phin", "flavour": ["strong", "bitter"], "served": ["iced", "hot"] },
-      "description": { "en": "Strong phin-filtered black coffee, usually sweetened and served over ice.", "vi": "Cà phê đen pha phin, thường thêm đường và uống với đá." },
-      "sources": [{ "title": "Wikipedia — Vietnamese iced coffee", "url": "https://en.wikipedia.org/wiki/Vietnamese_iced_coffee" }] },
-    { "id": "bac-xiu", "nameVi": "Bạc xỉu", "nameEn": "White coffee (bạc xỉu)", "altNames": ["bac xiu"], "category": "vietnamese-coffee",
-      "attributes": { "coffeeType": "robusta", "preparation": "phin", "flavour": ["milky", "sweet"], "served": ["iced"] },
-      "description": { "en": "A Saigon favourite with much more milk than coffee.", "vi": "Món quen thuộc của Sài Gòn với nhiều sữa hơn cà phê." },
-      "sources": [{ "title": "Wikipedia — Vietnamese iced coffee", "url": "https://en.wikipedia.org/wiki/Vietnamese_iced_coffee" }] },
-    { "id": "ca-phe-trung", "nameVi": "Cà phê trứng", "nameEn": "Egg coffee", "altNames": ["ca phe trung"], "category": "vietnamese-coffee",
-      "attributes": { "coffeeType": "robusta", "preparation": "whisked", "flavour": ["creamy", "sweet"], "served": ["hot", "iced"] },
-      "description": { "en": "Hanoi-born coffee topped with egg yolk whipped with sugar and condensed milk.", "vi": "Cà phê gốc Hà Nội, phủ lớp lòng đỏ trứng đánh bông với đường và sữa đặc." },
-      "sources": [{ "title": "Wikipedia — Egg coffee", "url": "https://en.wikipedia.org/wiki/Egg_coffee" }] },
-    { "id": "ca-phe-muoi", "nameVi": "Cà phê muối", "nameEn": "Salt coffee", "altNames": ["ca phe muoi", "salted coffee"], "category": "vietnamese-coffee",
-      "attributes": { "coffeeType": "robusta", "preparation": "phin", "flavour": ["salty", "sweet", "creamy"], "served": ["hot", "iced"] },
-      "description": { "en": "A Huế speciality: phin coffee topped with lightly salted cream.", "vi": "Đặc sản Huế: cà phê phin phủ lớp kem sữa có chút muối." },
-      "sources": [{ "title": "VnExpress International — Salted coffee: a Hue specialty", "url": "https://e.vnexpress.net/news/food/salted-coffee-a-hue-specialty-4554556.html" }] },
-    { "id": "ca-phe-cot-dua", "nameVi": "Cà phê cốt dừa", "nameEn": "Coconut coffee", "altNames": ["ca phe cot dua"], "category": "vietnamese-coffee",
-      "attributes": { "coffeeType": "robusta", "preparation": "phin", "flavour": ["creamy", "sweet"], "served": ["iced"] },
-      "description": { "en": "Coffee blended with coconut milk, condensed milk and ice.", "vi": "Cà phê xay cùng nước cốt dừa, sữa đặc và đá." },
-      "sources": [{ "title": "Vietnam Airlines travel guide — coconut coffee", "url": "https://www.vietnamairlines.com/at/en/plan-book/travel/travel-guide/coconut-coffee-hanoi" }] },
-    { "id": "ca-phe-vot", "nameVi": "Cà phê vợt", "nameEn": "Sock-filter coffee", "altNames": ["ca phe vot", "cloth-filter coffee"], "category": "vietnamese-coffee",
-      "attributes": { "coffeeType": "robusta", "preparation": "brewed", "flavour": ["strong"], "served": ["hot", "iced"] },
-      "description": { "en": "Old-Saigon coffee strained through a cloth ‘sock’ filter.", "vi": "Cà phê Sài Gòn xưa, lọc qua vợt vải." },
-      "sources": [{ "title": "Saigoneer — Hẻm Gems: a cuppa in Saigon's oldest café", "url": "https://saigoneer.com/saigon-street-food-restaurants/8085-hem-gems-a-cuppa-in-saigon-s-oldest-cafe" }] },
-    { "id": "espresso", "nameVi": "Espresso", "nameEn": "Espresso", "altNames": [], "category": "espresso",
-      "attributes": { "preparation": "espresso", "flavour": ["strong", "bitter"], "served": ["hot"] },
-      "description": { "en": "Concentrated coffee brewed by forcing hot water through finely ground coffee.", "vi": "Cà phê đậm đặc pha bằng máy, nước nóng nén qua bột cà phê mịn." },
-      "sources": [{ "title": "Wikipedia — Espresso", "url": "https://en.wikipedia.org/wiki/Espresso" }] },
-    { "id": "cappuccino", "nameVi": "Cappuccino", "nameEn": "Cappuccino", "altNames": [], "category": "espresso",
-      "attributes": { "preparation": "espresso", "flavour": ["milky", "creamy"], "served": ["hot"] },
-      "description": { "en": "Espresso with steamed milk and milk foam.", "vi": "Espresso với sữa nóng và lớp bọt sữa." },
-      "sources": [{ "title": "Wikipedia — Cappuccino", "url": "https://en.wikipedia.org/wiki/Cappuccino" }] },
-    { "id": "pour-over", "nameVi": "Cà phê pha thủ công (pour-over)", "nameEn": "Pour-over coffee", "altNames": ["V60", "Chemex", "hand drip"], "category": "specialty",
-      "attributes": { "coffeeType": "arabica", "preparation": "pour-over", "flavour": ["fruity"], "served": ["hot", "iced"] },
-      "description": { "en": "Hand-poured filter coffee, often single-origin beans.", "vi": "Cà phê lọc rót tay, thường dùng hạt một nguồn gốc." },
-      "sources": [{ "title": "Wikipedia — Drip coffee (pour-over)", "url": "https://en.wikipedia.org/wiki/Drip_coffee" }] },
-    { "id": "cold-brew", "nameVi": "Cold brew", "nameEn": "Cold brew", "altNames": ["cà phê ủ lạnh"], "category": "cold-brew",
-      "attributes": { "preparation": "cold-brew", "flavour": ["strong"], "served": ["iced"] },
-      "description": { "en": "Coffee steeped in cold water for many hours.", "vi": "Cà phê ngâm ủ trong nước lạnh nhiều giờ." },
-      "sources": [{ "title": "Wikipedia — Cold brew coffee", "url": "https://en.wikipedia.org/wiki/Cold_brew_coffee" }] },
-    { "id": "matcha-latte", "nameVi": "Matcha latte", "nameEn": "Matcha latte", "altNames": ["trà xanh sữa"], "category": "matcha",
-      "attributes": { "coffeeType": "matcha", "preparation": "whisked", "flavour": ["milky", "creamy"], "served": ["hot", "iced"] },
-      "description": { "en": "Powdered green tea whisked and mixed with milk.", "vi": "Bột trà xanh đánh tan, pha cùng sữa." },
-      "sources": [{ "title": "Wikipedia — Matcha", "url": "https://en.wikipedia.org/wiki/Matcha" }] },
-    { "id": "tra-sen", "nameVi": "Trà sen", "nameEn": "Lotus tea", "altNames": ["tra sen"], "category": "tea",
-      "attributes": { "coffeeType": "tea", "preparation": "brewed", "served": ["hot"] },
-      "description": { "en": "Green tea scented with lotus flowers.", "vi": "Trà xanh ướp hương hoa sen." },
-      "sources": [{ "title": "Wikipedia — Lotus tea", "url": "https://en.wikipedia.org/wiki/Lotus_tea" }] }
+    {
+      "id": "ca-phe-sua-da",
+      "nameVi": "Cà phê sữa đá",
+      "nameEn": "Iced coffee with condensed milk",
+      "altNames": [
+        "ca phe sua da",
+        "Vietnamese iced coffee"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "phin",
+        "flavour": [
+          "strong",
+          "sweet",
+          "milky"
+        ],
+        "served": [
+          "iced"
+        ]
+      },
+      "description": {
+        "en": "Phin-filtered coffee stirred with sweetened condensed milk and poured over ice.",
+        "vi": "Cà phê pha phin pha cùng sữa đặc, uống với đá."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Vietnamese iced coffee",
+          "url": "https://en.wikipedia.org/wiki/Vietnamese_iced_coffee"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/C%C3%A0_ph%C3%AA_s%E1%BB%AFa_%C4%91%C3%A1.jpg?width=960",
+          "credit": "하나두리 / Wikimedia Commons",
+          "license": "CC BY 2.0 KR",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:C%C3%A0_ph%C3%AA_s%E1%BB%AFa_%C4%91%C3%A1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "ca-phe-den-da",
+      "nameVi": "Cà phê đen đá",
+      "nameEn": "Iced black coffee",
+      "altNames": [
+        "ca phe den da"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "phin",
+        "flavour": [
+          "strong",
+          "bitter"
+        ],
+        "served": [
+          "iced",
+          "hot"
+        ]
+      },
+      "description": {
+        "en": "Strong phin-filtered black coffee, usually sweetened and served over ice.",
+        "vi": "Cà phê đen pha phin, thường thêm đường và uống với đá."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Vietnamese iced coffee",
+          "url": "https://en.wikipedia.org/wiki/Vietnamese_iced_coffee"
+        }
+      ]
+    },
+    {
+      "id": "bac-xiu",
+      "nameVi": "Bạc xỉu",
+      "nameEn": "White coffee (bạc xỉu)",
+      "altNames": [
+        "bac xiu"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "phin",
+        "flavour": [
+          "milky",
+          "sweet"
+        ],
+        "served": [
+          "iced"
+        ]
+      },
+      "description": {
+        "en": "A Saigon favourite with much more milk than coffee.",
+        "vi": "Món quen thuộc của Sài Gòn với nhiều sữa hơn cà phê."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Vietnamese iced coffee",
+          "url": "https://en.wikipedia.org/wiki/Vietnamese_iced_coffee"
+        }
+      ]
+    },
+    {
+      "id": "ca-phe-trung",
+      "nameVi": "Cà phê trứng",
+      "nameEn": "Egg coffee",
+      "altNames": [
+        "ca phe trung"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "whisked",
+        "flavour": [
+          "creamy",
+          "sweet"
+        ],
+        "served": [
+          "hot",
+          "iced"
+        ]
+      },
+      "description": {
+        "en": "Hanoi-born coffee topped with egg yolk whipped with sugar and condensed milk.",
+        "vi": "Cà phê gốc Hà Nội, phủ lớp lòng đỏ trứng đánh bông với đường và sữa đặc."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Egg coffee",
+          "url": "https://en.wikipedia.org/wiki/Egg_coffee"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/C%C3%A0_ph%C3%AA_tr%E1%BB%A9ng.jpg?width=960",
+          "credit": "travel oriented / Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:C%C3%A0_ph%C3%AA_tr%E1%BB%A9ng.jpg"
+        }
+      ]
+    },
+    {
+      "id": "ca-phe-muoi",
+      "nameVi": "Cà phê muối",
+      "nameEn": "Salt coffee",
+      "altNames": [
+        "ca phe muoi",
+        "salted coffee"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "phin",
+        "flavour": [
+          "salty",
+          "sweet",
+          "creamy"
+        ],
+        "served": [
+          "hot",
+          "iced"
+        ]
+      },
+      "description": {
+        "en": "A Huế speciality: phin coffee topped with lightly salted cream.",
+        "vi": "Đặc sản Huế: cà phê phin phủ lớp kem sữa có chút muối."
+      },
+      "sources": [
+        {
+          "title": "VnExpress International — Salted coffee: a Hue specialty",
+          "url": "https://e.vnexpress.net/news/food/salted-coffee-a-hue-specialty-4554556.html"
+        }
+      ]
+    },
+    {
+      "id": "ca-phe-cot-dua",
+      "nameVi": "Cà phê cốt dừa",
+      "nameEn": "Coconut coffee",
+      "altNames": [
+        "ca phe cot dua"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "phin",
+        "flavour": [
+          "creamy",
+          "sweet"
+        ],
+        "served": [
+          "iced"
+        ]
+      },
+      "description": {
+        "en": "Coffee blended with coconut milk, condensed milk and ice.",
+        "vi": "Cà phê xay cùng nước cốt dừa, sữa đặc và đá."
+      },
+      "sources": [
+        {
+          "title": "Vietnam Airlines travel guide — coconut coffee",
+          "url": "https://www.vietnamairlines.com/at/en/plan-book/travel/travel-guide/coconut-coffee-hanoi"
+        }
+      ]
+    },
+    {
+      "id": "ca-phe-vot",
+      "nameVi": "Cà phê vợt",
+      "nameEn": "Sock-filter coffee",
+      "altNames": [
+        "ca phe vot",
+        "cloth-filter coffee"
+      ],
+      "category": "vietnamese-coffee",
+      "attributes": {
+        "coffeeType": "robusta",
+        "preparation": "brewed",
+        "flavour": [
+          "strong"
+        ],
+        "served": [
+          "hot",
+          "iced"
+        ]
+      },
+      "description": {
+        "en": "Old-Saigon coffee strained through a cloth ‘sock’ filter.",
+        "vi": "Cà phê Sài Gòn xưa, lọc qua vợt vải."
+      },
+      "sources": [
+        {
+          "title": "Saigoneer — Hẻm Gems: a cuppa in Saigon's oldest café",
+          "url": "https://saigoneer.com/saigon-street-food-restaurants/8085-hem-gems-a-cuppa-in-saigon-s-oldest-cafe"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Net-filter_coffee_in_Cheo_Leo_Caf%C3%A9%2C_Ho_Chi_Minh_City.jpg?width=960",
+          "credit": "Trương Minh Khải / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Net-filter_coffee_in_Cheo_Leo_Caf%C3%A9%2C_Ho_Chi_Minh_City.jpg"
+        }
+      ]
+    },
+    {
+      "id": "espresso",
+      "nameVi": "Espresso",
+      "nameEn": "Espresso",
+      "altNames": [],
+      "category": "espresso",
+      "attributes": {
+        "preparation": "espresso",
+        "flavour": [
+          "strong",
+          "bitter"
+        ],
+        "served": [
+          "hot"
+        ]
+      },
+      "description": {
+        "en": "Concentrated coffee brewed by forcing hot water through finely ground coffee.",
+        "vi": "Cà phê đậm đặc pha bằng máy, nước nóng nén qua bột cà phê mịn."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Espresso",
+          "url": "https://en.wikipedia.org/wiki/Espresso"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tazzina_di_caff%C3%A8_a_Ventimiglia.jpg?width=960",
+          "credit": "Lemone / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tazzina_di_caff%C3%A8_a_Ventimiglia.jpg"
+        }
+      ]
+    },
+    {
+      "id": "cappuccino",
+      "nameVi": "Cappuccino",
+      "nameEn": "Cappuccino",
+      "altNames": [],
+      "category": "espresso",
+      "attributes": {
+        "preparation": "espresso",
+        "flavour": [
+          "milky",
+          "creamy"
+        ],
+        "served": [
+          "hot"
+        ]
+      },
+      "description": {
+        "en": "Espresso with steamed milk and milk foam.",
+        "vi": "Espresso với sữa nóng và lớp bọt sữa."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Cappuccino",
+          "url": "https://en.wikipedia.org/wiki/Cappuccino"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cappuccino_in_original.jpg?width=960",
+          "credit": "Vee Satayamas / Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cappuccino_in_original.jpg"
+        }
+      ]
+    },
+    {
+      "id": "pour-over",
+      "nameVi": "Cà phê pha thủ công (pour-over)",
+      "nameEn": "Pour-over coffee",
+      "altNames": [
+        "V60",
+        "Chemex",
+        "hand drip"
+      ],
+      "category": "specialty",
+      "attributes": {
+        "coffeeType": "arabica",
+        "preparation": "pour-over",
+        "flavour": [
+          "fruity"
+        ],
+        "served": [
+          "hot",
+          "iced"
+        ]
+      },
+      "description": {
+        "en": "Hand-poured filter coffee, often single-origin beans.",
+        "vi": "Cà phê lọc rót tay, thường dùng hạt một nguồn gốc."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Drip coffee (pour-over)",
+          "url": "https://en.wikipedia.org/wiki/Drip_coffee"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Manual_drip_%28pour-over%29_coffee.jpg?width=960",
+          "credit": "Kim Sanso / Wikimedia Commons",
+          "license": "CC0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Manual_drip_%28pour-over%29_coffee.jpg"
+        }
+      ]
+    },
+    {
+      "id": "cold-brew",
+      "nameVi": "Cold brew",
+      "nameEn": "Cold brew",
+      "altNames": [
+        "cà phê ủ lạnh"
+      ],
+      "category": "cold-brew",
+      "attributes": {
+        "preparation": "cold-brew",
+        "flavour": [
+          "strong"
+        ],
+        "served": [
+          "iced"
+        ]
+      },
+      "description": {
+        "en": "Coffee steeped in cold water for many hours.",
+        "vi": "Cà phê ngâm ủ trong nước lạnh nhiều giờ."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Cold brew coffee",
+          "url": "https://en.wikipedia.org/wiki/Cold_brew_coffee"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Preparation_of_cold_brew_coffee_06.jpg?width=960",
+          "credit": "Sage Ross / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Preparation_of_cold_brew_coffee_06.jpg"
+        }
+      ]
+    },
+    {
+      "id": "matcha-latte",
+      "nameVi": "Matcha latte",
+      "nameEn": "Matcha latte",
+      "altNames": [
+        "trà xanh sữa"
+      ],
+      "category": "matcha",
+      "attributes": {
+        "coffeeType": "matcha",
+        "preparation": "whisked",
+        "flavour": [
+          "milky",
+          "creamy"
+        ],
+        "served": [
+          "hot",
+          "iced"
+        ]
+      },
+      "description": {
+        "en": "Powdered green tea whisked and mixed with milk.",
+        "vi": "Bột trà xanh đánh tan, pha cùng sữa."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Matcha",
+          "url": "https://en.wikipedia.org/wiki/Matcha"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Matcha_latte_in_tall_glass.jpg?width=960",
+          "credit": "Derjochenmeyer / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matcha_latte_in_tall_glass.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tra-sen",
+      "nameVi": "Trà sen",
+      "nameEn": "Lotus tea",
+      "altNames": [
+        "tra sen"
+      ],
+      "category": "tea",
+      "attributes": {
+        "coffeeType": "tea",
+        "preparation": "brewed",
+        "served": [
+          "hot"
+        ]
+      },
+      "description": {
+        "en": "Green tea scented with lotus flowers.",
+        "vi": "Trà xanh ướp hương hoa sen."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Lotus tea",
+          "url": "https://en.wikipedia.org/wiki/Lotus_tea"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tra_sen_-_Vietnamese_Lotus_Tea.JPG?width=960",
+          "credit": "VuThiAnh / Wikimedia Commons",
+          "license": "Public domain",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tra_sen_-_Vietnamese_Lotus_Tea.JPG"
+        }
+      ]
+    }
   ]
 }

@@ -30,7 +30,14 @@
         "vi": "Vodka lắc cùng espresso và rượu mùi cà phê.",
         "en": "Vodka shaken with espresso and coffee liqueur."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Espresso_Martini_on_a_bar.jpg?width=960",
+          "credit": "AlphaLemur / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Espresso_Martini_on_a_bar.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Espresso martini",
@@ -66,7 +73,14 @@
         "vi": "Gin, Campari và vermouth ngọt với tỉ lệ bằng nhau.",
         "en": "Equal parts gin, Campari and sweet vermouth."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/C%C3%B3ctel_Negroni_Campari.jpg?width=960",
+          "credit": "Desdealbert00 / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:C%C3%B3ctel_Negroni_Campari.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Negroni",
@@ -104,7 +118,14 @@
         "vi": "Rum trắng với chanh, bạc hà, đường và soda.",
         "en": "White rum with lime, mint, sugar and soda."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/15-09-26-RalfR-WLC-0072.jpg?width=960",
+          "credit": "Ralf Roletschek / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:15-09-26-RalfR-WLC-0072.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Mojito",
@@ -140,7 +161,14 @@
         "vi": "Whiskey khuấy cùng đường và bitters.",
         "en": "Whiskey stirred with sugar and bitters."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whiskey_Old_Fashioned1.jpg?width=960",
+          "credit": "Erich Wagner / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whiskey_Old_Fashioned1.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Old fashioned (cocktail)",
@@ -175,7 +203,14 @@
         "vi": "Tequila với rượu cam và chanh.",
         "en": "Tequila with orange liqueur and lime."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/MargaritaReal.jpg?width=960",
+          "credit": "Akke Monasso / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:MargaritaReal.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Margarita",
@@ -207,7 +242,14 @@
         "vi": "Bia tươi nhẹ, sản xuất và uống trong ngày.",
         "en": "Light, freshly brewed Vietnamese draught beer."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bia_hoi_in_Hoi_An%2C_Vietnam.jpg?width=960",
+          "credit": "R. from Bangkok / Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bia_hoi_in_Hoi_An%2C_Vietnam.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Bia hơi",
@@ -244,7 +286,14 @@
         "vi": "Mojito không có rượu rum.",
         "en": "A mojito without rum."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Virgin_Mojito_01.jpg?width=960",
+          "credit": "Pratishkhedekar / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Virgin_Mojito_01.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Mojito",
@@ -304,7 +353,14 @@
         "vi": "Bia từ các nhà nấu bia độc lập nhỏ, thường đậm hương hoa bia.",
         "en": "Beer from small independent breweries, often hop-forward."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Beer_Flight.jpg?width=960",
+          "credit": "Wanderstheworld / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beer_Flight.jpg"
+        }
+      ],
       "sources": [
         {
           "title": "Wikipedia — Craft beer",

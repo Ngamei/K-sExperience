@@ -29,6 +29,14 @@
           "title": "Wikipedia — Espresso martini",
           "url": "https://en.wikipedia.org/wiki/Espresso_martini"
         }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Espresso_Martini_on_a_bar.jpg?width=960",
+          "credit": "AlphaLemur / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Espresso_Martini_on_a_bar.jpg"
+        }
       ]
     },
     {
@@ -58,6 +66,14 @@
         {
           "title": "Wikipedia — Negroni",
           "url": "https://en.wikipedia.org/wiki/Negroni"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/C%C3%B3ctel_Negroni_Campari.jpg?width=960",
+          "credit": "Desdealbert00 / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:C%C3%B3ctel_Negroni_Campari.jpg"
         }
       ]
     },
@@ -91,6 +107,14 @@
           "title": "Wikipedia — Mojito",
           "url": "https://en.wikipedia.org/wiki/Mojito"
         }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/15-09-26-RalfR-WLC-0072.jpg?width=960",
+          "credit": "Ralf Roletschek / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:15-09-26-RalfR-WLC-0072.jpg"
+        }
       ]
     },
     {
@@ -121,6 +145,14 @@
           "title": "Wikipedia — Old fashioned (cocktail)",
           "url": "https://en.wikipedia.org/wiki/Old_fashioned_(cocktail)"
         }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whiskey_Old_Fashioned1.jpg?width=960",
+          "credit": "Erich Wagner / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whiskey_Old_Fashioned1.jpg"
+        }
       ]
     },
     {
@@ -150,6 +182,14 @@
           "title": "Wikipedia — Margarita",
           "url": "https://en.wikipedia.org/wiki/Margarita"
         }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/MargaritaReal.jpg?width=960",
+          "credit": "Akke Monasso / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:MargaritaReal.jpg"
+        }
       ]
     },
     {
@@ -175,6 +215,14 @@
         {
           "title": "Wikipedia — Bia hơi",
           "url": "https://en.wikipedia.org/wiki/Bia_hơi"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bia_hoi_in_Hoi_An%2C_Vietnam.jpg?width=960",
+          "credit": "R. from Bangkok / Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bia_hoi_in_Hoi_An%2C_Vietnam.jpg"
         }
       ]
     },
@@ -206,6 +254,14 @@
         {
           "title": "Wikipedia — Mojito",
           "url": "https://en.wikipedia.org/wiki/Mojito"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Virgin_Mojito_01.jpg?width=960",
+          "credit": "Pratishkhedekar / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Virgin_Mojito_01.jpg"
         }
       ]
     },
@@ -254,6 +310,14 @@
         {
           "title": "Wikipedia — Craft beer",
           "url": "https://en.wikipedia.org/wiki/Craft_beer"
+        }
+      ],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Beer_Flight.jpg?width=960",
+          "credit": "Wanderstheworld / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beer_Flight.jpg"
         }
       ]
     }

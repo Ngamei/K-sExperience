@@ -91,7 +91,7 @@ test("item detail: module sections, shared establishment card with offering phot
 
   // Same café, different item: the salt-coffee menu photo must not appear.
   await page.goto("/coffee/item/?id=test-bac-xiu");
-  await expect(page.getByTestId("section-offerings").getByTestId("venue-thumb")).toHaveAttribute("data-kind", "icon");
+  await expect(page.getByTestId("section-offerings").getByTestId("venue-thumb")).toHaveAttribute("data-kind", "illustration");
   await expect(page.locator(`img[src="${PHOTO}"]`)).toHaveCount(0);
 });
 

@@ -47,6 +47,8 @@ export interface ExperienceModule {
   implemented: boolean;
   /** Env flag that must be "1" to enable an implemented, not-yet-active module (null = no flag needed). */
   featureFlag: string | null;
+  /** Visual identity: accent colour for markers, medallion rings and category dots (design-token palette). */
+  accent: string;
   /** PO decision: open this pilot to everyone without a flag (shown with a "Pilot" badge). */
   enabledByDefault?: boolean;
   /** Route prefix for the module's screens ("/" for Food; planned prefixes for the others). */
@@ -109,7 +111,7 @@ const nav = (map: L, catalogue: L, passport: L): Record<NavSlot, L> => ({
 export const EXPERIENCES: ExperienceModule[] = [
   {
     id: "food", labelKey: "exp.food", name: { en: "Vietnamese Food", vi: "Ẩm thực Việt Nam" }, status: "active", icon: "utensils",
-    implemented: true, featureFlag: null, basePath: "/",
+    implemented: true, featureFlag: null, accent: "#294C3D", basePath: "/",
     navLabels: nav({ en: "Food Map", vi: "Bản đồ ẩm thực" }, { en: "Food Catalogue", vi: "Danh mục món ăn" }, { en: "Food Passport", vi: "Hộ chiếu ẩm thực" }),
     navShort: { map: { en: "Explore", vi: "Bản đồ" }, catalogue: { en: "Catalogue", vi: "Món ăn" }, passport: SHORT.passport },
     routes: { map: "/", discover: "/discover/", catalogue: "/catalogue/", nearby: "/nearby/", passport: "/passport/", saved: "/saved/", item: "/dishes/", establishment: "/places/" },
@@ -142,7 +144,7 @@ export const EXPERIENCES: ExperienceModule[] = [
   },
   {
     id: "bars", labelKey: "exp.bars", name: { en: "Bars", vi: "Quán bar" }, status: "coming-soon", icon: "wine",
-    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_BARS", enabledByDefault: true, basePath: "/bars/",
+    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_BARS", enabledByDefault: true, accent: "#8E4F38", basePath: "/bars/",
     navLabels: nav({ en: "Bar Map", vi: "Bản đồ quán bar" }, { en: "Drinks Catalogue", vi: "Danh mục đồ uống" }, { en: "Bar Passport", vi: "Hộ chiếu quán bar" }),
     navShort: SHORT,
     routes: routesFor("/bars/"),
@@ -179,7 +181,7 @@ export const EXPERIENCES: ExperienceModule[] = [
   {
     id: "coffee", labelKey: "exp.coffee", name: { en: "Coffee", vi: "Cà phê" }, status: "coming-soon", icon: "coffee",
     // Reference pilot of the shared engine: screens exist; selectable only with NEXT_PUBLIC_FEATURE_COFFEE=1.
-    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_COFFEE", enabledByDefault: true, basePath: "/coffee/",
+    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_COFFEE", enabledByDefault: true, accent: "#A9603F", basePath: "/coffee/",
     navLabels: nav({ en: "Café Map", vi: "Bản đồ cà phê" }, { en: "Coffee Catalogue", vi: "Danh mục cà phê" }, { en: "Coffee Passport", vi: "Hộ chiếu cà phê" }),
     navShort: SHORT,
     routes: routesFor("/coffee/"),
@@ -222,7 +224,7 @@ export const EXPERIENCES: ExperienceModule[] = [
   },
   {
     id: "spa", labelKey: "exp.spa", name: { en: "Spa", vi: "Spa & chăm sóc sức khỏe" }, status: "coming-soon", icon: "flower",
-    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_SPA", enabledByDefault: true, basePath: "/spa/",
+    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_SPA", enabledByDefault: true, accent: "#7FA7B8", basePath: "/spa/",
     navLabels: nav({ en: "Spa Map", vi: "Bản đồ spa" }, { en: "Treatment Catalogue", vi: "Danh mục liệu trình" }, { en: "Wellness Passport", vi: "Hộ chiếu chăm sóc" }),
     navShort: SHORT,
     routes: routesFor("/spa/"),
@@ -260,7 +262,7 @@ export const EXPERIENCES: ExperienceModule[] = [
   },
   {
     id: "shopping", labelKey: "exp.shopping", name: { en: "Shopping", vi: "Mua sắm" }, status: "coming-soon", icon: "bag",
-    implemented: false, featureFlag: null, basePath: "/shopping/",
+    implemented: false, featureFlag: null, accent: "#C4923A", basePath: "/shopping/",
     navLabels: nav({ en: "Shopping Map", vi: "Bản đồ mua sắm" }, { en: "Shopping Catalogue", vi: "Danh mục mua sắm" }, { en: "Shopping Passport", vi: "Hộ chiếu mua sắm" }),
     navShort: SHORT,
     routes: routesFor("/shopping/"),
@@ -282,7 +284,7 @@ export const EXPERIENCES: ExperienceModule[] = [
   },
   {
     id: "sport", labelKey: "exp.sport", name: { en: "Sport", vi: "Thể thao" }, status: "pilot-planned", icon: "activity",
-    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_SPORT", enabledByDefault: true, basePath: "/sport/",
+    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_SPORT", enabledByDefault: true, accent: "#294C3D", basePath: "/sport/",
     navLabels: nav({ en: "Sport Map", vi: "Bản đồ thể thao" }, { en: "Activity Catalogue", vi: "Danh mục hoạt động" }, { en: "Sport Passport", vi: "Hộ chiếu thể thao" }),
     navShort: SHORT,
     routes: routesFor("/sport/"),

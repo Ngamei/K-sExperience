@@ -45,6 +45,9 @@ export const COPY = {
   offline: { en: "You're offline. Reconnect to load this page.", vi: "Bạn đang ngoại tuyến. Hãy kết nối lại để tải trang." },
   loadError: { en: "This page couldn't be loaded.", vi: "Không tải được trang này." },
   retry: { en: "Try again", vi: "Thử lại" },
+  illustration: { en: "Illustration — photo coming", vi: "Hình minh họa — ảnh sẽ cập nhật" },
+  nothingSaved: { en: "Nothing saved yet.", vi: "Chưa lưu mục nào." },
+  nothingYet: { en: "Nothing here yet — start exploring.", vi: "Chưa có gì — hãy bắt đầu khám phá." },
   notFound: { en: "Not found.", vi: "Không tìm thấy." },
   loading: { en: "Loading…", vi: "Đang tải…" },
 } satisfies Record<string, L>;
