@@ -13,6 +13,8 @@ import sampleMappingFile from "@data/samples/dish-restaurant-mapping.sample.json
 import type { Archipelago, Dish, DishCatalogue, DishRestaurantLink, Province, Region, Restaurant } from "./schema";
 
 export interface FoodData {
+  /** Where the catalogue came from at runtime. */
+  source?: "local" | "supabase" | "local-fallback";
   catalogue: DishCatalogue["metadata"];
   dishes: Dish[];
   regions: Region[];

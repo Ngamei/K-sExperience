@@ -30,6 +30,9 @@ create table provinces (                        -- 63 historical provinces (culi
   current_unit_name_en text not null,
   current_unit_kind text not null,
   label_point extensions.geography(Point, 4326) not null,
+  -- plain coordinates for the REST API (PostgREST returns geography as hex WKB)
+  label_lon double precision generated always as (extensions.st_x(label_point::extensions.geometry)) stored,
+  label_lat double precision generated always as (extensions.st_y(label_point::extensions.geometry)) stored,
   bbox double precision[] not null
 );
 
@@ -89,6 +92,8 @@ create table restaurants (
   address text not null,
   neighbourhood text not null,
   location extensions.geography(Point, 4326) not null,
+  lon double precision generated always as (extensions.st_x(location::extensions.geometry)) stored,
+  lat double precision generated always as (extensions.st_y(location::extensions.geometry)) stored,
   coordinate_precision text check (coordinate_precision in ('exact','street')),
   google_maps_url text,
   highlights text[] not null default '{}',

@@ -13,6 +13,11 @@ for m in "$ROOT"/supabase/migrations/0*.sql; do [ "$m" = "$ROOT/supabase/migrati
 as_pg $PSQL -d "$DB" -f "$ROOT/supabase/local/grants.sql"
 as_pg $PSQL -d "$DB" -f "$ROOT/supabase/seed.sql"
 as_pg $PSQL -d "$DB" -f "$ROOT/supabase/seed.sql"                    # idempotency: second run must succeed
+# The exact columns the app reads must exist and be readable by the anon role.
+COLS_SQL=$(cd "$ROOT" && npx tsx scripts/print-read-columns-sql.ts)
+echo "$COLS_SQL" > "/tmp/ksx_cols_$$.sql"; chmod 644 "/tmp/ksx_cols_$$.sql"
+as_pg psql -X -At -v ON_ERROR_STOP=1 -d "$DB" -f "/tmp/ksx_cols_$$.sql" | sed 's/^/columns readable by anon: /'
+rm -f "/tmp/ksx_cols_$$.sql"
 OUT=$(as_pg psql -X -At -d "$DB" -f "$ROOT/tests/db/rls.sql")
 echo "$OUT"
 echo "$OUT" | grep -q "ALL DB TESTS PASSED"

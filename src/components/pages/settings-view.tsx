@@ -25,7 +25,7 @@ function Card({ title, children, id }: { title: string; children: React.ReactNod
 
 export function SettingsView() {
   const { t, locale } = useT();
-  const { regions } = useFoodData();
+  const { regions, source } = useFoodData();
   const u = useUser();
   const p = u.preferences;
 
@@ -107,7 +107,11 @@ export function SettingsView() {
 
       <Card title={t("settings.dataMode")} id="data-mode">
         <p className="text-sm text-charcoal/80">
-          {process.env.NEXT_PUBLIC_DATA_MODE === "supabase" ? "Supabase" : "Local mode — data is read from the repository's JSON files; your saved dishes and passport live in this browser only."}
+          {source === "supabase"
+            ? "Supabase — catalogue and venues are read live from the database."
+            : source === "local-fallback"
+              ? "Supabase is configured but could not be reached — showing the bundled data."
+              : "Local mode — data is read from the repository's JSON files; your saved dishes and passport live in this browser only."}
         </p>
       </Card>
 

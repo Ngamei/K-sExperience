@@ -2,6 +2,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { createContext, useContext, useMemo } from "react";
 import type { FoodData } from "@/lib/data/catalogue";
+import { getSupabase } from "@/lib/supabase/client";
+import { fetchSupabaseFood } from "@/lib/supabase/food";
 import { buildAvailabilityIndex } from "@/lib/food/availability";
 import type { FilterContext } from "@/lib/food/filters";
 import { useUser } from "@/lib/store/user";
@@ -17,7 +19,25 @@ const FoodDataContext = createContext<Ctx | null>(null);
 async function fetchFoodData(): Promise<FoodData> {
   const r = await fetch("/data/food.json");
   if (!r.ok) throw new Error(`Failed to load catalogue (${r.status})`);
-  return r.json();
+  const local = (await r.json()) as FoodData;
+  const sb = getSupabase();
+  if (!sb) return { ...local, source: "local" };
+  try {
+    // Supabase is the source of truth for the catalogue and real venues; bundled samples and archipelago labels stay local.
+    const remote = await fetchSupabaseFood(sb);
+    const seedCount = remote.dishes.filter((d) => d.dataset === "seed").length;
+    return {
+      ...local,
+      ...remote,
+      restaurants: [...remote.restaurants, ...local.restaurants.filter((x) => x.isSample)],
+      links: [...remote.links, ...local.links.filter((x) => x.isSample)],
+      catalogue: { ...local.catalogue, dataset: seedCount === remote.dishes.length ? "seed" : seedCount ? "mixed" : "master", recordCount: remote.dishes.length, seedCount, sourceFile: "supabase" },
+      source: "supabase",
+    };
+  } catch (e) {
+    console.warn("[K's Experience] Supabase unavailable, using bundled data:", e);
+    return { ...local, source: "local-fallback" };
+  }
 }
 
 /** Loads the dataset once (client-side, cached) and provides indexed lookups to the app. */
