@@ -1,0 +1,237 @@
+{
+  "metadata": {
+    "note": "SAMPLE DATA — fictional links for the demonstration venues."
+  },
+  "links": [
+    {
+      "dishId": "pho-bo-ha-noi",
+      "restaurantId": "sample-venue-01",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "bun-cha-ha-noi",
+      "restaurantId": "sample-venue-01",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "cha-ca-la-vong",
+      "restaurantId": "sample-venue-01",
+      "status": "unverified",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "bun-bo-hue",
+      "restaurantId": "sample-venue-02",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "com-hen",
+      "restaurantId": "sample-venue-02",
+      "status": "unverified",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "banh-beo-hue",
+      "restaurantId": "sample-venue-02",
+      "status": "temporarily-unavailable",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "hu-tieu-nam-vang",
+      "restaurantId": "sample-venue-03",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "hu-tieu-my-tho",
+      "restaurantId": "sample-venue-03",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "bo-bia",
+      "restaurantId": "sample-venue-03",
+      "status": "unverified",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "banh-mi-sai-gon",
+      "restaurantId": "sample-venue-04",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "bot-chien",
+      "restaurantId": "sample-venue-04",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "banh-trang-tron",
+      "restaurantId": "sample-venue-04",
+      "status": "unverified",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "mi-quang",
+      "restaurantId": "sample-venue-05",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "cao-lau-hoi-an",
+      "restaurantId": "sample-venue-05",
+      "status": "unverified",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "banh-trang-cuon-thit-heo",
+      "restaurantId": "sample-venue-05",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "com-tam-sai-gon",
+      "restaurantId": "sample-venue-06",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "banh-flan",
+      "restaurantId": "sample-venue-06",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "che-ba-mau",
+      "restaurantId": "sample-venue-06",
+      "status": "unverified",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "sample-venue-07",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "banh-khot-vung-tau",
+      "restaurantId": "sample-venue-07",
+      "status": "unverified",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "lau-mam",
+      "restaurantId": "sample-venue-08",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "banh-xeo-nam-bo",
+      "restaurantId": "sample-venue-08",
+      "status": "verified-available",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    },
+    {
+      "dishId": "canh-chua-ca-loc",
+      "restaurantId": "sample-venue-08",
+      "status": "unverified",
+      "isSample": true,
+      "menuEvidence": {
+        "type": "sample",
+        "note": "Sample evidence — fictional."
+      }
+    }
+  ]
+}

@@ -1,0 +1,6639 @@
+{
+  "metadata": {
+    "dataset": "seed",
+    "label": "SEED DATA — demonstration catalogue authored by Claude Code from general culinary knowledge. Not yet verified against sources. To be replaced by the ChatGPT master catalogue.",
+    "generatedAt": "2026-11-27",
+    "sourceFile": "data/source/seed-catalogue.json",
+    "recordCount": 138
+  },
+  "dishes": [
+    {
+      "id": "pho-bo-ha-noi",
+      "nameVi": "Phở bò Hà Nội",
+      "nameEn": "Hanoi beef phở",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "family": "pho",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "rice noodles",
+        "beef",
+        "beef bone broth",
+        "star anise",
+        "cinnamon",
+        "spring onion"
+      ],
+      "taste": [
+        "umami",
+        "light",
+        "fragrant"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-beef"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch",
+        "late-night"
+      ],
+      "description": {
+        "vi": "Bánh phở trong nước dùng xương bò ninh lâu, thơm gừng nướng, hoa hồi, quế — phong cách thanh tao của miền Bắc.",
+        "en": "Flat rice noodles in a clear, slow-simmered beef broth scented with charred ginger, star anise and cinnamon — the restrained northern style."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 1
+    },
+    {
+      "id": "pho-ga-ha-noi",
+      "nameVi": "Phở gà Hà Nội",
+      "nameEn": "Hanoi chicken phở",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "family": "pho",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "rice noodles",
+        "chicken",
+        "chicken broth",
+        "lime leaves",
+        "spring onion"
+      ],
+      "taste": [
+        "light",
+        "fragrant"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-poultry"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Phở với thịt gà luộc, nước dùng xương gà và lá chanh thái chỉ.",
+        "en": "A lighter phở with poached chicken, chicken-bone broth and finely shredded lime leaves."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "pho-bo-nam-dinh",
+      "nameVi": "Phở bò Nam Định",
+      "nameEn": "Nam Định beef phở",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "family": "pho",
+      "origins": [
+        {
+          "provinceId": "nam-dinh",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "rice noodles",
+        "beef",
+        "beef broth",
+        "fish sauce"
+      ],
+      "taste": [
+        "umami",
+        "rich"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-beef"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Phở Nam Định — một trong những cái nôi của phở, nước dùng đậm vị nước mắm.",
+        "en": "The Nam Định tradition often credited as a cradle of phở, with a deeper, fish-sauce-seasoned broth."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "pho-cuon",
+      "nameVi": "Phở cuốn",
+      "nameEn": "Phở rolls",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rolls",
+      "family": "pho",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "uncut phở sheets",
+        "stir-fried beef",
+        "herbs",
+        "dipping sauce"
+      ],
+      "taste": [
+        "fresh",
+        "herbal"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-beef"
+      ],
+      "mealTimes": [
+        "lunch",
+        "afternoon",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Bánh phở lá cuốn thịt bò xào và rau thơm, đặc sản phố Ngũ Xã.",
+        "en": "Wide sheets of fresh phở noodle rolled around stir-fried beef and herbs, a Ngũ Xã specialty."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "pho-chua-lang-son",
+      "nameVi": "Phở chua Lạng Sơn",
+      "nameEn": "Lạng Sơn sour phở",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodles",
+      "family": "pho",
+      "origins": [
+        {
+          "provinceId": "lang-son",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "rice noodles",
+        "roast pork",
+        "liver",
+        "peanuts",
+        "sour sauce",
+        "herbs"
+      ],
+      "taste": [
+        "sour",
+        "sweet",
+        "crunchy"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-pork",
+        "contains-offal",
+        "contains-peanut"
+      ],
+      "mealTimes": [
+        "lunch"
+      ],
+      "description": {
+        "vi": "Phở trộn nguội với nước sốt chua ngọt, thịt quay, lòng và lạc rang.",
+        "en": "A cold, dry phở dressed in a tangy sweet-sour sauce with roast pork, offal and peanuts."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "pho-kho-gia-lai",
+      "nameVi": "Phở khô Gia Lai",
+      "nameEn": "Gia Lai dry phở (two-bowl phở)",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodles",
+      "family": "pho",
+      "origins": [
+        {
+          "provinceId": "gia-lai",
+          "regionId": "tay-nguyen",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nguyen"
+      ],
+      "ingredients": [
+        "thin rice noodles",
+        "minced pork",
+        "beef",
+        "broth served separately"
+      ],
+      "taste": [
+        "umami",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork",
+        "contains-beef"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Sợi phở nhỏ dai trộn thịt băm, ăn kèm một bát nước dùng riêng — “phở hai tô”.",
+        "en": "Thin, chewy noodles tossed with minced pork and served with a separate bowl of broth."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "pho-sai-gon",
+      "nameVi": "Phở Sài Gòn",
+      "nameEn": "Saigon-style phở",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "family": "pho",
+      "origins": [
+        {
+          "provinceId": "ho-chi-minh",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice noodles",
+        "beef",
+        "sweeter broth",
+        "bean sprouts",
+        "Thai basil",
+        "hoisin"
+      ],
+      "taste": [
+        "sweet",
+        "herbal",
+        "fragrant"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-beef"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch",
+        "late-night"
+      ],
+      "description": {
+        "vi": "Phở kiểu miền Nam: nước dùng ngọt hơn, ăn kèm giá, húng quế và tương đen.",
+        "en": "The southern interpretation: a slightly sweeter broth served with a plate of fresh herbs, sprouts and sauces."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "bun-cha-ha-noi",
+      "nameVi": "Bún chả Hà Nội",
+      "nameEn": "Hanoi grilled pork with noodles",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodles",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "rice vermicelli",
+        "grilled pork patties",
+        "pork belly",
+        "dipping broth",
+        "herbs",
+        "green papaya"
+      ],
+      "taste": [
+        "smoky",
+        "sweet",
+        "sour"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "lunch"
+      ],
+      "description": {
+        "vi": "Chả viên và chả miếng nướng than hoa ngâm trong nước chấm chua ngọt, ăn với bún và rau sống.",
+        "en": "Charcoal-grilled pork patties and belly served in a warm sweet-sour fish-sauce dip with vermicelli and herbs."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 1
+    },
+    {
+      "id": "bun-thang",
+      "nameVi": "Bún thang",
+      "nameEn": "Bún thang",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "rice vermicelli",
+        "shredded chicken",
+        "egg ribbons",
+        "pork roll",
+        "dried shrimp broth"
+      ],
+      "taste": [
+        "light",
+        "umami"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-poultry",
+        "contains-egg",
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Món bún cầu kỳ của Hà Nội với gà xé, trứng tráng thái chỉ, giò lụa và nước dùng thanh.",
+        "en": "An intricate Hanoi noodle soup of shredded chicken, egg ribbons and pork roll in a delicate broth."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "bun-rieu-cua",
+      "nameVi": "Bún riêu cua",
+      "nameEn": "Crab paste noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        },
+        {
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "rice vermicelli",
+        "field crab paste",
+        "tomato",
+        "tofu",
+        "herbs"
+      ],
+      "taste": [
+        "sour",
+        "umami"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Nước dùng chua thanh vị cà chua với riêu cua đồng, món quen thuộc vùng đồng bằng Bắc Bộ.",
+        "en": "A tangy tomato broth crowned with fluffy field-crab paste, a staple of the northern delta."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "cha-ca-la-vong",
+      "nameVi": "Chả cá Lã Vọng",
+      "nameEn": "Lã Vọng turmeric fish",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "grilled",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "fish",
+        "turmeric",
+        "dill",
+        "spring onion",
+        "shrimp paste",
+        "peanuts"
+      ],
+      "taste": [
+        "fragrant",
+        "herbal",
+        "rich"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-fish",
+        "contains-peanut"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cá ướp nghệ rán ngay trên bàn với thì là, hành lá, ăn cùng mắm tôm.",
+        "en": "Turmeric-marinated fish sizzled at the table with mountains of dill and spring onion."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "banh-cuon-thanh-tri",
+      "nameVi": "Bánh cuốn Thanh Trì",
+      "nameEn": "Thanh Trì steamed rice rolls",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "banh",
+      "family": "banh-cuon",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "steamed rice sheets",
+        "fried shallots",
+        "pork roll",
+        "fish sauce dip"
+      ],
+      "taste": [
+        "light",
+        "fragrant"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "breakfast"
+      ],
+      "description": {
+        "vi": "Bánh cuốn mỏng tang làng Thanh Trì, rắc hành phi, ăn kèm chả lụa.",
+        "en": "Gossamer-thin steamed rice sheets from Thanh Trì, eaten plain with shallots and pork roll."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "bun-dau-mam-tom",
+      "nameVi": "Bún đậu mắm tôm",
+      "nameEn": "Noodles with fried tofu and shrimp paste",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodles",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "rice vermicelli cakes",
+        "fried tofu",
+        "shrimp paste",
+        "herbs",
+        "boiled pork"
+      ],
+      "taste": [
+        "umami",
+        "fermented",
+        "crunchy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-seafood",
+        "contains-pork",
+        "vegetarian-version-common"
+      ],
+      "mealTimes": [
+        "lunch",
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bún lá, đậu rán giòn, rau thơm chấm mắm tôm đánh sủi bọt.",
+        "en": "Pressed vermicelli, crisp fried tofu and herbs with a pungent, whipped shrimp-paste dip."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "bun-oc-ha-noi",
+      "nameVi": "Bún ốc Hà Nội",
+      "nameEn": "Hanoi snail noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "rice vermicelli",
+        "river snails",
+        "tomato",
+        "vinegar"
+      ],
+      "taste": [
+        "sour",
+        "umami"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Bún với ốc nhồi, nước dùng chua dấm bỗng và cà chua, ăn nóng hoặc nguội.",
+        "en": "Sour tomato broth with tender river snails, served hot or at room temperature."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "xoi-xeo",
+      "nameVi": "Xôi xéo",
+      "nameEn": "Turmeric sticky rice with mung bean",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rice",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "sticky rice",
+        "turmeric",
+        "mung bean",
+        "fried shallots"
+      ],
+      "taste": [
+        "rich",
+        "savory"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-egg",
+        "vegetarian-version-common"
+      ],
+      "mealTimes": [
+        "breakfast"
+      ],
+      "description": {
+        "vi": "Xôi nếp vàng nghệ phủ đỗ xanh thái mỏng và hành phi giòn.",
+        "en": "Golden turmeric sticky rice under shaved mung bean and crisp fried shallots."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-tom-ho-tay",
+      "nameVi": "Bánh tôm Hồ Tây",
+      "nameEn": "West Lake shrimp fritters",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "fried",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "shrimp",
+        "sweet potato",
+        "batter"
+      ],
+      "taste": [
+        "crunchy",
+        "savory"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh tôm khoai lang chiên giòn, đặc sản ven Hồ Tây.",
+        "en": "Crisp fritters of sweet potato topped with whole shrimp, a classic of Hanoi's West Lake."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "com-lang-vong",
+      "nameVi": "Cốm làng Vòng",
+      "nameEn": "Vòng village green rice flakes",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "confection",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "young sticky rice",
+        "lotus leaf"
+      ],
+      "taste": [
+        "sweet",
+        "fragrant",
+        "nutty"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Cốm làm từ lúa nếp non làng Vòng, gói trong lá sen vào mùa thu.",
+        "en": "Flattened young sticky rice from Vòng village, sold wrapped in lotus leaves each autumn."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-troi-banh-chay",
+      "nameVi": "Bánh trôi bánh chay",
+      "nameEn": "Floating rice dumplings",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "dessert",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        },
+        {
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "glutinous rice",
+        "palm sugar",
+        "mung bean",
+        "sesame"
+      ],
+      "taste": [
+        "sweet",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh trôi nhân đường phên và bánh chay nhân đỗ xanh trong dịp Tết Hàn Thực.",
+        "en": "Glutinous rice balls filled with palm sugar or mung bean, made for the Hàn Thực festival."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "o-mai-hang-duong",
+      "nameVi": "Ô mai Hàng Đường",
+      "nameEn": "Hanoi preserved fruits",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "confection",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "apricot",
+        "plum",
+        "ginger",
+        "liquorice",
+        "sugar"
+      ],
+      "taste": [
+        "sweet",
+        "sour",
+        "salty"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Ô mai chua ngọt mặn từ phố Hàng Đường.",
+        "en": "Sweet-sour-salty preserved fruits from Hanoi's Hàng Đường street."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-khuc",
+      "nameVi": "Bánh khúc",
+      "nameEn": "Cudweed sticky rice cake",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "banh",
+      "origins": [
+        {
+          "provinceId": "ha-noi",
+          "regionId": "mien-bac",
+          "role": "primary"
+        },
+        {
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "cudweed",
+        "sticky rice",
+        "mung bean",
+        "pork fat"
+      ],
+      "taste": [
+        "herbal",
+        "savory"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "late-night"
+      ],
+      "description": {
+        "vi": "Bánh nếp rau khúc nhân đỗ xanh và mỡ lợn, lăn xôi.",
+        "en": "Herb-green dumplings of cudweed and glutinous rice, filled with mung bean and pork."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-da-cua-hai-phong",
+      "nameVi": "Bánh đa cua Hải Phòng",
+      "nameEn": "Hải Phòng crab noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "hai-phong",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "red rice noodles",
+        "field crab broth",
+        "fried tofu",
+        "pork roll",
+        "water spinach"
+      ],
+      "taste": [
+        "umami",
+        "sweet"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-seafood",
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Bánh đa đỏ dai trong nước riêu cua, đậu rán, chả lá lốt, rau muống — đặc trưng Hải Phòng.",
+        "en": "Chewy red rice noodles in a crab broth with fried tofu and greens — Hải Phòng's signature bowl."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 1
+    },
+    {
+      "id": "nem-cua-be-hai-phong",
+      "nameVi": "Nem cua bể Hải Phòng",
+      "nameEn": "Hải Phòng sea crab spring rolls",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "fried",
+      "origins": [
+        {
+          "provinceId": "hai-phong",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "sea crab",
+        "pork",
+        "rice paper",
+        "mushroom"
+      ],
+      "taste": [
+        "crunchy",
+        "umami"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-seafood",
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Nem hình vuông nhân cua bể, rán giòn.",
+        "en": "Square spring rolls packed with sea crab, fried until shattering-crisp."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-mi-que-hai-phong",
+      "nameVi": "Bánh mì que Hải Phòng",
+      "nameEn": "Hải Phòng baguette sticks",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "bread",
+      "origins": [
+        {
+          "provinceId": "hai-phong",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "thin baguette",
+        "pâté",
+        "chilli sauce"
+      ],
+      "taste": [
+        "crunchy",
+        "savory"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "afternoon",
+        "late-night"
+      ],
+      "description": {
+        "vi": "Bánh mì que nhỏ giòn phết pa tê và tương ớt.",
+        "en": "Slender, crisp baguettes spread with pâté and chilli sauce."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "bun-ca-cay-hai-phong",
+      "nameVi": "Bún cá cay Hải Phòng",
+      "nameEn": "Hải Phòng spicy fish noodles",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "hai-phong",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "rice noodles",
+        "fried fish",
+        "fish cake",
+        "chilli",
+        "celery"
+      ],
+      "taste": [
+        "spicy",
+        "sour"
+      ],
+      "spiceLevel": 2,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Bún cá cay với cá rán, chả cá và cần tây.",
+        "en": "Spicy fish noodle soup with fried fish, fish cake and celery."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "cha-muc-ha-long",
+      "nameVi": "Chả mực Hạ Long",
+      "nameEn": "Hạ Long squid cakes",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "seafood",
+      "origins": [
+        {
+          "provinceId": "quang-ninh",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "squid",
+        "pork fat",
+        "pepper"
+      ],
+      "taste": [
+        "umami",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Chả mực giã tay Hạ Long, dai giòn, rán vàng.",
+        "en": "Hand-pounded squid patties from Hạ Long Bay, springy and golden-fried."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "banh-dau-xanh-hai-duong",
+      "nameVi": "Bánh đậu xanh Hải Dương",
+      "nameEn": "Hải Dương mung bean cakes",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "confection",
+      "origins": [
+        {
+          "provinceId": "hai-duong",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "mung bean",
+        "sugar",
+        "fat"
+      ],
+      "taste": [
+        "sweet",
+        "creamy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegetarian"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh đậu xanh tan trong miệng, quà biếu nổi tiếng Hải Dương.",
+        "en": "Melt-in-the-mouth mung bean cakes, a famous Hải Dương gift."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "banh-gai-ninh-giang",
+      "nameVi": "Bánh gai Ninh Giang",
+      "nameEn": "Ninh Giang ramie leaf cake",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "banh",
+      "family": "banh-gai",
+      "origins": [
+        {
+          "provinceId": "hai-duong",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "ramie leaf",
+        "glutinous rice",
+        "mung bean",
+        "coconut",
+        "pork fat"
+      ],
+      "taste": [
+        "sweet",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh gai đen dẻo làm từ lá gai và bột nếp, đặc sản Ninh Giang.",
+        "en": "Black, chewy cakes of ramie leaf and glutinous rice from Ninh Giang."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-cay-thai-binh",
+      "nameVi": "Bánh cáy Thái Bình",
+      "nameEn": "Thái Bình crab-roe sweets",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "confection",
+      "origins": [
+        {
+          "provinceId": "thai-binh",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "puffed glutinous rice",
+        "gac",
+        "ginger",
+        "sesame"
+      ],
+      "taste": [
+        "sweet",
+        "crunchy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegetarian"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh làm từ nếp rang, gấc, gừng — tên gọi từ hình dáng như trứng cáy.",
+        "en": "Colourful bars of puffed rice, named for their resemblance to crab roe."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "canh-ca-quynh-coi",
+      "nameVi": "Canh cá Quỳnh Côi",
+      "nameEn": "Quỳnh Côi fish noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "thai-binh",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "freshwater fish",
+        "thick rice noodles",
+        "herbs"
+      ],
+      "taste": [
+        "umami",
+        "herbal"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Bánh canh với cá đồng trong nước dùng cay nồng, đặc sản Quỳnh Côi.",
+        "en": "Thick noodles with freshwater fish in a peppery broth, from Quỳnh Côi."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "ca-kho-lang-vu-dai",
+      "nameVi": "Cá kho làng Vũ Đại",
+      "nameEn": "Vũ Đại village braised fish",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "provinceId": "ha-nam",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "black carp",
+        "pork belly",
+        "ginger",
+        "galangal"
+      ],
+      "taste": [
+        "salty",
+        "rich"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish",
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cá trắm kho niêu đất nhiều giờ đến khi xương mềm.",
+        "en": "Black carp braised for many hours in clay pots until the bones soften."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "nem-nam-giao-thuy",
+      "nameVi": "Nem nắm Giao Thủy",
+      "nameEn": "Giao Thủy fermented pork balls",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "cured",
+      "origins": [
+        {
+          "provinceId": "nam-dinh",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "pork",
+        "pork skin",
+        "roasted rice powder",
+        "fig leaf"
+      ],
+      "taste": [
+        "sour",
+        "fermented"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Nem làm từ thịt và bì lợn, thính gạo, ăn kèm lá sung.",
+        "en": "Fermented pork and pork-skin parcels eaten with fig leaves."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "com-chay-ninh-binh",
+      "nameVi": "Cơm cháy Ninh Bình",
+      "nameEn": "Ninh Bình crispy rice",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rice",
+      "origins": [
+        {
+          "provinceId": "ninh-binh",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "crispy rice",
+        "goat or pork sauce"
+      ],
+      "taste": [
+        "crunchy",
+        "savory"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-goat"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cơm cháy giòn rưới sốt thịt, thường ăn cùng thịt dê.",
+        "en": "Puffed crispy rice topped with a savoury sauce, often with mountain goat."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "de-nui-ninh-binh",
+      "nameVi": "Dê núi Ninh Bình",
+      "nameEn": "Ninh Bình mountain goat",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "grilled",
+      "origins": [
+        {
+          "provinceId": "ninh-binh",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "goat",
+        "herbs",
+        "fermented bean paste"
+      ],
+      "taste": [
+        "herbal",
+        "rich"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-goat"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Thịt dê núi tái chanh, hấp hoặc nướng, chấm tương bần.",
+        "en": "Mountain goat served rare, steamed or grilled with herbs and fermented bean dip."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-phu-the-dinh-bang",
+      "nameVi": "Bánh phu thê Đình Bảng",
+      "nameEn": "Đình Bảng husband-and-wife cake",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "banh",
+      "origins": [
+        {
+          "provinceId": "bac-ninh",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "tapioca",
+        "mung bean",
+        "coconut",
+        "gardenia"
+      ],
+      "taste": [
+        "sweet",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh xu xê trong veo nhân đỗ xanh, thường có trong lễ cưới.",
+        "en": "Translucent tapioca cakes filled with mung bean, traditional at weddings."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "ga-dong-tao",
+      "nameVi": "Gà Đông Tảo",
+      "nameEn": "Đông Tảo chicken",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "provinceId": "hung-yen",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "Đông Tảo chicken",
+        "ginger",
+        "lime leaves"
+      ],
+      "taste": [
+        "rich",
+        "savory"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-poultry"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Gà Đông Tảo chân to, đặc sản Hưng Yên, luộc hoặc hấp.",
+        "en": "The famed thick-legged chicken breed of Hưng Yên, steamed or braised."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "thang-co",
+      "nameVi": "Thắng cố",
+      "nameEn": "Thắng cố highland stew",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "hotpot",
+      "origins": [
+        {
+          "provinceId": "lao-cai",
+          "regionId": "mien-bac",
+          "role": "primary"
+        },
+        {
+          "provinceId": "ha-giang",
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "horse meat or beef",
+        "offal",
+        "cardamom",
+        "star anise",
+        "lemongrass"
+      ],
+      "taste": [
+        "herbal",
+        "rich"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-offal",
+        "contains-game"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Món hầm của người H'Mông với thịt, nội tạng và thảo quả, ăn ở chợ phiên vùng cao.",
+        "en": "A Hmong stew of meat and offal simmered with highland spices, eaten at mountain markets."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "chao-au-tau",
+      "nameVi": "Cháo ấu tẩu",
+      "nameEn": "Ấu tẩu porridge",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "porridge",
+      "origins": [
+        {
+          "provinceId": "ha-giang",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "rice",
+        "aconite root (detoxified)",
+        "pork trotters",
+        "herbs"
+      ],
+      "taste": [
+        "bitter",
+        "herbal"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "dinner",
+        "late-night"
+      ],
+      "description": {
+        "vi": "Cháo nấu cùng củ ấu tẩu đã khử độc, chân giò, món ăn đêm Hà Giang.",
+        "en": "A bitter-warm porridge made with carefully detoxified ấu tẩu root, a Hà Giang night food."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-cuon-cao-bang",
+      "nameVi": "Bánh cuốn Cao Bằng",
+      "nameEn": "Cao Bằng rice rolls in broth",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "banh",
+      "family": "banh-cuon",
+      "origins": [
+        {
+          "provinceId": "cao-bang",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "steamed rice sheets",
+        "minced pork",
+        "wood ear",
+        "bone broth"
+      ],
+      "taste": [
+        "light",
+        "umami"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "breakfast"
+      ],
+      "description": {
+        "vi": "Bánh cuốn chan nước dùng xương nóng thay vì chấm nước mắm.",
+        "en": "Rice rolls served in a hot bone broth rather than with dipping sauce."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "vit-quay-lang-son",
+      "nameVi": "Vịt quay Lạng Sơn",
+      "nameEn": "Lạng Sơn roast duck",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "grilled",
+      "origins": [
+        {
+          "provinceId": "lang-son",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "duck",
+        "mắc mật leaves",
+        "honey"
+      ],
+      "taste": [
+        "fragrant",
+        "rich"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-poultry"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Vịt quay nhồi lá mắc mật, da giòn bóng.",
+        "en": "Duck roasted with fragrant mắc mật leaves until the skin is lacquered."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "khau-nhuc",
+      "nameVi": "Khâu nhục",
+      "nameEn": "Khâu nhục braised pork belly",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "provinceId": "lang-son",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "pork belly",
+        "taro",
+        "five-spice"
+      ],
+      "taste": [
+        "rich",
+        "fragrant"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Thịt ba chỉ hấp với khoai môn và ngũ vị, món của người Tày – Nùng.",
+        "en": "Tày–Nùng steamed pork belly with taro, slow-cooked until meltingly soft."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "xoi-ngu-sac",
+      "nameVi": "Xôi ngũ sắc",
+      "nameEn": "Five-colour sticky rice",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rice",
+      "origins": [
+        {
+          "provinceId": "tuyen-quang",
+          "regionId": "mien-bac",
+          "role": "associated"
+        },
+        {
+          "provinceId": "ha-giang",
+          "regionId": "mien-bac",
+          "role": "associated"
+        },
+        {
+          "provinceId": "bac-kan",
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "sticky rice",
+        "natural leaf and flower dyes"
+      ],
+      "taste": [
+        "fragrant"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Xôi nhuộm năm màu từ lá cây, hoa, món của người Tày và nhiều dân tộc.",
+        "en": "Sticky rice dyed five colours with leaves and flowers, made by Tày and other communities."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-cooc-mo",
+      "nameVi": "Bánh coóc mò",
+      "nameEn": "Coóc mò cake",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "banh",
+      "origins": [
+        {
+          "provinceId": "bac-kan",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "glutinous rice",
+        "brown sugar",
+        "dong leaves"
+      ],
+      "taste": [
+        "sweet",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh nếp hình sừng bò của người Tày, ngọt vị đường phên.",
+        "en": "Cone-shaped Tày sticky rice cakes sweetened with brown sugar."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "pa-pinh-top",
+      "nameVi": "Pa pỉnh tộp",
+      "nameEn": "Thái-style folded grilled fish",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "grilled",
+      "origins": [
+        {
+          "provinceId": "son-la",
+          "regionId": "mien-bac",
+          "role": "primary"
+        },
+        {
+          "provinceId": "dien-bien",
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "river fish",
+        "mắc khén",
+        "herbs",
+        "chilli"
+      ],
+      "taste": [
+        "smoky",
+        "herbal",
+        "spicy"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cá suối gập đôi nhồi rau thơm, mắc khén, nướng than.",
+        "en": "Whole river fish folded around herbs and mắc khén pepper, grilled over charcoal."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "nam-pia",
+      "nameVi": "Nậm pịa",
+      "nameEn": "Nậm pịa",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "provinceId": "son-la",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "beef or goat offal",
+        "bile",
+        "herbs"
+      ],
+      "taste": [
+        "bitter",
+        "herbal"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-offal",
+        "contains-beef"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Món hầm lòng có vị đắng của người Thái, dùng để đãi khách quý.",
+        "en": "A bitter Thái stew of offal, prized as a dish for honoured guests."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "thit-trau-gac-bep",
+      "nameVi": "Thịt trâu gác bếp",
+      "nameEn": "Smoked dried buffalo",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "cured",
+      "origins": [
+        {
+          "provinceId": "dien-bien",
+          "regionId": "mien-bac",
+          "role": "primary"
+        },
+        {
+          "provinceId": "son-la",
+          "regionId": "mien-bac",
+          "role": "associated"
+        },
+        {
+          "provinceId": "lai-chau",
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "buffalo meat",
+        "mắc khén",
+        "ginger",
+        "chilli"
+      ],
+      "taste": [
+        "smoky",
+        "spicy",
+        "chewy"
+      ],
+      "spiceLevel": 2,
+      "dietary": [
+        "contains-beef"
+      ],
+      "mealTimes": [
+        "afternoon",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Thịt trâu treo gác bếp hun khói, tẩm mắc khén, gừng, ớt.",
+        "en": "Buffalo meat smoked over the kitchen hearth with mắc khén pepper."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "xoi-tu-le",
+      "nameVi": "Xôi Tú Lệ",
+      "nameEn": "Tú Lệ sticky rice",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rice",
+      "origins": [
+        {
+          "provinceId": "yen-bai",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "Tú Lệ sticky rice",
+        "sesame salt"
+      ],
+      "taste": [
+        "fragrant",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "breakfast"
+      ],
+      "description": {
+        "vi": "Xôi nếp Tú Lệ dẻo thơm, ăn với muối vừng.",
+        "en": "Famously fragrant sticky rice from the Tú Lệ valley."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "com-lam-hoa-binh",
+      "nameVi": "Cơm lam Hòa Bình",
+      "nameEn": "Hòa Bình bamboo rice",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rice",
+      "family": "com-lam",
+      "origins": [
+        {
+          "provinceId": "hoa-binh",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "sticky rice",
+        "bamboo tube"
+      ],
+      "taste": [
+        "fragrant"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Gạo nếp nướng trong ống nứa, chấm muối vừng.",
+        "en": "Sticky rice roasted inside bamboo tubes, eaten with sesame salt."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-chung",
+      "nameVi": "Bánh chưng",
+      "nameEn": "Square sticky rice cake",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "banh",
+      "origins": [
+        {
+          "provinceId": "phu-tho",
+          "regionId": "mien-bac",
+          "role": "primary"
+        },
+        {
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "glutinous rice",
+        "mung bean",
+        "pork belly",
+        "dong leaves"
+      ],
+      "taste": [
+        "rich",
+        "savory"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Bánh chưng ngày Tết, gắn với truyền thuyết Lang Liêu thời Hùng Vương.",
+        "en": "The square Tết cake whose legend traces to the Hùng Kings of Phú Thọ."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "thit-chua-thanh-son",
+      "nameVi": "Thịt chua Thanh Sơn",
+      "nameEn": "Thanh Sơn fermented pork",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "cured",
+      "origins": [
+        {
+          "provinceId": "phu-tho",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "pork",
+        "pork skin",
+        "roasted rice powder",
+        "guava leaves"
+      ],
+      "taste": [
+        "sour",
+        "fermented"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Thịt lợn lên men gói lá ổi của người Mường.",
+        "en": "Mường-style fermented pork wrapped in guava leaves."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-da-ke",
+      "nameVi": "Bánh đa Kế",
+      "nameEn": "Kế village rice crackers",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "confection",
+      "origins": [
+        {
+          "provinceId": "bac-giang",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "rice",
+        "sesame"
+      ],
+      "taste": [
+        "crunchy",
+        "nutty"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh đa vừng nướng làng Kế.",
+        "en": "Grilled sesame rice crackers from Kế village."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "ca-thinh-lap-thach",
+      "nameVi": "Cá thính Lập Thạch",
+      "nameEn": "Lập Thạch fermented fish",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "cured",
+      "origins": [
+        {
+          "provinceId": "vinh-phuc",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "carp",
+        "roasted rice powder",
+        "galangal"
+      ],
+      "taste": [
+        "fermented",
+        "sour"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cá chép ướp thính gạo rang và riềng trong nhiều tuần.",
+        "en": "Carp cured with roasted rice powder and galangal for weeks."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "nem-chua-thanh-hoa",
+      "nameVi": "Nem chua Thanh Hóa",
+      "nameEn": "Thanh Hóa fermented pork rolls",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "cured",
+      "origins": [
+        {
+          "provinceId": "thanh-hoa",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "pork",
+        "pork skin",
+        "garlic",
+        "chilli",
+        "guava leaf"
+      ],
+      "taste": [
+        "sour",
+        "fermented",
+        "spicy"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "afternoon",
+        "late-night"
+      ],
+      "description": {
+        "vi": "Nem chua gói lá chuối, chua cay — món ăn vặt nổi tiếng nhất xứ Thanh.",
+        "en": "Tangy fermented pork in banana-leaf parcels — the north-central coast's favourite snack."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 1
+    },
+    {
+      "id": "banh-gai-tu-tru",
+      "nameVi": "Bánh gai Tứ Trụ",
+      "nameEn": "Tứ Trụ ramie leaf cake",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "banh",
+      "family": "banh-gai",
+      "origins": [
+        {
+          "provinceId": "thanh-hoa",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "ramie leaf",
+        "glutinous rice",
+        "mung bean",
+        "pork fat"
+      ],
+      "taste": [
+        "sweet",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh gai làng Tứ Trụ, phiên bản xứ Thanh.",
+        "en": "Thanh Hóa's version of the ramie-leaf cake, from Tứ Trụ village."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "chao-luon-nghe-an",
+      "nameVi": "Cháo lươn Nghệ An",
+      "nameEn": "Nghệ An eel porridge",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "porridge",
+      "origins": [
+        {
+          "provinceId": "nghe-an",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "rice",
+        "field eel",
+        "turmeric",
+        "chilli",
+        "Vietnamese coriander"
+      ],
+      "taste": [
+        "spicy",
+        "rich"
+      ],
+      "spiceLevel": 2,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cháo với lươn xào nghệ, cay nồng, đặc trưng xứ Nghệ.",
+        "en": "Thick rice porridge with stir-fried turmeric eel and plenty of chilli."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "banh-muot-nghe-an",
+      "nameVi": "Bánh mướt Nghệ An",
+      "nameEn": "Nghệ An thin rice sheets",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "banh",
+      "origins": [
+        {
+          "provinceId": "nghe-an",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "steamed rice sheets",
+        "fried shallots",
+        "pork"
+      ],
+      "taste": [
+        "light"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "breakfast"
+      ],
+      "description": {
+        "vi": "Bánh mướt mềm mịn ăn sáng với thịt hoặc lươn.",
+        "en": "Silky steamed rice sheets eaten with pork or eel in the morning."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "keo-cu-do-ha-tinh",
+      "nameVi": "Kẹo cu đơ Hà Tĩnh",
+      "nameEn": "Hà Tĩnh peanut brittle",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "confection",
+      "origins": [
+        {
+          "provinceId": "ha-tinh",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "peanuts",
+        "molasses",
+        "ginger",
+        "rice paper"
+      ],
+      "taste": [
+        "sweet",
+        "nutty",
+        "crunchy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan",
+        "contains-peanut"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Kẹo lạc mật mía kẹp bánh đa nướng, thơm vị gừng.",
+        "en": "Peanut and molasses candy sandwiched between toasted rice paper."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "ram-ha-tinh",
+      "nameVi": "Ram Hà Tĩnh",
+      "nameEn": "Hà Tĩnh crispy rolls",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "fried",
+      "origins": [
+        {
+          "provinceId": "ha-tinh",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "rice paper",
+        "pork",
+        "mung bean",
+        "herbs"
+      ],
+      "taste": [
+        "crunchy",
+        "savory"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Ram cuốn nhỏ rán giòn, ăn kèm bánh mướt và rau sống.",
+        "en": "Small, crisp fried rolls served with soft rice sheets and herbs."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "chao-canh-quang-binh",
+      "nameVi": "Cháo canh Quảng Bình",
+      "nameEn": "Quảng Bình noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "quang-binh",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "hand-cut rice noodles",
+        "snakehead fish",
+        "pork"
+      ],
+      "taste": [
+        "umami",
+        "rich"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish",
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Sợi bánh canh cắt tay trong nước dùng cá lóc, món quen của người Quảng Bình.",
+        "en": "Thick hand-cut rice noodles in a fish broth, Quảng Bình's everyday bowl."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "khoai-deo",
+      "nameVi": "Khoai deo",
+      "nameEn": "Dried sweet potato",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "confection",
+      "origins": [
+        {
+          "provinceId": "quang-binh",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        },
+        {
+          "provinceId": "quang-tri",
+          "regionId": "bac-trung-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "sweet potato"
+      ],
+      "taste": [
+        "sweet",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Khoai lang hấp, thái lát, phơi khô dẻo ngọt.",
+        "en": "Sweet potatoes steamed, sliced and sun-dried into chewy strips."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "chao-vat-giuong",
+      "nameVi": "Cháo vạt giường",
+      "nameEn": "Cháo vạt giường",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "quang-tri",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "rice noodles",
+        "fish"
+      ],
+      "taste": [
+        "umami"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Bánh canh có sợi như vạt giường, ăn với cá, đặc sản Quảng Trị.",
+        "en": "Quảng Trị's thick rice noodles named for their bed-slat shape, served in fish broth."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "bun-bo-hue",
+      "nameVi": "Bún bò Huế",
+      "nameEn": "Huế spicy beef noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "thua-thien-hue",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "thick rice noodles",
+        "beef shank",
+        "pork knuckle",
+        "lemongrass",
+        "shrimp paste",
+        "chilli oil"
+      ],
+      "taste": [
+        "spicy",
+        "umami",
+        "fragrant"
+      ],
+      "spiceLevel": 2,
+      "dietary": [
+        "contains-beef",
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Nước dùng sả và mắm ruốc với bắp bò, giò heo, sa tế đỏ — biểu tượng ẩm thực Huế.",
+        "en": "Lemongrass and shrimp-paste broth with beef shank, pork knuckle and red chilli oil — Huế's iconic bowl."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 1
+    },
+    {
+      "id": "com-hen",
+      "nameVi": "Cơm hến",
+      "nameEn": "Huế baby clam rice",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rice",
+      "origins": [
+        {
+          "provinceId": "thua-thien-hue",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "cold rice",
+        "baby clams",
+        "peanuts",
+        "crackling",
+        "herbs"
+      ],
+      "taste": [
+        "spicy",
+        "umami",
+        "crunchy"
+      ],
+      "spiceLevel": 2,
+      "dietary": [
+        "contains-seafood",
+        "contains-peanut"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Cơm nguội trộn hến, tóp mỡ, đậu phộng, rau thơm.",
+        "en": "Room-temperature rice with baby clams, crunchy crackling, peanuts and herbs."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "banh-beo-hue",
+      "nameVi": "Bánh bèo Huế",
+      "nameEn": "Huế water fern cakes",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "banh",
+      "origins": [
+        {
+          "provinceId": "thua-thien-hue",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "rice flour",
+        "dried shrimp",
+        "crackling",
+        "fish sauce"
+      ],
+      "taste": [
+        "savory",
+        "light"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh bèo chén nhỏ phủ tôm chấy và tóp mỡ.",
+        "en": "Tiny steamed rice cakes in saucers, topped with shrimp floss and crackling."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "banh-khoai",
+      "nameVi": "Bánh khoái",
+      "nameEn": "Huế crispy pancake",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "fried",
+      "origins": [
+        {
+          "provinceId": "thua-thien-hue",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "rice batter",
+        "shrimp",
+        "pork",
+        "peanut-liver dip"
+      ],
+      "taste": [
+        "crunchy",
+        "rich"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-seafood",
+        "contains-pork",
+        "contains-peanut"
+      ],
+      "mealTimes": [
+        "dinner"
+      ],
+      "description": {
+        "vi": "Bánh khoái giòn ăn với nước lèo đậu phộng gan heo.",
+        "en": "Huế's crisp pancake served with a thick peanut and liver dipping sauce."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-nam",
+      "nameVi": "Bánh nậm",
+      "nameEn": "Bánh nậm",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "banh",
+      "origins": [
+        {
+          "provinceId": "thua-thien-hue",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "rice flour",
+        "shrimp",
+        "pork",
+        "banana leaf"
+      ],
+      "taste": [
+        "light",
+        "savory"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-seafood",
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh bột gạo mỏng hấp trong lá chuối với tôm thịt.",
+        "en": "Flat rice-flour parcels steamed in banana leaf with shrimp and pork."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-bot-loc-hue",
+      "nameVi": "Bánh bột lọc Huế",
+      "nameEn": "Huế tapioca dumplings",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "banh",
+      "origins": [
+        {
+          "provinceId": "thua-thien-hue",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "tapioca",
+        "shrimp",
+        "pork belly"
+      ],
+      "taste": [
+        "chewy",
+        "savory"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-seafood",
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh bột lọc trong, dai, nhân tôm thịt.",
+        "en": "Translucent, chewy tapioca dumplings with shrimp and pork."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "che-hat-sen-long-nhan",
+      "nameVi": "Chè hạt sen long nhãn",
+      "nameEn": "Lotus seed and longan sweet soup",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "che",
+      "origins": [
+        {
+          "provinceId": "thua-thien-hue",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "lotus seeds",
+        "dried longan",
+        "rock sugar"
+      ],
+      "taste": [
+        "sweet",
+        "light"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Chè hạt sen bọc long nhãn, món chè cung đình Huế.",
+        "en": "An imperial-style sweet soup of lotus seeds wrapped in longan."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "me-xung-hue",
+      "nameVi": "Mè xửng Huế",
+      "nameEn": "Huế sesame candy",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "confection",
+      "origins": [
+        {
+          "provinceId": "thua-thien-hue",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "malt syrup",
+        "sesame",
+        "peanuts"
+      ],
+      "taste": [
+        "sweet",
+        "chewy",
+        "nutty"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan",
+        "contains-peanut"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Kẹo mè xửng dẻo, quà đặc sản Huế.",
+        "en": "Chewy malt-and-sesame candy, a classic Huế souvenir."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-canh-nam-pho",
+      "nameVi": "Bánh canh Nam Phổ",
+      "nameEn": "Nam Phổ noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "thua-thien-hue",
+          "regionId": "bac-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "rice-tapioca noodles",
+        "shrimp",
+        "crab",
+        "shallot oil"
+      ],
+      "taste": [
+        "umami",
+        "rich"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "breakfast"
+      ],
+      "description": {
+        "vi": "Bánh canh nước sệt màu cam với tôm cua, đặc sản làng Nam Phổ.",
+        "en": "A thick, orange-hued broth with shrimp and crab, from Nam Phổ village."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "mi-quang",
+      "nameVi": "Mì Quảng",
+      "nameEn": "Quảng-style turmeric noodles",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodles",
+      "origins": [
+        {
+          "provinceId": "quang-nam",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "turmeric rice noodles",
+        "pork",
+        "shrimp",
+        "quail egg",
+        "peanuts",
+        "sesame cracker"
+      ],
+      "taste": [
+        "umami",
+        "herbal",
+        "crunchy"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-pork",
+        "contains-seafood",
+        "contains-peanut"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Sợi mì vàng nghệ, ít nước dùng đậm, đậu phộng và bánh tráng mè.",
+        "en": "Wide turmeric noodles with a small amount of rich broth, peanuts and a sesame rice cracker."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 1
+    },
+    {
+      "id": "cao-lau-hoi-an",
+      "nameVi": "Cao lầu Hội An",
+      "nameEn": "Hội An cao lầu",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodles",
+      "origins": [
+        {
+          "provinceId": "quang-nam",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "lye-treated noodles",
+        "char siu pork",
+        "greens",
+        "crispy croutons"
+      ],
+      "taste": [
+        "savory",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Sợi cao lầu dai, thịt xíu, rau Trà Quế và bánh giòn — chỉ có ở Hội An.",
+        "en": "Chewy lye-water noodles with char siu, herbs and crisp croutons, unique to Hội An."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "com-ga-hoi-an",
+      "nameVi": "Cơm gà Hội An",
+      "nameEn": "Hội An chicken rice",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rice",
+      "origins": [
+        {
+          "provinceId": "quang-nam",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "turmeric rice",
+        "shredded chicken",
+        "papaya",
+        "herbs"
+      ],
+      "taste": [
+        "fragrant",
+        "savory"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-poultry"
+      ],
+      "mealTimes": [
+        "lunch"
+      ],
+      "description": {
+        "vi": "Cơm nấu nước gà nghệ vàng, gà xé phay và rau răm.",
+        "en": "Turmeric rice cooked in chicken stock, topped with shredded chicken and herbs."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "banh-mi-hoi-an",
+      "nameVi": "Bánh mì Hội An",
+      "nameEn": "Hội An bánh mì",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "bread",
+      "origins": [
+        {
+          "provinceId": "quang-nam",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "baguette",
+        "pâté",
+        "meats",
+        "herbs",
+        "chilli sauce"
+      ],
+      "taste": [
+        "savory",
+        "crunchy"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-pork",
+        "contains-egg"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Bánh mì Hội An với nước sốt đậm, nổi tiếng khắp miền Trung.",
+        "en": "Hội An's richly sauced bánh mì, among the most celebrated in central Vietnam."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "che-bap-cam-nam",
+      "nameVi": "Chè bắp Cẩm Nam",
+      "nameEn": "Cẩm Nam sweet corn pudding",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "che",
+      "origins": [
+        {
+          "provinceId": "quang-nam",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "corn",
+        "coconut milk"
+      ],
+      "taste": [
+        "sweet",
+        "creamy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Chè bắp Cẩm Nam ngọt thanh, rưới nước cốt dừa.",
+        "en": "Sweet corn pudding from Cẩm Nam island, topped with coconut cream."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-trang-cuon-thit-heo",
+      "nameVi": "Bánh tráng cuốn thịt heo",
+      "nameEn": "Rice paper rolls with pork",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rolls",
+      "origins": [
+        {
+          "provinceId": "da-nang",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "rice paper",
+        "boiled pork",
+        "herbs",
+        "anchovy sauce"
+      ],
+      "taste": [
+        "fresh",
+        "herbal"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-pork",
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Thịt heo luộc, rau sống cuốn bánh tráng, chấm mắm nêm.",
+        "en": "Boiled pork, herbs and greens rolled in rice paper with fermented anchovy sauce."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "bun-cha-ca-da-nang",
+      "nameVi": "Bún chả cá Đà Nẵng",
+      "nameEn": "Đà Nẵng fish cake noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "family": "bun-cha-ca",
+      "origins": [
+        {
+          "provinceId": "da-nang",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "rice vermicelli",
+        "fish cake",
+        "pumpkin",
+        "tomato"
+      ],
+      "taste": [
+        "light",
+        "umami"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Bún chả cá với nước dùng ngọt từ bí đỏ, cà chua.",
+        "en": "Fish cakes in a sweet broth with pumpkin and tomato."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "goi-ca-nam-o",
+      "nameVi": "Gỏi cá Nam Ô",
+      "nameEn": "Nam Ô raw fish salad",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "salad",
+      "origins": [
+        {
+          "provinceId": "da-nang",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "raw fish",
+        "roasted rice powder",
+        "herbs",
+        "rice paper"
+      ],
+      "taste": [
+        "fresh",
+        "sour",
+        "herbal"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish",
+        "contains-peanut"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Gỏi cá trích tái chanh, thính, cuốn nhiều loại lá rừng.",
+        "en": "Raw fish cured with lime and roasted rice powder, wrapped with dozens of leaves."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "don-quang-ngai",
+      "nameVi": "Don Quảng Ngãi",
+      "nameEn": "Quảng Ngãi don clam soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "soup",
+      "origins": [
+        {
+          "provinceId": "quang-ngai",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "don clams",
+        "broth",
+        "rice crackers"
+      ],
+      "taste": [
+        "light",
+        "umami"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "breakfast"
+      ],
+      "description": {
+        "vi": "Canh don sông Trà Khúc, ăn kèm bánh tráng.",
+        "en": "A light soup of tiny don clams from the Trà Khúc river, eaten with rice crackers."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "ca-bong-song-tra",
+      "nameVi": "Cá bống sông Trà",
+      "nameEn": "Trà river goby",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "provinceId": "quang-ngai",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "goby fish",
+        "fish sauce",
+        "pepper"
+      ],
+      "taste": [
+        "salty",
+        "rich"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cá bống sông Trà kho tiêu.",
+        "en": "Tiny goby fish braised in fish sauce and pepper."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "keo-guong-quang-ngai",
+      "nameVi": "Kẹo gương Quảng Ngãi",
+      "nameEn": "Quảng Ngãi mirror candy",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "confection",
+      "origins": [
+        {
+          "provinceId": "quang-ngai",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "malt",
+        "peanuts",
+        "rice paper"
+      ],
+      "taste": [
+        "sweet",
+        "crunchy",
+        "nutty"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan",
+        "contains-peanut"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Kẹo mạch nha đậu phộng mỏng, trong như gương.",
+        "en": "Thin, glassy malt-and-peanut candy discs."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-xeo-tom-nhay-quy-nhon",
+      "nameVi": "Bánh xèo tôm nhảy Quy Nhơn",
+      "nameEn": "Quy Nhơn jumping-shrimp pancakes",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "fried",
+      "family": "banh-xeo",
+      "origins": [
+        {
+          "provinceId": "binh-dinh",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "rice batter",
+        "live shrimp",
+        "bean sprouts"
+      ],
+      "taste": [
+        "crunchy",
+        "savory"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "dinner"
+      ],
+      "description": {
+        "vi": "Bánh xèo nhỏ đổ khuôn đất với tôm nhảy tươi.",
+        "en": "Small crisp pancakes cooked in clay moulds with fresh shrimp."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "bun-cha-ca-quy-nhon",
+      "nameVi": "Bún chả cá Quy Nhơn",
+      "nameEn": "Quy Nhơn fish cake noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "family": "bun-cha-ca",
+      "origins": [
+        {
+          "provinceId": "binh-dinh",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "rice vermicelli",
+        "fish cake",
+        "broth"
+      ],
+      "taste": [
+        "light",
+        "umami"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Bún chả cá Quy Nhơn với chả dai và nước trong.",
+        "en": "Quy Nhơn's version with chewy fish cakes and a clear broth."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-it-la-gai-binh-dinh",
+      "nameVi": "Bánh ít lá gai Bình Định",
+      "nameEn": "Bình Định ramie dumplings",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "banh",
+      "origins": [
+        {
+          "provinceId": "binh-dinh",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "ramie leaf",
+        "glutinous rice",
+        "mung bean",
+        "coconut"
+      ],
+      "taste": [
+        "sweet",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh ít lá gai hình chóp, nhân đậu xanh dừa.",
+        "en": "Pyramid-shaped dumplings of ramie leaf and glutinous rice."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "nem-cho-huyen",
+      "nameVi": "Nem chợ Huyện",
+      "nameEn": "Chợ Huyện fermented pork",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "cured",
+      "origins": [
+        {
+          "provinceId": "binh-dinh",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "pork",
+        "pork skin",
+        "garlic",
+        "chilli"
+      ],
+      "taste": [
+        "sour",
+        "fermented"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Nem chua chợ Huyện, đặc sản Bình Định.",
+        "en": "Bình Định's take on fermented pork, from Chợ Huyện."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-hoi-chao-long",
+      "nameVi": "Bánh hỏi cháo lòng",
+      "nameEn": "Woven rice noodles with offal porridge",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodles",
+      "origins": [
+        {
+          "provinceId": "binh-dinh",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "bánh hỏi",
+        "offal porridge",
+        "herbs"
+      ],
+      "taste": [
+        "savory",
+        "light"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork",
+        "contains-offal"
+      ],
+      "mealTimes": [
+        "breakfast"
+      ],
+      "description": {
+        "vi": "Bánh hỏi ăn cùng cháo lòng, món sáng của người Bình Định.",
+        "en": "Delicate woven rice-noodle mats served with a bowl of pork offal porridge."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "mat-ca-ngu-dai-duong",
+      "nameVi": "Mắt cá ngừ đại dương",
+      "nameEn": "Ocean tuna eye stew",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "provinceId": "phu-yen",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "tuna eye",
+        "herbs",
+        "beer or medicinal herbs"
+      ],
+      "taste": [
+        "rich",
+        "herbal"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "dinner"
+      ],
+      "description": {
+        "vi": "Mắt cá ngừ hầm thuốc bắc, đặc sản Phú Yên.",
+        "en": "Tuna eyes stewed with herbs, a Phú Yên coastal specialty."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-canh-he-phu-yen",
+      "nameVi": "Bánh canh hẹ Phú Yên",
+      "nameEn": "Phú Yên chive noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "phu-yen",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "thick noodles",
+        "garlic chives",
+        "fish cake"
+      ],
+      "taste": [
+        "herbal",
+        "umami"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Bánh canh với nhiều lá hẹ và chả cá.",
+        "en": "Thick noodles with plenty of garlic chives and fish cake."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "bun-sua-nha-trang",
+      "nameVi": "Bún sứa Nha Trang",
+      "nameEn": "Nha Trang jellyfish noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "khanh-hoa",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "rice vermicelli",
+        "jellyfish",
+        "fish cake",
+        "fish broth"
+      ],
+      "taste": [
+        "light",
+        "crunchy"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-seafood",
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Sứa giòn và chả cá trong nước dùng cá trong.",
+        "en": "Crunchy jellyfish and fish cake in a clear fish broth."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "nem-nuong-ninh-hoa",
+      "nameVi": "Nem nướng Ninh Hòa",
+      "nameEn": "Ninh Hòa grilled pork rolls",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "grilled",
+      "origins": [
+        {
+          "provinceId": "khanh-hoa",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "grilled pork sausage",
+        "rice paper",
+        "herbs",
+        "thick dipping sauce"
+      ],
+      "taste": [
+        "smoky",
+        "sweet",
+        "herbal"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Nem nướng cuốn bánh tráng, rau sống, chấm nước sốt sệt.",
+        "en": "Grilled pork sausage rolled with herbs and crisp rice paper, dipped in a thick sauce."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "banh-can",
+      "nameVi": "Bánh căn",
+      "nameEn": "Bánh căn mini rice cakes",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "banh",
+      "origins": [
+        {
+          "provinceId": "ninh-thuan",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        },
+        {
+          "provinceId": "lam-dong",
+          "regionId": "tay-nguyen",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo",
+        "tay-nguyen"
+      ],
+      "ingredients": [
+        "rice batter",
+        "quail egg",
+        "shrimp",
+        "fish sauce dip"
+      ],
+      "taste": [
+        "savory",
+        "crunchy"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-egg",
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Bánh đổ khuôn đất nhỏ, có trứng hoặc hải sản.",
+        "en": "Small rice cakes cooked in clay moulds, with egg or seafood."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "thit-de-phan-rang",
+      "nameVi": "Thịt dê Phan Rang",
+      "nameEn": "Phan Rang goat",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "grilled",
+      "origins": [
+        {
+          "provinceId": "ninh-thuan",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "goat",
+        "lemongrass",
+        "chilli"
+      ],
+      "taste": [
+        "smoky",
+        "rich"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-goat"
+      ],
+      "mealTimes": [
+        "dinner"
+      ],
+      "description": {
+        "vi": "Thịt dê đồng cát Ninh Thuận nướng hoặc nấu lẩu.",
+        "en": "Goat from Ninh Thuận's dry pastures, grilled or in hotpot."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-canh-cha-ca-phan-thiet",
+      "nameVi": "Bánh canh chả cá Phan Thiết",
+      "nameEn": "Phan Thiết fish cake noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "binh-thuan",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "thick noodles",
+        "fish cake",
+        "broth"
+      ],
+      "taste": [
+        "umami"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "breakfast"
+      ],
+      "description": {
+        "vi": "Bánh canh với chả cá Phan Thiết dai giòn.",
+        "en": "Thick noodles with Phan Thiết's springy fish cakes."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "goi-ca-mai",
+      "nameVi": "Gỏi cá mai",
+      "nameEn": "Silver anchovy salad",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "salad",
+      "origins": [
+        {
+          "provinceId": "binh-thuan",
+          "regionId": "nam-trung-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "nam-trung-bo"
+      ],
+      "ingredients": [
+        "raw silver anchovy",
+        "lime",
+        "roasted rice powder",
+        "herbs"
+      ],
+      "taste": [
+        "sour",
+        "fresh"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish",
+        "contains-peanut"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cá mai tái chanh trộn thính, cuốn bánh tráng.",
+        "en": "Lime-cured anchovies with roasted rice powder, wrapped in rice paper."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "goi-la-kon-tum",
+      "nameVi": "Gỏi lá Kon Tum",
+      "nameEn": "Kon Tum leaf salad",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "salad",
+      "origins": [
+        {
+          "provinceId": "kon-tum",
+          "regionId": "tay-nguyen",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nguyen"
+      ],
+      "ingredients": [
+        "dozens of forest leaves",
+        "pork",
+        "shrimp",
+        "thick dipping sauce"
+      ],
+      "taste": [
+        "herbal",
+        "fresh",
+        "bitter"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-pork",
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Hàng chục loại lá rừng cuốn thịt, tôm, chấm nước sốt đặc biệt.",
+        "en": "Up to dozens of forest leaves wrapped around pork and shrimp."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "com-lam-ga-nuong-tay-nguyen",
+      "nameVi": "Cơm lam gà nướng Tây Nguyên",
+      "nameEn": "Highland bamboo rice with grilled chicken",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "grilled",
+      "family": "com-lam",
+      "origins": [
+        {
+          "provinceId": "dak-lak",
+          "regionId": "tay-nguyen",
+          "role": "primary"
+        },
+        {
+          "provinceId": "kon-tum",
+          "regionId": "tay-nguyen",
+          "role": "associated"
+        },
+        {
+          "provinceId": "gia-lai",
+          "regionId": "tay-nguyen",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "tay-nguyen"
+      ],
+      "ingredients": [
+        "sticky rice in bamboo",
+        "free-range chicken",
+        "lá é salt"
+      ],
+      "taste": [
+        "smoky",
+        "fragrant"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-poultry"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cơm lam ống nứa ăn cùng gà nướng than.",
+        "en": "Bamboo-tube rice with charcoal-grilled free-range chicken."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "bun-do-buon-ma-thuot",
+      "nameVi": "Bún đỏ Buôn Ma Thuột",
+      "nameEn": "Buôn Ma Thuột red noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "dak-lak",
+          "regionId": "tay-nguyen",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nguyen"
+      ],
+      "ingredients": [
+        "red tapioca noodles",
+        "crab",
+        "quail egg",
+        "fish cake"
+      ],
+      "taste": [
+        "savory",
+        "chewy"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-seafood",
+        "contains-egg"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Bún đỏ dai với cua, trứng cút và chả.",
+        "en": "Chewy red noodles with crab, egg and fish cake."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-trang-nuong-da-lat",
+      "nameVi": "Bánh tráng nướng Đà Lạt",
+      "nameEn": "Đà Lạt grilled rice paper",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "fried",
+      "origins": [
+        {
+          "provinceId": "lam-dong",
+          "regionId": "tay-nguyen",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nguyen"
+      ],
+      "ingredients": [
+        "rice paper",
+        "quail egg",
+        "spring onion",
+        "dried shrimp",
+        "sausage"
+      ],
+      "taste": [
+        "crunchy",
+        "savory"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-egg",
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "afternoon",
+        "late-night"
+      ],
+      "description": {
+        "vi": "Bánh tráng nướng than với trứng và topping — món ăn vặt ban đêm của Đà Lạt.",
+        "en": "Rice paper grilled over charcoal with egg and toppings — the highlands' favourite night snack."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 1
+    },
+    {
+      "id": "lau-ga-la-e",
+      "nameVi": "Lẩu gà lá é",
+      "nameEn": "Chicken hotpot with lá é",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "hotpot",
+      "origins": [
+        {
+          "provinceId": "lam-dong",
+          "regionId": "tay-nguyen",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nguyen"
+      ],
+      "ingredients": [
+        "chicken",
+        "lá é herb",
+        "bamboo shoot",
+        "mushroom"
+      ],
+      "taste": [
+        "herbal",
+        "sour"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-poultry"
+      ],
+      "mealTimes": [
+        "dinner"
+      ],
+      "description": {
+        "vi": "Lẩu gà thơm mùi lá é, the the cay nhẹ.",
+        "en": "Chicken hotpot perfumed with lá é, a minty-peppery herb."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "kem-bo-da-lat",
+      "nameVi": "Kem bơ Đà Lạt",
+      "nameEn": "Đà Lạt avocado ice cream",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "dessert",
+      "origins": [
+        {
+          "provinceId": "lam-dong",
+          "regionId": "tay-nguyen",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nguyen"
+      ],
+      "ingredients": [
+        "avocado",
+        "coconut ice cream",
+        "condensed milk"
+      ],
+      "taste": [
+        "sweet",
+        "creamy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegetarian",
+        "contains-dairy"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bơ dằm phủ kem dừa.",
+        "en": "Mashed avocado topped with coconut ice cream."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-mi-sai-gon",
+      "nameVi": "Bánh mì Sài Gòn",
+      "nameEn": "Saigon bánh mì",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "bread",
+      "origins": [
+        {
+          "provinceId": "ho-chi-minh",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "airy baguette",
+        "pâté",
+        "cold cuts",
+        "pickled carrot and daikon",
+        "cucumber",
+        "coriander",
+        "chilli"
+      ],
+      "taste": [
+        "savory",
+        "crunchy",
+        "fresh"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-pork",
+        "vegetarian-version-common"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch",
+        "late-night"
+      ],
+      "description": {
+        "vi": "Ổ bánh mì giòn rụm kẹp pa tê, chả lụa, đồ chua và rau thơm.",
+        "en": "A crackling, airy baguette layered with pâté, cold cuts, pickles and herbs."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 1
+    },
+    {
+      "id": "com-tam-sai-gon",
+      "nameVi": "Cơm tấm Sài Gòn",
+      "nameEn": "Saigon broken rice",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rice",
+      "origins": [
+        {
+          "provinceId": "ho-chi-minh",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "broken rice",
+        "grilled pork chop",
+        "shredded pork skin",
+        "egg meatloaf",
+        "scallion oil",
+        "fish sauce"
+      ],
+      "taste": [
+        "smoky",
+        "sweet",
+        "savory"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork",
+        "contains-egg"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "late-night"
+      ],
+      "description": {
+        "vi": "Cơm tấm sườn nướng, bì, chả trứng, mỡ hành và nước mắm.",
+        "en": "Broken rice with a caramelised grilled pork chop, shredded pork skin and steamed egg meatloaf."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 1
+    },
+    {
+      "id": "hu-tieu-nam-vang",
+      "nameVi": "Hủ tiếu Nam Vang",
+      "nameEn": "Phnom Penh-style noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "family": "hu-tieu",
+      "origins": [
+        {
+          "provinceId": "ho-chi-minh",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice or tapioca noodles",
+        "pork",
+        "shrimp",
+        "liver",
+        "pork bone broth"
+      ],
+      "taste": [
+        "light",
+        "umami"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork",
+        "contains-seafood",
+        "contains-offal"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Hủ tiếu gốc Hoa – Campuchia với thịt, tôm, gan, rất được ưa chuộng ở Sài Gòn.",
+        "en": "A Teochew–Cambodian-rooted noodle soup with pork, shrimp and liver, beloved in Sài Gòn."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "bot-chien",
+      "nameVi": "Bột chiên",
+      "nameEn": "Fried rice flour cake",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "fried",
+      "origins": [
+        {
+          "provinceId": "ho-chi-minh",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice flour cake",
+        "egg",
+        "green papaya",
+        "soy-vinegar sauce"
+      ],
+      "taste": [
+        "crunchy",
+        "savory"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-egg"
+      ],
+      "mealTimes": [
+        "afternoon",
+        "late-night"
+      ],
+      "description": {
+        "vi": "Bột chiên giòn với trứng, ăn kèm đu đủ ngâm.",
+        "en": "Cubes of rice cake fried crisp with egg, served with pickled papaya."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-trang-tron",
+      "nameVi": "Bánh tráng trộn",
+      "nameEn": "Rice paper salad",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "salad",
+      "origins": [
+        {
+          "provinceId": "ho-chi-minh",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        },
+        {
+          "provinceId": "tay-ninh",
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice paper strips",
+        "quail egg",
+        "dried shrimp",
+        "mango",
+        "kumquat",
+        "chilli"
+      ],
+      "taste": [
+        "spicy",
+        "sour",
+        "chewy"
+      ],
+      "spiceLevel": 2,
+      "dietary": [
+        "contains-egg",
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh tráng trộn với trứng cút, khô bò, xoài, tắc, ớt — món ăn vặt tuổi học trò.",
+        "en": "Shredded rice paper tossed with quail egg, dried shrimp, mango and chilli — schoolyard street food."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "bo-bia",
+      "nameVi": "Bò bía",
+      "nameEn": "Bò bía rolls",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "rolls",
+      "origins": [
+        {
+          "provinceId": "ho-chi-minh",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice paper",
+        "jicama",
+        "Chinese sausage",
+        "egg",
+        "hoisin-peanut sauce"
+      ],
+      "taste": [
+        "fresh",
+        "sweet"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork",
+        "contains-egg",
+        "contains-peanut"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bò bía gốc Triều Châu với củ sắn, lạp xưởng, trứng.",
+        "en": "Teochew-derived fresh rolls of jicama, sausage and egg."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "oc-sai-gon",
+      "nameVi": "Ốc Sài Gòn",
+      "nameEn": "Saigon snail feast",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "seafood",
+      "origins": [
+        {
+          "provinceId": "ho-chi-minh",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "assorted snails and shellfish",
+        "tamarind",
+        "butter",
+        "garlic",
+        "chilli"
+      ],
+      "taste": [
+        "umami",
+        "spicy"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "dinner",
+        "late-night"
+      ],
+      "description": {
+        "vi": "Ốc các loại xào me, nướng mỡ hành, xào bơ tỏi — thú ăn chơi về đêm.",
+        "en": "Sea snails and shellfish cooked a dozen ways — tamarind, coconut, butter garlic — over beers."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-flan",
+      "nameVi": "Bánh flan",
+      "nameEn": "Vietnamese crème caramel",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "dessert",
+      "origins": [
+        {
+          "provinceId": "ho-chi-minh",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "egg",
+        "milk",
+        "caramel",
+        "coffee",
+        "crushed ice"
+      ],
+      "taste": [
+        "sweet",
+        "creamy",
+        "bitter"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-egg",
+        "contains-dairy"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh flan gốc Pháp, ăn với đá bào và chút cà phê.",
+        "en": "A French-rooted caramel custard, often served over ice with a drizzle of coffee."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "che-ba-mau",
+      "nameVi": "Chè ba màu",
+      "nameEn": "Three-colour sweet soup",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "che",
+      "origins": [
+        {
+          "provinceId": "ho-chi-minh",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        },
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "red beans",
+        "mung bean",
+        "pandan jelly",
+        "coconut milk",
+        "ice"
+      ],
+      "taste": [
+        "sweet",
+        "creamy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Chè nhiều lớp đậu đỏ, đậu xanh, thạch lá dứa và nước cốt dừa.",
+        "en": "Layers of beans, pandan jelly and coconut milk over ice."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "sam-bo-luong",
+      "nameVi": "Sâm bổ lượng",
+      "nameEn": "Sâm bổ lượng cooling sweet soup",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "che",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        },
+        {
+          "regionId": "tay-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo",
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "lotus seed",
+        "longan",
+        "seaweed",
+        "jujube",
+        "barley"
+      ],
+      "taste": [
+        "sweet",
+        "light"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Chè thanh mát gốc Hoa với hạt sen, nhãn nhục, rong biển.",
+        "en": "A cooling Chinese-Vietnamese sweet soup of lotus seeds, longan and seaweed."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-khot-vung-tau",
+      "nameVi": "Bánh khọt Vũng Tàu",
+      "nameEn": "Vũng Tàu crispy mini pancakes",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "fried",
+      "family": "banh-xeo",
+      "origins": [
+        {
+          "provinceId": "ba-ria-vung-tau",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice batter",
+        "coconut",
+        "shrimp",
+        "herbs"
+      ],
+      "taste": [
+        "crunchy",
+        "savory"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "afternoon",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Bánh khọt giòn với tôm, cuốn rau cải.",
+        "en": "Little crisp coconut-rice cakes topped with shrimp, wrapped in mustard greens."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "banh-canh-ghe-vung-tau",
+      "nameVi": "Bánh canh ghẹ Vũng Tàu",
+      "nameEn": "Vũng Tàu crab noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "ba-ria-vung-tau",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "thick noodles",
+        "flower crab",
+        "broth"
+      ],
+      "taste": [
+        "umami",
+        "rich"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Bánh canh với ghẹ nguyên con, nước dùng đậm.",
+        "en": "Thick noodles with whole flower crab in a rich broth."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-trang-phoi-suong-trang-bang",
+      "nameVi": "Bánh tráng phơi sương Trảng Bàng",
+      "nameEn": "Trảng Bàng dew-dried rice paper",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rolls",
+      "origins": [
+        {
+          "provinceId": "tay-ninh",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "dew-softened rice paper",
+        "boiled pork",
+        "dozens of herbs"
+      ],
+      "taste": [
+        "fresh",
+        "herbal"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Bánh tráng phơi sương mềm dẻo, cuốn thịt luộc và nhiều loại rau rừng.",
+        "en": "Rice paper softened by night dew, rolled with boiled pork and many herbs."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "banh-canh-trang-bang",
+      "nameVi": "Bánh canh Trảng Bàng",
+      "nameEn": "Trảng Bàng noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "tay-ninh",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "thick rice noodles",
+        "pork leg",
+        "broth"
+      ],
+      "taste": [
+        "light",
+        "umami"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Bánh canh bột gạo làm tay với giò heo.",
+        "en": "Hand-made rice noodles with pork leg, a Trảng Bàng speciality."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "goi-ga-mang-cut-lai-thieu",
+      "nameVi": "Gỏi gà măng cụt Lái Thiêu",
+      "nameEn": "Lái Thiêu mangosteen chicken salad",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "salad",
+      "origins": [
+        {
+          "provinceId": "binh-duong",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "young mangosteen",
+        "chicken",
+        "herbs"
+      ],
+      "taste": [
+        "sour",
+        "fresh",
+        "herbal"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-poultry"
+      ],
+      "mealTimes": [
+        "lunch"
+      ],
+      "description": {
+        "vi": "Gỏi măng cụt non trộn gà, đặc sản vườn Lái Thiêu theo mùa.",
+        "en": "A seasonal salad of young mangosteen and chicken from the Lái Thiêu orchards."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "hat-dieu-rang-muoi-binh-phuoc",
+      "nameVi": "Hạt điều rang muối Bình Phước",
+      "nameEn": "Bình Phước salt-roasted cashews",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "confection",
+      "origins": [
+        {
+          "provinceId": "binh-phuoc",
+          "regionId": "dong-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "cashews",
+        "salt"
+      ],
+      "taste": [
+        "nutty",
+        "salty"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Hạt điều rang muối còn vỏ lụa, từ thủ phủ điều Bình Phước.",
+        "en": "Cashews roasted in their skins with salt, from Vietnam's cashew heartland."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "hu-tieu-my-tho",
+      "nameVi": "Hủ tiếu Mỹ Tho",
+      "nameEn": "Mỹ Tho noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "family": "hu-tieu",
+      "origins": [
+        {
+          "provinceId": "tien-giang",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "dried rice noodles",
+        "pork",
+        "shrimp",
+        "squid",
+        "bone broth"
+      ],
+      "taste": [
+        "light",
+        "sweet",
+        "umami"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork",
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Hủ tiếu Mỹ Tho sợi dai, nước dùng xương ngọt thanh với tôm, mực, thịt.",
+        "en": "Clear, sweet pork-and-seafood broth over Mỹ Tho's famous chewy dried noodles."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 1
+    },
+    {
+      "id": "hu-tieu-sa-dec",
+      "nameVi": "Hủ tiếu Sa Đéc",
+      "nameEn": "Sa Đéc noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "family": "hu-tieu",
+      "origins": [
+        {
+          "provinceId": "dong-thap",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "Sa Đéc rice noodles",
+        "pork",
+        "broth"
+      ],
+      "taste": [
+        "light",
+        "umami"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "breakfast"
+      ],
+      "description": {
+        "vi": "Hủ tiếu làm từ sợi hủ tiếu Sa Đéc.",
+        "en": "Đồng Tháp's version, made with Sa Đéc's own rice noodles."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "nem-lai-vung",
+      "nameVi": "Nem Lai Vung",
+      "nameEn": "Lai Vung fermented pork",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "cured",
+      "origins": [
+        {
+          "provinceId": "dong-thap",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "pork",
+        "pork skin",
+        "garlic",
+        "chilli"
+      ],
+      "taste": [
+        "sour",
+        "fermented"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Nem chua Lai Vung, đặc sản Đồng Tháp.",
+        "en": "Đồng Tháp's famous fermented pork from Lai Vung."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-xeo-nam-bo",
+      "nameVi": "Bánh xèo Nam Bộ",
+      "nameEn": "Southern crispy pancake",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "fried",
+      "family": "banh-xeo",
+      "origins": [
+        {
+          "regionId": "tay-nam-bo",
+          "role": "associated"
+        },
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo",
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice batter",
+        "coconut milk",
+        "turmeric",
+        "shrimp",
+        "pork",
+        "bean sprouts"
+      ],
+      "taste": [
+        "crunchy",
+        "rich",
+        "herbal"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork",
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Bánh xèo to, giòn rụm, vàng nghệ cốt dừa, nhân tôm thịt, cuốn rau.",
+        "en": "Huge, lacy coconut-turmeric crêpes filled with shrimp and pork, wrapped in greens."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "lau-mam",
+      "nameVi": "Lẩu mắm",
+      "nameEn": "Fermented fish hotpot",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "hotpot",
+      "origins": [
+        {
+          "provinceId": "can-tho",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        },
+        {
+          "provinceId": "soc-trang",
+          "regionId": "tay-nam-bo",
+          "role": "associated"
+        },
+        {
+          "provinceId": "an-giang",
+          "regionId": "tay-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "fermented fish broth",
+        "pork",
+        "shrimp",
+        "fish",
+        "eggplant",
+        "many river greens"
+      ],
+      "taste": [
+        "fermented",
+        "umami",
+        "rich"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish",
+        "contains-pork",
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "dinner"
+      ],
+      "description": {
+        "vi": "Lẩu nấu từ mắm cá, ăn cùng hải sản và rất nhiều rau đồng.",
+        "en": "A pungent hotpot of fermented fish broth with seafood and baskets of Mekong vegetables."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "canh-chua-ca-loc",
+      "nameVi": "Canh chua cá lóc",
+      "nameEn": "Sour snakehead fish soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "soup",
+      "origins": [
+        {
+          "regionId": "tay-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "snakehead fish",
+        "tamarind",
+        "pineapple",
+        "tomato",
+        "okra",
+        "rice paddy herb"
+      ],
+      "taste": [
+        "sour",
+        "sweet",
+        "herbal"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Canh chua me với cá lóc và thơm, linh hồn bữa cơm miền Tây.",
+        "en": "A tamarind sour soup with snakehead fish and pineapple, at the heart of Mekong home cooking."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "ca-kho-to",
+      "nameVi": "Cá kho tộ",
+      "nameEn": "Clay pot caramelised fish",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "regionId": "tay-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "catfish or snakehead",
+        "caramel",
+        "fish sauce",
+        "pepper"
+      ],
+      "taste": [
+        "salty",
+        "sweet",
+        "rich"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish",
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cá kho tộ với nước màu, nước mắm, tiêu, đậm đà.",
+        "en": "Fish braised in a clay pot with caramel and pepper until sticky and dark."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "ca-loc-nuong-trui",
+      "nameVi": "Cá lóc nướng trui",
+      "nameEn": "Straw-roasted snakehead fish",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "grilled",
+      "origins": [
+        {
+          "regionId": "tay-nam-bo",
+          "role": "associated"
+        },
+        {
+          "provinceId": "dong-thap",
+          "regionId": "tay-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "whole snakehead fish",
+        "straw"
+      ],
+      "taste": [
+        "smoky"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cá lóc nướng rơm nguyên con, cuốn bánh tráng rau sống.",
+        "en": "Whole snakehead fish roasted in burning straw, eaten with herbs and rice paper."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "bun-nuoc-leo-soc-trang",
+      "nameVi": "Bún nước lèo Sóc Trăng",
+      "nameEn": "Sóc Trăng Khmer fish noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "soc-trang",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "rice vermicelli",
+        "prahok fish paste",
+        "snakehead fish",
+        "pork",
+        "banana blossom"
+      ],
+      "taste": [
+        "fermented",
+        "herbal",
+        "umami"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish",
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Bún nước lèo gốc Khmer nấu từ mắm bò hóc với cá lóc, bắp chuối.",
+        "en": "A Khmer-rooted broth of fermented fish paste with snakehead fish and banana blossom."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "banh-pia-soc-trang",
+      "nameVi": "Bánh pía Sóc Trăng",
+      "nameEn": "Sóc Trăng flaky pastry",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "banh",
+      "origins": [
+        {
+          "provinceId": "soc-trang",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "flaky pastry",
+        "durian",
+        "mung bean",
+        "salted egg yolk"
+      ],
+      "taste": [
+        "sweet",
+        "rich"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork",
+        "contains-egg"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh pía ngàn lớp nhân đậu xanh, sầu riêng, trứng muối.",
+        "en": "Teochew-style flaky pastries filled with mung bean, durian and salted egg yolk."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 2
+    },
+    {
+      "id": "banh-tam-bi-bac-lieu",
+      "nameVi": "Bánh tằm bì Bạc Liêu",
+      "nameEn": "Bạc Liêu silkworm noodles with pork skin",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodles",
+      "origins": [
+        {
+          "provinceId": "bac-lieu",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "thick rice noodles",
+        "shredded pork skin",
+        "coconut cream",
+        "herbs"
+      ],
+      "taste": [
+        "savory",
+        "creamy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "breakfast",
+        "lunch"
+      ],
+      "description": {
+        "vi": "Bánh tằm với bì heo, nước cốt dừa, rau thơm.",
+        "en": "Thick \"silkworm\" rice noodles with shredded pork skin and coconut cream."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "ba-khia-muoi-rach-goc",
+      "nameVi": "Ba khía muối Rạch Gốc",
+      "nameEn": "Rạch Gốc salted marsh crabs",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "cured",
+      "origins": [
+        {
+          "provinceId": "ca-mau",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "small marsh crabs",
+        "salt",
+        "garlic",
+        "chilli",
+        "sugar"
+      ],
+      "taste": [
+        "salty",
+        "sour"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Ba khía muối trộn tỏi ớt chanh, ăn cùng cơm trắng.",
+        "en": "Salted marsh crabs tossed with garlic, chilli and lime, eaten with rice."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "bun-ca-chau-doc",
+      "nameVi": "Bún cá Châu Đốc",
+      "nameEn": "Châu Đốc fish noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "an-giang",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "rice vermicelli",
+        "snakehead fish",
+        "fingerroot",
+        "turmeric"
+      ],
+      "taste": [
+        "herbal",
+        "umami"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "breakfast"
+      ],
+      "description": {
+        "vi": "Nước dùng vàng nghệ với cá lóc, ngải bún.",
+        "en": "Turmeric-yellow broth with snakehead fish and fingerroot."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-bo-thot-not",
+      "nameVi": "Bánh bò thốt nốt",
+      "nameEn": "Palm sugar sponge cake",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "banh",
+      "origins": [
+        {
+          "provinceId": "an-giang",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "rice flour",
+        "palmyra palm sugar",
+        "coconut"
+      ],
+      "taste": [
+        "sweet",
+        "fragrant",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh bò làm từ đường thốt nốt vùng Bảy Núi.",
+        "en": "Spongy cakes sweetened with the palmyra palm sugar of the Bảy Núi area."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "bun-ken-phu-quoc",
+      "nameVi": "Bún kèn Phú Quốc",
+      "nameEn": "Phú Quốc bún kèn",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodles",
+      "origins": [
+        {
+          "provinceId": "kien-giang",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "rice vermicelli",
+        "fish",
+        "coconut milk",
+        "lemongrass",
+        "green papaya"
+      ],
+      "taste": [
+        "creamy",
+        "herbal"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "breakfast"
+      ],
+      "description": {
+        "vi": "Bún với nước cá nấu cốt dừa, sả, ăn kèm đu đủ bào.",
+        "en": "Coconut-milk fish curry over vermicelli with fresh vegetables."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "goi-ca-trich-phu-quoc",
+      "nameVi": "Gỏi cá trích Phú Quốc",
+      "nameEn": "Phú Quốc herring salad",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "salad",
+      "origins": [
+        {
+          "provinceId": "kien-giang",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "raw herring",
+        "coconut",
+        "lime",
+        "herbs",
+        "rice paper"
+      ],
+      "taste": [
+        "fresh",
+        "sour"
+      ],
+      "spiceLevel": 1,
+      "dietary": [
+        "contains-fish",
+        "contains-peanut"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cá trích sống trộn dừa nạo, chanh, cuốn bánh tráng.",
+        "en": "Raw herring with shredded coconut and lime, rolled in rice paper."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "keo-dua-ben-tre",
+      "nameVi": "Kẹo dừa Bến Tre",
+      "nameEn": "Bến Tre coconut candy",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "confection",
+      "origins": [
+        {
+          "provinceId": "ben-tre",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "coconut cream",
+        "malt",
+        "sugar"
+      ],
+      "taste": [
+        "sweet",
+        "creamy",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegetarian"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Kẹo dừa dẻo thơm làm từ cốt dừa — đặc sản nổi tiếng nhất xứ dừa.",
+        "en": "Soft, chewy candy made from coconut cream — Bến Tre's best-known sweet."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 1
+    },
+    {
+      "id": "banh-tet-tra-cuon",
+      "nameVi": "Bánh tét Trà Cuôn",
+      "nameEn": "Trà Cuôn cylindrical rice cake",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "banh",
+      "origins": [
+        {
+          "provinceId": "tra-vinh",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "glutinous rice",
+        "mung bean",
+        "pork",
+        "salted egg yolk",
+        "banana leaf"
+      ],
+      "taste": [
+        "rich",
+        "savory"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork",
+        "contains-egg"
+      ],
+      "mealTimes": [
+        "lunch"
+      ],
+      "description": {
+        "vi": "Bánh tét Trà Cuôn nhân đậu xanh, thịt, trứng muối.",
+        "en": "Trà Vinh's renowned cylindrical Tết cake with mung bean, pork and salted egg."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-canh-ben-co",
+      "nameVi": "Bánh canh Bến Có",
+      "nameEn": "Bến Có noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "tra-vinh",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "thick noodles",
+        "pork",
+        "shrimp",
+        "crab"
+      ],
+      "taste": [
+        "umami"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork",
+        "contains-seafood"
+      ],
+      "mealTimes": [
+        "breakfast"
+      ],
+      "description": {
+        "vi": "Bánh canh Bến Có với thịt và hải sản, món sáng của Trà Vinh.",
+        "en": "Thick noodles with pork and seafood, a Trà Vinh breakfast classic."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "ca-tai-tuong-chien-xu",
+      "nameVi": "Cá tai tượng chiên xù",
+      "nameEn": "Crispy elephant-ear fish",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "fried",
+      "origins": [
+        {
+          "provinceId": "vinh-long",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "giant gourami",
+        "rice paper",
+        "herbs"
+      ],
+      "taste": [
+        "crunchy",
+        "savory"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-fish"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cá tai tượng chiên xù vảy giòn, cuốn bánh tráng.",
+        "en": "Whole giant gourami fried until its scales stand up crisp."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "lap-xuong-can-duoc",
+      "nameVi": "Lạp xưởng Cần Đước",
+      "nameEn": "Cần Đước Chinese sausage",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "cured",
+      "origins": [
+        {
+          "provinceId": "long-an",
+          "regionId": "tay-nam-bo",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "pork",
+        "rice wine",
+        "sugar"
+      ],
+      "taste": [
+        "sweet",
+        "savory"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Lạp xưởng tươi Cần Đước ngọt thơm.",
+        "en": "Sweet dried pork sausages from Cần Đước."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-chuoi-nuong",
+      "nameVi": "Bánh chuối nướng",
+      "nameEn": "Baked banana cake",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "banh",
+      "origins": [
+        {
+          "regionId": "tay-nam-bo",
+          "role": "associated"
+        },
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "tay-nam-bo",
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "banana",
+        "bread or rice flour",
+        "coconut milk"
+      ],
+      "taste": [
+        "sweet",
+        "creamy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegetarian",
+        "contains-dairy"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh chuối nướng với nước cốt dừa.",
+        "en": "Bananas baked in a coconut custard, often served with coconut cream."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "banh-da-lon",
+      "nameVi": "Bánh da lợn",
+      "nameEn": "Steamed layer cake",
+      "altNames": [],
+      "category": "sweet",
+      "dishType": "banh",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        },
+        {
+          "regionId": "tay-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo",
+        "tay-nam-bo"
+      ],
+      "ingredients": [
+        "tapioca",
+        "mung bean",
+        "pandan",
+        "coconut milk"
+      ],
+      "taste": [
+        "sweet",
+        "chewy"
+      ],
+      "spiceLevel": 0,
+      "dietary": [
+        "vegan"
+      ],
+      "mealTimes": [
+        "afternoon"
+      ],
+      "description": {
+        "vi": "Bánh da lợn nhiều lớp từ bột năng, đậu xanh, lá dứa.",
+        "en": "Bouncy layered cake of tapioca, mung bean and pandan."
+      },
+      "photos": [],
+      "sources": [],
+      "verification": {
+        "status": "seed-unverified"
+      },
+      "dataset": "seed",
+      "prominence": 3
+    }
+  ]
+}

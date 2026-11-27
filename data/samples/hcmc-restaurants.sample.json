@@ -1,0 +1,510 @@
+{
+  "metadata": {
+    "note": "SAMPLE DATA — fictional demonstration venues. Not real establishments. Shown only when 'Show sample venues' is enabled in Settings, always badged SAMPLE, and never used in recommendations.",
+    "coverage": "Coordinates placed inside HCMC for map testing only."
+  },
+  "restaurants": [
+    {
+      "id": "sample-venue-01",
+      "name": "[SAMPLE] Demo Venue 01",
+      "isSample": true,
+      "address": "Sample address — not a real location (Quận 1)",
+      "neighbourhood": "Quận 1",
+      "coordinates": [
+        106.6995,
+        10.7769
+      ],
+      "venueType": "restaurant",
+      "priceRange": "$$",
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ]
+      },
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "Fictional demonstration record",
+          "note": "Created by Claude Code to exercise the UI. Not a real establishment."
+        }
+      ]
+    },
+    {
+      "id": "sample-venue-02",
+      "name": "[SAMPLE] Demo Venue 02",
+      "isSample": true,
+      "address": "Sample address — not a real location (Quận 3)",
+      "neighbourhood": "Quận 3",
+      "coordinates": [
+        106.6862,
+        10.7826
+      ],
+      "venueType": "eatery",
+      "priceRange": "$",
+      "openingHours": {
+        "mon": [
+          [
+            "05:30",
+            "11:00"
+          ]
+        ],
+        "tue": [
+          [
+            "05:30",
+            "11:00"
+          ]
+        ],
+        "wed": [
+          [
+            "05:30",
+            "11:00"
+          ]
+        ],
+        "thu": [
+          [
+            "05:30",
+            "11:00"
+          ]
+        ],
+        "fri": [
+          [
+            "05:30",
+            "11:00"
+          ]
+        ],
+        "sat": [
+          [
+            "05:30",
+            "11:30"
+          ]
+        ],
+        "sun": [
+          [
+            "05:30",
+            "11:30"
+          ]
+        ]
+      },
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "Fictional demonstration record",
+          "note": "Created by Claude Code to exercise the UI. Not a real establishment."
+        }
+      ]
+    },
+    {
+      "id": "sample-venue-03",
+      "name": "[SAMPLE] Demo Venue 03",
+      "isSample": true,
+      "address": "Sample address — not a real location (Quận 5)",
+      "neighbourhood": "Quận 5",
+      "coordinates": [
+        106.6675,
+        10.7548
+      ],
+      "venueType": "eatery",
+      "priceRange": "$",
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ]
+      },
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "Fictional demonstration record",
+          "note": "Created by Claude Code to exercise the UI. Not a real establishment."
+        }
+      ]
+    },
+    {
+      "id": "sample-venue-04",
+      "name": "[SAMPLE] Demo Venue 04",
+      "isSample": true,
+      "address": "Sample address — not a real location (Bình Thạnh)",
+      "neighbourhood": "Bình Thạnh",
+      "coordinates": [
+        106.7092,
+        10.804
+      ],
+      "venueType": "street-stall",
+      "priceRange": "$",
+      "openingHours": {
+        "mon": [
+          [
+            "16:00",
+            "23:59"
+          ]
+        ],
+        "tue": [
+          [
+            "16:00",
+            "23:59"
+          ]
+        ],
+        "wed": [
+          [
+            "16:00",
+            "23:59"
+          ]
+        ],
+        "thu": [
+          [
+            "16:00",
+            "23:59"
+          ]
+        ],
+        "fri": [
+          [
+            "16:00",
+            "23:59"
+          ]
+        ],
+        "sat": [
+          [
+            "16:00",
+            "23:59"
+          ]
+        ],
+        "sun": []
+      },
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "Fictional demonstration record",
+          "note": "Created by Claude Code to exercise the UI. Not a real establishment."
+        }
+      ]
+    },
+    {
+      "id": "sample-venue-05",
+      "name": "[SAMPLE] Demo Venue 05",
+      "isSample": true,
+      "address": "Sample address — not a real location (Phú Nhuận)",
+      "neighbourhood": "Phú Nhuận",
+      "coordinates": [
+        106.68,
+        10.799
+      ],
+      "venueType": "restaurant",
+      "priceRange": "$$",
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ]
+      },
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "Fictional demonstration record",
+          "note": "Created by Claude Code to exercise the UI. Not a real establishment."
+        }
+      ]
+    },
+    {
+      "id": "sample-venue-06",
+      "name": "[SAMPLE] Demo Venue 06",
+      "isSample": true,
+      "address": "Sample address — not a real location (Quận 10)",
+      "neighbourhood": "Quận 10",
+      "coordinates": [
+        106.6668,
+        10.7731
+      ],
+      "venueType": "eatery",
+      "priceRange": "$",
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ]
+      },
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "Fictional demonstration record",
+          "note": "Created by Claude Code to exercise the UI. Not a real establishment."
+        }
+      ]
+    },
+    {
+      "id": "sample-venue-07",
+      "name": "[SAMPLE] Demo Venue 07",
+      "isSample": true,
+      "address": "Sample address — not a real location (Quận 4)",
+      "neighbourhood": "Quận 4",
+      "coordinates": [
+        106.704,
+        10.7585
+      ],
+      "venueType": "street-stall",
+      "priceRange": "$$",
+      "openingHours": {
+        "mon": [
+          [
+            "16:00",
+            "23:59"
+          ]
+        ],
+        "tue": [
+          [
+            "16:00",
+            "23:59"
+          ]
+        ],
+        "wed": [
+          [
+            "16:00",
+            "23:59"
+          ]
+        ],
+        "thu": [
+          [
+            "16:00",
+            "23:59"
+          ]
+        ],
+        "fri": [
+          [
+            "16:00",
+            "23:59"
+          ]
+        ],
+        "sat": [
+          [
+            "16:00",
+            "23:59"
+          ]
+        ],
+        "sun": []
+      },
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "Fictional demonstration record",
+          "note": "Created by Claude Code to exercise the UI. Not a real establishment."
+        }
+      ]
+    },
+    {
+      "id": "sample-venue-08",
+      "name": "[SAMPLE] Demo Venue 08",
+      "isSample": true,
+      "address": "Sample address — not a real location (Thủ Đức)",
+      "neighbourhood": "Thủ Đức",
+      "coordinates": [
+        106.762,
+        10.85
+      ],
+      "venueType": "restaurant",
+      "priceRange": "$$$",
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ]
+      },
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "Fictional demonstration record",
+          "note": "Created by Claude Code to exercise the UI. Not a real establishment."
+        }
+      ]
+    }
+  ]
+}

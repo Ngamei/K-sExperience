@@ -1,0 +1,6 @@
+{
+  "metadata": {
+    "note": "Many-to-many links between dishes and REAL HCMC establishments, each with an availability status and menu evidence. Intentionally empty until establishments are verified."
+  },
+  "links": []
+}

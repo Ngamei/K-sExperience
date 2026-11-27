@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "note": "Six culinary regions requested by the K's Experience product brief."
+  },
+  "regions": [
+    {
+      "id": "mien-bac",
+      "nameVi": "Miền Bắc",
+      "nameEn": "Northern Vietnam",
+      "color": "#C9D4C1",
+      "order": 1,
+      "blurbEn": "Clear broths, restrained seasoning and the highland flavours of the north-west.",
+      "blurbVi": "Nước dùng thanh, nêm nếm tinh tế và hương vị núi rừng Tây Bắc.",
+      "provinceIds": [
+        "ha-giang",
+        "cao-bang",
+        "bac-kan",
+        "tuyen-quang",
+        "lao-cai",
+        "yen-bai",
+        "thai-nguyen",
+        "lang-son",
+        "bac-giang",
+        "phu-tho",
+        "quang-ninh",
+        "dien-bien",
+        "lai-chau",
+        "son-la",
+        "hoa-binh",
+        "ha-noi",
+        "hai-phong",
+        "vinh-phuc",
+        "bac-ninh",
+        "hung-yen",
+        "hai-duong",
+        "thai-binh",
+        "ha-nam",
+        "nam-dinh",
+        "ninh-binh"
+      ]
+    },
+    {
+      "id": "bac-trung-bo",
+      "nameVi": "Bắc Trung Bộ",
+      "nameEn": "North Central Coast",
+      "color": "#E3C9B4",
+      "order": 2,
+      "blurbEn": "Bold, salty and spicy cooking shaped by a harsh climate and the imperial kitchens of Huế.",
+      "blurbVi": "Đậm đà, cay mặn, mang dấu ấn ẩm thực cung đình Huế.",
+      "provinceIds": [
+        "thanh-hoa",
+        "nghe-an",
+        "ha-tinh",
+        "quang-binh",
+        "quang-tri",
+        "thua-thien-hue"
+      ]
+    },
+    {
+      "id": "nam-trung-bo",
+      "nameVi": "Nam Trung Bộ",
+      "nameEn": "South Central Coast",
+      "color": "#E9D9B8",
+      "order": 3,
+      "blurbEn": "Fishing-port seafood, turmeric noodles and fiery chilli along the coast.",
+      "blurbVi": "Hải sản miền biển, mì Quảng và ớt cay nồng dọc duyên hải.",
+      "provinceIds": [
+        "da-nang",
+        "quang-nam",
+        "quang-ngai",
+        "binh-dinh",
+        "phu-yen",
+        "khanh-hoa",
+        "ninh-thuan",
+        "binh-thuan"
+      ]
+    },
+    {
+      "id": "tay-nguyen",
+      "nameVi": "Tây Nguyên",
+      "nameEn": "Central Highlands",
+      "color": "#CFC2A6",
+      "order": 4,
+      "blurbEn": "Highland plateaus of coffee, bamboo-tube rice and grilled meats.",
+      "blurbVi": "Cao nguyên cà phê, cơm lam và các món nướng núi rừng.",
+      "provinceIds": [
+        "kon-tum",
+        "gia-lai",
+        "dak-lak",
+        "dak-nong",
+        "lam-dong"
+      ]
+    },
+    {
+      "id": "dong-nam-bo",
+      "nameVi": "Đông Nam Bộ",
+      "nameEn": "Southeast",
+      "color": "#D9BFA9",
+      "order": 5,
+      "blurbEn": "Sài Gòn's melting pot: broken rice, bánh mì and late-night street food.",
+      "blurbVi": "Nơi giao thoa của Sài Gòn: cơm tấm, bánh mì và ẩm thực đường phố.",
+      "provinceIds": [
+        "ho-chi-minh",
+        "binh-duong",
+        "binh-phuoc",
+        "tay-ninh",
+        "dong-nai",
+        "ba-ria-vung-tau"
+      ]
+    },
+    {
+      "id": "tay-nam-bo",
+      "nameVi": "Tây Nam Bộ",
+      "nameEn": "Mekong Delta",
+      "color": "#C4D1BE",
+      "order": 6,
+      "blurbEn": "Sweet, abundant river cuisine: fish, coconut, herbs and floating markets.",
+      "blurbVi": "Ẩm thực sông nước ngọt ngào: cá, dừa, rau và chợ nổi.",
+      "provinceIds": [
+        "long-an",
+        "tien-giang",
+        "ben-tre",
+        "tra-vinh",
+        "vinh-long",
+        "dong-thap",
+        "an-giang",
+        "kien-giang",
+        "can-tho",
+        "hau-giang",
+        "soc-trang",
+        "bac-lieu",
+        "ca-mau"
+      ]
+    }
+  ]
+}

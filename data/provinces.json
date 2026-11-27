@@ -1,0 +1,1547 @@
+{
+  "metadata": {
+    "source": "geoBoundaries gbOpen VNM ADM1 (boundaryYear 2008, build Dec 12 2023)",
+    "sourceUrl": "https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData/gbOpen/VNM/ADM1",
+    "license": "Public Domain (per geoBoundaries metadata)",
+    "note": "63 historical provinces used as culinary identities. Hoàng Sa (Đà Nẵng) and Trường Sa (Khánh Hòa) extracted as labelled features.",
+    "currentAdministrativeGeography": "`current` maps each historical province to its province-level unit after Resolution 202/2025/QH15 (effective 1 July 2025; 34 units)."
+  },
+  "provinces": [
+    {
+      "id": "ha-giang",
+      "nameVi": "Hà Giang",
+      "nameEn": "Ha Giang",
+      "iso": "VN-03",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        104.7864,
+        22.565
+      ],
+      "bbox": [
+        104.3592,
+        22.1673,
+        105.5796,
+        23.391
+      ],
+      "current": {
+        "id": "tuyen-quang",
+        "nameVi": "Tuyên Quang",
+        "nameEn": "Tuyen Quang",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "cao-bang",
+      "nameVi": "Cao Bằng",
+      "nameEn": "Cao Bang",
+      "iso": "VN-04",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        106.3674,
+        22.6284
+      ],
+      "bbox": [
+        105.2684,
+        22.3339,
+        106.8384,
+        23.1192
+      ],
+      "current": {
+        "id": "cao-bang",
+        "nameVi": "Cao Bằng",
+        "nameEn": "Cao Bang",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "bac-kan",
+      "nameVi": "Bắc Kạn",
+      "nameEn": "Bac Kan",
+      "iso": "VN-53",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        105.9144,
+        22.224
+      ],
+      "bbox": [
+        105.4398,
+        21.8093,
+        106.2651,
+        22.7308
+      ],
+      "current": {
+        "id": "thai-nguyen",
+        "nameVi": "Thái Nguyên",
+        "nameEn": "Thai Nguyen",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "tuyen-quang",
+      "nameVi": "Tuyên Quang",
+      "nameEn": "Tuyen Quang",
+      "iso": "VN-07",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        105.2413,
+        22.0744
+      ],
+      "bbox": [
+        104.8489,
+        21.5207,
+        105.5964,
+        22.6864
+      ],
+      "current": {
+        "id": "tuyen-quang",
+        "nameVi": "Tuyên Quang",
+        "nameEn": "Tuyen Quang",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "lao-cai",
+      "nameVi": "Lào Cai",
+      "nameEn": "Lao Cai",
+      "iso": "VN-02",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        104.1666,
+        22.2988
+      ],
+      "bbox": [
+        103.5306,
+        21.8534,
+        104.6367,
+        22.8432
+      ],
+      "current": {
+        "id": "lao-cai",
+        "nameVi": "Lào Cai",
+        "nameEn": "Lao Cai",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "yen-bai",
+      "nameVi": "Yên Bái",
+      "nameEn": "Yen Bai",
+      "iso": "VN-06",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        104.6716,
+        21.7217
+      ],
+      "bbox": [
+        103.8932,
+        21.3162,
+        105.1386,
+        22.2704
+      ],
+      "current": {
+        "id": "lao-cai",
+        "nameVi": "Lào Cai",
+        "nameEn": "Lao Cai",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "thai-nguyen",
+      "nameVi": "Thái Nguyên",
+      "nameEn": "Thai Nguyen",
+      "iso": "VN-69",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        105.8948,
+        21.6285
+      ],
+      "bbox": [
+        105.5113,
+        21.3495,
+        106.2784,
+        22.0469
+      ],
+      "current": {
+        "id": "thai-nguyen",
+        "nameVi": "Thái Nguyên",
+        "nameEn": "Thai Nguyen",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "lang-son",
+      "nameVi": "Lạng Sơn",
+      "nameEn": "Lang Son",
+      "iso": "VN-09",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        106.4395,
+        21.9283
+      ],
+      "bbox": [
+        106.1222,
+        21.3725,
+        107.3914,
+        22.4312
+      ],
+      "current": {
+        "id": "lang-son",
+        "nameVi": "Lạng Sơn",
+        "nameEn": "Lang Son",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "bac-giang",
+      "nameVi": "Bắc Giang",
+      "nameEn": "Bac Giang",
+      "iso": "VN-54",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        106.7339,
+        21.4046
+      ],
+      "bbox": [
+        105.9689,
+        21.1658,
+        107.1022,
+        21.6207
+      ],
+      "current": {
+        "id": "bac-ninh",
+        "nameVi": "Bắc Ninh",
+        "nameEn": "Bac Ninh",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "phu-tho",
+      "nameVi": "Phú Thọ",
+      "nameEn": "Phu Tho",
+      "iso": "VN-68",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        105.1403,
+        21.2533
+      ],
+      "bbox": [
+        104.8727,
+        20.9172,
+        105.5025,
+        21.708
+      ],
+      "current": {
+        "id": "phu-tho",
+        "nameVi": "Phú Thọ",
+        "nameEn": "Phu Tho",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "quang-ninh",
+      "nameVi": "Quảng Ninh",
+      "nameEn": "Quang Ninh",
+      "iso": "VN-13",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        107.2471,
+        21.1964
+      ],
+      "bbox": [
+        106.5666,
+        20.8218,
+        108.0787,
+        21.6585
+      ],
+      "current": {
+        "id": "quang-ninh",
+        "nameVi": "Quảng Ninh",
+        "nameEn": "Quang Ninh",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "dien-bien",
+      "nameVi": "Điện Biên",
+      "nameEn": "Dien Bien",
+      "iso": "VN-71",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        103.2732,
+        21.7203
+      ],
+      "bbox": [
+        102.1459,
+        20.8936,
+        103.6005,
+        22.547
+      ],
+      "current": {
+        "id": "dien-bien",
+        "nameVi": "Điện Biên",
+        "nameEn": "Dien Bien",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "lai-chau",
+      "nameVi": "Lai Châu",
+      "nameEn": "Lai Chau",
+      "iso": "VN-01",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        103.3193,
+        22.3638
+      ],
+      "bbox": [
+        102.3218,
+        21.6861,
+        103.9843,
+        22.8156
+      ],
+      "current": {
+        "id": "lai-chau",
+        "nameVi": "Lai Châu",
+        "nameEn": "Lai Chau",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "son-la",
+      "nameVi": "Sơn La",
+      "nameEn": "Son La",
+      "iso": "VN-05",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        103.8628,
+        21.2904
+      ],
+      "bbox": [
+        103.2122,
+        20.5648,
+        105.0711,
+        22.0159
+      ],
+      "current": {
+        "id": "son-la",
+        "nameVi": "Sơn La",
+        "nameEn": "Son La",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "hoa-binh",
+      "nameVi": "Hòa Bình",
+      "nameEn": "Hoa Binh",
+      "iso": "VN-14",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        105.3952,
+        20.6692
+      ],
+      "bbox": [
+        104.8505,
+        20.2874,
+        105.888,
+        21.0912
+      ],
+      "current": {
+        "id": "phu-tho",
+        "nameVi": "Phú Thọ",
+        "nameEn": "Phu Tho",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "ha-noi",
+      "nameVi": "Hà Nội",
+      "nameEn": "Hanoi",
+      "iso": "VN-HN",
+      "regionId": "mien-bac",
+      "kind": "city",
+      "labelPoint": [
+        105.8053,
+        20.9754
+      ],
+      "bbox": [
+        105.3584,
+        20.5461,
+        106.0734,
+        21.4048
+      ],
+      "current": {
+        "id": "ha-noi",
+        "nameVi": "Thành phố Hà Nội",
+        "nameEn": "Hanoi",
+        "kind": "city"
+      }
+    },
+    {
+      "id": "hai-phong",
+      "nameVi": "Hải Phòng",
+      "nameEn": "Hai Phong",
+      "iso": "VN-HP",
+      "regionId": "mien-bac",
+      "kind": "city",
+      "labelPoint": [
+        106.7425,
+        20.8438
+      ],
+      "bbox": [
+        106.4227,
+        20.1105,
+        107.8777,
+        21.0793
+      ],
+      "current": {
+        "id": "hai-phong",
+        "nameVi": "Thành phố Hải Phòng",
+        "nameEn": "Hai Phong",
+        "kind": "city"
+      }
+    },
+    {
+      "id": "vinh-phuc",
+      "nameVi": "Vĩnh Phúc",
+      "nameEn": "Vinh Phuc",
+      "iso": "VN-70",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        105.6516,
+        21.341
+      ],
+      "bbox": [
+        105.3663,
+        21.1401,
+        105.8624,
+        21.5865
+      ],
+      "current": {
+        "id": "phu-tho",
+        "nameVi": "Phú Thọ",
+        "nameEn": "Phu Tho",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "bac-ninh",
+      "nameVi": "Bắc Ninh",
+      "nameEn": "Bac Ninh",
+      "iso": "VN-56",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        106.2075,
+        21.1214
+      ],
+      "bbox": [
+        105.9594,
+        20.9775,
+        106.3908,
+        21.2805
+      ],
+      "current": {
+        "id": "bac-ninh",
+        "nameVi": "Bắc Ninh",
+        "nameEn": "Bac Ninh",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "hung-yen",
+      "nameVi": "Hưng Yên",
+      "nameEn": "Hung Yen",
+      "iso": "VN-66",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        106.0947,
+        20.9162
+      ],
+      "bbox": [
+        105.9588,
+        20.6068,
+        106.2986,
+        21.0194
+      ],
+      "current": {
+        "id": "hung-yen",
+        "nameVi": "Hưng Yên",
+        "nameEn": "Hung Yen",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "hai-duong",
+      "nameVi": "Hải Dương",
+      "nameEn": "Hai Duong",
+      "iso": "VN-61",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        106.3906,
+        20.8821
+      ],
+      "bbox": [
+        106.1853,
+        20.6921,
+        106.7328,
+        21.2769
+      ],
+      "current": {
+        "id": "hai-phong",
+        "nameVi": "Thành phố Hải Phòng",
+        "nameEn": "Hai Phong",
+        "kind": "city"
+      }
+    },
+    {
+      "id": "thai-binh",
+      "nameVi": "Thái Bình",
+      "nameEn": "Thai Binh",
+      "iso": "VN-20",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        106.4255,
+        20.5112
+      ],
+      "bbox": [
+        106.1673,
+        20.2938,
+        106.6368,
+        20.7286
+      ],
+      "current": {
+        "id": "hung-yen",
+        "nameVi": "Hưng Yên",
+        "nameEn": "Hung Yen",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "ha-nam",
+      "nameVi": "Hà Nam",
+      "nameEn": "Ha Nam",
+      "iso": "VN-63",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        105.9824,
+        20.5315
+      ],
+      "bbox": [
+        105.8143,
+        20.3658,
+        106.2344,
+        20.6973
+      ],
+      "current": {
+        "id": "ninh-binh",
+        "nameVi": "Ninh Bình",
+        "nameEn": "Ninh Binh",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "nam-dinh",
+      "nameVi": "Nam Định",
+      "nameEn": "Nam Dinh",
+      "iso": "VN-67",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        106.1694,
+        20.3464
+      ],
+      "bbox": [
+        105.9321,
+        19.958,
+        106.6101,
+        20.4937
+      ],
+      "current": {
+        "id": "ninh-binh",
+        "nameVi": "Ninh Bình",
+        "nameEn": "Ninh Binh",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "ninh-binh",
+      "nameVi": "Ninh Bình",
+      "nameEn": "Ninh Binh",
+      "iso": "VN-18",
+      "regionId": "mien-bac",
+      "kind": "province",
+      "labelPoint": [
+        105.8602,
+        20.2516
+      ],
+      "bbox": [
+        105.54,
+        19.9261,
+        106.1804,
+        20.4269
+      ],
+      "current": {
+        "id": "ninh-binh",
+        "nameVi": "Ninh Bình",
+        "nameEn": "Ninh Binh",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "thanh-hoa",
+      "nameVi": "Thanh Hóa",
+      "nameEn": "Thanh Hoa",
+      "iso": "VN-21",
+      "regionId": "bac-trung-bo",
+      "kind": "province",
+      "labelPoint": [
+        105.5665,
+        19.8708
+      ],
+      "bbox": [
+        104.3787,
+        19.2907,
+        106.0756,
+        20.6555
+      ],
+      "current": {
+        "id": "thanh-hoa",
+        "nameVi": "Thanh Hóa",
+        "nameEn": "Thanh Hoa",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "nghe-an",
+      "nameVi": "Nghệ An",
+      "nameEn": "Nghe An",
+      "iso": "VN-22",
+      "regionId": "bac-trung-bo",
+      "kind": "province",
+      "labelPoint": [
+        104.8917,
+        19.2625
+      ],
+      "bbox": [
+        103.8783,
+        18.5619,
+        105.8085,
+        20.0368
+      ],
+      "current": {
+        "id": "nghe-an",
+        "nameVi": "Nghệ An",
+        "nameEn": "Nghe An",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "ha-tinh",
+      "nameVi": "Hà Tĩnh",
+      "nameEn": "Ha Tinh",
+      "iso": "VN-23",
+      "regionId": "bac-trung-bo",
+      "kind": "province",
+      "labelPoint": [
+        105.7143,
+        18.3186
+      ],
+      "bbox": [
+        105.1267,
+        17.9184,
+        106.5094,
+        18.761
+      ],
+      "current": {
+        "id": "ha-tinh",
+        "nameVi": "Hà Tĩnh",
+        "nameEn": "Ha Tinh",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "quang-binh",
+      "nameVi": "Quảng Bình",
+      "nameEn": "Quang Binh",
+      "iso": "VN-24",
+      "regionId": "bac-trung-bo",
+      "kind": "province",
+      "labelPoint": [
+        106.2413,
+        17.6274
+      ],
+      "bbox": [
+        105.6193,
+        16.9344,
+        107.0015,
+        18.0895
+      ],
+      "current": {
+        "id": "quang-tri",
+        "nameVi": "Quảng Trị",
+        "nameEn": "Quang Tri",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "quang-tri",
+      "nameVi": "Quảng Trị",
+      "nameEn": "Quang Tri",
+      "iso": "VN-25",
+      "regionId": "bac-trung-bo",
+      "kind": "province",
+      "labelPoint": [
+        106.9762,
+        16.7769
+      ],
+      "bbox": [
+        106.5199,
+        16.3032,
+        107.389,
+        17.1644
+      ],
+      "current": {
+        "id": "quang-tri",
+        "nameVi": "Quảng Trị",
+        "nameEn": "Quang Tri",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "thua-thien-hue",
+      "nameVi": "Thừa Thiên Huế",
+      "nameEn": "Thua Thien Hue",
+      "iso": "VN-26",
+      "regionId": "bac-trung-bo",
+      "kind": "province",
+      "labelPoint": [
+        107.4375,
+        16.3494
+      ],
+      "bbox": [
+        107.0726,
+        15.9939,
+        108.1955,
+        16.7423
+      ],
+      "current": {
+        "id": "hue",
+        "nameVi": "Thành phố Huế",
+        "nameEn": "Hue City",
+        "kind": "city"
+      }
+    },
+    {
+      "id": "da-nang",
+      "nameVi": "Đà Nẵng",
+      "nameEn": "Da Nang",
+      "iso": "VN-DN",
+      "regionId": "nam-trung-bo",
+      "kind": "city",
+      "labelPoint": [
+        108.1027,
+        16.0275
+      ],
+      "bbox": [
+        107.8194,
+        15.9187,
+        108.3345,
+        16.2089
+      ],
+      "current": {
+        "id": "da-nang",
+        "nameVi": "Thành phố Đà Nẵng",
+        "nameEn": "Da Nang",
+        "kind": "city"
+      }
+    },
+    {
+      "id": "quang-nam",
+      "nameVi": "Quảng Nam",
+      "nameEn": "Quang Nam",
+      "iso": "VN-27",
+      "regionId": "nam-trung-bo",
+      "kind": "province",
+      "labelPoint": [
+        108.0968,
+        15.5477
+      ],
+      "bbox": [
+        107.2175,
+        14.9832,
+        108.7467,
+        16.0584
+      ],
+      "current": {
+        "id": "da-nang",
+        "nameVi": "Thành phố Đà Nẵng",
+        "nameEn": "Da Nang",
+        "kind": "city"
+      }
+    },
+    {
+      "id": "quang-ngai",
+      "nameVi": "Quảng Ngãi",
+      "nameEn": "Quang Ngai",
+      "iso": "VN-29",
+      "regionId": "nam-trung-bo",
+      "kind": "province",
+      "labelPoint": [
+        108.6472,
+        15.0813
+      ],
+      "bbox": [
+        108.3156,
+        14.5649,
+        109.15,
+        15.4256
+      ],
+      "current": {
+        "id": "quang-ngai",
+        "nameVi": "Quảng Ngãi",
+        "nameEn": "Quang Ngai",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "binh-dinh",
+      "nameVi": "Bình Định",
+      "nameEn": "Binh Dinh",
+      "iso": "VN-31",
+      "regionId": "nam-trung-bo",
+      "kind": "province",
+      "labelPoint": [
+        108.9625,
+        14.2135
+      ],
+      "bbox": [
+        108.6555,
+        13.5335,
+        109.3017,
+        14.7161
+      ],
+      "current": {
+        "id": "gia-lai",
+        "nameVi": "Gia Lai",
+        "nameEn": "Gia Lai",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "phu-yen",
+      "nameVi": "Phú Yên",
+      "nameEn": "Phu Yen",
+      "iso": "VN-32",
+      "regionId": "nam-trung-bo",
+      "kind": "province",
+      "labelPoint": [
+        109.0662,
+        13.0573
+      ],
+      "bbox": [
+        108.6735,
+        12.7139,
+        109.459,
+        13.6952
+      ],
+      "current": {
+        "id": "dak-lak",
+        "nameVi": "Đắk Lắk",
+        "nameEn": "Dak Lak",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "khanh-hoa",
+      "nameVi": "Khánh Hòa",
+      "nameEn": "Khanh Hoa",
+      "iso": "VN-34",
+      "regionId": "nam-trung-bo",
+      "kind": "province",
+      "labelPoint": [
+        108.9949,
+        12.2788
+      ],
+      "bbox": [
+        108.6814,
+        11.8068,
+        109.4653,
+        12.8557
+      ],
+      "current": {
+        "id": "khanh-hoa",
+        "nameVi": "Khánh Hòa",
+        "nameEn": "Khanh Hoa",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "ninh-thuan",
+      "nameVi": "Ninh Thuận",
+      "nameEn": "Ninh Thuan",
+      "iso": "VN-36",
+      "regionId": "nam-trung-bo",
+      "kind": "province",
+      "labelPoint": [
+        108.8796,
+        11.7273
+      ],
+      "bbox": [
+        108.5567,
+        11.2938,
+        109.2365,
+        12.1608
+      ],
+      "current": {
+        "id": "khanh-hoa",
+        "nameVi": "Khánh Hòa",
+        "nameEn": "Khanh Hoa",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "binh-thuan",
+      "nameVi": "Bình Thuận",
+      "nameEn": "Binh Thuan",
+      "iso": "VN-40",
+      "regionId": "nam-trung-bo",
+      "kind": "province",
+      "labelPoint": [
+        107.7981,
+        11.0729
+      ],
+      "bbox": [
+        107.3983,
+        9.9151,
+        109.0547,
+        11.5524
+      ],
+      "current": {
+        "id": "lam-dong",
+        "nameVi": "Lâm Đồng",
+        "nameEn": "Lam Dong",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "kon-tum",
+      "nameVi": "Kon Tum",
+      "nameEn": "Kon Tum",
+      "iso": "VN-28",
+      "regionId": "tay-nguyen",
+      "kind": "province",
+      "labelPoint": [
+        107.9479,
+        14.6813
+      ],
+      "bbox": [
+        107.3298,
+        13.9484,
+        108.6311,
+        15.4142
+      ],
+      "current": {
+        "id": "quang-ngai",
+        "nameVi": "Quảng Ngãi",
+        "nameEn": "Quang Ngai",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "gia-lai",
+      "nameVi": "Gia Lai",
+      "nameEn": "Gia Lai",
+      "iso": "VN-30",
+      "regionId": "tay-nguyen",
+      "kind": "province",
+      "labelPoint": [
+        108.3042,
+        13.8957
+      ],
+      "bbox": [
+        107.4432,
+        12.9963,
+        108.8781,
+        14.6316
+      ],
+      "current": {
+        "id": "gia-lai",
+        "nameVi": "Gia Lai",
+        "nameEn": "Gia Lai",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "dak-lak",
+      "nameVi": "Đắk Lắk",
+      "nameEn": "Dak Lak",
+      "iso": "VN-33",
+      "regionId": "tay-nguyen",
+      "kind": "province",
+      "labelPoint": [
+        108.4025,
+        12.7054
+      ],
+      "bbox": [
+        107.4819,
+        12.1679,
+        109.0162,
+        13.4325
+      ],
+      "current": {
+        "id": "dak-lak",
+        "nameVi": "Đắk Lắk",
+        "nameEn": "Dak Lak",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "dak-nong",
+      "nameVi": "Đắk Nông",
+      "nameEn": "Dak Nong",
+      "iso": "VN-72",
+      "regionId": "tay-nguyen",
+      "kind": "province",
+      "labelPoint": [
+        107.7182,
+        12.174
+      ],
+      "bbox": [
+        107.2107,
+        11.7543,
+        108.1334,
+        12.8034
+      ],
+      "current": {
+        "id": "lam-dong",
+        "nameVi": "Lâm Đồng",
+        "nameEn": "Lam Dong",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "lam-dong",
+      "nameVi": "Lâm Đồng",
+      "nameEn": "Lam Dong",
+      "iso": "VN-35",
+      "regionId": "tay-nguyen",
+      "kind": "province",
+      "labelPoint": [
+        108.3621,
+        11.9109
+      ],
+      "bbox": [
+        107.2611,
+        11.2272,
+        108.7291,
+        12.3211
+      ],
+      "current": {
+        "id": "lam-dong",
+        "nameVi": "Lâm Đồng",
+        "nameEn": "Lam Dong",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "ho-chi-minh",
+      "nameVi": "TP. Hồ Chí Minh",
+      "nameEn": "Ho Chi Minh City",
+      "iso": "VN-SG",
+      "regionId": "dong-nam-bo",
+      "kind": "city",
+      "labelPoint": [
+        106.6422,
+        10.7726
+      ],
+      "bbox": [
+        106.409,
+        10.3307,
+        107.031,
+        11.1342
+      ],
+      "current": {
+        "id": "ho-chi-minh",
+        "nameVi": "Thành phố Hồ Chí Minh",
+        "nameEn": "Ho Chi Minh City",
+        "kind": "city"
+      }
+    },
+    {
+      "id": "binh-duong",
+      "nameVi": "Bình Dương",
+      "nameEn": "Binh Duong",
+      "iso": "VN-57",
+      "regionId": "dong-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        106.7295,
+        11.1692
+      ],
+      "bbox": [
+        106.3629,
+        10.8633,
+        106.9495,
+        11.4751
+      ],
+      "current": {
+        "id": "ho-chi-minh",
+        "nameVi": "Thành phố Hồ Chí Minh",
+        "nameEn": "Ho Chi Minh City",
+        "kind": "city"
+      }
+    },
+    {
+      "id": "binh-phuoc",
+      "nameVi": "Bình Phước",
+      "nameEn": "Binh Phuoc",
+      "iso": "VN-58",
+      "regionId": "dong-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        106.9218,
+        11.7424
+      ],
+      "bbox": [
+        106.4122,
+        11.291,
+        107.4313,
+        12.2942
+      ],
+      "current": {
+        "id": "dong-nai",
+        "nameVi": "Đồng Nai",
+        "nameEn": "Dong Nai",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "tay-ninh",
+      "nameVi": "Tây Ninh",
+      "nameEn": "Tay Ninh",
+      "iso": "VN-37",
+      "regionId": "dong-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        106.1501,
+        11.4599
+      ],
+      "bbox": [
+        105.8088,
+        10.9287,
+        106.4914,
+        11.7786
+      ],
+      "current": {
+        "id": "tay-ninh",
+        "nameVi": "Tây Ninh",
+        "nameEn": "Tay Ninh",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "dong-nai",
+      "nameVi": "Đồng Nai",
+      "nameEn": "Dong Nai",
+      "iso": "VN-39",
+      "regionId": "dong-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        107.1817,
+        11.1715
+      ],
+      "bbox": [
+        106.7286,
+        10.5446,
+        107.5524,
+        11.5476
+      ],
+      "current": {
+        "id": "dong-nai",
+        "nameVi": "Đồng Nai",
+        "nameEn": "Dong Nai",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "ba-ria-vung-tau",
+      "nameVi": "Bà Rịa – Vũng Tàu",
+      "nameEn": "Ba Ria – Vung Tau",
+      "iso": "VN-43",
+      "regionId": "dong-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        107.1935,
+        10.5527
+      ],
+      "bbox": [
+        106.5338,
+        8.6294,
+        107.5459,
+        10.7571
+      ],
+      "current": {
+        "id": "ho-chi-minh",
+        "nameVi": "Thành phố Hồ Chí Minh",
+        "nameEn": "Ho Chi Minh City",
+        "kind": "city"
+      }
+    },
+    {
+      "id": "long-an",
+      "nameVi": "Long An",
+      "nameEn": "Long An",
+      "iso": "VN-41",
+      "regionId": "tay-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        106.3436,
+        10.789
+      ],
+      "bbox": [
+        105.508,
+        10.3767,
+        106.746,
+        11.0363
+      ],
+      "current": {
+        "id": "tay-ninh",
+        "nameVi": "Tây Ninh",
+        "nameEn": "Tay Ninh",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "tien-giang",
+      "nameVi": "Tiền Giang",
+      "nameEn": "Tien Giang",
+      "iso": "VN-46",
+      "regionId": "tay-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        106.2053,
+        10.4381
+      ],
+      "bbox": [
+        105.7996,
+        10.2367,
+        106.8139,
+        10.5725
+      ],
+      "current": {
+        "id": "dong-thap",
+        "nameVi": "Đồng Tháp",
+        "nameEn": "Dong Thap",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "ben-tre",
+      "nameVi": "Bến Tre",
+      "nameEn": "Ben Tre",
+      "iso": "VN-50",
+      "regionId": "tay-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        106.5069,
+        10.1058
+      ],
+      "bbox": [
+        106.03,
+        9.8163,
+        106.7931,
+        10.3197
+      ],
+      "current": {
+        "id": "vinh-long",
+        "nameVi": "Vĩnh Long",
+        "nameEn": "Vinh Long",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "tra-vinh",
+      "nameVi": "Trà Vinh",
+      "nameEn": "Tra Vinh",
+      "iso": "VN-51",
+      "regionId": "tay-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        106.3591,
+        9.7903
+      ],
+      "bbox": [
+        105.921,
+        9.5452,
+        106.5951,
+        10.0899
+      ],
+      "current": {
+        "id": "vinh-long",
+        "nameVi": "Vĩnh Long",
+        "nameEn": "Vinh Long",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "vinh-long",
+      "nameVi": "Vĩnh Long",
+      "nameEn": "Vinh Long",
+      "iso": "VN-49",
+      "regionId": "tay-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        105.9565,
+        10.0889
+      ],
+      "bbox": [
+        105.6837,
+        9.9319,
+        106.258,
+        10.3243
+      ],
+      "current": {
+        "id": "vinh-long",
+        "nameVi": "Vĩnh Long",
+        "nameEn": "Vinh Long",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "dong-thap",
+      "nameVi": "Đồng Tháp",
+      "nameEn": "Dong Thap",
+      "iso": "VN-45",
+      "regionId": "tay-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        105.5001,
+        10.7272
+      ],
+      "bbox": [
+        105.1841,
+        10.1393,
+        105.9277,
+        10.9791
+      ],
+      "current": {
+        "id": "dong-thap",
+        "nameVi": "Đồng Tháp",
+        "nameEn": "Dong Thap",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "an-giang",
+      "nameVi": "An Giang",
+      "nameEn": "An Giang",
+      "iso": "VN-44",
+      "regionId": "tay-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        105.1538,
+        10.5061
+      ],
+      "bbox": [
+        104.7767,
+        10.2031,
+        105.5706,
+        10.9607
+      ],
+      "current": {
+        "id": "an-giang",
+        "nameVi": "An Giang",
+        "nameEn": "An Giang",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "kien-giang",
+      "nameVi": "Kiên Giang",
+      "nameEn": "Kien Giang",
+      "iso": "VN-47",
+      "regionId": "tay-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        105.1298,
+        9.7605
+      ],
+      "bbox": [
+        103.838,
+        9.4256,
+        105.5488,
+        10.542
+      ],
+      "current": {
+        "id": "an-giang",
+        "nameVi": "An Giang",
+        "nameEn": "An Giang",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "can-tho",
+      "nameVi": "Cần Thơ",
+      "nameEn": "Can Tho",
+      "iso": "VN-CT",
+      "regionId": "tay-nam-bo",
+      "kind": "city",
+      "labelPoint": [
+        105.5074,
+        10.1425
+      ],
+      "bbox": [
+        105.2151,
+        9.896,
+        105.9028,
+        10.3441
+      ],
+      "current": {
+        "id": "can-tho",
+        "nameVi": "Thành phố Cần Thơ",
+        "nameEn": "Can Tho",
+        "kind": "city"
+      }
+    },
+    {
+      "id": "hau-giang",
+      "nameVi": "Hậu Giang",
+      "nameEn": "Hau Giang",
+      "iso": "VN-73",
+      "regionId": "tay-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        105.6212,
+        9.7786
+      ],
+      "bbox": [
+        105.3436,
+        9.6145,
+        105.8722,
+        9.9427
+      ],
+      "current": {
+        "id": "can-tho",
+        "nameVi": "Thành phố Cần Thơ",
+        "nameEn": "Can Tho",
+        "kind": "city"
+      }
+    },
+    {
+      "id": "soc-trang",
+      "nameVi": "Sóc Trăng",
+      "nameEn": "Soc Trang",
+      "iso": "VN-52",
+      "regionId": "tay-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        105.979,
+        9.5842
+      ],
+      "bbox": [
+        105.5496,
+        8.6109,
+        106.2963,
+        9.9414
+      ],
+      "current": {
+        "id": "can-tho",
+        "nameVi": "Thành phố Cần Thơ",
+        "nameEn": "Can Tho",
+        "kind": "city"
+      }
+    },
+    {
+      "id": "bac-lieu",
+      "nameVi": "Bạc Liêu",
+      "nameEn": "Bac Lieu",
+      "iso": "VN-55",
+      "regionId": "tay-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        105.4695,
+        9.3041
+      ],
+      "bbox": [
+        105.2338,
+        9.0562,
+        105.8623,
+        9.6396
+      ],
+      "current": {
+        "id": "ca-mau",
+        "nameVi": "Cà Mau",
+        "nameEn": "Ca Mau",
+        "kind": "province"
+      }
+    },
+    {
+      "id": "ca-mau",
+      "nameVi": "Cà Mau",
+      "nameEn": "Ca Mau",
+      "iso": "VN-59",
+      "regionId": "tay-nam-bo",
+      "kind": "province",
+      "labelPoint": [
+        105.0564,
+        9.0084
+      ],
+      "bbox": [
+        104.7081,
+        8.44,
+        105.4413,
+        9.5934
+      ],
+      "current": {
+        "id": "ca-mau",
+        "nameVi": "Cà Mau",
+        "nameEn": "Ca Mau",
+        "kind": "province"
+      }
+    }
+  ],
+  "archipelagos": [
+    {
+      "id": "hoang-sa",
+      "nameVi": "Quần đảo Hoàng Sa",
+      "nameEn": "Hoang Sa (Paracel) Archipelago",
+      "parentProvinceId": "da-nang",
+      "labelPoint": [
+        112.0263,
+        16.335
+      ],
+      "islandCount": 6
+    },
+    {
+      "id": "truong-sa",
+      "nameVi": "Quần đảo Trường Sa",
+      "nameEn": "Truong Sa (Spratly) Archipelago",
+      "parentProvinceId": "khanh-hoa",
+      "labelPoint": [
+        114.4966,
+        10.2992
+      ],
+      "islandCount": 7
+    }
+  ]
+}

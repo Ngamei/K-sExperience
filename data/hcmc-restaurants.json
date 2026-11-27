@@ -1,0 +1,7 @@
+{
+  "metadata": {
+    "note": "Canonical list of REAL Ho Chi Minh City establishments. Intentionally empty: no establishment has yet been verified by the K's Experience team. Do not add records without source references and a lastVerified date. Demonstration venues live in data/samples/ and are never mixed in here.",
+    "coverage": "Ho Chi Minh City administrative boundary as of 1 July 2025 (former HCMC, Bình Dương and Bà Rịa – Vũng Tàu). Enforced by `npm run data:validate`."
+  },
+  "restaurants": []
+}
