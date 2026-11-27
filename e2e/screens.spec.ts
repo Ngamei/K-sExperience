@@ -20,6 +20,14 @@ test("header language switch shows the active language", async ({ page }) => {
   await expect(page.getByTestId("tagline")).toHaveText("Explore Vietnam. Experience it in Sài Gòn.");
 });
 
+test("a dish with researched venues lists at least 5, each with a Google Maps link", async ({ page }) => {
+  await page.goto("/dishes/mi-quang/");
+  const rows = page.getByTestId("hcmc-block").getByTestId("venue-row");
+  await expect(rows.first()).toBeVisible();
+  expect(await rows.count()).toBeGreaterThanOrEqual(5);
+  for (const r of await rows.all()) await expect(r.getByTestId("google-maps-link")).toHaveAttribute("href", /google\.com\/maps\/search/);
+});
+
 test("every dish offers a Google Maps search for HCMC, even without listed venues", async ({ page }) => {
   await page.goto("/dishes/thang-co/");
   await expect(page.getByTestId("none-found")).toBeVisible();
@@ -46,13 +54,14 @@ test("Nearby: real researched venues, samples only when enabled", async ({ page 
   await page.goto("/nearby/");
   const cards = page.getByTestId("venue-card");
   await expect(cards.first()).toBeVisible();
-  expect(await cards.count()).toBe(5);
+  const realCount = await cards.count();
+  expect(realCount).toBeGreaterThanOrEqual(5);
   await expect(page.getByTestId("sample-badge")).toHaveCount(0);
   await expect(page.getByTestId("venue-list")).toContainText("Phở Hòa Pasteur");
   await enableSamples(page);
   await page.goto("/nearby/");
   await expect(cards.first()).toBeVisible();
-  expect(await cards.count()).toBe(13);
+  expect(await cards.count()).toBe(realCount + 8);
   expect(await page.getByTestId("sample-badge").count()).toBe(8);
 });
 

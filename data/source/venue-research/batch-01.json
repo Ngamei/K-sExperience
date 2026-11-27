@@ -1,0 +1,349 @@
+{
+  "researchedOn": "2026-11-27",
+  "method": "Web search of published HCMC food guides (VinWonders, Vinpearl, mia.vn, Grab Food blog, toplist.vn, mytour.vn). Only venues with a name AND a full street address in the source are kept; unnamed or conflicting entries were dropped.",
+  "venues": [
+    {
+      "name": "Bún Bò Huế Hạnh",
+      "address": "135 Bành Văn Trân",
+      "dishes": [
+        "bun-bo-hue"
+      ],
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/top-quan-bun-bo-hue-sai-gon-16144",
+        "https://vinwonders.com/vi/bai-viet-du-lich/bun-bo-hue-ngon-o-sai-gon/"
+      ],
+      "note": "Listed as run for 30+ years by a Huế-born owner.",
+      "district": "Tân Bình"
+    },
+    {
+      "name": "Bún Bò Huế Bến Ngự",
+      "address": "585 Huỳnh Tấn Phát",
+      "dishes": [
+        "bun-bo-hue"
+      ],
+      "sources": [
+        "https://vinpearl.com/vi/dung-chuan-huong-vi-co-do-voi-15-quan-bun-bo-hue-ngon-o-sai-gon"
+      ]
+    },
+    {
+      "name": "Bún Bò Huế Kim Hương",
+      "address": "172 Nguyễn Xí",
+      "dishes": [
+        "bun-bo-hue"
+      ],
+      "sources": [
+        "https://vinpearl.com/vi/dung-chuan-huong-vi-co-do-voi-15-quan-bun-bo-hue-ngon-o-sai-gon"
+      ]
+    },
+    {
+      "name": "Bún Bò Gia Hội",
+      "address": "622 Tô Ngọc Vân",
+      "dishes": [
+        "bun-bo-hue"
+      ],
+      "sources": [
+        "https://vinpearl.com/vi/dung-chuan-huong-vi-co-do-voi-15-quan-bun-bo-hue-ngon-o-sai-gon"
+      ]
+    },
+    {
+      "name": "Nam Giao",
+      "address": "136/15 Lê Thánh Tôn",
+      "dishes": [
+        "bun-bo-hue"
+      ],
+      "sources": [
+        "https://vinwonders.com/vi/bai-viet-du-lich/bun-bo-hue-ngon-o-sai-gon/"
+      ],
+      "note": "Huế-cuisine restaurant.",
+      "district": "Quận 1"
+    },
+    {
+      "name": "Bún Bò Huế O Tú",
+      "address": "466A Nguyễn Tri Phương",
+      "dishes": [
+        "bun-bo-hue"
+      ],
+      "sources": [
+        "https://vinwonders.com/vi/bai-viet-du-lich/bun-bo-hue-ngon-o-sai-gon/"
+      ]
+    },
+    {
+      "name": "Bún Chả 145",
+      "address": "145 Bùi Viện",
+      "dishes": [
+        "bun-cha-ha-noi"
+      ],
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/bun-cha-ha-noi-ngon-o-sai-gon/"
+      ],
+      "district": "Quận 1"
+    },
+    {
+      "name": "Bún Chả Hồ Gươm",
+      "address": "6 Trần Phú",
+      "dishes": [
+        "bun-cha-ha-noi"
+      ],
+      "sources": [
+        "https://www.grab.com/vn/en/food-blog/talk-of-the-town/tphcm-o-sai-gon-them-bun-cha-ha-noi-thi-di-dau/"
+      ],
+      "note": "Grab lists hours 07:00–21:00 and a second branch at 26 Lữ Gia.",
+      "district": "Quận 5"
+    },
+    {
+      "name": "Bún Chả Phố Cổ",
+      "address": "225 Phan Xích Long",
+      "dishes": [
+        "bun-cha-ha-noi"
+      ],
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/bun-cha-ha-noi-ngon-o-sai-gon/"
+      ]
+    },
+    {
+      "name": "Bún Chả Hà Nội 26",
+      "address": "8A/9C2 Thái Văn Lung",
+      "dishes": [
+        "bun-cha-ha-noi"
+      ],
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/bun-cha-ha-noi-ngon-o-sai-gon/"
+      ],
+      "district": "Quận 1"
+    },
+    {
+      "name": "Bún Chả Vân Anh",
+      "address": "36 Hồng Hà",
+      "dishes": [
+        "bun-cha-ha-noi"
+      ],
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/bun-cha-ha-noi-ngon-o-sai-gon/"
+      ],
+      "district": "Tân Bình"
+    },
+    {
+      "name": "Mì Quảng Sâm",
+      "address": "8 Ca Văn Thỉnh",
+      "dishes": [
+        "mi-quang"
+      ],
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/mi-quang-ngon-o-sai-gon/"
+      ],
+      "district": "Tân Bình"
+    },
+    {
+      "name": "Mì Quảng 3 Anh Em",
+      "address": "193 Cách Mạng Tháng 8",
+      "dishes": [
+        "mi-quang"
+      ],
+      "sources": [
+        "https://vinpearl.com/vi/thon-thuc-vi-mi-quang-ngon-o-sai-gon-cung-15-quan-sieu-dinh-nay"
+      ],
+      "district": "Quận 3"
+    },
+    {
+      "name": "Mì Quảng Ếch",
+      "address": "233 Nguyễn Trọng Tuyển",
+      "dishes": [
+        "mi-quang"
+      ],
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/mi-quang-ngon-o-sai-gon/"
+      ],
+      "district": "Phú Nhuận"
+    },
+    {
+      "name": "Mỳ Quảng Bà Mua",
+      "address": "80 Yên Thế",
+      "dishes": [
+        "mi-quang"
+      ],
+      "sources": [
+        "https://toplist.vn/top-list/quan-mi-quang-ngon-dong-khach-nhat-sai-gon-12257.htm"
+      ],
+      "note": "Listed as operating for 40+ years.",
+      "district": "Tân Bình"
+    },
+    {
+      "name": "Mì Quảng Chính Hiệu",
+      "address": "163 Lê Văn Thọ",
+      "dishes": [
+        "mi-quang"
+      ],
+      "sources": [
+        "https://vinpearl.com/vi/thon-thuc-vi-mi-quang-ngon-o-sai-gon-cung-15-quan-sieu-dinh-nay"
+      ]
+    },
+    {
+      "name": "Bún Đậu Phố Gầm Cầu",
+      "address": "563 Cây Trâm",
+      "dishes": [
+        "bun-dau-mam-tom"
+      ],
+      "sources": [
+        "https://www.grab.com/vn/food-blog/trending-food/tphcm-bun-dau-pho-gam-cau-mot-thoi-sieu-hot-o-ha-noi-co-mat-o-sai-gon/"
+      ],
+      "note": "Grab lists hours 09:00–22:00.",
+      "district": "Gò Vấp"
+    },
+    {
+      "name": "Bún Đậu 2 Con Cua",
+      "address": "235 Đường Số 7, Bình Tân",
+      "dishes": [
+        "bun-dau-mam-tom"
+      ],
+      "sources": [
+        "https://toplist.vn/top-list/bun-dau-mam-tom-ngon-o-quan-binh-tan-tp-hcm-37654.htm"
+      ],
+      "district": "Bình Tân"
+    },
+    {
+      "name": "Bún Riêu Cua Ốc Phan Rang",
+      "address": "66 Nguyễn Thái Bình",
+      "dishes": [
+        "bun-rieu-cua"
+      ],
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/bun-rieu-sai-gon/"
+      ],
+      "note": "Sea-crab (Phan Rang) style of bún riêu.",
+      "district": "Quận 1"
+    },
+    {
+      "name": "Bún Riêu Gánh Chợ Bến Thành",
+      "address": "163 Lê Thánh Tôn",
+      "dishes": [
+        "bun-rieu-cua"
+      ],
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/bun-rieu-ganh-cho-ben-thanh-17591"
+      ],
+      "district": "Quận 1"
+    },
+    {
+      "name": "Bún Riêu Yến",
+      "address": "1348 Trường Sa",
+      "dishes": [
+        "bun-rieu-cua"
+      ],
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/bun-rieu-sai-gon/"
+      ]
+    },
+    {
+      "name": "Bún Riêu Cô Béo",
+      "address": "139/42 Đinh Bộ Lĩnh",
+      "dishes": [
+        "bun-rieu-cua"
+      ],
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/bun-rieu-sai-gon/"
+      ]
+    },
+    {
+      "name": "Bánh Khọt Khanh",
+      "address": "7 Đồng Nai",
+      "dishes": [
+        "banh-khot-vung-tau"
+      ],
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/top-quan-banh-khot-tai-sai-gon-17985"
+      ],
+      "district": "Quận 10"
+    },
+    {
+      "name": "Bánh Khọt Sài Gòn – Thùy Lê",
+      "address": "606/187 Đường 3 Tháng 2",
+      "dishes": [
+        "banh-khot-vung-tau"
+      ],
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/banh-khot-sai-gon-15-quan-gion-rum-thom-ngon/"
+      ]
+    },
+    {
+      "name": "Bánh Khọt & Bánh Xèo Ban Mê",
+      "address": "78 Bình Giã",
+      "dishes": [
+        "banh-khot-vung-tau",
+        "banh-xeo-nam-bo"
+      ],
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/banh-khot-sai-gon-15-quan-gion-rum-thom-ngon/"
+      ]
+    },
+    {
+      "name": "Bánh Cuốn Tây Hồ",
+      "address": "127 Đinh Tiên Hoàng",
+      "dishes": [
+        "banh-cuon-thanh-tri"
+      ],
+      "styleNote": true,
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/luu-ngay-tiem-banh-cuon-ngon-sai-gon-17162"
+      ],
+      "district": "Quận 1"
+    },
+    {
+      "name": "Bánh Cuốn Hải Nam",
+      "address": "11A Cao Thắng",
+      "dishes": [
+        "banh-cuon-thanh-tri"
+      ],
+      "styleNote": true,
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/banh-cuon-ngon-sai-gon/"
+      ]
+    },
+    {
+      "name": "Bánh Cuốn Bắc",
+      "address": "21A Bùi Thị Xuân",
+      "dishes": [
+        "banh-cuon-thanh-tri"
+      ],
+      "styleNote": true,
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/banh-cuon-ngon-sai-gon/"
+      ]
+    },
+    {
+      "name": "Bánh Cuốn Ba Miền",
+      "address": "104 Bà Huyện Thanh Quan",
+      "dishes": [
+        "banh-cuon-thanh-tri"
+      ],
+      "styleNote": true,
+      "sources": [
+        "https://www.grab.com/vn/food-blog/talk-of-the-town/tphcm-banh-cuon-ba-mien-nang-tam-mon-an-viet-chuan-ngon-chuan-sach/"
+      ],
+      "note": "Grab lists hours 07:00–22:00.",
+      "district": "Quận 3"
+    },
+    {
+      "name": "Bánh Cuốn Hồng Hạnh",
+      "address": "353 Lê Văn Sỹ",
+      "dishes": [
+        "banh-cuon-thanh-tri"
+      ],
+      "styleNote": true,
+      "sources": [
+        "https://mytour.vn/vi/blog/bai-viet/danh-sach-15-quan-banh-cuon-ngon-nhat-sai-gon.html"
+      ],
+      "district": "Quận 3"
+    },
+    {
+      "name": "Bánh Cuốn Nam Việt",
+      "address": "152 Nguyễn Biểu",
+      "dishes": [
+        "banh-cuon-thanh-tri"
+      ],
+      "styleNote": true,
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/banh-cuon-ngon-sai-gon/"
+      ]
+    }
+  ]
+}

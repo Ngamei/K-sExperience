@@ -8,7 +8,7 @@ import { DIET_LABELS, DISH_TYPE_LABELS, lbl, MEAL_LABELS, SPICE_LABELS, TASTE_LA
 import { useT } from "@/lib/i18n/use-t";
 import { useFilters } from "@/lib/store/filters";
 import { Chip } from "@/components/ui/chip";
-import { useFoodData } from "./food-data";
+import { useBrowseAvailability, useFoodData } from "./food-data";
 import { CATEGORY_COLORS } from "./illustrations";
 
 const AVAIL: AvailabilityStatus[] = ["verified-available", "unverified", "temporarily-unavailable", "none-found"];
@@ -153,6 +153,13 @@ export function FilterPanel() {
   const set = useFilters((s) => s.set);
   const originId = useFilters((s) => s.originId);
   const setOrigin = useFilters((s) => s.setOrigin);
+  const availability = useBrowseAvailability();
+  /** Neighbourhoods come from the venues themselves (current wards since the 2025 reform), most venues first. */
+  const neighbourhoods = useMemo(() => {
+    const count = new Map<string, number>();
+    for (const r of availability.restaurants.values()) count.set(r.neighbourhood, (count.get(r.neighbourhood) ?? 0) + 1);
+    return [...count.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "vi")).map(([n]) => n);
+  }, [availability]);
   const provinceOptions = useMemo(
     () => provinces.filter((p) => !f.regions.length || f.regions.includes(p.regionId)).sort((a, b) => a.nameVi.localeCompare(b.nameVi, "vi")),
     [provinces, f.regions],
@@ -247,8 +254,8 @@ export function FilterPanel() {
         ))}
       </Section>
       <Section title={t("filters.neighbourhood")}>
-        {HCMC_NEIGHBOURHOODS.map((n) => (
-          <Chip key={n.id} active={f.neighbourhoods.includes(n.name)} onClick={() => set({ neighbourhoods: toggleIn(f.neighbourhoods, n.name) })}>{n.name}</Chip>
+        {neighbourhoods.map((n) => (
+          <Chip key={n} active={f.neighbourhoods.includes(n)} onClick={() => set({ neighbourhoods: toggleIn(f.neighbourhoods, n) })}>{n}</Chip>
         ))}
       </Section>
       <Section title={t("filters.distance")}>

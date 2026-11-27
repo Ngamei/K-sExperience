@@ -40,7 +40,8 @@ Unzip, run `node serve.mjs` inside the folder, open http://localhost:4173 (Node 
 | `npm run qa` | All of the above in order |
 | `npm run data:geo` | Rebuild geography files from the geoBoundaries source |
 | `npm run data:seed` | Regenerate the seed catalogue through the importer (attaches curated photos) |
-| `npm run data:restaurants` | Import researched HCMC venues (validates sources + HCMC boundary) |
+| `npm run data:restaurants` | Import researched HCMC venues (curated list + research batches; validates sources + HCMC boundary) |
+| `npm run data:coverage` | Regenerate `docs/VENUE_COVERAGE.md` (venues per dish, target ≥ 5) |
 | `npm run data:import -- <file.json\|csv> --dataset master` | Import the master catalogue |
 | `npm run data:validate` | Integrity checks across all data files (incl. HCMC-only rule) |
 

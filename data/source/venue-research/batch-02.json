@@ -1,0 +1,32 @@
+{
+  "researchedOn": "2026-11-27",
+  "method": "Web search of published HCMC food guides (mia.vn, VinWonders, Vinpearl, Grab Food blog, fptshop, toplist.vn). Named venues with a street address only; conflicting entries dropped (e.g. two different shops listed at 80 Cao Thắng).",
+  "venues": [
+    { "name": "Cơm Tấm Phúc Lộc Thọ", "address": "236 Đinh Tiên Hoàng", "district": "Quận 1", "dishes": ["com-tam-sai-gon"], "sources": ["https://vinwonders.com/vi/wonderpedia/news/com-tam-sai-gon/"], "note": "Several branches; the source gives this one as the main shop." },
+    { "name": "Cơm Tấm Sà Bì Chưởng", "address": "179 Trần Bình Trọng", "district": "Quận 5", "dishes": ["com-tam-sai-gon"], "sources": ["https://mia.vn/cam-nang-du-lich/quan-com-tam-quan-5-noi-tieng-16135"] },
+    { "name": "Cơm Tấm 67 Tấm", "address": "99/1B Võ Văn Tần", "district": "Quận 3", "dishes": ["com-tam-sai-gon"], "sources": ["https://mia.vn/cam-nang-du-lich/com-tam-sai-gon-12569"] },
+    { "name": "Cơm Tấm Ba Há", "address": "389 Hưng Phú", "district": "Quận 8", "dishes": ["com-tam-sai-gon"], "sources": ["https://vinwonders.com/vi/wonderpedia/news/com-tam-sai-gon/"], "note": "Source lists hours 16:00–20:30." },
+    { "name": "Cơm Tấm Hồng Calmette", "address": "134 Hoàng Diệu", "district": "Quận 4", "dishes": ["com-tam-sai-gon"], "sources": ["https://vinwonders.com/vi/wonderpedia/news/com-tam-sai-gon/"] },
+    { "name": "Cơm Tấm Bài Rác", "address": "73 Lê Văn Linh", "district": "Quận 4", "dishes": ["com-tam-sai-gon"], "sources": ["https://mia.vn/cam-nang-du-lich/com-tam-bai-rac-sai-gon-17290"] },
+
+    { "name": "Phở Cao Vân", "address": "25 Mạc Đĩnh Chi", "district": "Quận 1", "dishes": ["pho-sai-gon"], "sources": ["https://mia.vn/cam-nang-du-lich/top-quan-pho-sai-gon-18417"], "note": "Source: open since 1947." },
+    { "name": "Phở Trang Since 1936", "address": "420 Phạm Thái Bường", "district": "Quận 7", "dishes": ["pho-sai-gon"], "sources": ["https://mia.vn/cam-nang-du-lich/top-quan-pho-sai-gon-18417"] },
+    { "name": "Phở Lệ", "address": "415 Nguyễn Trãi", "district": "Quận 5", "dishes": ["pho-sai-gon"], "sources": ["https://mia.vn/cam-nang-du-lich/pho-le-sai-gon-16052"] },
+    { "name": "Phở Dậu", "address": "288 M1 Nam Kỳ Khởi Nghĩa", "district": "Quận 3", "dishes": ["pho-bo-ha-noi"], "sources": ["https://mia.vn/cam-nang-du-lich/quan-pho-dau-hon-60-nam-tuoi-giua-long-sai-gon-17776", "https://znews.vn/6-tiem-pho-bo-dam-vi-ha-noi-giua-long-tphcm-post1018273.html"], "note": "Northern-style phở (Znews: 'phở bò đậm vị Hà Nội'); 60+ years old." },
+    { "name": "Phở Minh", "address": "63/6 Pasteur", "district": "Quận 1", "dishes": ["pho-bo-ha-noi"], "sources": ["https://mia.vn/cam-nang-du-lich/quan-ngon-pho-minh-sai-gon-16016", "https://znews.vn/6-tiem-pho-bo-dam-vi-ha-noi-giua-long-tphcm-post1018273.html"], "note": "Northern-style phở listed by Znews among Hanoi-style phở shops in HCMC." },
+
+    { "name": "Bánh Mì Như Lan", "address": "68 Hàm Nghi", "district": "Quận 1", "dishes": ["banh-mi-sai-gon"], "sources": ["https://fptshop.com.vn/tin-tuc/dien-may/banh-mi-ngon-nhat-sai-gon-180540"] },
+    { "name": "Bánh Mì Kim Dung", "address": "118A Lý Thường Kiệt", "district": "Quận 10", "dishes": ["banh-mi-sai-gon"], "sources": ["https://fptshop.com.vn/tin-tuc/dien-may/banh-mi-ngon-nhat-sai-gon-180540"] },
+    { "name": "Bánh Mì Chim Chạy", "address": "147D Nguyễn Thị Minh Khai", "district": "Quận 1", "dishes": ["banh-mi-sai-gon"], "sources": ["https://fptshop.com.vn/tin-tuc/dien-may/banh-mi-ngon-nhat-sai-gon-180540"] },
+
+    { "name": "Hủ Tiếu Nam Vang Thành Đạt", "address": "16 Lý Thái Tổ", "dishes": ["hu-tieu-nam-vang"], "sources": ["https://vinwonders.com/vi/wonderpedia/news/hu-tieu-nam-vang-sai-gon/"], "note": "Several branches listed (also 122D Cách Mạng Tháng 8, Quận 3)." },
+    { "name": "Hủ Tiếu Nam Vang Liến Húa", "address": "381 Võ Văn Tần", "district": "Quận 3", "dishes": ["hu-tieu-nam-vang"], "sources": ["https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"], "note": "Source lists hours 08:00–23:00." },
+    { "name": "Hủ Tiếu Tài Anh", "address": "494 Nguyễn Thị Thập", "district": "Quận 7", "dishes": ["hu-tieu-nam-vang"], "styleNote": true, "sources": ["https://vinpearl.com/vi/vuong-van-hu-tieu-nam-vang-sai-gon-ngon-duom-vi"] },
+    { "name": "Hủ Tiếu Mười Đoàn", "address": "49 Đặng Văn Bi", "district": "Thủ Đức", "dishes": ["hu-tieu-nam-vang"], "styleNote": true, "sources": ["https://vinpearl.com/vi/vuong-van-hu-tieu-nam-vang-sai-gon-ngon-duom-vi"] },
+    { "name": "Hủ Tiếu Nhất Quán", "address": "123 Nguyễn Văn Nghi", "district": "Gò Vấp", "dishes": ["hu-tieu-nam-vang"], "styleNote": true, "sources": ["https://vinpearl.com/vi/vuong-van-hu-tieu-nam-vang-sai-gon-ngon-duom-vi"] },
+
+    { "name": "Bánh Xèo Bếp Mẹ Ỉn", "address": "74/7 Hai Bà Trưng", "district": "Quận 1", "dishes": ["banh-xeo-nam-bo"], "sources": ["https://mia.vn/cam-nang-du-lich/top-quan-banh-xeo-quan-1-18236"] },
+    { "name": "Bánh Xèo Tôm Nhảy Thanh Diệu", "address": "300 Sư Vạn Hạnh", "district": "Quận 10", "dishes": ["banh-xeo-tom-nhay-quy-nhon"], "sources": ["https://mia.vn/cam-nang-du-lich/quan-banh-xeo-quan-10-ngon-18250"] },
+    { "name": "Bánh Xèo Cây Bàng", "address": "163A Trần Văn Đang", "district": "Quận 3", "dishes": ["banh-xeo-tom-nhay-quy-nhon"], "styleNote": true, "sources": ["https://mia.vn/cam-nang-du-lich/top-quan-banh-xeo-quan-3-18238"], "note": "Central-Vietnam-style bánh xèo." }
+  ]
+}

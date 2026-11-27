@@ -13,7 +13,7 @@ headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is
 | 4 | `npx vitest run tests/unit` | ✅ **3 files, 27 tests passed** |
 | 5 | `npx vitest run tests/integration` (= `npm run data:validate`) | ✅ **1 file, 15 tests passed** |
 | 6 | `npm run build` | ✅ exit 0 — 164 static pages (138 dishes, 5 real + 8 sample venues, screens, manifest, `/data/food.json`) |
-| 7 | `npx playwright test` (against `next start`) | ✅ **30 passed** (15 scenarios × desktop 1440×900 + Pixel 7) in 38.0 s |
+| 7 | `npx playwright test` (against `next start`) | ✅ **34 passed** (17 scenarios × desktop 1440×900 + Pixel 7) in 43.6 s — after venue batch 2 |
 | 8 | `STATIC_EXPORT=1 npx next build` | ✅ exit 0 — `out/` 22 MB |
 | 9 | `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` (against the static export) | ✅ **30 passed** in 37.4 s |
 | 10 | `npm run build:preview` | ✅ `preview/ks-experience-preview-<commit>.zip` (~6.4 MB) |

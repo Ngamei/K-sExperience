@@ -58,10 +58,11 @@ test("priority journey: explore → region + category → dish → HCMC availabi
 });
 
 test("sample venues are opt-in, always labelled, and never verified-real", async ({ page }) => {
-  await page.goto("/dishes/bun-bo-hue/");
+  // Bột chiên has no real venue yet, only a fictional sample one.
+  await page.goto("/dishes/bot-chien/");
   await expect(page.getByTestId("hcmc-block")).toContainText("No verified HCMC establishment found");
   await enableSamples(page);
-  await page.goto("/dishes/bun-bo-hue/");
+  await page.goto("/dishes/bot-chien/");
   const samples = page.getByTestId("sample-venues");
   await expect(samples).toBeVisible();
   await expect(samples.getByTestId("sample-badge").first()).toBeVisible();

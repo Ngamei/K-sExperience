@@ -16,6 +16,8 @@ Every dataset, where it came from, its licence and its verification status.
 | `data/hcmc-restaurants.json` | Real HCMC establishments (canonical) | `npm run data:restaurants` | — | 5 venues, `lastVerified` = desk-check date |
 | `data/dish-restaurant-mapping.json` | Real dish ↔ establishment links | Same importer | — | 5 links, all `unverified` with `published-source` evidence |
 | Venue coordinates | Lat/lon | OpenStreetMap Nominatim, 2026-11-27 | ODbL (© OpenStreetMap contributors) | 4 exact (building/POI); Cơm Tấm Ba Ghiền street-level only, flagged approximate |
+| `data/source/venue-research/batch-*.json` | Venue research batches (name, address, district, dishes, source URLs) | Published HCMC food guides: mia.vn, VinWonders, Vinpearl, Grab Food blog, toplist.vn, fptshop, mytour, Znews | Facts only | Listed by source; geocoded street-level unless marked exact |
+| `data/source/venue-research/geocoded.json` | Geocoding cache | OpenStreetMap Nominatim | ODbL | Ambiguous streets rejected |
 | `data/source/dish-photos.json` | 45 dish photos (attached by `npm run data:seed`) | Wikimedia Commons; licence + author from the Commons API, 2026-11-27 | CC BY / CC BY-SA / CC0 / Public domain (per file, shown in UI) | Curated: each shows the named dish; 6 candidates rejected as mismatches. Loaded from Commons at runtime |
 | `data/samples/*.sample.json` | 8 fictional venues + 23 links | Fictional, for UI preview | — | **SAMPLE — never real, never recommended** |
 | Food illustrations (`src/components/food/illustrations.ts`) | 18 SVG dish-type illustrations | Original work in this repo | Project-owned | Used for map markers and for the 93 dishes without a photo |

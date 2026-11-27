@@ -13,8 +13,9 @@ const ctx = { availability: real, saved: new Set<string>(), tried: new Set<strin
 
 describe("availability", () => {
   it("sample venues never count unless explicitly included", () => {
-    expect(statusOf(real, "pho-bo-ha-noi")).toBe("none-found");
-    expect(statusOf(withSamples, "pho-bo-ha-noi")).toBe("verified-available");
+    // bot-chien has only a (fictional) sample venue
+    expect(statusOf(real, "bot-chien")).toBe("none-found");
+    expect(statusOf(withSamples, "bot-chien")).toBe("verified-available");
     expect(statusOf(withSamples, "banh-beo-hue")).toBe("temporarily-unavailable");
   });
 });
@@ -45,11 +46,14 @@ describe("dish filters", () => {
     expect(r.some((d) => d.id === "bun-bo-hue")).toBe(false);
   });
   it("venue filters only match via establishments in the index", () => {
+    // Real venues carry their current ward; samples use the old district label "Quận 1".
+    const ward = filterDishes(data.dishes, { ...EMPTY_FILTERS, neighbourhoods: ["Phường Tân Định"] }, ctx).map((d) => d.id);
+    expect(ward).toContain("banh-xeo-nam-bo");
+    expect(ward.every((id) => (real.linksByDish.get(id) ?? []).some((l) => real.restaurants.get(l.restaurantId)?.neighbourhood === "Phường Tân Định"))).toBe(true);
     const f = { ...EMPTY_FILTERS, neighbourhoods: ["Quận 1"] };
-    // Real venues in Quận 1: Bánh Mì Huỳnh Hoa, Bánh Xèo 46A
-    expect(filterDishes(data.dishes, f, ctx).map((d) => d.id).sort()).toEqual(["banh-mi-sai-gon", "banh-xeo-nam-bo"]);
+    expect(filterDishes(data.dishes, f, ctx)).toHaveLength(0);
     const s = filterDishes(data.dishes, f, { ...ctx, availability: withSamples });
-    expect(s.map((d) => d.id).sort()).toEqual(["banh-mi-sai-gon", "banh-xeo-nam-bo", "bun-cha-ha-noi", "cha-ca-la-vong", "pho-bo-ha-noi"]);
+    expect(s.map((d) => d.id).sort()).toEqual(["bun-cha-ha-noi", "cha-ca-la-vong", "pho-bo-ha-noi"]);
   });
   it("real researched venues are listed but never marked verified-available from a published source alone", () => {
     expect(statusOf(real, "com-tam-sai-gon")).toBe("unverified");
