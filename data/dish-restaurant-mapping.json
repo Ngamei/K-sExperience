@@ -1338,6 +1338,66 @@
         "url": "https://toplist.vn/top-list/quan-banh-da-cua-ngon-nhat-quan-tan-binh-tphcm-64584.htm"
       },
       "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "hu-tieu-my-tho",
+      "restaurantId": "hu-tieu-my-tho-thanh-xuan-62-ton-that-thiep",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Source: over half a century old ('hủ tiếu Chùa Chà'); hours 06:00–13:00.",
+        "url": "https://mia.vn/cam-nang-du-lich/hu-tieu-my-tho-thanh-xuan-19665"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "hu-tieu-my-tho",
+      "restaurantId": "hu-tieu-my-tho-di-9-538-51-doan-van-bo",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Grab lists hours 17:00–23:00.",
+        "url": "https://www.grab.com/vn/en/food-blog/talk-of-the-town/tphcm-grabfood-co-may-quan-hu-tieu-sieu-ngon-day-nha/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "com-hen",
+      "restaurantId": "com-hen-o-nho-15-21-nguyen-ngoc-loc",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-com-hen-sai-gon-18811"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-nuoc-leo-soc-trang",
+      "restaurantId": "bun-nuoc-leo-soc-trang-le-quang-dinh-401-le-quang-dinh",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide.",
+        "url": "https://www.grab.com/vn/food-blog/merchant-story/tphcm-co-gi-trong-to-bun-nang-mui-nhung-de-nang-long-nho-thuong/"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "pho-kho-gia-lai",
+      "restaurantId": "pho-kho-gia-lai-hoa-po-lang-207-tan-son-nhi",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Listed for this dish by a published HCMC food guide. Source lists hours 06:30–12:30 and 17:30–20:30.",
+        "url": "https://mia.vn/cam-nang-du-lich/pho-kho-gia-lai-sai-gon-19415"
+      },
+      "lastVerified": "2026-11-27"
     }
   ]
 }

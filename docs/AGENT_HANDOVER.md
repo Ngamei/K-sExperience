@@ -38,3 +38,4 @@ Use separate branches per agent (e.g. `codex/<topic>`); merge via PR reviewed by
 
 ## Log
 - **2026-11-27 · Claude Code** — Sprint 2 start: audit, data report, priority-50 list, verification plan, backlog, dish-page actions (copy name, more from origin). Venue research batches 1–6 done earlier today.
+- **2026-11-27 · Claude Code** — CC-05 batch 7 (priority-50): +5 venues (hủ tiếu Mỹ Tho ×2, cơm hến, bún nước lèo, phở khô Gia Lai). Priority-50: 6 at ≥5, 16 at 1–4, 28 none. Next: remaining 28 priority dishes; then CC-07 verification importer once PO confirms who verifies.

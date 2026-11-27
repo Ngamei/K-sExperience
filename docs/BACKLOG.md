@@ -10,7 +10,7 @@ Status: ✅ done · 🔄 in progress · ⬜ todo · ⛔ blocked (reason).
 | CC-02 | P0 | CC | Feature audit + regression baseline | `docs/AUDIT.md`, all tests green | ✅ |
 | CC-03 | P0 | CC | Automated data completeness report | `npm run data:report` → `docs/DATA_REPORT.md` | ✅ |
 | CC-04 | P0 | CC | Restaurant verification plan + priority-50 list | `docs/RESTAURANT_VERIFICATION_PLAN.md`, `data/source/priority-dishes.json` | ✅ |
-| CC-05 | P0 | CC | L1 desk research for priority-50 dishes | each priority dish ≥ 1 listed venue or documented "none found" with searches tried | 🔄 6 at ≥5, 12 at 1–4, 32 none |
+| CC-05 | P0 | CC | L1 desk research for priority-50 dishes | each priority dish ≥ 1 listed venue or documented "none found" with searches tried | 🔄 after batch 7: 6 at ≥5, 16 at 1–4, 28 none (searches for chả cá Lã Vọng, xôi xéo, bún sứa, bún đỏ, bánh tằm bì found no named HCMC venue) |
 | CC-06 | P1 | CC | Dish page: Copy dish name, More from origin province | e2e | ✅ |
 | CC-07 | P0 | CC | First-hand verification importer (sheet → `verified-available` with evidence) | CSV import validated; refuses missing method/date; e2e shows "Verified available" | ⬜ |
 | PO-01 | P0 | PO | First-hand verification of ~20 venues/week (L2) | sheet filled per plan | ⬜ |

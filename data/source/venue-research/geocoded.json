@@ -751,5 +751,40 @@
   "precision": "street",
   "ward": "Phường Đức Nhuận",
   "displayName": "Hồng Hà, Khu phố 17, Phường Đức Nhuận, Thành phố Hồ Chí Minh, 72223, Việt Nam"
+ },
+ "Hủ Tiếu Mỹ Tho Thanh Xuân|62 Tôn Thất Thiệp|Quận 1": {
+  "lon": 106.703067,
+  "lat": 10.773884,
+  "precision": "street",
+  "ward": "Phường Sài Gòn",
+  "displayName": "Tôn Thất Thiệp, Khu phố 5, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+ },
+ "Hủ Tiếu Mỹ Tho Dì 9|538/51 Đoàn Văn Bơ|Quận 4": {
+  "lon": 106.709392,
+  "lat": 10.759966,
+  "precision": "street",
+  "ward": "Phường Khánh Hội",
+  "displayName": "Đoàn Văn Bơ, Khu phố 13, Phường Khánh Hội, Thành phố Hồ Chí Minh, 72822, Việt Nam"
+ },
+ "Cơm Hến O Nhớ|15/21 Nguyễn Ngọc Lộc|Quận 10": {
+  "lon": 106.663283,
+  "lat": 10.76721,
+  "precision": "street",
+  "ward": "Phường Diên Hồng",
+  "displayName": "Nguyễn Ngọc Lộc, Khu phố 6, Phường Diên Hồng, Thành phố Hồ Chí Minh, 72521, Việt Nam"
+ },
+ "Bún Nước Lèo Sóc Trăng – Lê Quang Định|401 Lê Quang Định|Bình Thạnh": {
+  "lon": 106.69339,
+  "lat": 10.809247,
+  "precision": "street",
+  "ward": "Phường Gia Định",
+  "displayName": "Lê Quang Định, Khu phố 1, Phường Gia Định, Thành phố Hồ Chí Minh, 72330, Việt Nam"
+ },
+ "Phở Khô Gia Lai Hoa Pơ Lang|207 Tân Sơn Nhì|Tân Phú": {
+  "lon": 106.632267,
+  "lat": 10.799453,
+  "precision": "street",
+  "ward": "Phường Tân Sơn Nhì",
+  "displayName": "Tân Sơn Nhì, Khu phố 42, Phường Tân Sơn Nhì, Thành phố Hồ Chí Minh, 72008, Việt Nam"
  }
 }

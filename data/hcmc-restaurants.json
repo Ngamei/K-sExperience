@@ -3132,6 +3132,151 @@
         }
       ],
       "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "hu-tieu-my-tho-thanh-xuan-62-ton-that-thiep",
+      "name": "Hủ Tiếu Mỹ Tho Thanh Xuân",
+      "isSample": false,
+      "address": "62 Tôn Thất Thiệp, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Sài Gòn",
+      "coordinates": [
+        106.703067,
+        10.773884
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%E1%BB%A7%20Ti%E1%BA%BFu%20M%E1%BB%B9%20Tho%20Thanh%20Xu%C3%A2n%2C%2062%20T%C3%B4n%20Th%E1%BA%A5t%20Thi%E1%BB%87p%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/hu-tieu-my-tho-thanh-xuan-19665",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "vinwonders.com",
+          "url": "https://vinwonders.com/vi/wonderpedia/news/hu-tieu-sai-gon/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "hu-tieu-my-tho-di-9-538-51-doan-van-bo",
+      "name": "Hủ Tiếu Mỹ Tho Dì 9",
+      "isSample": false,
+      "address": "538/51 Đoàn Văn Bơ, Quận 4, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Khánh Hội",
+      "coordinates": [
+        106.709392,
+        10.759966
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%E1%BB%A7%20Ti%E1%BA%BFu%20M%E1%BB%B9%20Tho%20D%C3%AC%209%2C%20538%2F51%20%C4%90o%C3%A0n%20V%C4%83n%20B%C6%A1%2C%20Qu%E1%BA%ADn%204%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "grab.com",
+          "url": "https://www.grab.com/vn/en/food-blog/talk-of-the-town/tphcm-grabfood-co-may-quan-hu-tieu-sieu-ngon-day-nha/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "com-hen-o-nho-15-21-nguyen-ngoc-loc",
+      "name": "Cơm Hến O Nhớ",
+      "isSample": false,
+      "address": "15/21 Nguyễn Ngọc Lộc, Quận 10, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Diên Hồng",
+      "coordinates": [
+        106.663283,
+        10.76721
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=C%C6%A1m%20H%E1%BA%BFn%20O%20Nh%E1%BB%9B%2C%2015%2F21%20Nguy%E1%BB%85n%20Ng%E1%BB%8Dc%20L%E1%BB%99c%2C%20Qu%E1%BA%ADn%2010%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/top-quan-com-hen-sai-gon-18811",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "bun-nuoc-leo-soc-trang-le-quang-dinh-401-le-quang-dinh",
+      "name": "Bún Nước Lèo Sóc Trăng – Lê Quang Định",
+      "isSample": false,
+      "address": "401 Lê Quang Định, Bình Thạnh, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Gia Định",
+      "coordinates": [
+        106.69339,
+        10.809247
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20N%C6%B0%E1%BB%9Bc%20L%C3%A8o%20S%C3%B3c%20Tr%C4%83ng%20%E2%80%93%20L%C3%AA%20Quang%20%C4%90%E1%BB%8Bnh%2C%20401%20L%C3%AA%20Quang%20%C4%90%E1%BB%8Bnh%2C%20B%C3%ACnh%20Th%E1%BA%A1nh%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "grab.com",
+          "url": "https://www.grab.com/vn/food-blog/merchant-story/tphcm-co-gi-trong-to-bun-nang-mui-nhung-de-nang-long-nho-thuong/",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "pho-kho-gia-lai-hoa-po-lang-207-tan-son-nhi",
+      "name": "Phở Khô Gia Lai Hoa Pơ Lang",
+      "isSample": false,
+      "address": "207 Tân Sơn Nhì, Tân Phú, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Sơn Nhì",
+      "coordinates": [
+        106.632267,
+        10.799453
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ph%E1%BB%9F%20Kh%C3%B4%20Gia%20Lai%20Hoa%20P%C6%A1%20Lang%2C%20207%20T%C3%A2n%20S%C6%A1n%20Nh%C3%AC%2C%20T%C3%A2n%20Ph%C3%BA%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/pho-kho-gia-lai-sai-gon-19415",
+          "accessed": "2026-11-27"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-27"
+        }
+      ],
+      "lastVerified": "2026-11-27"
     }
   ]
 }
