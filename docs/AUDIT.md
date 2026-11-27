@@ -31,7 +31,7 @@ Legend: ✅ Implemented & verified · 🟡 Implemented but unverified · 🟠 Pa
 | Settings → Experience Mode (Food active; Bars/Coffee/Spa/Shopping disabled "Coming soon") | ✅ | e2e priority journey |
 | EN/VI switch (active language highlighted) | ✅ | e2e |
 | Sample venues opt-in, labelled, never recommended | ✅ | e2e + unit |
-| Admin: stats, import validator, verification queue | 🟠 | validator e2e; **no auth, no persistence** (local browser only), no restaurant/image editing |
+| Admin CMS (overview, review, dishes, establishments, evidence, photos, import, audit) | 🟠 | Sprint 3: editors + validation + review e2e-tested in local mode; Supabase auth/persistence implemented and DB-tested locally, **not verified against a live project** (not provisioned) |
 | PWA manifest + service worker | 🟡 | SW active during e2e; offline mode not tested |
 | Offline static preview | ✅ | e2e run against static export |
 
@@ -42,7 +42,7 @@ Legend: ✅ Implemented & verified · 🟡 Implemented but unverified · 🟠 Pa
 | Catalogue importer (JSON/CSV, VI categories, variants, multiple origins) | ✅ | unit tests; ready for the master file |
 | Dish photography | 🟠 | 45/138 licensed Commons photos; 93 illustration-only |
 | HCMC establishments | 🟠 | 108 real venues, 111 links, all "listed by source"; **0 first-hand confirmed** |
-| Production database (Supabase) | ⛔ | schema authored (`supabase/migrations/0001_init.sql`), not applied; needs PO credentials |
+| Production database (Supabase) | 🟠 | migrations + seed + RLS tested on local PostgreSQL/PostGIS (`npm run test:db`); project not provisioned (PO) |
 | Accounts / cross-device sync | ⛔ | depends on Supabase |
 
 ## Highest-risk gaps for "open it when I don't know what to eat"

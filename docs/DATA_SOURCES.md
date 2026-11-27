@@ -53,7 +53,7 @@ JSON (array, or `{ "label", "dataset", "dishes": [...] }`) or CSV with a header 
 | `sources` | for `verified` | `https://…; Book title p.12` | `;`-separated; URLs detected |
 | `verificationStatus` | | `pending-review` | seed-unverified, pending-review, verified, rejected |
 
-Run: `npm run data:import -- master.csv --dataset master` (add `--dry-run` to validate only). The importer rejects
+Run: `npm run data:import -- master.csv --dataset master` (add `--dry-run` to validate only). Master imports **merge** into the existing catalogue (ids, photos, sources and venue links preserved; only columns present in the file overwrite) and write `docs/IMPORT_REPORT.md`; the import refuses to write if any venue link would be orphaned. The importer rejects
 unknown provinces/categories/types and duplicate ids, warns on unknown vocabulary, missing translations, and
 `verified` rows without sources; it exits non-zero on any error. The Admin screen runs the same validator in-browser.
 

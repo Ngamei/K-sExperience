@@ -10,12 +10,13 @@ headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is
 | 1 | `npm ci` | ✅ installed, **0 vulnerabilities**; postinstall copied MapLibre worker |
 | 2 | `npm run typecheck` (`next typegen && tsc --noEmit`) | ✅ exit 0 |
 | 3 | `npm run lint` | ✅ exit 0, 0 errors, 0 warnings |
-| 4 | `npx vitest run tests/unit` | ✅ **3 files, 27 tests passed** |
+| 4 | `npx vitest run tests/unit` | ✅ **5 files, 40 tests passed** (Sprint 3: evidence levels, merge, row mapping) |
 | 5 | `npx vitest run tests/integration` (= `npm run data:validate`) | ✅ **1 file, 15 tests passed** |
+| 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **15 checks** — migrations, seed ×2 (idempotent), app read columns as anon, RLS (anon/user/editor), candidates hidden, storage, audit, HCMC trigger, evidence constraints |
 | 6 | `npm run build` | ✅ exit 0 — 164 static pages (138 dishes, 5 real + 8 sample venues, screens, manifest, `/data/food.json`) |
-| 7 | `npx playwright test` (against `next start`) | ✅ **36 passed** (18 scenarios × desktop 1440×900 + Pixel 7) in 41.2 s — Sprint 2 baseline |
+| 7 | `npx playwright test` (against `next start`) | ✅ **44 passed** (22 scenarios × desktop + Pixel 7) — Sprint 3 |
 | 8 | `STATIC_EXPORT=1 npx next build` | ✅ exit 0 — `out/` 22 MB |
-| 9 | `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` (against the static export) | ✅ **30 passed** in 37.4 s |
+| 9 | `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` (against the static export) | ✅ **44 passed** |
 | 10 | `npm run build:preview` | ✅ `preview/ks-experience-preview-<commit>.zip` (~6.4 MB) |
 
 Shortcut: `npm run qa` runs 2 → 3 → 4/5 → 6 → 7.
@@ -56,6 +57,14 @@ verified real links need evidence; a Hà Nội point is rejected by the HCMC bou
 Desktop: `desktop-01-discover`, `02-explore-national` (home page), `03-explore-region-sweet`, `04-explore-mien-bac`, `05-dish-detail`,
 `06-catalogue`, `07-settings`, `08-nearby-empty`, `09-nearby-samples`, `10-dish-hcmc-with-samples`, `11-admin`, `12-dish-real-venues`, `13-place-real`.
 Mobile (Pixel 7): `mobile-01-discover`, `02-explore`, `03-explore-region`, `04-explore-list`, `05-dish`, `06-settings`.
+
+## Defects found and fixed in Sprint 3
+| # | Defect | Fix |
+| --- | --- | --- |
+| S3-1 | Master import would overwrite existing `spiceLevel`/`prominence` with importer defaults when the CSV lacked those columns (found by CLI dry run) | Importer records supplied fields; merge only updates those; unit test |
+| S3-2 | Candidate links never surfaced for admins (rank tie with none-found) | Ranking fix; unit test |
+| S3-3 | Admin HCMC boundary check crashed (GeometryCollection vs FeatureCollection) | Handles both; e2e |
+| S3-4 | Audit trigger referenced columns absent on some tables | JSON-based key extraction; DB test |
 
 ## Defects found and fixed during this checkpoint
 | # | Defect | Fix |

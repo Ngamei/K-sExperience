@@ -12,7 +12,7 @@
 | Validation | Zod 4 | Single schema used by importer, app and tests |
 | i18n | In-house dictionary (EN/VI) | `src/lib/i18n` |
 | PWA | `app/manifest.ts` + `public/sw.js` | Network-first pages, cache-first static assets |
-| Backend (target) | Supabase Postgres + PostGIS, Auth, Storage | Schema in `supabase/migrations/0001_init.sql`; **not wired yet** |
+| Backend | Supabase Postgres + PostGIS, Auth (magic link), Storage | Migrations `0001`–`0002`, seed, RLS; read path + Admin persistence implemented; not provisioned (docs/SUPABASE.md) |
 | Tests | Vitest 5 (unit + integration), Playwright 1.63 (desktop + Pixel 7) | |
 
 ## Data flow (local mode)
@@ -27,7 +27,9 @@ data/*.json + data/samples/*.json ──src/lib/data/catalogue.ts──▶ /data
   (embedding made the static export 152 MB; now 22 MB, dish pages ~26 KB HTML).
 - Dish pages are pre-rendered (`generateStaticParams`, `dynamicParams = false`); the origin locator SVG is
   rendered on the server from `public/geo/vietnam-locator.json`.
-- Supabase mode will replace `/data/food.json` with API/Supabase queries behind the same `FoodData` shape.
+- **Supabase mode** (`NEXT_PUBLIC_DATA_MODE=supabase`): `FoodDataProvider` loads `/data/food.json` (samples, archipelago labels) and replaces the catalogue, provinces, real venues and links with Supabase data (`src/lib/supabase/food.ts`, mapping in `src/lib/data/db-rows.ts`). On any error it falls back to the bundled data (`source: "local-fallback"`).
+- **Evidence levels** live in `src/lib/data/evidence.ts` and are enforced in Zod, importers, Admin and the DB.
+- **Catalogue merge** (`src/lib/data/merge.ts`) is shared by the CLI importer and Admin import.
 
 ## Module layout
 ```
