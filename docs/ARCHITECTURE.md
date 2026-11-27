@@ -28,6 +28,7 @@ data/*.json + data/samples/*.json ──src/lib/data/catalogue.ts──▶ /data
 - Dish pages are pre-rendered (`generateStaticParams`, `dynamicParams = false`); the origin locator SVG is
   rendered on the server from `public/geo/vietnam-locator.json`.
 - **Supabase mode** (`NEXT_PUBLIC_DATA_MODE=supabase`): `FoodDataProvider` loads `/data/food.json` (samples, archipelago labels) and replaces the catalogue, provinces, real venues and links with Supabase data (`src/lib/supabase/food.ts`, mapping in `src/lib/data/db-rows.ts`). On any error it falls back to the bundled data (`source: "local-fallback"`).
+- **Accounts:** `AuthProvider` (in `Providers`) listens to Supabase Auth. Personal data lives in the Zustand `useUser` store with an `ownerId` (null = guest). On sign-in: load account passport → `mergePassports(account, guest)` → upsert → adopt (`ownerId = user.id`). Changes are then synced as diffs (`syncPassportDiff`). Sign-out → `clearPersonal()`. Local mode: no AuthProvider effects; guest only.
 - **Evidence levels** live in `src/lib/data/evidence.ts` and are enforced in Zod, importers, Admin and the DB.
 - **Catalogue merge** (`src/lib/data/merge.ts`) is shared by the CLI importer and Admin import.
 

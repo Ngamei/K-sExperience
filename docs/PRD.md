@@ -32,6 +32,18 @@ by their culinary origin across the whole country, then find where to eat them i
 9. **Settings** — Experience Mode, language (EN/VI), sample-venue toggle, Surprise-me preferences, reset.
 10. **Admin** — catalogue stats, import validator, verification queue (local-mode; access control is a release blocker).
 
+## Accounts & Experience Passport (P0, guest-first)
+| Feature | Guest | Registered |
+| --- | --- | --- |
+| Explore map, catalogue, search/filters, Nearby, Surprise me | ✅ | ✅ |
+| Save dishes / venues, mark tried, visited venues, ratings & tasting notes | on this device | synced to the account |
+| Personal Food Passport | temporary (device) | permanent, all devices |
+| Personal food photos | — | private bucket (schema ready; UI later) |
+- Pages: `/login`, `/signup`, `/forgot-password`, `/reset-password`, `/auth/callback`, `/profile`; Settings → Account. Google + email/password (with email verification); Apple later.
+- On sign-in/sign-up, guest progress is merged into the account (no duplicates: unions, earliest dates, newest note wins), **written to the database first**, then adopted; on failure guest data stays and a Retry banner appears. Sign-out clears personal data from the device.
+- One account, one **Experience Passport**; Food is active, Coffee/Bar/Wellness/Shopping passports shown as coming soon. Tables are experience-agnostic (`experience_id`).
+- Admin permissions are separate (`user_roles`); ordinary accounts are read-only in Admin.
+
 ## Map behaviour
 - National view: only **representative** dishes (prominence 1). Zooming/selecting a region reveals prominence ≤ 2;
   provincial zoom or province selection reveals all. Thresholds are relative to each device's "fit Vietnam" zoom.

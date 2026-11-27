@@ -42,6 +42,7 @@ Unzip, run `node serve.mjs` inside the folder, open http://localhost:4173 (Node 
 | `npm run data:seed` | Regenerate the seed catalogue through the importer (attaches curated photos) |
 | `npm run data:restaurants` | Import researched HCMC venues (curated list + research batches; validates sources + HCMC boundary) |
 | `npm run data:coverage` | Regenerate `docs/VENUE_COVERAGE.md` (venues per dish, target ≥ 5) |
+| `npm run build:auth-test` / `npm run test:e2e-auth` | Build in Supabase mode against a mock Supabase and run the account-flow e2e |
 | `npm run test:db` | Apply Supabase migrations + seed to a throwaway local PostgreSQL/PostGIS DB and run RLS/integrity tests |
 | `npm run db:seed-sql` | Regenerate `supabase/seed.sql` from the repository data |
 | `npm run db:export` | Export the live Supabase catalogue to `backups/` (needs public URL + anon key) |

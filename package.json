@@ -20,7 +20,7 @@
     "data:seed": "node scripts/seed-rows.mjs && tsx scripts/import-catalogue.ts data/source/seed-catalogue.json",
     "data:import": "tsx scripts/import-catalogue.ts",
     "data:validate": "vitest run tests/integration",
-    "qa": "npm run typecheck && npm run lint && npm run test && npm run build && npm run test:e2e",
+    "qa": "npm run typecheck && npm run lint && npm run test && npm run build && npm run test:e2e && npm run build:auth-test && npm run test:e2e-auth",
     "data:restaurants": "tsx scripts/import-restaurants.ts",
     "data:coverage": "tsx scripts/venue-coverage.ts",
     "data:report": "tsx scripts/data-report.ts",

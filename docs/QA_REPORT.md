@@ -10,16 +10,34 @@ headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is
 | 1 | `npm ci` | ✅ installed, **0 vulnerabilities**; postinstall copied MapLibre worker |
 | 2 | `npm run typecheck` (`next typegen && tsc --noEmit`) | ✅ exit 0 |
 | 3 | `npm run lint` | ✅ exit 0, 0 errors, 0 warnings |
-| 4 | `npx vitest run tests/unit` | ✅ **5 files, 40 tests passed** (Sprint 3: evidence levels, merge, row mapping) |
+| 4 | `npx vitest run tests/unit` | ✅ **6 files, 47 tests passed** (+ passport merge) |
 | 5 | `npx vitest run tests/integration` (= `npm run data:validate`) | ✅ **1 file, 15 tests passed** |
-| 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **15 checks** — migrations, seed ×2 (idempotent), app read columns as anon, RLS (anon/user/editor), candidates hidden, storage, audit, HCMC trigger, evidence constraints |
+| 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **21 checks** — migrations 0001–0003, seed ×2 (idempotent), app read columns as anon, RLS (anon/user/editor), candidates hidden, storage, audit, HCMC trigger, evidence constraints, account isolation, own-folder photos, guest-merge upsert, account deletion |
 | 6 | `npm run build` | ✅ exit 0 — 164 static pages (138 dishes, 5 real + 8 sample venues, screens, manifest, `/data/food.json`) |
-| 7 | `npx playwright test` (against `next start`) | ✅ **44 passed** (22 scenarios × desktop + Pixel 7) — Sprint 3 |
+| 7 | `npx playwright test` (against `next start`) | ✅ **50 passed** (25 scenarios × desktop + Pixel 7) |
+| 7b | `npm run build:auth-test && npm run test:e2e-auth` (Supabase-mode static build + mock Supabase) | ✅ **18 passed** (9 account scenarios × desktop + Pixel 7); stable over `--repeat-each=2` (36/36) |
 | 8 | `STATIC_EXPORT=1 npx next build` | ✅ exit 0 — `out/` 22 MB |
-| 9 | `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` (against the static export) | ✅ **44 passed** |
+| 9 | `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` (against the static export) | ✅ **50 passed** |
 | 10 | `npm run build:preview` | ✅ `preview/ks-experience-preview-<commit>.zip` (~6.4 MB) |
 
-Shortcut: `npm run qa` runs 2 → 3 → 4/5 → 6 → 7.
+Shortcut: `npm run qa` runs 2 → 3 → 4/5 → 6 → 7 → 7b (5b needs local PostgreSQL).
+
+## P0 accounts — acceptance criteria evidence
+| # | Criterion | Evidence |
+| --- | --- | --- |
+| 1 | Guests browse without authentication | e2e `guests explore…` (auth build) + all local e2e |
+| 2 | Guests create temporary passport progress | e2e `guests explore…`, `Guest passport (local mode)` |
+| 3 | Encouraged, not forced, to register | e2e: passport guest CTA; no route requires login except `/profile` |
+| 4 | Register and log in | e2e `signup keeps guest progress…`, `wrong password…`, `password recovery and reset` (mock Supabase) |
+| 5 | Guest progress survives account creation | e2e `signup keeps guest progress…` (rows verified in mock DB) |
+| 6 | Existing + guest progress merge without duplicates | e2e `…merges guest progress without duplicates`; unit `passport-merge` (idempotent, unique keys); DB test `guest merge upsert keeps one row` |
+| 7 | Persists after logout + login | e2e `…survives logout + login` |
+| 8 | Syncs across devices | e2e two browser contexts |
+| 9 | User A cannot access user B's records | DB test (RLS) `user A cannot read user B passport`, `user cannot write rows for another user`; e2e isolation on shared device |
+| 10 | Ordinary users cannot use admin functions | DB tests (non-editor update has no effect) + e2e `ordinary users cannot use admin functions` |
+| 11 | Logout does not expose previous user's data | e2e isolation + logout tests (passport resets to 0) |
+| 12 | Food discovery unchanged | full local e2e suite (50) on server build and static export |
+Not yet verified (needs a provisioned project): real Google OAuth, real verification / reset emails, Supabase JWT/refresh behaviour beyond the mock.
 
 ## What the tests cover
 **Unit (26)** — Vietnamese normalisation & accent-insensitive matching; importer (Vietnamese categories, accent-free province

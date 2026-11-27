@@ -11,13 +11,19 @@ Local mode remains the default and keeps working without Supabase.
 | Data seed (generated, idempotent; real venues only) | `supabase/seed.sql` ← `npm run db:seed-sql` |
 | Local DB tests (RLS, permissions, evidence rules, HCMC boundary, storage, audit, seed idempotency, app read columns) | `npm run test:db` (needs local PostgreSQL 16 + PostGIS 3) |
 | App read path (falls back to bundled data on error) | `src/lib/supabase/food.ts`, `src/components/food/food-data.tsx` |
+| User accounts & Experience Passport (profiles, preferences, saved items, history, tasting notes, media, achievements; owner-only RLS; account deletion; private `user-media` bucket) | `supabase/migrations/0003_user_accounts.sql` |
+| Guest-first auth + passport sync (client) | `src/components/shell/auth-provider.tsx`, `src/lib/supabase/passport.ts`, `src/lib/passport/model.ts`, `src/components/auth/` |
+| Account-flow e2e against a mock Supabase | `npm run build:auth-test && npm run test:e2e-auth` |
 | Admin persistence (auth, dishes, origins, establishments, evidence links, photos, import, audit) | `src/lib/supabase/admin.ts`, `src/components/admin/`, `src/components/pages/admin-view.tsx` |
 | Public-data export / backup | `npm run db:export` |
 
 ## Provisioning (PO, ~10 minutes, free tier)
 1. supabase.com → New project → **Free plan**, region **Southeast Asia (Singapore)**, strong DB password (store in your password manager).
 2. SQL Editor → run `supabase/migrations/0001_init.sql`, then `0002_storage_and_audit.sql`, then `supabase/seed.sql`.
-3. Authentication → URL configuration: Site URL = production URL; add Redirect URLs for `https://<prod>/admin/`, preview URLs (`https://*-<team>.vercel.app/admin/`) and `http://localhost:3000/admin/`. Email provider: enabled (magic link).
+3. SQL Editor → also run `supabase/migrations/0003_user_accounts.sql` (user accounts & Experience Passport).
+   Authentication → URL configuration: Site URL = production URL; Redirect URLs for each environment: `/auth/callback/`, `/reset-password/` and `/admin/` on the production domain, on previews (`https://*-<team>.vercel.app/...`) and on `http://localhost:3000/...`.
+   Authentication → Providers: **Email** enabled with "Confirm email" ON; **Google** enabled (Google Cloud Console → OAuth client "Web", authorised redirect URI = `https://<project-ref>.supabase.co/auth/v1/callback`; paste client ID/secret into Supabase — the secret stays in Supabase, never in the app). Apple: later.
+   Authentication → Emails: customise the confirm / reset templates (optional).
 4. Make yourself an editor — sign in once on `/admin/` (creates your user), then in SQL Editor:
    `insert into user_roles (user_id, role) select id, 'admin' from auth.users where email = '<your email>';`
 5. Project Settings → API → copy **Project URL** and **anon public key**.
@@ -29,7 +35,8 @@ Recommended: a **separate development project** for previews and one for product
 
 ## Security model
 - RLS on every table. Public: read catalogue, provinces, regions, real establishments, non-candidate links, photos. Hidden: candidate links, sample venues, audit, other users' data.
-- Writes: only users in `user_roles` (`admin`/`editor`), checked by `is_editor()` in every policy, including Storage.
+- Writes to curated content: only users in `user_roles` (`admin`/`editor`), checked by `is_editor()` in every policy, including Storage. Admin roles are separate from ordinary accounts: signing up never grants editing.
+- Personal data (passport, notes, profile, media): owner-only (`auth.uid() = user_id`) on every table; no one else — editors included — can read it. Users delete their own account via `delete_my_account()` (cascades).
 - Database constraints mirror `src/lib/data/evidence.ts` (evidence type must justify the level; public levels need a last-checked date) and reject establishments outside the 2025 HCMC boundary.
 - The service-role key is never used by the app and must never be set in Vercel.
 
