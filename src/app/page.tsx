@@ -1,2 +1,6 @@
-import { DiscoverView } from "@/components/pages/discover-view";
-export default function Page() { return <DiscoverView />; }
+import { ExploreView } from "@/components/explore/explore-view";
+
+/** Home = the Vietnam culinary map (Bản đồ ẩm thực), the product's centrepiece. */
+export default function Page() {
+  return <ExploreView />;
+}

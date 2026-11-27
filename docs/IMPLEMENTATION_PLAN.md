@@ -30,14 +30,16 @@ Legend: ✅ done and verified by automated test and/or browser evidence · 🟡 
 - ✅ 2025 administrative mapping shown on province selection and dish origins.
 - ✅ Region chips (fit region), province click (select + filter), zoom, pan, clustering, progressive disclosure, filter-driven markers, dish preview — e2e desktop + mobile.
 - ✅ No-WebGL SVG fallback (same geometry). 🟡 Not covered by e2e (headless has WebGL).
-- 🟡 Illustrations are original SVG per dish type; **dish photography pending** (needs licensed source).
+- ✅ 45 dishes have a licensed Wikimedia Commons photo with author/licence caption (e2e with stubbed image). 🟡 93 dishes still illustration-only; photo rendering from Commons not verifiable inside the sandbox (bot policy) — check in a real browser.
+- ✅ Culinary map is the home page (`/`) — e2e.
 
 ## Phase 6 — HCMC establishments
 - ✅ Separate entities, many-to-many links with status + evidence + lastVerified; HCMC-boundary rule enforced in tests (+ DB trigger in migration).
 - ✅ Four statuses incl. "No verified HCMC establishment found"; dishes remain discoverable.
 - ✅ Nearby (map + list, distance from neighbourhood/geolocation, budget, venue type, open now), Establishment details (hours, directions, delivery, evidence).
 - ✅ Sample venues: opt-in, badged, directions disabled, excluded from recommendations — e2e.
-- ⛔ **Real verified establishments: 0.** Needs field/menu verification research (see blockers).
+- ✅ **5 real HCMC establishments** from published sources (Phở Hòa Pasteur, Bánh Mì Huỳnh Hoa, Cơm Tấm Ba Ghiền, Bánh Xèo 46A, Hủ Tiếu Hồng Phát) with addresses, OSM coordinates, Google Maps links, cited sources — integration + e2e.
+- ⛔ **On-site/phone confirmation** of availability (to upgrade links to `verified-available`) — not done.
 
 ## Phase 7 — Saved, recommendations, passport
 - ✅ Save + collections; tried dishes; Food Passport (tried, provinces, per-region completion, stamps) — e2e.
@@ -55,10 +57,10 @@ Legend: ✅ done and verified by automated test and/or browser evidence · 🟡 
 
 ## Release blockers (must be resolved before a public launch)
 1. **Master catalogue** not imported; current data is unverified seed (no source references).
-2. **Zero verified HCMC establishments** — Nearby/availability show honest empty states only.
+2. **HCMC venues are desk-researched only** (5 venues, all "listed by source · not yet confirmed"); only 5 of 138 dishes have a venue. Needs many more venues and on-site/phone confirmation.
 3. **Supabase not connected** — no accounts/sync; saved data is per-browser. Needs project + anon key (PO approval for any paid tier).
 4. **Admin is unauthenticated** in local mode — must be gated by Supabase Auth + `user_roles` before any hosted deployment that exposes it.
-5. **Dish photography** — no licensed images; illustrations only.
+5. **Dish photography** — 45/138 dishes have licensed Commons photos (hot-linked); the rest need photos. Consider self-hosting photos in Supabase Storage for performance and offline use.
 6. **2025 administrative mapping** (63 → 34) encoded from engineer knowledge — PM should verify against Resolution 202/2025/QH15.
 7. ~~PO decisions pending~~ — all resolved 2026-11-27: D4 (single Miền Bắc region), D6 (HCMC = 2025 boundary incl. Bình Dương/BR-VT), D13 (English default), D14 (OpenFreeMap basemap).
 8. Accessibility audit (keyboard on map markers is supported via buttons; full WCAG review not done) and performance budget review on real devices.
@@ -67,7 +69,7 @@ Legend: ✅ done and verified by automated test and/or browser evidence · 🟡 
 ## Next actions (proposed)
 1. ChatGPT exports the master catalogue in the import format → `npm run data:import -- master.csv --dataset master --dry-run`, fix, import.
 2. ~~PO decisions~~ — done (D4, D6, D13, D14 confirmed).
-3. Research & verify an initial set of HCMC establishments (with menu evidence) per the data requirements in DATA_SOURCES.md.
+3. Extend HCMC venues (add via `data/source/hcmc-restaurants.source.json` + `npm run data:restaurants`) and confirm availability on site/by phone to upgrade links.
 4. Create Supabase project (PO approval), apply migration, implement `SupabaseRepository` behind the `FoodData` shape, add Auth for Saved/Passport/Admin.
 5. Source licensed photography; add Supabase Storage upload in Admin.
 6. Fill the 4 provinces without dishes (Thái Nguyên, Đắk Nông, Đồng Nai, Hậu Giang) from the master catalogue.

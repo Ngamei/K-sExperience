@@ -91,6 +91,7 @@ export function NearbyView() {
                         <div className={open ? "text-forest" : "text-muted"}>{open === null ? t("place.hoursUnknown") : open ? t("place.openNow") : t("place.closed")}</div>
                       </div>
                     </div>
+                    {r.highlights?.length ? <p className="mt-1 text-xs text-forest">{r.highlights[0]}</p> : null}
                     <div className="mt-2 flex flex-wrap gap-1">
                       {ls.map((l) => <Badge key={l.dishId} tone={l.status === "verified-available" ? "forest" : l.status === "unverified" ? "ochre" : "warn"}>{dishById.get(l.dishId)?.nameVi}</Badge>)}
                     </div>

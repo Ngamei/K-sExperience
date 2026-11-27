@@ -1,6 +1,71 @@
 {
   "metadata": {
-    "note": "Many-to-many links between dishes and REAL HCMC establishments, each with an availability status and menu evidence. Intentionally empty until establishments are verified."
+    "note": "Links between dishes and REAL HCMC establishments. 'unverified' = listed by a published source (cited in menuEvidence), not yet confirmed on site or by phone. 'verified-available' requires first-hand evidence (menu photo, official menu, site visit or phone call)."
   },
-  "links": []
+  "links": [
+    {
+      "dishId": "pho-sai-gon",
+      "restaurantId": "pho-hoa-pasteur",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Michelin: 'serving delicious phở to the locals since it opened in 1968'; toppings include beef brisket, flank, tendon, tripe and meatballs.",
+        "url": "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hoa-pasteur"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-sai-gon",
+      "restaurantId": "banh-mi-huynh-hoa",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Travel guides list it as a bánh mì shop; mia.vn gives a 2026 price range of 38,000–78,000 VND.",
+        "url": "https://mia.vn/cam-nang-du-lich/banh-mi-huynh-hoa-20296"
+      },
+      "priceVnd": {
+        "min": 38000,
+        "max": 78000
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "com-tam-sai-gon",
+      "restaurantId": "com-tam-ba-ghien",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Michelin describes it as the only broken-rice (cơm tấm) specialty spot in the guide; known for broken rice with grilled pork chop.",
+        "url": "https://guide.michelin.com/vn/en/article/dining-out/what-is-com-tam-com-tam-ba-ghien"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-xeo-nam-bo",
+      "restaurantId": "banh-xeo-46a",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Báo Quốc tế: a ~25 cm bánh xèo filled with shrimp, pork, bean sprouts, mung beans and onion; Michelin lists the shop for its bánh xèo.",
+        "url": "https://baoquocte.vn/thuong-thuc-mon-banh-xeo-noi-tieng-o-tp-ho-chi-minh-duoc-michelin-xuong-ten-287794.html"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "hu-tieu-nam-vang",
+      "restaurantId": "hu-tieu-hong-phat",
+      "status": "unverified",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Michelin: has been serving hủ tiếu Nam Vang to locals since 1975.",
+        "url": "https://guide.michelin.com/kr/en/article/dining-out/behind-the-bib-hong-phat-khmer-noodle-shop-ho-chi-minh-city"
+      },
+      "lastVerified": "2026-11-27"
+    }
+  ]
 }

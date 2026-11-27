@@ -20,7 +20,7 @@ export function PlaceView({ id }: { id: string }) {
   const idx = buildAvailabilityIndex(restaurants, links, { includeSamples: r.isSample });
   const ls = idx.linksByRestaurant.get(id) ?? [];
   const open = isOpenAt(r.openingHours, new Date());
-  const dirUrl = `https://www.google.com/maps/dir/?api=1&destination=${r.coordinates[1]},${r.coordinates[0]}`;
+  const dirUrl = r.googleMapsUrl ?? `https://www.google.com/maps/search/?api=1&query=${r.coordinates[1]},${r.coordinates[0]}`;
 
   return (
     <article className="mx-auto max-w-4xl px-4 py-6 md:px-6 md:py-10" data-testid="place-detail">
@@ -38,11 +38,13 @@ export function PlaceView({ id }: { id: string }) {
         </div>
         <h1 className="mt-2 font-display text-4xl text-forest">{r.name}</h1>
         <p className="mt-1 text-muted">{r.address} · {r.neighbourhood}</p>
+        {r.highlights?.length ? <ul className="mt-2 flex flex-wrap gap-1.5">{r.highlights.map((h) => <li key={h}><Badge tone="forest">{h}</Badge></li>)}</ul> : null}
+        {r.coordinatePrecision === "street" && <p className="mt-2 text-xs text-[#8a6420]" data-testid="approx-location">{t("place.approx")}</p>}
         <div className="mt-4 flex flex-wrap gap-2">
           {r.isSample ? (
             <Button variant="outline" disabled title="Sample venue — no real location"><Navigation /> {t("place.directions")}</Button>
           ) : (
-            <Button asChild variant="primary"><a href={dirUrl} target="_blank" rel="noreferrer"><Navigation /> {t("place.directions")}</a></Button>
+            <Button asChild variant="primary"><a href={dirUrl} target="_blank" rel="noreferrer" data-testid="google-maps-link"><Navigation /> {t("place.googleMaps")}</a></Button>
           )}
           {r.deliveryLinks.map((d) => <Button key={d.url} asChild variant="outline"><a href={d.url} target="_blank" rel="noreferrer"><ExternalLink /> {d.provider}</a></Button>)}
           {r.contact?.phone && <Button asChild variant="ghost"><a href={`tel:${r.contact.phone}`}><Phone /> {r.contact.phone}</a></Button>}
@@ -61,7 +63,12 @@ export function PlaceView({ id }: { id: string }) {
                   <DishCard dish={d} compact />
                   <div className="flex flex-wrap items-center gap-2 pl-1 text-xs text-muted">
                     <StatusDot status={l.status} />
-                    {l.menuEvidence && <span>Evidence: {l.menuEvidence.note}</span>}
+                    {l.menuEvidence && (
+                      <span>
+                        {t("place.evidence")}: {l.menuEvidence.note}{" "}
+                        {l.menuEvidence.url && <a href={l.menuEvidence.url} target="_blank" rel="noreferrer" className="underline">↗</a>}
+                      </span>
+                    )}
                     {l.lastVerified && <span>· {t("place.lastVerified")}: {l.lastVerified}</span>}
                   </div>
                 </div>
@@ -85,7 +92,15 @@ export function PlaceView({ id }: { id: string }) {
           <div className="rounded-3xl border border-line/80 bg-paper p-5 text-sm">
             <h3 className="mb-2 font-display text-lg">{t("place.lastVerified")}</h3>
             <p>{r.lastVerified ?? "—"}</p>
-            <ul className="mt-2 space-y-1 text-xs text-muted">{r.sources.map((s, i) => <li key={i}>{s.title}{s.note ? ` — ${s.note}` : ""}</li>)}</ul>
+            <h4 className="mt-3 text-xs font-semibold uppercase tracking-wider text-muted">{t("place.sources")}</h4>
+            <ul className="mt-1 space-y-1.5 text-xs text-muted" data-testid="place-sources">
+              {r.sources.map((s, i) => (
+                <li key={i}>
+                  {s.url ? <a href={s.url} target="_blank" rel="noreferrer" className="underline hover:text-forest">{s.title}</a> : s.title}
+                  {s.note ? ` — ${s.note}` : ""}
+                </li>
+              ))}
+            </ul>
           </div>
         </aside>
       </div>

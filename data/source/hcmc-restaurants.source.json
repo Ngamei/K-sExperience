@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "note": "Real HCMC establishments from desk research on 2026-11-27. Facts are taken only from the cited sources; fields a source did not state are omitted. Status is 'unverified' = listed by a published source, not yet confirmed on site or by phone by the K's Experience team. Coordinates: OpenStreetMap Nominatim (ODbL); 'street' precision means only the street was matched.",
+    "researchedOn": "2026-11-27"
+  },
+  "restaurants": [
+    {
+      "id": "pho-hoa-pasteur",
+      "name": "Phở Hòa Pasteur",
+      "address": "260C Pasteur, Phường Xuân Hòa (formerly Ward 8, District 3), TP. Hồ Chí Minh",
+      "neighbourhood": "Quận 3",
+      "coordinates": [106.6955072, 10.7807274],
+      "coordinatePrecision": "exact",
+      "venueType": "restaurant",
+      "openingHours": { "mon": [["06:00","22:30"]], "tue": [["06:00","22:30"]], "wed": [["06:00","22:30"]], "thu": [["06:00","22:30"]], "fri": [["06:00","22:30"]], "sat": [["06:00","22:30"]], "sun": [["06:00","22:30"]] },
+      "highlights": ["Michelin Guide — Bib Gourmand", "Serving phở since 1968 (per Michelin)"],
+      "sources": [
+        { "title": "MICHELIN Guide — Phở Hòa Pasteur (address, hours, Bib Gourmand, menu toppings)", "url": "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hoa-pasteur", "accessed": "2026-11-27" },
+        { "title": "OpenStreetMap / Nominatim (coordinates)", "url": "https://www.openstreetmap.org/", "accessed": "2026-11-27" }
+      ],
+      "dishes": [
+        { "dishId": "pho-sai-gon", "evidence": "Michelin: 'serving delicious phở to the locals since it opened in 1968'; toppings include beef brisket, flank, tendon, tripe and meatballs.", "url": "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hoa-pasteur" }
+      ]
+    },
+    {
+      "id": "banh-mi-huynh-hoa",
+      "name": "Bánh Mì Huỳnh Hoa",
+      "address": "26 Lê Thị Riêng, Phường Bến Thành (District 1), TP. Hồ Chí Minh",
+      "neighbourhood": "Quận 1",
+      "coordinates": [106.6927189, 10.7713922],
+      "coordinatePrecision": "exact",
+      "venueType": "eatery",
+      "highlights": ["In business for more than 30 years (Trip.com)", "Often has queues"],
+      "sources": [
+        { "title": "Vietnam Airlines travel guide — best bánh mì in Ho Chi Minh City", "url": "https://www.vietnamairlines.com/au/en/plan-book/travel/travel-guide/best-banh-mi-ho-chi-minh", "accessed": "2026-11-27" },
+        { "title": "mia.vn — Bánh mì Huỳnh Hoa (address 26 & 32 Lê Thị Riêng, price range)", "url": "https://mia.vn/cam-nang-du-lich/banh-mi-huynh-hoa-20296", "accessed": "2026-11-27", "note": "Opening hours differ between sources, so they are omitted." },
+        { "title": "OpenStreetMap / Nominatim (coordinates)", "url": "https://www.openstreetmap.org/", "accessed": "2026-11-27" }
+      ],
+      "dishes": [
+        { "dishId": "banh-mi-sai-gon", "evidence": "Travel guides list it as a bánh mì shop; mia.vn gives a 2026 price range of 38,000–78,000 VND.", "url": "https://mia.vn/cam-nang-du-lich/banh-mi-huynh-hoa-20296", "priceVnd": { "min": 38000, "max": 78000 } }
+      ]
+    },
+    {
+      "id": "com-tam-ba-ghien",
+      "name": "Cơm Tấm Ba Ghiền",
+      "address": "84 Đặng Văn Ngữ, Phường Phú Nhuận (formerly Ward 10, Phú Nhuận District), TP. Hồ Chí Minh",
+      "neighbourhood": "Phú Nhuận",
+      "coordinates": [106.6695395, 10.7946891],
+      "coordinatePrecision": "street",
+      "venueType": "eatery",
+      "highlights": ["Michelin Guide — Bib Gourmand", "Family-run broken-rice specialist"],
+      "sources": [
+        { "title": "MICHELIN Guide — Cơm Tấm Ba Ghiền (address, Bib Gourmand)", "url": "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/com-tam-ba-ghien", "accessed": "2026-11-27" },
+        { "title": "MICHELIN Guide article — What is cơm tấm? Cơm Tấm Ba Ghiền", "url": "https://guide.michelin.com/vn/en/article/dining-out/what-is-com-tam-com-tam-ba-ghien", "accessed": "2026-11-27" },
+        { "title": "OpenStreetMap / Nominatim (street-level coordinates only)", "url": "https://www.openstreetmap.org/", "accessed": "2026-11-27" }
+      ],
+      "dishes": [
+        { "dishId": "com-tam-sai-gon", "evidence": "Michelin describes it as the only broken-rice (cơm tấm) specialty spot in the guide; known for broken rice with grilled pork chop.", "url": "https://guide.michelin.com/vn/en/article/dining-out/what-is-com-tam-com-tam-ba-ghien" }
+      ]
+    },
+    {
+      "id": "banh-xeo-46a",
+      "name": "Bánh Xèo 46A",
+      "address": "46A Đinh Công Tráng, Phường Tân Định (District 1), TP. Hồ Chí Minh",
+      "neighbourhood": "Quận 1",
+      "coordinates": [106.6912995, 10.7896047],
+      "coordinatePrecision": "exact",
+      "venueType": "eatery",
+      "priceRange": "$",
+      "highlights": ["Michelin Guide — Bib Gourmand (added in the 2024 guide)"],
+      "sources": [
+        { "title": "MICHELIN Guide — Bánh Xèo 46A (address, price indicator)", "url": "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/banh-xeo-46a", "accessed": "2026-11-27" },
+        { "title": "Báo Quốc tế — Bánh xèo 46A in the Michelin Guide 2024 Bib Gourmand", "url": "https://baoquocte.vn/thuong-thuc-mon-banh-xeo-noi-tieng-o-tp-ho-chi-minh-duoc-michelin-xuong-ten-287794.html", "accessed": "2026-11-27" },
+        { "title": "OpenStreetMap / Nominatim (coordinates)", "url": "https://www.openstreetmap.org/", "accessed": "2026-11-27" }
+      ],
+      "dishes": [
+        { "dishId": "banh-xeo-nam-bo", "evidence": "Báo Quốc tế: a ~25 cm bánh xèo filled with shrimp, pork, bean sprouts, mung beans and onion; Michelin lists the shop for its bánh xèo.", "url": "https://baoquocte.vn/thuong-thuc-mon-banh-xeo-noi-tieng-o-tp-ho-chi-minh-duoc-michelin-xuong-ten-287794.html" }
+      ]
+    },
+    {
+      "id": "hu-tieu-hong-phat",
+      "name": "Hủ Tiếu Hồng Phát",
+      "address": "389–391 Võ Văn Tần, Phường Bàn Cờ (formerly Ward 5, District 3), TP. Hồ Chí Minh",
+      "neighbourhood": "Quận 3",
+      "coordinates": [106.6848355, 10.7705085],
+      "coordinatePrecision": "exact",
+      "venueType": "restaurant",
+      "highlights": ["Michelin Guide — Bib Gourmand (2023 guide)", "Serving hủ tiếu Nam Vang since 1975 (per Michelin)"],
+      "sources": [
+        { "title": "MICHELIN Guide — Hồng Phát (District 3) (address)", "url": "https://guide.michelin.com/vn/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/hong-phat-district-3", "accessed": "2026-11-27" },
+        { "title": "MICHELIN Guide article — Behind the Bib: Hồng Phát Khmer noodle shop", "url": "https://guide.michelin.com/kr/en/article/dining-out/behind-the-bib-hong-phat-khmer-noodle-shop-ho-chi-minh-city", "accessed": "2026-11-27" },
+        { "title": "OpenStreetMap / Nominatim (coordinates)", "url": "https://www.openstreetmap.org/", "accessed": "2026-11-27" }
+      ],
+      "dishes": [
+        { "dishId": "hu-tieu-nam-vang", "evidence": "Michelin: has been serving hủ tiếu Nam Vang to locals since 1975.", "url": "https://guide.michelin.com/kr/en/article/dining-out/behind-the-bib-hong-phat-khmer-noodle-shop-ho-chi-minh-city" }
+      ]
+    }
+  ]
+}

@@ -16,7 +16,8 @@ export function Wordmark({ className }: { className?: string }) {
   );
 }
 
-const isActive = (path: string, href: string) => (href === "/" ? path === "/" : path === href || path.startsWith(href + "/"));
+const isActive = (path: string, href: string) =>
+  href === "/" ? path === "/" || path.startsWith("/explore") : path === href || path.startsWith(href + "/");
 
 export function AppShell({ children, seedCount }: { children: React.ReactNode; seedCount: number | null }) {
   const path = usePathname() ?? "/";
@@ -24,7 +25,7 @@ export function AppShell({ children, seedCount }: { children: React.ReactNode; s
   const exp = getExperience(useUser((s) => s.experience));
   const setLocale = useUser((s) => s.setLocale);
   const showSamples = useUser((s) => s.showSamples);
-  const fullBleed = path.startsWith("/explore") || path.startsWith("/nearby");
+  const fullBleed = path === "/" || path.startsWith("/explore") || path.startsWith("/nearby");
 
   return (
     <div className={cn("flex flex-col", fullBleed ? "h-dvh" : "min-h-dvh")}>
@@ -51,15 +52,20 @@ export function AppShell({ children, seedCount }: { children: React.ReactNode; s
             ))}
           </nav>
           <div className="ml-auto flex items-center gap-1">
-            <button
-              type="button"
-              onClick={() => setLocale(locale === "en" ? "vi" : "en")}
-              className="h-8 rounded-full border border-line px-3 text-xs font-semibold tracking-wide text-charcoal hover:bg-ivory-deep"
-              aria-label="Switch language"
-              data-testid="lang-toggle"
-            >
-              {locale === "en" ? "VI" : "EN"}
-            </button>
+            <div className="flex h-8 items-center rounded-full border border-line p-0.5 text-xs font-semibold" role="group" aria-label="Language" data-testid="lang-toggle">
+              {(["en", "vi"] as const).map((l) => (
+                <button
+                  key={l}
+                  type="button"
+                  onClick={() => setLocale(l)}
+                  aria-pressed={locale === l}
+                  className={cn("h-full rounded-full px-2.5 tracking-wide transition-colors", locale === l ? "bg-forest text-ivory" : "text-charcoal/60 hover:text-charcoal")}
+                  data-testid={`lang-${l}`}
+                >
+                  {l.toUpperCase()}
+                </button>
+              ))}
+            </div>
             <Link href="/saved" className={cn("hidden rounded-full p-2 hover:bg-ivory-deep sm:block lg:hidden", isActive(path, "/saved") && "text-terracotta")} aria-label={t("nav.saved")}>
               <NAV_ICONS.bookmark className="size-5" />
             </Link>

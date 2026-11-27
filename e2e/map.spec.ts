@@ -3,7 +3,7 @@ import { clickLngLat, dishesShownOnMap, isMobile, visible, waitForIdle, waitForM
 
 test.describe("Vietnam culinary map", () => {
   test("renders accurate boundaries, both archipelagos and representative dishes", async ({ page }) => {
-    await page.goto("/explore/");
+    await page.goto("/");
     await waitForMap(page);
     await expect(page.getByTestId("vietnam-map")).toHaveAttribute("data-zoom-level", "national");
     await expect(page.getByText("Quần đảo Hoàng Sa")).toBeVisible();
@@ -16,7 +16,7 @@ test.describe("Vietnam culinary map", () => {
   });
 
   test("selecting a region reveals more dishes; clicking a province selects it", async ({ page }) => {
-    await page.goto("/explore/");
+    await page.goto("/");
     await waitForMap(page);
     const before = await dishesShownOnMap(page);
     await visible(page, "region-mien-bac").click();
@@ -32,7 +32,7 @@ test.describe("Vietnam culinary map", () => {
   });
 
   test("clicking a dish marker opens a preview linking to the dish", async ({ page }) => {
-    await page.goto("/explore/");
+    await page.goto("/");
     await waitForMap(page);
     await visible(page, "region-bac-trung-bo").click();
     await waitForIdle(page);

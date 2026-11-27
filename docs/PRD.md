@@ -19,9 +19,9 @@ by their culinary origin across the whole country, then find where to eat them i
 | Future experiences | Bars, Coffee, Spa, Shopping — "coming soon" in Settings → Experience Mode |
 
 ## Screens (status in `IMPLEMENTATION_PLAN.md`)
-1. **Discover** — hero, Surprise me, six regions, categories, representative dishes, passport teaser.
-2. **Explore Vietnam** — portrait MapLibre map of accurate boundaries; 6 regions, 63 provinces, Hoàng Sa & Trường Sa;
+1. **Explore Vietnam / Food Map (home page `/`)** — portrait MapLibre map of accurate boundaries; 6 regions, 63 provinces, Hoàng Sa & Trường Sa;
    region/province selection, zoom, pan, dish markers with clustering, progressive disclosure, dynamic filtering.
+2. **Discover (`/discover`)** — hero, Surprise me, six regions, categories, representative dishes, passport teaser.
 3. **Food Catalogue** — accent-insensitive search, all filters, active chips, result count.
 4. **Dish Details** — origin(s) with 2025 administrative mapping, ingredients, taste, spice, dietary, meal time,
    regional variants, sources & verification, HCMC availability.

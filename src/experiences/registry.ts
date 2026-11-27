@@ -26,8 +26,8 @@ export const EXPERIENCES: ExperienceModule[] = [
     status: "active",
     icon: "utensils",
     nav: [
-      { href: "/", labelKey: "nav.discover", icon: "compass", mobile: true },
-      { href: "/explore", labelKey: "nav.explore", shortKey: "nav.exploreShort", icon: "map", mobile: true },
+      { href: "/", labelKey: "nav.map", shortKey: "nav.exploreShort", icon: "map", mobile: true },
+      { href: "/discover", labelKey: "nav.discover", shortKey: "nav.discoverShort", icon: "compass", mobile: true },
       { href: "/catalogue", labelKey: "nav.catalogue", shortKey: "nav.catalogueShort", icon: "book", mobile: true },
       { href: "/nearby", labelKey: "nav.nearby", icon: "pin", mobile: true },
       { href: "/passport", labelKey: "nav.passport", shortKey: "nav.passportShort", icon: "stamp", mobile: true },

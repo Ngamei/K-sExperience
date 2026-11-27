@@ -100,6 +100,23 @@ describe("HCMC establishments", () => {
       }
     }
   });
+  it("has at least 5 real, sourced HCMC establishments with Google Maps links", () => {
+    const real = restaurants.filter((r) => !r.isSample);
+    expect(real.length).toBeGreaterThanOrEqual(5);
+    for (const r of real) {
+      expect(r.googleMapsUrl, r.id).toMatch(/^https:\/\/www\.google\.com\/maps\//);
+      expect(r.sources.some((s) => s.url), r.id).toBe(true);
+    }
+  });
+  it("dish photos are licensed and attributed", () => {
+    const withPhotos = catalogue.dishes.filter((d: { photos: unknown[] }) => d.photos.length);
+    expect(withPhotos.length).toBeGreaterThan(30);
+    for (const d of withPhotos) for (const p of d.photos) {
+      expect(p.license, d.id).toMatch(/CC|Public domain|CC0/i);
+      expect(p.credit).toBeTruthy();
+      expect(p.sourceUrl).toMatch(/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
+    }
+  });
   it("rejects a point outside HCMC (Hà Nội)", () => {
     expect(hcmcGeoms.some((g: GeoJsonGeometry) => pointInGeometry([105.8542, 21.0285], g))).toBe(false);
   });

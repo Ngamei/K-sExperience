@@ -50,3 +50,9 @@ export async function enableSamples(page: Page) {
   await box.check();
   await expect(page.getByTestId("data-banner")).toContainText("Sample");
 }
+
+/** Serve a tiny placeholder for Wikimedia Commons photos so tests are deterministic and offline. */
+export async function stubCommonsPhotos(page: Page) {
+  const png = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==", "base64");
+  await page.route(/commons\.wikimedia\.org|upload\.wikimedia\.org/, (route) => route.fulfill({ status: 200, contentType: "image/png", body: png }));
+}

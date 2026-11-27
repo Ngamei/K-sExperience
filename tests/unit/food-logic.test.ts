@@ -46,9 +46,17 @@ describe("dish filters", () => {
   });
   it("venue filters only match via establishments in the index", () => {
     const f = { ...EMPTY_FILTERS, neighbourhoods: ["Quận 1"] };
-    expect(filterDishes(data.dishes, f, ctx)).toHaveLength(0);
+    // Real venues in Quận 1: Bánh Mì Huỳnh Hoa, Bánh Xèo 46A
+    expect(filterDishes(data.dishes, f, ctx).map((d) => d.id).sort()).toEqual(["banh-mi-sai-gon", "banh-xeo-nam-bo"]);
     const s = filterDishes(data.dishes, f, { ...ctx, availability: withSamples });
-    expect(s.map((d) => d.id).sort()).toEqual(["bun-cha-ha-noi", "cha-ca-la-vong", "pho-bo-ha-noi"]);
+    expect(s.map((d) => d.id).sort()).toEqual(["banh-mi-sai-gon", "banh-xeo-nam-bo", "bun-cha-ha-noi", "cha-ca-la-vong", "pho-bo-ha-noi"]);
+  });
+  it("real researched venues are listed but never marked verified-available from a published source alone", () => {
+    expect(statusOf(real, "com-tam-sai-gon")).toBe("unverified");
+    for (const l of data.links.filter((x) => !x.isSample)) {
+      expect(l.menuEvidence?.type).toBe("published-source");
+      expect(l.status).not.toBe("verified-available");
+    }
   });
   it("tried/untried and saved", () => {
     const tried = new Set(["mi-quang"]);

@@ -12,10 +12,13 @@ Every dataset, where it came from, its licence and its verification status.
 | `public/geo/vietnam.json`, `regions.json`, `vietnam-locator.json` | Simplified geometry for the browser | mapshaper simplification of the above | Public Domain | Generated |
 | `data/source/seed-catalogue.json` | 138 seed dishes in the import format | Authored by Claude Code from general culinary knowledge (`scripts/seed-rows.mjs`) | Project-owned | **SEED — not source-verified** |
 | `data/vietnamese-dishes.json` | Canonical catalogue (output of the importer) | Importer over the seed file | Project-owned | `dataset: seed`, all `seed-unverified`, **no source references** |
-| `data/hcmc-restaurants.json` | Real HCMC establishments | — | — | **Intentionally empty** (none verified) |
-| `data/dish-restaurant-mapping.json` | Real dish ↔ establishment links | — | — | **Intentionally empty** |
+| `data/source/hcmc-restaurants.source.json` | 5 researched HCMC establishments (input to the importer) | Desk research 2026-11-27: MICHELIN Guide listings/articles, Vietnam Airlines travel guide, mia.vn, Báo Quốc tế (each record cites its URLs) | Facts only, no copied text beyond short attributed quotes | Listed by source — **not yet confirmed on site** |
+| `data/hcmc-restaurants.json` | Real HCMC establishments (canonical) | `npm run data:restaurants` | — | 5 venues, `lastVerified` = desk-check date |
+| `data/dish-restaurant-mapping.json` | Real dish ↔ establishment links | Same importer | — | 5 links, all `unverified` with `published-source` evidence |
+| Venue coordinates | Lat/lon | OpenStreetMap Nominatim, 2026-11-27 | ODbL (© OpenStreetMap contributors) | 4 exact (building/POI); Cơm Tấm Ba Ghiền street-level only, flagged approximate |
+| `data/source/dish-photos.json` | 45 dish photos (attached by `npm run data:seed`) | Wikimedia Commons; licence + author from the Commons API, 2026-11-27 | CC BY / CC BY-SA / CC0 / Public domain (per file, shown in UI) | Curated: each shows the named dish; 6 candidates rejected as mismatches. Loaded from Commons at runtime |
 | `data/samples/*.sample.json` | 8 fictional venues + 23 links | Fictional, for UI preview | — | **SAMPLE — never real, never recommended** |
-| Food illustrations (`src/components/food/illustrations.ts`) | 18 SVG dish-type illustrations | Original work in this repo | Project-owned | Placeholder until photography |
+| Food illustrations (`src/components/food/illustrations.ts`) | 18 SVG dish-type illustrations | Original work in this repo | Project-owned | Used for map markers and for the 93 dishes without a photo |
 | Fonts | Fraunces, Be Vietnam Pro | @fontsource npm packages | SIL Open Font License 1.1 | Self-hosted |
 | Nearby basemap (runtime, optional) | Street tiles | OpenFreeMap Positron style (OpenStreetMap data) | ODbL (data) — attribution shown by MapLibre | Only when online; confirmed by PO (DECISIONS D14) |
 

@@ -31,7 +31,7 @@ export function DiscoverView() {
   const representative = dishes.filter((d) => d.prominence === 1);
   const progress = passportProgress(dishes, regions, tried);
   const surprise = () => setPick(surpriseMe(dishes, prefs, { availability, tried }, Math.random, pick?.id));
-  const goRegion = (id: string) => { replaceFilters({ ...EMPTY_FILTERS, regions: [id as never] }); router.push("/explore/"); };
+  const goRegion = (id: string) => { replaceFilters({ ...EMPTY_FILTERS, regions: [id as never] }); router.push("/"); };
   const goCategory = (c: string) => { replaceFilters({ ...EMPTY_FILTERS, categories: [c as never] }); router.push("/catalogue/"); };
 
   return (
@@ -43,7 +43,7 @@ export function DiscoverView() {
             <h1 className="font-display text-[42px] leading-[1.02] text-forest md:text-[64px]" data-testid="tagline">{t("tagline")}</h1>
             <p className="mt-5 max-w-xl text-base text-charcoal/80 md:text-lg">{t("discover.hero")}</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Button asChild size="lg"><Link href="/explore/" data-testid="cta-explore">{t("discover.explore")} <ArrowRight /></Link></Button>
+              <Button asChild size="lg"><Link href="/" data-testid="cta-explore">{t("discover.explore")} <ArrowRight /></Link></Button>
               <Button size="lg" variant="accent" onClick={surprise} data-testid="surprise-me"><Sparkles /> {t("discover.surprise")}</Button>
             </div>
           </div>

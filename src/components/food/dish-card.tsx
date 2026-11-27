@@ -6,7 +6,7 @@ import { useT } from "@/lib/i18n/use-t";
 import { useUser } from "@/lib/store/user";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-import { DishArt } from "./dish-art";
+import { DishThumb } from "./dish-image";
 import { useFoodData } from "./food-data";
 import { CategoryBadge, StatusDot } from "./badges";
 
@@ -28,7 +28,7 @@ export function DishCard({ dish, status, compact }: { dish: Dish; status?: Avail
       data-testid="dish-card"
       data-dish-id={dish.id}
     >
-      <DishArt type={dish.dishType} category={dish.category} size={compact ? 52 : 64} className="bg-ivory" />
+      <DishThumb dish={dish} size={compact ? 52 : 64} className="bg-ivory" />
       <div className="min-w-0 flex-1">
         <div className="flex items-start justify-between gap-2">
           <h3 className="font-display text-[17px] leading-tight text-charcoal group-hover:text-forest">{dish.nameVi}</h3>

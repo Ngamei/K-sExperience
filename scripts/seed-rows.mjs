@@ -153,7 +153,11 @@ const out = rows.trim().split("\n").map((line, i) => {
   o.verificationStatus = "seed-unverified";
   return o;
 });
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
+import { slugify } from "./slug.mjs";
+// Attach curated, licence-checked photos (data/source/dish-photos.json) by dish id.
+const photos = JSON.parse(readFileSync(new URL("../data/source/dish-photos.json", import.meta.url), "utf8")).photos;
+for (const o of out) { const p = photos[slugify(o.nameVi)]; if (p) o.photos = p; }
 writeFileSync(new URL("../data/source/seed-catalogue.json", import.meta.url), JSON.stringify({
   label: "SEED DATA — demonstration catalogue authored by Claude Code from general culinary knowledge. Not yet verified against sources. To be replaced by the ChatGPT master catalogue.",
   dataset: "seed",

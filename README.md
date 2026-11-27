@@ -6,8 +6,8 @@ A dish-first lifestyle discovery platform. The first experience, **Vietnamese Fo
 region of Vietnam to their culinary origins on an illustrated interactive map, and shows where to taste them in
 Ho Chi Minh City. Bars, Coffee, Spa and Shopping are planned modules (Settings → Experience Mode).
 
-> **Checkpoint status:** runnable MVP in local mode. Catalogue = 138 clearly-labelled **seed** dishes.
-> No real HCMC establishments are verified yet — see `docs/IMPLEMENTATION_PLAN.md` → *Release blockers*.
+> **Checkpoint status:** runnable MVP in local mode. Catalogue = 138 clearly-labelled **seed** dishes (45 with licensed photos).
+> 5 real HCMC venues from published sources (not yet confirmed on site) — see `docs/IMPLEMENTATION_PLAN.md` → *Release blockers*.
 
 ## Quick start
 
@@ -39,7 +39,8 @@ Unzip, run `node serve.mjs` inside the folder, open http://localhost:4173 (Node 
 | `npm run test:e2e` | Playwright (desktop + Pixel 7) against the production build — run `npm run build` first |
 | `npm run qa` | All of the above in order |
 | `npm run data:geo` | Rebuild geography files from the geoBoundaries source |
-| `npm run data:seed` | Regenerate the seed catalogue through the importer |
+| `npm run data:seed` | Regenerate the seed catalogue through the importer (attaches curated photos) |
+| `npm run data:restaurants` | Import researched HCMC venues (validates sources + HCMC boundary) |
 | `npm run data:import -- <file.json\|csv> --dataset master` | Import the master catalogue |
 | `npm run data:validate` | Integrity checks across all data files (incl. HCMC-only rule) |
 

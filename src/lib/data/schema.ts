@@ -162,6 +162,12 @@ export const RestaurantSchema = z.object({
   address: z.string().min(1),
   neighbourhood: z.string().min(1),
   coordinates: lonLat,
+  /** "exact" = building/POI match; "street" = only the street could be geocoded (shown as approximate). */
+  coordinatePrecision: z.enum(["exact", "street"]).optional(),
+  /** Google Maps search link (name + address) — opens the real place listing. */
+  googleMapsUrl: z.url().optional(),
+  /** Short factual notes attributed to a cited source (e.g. guide distinctions). */
+  highlights: z.array(z.string()).optional(),
   venueType: z.enum(VENUE_TYPES),
   priceRange: z.enum(PRICE_RANGES).optional(),
   openingHours: OpeningHoursSchema.optional(),
@@ -177,7 +183,7 @@ export const DishRestaurantLinkSchema = z.object({
   restaurantId: z.string(),
   status: z.enum(AVAILABILITY_STATUSES),
   isSample: z.boolean(),
-  menuEvidence: z.object({ type: z.enum(["menu-photo", "official-menu", "site-visit", "phone-call", "delivery-listing", "sample"]), note: z.string(), url: z.url().optional() }).optional(),
+  menuEvidence: z.object({ type: z.enum(["menu-photo", "official-menu", "site-visit", "phone-call", "delivery-listing", "published-source", "sample"]), note: z.string(), url: z.url().optional() }).optional(),
   priceVnd: z.object({ min: z.number(), max: z.number() }).optional(),
   lastVerified: z.string().optional(),
 });

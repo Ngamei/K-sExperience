@@ -51,7 +51,14 @@
         "vi": "Bánh phở trong nước dùng xương bò ninh lâu, thơm gừng nướng, hoa hồi, quế — phong cách thanh tao của miền Bắc.",
         "en": "Flat rice noodles in a clear, slow-simmered beef broth scented with charred ginger, star anise and cinnamon — the restrained northern style."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ph%E1%BB%9F_b%C3%B2%2C_C%E1%BA%A7u_Gi%E1%BA%A5y%2C_H%C3%A0_N%E1%BB%99i.jpg?width=960",
+          "credit": "Codename5281 / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ph%E1%BB%9F_b%C3%B2,_C%E1%BA%A7u_Gi%E1%BA%A5y,_H%C3%A0_N%E1%BB%99i.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -399,7 +406,14 @@
         "vi": "Chả viên và chả miếng nướng than hoa ngâm trong nước chấm chua ngọt, ăn với bún và rau sống.",
         "en": "Charcoal-grilled pork patties and belly served in a warm sweet-sour fish-sauce dip with vermicelli and herbs."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%BAn_ch%E1%BA%A3_Th%E1%BB%A5y_Khu%C3%AA.jpg?width=960",
+          "credit": "Viethavvh / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%BAn_ch%E1%BA%A3_Th%E1%BB%A5y_Khu%C3%AA.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -449,7 +463,14 @@
         "vi": "Món bún cầu kỳ của Hà Nội với gà xé, trứng tráng thái chỉ, giò lụa và nước dùng thanh.",
         "en": "An intricate Hanoi noodle soup of shredded chicken, egg ribbons and pork roll in a delicate broth."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%BAn_thang.JPG?width=960",
+          "credit": "Nguyễn Thanh Quang / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%BAn_thang.JPG"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -501,7 +522,14 @@
         "vi": "Nước dùng chua thanh vị cà chua với riêu cua đồng, món quen thuộc vùng đồng bằng Bắc Bộ.",
         "en": "A tangy tomato broth crowned with fluffy field-crab paste, a staple of the northern delta."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%BAn_ri%C3%AAu_cua_n%C6%B0%E1%BB%9Bc.jpg?width=960",
+          "credit": "Alpha / Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%BAn_ri%C3%AAu_cua_n%C6%B0%E1%BB%9Bc.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -552,7 +580,14 @@
         "vi": "Cá ướp nghệ rán ngay trên bàn với thì là, hành lá, ăn cùng mắm tôm.",
         "en": "Turmeric-marinated fish sizzled at the table with mountains of dill and spring onion."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ch%E1%BA%A3_c%C3%A1_L%C3%A3_V%E1%BB%8Dng_H%C3%A0_N%E1%BB%99i_th%C3%A1ng_2_n%C4%83m_2018_(1).jpg?width=960",
+          "credit": "Phương Huy / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%E1%BA%A3_c%C3%A1_L%C3%A3_V%E1%BB%8Dng_H%C3%A0_N%E1%BB%99i_th%C3%A1ng_2_n%C4%83m_2018_(1).jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -599,7 +634,14 @@
         "vi": "Bánh cuốn mỏng tang làng Thanh Trì, rắc hành phi, ăn kèm chả lụa.",
         "en": "Gossamer-thin steamed rice sheets from Thanh Trì, eaten plain with shallots and pork roll."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_cu%E1%BB%91n_Thanh_Tr%C3%AC.jpg?width=960",
+          "credit": "Casablanca1911 at vi.wikipedia / Wikimedia Commons",
+          "license": "Public domain",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_cu%E1%BB%91n_Thanh_Tr%C3%AC.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -650,7 +692,14 @@
         "vi": "Bún lá, đậu rán giòn, rau thơm chấm mắm tôm đánh sủi bọt.",
         "en": "Pressed vermicelli, crisp fried tofu and herbs with a pungent, whipped shrimp-paste dip."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%BAn_%C4%91%E1%BA%ADu_m%E1%BA%AFm_t%C3%B4m_(2019).jpg?width=960",
+          "credit": "Baoothersks / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%BAn_%C4%91%E1%BA%ADu_m%E1%BA%AFm_t%C3%B4m_(2019).jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -697,7 +746,14 @@
         "vi": "Bún với ốc nhồi, nước dùng chua dấm bỗng và cà chua, ăn nóng hoặc nguội.",
         "en": "Sour tomato broth with tender river snails, served hot or at room temperature."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%BAn_%E1%BB%91c.jpg?width=960",
+          "credit": "Thang Nguyen from Nottingham, United Kingdom / Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%BAn_%E1%BB%91c.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -789,7 +845,14 @@
         "vi": "Bánh tôm khoai lang chiên giòn, đặc sản ven Hồ Tây.",
         "en": "Crisp fritters of sweet potato topped with whole shrimp, a classic of Hanoi's West Lake."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_t%C3%B4m.jpg?width=960",
+          "credit": "Thang Nguyen from Nottingham, United Kingdom / Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_t%C3%B4m.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -884,7 +947,14 @@
         "vi": "Bánh trôi nhân đường phên và bánh chay nhân đỗ xanh trong dịp Tết Hàn Thực.",
         "en": "Glutinous rice balls filled with palm sugar or mung bean, made for the Hàn Thực festival."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Banhchay.JPG?width=960",
+          "credit": "Conbo at vi.wikipedia / Wikimedia Commons",
+          "license": "Public domain",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Banhchay.JPG"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -932,7 +1002,14 @@
         "vi": "Ô mai chua ngọt mặn từ phố Hàng Đường.",
         "en": "Sweet-sour-salty preserved fruits from Hanoi's Hàng Đường street."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/O_mai_mo.jpg?width=960",
+          "credit": "Binh Giang / Wikimedia Commons",
+          "license": "Public domain",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:O_mai_mo.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -983,7 +1060,14 @@
         "vi": "Bánh nếp rau khúc nhân đỗ xanh và mỡ lợn, lăn xôi.",
         "en": "Herb-green dumplings of cudweed and glutinous rice, filled with mung bean and pork."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_kh%C3%BAc.JPG?width=960",
+          "credit": "Thu trag9x (Lê Thu Trang) / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_kh%C3%BAc.JPG"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -1032,7 +1116,14 @@
         "vi": "Bánh đa đỏ dai trong nước riêu cua, đậu rán, chả lá lốt, rau muống — đặc trưng Hải Phòng.",
         "en": "Chewy red rice noodles in a crab broth with fried tofu and greens — Hải Phòng's signature bowl."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/BANH_DA_CUA_1.jpg?width=960",
+          "credit": "HoangTuanAnh / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:BANH_DA_CUA_1.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -1265,7 +1356,14 @@
         "vi": "Bánh đậu xanh tan trong miệng, quà biếu nổi tiếng Hải Dương.",
         "en": "Melt-in-the-mouth mung bean cakes, a famous Hải Dương gift."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Banh-Dau-Xanh.jpg?width=960",
+          "credit": "MrMaThaMi / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Banh-Dau-Xanh.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -1359,7 +1457,14 @@
         "vi": "Bánh làm từ nếp rang, gấc, gừng — tên gọi từ hình dáng như trứng cáy.",
         "en": "Colourful bars of puffed rice, named for their resemblance to crab roe."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_c%C3%A1y.JPG?width=960",
+          "credit": "Nguyễn Thanh Quang / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_c%C3%A1y.JPG"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -1636,7 +1741,14 @@
         "vi": "Bánh xu xê trong veo nhân đỗ xanh, thường có trong lễ cưới.",
         "en": "Translucent tapioca cakes filled with mung bean, traditional at weddings."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Phu_The_Cake.jpg?width=960",
+          "credit": "Khương Việt Hà / Wikimedia Commons",
+          "license": "Public domain",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phu_The_Cake.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -2074,7 +2186,14 @@
         "vi": "Cá suối gập đôi nhồi rau thơm, mắc khén, nướng than.",
         "en": "Whole river fish folded around herbs and mắc khén pepper, grilled over charcoal."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Khu_%E1%BA%A9m_th%E1%BB%B1c_B%E1%BA%BFn_Ngh%C3%A9_ng13th8n2023_(c%C3%A1_n%C6%B0%E1%BB%9Bng_T%C3%A2y_B%E1%BA%AFc_Pa_t%E1%BB%89nh_t%E1%BB%99p)_(7).jpg?width=960",
+          "credit": "Phương Huy / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khu_%E1%BA%A9m_th%E1%BB%B1c_B%E1%BA%BFn_Ngh%C3%A9_ng13th8n2023_(c%C3%A1_n%C6%B0%E1%BB%9Bng_T%C3%A2y_B%E1%BA%AFc_Pa_t%E1%BB%89nh_t%E1%BB%99p)_(7).jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -2179,7 +2298,14 @@
         "vi": "Thịt trâu treo gác bếp hun khói, tẩm mắc khén, gừng, ớt.",
         "en": "Buffalo meat smoked over the kitchen hearth with mắc khén pepper."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/L%E1%BB%85_h%E1%BB%99i_%E1%BA%A9m_th%E1%BB%B1c_C%E1%BB%ADa_Vi%E1%BB%87t_th4n2023_%C4%91%E1%BA%B7c_s%E1%BA%A3n_T%C3%A2y_B%E1%BA%AFc%2C_th%E1%BB%8Bt_tr%C3%A2u_g%C3%A1c_b%E1%BA%BFp_m%E1%BA%AFc_kh%C3%A9n_(4).jpg?width=960",
+          "credit": "Phương Huy / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:L%E1%BB%85_h%E1%BB%99i_%E1%BA%A9m_th%E1%BB%B1c_C%E1%BB%ADa_Vi%E1%BB%87t_th4n2023_%C4%91%E1%BA%B7c_s%E1%BA%A3n_T%C3%A2y_B%E1%BA%AFc,_th%E1%BB%8Bt_tr%C3%A2u_g%C3%A1c_b%E1%BA%BFp_m%E1%BA%AFc_kh%C3%A9n_(4).jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -2319,7 +2445,14 @@
         "vi": "Bánh chưng ngày Tết, gắn với truyền thuyết Lang Liêu thời Hùng Vương.",
         "en": "The square Tết cake whose legend traces to the Hùng Kings of Phú Thọ."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Banh_chung_vuong.jpg?width=960",
+          "credit": "vi:user:Viethavvh / Wikimedia Commons",
+          "license": "Public domain",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Banh_chung_vuong.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -2551,7 +2684,14 @@
         "vi": "Bánh gai làng Tứ Trụ, phiên bản xứ Thanh.",
         "en": "Thanh Hóa's version of the ramie-leaf cake, from Tứ Trụ village."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Banh_gai_Tu_Tru_-_a_Vietnamese_traditional_dumpling_(2).JPG?width=960",
+          "credit": "Hungda / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Banh_gai_Tu_Tru_-_a_Vietnamese_traditional_dumpling_(2).JPG"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -2691,7 +2831,14 @@
         "vi": "Kẹo lạc mật mía kẹp bánh đa nướng, thơm vị gừng.",
         "en": "Peanut and molasses candy sandwiched between toasted rice paper."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/KeoCudo.JPG?width=960",
+          "credit": "Lưu Ly at vi.wikipedia / Wikimedia Commons",
+          "license": "Public domain",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:KeoCudo.JPG"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -2927,7 +3074,14 @@
         "vi": "Nước dùng sả và mắm ruốc với bắp bò, giò heo, sa tế đỏ — biểu tượng ẩm thực Huế.",
         "en": "Lemongrass and shrimp-paste broth with beef shank, pork knuckle and red chilli oil — Huế's iconic bowl."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%BAn_b%C3%B2_Hu%E1%BA%BF_-_Ch%E1%BB%A3_%C4%90%C3%B4ng_Ba_(2024)_-_img_02.jpg?width=960",
+          "credit": "Chainwit. / Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%BAn_b%C3%B2_Hu%E1%BA%BF_-_Ch%E1%BB%A3_%C4%90%C3%B4ng_Ba_(2024)_-_img_02.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -3023,7 +3177,14 @@
         "vi": "Bánh bèo chén nhỏ phủ tôm chấy và tóp mỡ.",
         "en": "Tiny steamed rice cakes in saucers, topped with shrimp floss and crackling."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_b%C3%A8o.jpg?width=960",
+          "credit": "Charles Haynes / Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_b%C3%A8o.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -3118,7 +3279,14 @@
         "vi": "Bánh bột gạo mỏng hấp trong lá chuối với tôm thịt.",
         "en": "Flat rice-flour parcels steamed in banana leaf with shrimp and pork."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_n%E1%BA%ADm_Th%E1%BB%A7_%C4%90%E1%BB%A9c.jpg?width=960",
+          "credit": "Phương Huy (thảo luận) / Wikimedia Commons",
+          "license": "Public domain",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_n%E1%BA%ADm_Th%E1%BB%A7_%C4%90%E1%BB%A9c.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -3164,7 +3332,14 @@
         "vi": "Bánh bột lọc trong, dai, nhân tôm thịt.",
         "en": "Translucent, chewy tapioca dumplings with shrimp and pork."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Transluent_ravioli_in_Hanoi.jpg?width=960",
+          "credit": "Amenoc / Wikimedia Commons",
+          "license": "CC0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Transluent_ravioli_in_Hanoi.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -3354,7 +3529,14 @@
         "vi": "Sợi mì vàng nghệ, ít nước dùng đậm, đậu phộng và bánh tráng mè.",
         "en": "Wide turmeric noodles with a small amount of rich broth, peanuts and a sesame rice cracker."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mi_Quang_1A_Danang.jpg?width=960",
+          "credit": "Jpatokal / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mi_Quang_1A_Danang.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -3401,7 +3583,14 @@
         "vi": "Sợi cao lầu dai, thịt xíu, rau Trà Quế và bánh giòn — chỉ có ở Hội An.",
         "en": "Chewy lye-water noodles with char siu, herbs and crisp croutons, unique to Hội An."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cao_l%E1%BA%A7u_H%E1%BB%99i_An_(2024).jpg?width=960",
+          "credit": "Chainwit. / Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cao_l%E1%BA%A7u_H%E1%BB%99i_An_(2024).jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -4054,7 +4243,14 @@
         "vi": "Bánh hỏi ăn cùng cháo lòng, món sáng của người Bình Định.",
         "en": "Delicate woven rice-noodle mats served with a bowl of pork offal porridge."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_h%E1%BB%8Fi_tr%C3%ACnh_b%C3%A0y_tr%C3%AAn_%C4%91%C4%A9a.jpg?width=960",
+          "credit": "Ngô Trung / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_h%E1%BB%8Fi_tr%C3%ACnh_b%C3%A0y_tr%C3%AAn_%C4%91%C4%A9a.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -4241,7 +4437,14 @@
         "vi": "Nem nướng cuốn bánh tráng, rau sống, chấm nước sốt sệt.",
         "en": "Grilled pork sausage rolled with herbs and crisp rice paper, dipped in a thick sauce."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/M%E1%BA%B9t_nem_n%C6%B0%E1%BB%9Bng_Nha_Trang.jpg?width=960",
+          "credit": "Letruongan1122 / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:M%E1%BA%B9t_nem_n%C6%B0%E1%BB%9Bng_Nha_Trang.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -4295,7 +4498,14 @@
         "vi": "Bánh đổ khuôn đất nhỏ, có trứng hoặc hải sản.",
         "en": "Small rice cakes cooked in clay moulds, with egg or seafood."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_c%C4%83n_1.jpg?width=960",
+          "credit": "Memberofc1 / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_c%C4%83n_1.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -4780,7 +4990,14 @@
         "vi": "Ổ bánh mì giòn rụm kẹp pa tê, chả lụa, đồ chua và rau thơm.",
         "en": "A crackling, airy baguette layered with pâté, cold cuts, pickles and herbs."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_m%C3%AC_th%E1%BB%8Bt_n%C6%B0%E1%BB%9Bng.png?width=960",
+          "credit": "nsaum75¡שיחת!‎ / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_m%C3%AC_th%E1%BB%8Bt_n%C6%B0%E1%BB%9Bng.png"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -4833,7 +5050,14 @@
         "vi": "Cơm tấm sườn nướng, bì, chả trứng, mỡ hành và nước mắm.",
         "en": "Broken rice with a caramelised grilled pork chop, shredded pork skin and steamed egg meatloaf."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/C%C6%A1m_T%E1%BA%A5m%2C_Da_Nang%2C_Vietnam.jpg?width=960",
+          "credit": "Christopher Crouzet / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:C%C6%A1m_T%E1%BA%A5m,_Da_Nang,_Vietnam.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -4884,7 +5108,14 @@
         "vi": "Hủ tiếu gốc Hoa – Campuchia với thịt, tôm, gan, rất được ưa chuộng ở Sài Gòn.",
         "en": "A Teochew–Cambodian-rooted noodle soup with pork, shrimp and liver, beloved in Sài Gòn."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/H%E1%BB%A7_ti%E1%BA%BFu_nam_vang_gi%C3%B2_4.jpg?width=960",
+          "credit": "Phương Huy (thảo luận) / Wikimedia Commons",
+          "license": "Public domain",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:H%E1%BB%A7_ti%E1%BA%BFu_nam_vang_gi%C3%B2_4.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -4931,7 +5162,14 @@
         "vi": "Bột chiên giòn với trứng, ăn kèm đu đủ ngâm.",
         "en": "Cubes of rice cake fried crisp with egg, served with pickled papaya."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/M%C3%AC_x%C3%A0o_tr%E1%BB%A9ng_v%C3%A0_b%E1%BB%99t_chi%C3%AAn_%E1%BB%9F_B%C3%ACnh_T%C3%A2n_ng%C3%A0y_26_th%C3%A1ng_4_n%C4%83m_2020_%E1%BB%9F_B%C3%ACnh_T%C3%A2n_(5).jpg?width=960",
+          "credit": "Phương Huy / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:M%C3%AC_x%C3%A0o_tr%E1%BB%A9ng_v%C3%A0_b%E1%BB%99t_chi%C3%AAn_%E1%BB%9F_B%C3%ACnh_T%C3%A2n_ng%C3%A0y_26_th%C3%A1ng_4_n%C4%83m_2020_%E1%BB%9F_B%C3%ACnh_T%C3%A2n_(5).jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -4986,7 +5224,14 @@
         "vi": "Bánh tráng trộn với trứng cút, khô bò, xoài, tắc, ớt — món ăn vặt tuổi học trò.",
         "en": "Shredded rice paper tossed with quail egg, dried shrimp, mango and chilli — schoolyard street food."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vietnamese_%22banh_trang_tron%22.JPG?width=960",
+          "credit": "Memberofc1 / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vietnamese_%22banh_trang_tron%22.JPG"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -5234,7 +5479,14 @@
         "vi": "Chè thanh mát gốc Hoa với hạt sen, nhãn nhục, rong biển.",
         "en": "A cooling Chinese-Vietnamese sweet soup of lotus seeds, longan and seaweed."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/S%C3%A2m_b%E1%BB%95_l%C6%B0%E1%BB%A3ng.jpg?width=960",
+          "credit": "stu_spivack / Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:S%C3%A2m_b%E1%BB%95_l%C6%B0%E1%BB%A3ng.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -5282,7 +5534,14 @@
         "vi": "Bánh khọt giòn với tôm, cuốn rau cải.",
         "en": "Little crisp coconut-rice cakes topped with shrimp, wrapped in mustard greens."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_kh%E1%BB%8Dt.jpg?width=960",
+          "credit": "terence from Singapore / Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_kh%E1%BB%8Dt.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -5653,7 +5912,14 @@
         "vi": "Nem chua Lai Vung, đặc sản Đồng Tháp.",
         "en": "Đồng Tháp's famous fermented pork from Lai Vung."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nem_chua_Lai_Vung.jpg?width=960",
+          "credit": "TUIBAJAVE / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nem_chua_Lai_Vung.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -5709,7 +5975,14 @@
         "vi": "Bánh xèo to, giòn rụm, vàng nghệ cốt dừa, nhân tôm thịt, cuốn rau.",
         "en": "Huge, lacy coconut-turmeric crêpes filled with shrimp and pork, wrapped in greens."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_x%C3%A8o_with_n%C6%B0%E1%BB%9Bc_m%E1%BA%AFm.jpg?width=960",
+          "credit": "Vivian D Nguyen / Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_x%C3%A8o_with_n%C6%B0%E1%BB%9Bc_m%E1%BA%AFm.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -5819,7 +6092,14 @@
         "vi": "Canh chua me với cá lóc và thơm, linh hồn bữa cơm miền Tây.",
         "en": "A tamarind sour soup with snakehead fish and pineapple, at the heart of Mekong home cooking."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Canhchua2.jpg?width=960",
+          "credit": "Jason Hutchens / Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Canhchua2.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -5915,7 +6195,14 @@
         "vi": "Cá lóc nướng rơm nguyên con, cuốn bánh tráng rau sống.",
         "en": "Whole snakehead fish roasted in burning straw, eaten with herbs and rice paper."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/C%C3%A1_l%C3%B3c_n%C6%B0%E1%BB%9Bng_trui.JPG?width=960",
+          "credit": "Memberofc1 / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:C%C3%A1_l%C3%B3c_n%C6%B0%E1%BB%9Bng_trui.JPG"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -6012,7 +6299,14 @@
         "vi": "Bánh pía ngàn lớp nhân đậu xanh, sầu riêng, trứng muối.",
         "en": "Teochew-style flaky pastries filled with mung bean, durian and salted egg yolk."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_p%C3%ADa_new.jpg?width=960",
+          "credit": "TonySam123 / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_p%C3%ADa_new.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -6107,7 +6401,14 @@
         "vi": "Ba khía muối trộn tỏi ớt chanh, ăn cùng cơm trắng.",
         "en": "Salted marsh crabs tossed with garlic, chilli and lime, eaten with rice."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mam_ba_khia_(Vietnamese).jpg?width=960",
+          "credit": "Memberofc1 / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mam_ba_khia_(Vietnamese).jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -6341,7 +6642,14 @@
         "vi": "Kẹo dừa dẻo thơm làm từ cốt dừa — đặc sản nổi tiếng nhất xứ dừa.",
         "en": "Soft, chewy candy made from coconut cream — Bến Tre's best-known sweet."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cocnout_candy_8.jpg?width=960",
+          "credit": "Liftold (thảo luận) / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cocnout_candy_8.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -6627,7 +6935,14 @@
         "vi": "Bánh da lợn nhiều lớp từ bột năng, đậu xanh, lá dứa.",
         "en": "Bouncy layered cake of tapioca, mung bean and pandan."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_da_l%E1%BB%A3n_s%E1%BA%A7u_ri%C3%AAng.jpg?width=960",
+          "credit": "Biskuit from Atlanta, GA / Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_da_l%E1%BB%A3n_s%E1%BA%A7u_ri%C3%AAng.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"

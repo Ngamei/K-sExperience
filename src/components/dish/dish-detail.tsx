@@ -10,6 +10,7 @@ import { buildAvailabilityIndex, statusOf } from "@/lib/food/availability";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DishArt } from "@/components/food/dish-art";
+import { DishHeroPhoto } from "@/components/food/dish-image";
 import { CategoryBadge, SampleBadge, StatusDot } from "@/components/food/badges";
 import { DishCard } from "@/components/food/dish-card";
 import { useFoodData } from "@/components/food/food-data";
@@ -50,17 +51,34 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
   const VenueRow = ({ l }: { l: DishRestaurantLink }) => {
     const r = restaurants.find((x) => x.id === l.restaurantId)!;
     return (
-      <Link href={`/places/${r.id}/`} className="flex items-center gap-3 rounded-2xl border border-line/80 bg-ivory/60 p-3 hover:border-forest/30" data-testid="venue-row">
-        <span className="flex size-10 items-center justify-center rounded-full bg-sage-soft text-forest"><MapPin className="size-5" /></span>
-        <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="font-medium">{r.name}</span>
-            {r.isSample && <SampleBadge />}
+      <div className="rounded-2xl border border-line/80 bg-ivory/60 p-3.5" data-testid="venue-row" data-venue-id={r.id}>
+        <div className="flex items-start gap-3">
+          <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-sage-soft text-forest"><MapPin className="size-5" /></span>
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-1.5">
+              <Link href={`/places/${r.id}/`} className="font-medium hover:text-forest hover:underline">{r.name}</Link>
+              {r.isSample && <SampleBadge />}
+            </div>
+            <p className="text-xs text-muted">{r.address}</p>
+            <p className="text-xs text-muted">{r.neighbourhood} · {lbl(VENUE_LABELS, r.venueType, locale)}{r.priceRange ? ` · ${r.priceRange}` : ""}{l.priceVnd ? ` · ${l.priceVnd.min.toLocaleString("vi-VN")}–${l.priceVnd.max.toLocaleString("vi-VN")} ₫` : ""}</p>
+            {r.highlights?.length ? <p className="mt-1 text-xs text-forest">{r.highlights.join(" · ")}</p> : null}
+            {l.menuEvidence && !r.isSample && (
+              <p className="mt-1.5 text-[11.5px] leading-snug text-charcoal/70">
+                <span className="font-medium">{t("place.evidence")}:</span> {l.menuEvidence.note}{" "}
+                {l.menuEvidence.url && <a href={l.menuEvidence.url} target="_blank" rel="noreferrer" className="underline hover:text-forest">↗</a>}
+              </p>
+            )}
           </div>
-          <p className="text-xs text-muted">{r.neighbourhood} · {lbl(VENUE_LABELS, r.venueType, locale)}{r.priceRange ? ` · ${r.priceRange}` : ""}</p>
         </div>
-        <StatusDot status={l.status} />
-      </Link>
+        <div className="mt-2.5 flex flex-wrap items-center gap-2 pl-[52px]">
+          <StatusDot status={l.status} />
+          {r.googleMapsUrl && (
+            <a href={r.googleMapsUrl} target="_blank" rel="noreferrer" className="inline-flex h-7 items-center gap-1 rounded-full bg-forest px-3 text-[11.5px] font-medium text-ivory hover:bg-forest-soft" data-testid="google-maps-link">
+              <MapPin className="size-3.5" /> {t("place.googleMaps")}
+            </a>
+          )}
+        </div>
+      </div>
     );
   };
 
@@ -70,12 +88,13 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
         <ArrowLeft className="size-4" /> {t("nav.catalogue")}
       </button>
 
-      <div className="grid gap-6 md:grid-cols-[1fr_300px]">
+      <div className="mb-6 md:hidden"><DishHeroPhoto dish={d} creditLabel={t("dish.photoCredit")} /></div>
+      <div className="grid gap-6 md:grid-cols-[1fr_360px]">
         <div className="paper-grain relative overflow-hidden rounded-3xl border border-line/80 bg-[radial-gradient(ellipse_at_top_left,#fffdf8,#efe9dc)] p-6 md:p-8">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
             <div className="relative">
-              <DishArt type={d.dishType} category={d.category} size={132} className="bg-paper shadow-[0_10px_30px_-14px_rgba(41,45,41,.45)]" />
-              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-paper/95 px-2 py-0.5 text-[9.5px] text-muted shadow-sm">{t("dish.photoPending")}</span>
+              <DishArt type={d.dishType} category={d.category} size={d.photos.length ? 88 : 132} className="bg-paper shadow-[0_10px_30px_-14px_rgba(41,45,41,.45)]" />
+              {!d.photos.length && <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-paper/95 px-2 py-0.5 text-[9.5px] text-muted shadow-sm">{t("dish.photoPending")}</span>}
             </div>
             <div className="min-w-0">
               <div className="mb-2 flex flex-wrap gap-1.5">
@@ -113,6 +132,8 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
           </div>
         </div>
 
+        <div className="space-y-6">
+        <div className="hidden md:block"><DishHeroPhoto dish={d} creditLabel={t("dish.photoCredit")} /></div>
         <Block title={t("dish.origin")} testid="origin-block">
           <div className="flex h-72 justify-center">{locator}</div>
           <ul className="mt-3 space-y-2 text-sm">
@@ -133,6 +154,7 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
             })}
           </ul>
         </Block>
+        </div>
       </div>
 
       <div className="mt-6 grid gap-6 md:grid-cols-2">
@@ -159,7 +181,10 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
       <div className="mt-6">
         <Block title={t("dish.hcmc")} testid="hcmc-block">
           {realLinks.length > 0 ? (
-            <div className="grid gap-2">{realLinks.map((l) => <VenueRow key={l.restaurantId} l={l} />)}</div>
+            <div className="grid gap-2">
+              {realLinks.map((l) => <VenueRow key={l.restaurantId} l={l} />)}
+              <p className="text-[11.5px] text-muted">{t("dish.hcmcNote")}</p>
+            </div>
           ) : (
             <div className="rounded-2xl border border-dashed border-line bg-ivory/60 p-4" data-testid="none-found">
               <StatusDot status={realStatus} />
