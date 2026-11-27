@@ -101,6 +101,7 @@ test("dish page lists real HCMC venues with Google Maps links and a licensed pho
 
 test("Admin import validator rejects bad rows and accepts good ones", async ({ page }) => {
   await page.goto("/admin/");
+  await page.getByTestId("admin-tab-import").click();
   await page.getByTestId("import-text").fill(JSON.stringify([
     { nameVi: "Phở bò Nam Định", nameEn: "Nam Dinh pho", category: "Món mặn", dishType: "noodle-soup", origins: "Nam Định" },
     { nameVi: "Món lạ", nameEn: "Unknown", category: "drinks", dishType: "noodle-soup", origins: "Atlantis" },
@@ -109,6 +110,60 @@ test("Admin import validator rejects bad rows and accepts good ones", async ({ p
   const r = page.getByTestId("import-result");
   await expect(r).toContainText("1 valid");
   await expect(r).toContainText("Unknown category");
+  await expect(page.getByTestId("import-preview")).toContainText("1 matched · 0 new");
+});
+
+test.describe("Admin CMS (local mode)", () => {
+  test("Review lists the four provinces without dishes", async ({ page }) => {
+    await page.goto("/admin/");
+    await expect(page.getByTestId("admin-auth")).toContainText("Local mode");
+    await page.getByTestId("admin-tab-review").click();
+    const review = page.getByTestId("admin-review");
+    for (const p of ["Thái Nguyên", "Đắk Nông", "Đồng Nai", "Hậu Giang"]) await expect(review).toContainText(p);
+  });
+
+  test("dish editor validates and downloads a valid record", async ({ page }) => {
+    await page.goto("/admin/");
+    await page.getByTestId("admin-tab-dishes").click();
+    await page.getByTestId("dish-editor-select").selectOption("mi-quang");
+    await expect(page.getByTestId("dish-nameVi")).toHaveValue("Mì Quảng");
+    await page.getByTestId("dish-nameEn").fill("");
+    await expect(page.getByTestId("form-issues")).toContainText("nameEn");
+    await expect(page.getByTestId("admin-save")).toBeDisabled();
+    await page.getByTestId("dish-nameEn").fill("Quảng-style turmeric noodles");
+    await expect(page.getByTestId("form-issues")).toHaveCount(0);
+    const [download] = await Promise.all([page.waitForEvent("download"), page.getByTestId("admin-save").click()]);
+    expect(download.suggestedFilename()).toBe("dish-mi-quang.json");
+  });
+
+  test("establishment editor enforces sources and the HCMC boundary", async ({ page }) => {
+    await page.goto("/admin/");
+    await page.getByTestId("admin-tab-establishments").click();
+    await page.getByTestId("new-restaurant").click();
+    await page.getByTestId("restaurant-name").fill("Test Quán");
+    await page.getByTestId("restaurant-address").fill("1 Hàng Bông");
+    await page.getByTestId("restaurant-lon").fill("105.85");
+    await page.getByTestId("restaurant-lat").fill("21.03");
+    const issues = page.getByTestId("form-issues");
+    await expect(issues).toContainText("outside Ho Chi Minh City");
+    await expect(issues).toContainText("at least one source");
+    await page.getByTestId("restaurant-lon").fill("106.7");
+    await page.getByTestId("restaurant-lat").fill("10.776");
+    await page.getByTestId("restaurant-sources").fill("Test guide | https://example.org/guide");
+    await expect(issues).toContainText("neighbourhood");
+    await page.getByTestId("restaurant-neighbourhood").fill("Phường Bến Thành");
+    await expect(issues).toHaveCount(0);
+  });
+
+  test("evidence editor only offers evidence types that can justify the chosen level", async ({ page }) => {
+    await page.goto("/admin/");
+    await page.getByTestId("admin-tab-evidence").click();
+    await page.getByTestId("evidence-status").selectOption("menu-confirmed");
+    const types = await page.getByTestId("evidence-type").locator("option").allTextContents();
+    expect(types).toEqual(["official-menu", "delivery-listing", "menu-photo"]);
+    await page.getByTestId("evidence-status").selectOption("source-listed");
+    expect(await page.getByTestId("evidence-type").locator("option").allTextContents()).toEqual(["published-source"]);
+  });
 });
 
 test("all primary screens render without errors", async ({ page }) => {
