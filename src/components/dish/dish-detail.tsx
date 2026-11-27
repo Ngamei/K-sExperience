@@ -1,8 +1,10 @@
 "use client";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, Bookmark, Check, FolderPlus, MapPin } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Bookmark, Check, Copy, FolderPlus, MapPin, Utensils } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useFilters } from "@/lib/store/filters";
+import { EMPTY_FILTERS } from "@/lib/food/filters";
 import { useT } from "@/lib/i18n/use-t";
 import { DIETARY_TAG_LABELS, DISH_TYPE_LABELS, lbl, MEAL_LABELS, SPICE_LABELS, TASTE_LABELS, VENUE_LABELS } from "@/lib/i18n/labels";
 import { useUser } from "@/lib/store/user";
@@ -38,6 +40,8 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
   const toggleInCollection = useUser((s) => s.toggleInCollection);
   const override = useUser((s) => s.verificationOverrides[id]);
   const [colOpen, setColOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const replaceFilters = useFilters((s) => s.replace);
   const router = useRouter();
 
   const real = buildAvailabilityIndex(restaurants, links, { includeSamples: false });
@@ -208,6 +212,35 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
             </span>
             <ArrowUpRight className="size-4 shrink-0 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-forest" />
           </a>
+          <div className="mt-2.5 flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={async () => {
+                try { await navigator.clipboard.writeText(d.nameVi); setCopied(true); setTimeout(() => setCopied(false), 1800); } catch { /* clipboard unavailable */ }
+              }}
+              className="inline-flex h-8 items-center gap-1.5 rounded-full border border-line bg-paper px-3 text-xs font-medium hover:border-forest/40"
+              data-testid="copy-dish-name"
+            >
+              {copied ? <Check className="size-3.5 text-forest" /> : <Copy className="size-3.5" />} {copied ? t("dish.copied") : t("dish.copyName")}
+            </button>
+            {(() => {
+              const o = d.origins.find((x) => x.role === "primary" && x.provinceId) ?? d.origins.find((x) => x.provinceId);
+              const place = o?.provinceId ? provinceById.get(o.provinceId)?.nameVi : regionById.get(d.origins[0].regionId)?.nameVi;
+              return (
+                <button
+                  type="button"
+                  onClick={() => {
+                    replaceFilters(o?.provinceId ? { ...EMPTY_FILTERS, provinces: [o.provinceId] } : { ...EMPTY_FILTERS, regions: [d.origins[0].regionId] });
+                    router.push("/catalogue/");
+                  }}
+                  className="inline-flex h-8 items-center gap-1.5 rounded-full border border-line bg-paper px-3 text-xs font-medium hover:border-forest/40"
+                  data-testid="more-from-origin"
+                >
+                  <Utensils className="size-3.5" /> {t("dish.moreFrom", { place: place ?? "" })}
+                </button>
+              );
+            })()}
+          </div>
           {sampleLinks.length > 0 && (
             <div className="mt-4 rounded-2xl bg-[#fff8e1] p-3 ring-1 ring-[#efd98c]" data-testid="sample-venues">
               <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#6b4e00]">Sample venues — fictional, for interface preview only</p>

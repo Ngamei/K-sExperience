@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "note": "Sprint 2 (Task 4): first 50 distinctive regional dishes to match with real HCMC establishments. Chosen for regional distinctiveness and plausible presence in Sài Gòn; dishes that originate in Đông Nam Bộ (cơm tấm, bánh mì, ốc…) are excluded because they already have coverage. Spread: Miền Bắc 18, Bắc Trung Bộ 9, Nam Trung Bộ 10, Tây Nguyên 4, Tây Nam Bộ 9.",
+    "owner": "Codex (PM/QA) may reorder; Claude Code researches."
+  },
+  "dishIds": [
+    "pho-bo-ha-noi", "pho-ga-ha-noi", "pho-cuon", "bun-cha-ha-noi", "bun-thang", "bun-rieu-cua", "cha-ca-la-vong", "banh-cuon-thanh-tri", "bun-dau-mam-tom", "bun-oc-ha-noi", "xoi-xeo", "banh-da-cua-hai-phong", "nem-cua-be-hai-phong", "banh-mi-que-hai-phong", "cha-muc-ha-long", "thang-co", "vit-quay-lang-son", "thit-trau-gac-bep",
+    "bun-bo-hue", "com-hen", "banh-beo-hue", "banh-khoai", "banh-nam", "banh-bot-loc-hue", "chao-luon-nghe-an", "nem-chua-thanh-hoa", "banh-canh-nam-pho",
+    "mi-quang", "cao-lau-hoi-an", "com-ga-hoi-an", "banh-trang-cuon-thit-heo", "bun-cha-ca-da-nang", "bun-cha-ca-quy-nhon", "banh-xeo-tom-nhay-quy-nhon", "bun-sua-nha-trang", "nem-nuong-ninh-hoa", "banh-can",
+    "pho-kho-gia-lai", "banh-trang-nuong-da-lat", "bun-do-buon-ma-thuot", "lau-ga-la-e",
+    "hu-tieu-my-tho", "lau-mam", "bun-nuoc-leo-soc-trang", "banh-pia-soc-trang", "banh-tam-bi-bac-lieu", "bun-ca-chau-doc", "banh-xeo-nam-bo", "ca-kho-to", "canh-chua-ca-loc"
+  ]
+}

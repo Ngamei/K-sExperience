@@ -34,6 +34,19 @@ test("every dish offers a Google Maps search for HCMC, even without listed venue
   await expect(page.getByTestId("google-maps-search")).toHaveAttribute("href", /query=Th%E1%BA%AFng%20c%E1%BB%91%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh/);
 });
 
+test("dish page: copy dish name and browse more dishes from its origin province", async ({ page, context }) => {
+  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+  await page.goto("/dishes/bun-bo-hue/");
+  await page.getByTestId("copy-dish-name").click();
+  await expect(page.getByTestId("copy-dish-name")).toContainText("Copied");
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe("Bún bò Huế");
+  await page.getByTestId("more-from-origin").click();
+  await expect(page).toHaveURL(/\/catalogue\/$/);
+  await expect(page.getByTestId("active-chip").filter({ hasText: "Thừa Thiên Huế" }).first()).toBeAttached();
+  const cards = page.getByTestId("catalogue-results").getByTestId("dish-card");
+  expect(await cards.count()).toBeGreaterThan(5);
+});
+
 test("home page is the culinary map; Discover moved to /discover", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByTestId("vietnam-map")).toBeVisible();

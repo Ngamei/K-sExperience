@@ -42,6 +42,7 @@ Unzip, run `node serve.mjs` inside the folder, open http://localhost:4173 (Node 
 | `npm run data:seed` | Regenerate the seed catalogue through the importer (attaches curated photos) |
 | `npm run data:restaurants` | Import researched HCMC venues (curated list + research batches; validates sources + HCMC boundary) |
 | `npm run data:coverage` | Regenerate `docs/VENUE_COVERAGE.md` (venues per dish, target ≥ 5) |
+| `npm run data:report` | Regenerate `docs/DATA_REPORT.md` (catalogue, photo, venue completeness; priority-50 progress) |
 | `npm run data:import -- <file.json\|csv> --dataset master` | Import the master catalogue |
 | `npm run data:validate` | Integrity checks across all data files (incl. HCMC-only rule) |
 
@@ -62,4 +63,4 @@ docs/                    PRD, architecture, plan, decisions, data sources, QA re
 ```
 
 ## Documentation
-`AGENTS.md` · `docs/PRD.md` · `docs/ARCHITECTURE.md` · `docs/IMPLEMENTATION_PLAN.md` · `docs/DECISIONS.md` · `docs/DATA_SOURCES.md` · `docs/QA_REPORT.md`
+`AGENTS.md` · `docs/PRD.md` · `docs/ARCHITECTURE.md` · `docs/IMPLEMENTATION_PLAN.md` · `docs/DECISIONS.md` · `docs/DATA_SOURCES.md` · `docs/QA_REPORT.md` · `docs/BACKLOG.md` · `docs/AGENT_HANDOVER.md` · `docs/AUDIT.md` · `docs/RESTAURANT_VERIFICATION_PLAN.md` · `docs/DATA_REPORT.md`
