@@ -191,6 +191,18 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
               <p className="mt-2 max-w-2xl text-sm text-charcoal/80">{t("status.noneFoundBody")}</p>
             </div>
           )}
+          <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-line/70 pt-4" data-testid="maps-search">
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${d.nameVi}, Hồ Chí Minh`)}`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-9 items-center gap-1.5 rounded-full border border-forest/40 bg-paper px-4 text-sm font-medium text-forest hover:bg-forest hover:text-ivory"
+              data-testid="google-maps-search"
+            >
+              <MapPin className="size-4" /> {t("dish.searchMaps", { name: d.nameVi })}
+            </a>
+            <span className="text-[11.5px] text-muted">{t("dish.searchMapsNote")}</span>
+          </div>
           {sampleLinks.length > 0 && (
             <div className="mt-4 rounded-2xl bg-[#fff8e1] p-3 ring-1 ring-[#efd98c]" data-testid="sample-venues">
               <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#6b4e00]">Sample venues — fictional, for interface preview only</p>

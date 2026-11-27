@@ -39,6 +39,8 @@ Legend: ✅ done and verified by automated test and/or browser evidence · 🟡 
 - ✅ Nearby (map + list, distance from neighbourhood/geolocation, budget, venue type, open now), Establishment details (hours, directions, delivery, evidence).
 - ✅ Sample venues: opt-in, badged, directions disabled, excluded from recommendations — e2e.
 - ✅ **5 real HCMC establishments** from published sources (Phở Hòa Pasteur, Bánh Mì Huỳnh Hoa, Cơm Tấm Ba Ghiền, Bánh Xèo 46A, Hủ Tiếu Hồng Phát) with addresses, OSM coordinates, Google Maps links, cited sources — integration + e2e.
+- ✅ Every dish has a "Find on Google Maps (HCMC)" search button (live Google results, labelled as unchecked) — e2e.
+- ⛔ **PO request: ≥ 5 venues per dish (690 links).** Not achievable from open data: OpenStreetMap has very few HCMC eateries (e.g. 2 for "bún bò huế"); Overpass API unreachable from the sandbox. Needs a PO decision: Google Places API (paid, key), or batch manual research. See DECISIONS D22.
 - ⛔ **On-site/phone confirmation** of availability (to upgrade links to `verified-available`) — not done.
 
 ## Phase 7 — Saved, recommendations, passport

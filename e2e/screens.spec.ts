@@ -20,6 +20,12 @@ test("header language switch shows the active language", async ({ page }) => {
   await expect(page.getByTestId("tagline")).toHaveText("Explore Vietnam. Experience it in Sài Gòn.");
 });
 
+test("every dish offers a Google Maps search for HCMC, even without listed venues", async ({ page }) => {
+  await page.goto("/dishes/thang-co/");
+  await expect(page.getByTestId("none-found")).toBeVisible();
+  await expect(page.getByTestId("google-maps-search")).toHaveAttribute("href", /query=Th%E1%BA%AFng%20c%E1%BB%91%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh/);
+});
+
 test("home page is the culinary map; Discover moved to /discover", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByTestId("vietnam-map")).toBeVisible();
@@ -63,6 +69,7 @@ test("dish page lists real HCMC venues with Google Maps links and a licensed pho
   await expect(row).toContainText("Michelin");
   await expect(row.getByTestId("availability-status")).toHaveAttribute("data-status", "unverified");
   await expect(row.getByTestId("google-maps-link")).toHaveAttribute("href", /^https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=C%C6%A1m%20T%E1%BA%A5m%20Ba%20Ghi%E1%BB%81n/);
+  await expect(page.getByTestId("google-maps-search")).toHaveAttribute("href", /maps\/search\/\?api=1&query=C%C6%A1m%20t%E1%BA%A5m%20S%C3%A0i%20G%C3%B2n%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh/);
   await row.getByRole("link", { name: "Cơm Tấm Ba Ghiền" }).click();
   await expect(page.getByTestId("place-detail")).toBeVisible();
   await expect(page.getByTestId("approx-location")).toBeVisible();
