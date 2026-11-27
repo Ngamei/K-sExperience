@@ -60,13 +60,13 @@ Legend: ✅ done and verified by automated test and/or browser evidence · 🟡 
 4. **Admin is unauthenticated** in local mode — must be gated by Supabase Auth + `user_roles` before any hosted deployment that exposes it.
 5. **Dish photography** — no licensed images; illustrations only.
 6. **2025 administrative mapping** (63 → 34) encoded from engineer knowledge — PM should verify against Resolution 202/2025/QH15.
-7. **PO decisions pending:** D4 (single Miền Bắc region), D6 (HCMC = 2025 boundary incl. Bình Dương/BR-VT), D13 (default language), D14 (OpenFreeMap basemap).
+7. **PO decisions pending:** D4 (single Miền Bắc region), D14 (OpenFreeMap basemap). Resolved 2026-11-27: D6 (HCMC = 2025 boundary incl. Bình Dương/BR-VT) and D13 (English default).
 8. Accessibility audit (keyboard on map markers is supported via buttons; full WCAG review not done) and performance budget review on real devices.
 9. SEO: dish body text is client-rendered after `/data/food.json` loads (metadata is server-rendered). Consider server-rendering dish text if organic search matters.
 
 ## Next actions (proposed)
 1. ChatGPT exports the master catalogue in the import format → `npm run data:import -- master.csv --dataset master --dry-run`, fix, import.
-2. PO answers D4/D6/D13/D14.
+2. PO answers D4/D14 (D6 and D13 confirmed).
 3. Research & verify an initial set of HCMC establishments (with menu evidence) per the data requirements in DATA_SOURCES.md.
 4. Create Supabase project (PO approval), apply migration, implement `SupabaseRepository` behind the `FoodData` shape, add Auth for Saved/Passport/Admin.
 5. Source licensed photography; add Supabase Storage upload in Admin.

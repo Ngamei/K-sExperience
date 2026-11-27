@@ -8,7 +8,7 @@ Every dataset, where it came from, its licence and its verification status.
 | `data/vietnam.geojson` | 63 provinces (our IDs, region) + Hoàng Sa + Trường Sa features | Derived by `scripts/build-geo.ts` | Public Domain (derived) | Generated |
 | `data/provinces.json` | 63 provinces: names, ISO 3166-2, region, interior label point, bbox, **current 2025 unit** | Geometry: above. Region assignment: product brief. 2025 mapping: Resolution 202/2025/QH15 (effective 1 Jul 2025, 34 units) — encoded from engineer knowledge in `scripts/geo-master.ts` | — | **2025 mapping needs PM verification against the official resolution text** |
 | `data/regions.json` | Six culinary regions | Product brief | — | Confirmed |
-| `data/hcmc-boundary.geojson`, `public/geo/hcmc.json` | Current HCMC area = former HCMC + Bình Dương + Bà Rịa–Vũng Tàu | Derived | Public Domain | See DECISIONS D6 |
+| `data/hcmc-boundary.geojson`, `public/geo/hcmc.json` | Current HCMC area = former HCMC + Bình Dương + Bà Rịa–Vũng Tàu | Derived | Public Domain | Confirmed by PO (DECISIONS D6) |
 | `public/geo/vietnam.json`, `regions.json`, `vietnam-locator.json` | Simplified geometry for the browser | mapshaper simplification of the above | Public Domain | Generated |
 | `data/source/seed-catalogue.json` | 138 seed dishes in the import format | Authored by Claude Code from general culinary knowledge (`scripts/seed-rows.mjs`) | Project-owned | **SEED — not source-verified** |
 | `data/vietnamese-dishes.json` | Canonical catalogue (output of the importer) | Importer over the seed file | Project-owned | `dataset: seed`, all `seed-unverified`, **no source references** |
