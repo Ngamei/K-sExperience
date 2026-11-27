@@ -17,7 +17,7 @@ Every dataset, where it came from, its licence and its verification status.
 | `data/samples/*.sample.json` | 8 fictional venues + 23 links | Fictional, for UI preview | — | **SAMPLE — never real, never recommended** |
 | Food illustrations (`src/components/food/illustrations.ts`) | 18 SVG dish-type illustrations | Original work in this repo | Project-owned | Placeholder until photography |
 | Fonts | Fraunces, Be Vietnam Pro | @fontsource npm packages | SIL Open Font License 1.1 | Self-hosted |
-| Nearby basemap (runtime, optional) | Street tiles | OpenFreeMap Positron style (OpenStreetMap data) | ODbL (data) — attribution shown by MapLibre | Only when online; see DECISIONS D14 |
+| Nearby basemap (runtime, optional) | Street tiles | OpenFreeMap Positron style (OpenStreetMap data) | ODbL (data) — attribution shown by MapLibre | Only when online; confirmed by PO (DECISIONS D14) |
 
 ## Seed catalogue coverage
 - 138 dishes: **92 savory, 22 sweet, 24 snack**.
