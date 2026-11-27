@@ -1,5 +1,6 @@
 import type { AvailabilityStatus, DishRestaurantLink, Restaurant } from "../data/schema";
 import { STATUS_RANK } from "../data/evidence";
+import { buildOfferingIndex } from "../../engine/offering-index";
 export { STATUS_RANK };
 
 export interface AvailabilityIndex {
@@ -21,20 +22,9 @@ export function buildAvailabilityIndex(
   links: DishRestaurantLink[],
   opts: { includeSamples: boolean; includeCandidates?: boolean },
 ): AvailabilityIndex {
-  const rs = new Map(restaurants.filter((r) => opts.includeSamples || !r.isSample).map((r) => [r.id, r]));
-  const statusByDish = new Map<string, AvailabilityStatus>();
-  const linksByDish = new Map<string, DishRestaurantLink[]>();
-  const linksByRestaurant = new Map<string, DishRestaurantLink[]>();
-  for (const l of links) {
-    if (!rs.has(l.restaurantId)) continue;
-    if (l.isSample && !opts.includeSamples) continue;
-    if (l.status === "candidate" && !opts.includeCandidates) continue; // admin only
-    linksByDish.set(l.dishId, [...(linksByDish.get(l.dishId) ?? []), l]);
-    linksByRestaurant.set(l.restaurantId, [...(linksByRestaurant.get(l.restaurantId) ?? []), l]);
-    const cur = statusByDish.get(l.dishId);
-    if (!cur || STATUS_RANK[l.status] > STATUS_RANK[cur]) statusByDish.set(l.dishId, l.status);
-  }
-  return { statusByDish, linksByDish, linksByRestaurant, restaurants: rs };
+  // Food is one configuration of the shared engine index (src/engine/offering-index.ts).
+  const idx = buildOfferingIndex(restaurants, links, { item: (l) => l.dishId, establishment: (l) => l.restaurantId }, opts);
+  return { statusByDish: idx.statusByItem, linksByDish: idx.byItem, linksByRestaurant: idx.byEstablishment, restaurants: idx.establishments };
 }
 
 export const statusOf = (idx: AvailabilityIndex, dishId: string): AvailabilityStatus =>

@@ -3,8 +3,8 @@ import type { User } from "@supabase/supabase-js";
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { getSupabase, supabaseEnabled } from "@/lib/supabase/client";
 import { loadAccountPassport, loadProfile, syncPassportDiff, writeAccountPassport, type Profile } from "@/lib/supabase/passport";
-import { mergePassports, type PassportData } from "@/lib/passport/model";
-import { passportOf, useUser } from "@/lib/store/user";
+import { mergeAllPassports, type Passports } from "@/lib/passport/model";
+import { allPassportsOf, useUser } from "@/lib/store/user";
 
 type Status = "disabled" | "loading" | "guest" | "signed-in";
 interface AuthCtx {
@@ -33,7 +33,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [migration, setMigration] = useState<{ state: "idle" | "running" | "failed"; error: string | null }>({ state: "idle", error: null });
-  const synced = useRef<PassportData | null>(null);
+  const synced = useRef<Passports | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const adopt = useCallback(async (u: User) => {
@@ -43,8 +43,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const st = useUser.getState();
       const account = await loadAccountPassport(sb, u.id);
       // Guest data (owner null) or this user's cached data is merged; another user's cached data is never merged.
-      const local = st.ownerId === null || st.ownerId === u.id ? passportOf(st) : null;
-      const merged = local ? mergePassports(account, local) : account;
+      const local = st.ownerId === null || st.ownerId === u.id ? allPassportsOf(st) : null;
+      const merged = local ? mergeAllPassports(account, local) : account;
       if (JSON.stringify(merged) !== JSON.stringify(account)) await writeAccountPassport(sb, u.id, merged);
       synced.current = merged;
       useUser.getState().loadPassport(u.id, merged); // device data now belongs to the account
@@ -77,12 +77,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (!sb) return;
     return useUser.subscribe((s) => {
       if (!user || s.ownerId !== user.id || !synced.current) return;
-      const next = passportOf(s);
+      const next = allPassportsOf(s);
       if (JSON.stringify(next) === JSON.stringify(synced.current)) return;
       if (timer.current) clearTimeout(timer.current);
       timer.current = setTimeout(async () => {
         const prev = synced.current!;
-        const snapshot = passportOf(useUser.getState());
+        const snapshot = allPassportsOf(useUser.getState());
         useUser.getState().setSync("saving");
         try {
           await syncPassportDiff(sb, user.id, prev, snapshot);
@@ -112,6 +112,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 export async function forceResync(userId: string) {
   const sb = getSupabase();
   if (!sb) return;
-  await writeAccountPassport(sb, userId, passportOf(useUser.getState()));
+  await writeAccountPassport(sb, userId, allPassportsOf(useUser.getState()));
   useUser.getState().setSync("idle");
 }

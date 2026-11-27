@@ -4,7 +4,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 import type { Locale } from "../i18n/dict";
 import { DEFAULT_PREFERENCES, type Preferences } from "../food/recommend";
 import type { ExperienceId } from "@/experiences/registry";
-import { EMPTY_PASSPORT, type Note, type PassportData } from "../passport/model";
+import { EMPTY_PASSPORT, FOOD, isEmptyPassport, type Note, type PassportData, type Passports } from "../passport/model";
 
 export interface Collection { id: string; name: string; dishIds: string[] }
 
@@ -19,6 +19,8 @@ interface UserState {
   savedVenues: string[];
   visited: Record<string, string>; // establishmentId → ISO date
   notes: Record<string, Note>;     // dishId → rating / tasting note
+  /** Personal data of the other experience modules (Coffee, Bars, Spa, Sport…), same shape as Food's. */
+  modulePassports: Partial<Record<ExperienceId, PassportData>>;
   /** null = guest (data only on this device); otherwise the signed-in user id the personal data belongs to. */
   ownerId: string | null;
   /** Account sync status (signed-in users). */
@@ -40,8 +42,12 @@ interface UserState {
   toggleSavedVenue: (id: string) => void;
   toggleVisited: (id: string) => void;
   setNote: (dishId: string, patch: { rating?: number | null; note?: string | null }) => void;
-  /** Replace personal data (after sign-in/merge) and set its owner. */
-  loadPassport: (owner: string | null, p: PassportData) => void;
+  /** Module passport actions (non-Food experiences). */
+  toggleModuleSaved: (exp: ExperienceId, itemId: string) => void;
+  toggleModuleTried: (exp: ExperienceId, itemId: string) => void;
+  toggleModuleVisited: (exp: ExperienceId, establishmentId: string) => void;
+  /** Replace personal data of every experience (after sign-in/merge) and set its owner. */
+  loadPassport: (owner: string | null, all: Passports) => void;
   /** Clear personal data from this device (sign-out); preferences/language stay. */
   clearPersonal: () => void;
   setSync: (sync: UserState["sync"], syncError?: string | null) => void;
@@ -52,6 +58,20 @@ interface UserState {
 export function passportOf(s: Pick<UserState, "saved" | "savedVenues" | "tried" | "visited" | "notes" | "collections">): PassportData {
   return { saved: s.saved, savedVenues: s.savedVenues, tried: s.tried, visited: s.visited, notes: s.notes, collections: s.collections.map((c) => ({ name: c.name, dishIds: c.dishIds })) };
 }
+
+/** Every experience passport held on this device: Food from the top-level fields, the rest from modulePassports. */
+export function allPassportsOf(s: Pick<UserState, "saved" | "savedVenues" | "tried" | "visited" | "notes" | "collections" | "modulePassports">): Passports {
+  const out: Passports = { [FOOD]: passportOf(s) };
+  for (const [id, p] of Object.entries(s.modulePassports)) if (p && !isEmptyPassport(p)) out[id] = p;
+  return out;
+}
+
+const modulePatch = (cur: PassportData | undefined, f: (p: PassportData) => PassportData) => f(cur ?? EMPTY_PASSPORT);
+const toggleDate = (rec: Record<string, string>, id: string) => {
+  const r = { ...rec };
+  if (r[id]) delete r[id]; else r[id] = new Date().toISOString().slice(0, 10);
+  return r;
+};
 
 const initial = {
   locale: "en" as Locale,
@@ -64,6 +84,7 @@ const initial = {
   visited: {} as Record<string, string>,
   notes: {} as Record<string, Note>,
   ownerId: null as string | null,
+  modulePassports: {} as Partial<Record<ExperienceId, PassportData>>,
   collections: [] as Collection[],
   verificationOverrides: {} as Record<string, string>,
 };
@@ -121,12 +142,18 @@ export const useUser = create<UserState>()(
         else notes[dishId] = next;
         set({ notes });
       },
-      loadPassport: (owner, p) =>
+      toggleModuleSaved: (exp, itemId) => set({ modulePassports: { ...get().modulePassports, [exp]: modulePatch(get().modulePassports[exp], (p) => ({ ...p, saved: p.saved.includes(itemId) ? p.saved.filter((x) => x !== itemId) : [...p.saved, itemId] })) } }),
+      toggleModuleTried: (exp, itemId) => set({ modulePassports: { ...get().modulePassports, [exp]: modulePatch(get().modulePassports[exp], (p) => ({ ...p, tried: toggleDate(p.tried, itemId) })) } }),
+      toggleModuleVisited: (exp, id) => set({ modulePassports: { ...get().modulePassports, [exp]: modulePatch(get().modulePassports[exp], (p) => ({ ...p, visited: toggleDate(p.visited, id) })) } }),
+      loadPassport: (owner, all) => {
+        const p = all[FOOD] ?? EMPTY_PASSPORT;
+        const modulePassports = Object.fromEntries(Object.entries(all).filter(([id]) => id !== FOOD)) as UserState["modulePassports"];
         set({
-          ownerId: owner, saved: p.saved, savedVenues: p.savedVenues, tried: p.tried, visited: p.visited, notes: p.notes,
+          ownerId: owner, modulePassports, saved: p.saved, savedVenues: p.savedVenues, tried: p.tried, visited: p.visited, notes: p.notes,
           collections: p.collections.map((c, i) => ({ id: `c-${i}-${c.name}`, name: c.name, dishIds: c.dishIds })),
-        }),
-      clearPersonal: () => set({ ownerId: null, ...EMPTY_PASSPORT, collections: [], sync: "idle", syncError: null }),
+        });
+      },
+      clearPersonal: () => set({ ownerId: null, ...EMPTY_PASSPORT, collections: [], modulePassports: {}, sync: "idle", syncError: null }),
       setSync: (sync, syncError = null) => set({ sync, syncError }),
       reset: () => set({ ...initial, locale: get().locale, ownerId: get().ownerId }),
     }),

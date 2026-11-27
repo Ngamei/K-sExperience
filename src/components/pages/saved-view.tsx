@@ -7,8 +7,19 @@ import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { DishCard } from "@/components/food/dish-card";
 import { useFoodData } from "@/components/food/food-data";
+import { EXPERIENCES, isSelectable } from "@/experiences/registry";
+import { ModuleGate } from "@/components/engine/experience-data";
+import { ModuleSaved } from "@/components/engine/module-views";
 
+/** Saved is shared: it shows the saved items of the active experience (Food keeps its own view). */
 export function SavedView() {
+  const experience = useUser((s) => s.experience);
+  const mod = EXPERIENCES.find((e) => e.id === experience);
+  if (mod && mod.id !== "food" && isSelectable(mod)) return <ModuleGate id={mod.id}>{(d) => <ModuleSaved d={d} />}</ModuleGate>;
+  return <FoodSavedView />;
+}
+
+function FoodSavedView() {
   const { t } = useT();
   const { dishById } = useFoodData();
   const saved = useUser((s) => s.saved);

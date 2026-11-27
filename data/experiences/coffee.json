@@ -1,0 +1,10 @@
+{
+  "metadata": {
+    "experienceId": "coffee",
+    "dataset": "empty",
+    "note": "Coffee reference pilot for the shared Experience Engine. No items, cafés or offerings yet: they are added only from sourced research (step G) through the importer and validators — never invented."
+  },
+  "items": [],
+  "establishments": [],
+  "offerings": []
+}

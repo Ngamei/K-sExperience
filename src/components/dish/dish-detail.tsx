@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Bookmark, Check, Copy, FolderPlus, MapPin, Utensils } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -12,10 +11,11 @@ import { buildAvailabilityIndex, statusOf } from "@/lib/food/availability";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DishArt } from "@/components/food/dish-art";
-import { DishHeroPhoto, VenueThumb } from "@/components/food/dish-image";
+import { DishHeroPhoto } from "@/components/food/dish-image";
+import { OfferingRow } from "@/components/engine/offering-row";
 import { venueCardImage } from "@/lib/food/venue-photo";
 import { MyNotes } from "./my-notes";
-import { CategoryBadge, SampleBadge, StatusDot } from "@/components/food/badges";
+import { CategoryBadge, StatusDot } from "@/components/food/badges";
 import { DishCard } from "@/components/food/dish-card";
 import { useFoodData } from "@/components/food/food-data";
 import type { Dish, DishRestaurantLink, Restaurant } from "@/lib/data/schema";
@@ -29,48 +29,19 @@ function Block({ title, children, testid }: { title: string; children: React.Rea
   );
 }
 
+/** Food's establishment card = the shared engine OfferingRow fed with a dish ↔ restaurant link. */
 function VenueRow({ l, dish: d, restaurant: r }: { l: DishRestaurantLink; dish: Dish; restaurant: Restaurant }) {
-  const { t, locale } = useT();
-  const found = venueCardImage(d, l);
-  // Remember a failed image so the card falls back to the icon and drops the photo credit.
-  const [failedUrl, setFailedUrl] = useState<string | null>(null);
-  const img = found && found.url !== failedUrl ? found : null;
+  const { locale } = useT();
   return (
-    <div className="rounded-2xl border border-line/80 bg-ivory/60 p-3.5" data-testid="venue-row" data-venue-id={r.id}>
-      <div className="flex items-start gap-3">
-        <VenueThumb image={img} alt={`${d.nameVi} — ${r.name}`} onError={setFailedUrl} />
-        <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <Link href={`/places/${r.id}/`} className="font-medium hover:text-forest hover:underline">{r.name}</Link>
-            {r.isSample && <SampleBadge />}
-          </div>
-          <p className="text-xs text-muted">{r.address}</p>
-          <p className="text-xs text-muted">{r.neighbourhood} · {lbl(VENUE_LABELS, r.venueType, locale)}{r.priceRange ? ` · ${r.priceRange}` : ""}{l.priceVnd ? ` · ${l.priceVnd.min.toLocaleString("vi-VN")}–${l.priceVnd.max.toLocaleString("vi-VN")} ₫` : ""}</p>
-          {r.highlights?.length ? <p className="mt-1 text-xs text-forest">{r.highlights.join(" · ")}</p> : null}
-          {img && (
-            <p className="mt-1 text-[11px] leading-snug text-muted" data-testid="venue-photo-credit">
-              {t(`venuePhoto.${img.kind}`)} · {img.attribution} ·{" "}
-              {img.sourceUrl ? <a href={img.sourceUrl} target="_blank" rel="noreferrer" className="underline hover:text-forest">{img.license}</a> : img.license}
-            </p>
-          )}
-          {l.menuEvidence && !r.isSample && (
-            <p className="mt-1.5 text-[11.5px] leading-snug text-charcoal/70">
-              <span className="font-medium">{t("place.evidence")}:</span> {l.menuEvidence.note}{" "}
-              {l.menuEvidence.url && <a href={l.menuEvidence.url} target="_blank" rel="noreferrer" className="underline hover:text-forest">↗</a>}
-            </p>
-          )}
-        </div>
-      </div>
-      <div className="mt-2.5 flex flex-wrap items-center gap-2 sm:pl-[76px]">
-        <StatusDot status={l.status} />
-        {l.lastVerified && !r.isSample && <span className="text-[11px] text-muted" data-testid="last-checked">{t("status.lastChecked", { date: l.lastVerified })}</span>}
-        {r.googleMapsUrl && (
-          <a href={r.googleMapsUrl} target="_blank" rel="noreferrer" className="inline-flex h-7 items-center gap-1 rounded-full bg-forest px-3 text-[11.5px] font-medium text-ivory hover:bg-forest-soft" data-testid="google-maps-link">
-            <MapPin className="size-3.5" /> {t("place.googleMaps")}
-          </a>
-        )}
-      </div>
-    </div>
+    <OfferingRow
+      establishment={r}
+      typeLabel={lbl(VENUE_LABELS, r.venueType, locale)}
+      href={`/places/${r.id}/`}
+      offering={l}
+      priceText={l.priceVnd ? `${l.priceVnd.min.toLocaleString("vi-VN")}–${l.priceVnd.max.toLocaleString("vi-VN")} ₫` : undefined}
+      image={venueCardImage(d, l)}
+      itemName={d.nameVi}
+    />
   );
 }
 

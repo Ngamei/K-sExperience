@@ -60,6 +60,11 @@ src/lib/food/                   filters, availability, hours, recommend, passpor
 src/lib/search/normalize.ts     Vietnamese accent-insensitive normalisation
 src/lib/geo/                    haversine, point-in-polygon, SVG projection, locator
 ```
+**Shared Experience Engine** (`src/engine/`, `src/components/engine/`, `src/app/[experience]/`, `data/experiences/`): see
+`docs/EXPERIENCE_ENGINE.md` for the layer table. The active module is taken from the URL (`moduleForPath`), else from the
+chosen mode; navigation is `navFor(module)`. Non-Food modules load `/data/experiences/<id>.json` through `ModuleGate`
+(shows "not available yet" unless `isSelectable`).
+
 Adding an experience: configure it in `src/experiences/registry.ts` and reuse the shared engine (shell, catalogue,
 detail, establishment cards, offering photos, evidence, map, passport, Admin) — see `docs/EXPERIENCE_ENGINE.md` for the
 reuse matrix and what still needs extracting. Selectable only when `implemented` and active or flagged on.

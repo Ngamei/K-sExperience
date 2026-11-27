@@ -64,36 +64,64 @@ export interface SavedRow { user_id: string; experience_id: string; item_type: I
 export interface HistoryRow { user_id: string; experience_id: string; item_type: ItemType; item_id: string; action: HistoryAction; occurred_on: string }
 export interface NoteRow { user_id: string; experience_id: string; item_type: ItemType; item_id: string; rating: number | null; note: string | null; updated_at: string }
 
-export function toRows(userId: string, p: PassportData) {
+/** Item type used for an experience's catalogue items ("dish" for Food, "item" for every other module). */
+export const itemTypeFor = (experienceId: string): ItemType => (experienceId === FOOD ? "dish" : "item");
+
+export function toRows(userId: string, p: PassportData, experienceId: string = FOOD) {
+  const it = itemTypeFor(experienceId);
+  const base = { user_id: userId, experience_id: experienceId };
   const saved: SavedRow[] = [
-    ...p.saved.map((id) => ({ user_id: userId, experience_id: FOOD, item_type: "dish" as const, item_id: id, collection: "" })),
-    ...p.savedVenues.map((id) => ({ user_id: userId, experience_id: FOOD, item_type: "establishment" as const, item_id: id, collection: "" })),
-    ...p.collections.flatMap((c) => c.dishIds.map((id) => ({ user_id: userId, experience_id: FOOD, item_type: "dish" as const, item_id: id, collection: c.name }))),
+    ...p.saved.map((id) => ({ ...base, item_type: it, item_id: id, collection: "" })),
+    ...p.savedVenues.map((id) => ({ ...base, item_type: "establishment" as const, item_id: id, collection: "" })),
+    ...p.collections.flatMap((c) => c.dishIds.map((id) => ({ ...base, item_type: it, item_id: id, collection: c.name }))),
   ];
   const history: HistoryRow[] = [
-    ...Object.entries(p.tried).map(([id, d]) => ({ user_id: userId, experience_id: FOOD, item_type: "dish" as const, item_id: id, action: "tried" as const, occurred_on: d })),
-    ...Object.entries(p.visited).map(([id, d]) => ({ user_id: userId, experience_id: FOOD, item_type: "establishment" as const, item_id: id, action: "visited" as const, occurred_on: d })),
+    ...Object.entries(p.tried).map(([id, d]) => ({ ...base, item_type: it, item_id: id, action: "tried" as const, occurred_on: d })),
+    ...Object.entries(p.visited).map(([id, d]) => ({ ...base, item_type: "establishment" as const, item_id: id, action: "visited" as const, occurred_on: d })),
   ];
   const notes: NoteRow[] = Object.entries(p.notes).map(([id, n]) => ({
-    user_id: userId, experience_id: FOOD, item_type: "dish", item_id: id, rating: n.rating ?? null, note: n.note ?? null, updated_at: n.updatedAt,
+    ...base, item_type: it, item_id: id, rating: n.rating ?? null, note: n.note ?? null, updated_at: n.updatedAt,
   }));
   return { saved, history, notes };
 }
 
-export function fromRows(saved: SavedRow[], history: HistoryRow[], notes: NoteRow[]): PassportData {
-  const food = <T extends { experience_id: string }>(r: T[]) => r.filter((x) => x.experience_id === FOOD);
-  const s = food(saved);
-  const h = food(history);
+/** Rows of one experience → its passport. Rows of other experiences are ignored (and therefore preserved). */
+export function fromRows(saved: SavedRow[], history: HistoryRow[], notes: NoteRow[], experienceId: string = FOOD): PassportData {
+  const it = itemTypeFor(experienceId);
+  const mine = <T extends { experience_id: string }>(r: T[]) => r.filter((x) => x.experience_id === experienceId);
+  const s = mine(saved);
+  const h = mine(history);
   const cols = new Map<string, string[]>();
-  s.filter((r) => r.collection && r.item_type === "dish").forEach((r) => cols.set(r.collection, [...(cols.get(r.collection) ?? []), r.item_id]));
+  s.filter((r) => r.collection && r.item_type === it).forEach((r) => cols.set(r.collection, [...(cols.get(r.collection) ?? []), r.item_id]));
   return {
-    saved: s.filter((r) => !r.collection && r.item_type === "dish").map((r) => r.item_id),
+    saved: s.filter((r) => !r.collection && r.item_type === it).map((r) => r.item_id),
     savedVenues: s.filter((r) => !r.collection && r.item_type === "establishment").map((r) => r.item_id),
-    tried: Object.fromEntries(h.filter((r) => r.action === "tried").map((r) => [r.item_id, r.occurred_on])),
+    tried: Object.fromEntries(h.filter((r) => r.action === "tried" && r.item_type === it).map((r) => [r.item_id, r.occurred_on])),
     visited: Object.fromEntries(h.filter((r) => r.action === "visited").map((r) => [r.item_id, r.occurred_on])),
     notes: Object.fromEntries(
-      food(notes).map((r) => [r.item_id, { ...(r.rating ? { rating: r.rating } : {}), ...(r.note ? { note: r.note } : {}), updatedAt: r.updated_at }]),
+      mine(notes).filter((r) => r.item_type === it).map((r) => [r.item_id, { ...(r.rating ? { rating: r.rating } : {}), ...(r.note ? { note: r.note } : {}), updatedAt: r.updated_at }]),
     ),
     collections: [...cols].map(([name, dishIds]) => ({ name, dishIds })),
   };
+}
+
+/** One account holds one passport per experience. */
+export type Passports = Record<string, PassportData>;
+
+/** Splits all rows of an account into per-experience passports (Food always present). */
+export function passportsFromRows(saved: SavedRow[], history: HistoryRow[], notes: NoteRow[]): Passports {
+  const ids = new Set<string>([FOOD, ...saved.map((r) => r.experience_id), ...history.map((r) => r.experience_id), ...notes.map((r) => r.experience_id)]);
+  return Object.fromEntries([...ids].map((id) => [id, fromRows(saved, history, notes, id)]));
+}
+
+export function passportsToRows(userId: string, all: Passports) {
+  const parts = Object.entries(all).map(([id, p]) => toRows(userId, p, id));
+  return { saved: parts.flatMap((x) => x.saved), history: parts.flatMap((x) => x.history), notes: parts.flatMap((x) => x.notes) };
+}
+
+/** Guest → account merge, experience by experience (no experience's data can leak into another). */
+export function mergeAllPassports(account: Passports, guest: Passports): Passports {
+  const out: Passports = { ...account };
+  for (const [id, g] of Object.entries(guest)) out[id] = mergePassports(account[id] ?? EMPTY_PASSPORT, g);
+  return out;
 }

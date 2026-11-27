@@ -34,3 +34,12 @@ test("Food stays the only working module: navigation and passport are unchanged"
   await expect(page.getByTestId("passport-module-food")).toHaveClass(/border-forest/);
   await expect(page.getByTestId("passport-module-sport")).toHaveClass(/opacity-60/);
 });
+
+test("with feature flags off, a module URL never looks functional", async ({ page }) => {
+  await page.goto("/coffee/catalogue/");
+  await expect(page.getByTestId("module-unavailable")).toContainText("not available yet");
+  await expect(page.getByTestId("item-results")).toHaveCount(0);
+  await expect(page.getByTestId("experience-coffee")).toHaveCount(0);
+  await page.goto("/settings/");
+  await expect(page.getByTestId("experience-coffee")).toBeDisabled();
+});

@@ -10,17 +10,18 @@ headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is
 | 1 | `npm ci` | ✅ installed, **0 vulnerabilities**; postinstall copied MapLibre worker |
 | 2 | `npm run typecheck` (`next typegen && tsc --noEmit`) | ✅ exit 0 |
 | 3 | `npm run lint` | ✅ exit 0, 0 errors, 0 warnings |
-| 4 | `npx vitest run tests/unit` | ✅ **8 files, 62 tests passed** (+ venue photos 7, experience registry / passport compatibility / Sport schema 8) |
-| 5 | `npx vitest run tests/integration` (= `npm run data:validate`) | ✅ **1 file, 15 tests passed** |
-| 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **26 checks** — migrations 0001–0005, link-photo all-or-nothing constraint, six experience modules (Sport pilot-planned last), every establishment tagged Food, Sport history row on the same account, seed ×2 (idempotent), app read columns as anon, RLS (anon/user/editor), candidates hidden, storage, audit, HCMC trigger, evidence constraints, account isolation, own-folder photos, guest-merge upsert, account deletion |
+| 4 | `npx vitest run tests/unit` | ✅ **9 files, 73 tests passed** (+ venue photos, registry/nav/routes, passport per experience, shared engine index/image/data files) |
+| 5 | `npx vitest run tests/integration` (= `npm run data:validate`) | ✅ **1 file, 17 tests passed** (+ module data files: schema, HCMC boundary, sources, references) |
+| 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **31 checks** — migrations 0001–0006, shared items/offerings (mode-tag trigger, evidence rule, audit key, anon read-only), link-photo all-or-nothing constraint, six experience modules (Sport pilot-planned last), every establishment tagged Food, Sport history row on the same account, seed ×2 (idempotent), app read columns as anon, RLS (anon/user/editor), candidates hidden, storage, audit, HCMC trigger, evidence constraints, account isolation, own-folder photos, guest-merge upsert, account deletion |
 | 6 | `npm run build` | ✅ exit 0 — 164 static pages (138 dishes, 5 real + 8 sample venues, screens, manifest, `/data/food.json`) |
-| 7 | `npx playwright test` (against `next start`) | ✅ **62 passed** (31 scenarios × desktop + Pixel 7) |
+| 7 | `npx playwright test` (against `next start`) | ✅ **64 passed** (32 scenarios × desktop + Pixel 7) |
 | 7b | `npm run build:auth-test && npm run test:e2e-auth` (Supabase-mode static build + mock Supabase) | ✅ **18 passed** (9 account scenarios × desktop + Pixel 7); stable over `--repeat-each=2` (36/36) |
+| 7c | `npm run build:modules-test && npm run test:e2e-modules` (static build with Coffee pilot flag on) | ✅ **12 passed** (6 scenarios × desktop + Pixel 7) |
 | 8 | `STATIC_EXPORT=1 npx next build` | ✅ exit 0 — `out/` 22 MB |
-| 9 | `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` (against the static export) | ✅ **62 passed** |
+| 9 | `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` (against the static export) | ✅ **64 passed** |
 | 10 | `npm run build:preview` | ✅ `preview/ks-experience-preview-<commit>.zip` (~6.4 MB) |
 
-Shortcut: `npm run qa` runs 2 → 3 → 4/5 → 6 → 7 → 7b (5b needs local PostgreSQL).
+Shortcut: `npm run qa` runs 2 → 3 → 4/5 → 6 → 7 → 7b → 7c (5b needs local PostgreSQL).
 
 ## P0 accounts — acceptance criteria evidence
 | # | Criterion | Evidence |
@@ -91,6 +92,22 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 | Feature flags cannot enable unimplemented modules; unknown mode falls back to Food; food-only filters/map absent from other modules; nav labels for every module in EN/VI | ✅ unit |
 | Food passport ignores/never emits other experiences' rows | ✅ unit + DB |
 
+## Shared Experience Engine / Coffee pilot — `e2e-modules/coffee.spec.ts`, `e2e/experiences.spec.ts`, `tests/unit/engine.test.ts`
+| Acceptance criterion | Evidence |
+| --- | --- |
+| Existing Food functionality intact | all Food suites green (64 server + 64 static e2e, 18 account e2e, unit, DB) |
+| Navigation changes when switching modes, and back | Settings → Coffee → `/coffee/`, nav = Café Map … Coffee Passport (desktop) / Map … Passport (mobile); Settings → Food restores Food nav (e2e-modules) |
+| Active mode has its own catalogue, discovery, map, filters | Coffee catalogue (categories, attributes, search), item detail, map/Nearby/establishment page (e2e-modules) |
+| Shared components reused, not cloned | Food dish pages render the engine `OfferingRow`; Food index = engine index (unit equality on the real dataset); one route set for all modules |
+| Food-specific filters never in other modules | no filter panel / region chips on the Coffee catalogue (e2e); registry check (unit) |
+| Module attributes render | card + detail attributes (e2e-modules) |
+| Records and user history preserved | additive migrations 0005/0006; Food passport unchanged after Coffee activity (e2e-modules, unit, DB) |
+| Shared accounts across experiences | per-experience rows, merge and round-trip (unit); same-account Sport/Coffee rows (DB) |
+| Evidence attached to the correct offering | offering photo only for its own item (unit + e2e-modules); offering evidence rules (unit + DB) |
+| Only HCMC establishments recommended | module files validated against the HCMC boundary (integration); samples/candidates excluded by the shared index (unit + e2e-modules) |
+| Feature flags block unfinished modules | flag-off build: `/coffee/…` shows "not available yet" (e2e); unimplemented modules unselectable even with flags (unit) |
+| Cross-module tests | added (unit, integration, DB, e2e, e2e-modules) |
+
 ## Browser evidence (screenshots, `docs/screenshots/`)
 Desktop: `desktop-01-discover`, `02-explore-national` (home page), `03-explore-region-sweet`, `04-explore-mien-bac`, `05-dish-detail`,
 `06-catalogue`, `07-settings`, `08-nearby-empty`, `09-nearby-samples`, `10-dish-hcmc-with-samples`, `11-admin`, `12-dish-real-venues`, `13-place-real`.
@@ -116,6 +133,8 @@ Mobile (Pixel 7): `mobile-01-discover`, `02-explore`, `03-explore-region`, `04-e
 
 ## Known issues / not verified
 - **Local e2e pitfall:** Playwright reuses any server already on port 3100 (`reuseExistingServer` outside CI). A leftover `next-server` from an older build serves 500s for new JS chunks and makes ~40 tests fail. Stop it (`pkill -f next-server`) before `npm run test:e2e`.
+- Coffee pilot dataset is intentionally empty; e2e-modules uses a labelled test fixture. Coffee stays off until data + Codex QA + PO approval.
+- Admin is not yet configurable per module, and Supabase mode does not yet read `experience_items`/`offerings` (CC-25).
 - No real venue-specific dish photos yet (licensing, D31); the venue-photo e2e uses an injected test fixture.
 - **Dish photos from Wikimedia Commons were not rendered inside the sandbox** (Wikimedia applies its bot policy to automated clients). URLs come from the Commons API; e2e stubs the image. Please confirm photos display in a normal browser; the illustration is shown if a photo fails.
 - Google Maps links were checked for correct format, not opened (google.com is not reachable from the sandbox).

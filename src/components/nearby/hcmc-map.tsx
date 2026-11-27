@@ -27,7 +27,8 @@ async function loadStyle(): Promise<{ style: StyleSpecification | string; basema
   }
 }
 
-export function HcmcMap({ venues, origin, selected, onSelect }: { venues: Restaurant[]; origin: LngLat; selected: string | null; onSelect: (id: string) => void }) {
+/** Shared HCMC establishment map (Food Nearby and every other module's map slot). */
+export function HcmcMap({ venues, origin, selected, onSelect }: { venues: Pick<Restaurant, "id" | "name" | "isSample" | "coordinates">[]; origin: LngLat; selected: string | null; onSelect: (id: string) => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MLMap | null>(null);
   const mlRef = useRef<typeof import("maplibre-gl") | null>(null);

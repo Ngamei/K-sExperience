@@ -67,6 +67,11 @@ a live result count. Venue-dependent filters match dishes through establishments
 No fabricated restaurants, prices, reviews or menu availability. Seed and sample data are labelled everywhere.
 Sample venues are opt-in and excluded from recommendations.
 
+## Shared experience engine (as implemented)
+- Navigation keeps the same positions in every mode; labels follow the mode (Food Map / Café Map / Bar Map …; Food Catalogue / Coffee Catalogue / Drinks Catalogue / Treatment Catalogue / Activity Catalogue; Food / Coffee / Bar / Wellness / Sport Passport). Saved and Settings are shared.
+- Non-Food modules: item catalogue (categories, module attributes, accent-insensitive search) → item detail (module sections + "Where to … in Ho Chi Minh City" with the shared establishment cards) → HCMC establishment map / Nearby / establishment page → module passport. Food keeps the Vietnam culinary map.
+- **Coffee** is the first pilot: built, but switched off and without data until sourced items and verified cafés exist.
+
 ## Sport (pilot planned — not implemented)
 Sixth experience mode, directly below Shopping. Pilots: **Pickleball** (courts, clubs, coaches, beginner/group sessions, social games, equipment rental) and **Pilates** (studios, instructors, trial/private/group classes, Reformer, Mat, Cadillac/Chair/Barrel). HCMC only.
 Planned filters: sport type, HCMC area, distance, budget, level, opening hours, trial, private/group, facilities (shower, changing room, parking), instructor language and certification, verified information; Pickleball adds equipment rental, indoor/outdoor, court surface, court availability (partner finding later); Pilates adds Reformer, Mat, Cadillac/Chair/Barrel, class size.

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Check, Lock, ShieldCheck } from "lucide-react";
 import { EXPERIENCES, isSelectable, loc } from "@/experiences/registry";
 import { NAV_ICONS } from "@/components/shell/icons";
@@ -29,6 +30,7 @@ export function SettingsView() {
   const { regions, source } = useFoodData();
   const u = useUser();
   const p = u.preferences;
+  const router = useRouter();
 
   return (
     <div className="mx-auto max-w-3xl space-y-5 px-4 py-6 md:px-6 md:py-10">
@@ -49,7 +51,7 @@ export function SettingsView() {
                 <button
                   type="button"
                   disabled={soon}
-                  onClick={() => u.setExperience(e.id)}
+                  onClick={() => { u.setExperience(e.id); if (u.experience !== e.id) router.push(e.routes.map); }}
                   className={cn(
                     "flex w-full items-center gap-3 rounded-2xl border p-3.5 text-left transition-colors",
                     active ? "border-forest bg-forest/5" : "border-line",

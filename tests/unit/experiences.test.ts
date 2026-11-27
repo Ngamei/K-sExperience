@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { EXPERIENCES, EXPERIENCE_IDS, NAV_SLOTS, getExperience, isSelectable } from "@/experiences/registry";
+import { EXPERIENCES, EXPERIENCE_IDS, NAV_SLOTS, getExperience, isSelectable, moduleForPath, navFor } from "@/experiences/registry";
 import { fromRows, toRows, EMPTY_PASSPORT, type HistoryRow, type SavedRow } from "@/lib/passport/model";
 import { SportOfferingSchema } from "@/experiences/sport/schema";
 
@@ -20,10 +20,47 @@ describe("experience registry", () => {
     const allOn = () => true;
     for (const e of EXPERIENCES.filter((x) => !x.implemented)) expect(isSelectable(e, allOn)).toBe(false);
   });
+  it("Coffee is the implemented reference pilot, selectable only with its flag", () => {
+    const coffee = EXPERIENCES.find((e) => e.id === "coffee")!;
+    expect(coffee.implemented).toBe(true);
+    expect(isSelectable(coffee)).toBe(false);
+    expect(isSelectable(coffee, (f) => f === "NEXT_PUBLIC_FEATURE_COFFEE")).toBe(true);
+    expect(isSelectable(EXPERIENCES.find((e) => e.id === "shopping")!, () => true)).toBe(false);
+  });
+  it("navigation: same slots, icons and positions in every module; module labels and routes", () => {
+    const food = navFor(EXPERIENCES[0]);
+    expect(food.map((n) => n.href)).toEqual(["/", "/discover/", "/catalogue/", "/nearby/", "/passport/", "/saved/"]);
+    expect(food.filter((n) => n.mobile).map((n) => n.short.en)).toEqual(["Explore", "Discover", "Catalogue", "Nearby", "Passport"]);
+    for (const e of EXPERIENCES) {
+      const n = navFor(e);
+      expect(n.map((x) => x.slot)).toEqual([...NAV_SLOTS]);
+      expect(n.map((x) => x.icon)).toEqual(food.map((x) => x.icon));
+      expect(n.find((x) => x.slot === "saved")!.href).toBe("/saved/");
+    }
+    const coffee = navFor(EXPERIENCES.find((e) => e.id === "coffee")!);
+    expect(coffee.map((n) => n.label.en)).toEqual(["Café Map", "Discover", "Coffee Catalogue", "Nearby", "Coffee Passport", "Saved"]);
+    expect(coffee.map((n) => n.href)).toEqual(["/coffee/", "/coffee/discover/", "/coffee/catalogue/", "/coffee/nearby/", "/coffee/passport/", "/saved/"]);
+  });
+  it("module URLs resolve to their module; Food URLs do not", () => {
+    expect(moduleForPath("/coffee/catalogue/")?.id).toBe("coffee");
+    expect(moduleForPath("/sport/")?.id).toBe("sport");
+    expect(moduleForPath("/catalogue/")).toBeUndefined();
+    expect(moduleForPath("/")).toBeUndefined();
+  });
+  it("each module defines searchable fields, catalogue config, detail sections with the shared offerings block, and attributes", () => {
+    for (const e of EXPERIENCES) {
+      expect(e.searchable.length, e.id).toBeGreaterThan(0);
+      expect(e.detailSections.at(-1)?.id, e.id).toBe("offerings");
+      const ids = new Set(e.attributes.map((a) => a.id));
+      for (const sec of e.detailSections) for (const a of sec.attributes ?? []) expect(ids.has(a), `${e.id}.${a}`).toBe(true);
+      for (const a of e.catalogue.cardAttributes) expect(ids.has(a), `${e.id}.${a}`).toBe(true);
+    }
+  });
   it("falls back to Food for unknown or unavailable modes", () => {
     expect(getExperience("sport").id).toBe("food");
     expect(getExperience("nonsense").id).toBe("food");
-    expect(getExperience("food").nav.length).toBe(6);
+    expect(getExperience("coffee").id).toBe("food"); // flag off
+    expect(navFor(getExperience("food")).length).toBe(6);
   });
   it("every module labels the same navigation slots in both languages", () => {
     for (const e of EXPERIENCES) for (const s of NAV_SLOTS) {

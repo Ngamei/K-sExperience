@@ -2,7 +2,7 @@
  * Integration checks across all canonical data files. Also run by `npm run data:validate`.
  */
 import { describe, expect, it } from "vitest";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { DishCatalogueSchema, MappingFileSchema, ProvinceSchema, RegionSchema, RestaurantFileSchema } from "@/lib/data/schema";
 import { pointInGeometry, type GeoJsonGeometry } from "@/lib/geo/geo";
@@ -120,4 +120,34 @@ describe("HCMC establishments", () => {
   it("rejects a point outside HCMC (Hà Nội)", () => {
     expect(hcmcGeoms.some((g: GeoJsonGeometry) => pointInGeometry([105.8542, 21.0285], g))).toBe(false);
   });
+});
+
+describe("experience module data (shared engine)", () => {
+  // Same integrity rules as Food for every module file: valid schema, real HCMC establishments with sources,
+  // offerings that point at existing items/establishments of the same module, items in the module's categories.
+  const dir = path.join(__dirname, "../../data/experiences");
+  const files = readdirSync(dir).filter((f) => f.endsWith(".json"));
+  it("has a data file for every implemented non-Food module", async () => {
+    const { EXPERIENCES } = await import("@/experiences/registry");
+    for (const e of EXPERIENCES.filter((x) => x.id !== "food" && x.implemented)) expect(files).toContain(`${e.id}.json`);
+  });
+  for (const f of files) {
+    it(`${f}: valid, inside HCMC, consistent`, async () => {
+      const { ExperienceDataSchema } = await import("@/engine/schema");
+      const { EXPERIENCES } = await import("@/experiences/registry");
+      const d = ExperienceDataSchema.parse(read(`data/experiences/${f}`));
+      const mod = EXPERIENCES.find((e) => e.id === d.metadata.experienceId)!;
+      expect(`${mod.id}.json`).toBe(f);
+      const cats = new Set(mod.categories.map((c) => c.id));
+      for (const i of d.items) { expect(i.experienceId).toBe(mod.id); expect(cats.has(i.category)).toBe(true); }
+      for (const e of d.establishments) {
+        expect(e.experiences).toContain(mod.id);
+        if (!e.isSample) { expect(e.sources.some((s) => s.url)).toBe(true); expect(e.lastVerified).toBeTruthy(); }
+        expect(hcmc.features.some((g: { geometry: GeoJsonGeometry }) => pointInGeometry(e.coordinates, g.geometry))).toBe(true);
+      }
+      const items = new Set(d.items.map((i) => i.id));
+      const ests = new Set(d.establishments.map((e) => e.id));
+      for (const o of d.offerings) { expect(items.has(o.itemId)).toBe(true); expect(ests.has(o.establishmentId)).toBe(true); }
+    });
+  }
 });

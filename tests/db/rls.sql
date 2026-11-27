@@ -47,6 +47,29 @@ do $$ begin
 end $$;
 update dish_restaurant_links set primary_photo_url = 'https://x.test/a.jpg', photo_kind = 'venue-specific', photo_source_url = 'https://x.test/post', photo_attribution = 'Venue', photo_license = 'Permission', photo_last_checked_at = '2026-11-27' where dish_id = 'thang-co';
 insert into results select 'complete link photo accepted', count(*) = 1 from dish_restaurant_links where primary_photo_url is not null;
+-- 0006: shared engine items + offerings (editor writes; mode + evidence rules enforced; anon reads public)
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000001';
+insert into experience_items (id, experience_id, name_vi, name_en, category) values ('test-ca-phe-muoi', 'coffee', 'Cà phê muối', 'Salt coffee', 'vietnamese-coffee');
+do $$ begin
+  begin insert into offerings (item_id, establishment_id, status, menu_evidence, last_verified) values ('test-ca-phe-muoi', 'pho-hoa-pasteur', 'source-listed', '{"type":"published-source","note":"t"}', '2026-11-27'); insert into results values ('offering needs establishment tagged with the mode', false);
+  exception when others then insert into results values ('offering needs establishment tagged with the mode', true); end;
+end $$;
+insert into establishment_experiences values ('pho-hoa-pasteur', 'coffee');
+do $$ begin
+  begin insert into offerings (item_id, establishment_id, status, menu_evidence, last_verified) values ('test-ca-phe-muoi', 'pho-hoa-pasteur', 'menu-confirmed', '{"type":"published-source","note":"t"}', '2026-11-27'); insert into results values ('offering evidence must match level', false);
+  exception when check_violation then insert into results values ('offering evidence must match level', true); end;
+end $$;
+insert into offerings (item_id, establishment_id, status, menu_evidence, last_verified) values ('test-ca-phe-muoi', 'pho-hoa-pasteur', 'source-listed', '{"type":"published-source","note":"t"}', '2026-11-27');
+insert into results select 'editor offering audited', count(*) = 1 from content_audit where table_name = 'offerings' and row_key = 'test-ca-phe-muoi@pho-hoa-pasteur';
+reset role;
+set role anon;
+insert into results select 'anon reads public offerings', count(*) = 1 from offerings;
+do $$ begin
+  begin insert into experience_items (id, experience_id, name_vi, name_en, category) values ('x', 'coffee', 'x', 'x', 'tea'); exception when others then null; end;
+end $$;
+reset role;
+insert into results select 'anon cannot add items', count(*) = 0 from experience_items where id = 'x';
 insert into results select 'editor update persisted', name_en = 'Quảng noodles (edited)' from dishes where id = 'mi-quang';
 
 -- 3b. storage + audit
