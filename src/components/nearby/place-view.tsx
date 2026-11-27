@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import { ArrowLeft, Clock, ExternalLink, Navigation, Phone, TriangleAlert } from "lucide-react";
+import { ArrowLeft, Bookmark, Check, Clock, ExternalLink, Navigation, Phone, TriangleAlert } from "lucide-react";
+import { useUser } from "@/lib/store/user";
 import { useT } from "@/lib/i18n/use-t";
 import { lbl, VENUE_LABELS } from "@/lib/i18n/labels";
 import { isOpenAt } from "@/lib/food/hours";
@@ -10,6 +11,19 @@ import { Button } from "@/components/ui/button";
 import { DishCard } from "@/components/food/dish-card";
 import { SampleBadge, StatusDot } from "@/components/food/badges";
 import { useFoodData } from "@/components/food/food-data";
+
+function VisitButtons({ id }: { id: string }) {
+  const saved = useUser((s) => s.savedVenues.includes(id));
+  const visited = useUser((s) => s.visited[id]);
+  const toggleSavedVenue = useUser((s) => s.toggleSavedVenue);
+  const toggleVisited = useUser((s) => s.toggleVisited);
+  return (
+    <>
+      <Button variant={saved ? "accent" : "outline"} onClick={() => toggleSavedVenue(id)} aria-pressed={saved} data-testid="save-venue"><Bookmark className={saved ? "fill-current" : ""} /> {saved ? "Saved" : "Save"}</Button>
+      <Button variant={visited ? "primary" : "outline"} onClick={() => toggleVisited(id)} aria-pressed={Boolean(visited)} data-testid="visited-venue"><Check /> {visited ? `Visited · ${visited}` : "I've been here"}</Button>
+    </>
+  );
+}
 
 const DAY_KEYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] as const;
 
@@ -46,6 +60,7 @@ export function PlaceView({ id }: { id: string }) {
           ) : (
             <Button asChild variant="primary"><a href={dirUrl} target="_blank" rel="noreferrer" data-testid="google-maps-link"><Navigation /> {t("place.googleMaps")}</a></Button>
           )}
+          {!r.isSample && <VisitButtons id={r.id} />}
           {r.deliveryLinks.map((d) => <Button key={d.url} asChild variant="outline"><a href={d.url} target="_blank" rel="noreferrer"><ExternalLink /> {d.provider}</a></Button>)}
           {r.contact?.phone && <Button asChild variant="ghost"><a href={`tel:${r.contact.phone}`}><Phone /> {r.contact.phone}</a></Button>}
         </div>

@@ -1,0 +1,30 @@
+import type { Locale } from "./dict";
+const en = {
+  brandLine: "Collect memories, one experience at a time.",
+  login: "Log in", signup: "Create my account", haveAccount: "I already have an account", noAccount: "New here? Create an account",
+  email: "Email", password: "Password", displayName: "Display name", forgot: "Forgot password?", google: "Continue with Google", apple: "Apple sign-in — coming later",
+  or: "or", sendReset: "Send reset link", resetSent: "If an account exists for this email, a reset link is on its way.", newPassword: "New password", savePassword: "Save new password",
+  passwordSaved: "Password updated. You're signed in.", verifyEmail: "Check your inbox to verify your email, then log in.", signingIn: "Signing you in…",
+  guestKept: "Your guest progress will be kept when you sign in.", disabled: "Accounts are not enabled in this preview yet (the database is not connected). You can keep exploring as a guest — your passport stays on this device.",
+  profile: "Profile", account: "Account", providers: "Sign-in methods", privacy: "Privacy", sharePassport: "Allow others to see my passport (not used yet; private by default)",
+  logout: "Log out", deleteAccount: "Delete my account", deleteConfirm: "Type DELETE to permanently delete your account and all personal data.", deleted: "Your account was deleted.",
+  save: "Save", saved: "Saved", memberSince: "Member since", guestExplorer: "Guest explorer", makeYours: "Make this passport yours",
+  makeYoursBody: "Save your culinary journey, protect your memories and continue exploring across all your devices.",
+  migrationFailed: "We couldn't move your guest progress to your account yet. Nothing was lost — it is still on this device.", retry: "Retry",
+  syncError: "Changes couldn't be saved to your account. They're kept on this device.", passwordRule: "At least 8 characters.",
+};
+const vi: typeof en = {
+  brandLine: "Lưu giữ kỷ niệm, từng trải nghiệm một.",
+  login: "Đăng nhập", signup: "Tạo tài khoản", haveAccount: "Tôi đã có tài khoản", noAccount: "Chưa có tài khoản? Tạo ngay",
+  email: "Email", password: "Mật khẩu", displayName: "Tên hiển thị", forgot: "Quên mật khẩu?", google: "Tiếp tục với Google", apple: "Đăng nhập Apple — sắp có",
+  or: "hoặc", sendReset: "Gửi liên kết đặt lại", resetSent: "Nếu email này có tài khoản, liên kết đặt lại mật khẩu đang được gửi.", newPassword: "Mật khẩu mới", savePassword: "Lưu mật khẩu mới",
+  passwordSaved: "Đã cập nhật mật khẩu. Bạn đã đăng nhập.", verifyEmail: "Hãy kiểm tra hộp thư để xác minh email, rồi đăng nhập.", signingIn: "Đang đăng nhập…",
+  guestKept: "Tiến trình khách của bạn sẽ được giữ lại khi đăng nhập.", disabled: "Bản xem trước này chưa bật tài khoản (chưa kết nối cơ sở dữ liệu). Bạn vẫn có thể khám phá với tư cách khách — hộ chiếu được lưu trên thiết bị này.",
+  profile: "Hồ sơ", account: "Tài khoản", providers: "Phương thức đăng nhập", privacy: "Quyền riêng tư", sharePassport: "Cho phép người khác xem hộ chiếu của tôi (chưa dùng; mặc định riêng tư)",
+  logout: "Đăng xuất", deleteAccount: "Xóa tài khoản", deleteConfirm: "Gõ DELETE để xóa vĩnh viễn tài khoản và mọi dữ liệu cá nhân.", deleted: "Tài khoản của bạn đã được xóa.",
+  save: "Lưu", saved: "Đã lưu", memberSince: "Thành viên từ", guestExplorer: "Khách khám phá", makeYours: "Biến hộ chiếu này thành của bạn",
+  makeYoursBody: "Lưu hành trình ẩm thực, giữ gìn kỷ niệm và tiếp tục khám phá trên mọi thiết bị.",
+  migrationFailed: "Chưa thể chuyển tiến trình khách vào tài khoản. Không có gì bị mất — dữ liệu vẫn ở trên thiết bị này.", retry: "Thử lại",
+  syncError: "Chưa lưu được thay đổi vào tài khoản. Chúng vẫn được giữ trên thiết bị này.", passwordRule: "Ít nhất 8 ký tự.",
+};
+export const authDict = (l: Locale) => (l === "vi" ? vi : en);

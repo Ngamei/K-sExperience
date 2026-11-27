@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { useFoodData } from "@/components/food/food-data";
+import { AccountCard } from "@/components/auth/account-card";
 import { cn } from "@/lib/utils";
 
 function Card({ title, children, id }: { title: string; children: React.ReactNode; id?: string }) {
@@ -32,6 +33,8 @@ export function SettingsView() {
   return (
     <div className="mx-auto max-w-3xl space-y-5 px-4 py-6 md:px-6 md:py-10">
       <h1 className="font-display text-4xl text-forest">{t("settings.title")}</h1>
+
+      <AccountCard />
 
       <Card title={t("settings.experience")} id="experience-mode">
         <ul className="grid gap-2 sm:grid-cols-2">

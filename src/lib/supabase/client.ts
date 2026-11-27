@@ -12,6 +12,6 @@ export const supabaseEnabled = process.env.NEXT_PUBLIC_DATA_MODE === "supabase" 
 let client: SupabaseClient | null = null;
 export function getSupabase(): SupabaseClient | null {
   if (!supabaseEnabled) return null;
-  client ??= createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { auth: { persistSession: true, autoRefreshToken: true } });
+  client ??= createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: "pkce" } });
   return client;
 }

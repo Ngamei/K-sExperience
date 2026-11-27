@@ -17,5 +17,6 @@ export function passportProgress(dishes: Dish[], regions: Region[], tried: Set<s
     pct: dishes.length ? Math.round((triedCount / dishes.length) * 100) : 0,
     provincesTried: provincesTried.size,
     regionsCompleted: perRegion.filter((r) => r.total > 0 && r.tried === r.total).length,
+    regionsExplored: perRegion.filter((r) => r.tried > 0).length,
   };
 }

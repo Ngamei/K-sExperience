@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DishArt } from "@/components/food/dish-art";
 import { DishHeroPhoto } from "@/components/food/dish-image";
+import { MyNotes } from "./my-notes";
 import { CategoryBadge, SampleBadge, StatusDot } from "@/components/food/badges";
 import { DishCard } from "@/components/food/dish-card";
 import { useFoodData } from "@/components/food/food-data";
@@ -182,6 +183,8 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
           ) : <p className="mt-3 text-sm text-muted">{t("dish.noSources")}</p>}
         </Block>
       </div>
+
+      <div className="mt-6"><MyNotes dishId={d.id} /></div>
 
       <div className="mt-6">
         <Block title={t("dish.hcmc")} testid="hcmc-block">

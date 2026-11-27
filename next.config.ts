@@ -9,6 +9,8 @@ import type { NextConfig } from "next";
 const isStaticExport = process.env.STATIC_EXPORT === "1";
 
 const nextConfig: NextConfig = {
+  // Separate output folder for the account-flow test build (see playwright.auth.config.ts).
+  ...(process.env.BUILD_DIST_DIR ? { distDir: process.env.BUILD_DIST_DIR } : {}),
   ...(isStaticExport ? { output: "export" as const } : {}),
   // Same URL shape in server and static-export builds (avoids redirect hops, which also break SW navigations).
   trailingSlash: true,
