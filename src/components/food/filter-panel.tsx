@@ -11,7 +11,7 @@ import { Chip } from "@/components/ui/chip";
 import { useBrowseAvailability, useFoodData } from "./food-data";
 import { CATEGORY_COLORS } from "./illustrations";
 
-const AVAIL: AvailabilityStatus[] = ["verified-available", "unverified", "temporarily-unavailable", "none-found"];
+const AVAIL: AvailabilityStatus[] = ["visit-confirmed", "directly-confirmed", "menu-confirmed", "source-listed", "temporarily-unavailable", "none-found"];
 
 export function SearchBox({ className }: { className?: string }) {
   const { t } = useT();

@@ -94,9 +94,9 @@ describe("HCMC establishments", () => {
       expect(rIds.has(l.restaurantId), l.restaurantId).toBe(true);
       const r = restaurants.find((x) => x.id === l.restaurantId)!;
       expect(l.isSample).toBe(r.isSample);
-      if (!l.isSample && l.status === "verified-available") {
+      if (!l.isSample && l.status !== "candidate") {
         expect(l.menuEvidence, `${l.dishId}@${l.restaurantId}`).toBeTruthy();
-        expect(l.lastVerified).toBeTruthy();
+        expect(l.lastVerified, `${l.dishId}@${l.restaurantId} last checked`).toBeTruthy();
       }
     }
   });

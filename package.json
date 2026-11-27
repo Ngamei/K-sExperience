@@ -23,7 +23,9 @@
     "qa": "npm run typecheck && npm run lint && npm run test && npm run build && npm run test:e2e",
     "data:restaurants": "tsx scripts/import-restaurants.ts",
     "data:coverage": "tsx scripts/venue-coverage.ts",
-    "data:report": "tsx scripts/data-report.ts"
+    "data:report": "tsx scripts/data-report.ts",
+    "db:seed-sql": "tsx scripts/build-supabase-seed.ts",
+    "test:db": "bash scripts/test-db.sh"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",

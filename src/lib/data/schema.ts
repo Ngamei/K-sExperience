@@ -138,12 +138,9 @@ export type DishCatalogue = z.infer<typeof DishCatalogueSchema>;
 /* ---------------------------------------------------------------------------------------------
  * HCMC establishments
  * ------------------------------------------------------------------------------------------- */
-export const AVAILABILITY_STATUSES = [
-  "verified-available",
-  "unverified",
-  "temporarily-unavailable",
-] as const;
-export type AvailabilityStatus = (typeof AVAILABILITY_STATUSES)[number] | "none-found";
+export { LINK_STATUSES as AVAILABILITY_STATUSES } from "./evidence";
+import { EVIDENCE_TYPES, LINK_STATUSES, evidenceProblem, type LinkStatus } from "./evidence";
+export type AvailabilityStatus = LinkStatus | "none-found";
 
 export const VENUE_TYPES = ["street-stall", "eatery", "restaurant", "market-stall", "cafe-dessert", "food-court"] as const;
 export const PRICE_RANGES = ["$", "$$", "$$$", "$$$$"] as const;
@@ -181,11 +178,16 @@ export type Restaurant = z.infer<typeof RestaurantSchema>;
 export const DishRestaurantLinkSchema = z.object({
   dishId: z.string(),
   restaurantId: z.string(),
-  status: z.enum(AVAILABILITY_STATUSES),
+  status: z.enum(LINK_STATUSES),
   isSample: z.boolean(),
-  menuEvidence: z.object({ type: z.enum(["menu-photo", "official-menu", "site-visit", "phone-call", "delivery-listing", "published-source", "sample"]), note: z.string(), url: z.url().optional() }).optional(),
+  menuEvidence: z.object({ type: z.enum(EVIDENCE_TYPES), note: z.string(), url: z.url().optional() }).optional(),
   priceVnd: z.object({ min: z.number(), max: z.number() }).optional(),
+  /** Date the evidence was last checked (shown as "Last checked"). */
   lastVerified: z.string().optional(),
+}).superRefine((l, ctx) => {
+  const problem = evidenceProblem(l.status, l.menuEvidence?.type, l.isSample);
+  if (problem) ctx.addIssue({ code: "custom", message: problem, path: ["menuEvidence"] });
+  if (l.status !== "candidate" && !l.isSample && !l.lastVerified) ctx.addIssue({ code: "custom", message: "lastVerified (last-checked date) is required", path: ["lastVerified"] });
 });
 export type DishRestaurantLink = z.infer<typeof DishRestaurantLinkSchema>;
 

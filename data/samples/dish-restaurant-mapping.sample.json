@@ -6,7 +6,7 @@
     {
       "dishId": "pho-bo-ha-noi",
       "restaurantId": "sample-venue-01",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -16,7 +16,7 @@
     {
       "dishId": "bun-cha-ha-noi",
       "restaurantId": "sample-venue-01",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -26,7 +26,7 @@
     {
       "dishId": "cha-ca-la-vong",
       "restaurantId": "sample-venue-01",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -36,7 +36,7 @@
     {
       "dishId": "bun-bo-hue",
       "restaurantId": "sample-venue-02",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -46,7 +46,7 @@
     {
       "dishId": "com-hen",
       "restaurantId": "sample-venue-02",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -66,7 +66,7 @@
     {
       "dishId": "hu-tieu-nam-vang",
       "restaurantId": "sample-venue-03",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -76,7 +76,7 @@
     {
       "dishId": "hu-tieu-my-tho",
       "restaurantId": "sample-venue-03",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -86,7 +86,7 @@
     {
       "dishId": "bo-bia",
       "restaurantId": "sample-venue-03",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -96,7 +96,7 @@
     {
       "dishId": "banh-mi-sai-gon",
       "restaurantId": "sample-venue-04",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -106,7 +106,7 @@
     {
       "dishId": "bot-chien",
       "restaurantId": "sample-venue-04",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -116,7 +116,7 @@
     {
       "dishId": "banh-trang-tron",
       "restaurantId": "sample-venue-04",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -126,7 +126,7 @@
     {
       "dishId": "mi-quang",
       "restaurantId": "sample-venue-05",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -136,7 +136,7 @@
     {
       "dishId": "cao-lau-hoi-an",
       "restaurantId": "sample-venue-05",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -146,7 +146,7 @@
     {
       "dishId": "banh-trang-cuon-thit-heo",
       "restaurantId": "sample-venue-05",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -156,7 +156,7 @@
     {
       "dishId": "com-tam-sai-gon",
       "restaurantId": "sample-venue-06",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -166,7 +166,7 @@
     {
       "dishId": "banh-flan",
       "restaurantId": "sample-venue-06",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -176,7 +176,7 @@
     {
       "dishId": "che-ba-mau",
       "restaurantId": "sample-venue-06",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -186,7 +186,7 @@
     {
       "dishId": "oc-sai-gon",
       "restaurantId": "sample-venue-07",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -196,7 +196,7 @@
     {
       "dishId": "banh-khot-vung-tau",
       "restaurantId": "sample-venue-07",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -206,7 +206,7 @@
     {
       "dishId": "lau-mam",
       "restaurantId": "sample-venue-08",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -216,7 +216,7 @@
     {
       "dishId": "banh-xeo-nam-bo",
       "restaurantId": "sample-venue-08",
-      "status": "verified-available",
+      "status": "menu-confirmed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",
@@ -226,7 +226,7 @@
     {
       "dishId": "canh-chua-ca-loc",
       "restaurantId": "sample-venue-08",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": true,
       "menuEvidence": {
         "type": "sample",

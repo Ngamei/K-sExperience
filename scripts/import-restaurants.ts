@@ -5,7 +5,7 @@
  *
  * Writes data/hcmc-restaurants.json and data/dish-restaurant-mapping.json.
  * Rejects: venues outside the current HCMC boundary, unknown dish ids, missing sources,
- * and any "verified-available" link without menu evidence. Exits non-zero on error.
+ * and any link whose evidence cannot justify its status (src/lib/data/evidence.ts). Exits non-zero on error.
  */
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { slugify } from "../src/lib/search/normalize";
@@ -83,15 +83,13 @@ for (const r of src.restaurants) {
     const link = DishRestaurantLinkSchema.safeParse({
       dishId: d.dishId,
       restaurantId: r.id,
-      status: d.status ?? "unverified",
+      status: d.status ?? "source-listed",
       isSample: false,
       menuEvidence: { type: d.evidenceType ?? "published-source", note: d.evidence, url: d.url },
       priceVnd: d.priceVnd,
       lastVerified: date,
     });
     if (!link.success) { errors.push(`${r.id}/${d.dishId}: ${link.error.message}`); continue; }
-    if (link.data.status === "verified-available" && link.data.menuEvidence?.type === "published-source")
-      errors.push(`${r.id}/${d.dishId}: a published source alone cannot mark a dish verified-available`);
     links.push(link.data);
   }
 }
@@ -108,7 +106,7 @@ writeFileSync(path.join(root, "data/hcmc-restaurants.json"), JSON.stringify({
   restaurants,
 }, null, 2) + "\n");
 writeFileSync(path.join(root, "data/dish-restaurant-mapping.json"), JSON.stringify({
-  metadata: { note: "Links between dishes and REAL HCMC establishments. 'unverified' = listed by a published source (cited in menuEvidence), not yet confirmed on site or by phone. 'verified-available' requires first-hand evidence (menu photo, official menu, site visit or phone call)." },
+  metadata: { note: "Links between dishes and REAL HCMC establishments with evidence levels (src/lib/data/evidence.ts): source-listed = a published source links venue and exact dish; menu-confirmed / directly-confirmed / visit-confirmed require official menu or delivery listing / phone or message / visit evidence. lastVerified = last-checked date." },
   links,
 }, null, 2) + "\n");
 const perDish = new Map<string, number>();

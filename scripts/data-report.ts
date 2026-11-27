@@ -79,13 +79,12 @@ ${regions.map((r) => { const rd = d.filter((x) => x.regionIds.includes(r.id as n
 | …with exact (building) coordinates | ${exactPins} | — |
 | …with street-level coordinates (flagged approximate) | ${restaurants.length - exactPins} | — |
 | Dish ↔ establishment links | ${links.length} | 200+ verified |
-| …status verified-available (first-hand evidence) | ${links.filter((l) => l.status === "verified-available").length} | — |
-| …status unverified (listed by a published source) | ${links.filter((l) => l.status === "unverified").length} | — |
+${(["visit-confirmed", "directly-confirmed", "menu-confirmed", "source-listed", "temporarily-unavailable", "candidate"] as const).map((s) => `| …${s} | ${links.filter((l) => l.status === s).length} | — |`).join("\n")}
 | Dishes with ≥ 1 venue | ${pct(venueCount.size)} | — |
 | Dishes with ≥ 5 venues | ${pct([...venueCount.values()].filter((n) => n >= 5).length)} | PO wish: all |
 | Links with a price | ${links.filter((l) => l.priceVnd).length} | when reliably available |
 
-No establishment is yet **verified on site or by phone**; all real links are "listed by source · not yet confirmed". See \`docs/RESTAURANT_VERIFICATION_PLAN.md\`.
+Evidence levels: see \`src/lib/data/evidence.ts\` and \`docs/RESTAURANT_VERIFICATION_PLAN.md\`. See \`docs/RESTAURANT_VERIFICATION_PLAN.md\`.
 
 ## Priority 50 regional dishes (\`data/source/priority-dishes.json\`)
 ${(() => {

@@ -25,7 +25,9 @@ export function scoreDish(d: Dish, p: Preferences, ctx: { availability: Availabi
   if (p.regions.length && d.regionIds.some((r) => p.regions.includes(r))) s += 2;
   if (p.mealTime !== "any" && d.mealTimes.includes(p.mealTime)) s += 1.5;
   if (!ctx.tried.has(d.id)) s += 1;
-  if (statusOf(ctx.availability, d.id) === "verified-available") s += 2;
+  const st = statusOf(ctx.availability, d.id);
+  if (st === "menu-confirmed" || st === "directly-confirmed" || st === "visit-confirmed") s += 2;
+  else if (st === "source-listed") s += 0.5;
   s += (4 - d.prominence) * 0.3;
   return s;
 }

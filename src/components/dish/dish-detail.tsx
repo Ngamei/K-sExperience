@@ -76,6 +76,7 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
         </div>
         <div className="mt-2.5 flex flex-wrap items-center gap-2 pl-[52px]">
           <StatusDot status={l.status} />
+          {l.lastVerified && !r.isSample && <span className="text-[11px] text-muted" data-testid="last-checked">{t("status.lastChecked", { date: l.lastVerified })}</span>}
           {r.googleMapsUrl && (
             <a href={r.googleMapsUrl} target="_blank" rel="noreferrer" className="inline-flex h-7 items-center gap-1 rounded-full bg-forest px-3 text-[11.5px] font-medium text-ivory hover:bg-forest-soft" data-testid="google-maps-link">
               <MapPin className="size-3.5" /> {t("place.googleMaps")}

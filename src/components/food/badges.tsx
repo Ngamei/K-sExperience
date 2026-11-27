@@ -15,8 +15,11 @@ export function CategoryBadge({ category }: { category: Category }) {
 }
 
 const STATUS_STYLE: Record<AvailabilityStatus, { dot: string; tone: "forest" | "ochre" | "warn" | "outline" }> = {
-  "verified-available": { dot: "#294C3D", tone: "forest" },
-  unverified: { dot: "#C4923A", tone: "ochre" },
+  "visit-confirmed": { dot: "#294C3D", tone: "forest" },
+  "directly-confirmed": { dot: "#294C3D", tone: "forest" },
+  "menu-confirmed": { dot: "#294C3D", tone: "forest" },
+  "source-listed": { dot: "#C4923A", tone: "ochre" },
+  candidate: { dot: "#9a9d96", tone: "outline" },
   "temporarily-unavailable": { dot: "#B66B50", tone: "warn" },
   "none-found": { dot: "#9a9d96", tone: "outline" },
 };

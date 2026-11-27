@@ -15,7 +15,7 @@ describe("availability", () => {
   it("sample venues never count unless explicitly included", () => {
     // banh-flan has only a (fictional) sample venue
     expect(statusOf(real, "banh-flan")).toBe("none-found");
-    expect(statusOf(withSamples, "banh-flan")).toBe("verified-available");
+    expect(statusOf(withSamples, "banh-flan")).toBe("menu-confirmed");
     // The sample venue's link is temporarily unavailable; real listed venues outrank it.
     expect(withSamples.linksByDish.get("banh-beo-hue")?.find((l) => l.isSample)?.status).toBe("temporarily-unavailable");
     expect(statusOf(withSamples, "banh-beo-hue")).toBe(statusOf(real, "banh-beo-hue"));
@@ -57,11 +57,11 @@ describe("dish filters", () => {
     const s = filterDishes(data.dishes, f, { ...ctx, availability: withSamples });
     expect(s.map((d) => d.id).sort()).toEqual(["bun-cha-ha-noi", "cha-ca-la-vong", "pho-bo-ha-noi"]);
   });
-  it("real researched venues are listed but never marked verified-available from a published source alone", () => {
-    expect(statusOf(real, "com-tam-sai-gon")).toBe("unverified");
+  it("researched venues are source-listed; a published source never counts as a confirmation", () => {
+    expect(statusOf(real, "com-tam-sai-gon")).toBe("source-listed");
     for (const l of data.links.filter((x) => !x.isSample)) {
       expect(l.menuEvidence?.type).toBe("published-source");
-      expect(l.status).not.toBe("verified-available");
+      expect(["source-listed", "candidate"]).toContain(l.status);
     }
   });
   it("tried/untried and saved", () => {
@@ -141,5 +141,38 @@ describe("map progressive disclosure", () => {
     expect(pos.size).toBe(data.dishes.length);
     const keys = new Set([...pos.values()].map(([x, y]) => `${x.toFixed(5)},${y.toFixed(5)}`));
     expect(keys.size).toBe(data.dishes.length);
+  });
+});
+
+import { DishRestaurantLinkSchema } from "@/lib/data/schema";
+import { buildAvailabilityIndex as build2 } from "@/lib/food/availability";
+describe("evidence levels", () => {
+  const base = { dishId: "mi-quang", restaurantId: "x", isSample: false, lastVerified: "2026-11-27" };
+  it("each status only accepts matching evidence", () => {
+    const ok = (status: string, type: string) => DishRestaurantLinkSchema.safeParse({ ...base, status, menuEvidence: { type, note: "n" } }).success;
+    expect(ok("source-listed", "published-source")).toBe(true);
+    expect(ok("menu-confirmed", "published-source")).toBe(false);
+    expect(ok("menu-confirmed", "delivery-listing")).toBe(true);
+    expect(ok("directly-confirmed", "phone-call")).toBe(true);
+    expect(ok("directly-confirmed", "site-visit")).toBe(false);
+    expect(ok("visit-confirmed", "site-visit")).toBe(true);
+    expect(ok("visit-confirmed", "message")).toBe(false);
+    expect(ok("candidate", "search-result")).toBe(true);
+    expect(ok("source-listed", "sample")).toBe(false);
+  });
+  it("requires a last-checked date on public statuses", () => {
+    expect(DishRestaurantLinkSchema.safeParse({ ...base, lastVerified: undefined, status: "source-listed", menuEvidence: { type: "published-source", note: "n" } }).success).toBe(false);
+  });
+  it("candidates are hidden unless explicitly requested (admin)", () => {
+    const r = [{ ...data.restaurants.find((x) => !x.isSample)!, id: "x" }];
+    const links = [DishRestaurantLinkSchema.parse({ ...base, status: "candidate", menuEvidence: { type: "search-result", note: "n" } })];
+    expect(statusOf(build2(r, links, { includeSamples: false }), "mi-quang")).toBe("none-found");
+    expect(statusOf(build2(r, links, { includeSamples: false, includeCandidates: true }), "mi-quang")).toBe("candidate");
+  });
+  it("best evidence wins: visit > direct > menu > source-listed > unavailable", () => {
+    const r = ["a", "b", "c"].map((id) => ({ ...data.restaurants.find((x) => !x.isSample)!, id }));
+    const mk = (restaurantId: string, status: string, type: string) => DishRestaurantLinkSchema.parse({ ...base, restaurantId, status, menuEvidence: { type, note: "n" } });
+    const idx = build2(r, [mk("a", "temporarily-unavailable", "phone-call"), mk("b", "source-listed", "published-source"), mk("c", "menu-confirmed", "delivery-listing")], { includeSamples: false });
+    expect(statusOf(idx, "mi-quang")).toBe("menu-confirmed");
   });
 });

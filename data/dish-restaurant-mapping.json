@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "note": "Links between dishes and REAL HCMC establishments. 'unverified' = listed by a published source (cited in menuEvidence), not yet confirmed on site or by phone. 'verified-available' requires first-hand evidence (menu photo, official menu, site visit or phone call)."
+    "note": "Links between dishes and REAL HCMC establishments with evidence levels (src/lib/data/evidence.ts): source-listed = a published source links venue and exact dish; menu-confirmed / directly-confirmed / visit-confirmed require official menu or delivery listing / phone or message / visit evidence. lastVerified = last-checked date."
   },
   "links": [
     {
       "dishId": "pho-sai-gon",
       "restaurantId": "pho-hoa-pasteur",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -18,7 +18,7 @@
     {
       "dishId": "banh-mi-sai-gon",
       "restaurantId": "banh-mi-huynh-hoa",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -34,7 +34,7 @@
     {
       "dishId": "com-tam-sai-gon",
       "restaurantId": "com-tam-ba-ghien",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -46,7 +46,7 @@
     {
       "dishId": "banh-xeo-nam-bo",
       "restaurantId": "banh-xeo-46a",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -58,7 +58,7 @@
     {
       "dishId": "hu-tieu-nam-vang",
       "restaurantId": "hu-tieu-hong-phat",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -70,7 +70,7 @@
     {
       "dishId": "bun-bo-hue",
       "restaurantId": "bun-bo-hue-hanh-135-banh-van-tran",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -82,7 +82,7 @@
     {
       "dishId": "bun-bo-hue",
       "restaurantId": "bun-bo-hue-kim-huong-172-nguyen-xi",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -94,7 +94,7 @@
     {
       "dishId": "bun-bo-hue",
       "restaurantId": "nam-giao-136-15-le-thanh-ton",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -106,7 +106,7 @@
     {
       "dishId": "bun-bo-hue",
       "restaurantId": "bun-bo-hue-o-tu-466a-nguyen-tri-phuong",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -118,7 +118,7 @@
     {
       "dishId": "bun-cha-ha-noi",
       "restaurantId": "bun-cha-145-145-bui-vien",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -130,7 +130,7 @@
     {
       "dishId": "bun-cha-ha-noi",
       "restaurantId": "bun-cha-ho-guom-6-tran-phu",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -142,7 +142,7 @@
     {
       "dishId": "bun-cha-ha-noi",
       "restaurantId": "bun-cha-pho-co-225-phan-xich-long",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -154,7 +154,7 @@
     {
       "dishId": "bun-cha-ha-noi",
       "restaurantId": "bun-cha-ha-noi-26-8a-9c2-thai-van-lung",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -166,7 +166,7 @@
     {
       "dishId": "bun-cha-ha-noi",
       "restaurantId": "bun-cha-van-anh-36-hong-ha",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -178,7 +178,7 @@
     {
       "dishId": "mi-quang",
       "restaurantId": "mi-quang-sam-8-ca-van-thinh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -190,7 +190,7 @@
     {
       "dishId": "mi-quang",
       "restaurantId": "mi-quang-3-anh-em-193-cach-mang-thang-8",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -202,7 +202,7 @@
     {
       "dishId": "mi-quang",
       "restaurantId": "mi-quang-ech-233-nguyen-trong-tuyen",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -214,7 +214,7 @@
     {
       "dishId": "mi-quang",
       "restaurantId": "my-quang-ba-mua-80-yen-the",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -226,7 +226,7 @@
     {
       "dishId": "mi-quang",
       "restaurantId": "mi-quang-chinh-hieu-163-le-van-tho",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -238,7 +238,7 @@
     {
       "dishId": "bun-dau-mam-tom",
       "restaurantId": "bun-dau-pho-gam-cau-563-cay-tram",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -250,7 +250,7 @@
     {
       "dishId": "bun-dau-mam-tom",
       "restaurantId": "bun-dau-2-con-cua-235-duong-so-7",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -262,7 +262,7 @@
     {
       "dishId": "bun-rieu-cua",
       "restaurantId": "bun-rieu-cua-oc-phan-rang-66-nguyen-thai-binh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -274,7 +274,7 @@
     {
       "dishId": "bun-rieu-cua",
       "restaurantId": "bun-rieu-ganh-cho-ben-thanh-163-le-thanh-ton",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -286,7 +286,7 @@
     {
       "dishId": "bun-rieu-cua",
       "restaurantId": "bun-rieu-co-beo-139-42-dinh-bo-linh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -298,7 +298,7 @@
     {
       "dishId": "banh-khot-vung-tau",
       "restaurantId": "banh-khot-khanh-7-dong-nai",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -310,7 +310,7 @@
     {
       "dishId": "banh-khot-vung-tau",
       "restaurantId": "banh-khot-sai-gon-thuy-le-606-187-duong-3-thang-2",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -322,7 +322,7 @@
     {
       "dishId": "banh-cuon-thanh-tri",
       "restaurantId": "banh-cuon-tay-ho-127-dinh-tien-hoang",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -334,7 +334,7 @@
     {
       "dishId": "banh-cuon-thanh-tri",
       "restaurantId": "banh-cuon-hai-nam-11a-cao-thang",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -346,7 +346,7 @@
     {
       "dishId": "banh-cuon-thanh-tri",
       "restaurantId": "banh-cuon-ba-mien-104-ba-huyen-thanh-quan",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -358,7 +358,7 @@
     {
       "dishId": "banh-cuon-thanh-tri",
       "restaurantId": "banh-cuon-hong-hanh-353-le-van-sy",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -370,7 +370,7 @@
     {
       "dishId": "banh-cuon-thanh-tri",
       "restaurantId": "banh-cuon-nam-viet-152-nguyen-bieu",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -382,7 +382,7 @@
     {
       "dishId": "com-tam-sai-gon",
       "restaurantId": "com-tam-phuc-loc-tho-236-dinh-tien-hoang",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -394,7 +394,7 @@
     {
       "dishId": "com-tam-sai-gon",
       "restaurantId": "com-tam-sa-bi-chuong-179-tran-binh-trong",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -406,7 +406,7 @@
     {
       "dishId": "com-tam-sai-gon",
       "restaurantId": "com-tam-67-tam-99-1b-vo-van-tan",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -418,7 +418,7 @@
     {
       "dishId": "com-tam-sai-gon",
       "restaurantId": "com-tam-ba-ha-389-hung-phu",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -430,7 +430,7 @@
     {
       "dishId": "com-tam-sai-gon",
       "restaurantId": "com-tam-hong-calmette-134-hoang-dieu",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -442,7 +442,7 @@
     {
       "dishId": "com-tam-sai-gon",
       "restaurantId": "com-tam-bai-rac-73-le-van-linh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -454,7 +454,7 @@
     {
       "dishId": "pho-sai-gon",
       "restaurantId": "pho-cao-van-25-mac-dinh-chi",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -466,7 +466,7 @@
     {
       "dishId": "pho-sai-gon",
       "restaurantId": "pho-trang-since-1936-420-pham-thai-buong",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -478,7 +478,7 @@
     {
       "dishId": "pho-sai-gon",
       "restaurantId": "pho-le-415-nguyen-trai",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -490,7 +490,7 @@
     {
       "dishId": "pho-bo-ha-noi",
       "restaurantId": "pho-dau-288-m1-nam-ky-khoi-nghia",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -502,7 +502,7 @@
     {
       "dishId": "pho-bo-ha-noi",
       "restaurantId": "pho-minh-63-6-pasteur",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -514,7 +514,7 @@
     {
       "dishId": "banh-mi-sai-gon",
       "restaurantId": "banh-mi-nhu-lan-68-ham-nghi",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -526,7 +526,7 @@
     {
       "dishId": "banh-mi-sai-gon",
       "restaurantId": "banh-mi-kim-dung-118a-ly-thuong-kiet",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -538,7 +538,7 @@
     {
       "dishId": "banh-mi-sai-gon",
       "restaurantId": "banh-mi-chim-chay-147d-nguyen-thi-minh-khai",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -550,7 +550,7 @@
     {
       "dishId": "hu-tieu-nam-vang",
       "restaurantId": "hu-tieu-nam-vang-thanh-dat-16-ly-thai-to",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -562,7 +562,7 @@
     {
       "dishId": "hu-tieu-nam-vang",
       "restaurantId": "hu-tieu-nam-vang-lien-hua-381-vo-van-tan",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -574,7 +574,7 @@
     {
       "dishId": "hu-tieu-nam-vang",
       "restaurantId": "hu-tieu-tai-anh-494-nguyen-thi-thap",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -586,7 +586,7 @@
     {
       "dishId": "hu-tieu-nam-vang",
       "restaurantId": "hu-tieu-muoi-doan-49-dang-van-bi",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -598,7 +598,7 @@
     {
       "dishId": "hu-tieu-nam-vang",
       "restaurantId": "hu-tieu-nhat-quan-123-nguyen-van-nghi",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -610,7 +610,7 @@
     {
       "dishId": "banh-xeo-nam-bo",
       "restaurantId": "banh-xeo-bep-me-in-74-7-hai-ba-trung",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -622,7 +622,7 @@
     {
       "dishId": "banh-xeo-tom-nhay-quy-nhon",
       "restaurantId": "banh-xeo-tom-nhay-thanh-dieu-300-su-van-hanh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -634,7 +634,7 @@
     {
       "dishId": "banh-xeo-tom-nhay-quy-nhon",
       "restaurantId": "banh-xeo-cay-bang-163a-tran-van-dang",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -646,7 +646,7 @@
     {
       "dishId": "oc-sai-gon",
       "restaurantId": "oc-thao-383-vinh-khanh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -658,7 +658,7 @@
     {
       "dishId": "oc-sai-gon",
       "restaurantId": "be-oc-58-44-vinh-khanh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -670,7 +670,7 @@
     {
       "dishId": "oc-sai-gon",
       "restaurantId": "oc-vu-37-vinh-khanh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -682,7 +682,7 @@
     {
       "dishId": "oc-sai-gon",
       "restaurantId": "oc-35k-6-vinh-khanh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -694,7 +694,7 @@
     {
       "dishId": "bot-chien",
       "restaurantId": "bot-chien-51-51-nguyen-van-lac",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -706,7 +706,7 @@
     {
       "dishId": "bot-chien",
       "restaurantId": "bot-chien-sau-426-ten-lua",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -718,7 +718,7 @@
     {
       "dishId": "bot-chien",
       "restaurantId": "bot-chien-chu-thai-161-ly-chinh-thang",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -730,7 +730,7 @@
     {
       "dishId": "bot-chien",
       "restaurantId": "bot-chien-hai-van-134-121-doan-van-bo",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -742,7 +742,7 @@
     {
       "dishId": "banh-trang-tron",
       "restaurantId": "banh-trang-co-giang-8a-nguyen-trai",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -754,7 +754,7 @@
     {
       "dishId": "banh-trang-tron",
       "restaurantId": "banh-trang-long-34-34-nguyen-thuong-hien",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -766,7 +766,7 @@
     {
       "dishId": "banh-trang-tron",
       "restaurantId": "banh-trang-di-hong-23-duong-11",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -778,7 +778,7 @@
     {
       "dishId": "banh-can",
       "restaurantId": "quan-tui-22-pham-huy-thong",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -790,7 +790,7 @@
     {
       "dishId": "banh-can",
       "restaurantId": "dalatown-448-le-van-tho",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -802,7 +802,7 @@
     {
       "dishId": "lau-mam",
       "restaurantId": "lau-mam-ba-du-436-nguyen-thi-thap",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -814,7 +814,7 @@
     {
       "dishId": "lau-mam",
       "restaurantId": "co-7-bac-lieu-139l-nguyen-trai",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -826,7 +826,7 @@
     {
       "dishId": "lau-mam",
       "restaurantId": "lau-mam-co-loan-65a-do-xuan-hop",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -838,7 +838,7 @@
     {
       "dishId": "lau-mam",
       "restaurantId": "am-thuc-sen-nam-bo-560-vo-chi-cong",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -850,7 +850,7 @@
     {
       "dishId": "lau-mam",
       "restaurantId": "lau-mam-song-nhi-6-tran-thi-trong",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -862,7 +862,7 @@
     {
       "dishId": "lau-mam",
       "restaurantId": "tiem-lau-cu-lao-337-le-van-luong",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -874,7 +874,7 @@
     {
       "dishId": "banh-beo-hue",
       "restaurantId": "banh-beo-hue-thuy-linh-209-le-van-sy",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -886,7 +886,7 @@
     {
       "dishId": "banh-beo-hue",
       "restaurantId": "banh-beo-xiu-284-le-van-sy",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -898,7 +898,7 @@
     {
       "dishId": "banh-beo-hue",
       "restaurantId": "banh-beo-hue-o-trinh-126-bui-thi-xuan",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -910,7 +910,7 @@
     {
       "dishId": "banh-khoai",
       "restaurantId": "goc-hue-ky-dong-41-ky-dong",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -922,7 +922,7 @@
     {
       "dishId": "banh-nam",
       "restaurantId": "goc-hue-ky-dong-41-ky-dong",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -934,7 +934,7 @@
     {
       "dishId": "banh-khoai",
       "restaurantId": "goc-hue-nguyen-thai-binh-155-nguyen-thai-binh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -946,7 +946,7 @@
     {
       "dishId": "banh-nam",
       "restaurantId": "goc-hue-nguyen-thai-binh-155-nguyen-thai-binh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -958,7 +958,7 @@
     {
       "dishId": "banh-khoai",
       "restaurantId": "goc-hue-an-duong-vuong-400-an-duong-vuong",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -970,7 +970,7 @@
     {
       "dishId": "banh-nam",
       "restaurantId": "goc-hue-an-duong-vuong-400-an-duong-vuong",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -982,7 +982,7 @@
     {
       "dishId": "che-ba-mau",
       "restaurantId": "che-ba-mau-142-nguyen-phi-khanh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -994,7 +994,7 @@
     {
       "dishId": "che-ba-mau",
       "restaurantId": "che-den-dau-504-nguyen-kiem",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1006,7 +1006,7 @@
     {
       "dishId": "che-ba-mau",
       "restaurantId": "che-ngon-co-ba-176-co-giang",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1018,7 +1018,7 @@
     {
       "dishId": "che-ba-mau",
       "restaurantId": "che-via-he-co-diep-241-vo-van-tan",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1030,7 +1030,7 @@
     {
       "dishId": "banh-xeo-nam-bo",
       "restaurantId": "banh-xeo-mien-tay-139-139-tran-van-dang",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1042,7 +1042,7 @@
     {
       "dishId": "bo-bia",
       "restaurantId": "infinity-tam-444-hoang-ngan",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1054,7 +1054,7 @@
     {
       "dishId": "bun-bo-hue",
       "restaurantId": "bun-bo-hue-o-le-cach-mang-thang-8-48-cach-mang-thang-8",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1066,7 +1066,7 @@
     {
       "dishId": "bun-bo-hue",
       "restaurantId": "bun-bo-hue-o-le-cao-thang-169-cao-thang",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1078,7 +1078,7 @@
     {
       "dishId": "bun-bo-hue",
       "restaurantId": "bun-bo-mo-noi-co-nhu-274-29-vo-van-tan",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1090,7 +1090,7 @@
     {
       "dishId": "bun-bo-hue",
       "restaurantId": "bun-bo-hue-kim-huong-rach-bung-binh-17-rach-bung-binh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1102,7 +1102,7 @@
     {
       "dishId": "bun-bo-hue",
       "restaurantId": "bun-bo-hue-170b-170b-tran-nhan-ton",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1114,7 +1114,7 @@
     {
       "dishId": "bun-bo-hue",
       "restaurantId": "bun-bo-5t-606-86-duong-3-thang-2",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1126,7 +1126,7 @@
     {
       "dishId": "banh-mi-sai-gon",
       "restaurantId": "banh-mi-110-110-hoang-van-thu",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1138,7 +1138,7 @@
     {
       "dishId": "banh-mi-sai-gon",
       "restaurantId": "banh-mi-hoang-lam-168-nguyen-thuong-hien",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1150,7 +1150,7 @@
     {
       "dishId": "oc-sai-gon",
       "restaurantId": "oc-bac-351-nguyen-thuong-hien",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1162,7 +1162,7 @@
     {
       "dishId": "oc-sai-gon",
       "restaurantId": "oc-chi-em-24-nguyen-thai-binh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1174,7 +1174,7 @@
     {
       "dishId": "oc-sai-gon",
       "restaurantId": "oc-beo-ha-noi-10-ban-co",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1186,7 +1186,7 @@
     {
       "dishId": "oc-sai-gon",
       "restaurantId": "oc-chi-hong-210-15-cach-mang-thang-8",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1198,7 +1198,7 @@
     {
       "dishId": "bun-rieu-cua",
       "restaurantId": "bun-rieu-co-huong-beo-110-cao-thang",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1210,7 +1210,7 @@
     {
       "dishId": "bun-rieu-cua",
       "restaurantId": "bun-rieu-chi-tuyen-193-2-ba-hat",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1222,7 +1222,7 @@
     {
       "dishId": "bun-rieu-cua",
       "restaurantId": "bun-rieu-cua-hoa-hung-77-hoa-hung",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1234,7 +1234,7 @@
     {
       "dishId": "banh-khot-vung-tau",
       "restaurantId": "hidden-house-55-3-le-thi-hong-gam",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1246,7 +1246,7 @@
     {
       "dishId": "com-ga-hoi-an",
       "restaurantId": "hoi-an-quan-457-1-cach-mang-thang-8",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1258,7 +1258,7 @@
     {
       "dishId": "bun-cha-ca-quy-nhon",
       "restaurantId": "bun-cha-ca-quy-nhon-le-8-dong-nai",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1270,7 +1270,7 @@
     {
       "dishId": "nem-nuong-ninh-hoa",
       "restaurantId": "nem-nuong-ninh-hoa-bau-cat-97-bau-cat",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1282,7 +1282,7 @@
     {
       "dishId": "nem-nuong-ninh-hoa",
       "restaurantId": "nem-nuong-thanh-hung-151-nguyen-van-khoi",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1294,7 +1294,7 @@
     {
       "dishId": "nem-nuong-ninh-hoa",
       "restaurantId": "nem-nuong-nu-91-7b-hoa-hung",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1306,7 +1306,7 @@
     {
       "dishId": "banh-da-cua-hai-phong",
       "restaurantId": "banh-da-cua-lao-ngu-105-duong-so-53",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1318,7 +1318,7 @@
     {
       "dishId": "banh-da-cua-hai-phong",
       "restaurantId": "banh-da-cua-co-bong-19-hat-giang",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1330,7 +1330,7 @@
     {
       "dishId": "banh-da-cua-hai-phong",
       "restaurantId": "banh-da-cua-thuy-linh-14-hong-ha",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1342,7 +1342,7 @@
     {
       "dishId": "hu-tieu-my-tho",
       "restaurantId": "hu-tieu-my-tho-thanh-xuan-62-ton-that-thiep",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1354,7 +1354,7 @@
     {
       "dishId": "hu-tieu-my-tho",
       "restaurantId": "hu-tieu-my-tho-di-9-538-51-doan-van-bo",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1366,7 +1366,7 @@
     {
       "dishId": "com-hen",
       "restaurantId": "com-hen-o-nho-15-21-nguyen-ngoc-loc",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1378,7 +1378,7 @@
     {
       "dishId": "bun-nuoc-leo-soc-trang",
       "restaurantId": "bun-nuoc-leo-soc-trang-le-quang-dinh-401-le-quang-dinh",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
@@ -1390,7 +1390,7 @@
     {
       "dishId": "pho-kho-gia-lai",
       "restaurantId": "pho-kho-gia-lai-hoa-po-lang-207-tan-son-nhi",
-      "status": "unverified",
+      "status": "source-listed",
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
