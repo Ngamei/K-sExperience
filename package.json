@@ -3,10 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "postinstall": "node scripts/copy-vendor.mjs",
+    "predev": "node scripts/copy-vendor.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/copy-vendor.mjs",
     "build": "next build",
+    "build:preview": "node scripts/copy-vendor.mjs && STATIC_EXPORT=1 next build && node scripts/package-preview.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:e2e": "playwright test",
+    "data:geo": "tsx scripts/build-geo.ts",
+    "data:seed": "node scripts/seed-rows.mjs && tsx scripts/import-catalogue.ts data/source/seed-catalogue.json",
+    "data:import": "tsx scripts/import-catalogue.ts",
+    "data:validate": "vitest run tests/integration",
+    "qa": "npm run typecheck && npm run lint && npm run test && npm run build && npm run test:e2e"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",
@@ -22,6 +36,7 @@
     "next": "16.4.6",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
     "supercluster": "^9.1.0",
     "tailwind-merge": "^3.7.1",
     "zod": "^4.6.7",

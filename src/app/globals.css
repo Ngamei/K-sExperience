@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
+/* K's Experience design tokens ------------------------------------------------------------ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ivory: #f8f5ee;
+  --ivory-deep: #efe9dc;
+  --paper: #fffdf8;
+  --forest: #294c3d;
+  --forest-soft: #3d6553;
+  --terracotta: #b66b50;
+  --terracotta-soft: #d79d86;
+  --sage: #bac8b5;
+  --sage-soft: #dfe6da;
+  --charcoal: #292d29;
+  --muted: #6b6f68;
+  --line: #e2dccd;
+  --ochre: #c4923a;
+  --sea: #e6ece6;
+
+  /* category colours */
+  --cat-savory: var(--forest);
+  --cat-sweet: var(--terracotta);
+  --cat-snack: var(--ochre);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ivory: var(--ivory);
+  --color-ivory-deep: var(--ivory-deep);
+  --color-paper: var(--paper);
+  --color-forest: var(--forest);
+  --color-forest-soft: var(--forest-soft);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-soft: var(--terracotta-soft);
+  --color-sage: var(--sage);
+  --color-sage-soft: var(--sage-soft);
+  --color-charcoal: var(--charcoal);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-ochre: var(--ochre);
+  --color-sea: var(--sea);
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces Variable", Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html { background: var(--ivory); }
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
+
+.font-display { font-family: var(--font-display); font-optical-sizing: auto; }
+
+/* Subtle paper grain used behind hero sections and the map */
+.paper-grain {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.16  0 0 0 0 0.18  0 0 0 0 0.16  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }
+
+/* MapLibre overrides */
+.maplibregl-map { font-family: var(--font-sans); }
+.maplibregl-ctrl-group { border-radius: 12px !important; box-shadow: 0 2px 10px rgba(41,45,41,.12) !important; }
+.maplibregl-ctrl-attrib { background: rgba(248,245,238,.85) !important; font-size: 10px; }
+.dish-marker { cursor: pointer; transition: transform .15s ease; }
+.dish-marker:hover { transform: scale(1.1); z-index: 5; }

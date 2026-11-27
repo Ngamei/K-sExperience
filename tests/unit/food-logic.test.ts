@@ -110,3 +110,22 @@ describe("Food Passport", () => {
     expect(btb.pct).toBe(Math.round((2 / btb.total) * 100));
   });
 });
+
+import { dishPositions, maxTierForZoom, regionAnchors } from "@/lib/food/map-points";
+describe("map progressive disclosure", () => {
+  it("is relative to the device's national zoom and honours selection floors", () => {
+    expect(maxTierForZoom(4.3, 138, { baseZoom: 4.3 })).toBe(1);
+    expect(maxTierForZoom(5.2, 138, { baseZoom: 4.3 })).toBe(2);
+    expect(maxTierForZoom(6.5, 138, { baseZoom: 4.3 })).toBe(3);
+    expect(maxTierForZoom(4.3, 138, { baseZoom: 4.3, selection: "region" })).toBe(2);
+    expect(maxTierForZoom(4.3, 138, { baseZoom: 4.3, selection: "province" })).toBe(3);
+    expect(maxTierForZoom(4.3, 12, { baseZoom: 4.3 })).toBe(3);
+  });
+  it("places every dish deterministically, fanning out shared origins", () => {
+    const anchors = regionAnchors(data.regions, data.provinces);
+    const pos = dishPositions(data.dishes, new Map(data.provinces.map((p) => [p.id, p])), anchors);
+    expect(pos.size).toBe(data.dishes.length);
+    const keys = new Set([...pos.values()].map(([x, y]) => `${x.toFixed(5)},${y.toFixed(5)}`));
+    expect(keys.size).toBe(data.dishes.length);
+  });
+});
