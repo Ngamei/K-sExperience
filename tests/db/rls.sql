@@ -591,7 +591,6 @@ do $$ begin
   insert into results values ('unknown default tier rejected', false);
 exception when check_violation then insert into results values ('unknown default tier rejected', true); end $$;
 update membership_settings set default_tier = 'plus';
-=======
 -- 0017 info reports ---------------------------------------------------------------------------------------
 -- "Report incorrect information": anyone files a NEW report; only staff read all and triage; no client deletes.
 reset role;
