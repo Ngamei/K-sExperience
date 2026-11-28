@@ -28,6 +28,11 @@ export function AuthDialog({ open, onOpenChange, initialMode = "login", next, on
         <Dialog.Content
           className="fixed inset-x-0 bottom-0 z-50 max-h-[92dvh] overflow-y-auto rounded-t-3xl bg-ivory p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] shadow-2xl outline-none md:inset-auto md:left-1/2 md:top-1/2 md:w-[440px] md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-3xl md:p-7"
           aria-describedby={undefined}
+          // Start focus on the dialog itself, not its first button: otherwise the ✕ shows the focus ring on open,
+          // which reads as selected/an error. Focus stays trapped inside; Tab reaches ✕, Google and the form.
+          onOpenAutoFocus={(e) => { e.preventDefault(); (e.currentTarget as HTMLElement).focus(); }}
+          tabIndex={-1}
+          style={{ outline: "none" }} // the global :focus-visible rule is unlayered and would outrank the outline-none class
           data-testid="auth-dialog"
         >
           <div className="mb-3 flex items-start justify-between gap-3">

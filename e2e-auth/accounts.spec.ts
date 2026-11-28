@@ -71,6 +71,11 @@ test("guests browse freely; Passport asks to sign in and cancelling returns to w
   await expect(gate(page)).toBeVisible();
   await expect(gate(page).getByTestId("google-login")).toBeVisible();
   await expect(page.getByTestId("passport-tried")).toHaveCount(0); // nothing personal behind the gate
+  // focus starts on the dialog, not on ✕ (no focus ring on open); keyboard users still reach ✕ with Tab
+  await expect(gate(page)).toBeFocused();
+  await expect(gate(page).getByTestId("auth-dialog-close")).not.toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(gate(page).getByTestId("auth-dialog-close")).toBeFocused();
   await gate(page).getByTestId("auth-dialog-close").click();
   await expect(page).toHaveURL(/\/catalogue\/$/);
 });
