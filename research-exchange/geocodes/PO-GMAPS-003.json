@@ -1,0 +1,68 @@
+{
+  "at": "2026-11-28T16:46:55.636Z",
+  "pins": {
+    "Phở Chua Lạng Sơn, Vịt Quay Mắc Mật|357 Đường Lê Văn Lương|": {
+      "lon": 106.7044668,
+      "lat": 10.7408567,
+      "precision": "exact",
+      "ward": null,
+      "displayName": "supplied (exact): https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+L%E1%BA%A1ng+S%C6%A1n,+V%E1%BB%8Bt+Quay+M%E1%BA%AFc+M%E1%BA%ADt/data=!4m7!3m6!1s0x31752f9e55555555:0x748569345902412c!8m2!3d10.7408567!4d106.7044668!16s%2Fg%2F11lly2bygd",
+      "origin": "supplied",
+      "sourceRef": "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+L%E1%BA%A1ng+S%C6%A1n,+V%E1%BB%8Bt+Quay+M%E1%BA%AFc+M%E1%BA%ADt/data=!4m7!3m6!1s0x31752f9e55555555:0x748569345902412c!8m2!3d10.7408567!4d106.7044668!16s%2Fg%2F11lly2bygd"
+    },
+    "Phở Chua Thành|242/101 Nguyễn Thiện Thuật|": {
+      "lon": 106.6795425,
+      "lat": 10.7709965,
+      "precision": "exact",
+      "ward": null,
+      "displayName": "supplied (exact): https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+Tha%CC%80nh/data=!4m7!3m6!1s0x31752f203b2345a1:0x690f9b534b1014b7!8m2!3d10.7709965!4d106.6795425!16s%2Fg%2F1vxvfc0m",
+      "origin": "supplied",
+      "sourceRef": "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+Tha%CC%80nh/data=!4m7!3m6!1s0x31752f203b2345a1:0x690f9b534b1014b7!8m2!3d10.7709965!4d106.6795425!16s%2Fg%2F1vxvfc0m"
+    },
+    "Xôi Khúc Cô Thủy 107/15|107/15 Đường Lê Văn Duyệt|": {
+      "lon": 106.6959218,
+      "lat": 10.7985925,
+      "precision": "exact",
+      "ward": null,
+      "displayName": "supplied (exact): https://www.google.com/maps/place/X%C3%B4i+Kh%C3%BAc+C%C3%B4+Th%E1%BB%A7y+107%2F15/data=!4m7!3m6!1s0x3175290002eee705:0x6df03f738af9e969!8m2!3d10.7985925!4d106.6959218!16s%2Fg%2F11vm4j8yc9",
+      "origin": "supplied",
+      "sourceRef": "https://www.google.com/maps/place/X%C3%B4i+Kh%C3%BAc+C%C3%B4+Th%E1%BB%A7y+107%2F15/data=!4m7!3m6!1s0x3175290002eee705:0x6df03f738af9e969!8m2!3d10.7985925!4d106.6959218!16s%2Fg%2F11vm4j8yc9"
+    },
+    "Bún Cá Cay Hải Phòng|H38 Đ. Số 1|": {
+      "lon": 106.705633,
+      "lat": 10.8114709,
+      "precision": "exact",
+      "ward": null,
+      "displayName": "supplied (exact): https://www.google.com/maps/place/B%C3%BAn+C%C3%A1+Cay+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x317529bdf5ad45d7:0x2dbf5c2fedbfdfea!8m2!3d10.8114709!4d106.705633!16s%2Fg%2F11kbdbfp71",
+      "origin": "supplied",
+      "sourceRef": "https://www.google.com/maps/place/B%C3%BAn+C%C3%A1+Cay+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x317529bdf5ad45d7:0x2dbf5c2fedbfdfea!8m2!3d10.8114709!4d106.705633!16s%2Fg%2F11kbdbfp71"
+    },
+    "Canh cá Quỳnh Côi - Quán ăn Cô Dịu|82 Đường số 79|": {
+      "lon": 106.7093063,
+      "lat": 10.7402492,
+      "precision": "exact",
+      "ward": null,
+      "displayName": "supplied (exact): https://www.google.com/maps/place/Canh+c%C3%A1+Qu%E1%BB%B3nh+C%C3%B4i+-+Qu%C3%A1n+%C4%83n+C%C3%B4+D%E1%BB%8Bu/data=!4m7!3m6!1s0x31752fe5a00fc7c5:0x72a23dfb58ef2271!8m2!3d10.7402492!4d106.7093063!16s%2Fg%2F11pptfcd5g",
+      "origin": "supplied",
+      "sourceRef": "https://www.google.com/maps/place/Canh+c%C3%A1+Qu%E1%BB%B3nh+C%C3%B4i+-+Qu%C3%A1n+%C4%83n+C%C3%B4+D%E1%BB%8Bu/data=!4m7!3m6!1s0x31752fe5a00fc7c5:0x72a23dfb58ef2271!8m2!3d10.7402492!4d106.7093063!16s%2Fg%2F11pptfcd5g"
+    },
+    "Đặc Sản Dê Núi 35A Ninh Bình|39 Đ. Đặng Thuỳ Trâm|": {
+      "lon": 106.7030268,
+      "lat": 10.8269237,
+      "precision": "exact",
+      "ward": null,
+      "displayName": "supplied (exact): https://www.google.com/maps/place/%C4%90%E1%BA%B7c+S%E1%BA%A3n+D%C3%AA+N%C3%BAi+35A+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3175288c7edc70d9:0xf8281161bfe19f8!8m2!3d10.8269237!4d106.7030268!16s%2Fg%2F11c3w8fq5s",
+      "origin": "supplied",
+      "sourceRef": "https://www.google.com/maps/place/%C4%90%E1%BA%B7c+S%E1%BA%A3n+D%C3%AA+N%C3%BAi+35A+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3175288c7edc70d9:0xf8281161bfe19f8!8m2!3d10.8269237!4d106.7030268!16s%2Fg%2F11c3w8fq5s"
+    },
+    "Dê Núi Ninh Bình|1115 Huỳnh Văn Lũy|": {
+      "lon": 106.6812189,
+      "lat": 11.0327624,
+      "precision": "exact",
+      "ward": null,
+      "displayName": "supplied (exact): https://www.google.com/maps/place/D%C3%AA+N%C3%BAi+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3174d035ccc2a74b:0x26c0ea997e0cf2c8!8m2!3d11.0327624!4d106.6812189!16s%2Fg%2F11f15k464q",
+      "origin": "supplied",
+      "sourceRef": "https://www.google.com/maps/place/D%C3%AA+N%C3%BAi+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3174d035ccc2a74b:0x26c0ea997e0cf2c8!8m2!3d11.0327624!4d106.6812189!16s%2Fg%2F11f15k464q"
+    }
+  }
+}

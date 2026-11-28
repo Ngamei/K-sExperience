@@ -12,20 +12,20 @@
   "reconciliation": {
     "dishes": 180,
     "bucketSum": 180,
-    "dishesWithVenue": 44,
-    "realVenues": 438,
+    "dishesWithVenue": 53,
+    "realVenues": 456,
     "realVenuesOutsideHcmc": 0,
-    "venuesWithAtLeastOneDish": 438,
-    "publicRealLinks": 443,
+    "venuesWithAtLeastOneDish": 456,
+    "publicRealLinks": 465,
     "candidateLinksExcluded": 0,
     "sampleLinksExcluded": 0,
     "temporarilyUnavailableLinksExcluded": 0,
     "ok": true
   },
   "buckets": {
-    "0": 136,
-    "1-4": 25,
-    "5+": 19
+    "0": 127,
+    "1-4": 32,
+    "5+": 21
   },
   "scouting": [
     {
@@ -379,7 +379,7 @@
       "formerDistrict": "Quận 7",
       "researchOwner": "claude-code (proposed CC-PMHFOOD-001)",
       "overlapsGptFood001": false,
-      "dishesWithVenueInArea": 10,
+      "dishesWithVenueInArea": 14,
       "topDishesToScout": [
         {
           "id": "hu-tieu-my-tho",
@@ -569,15 +569,15 @@
       "dishType": "noodles",
       "prominence": 3,
       "lunch": true,
-      "venues": 0,
-      "venuesIncludingTemporarilyUnavailable": 0,
-      "bucket": "0",
+      "venues": 2,
+      "venuesIncludingTemporarilyUnavailable": 2,
+      "bucket": "1-4",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
         "q1-cbd": 0,
-        "phu-my-hung": 0
+        "phu-my-hung": 1
       }
     },
     {
@@ -839,9 +839,9 @@
       "dishType": "banh",
       "prominence": 3,
       "lunch": false,
-      "venues": 0,
-      "venuesIncludingTemporarilyUnavailable": 0,
-      "bucket": "0",
+      "venues": 1,
+      "venuesIncludingTemporarilyUnavailable": 1,
+      "bucket": "1-4",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
@@ -911,9 +911,9 @@
       "dishType": "noodle-soup",
       "prominence": 3,
       "lunch": true,
-      "venues": 0,
-      "venuesIncludingTemporarilyUnavailable": 0,
-      "bucket": "0",
+      "venues": 1,
+      "venuesIncludingTemporarilyUnavailable": 1,
+      "bucket": "1-4",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
@@ -1001,15 +1001,15 @@
       "dishType": "noodle-soup",
       "prominence": 3,
       "lunch": true,
-      "venues": 0,
-      "venuesIncludingTemporarilyUnavailable": 0,
-      "bucket": "0",
+      "venues": 1,
+      "venuesIncludingTemporarilyUnavailable": 1,
+      "bucket": "1-4",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
         "q1-cbd": 0,
-        "phu-my-hung": 0
+        "phu-my-hung": 1
       }
     },
     {
@@ -1073,9 +1073,9 @@
       "dishType": "grilled",
       "prominence": 3,
       "lunch": true,
-      "venues": 0,
-      "venuesIncludingTemporarilyUnavailable": 0,
-      "bucket": "0",
+      "venues": 2,
+      "venuesIncludingTemporarilyUnavailable": 2,
+      "bucket": "1-4",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
@@ -1163,15 +1163,15 @@
       "dishType": "banh",
       "prominence": 3,
       "lunch": false,
-      "venues": 0,
-      "venuesIncludingTemporarilyUnavailable": 0,
-      "bucket": "0",
+      "venues": 2,
+      "venuesIncludingTemporarilyUnavailable": 2,
+      "bucket": "1-4",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
         "q1-cbd": 0,
-        "phu-my-hung": 0
+        "phu-my-hung": 1
       }
     },
     {
@@ -1667,9 +1667,9 @@
       "dishType": "banh",
       "prominence": 3,
       "lunch": false,
-      "venues": 0,
-      "venuesIncludingTemporarilyUnavailable": 0,
-      "bucket": "0",
+      "venues": 7,
+      "venuesIncludingTemporarilyUnavailable": 7,
+      "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
@@ -1793,15 +1793,15 @@
       "dishType": "bread",
       "prominence": 3,
       "lunch": true,
-      "venues": 0,
-      "venuesIncludingTemporarilyUnavailable": 0,
-      "bucket": "0",
+      "venues": 5,
+      "venuesIncludingTemporarilyUnavailable": 5,
+      "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
         "q1-cbd": 0,
-        "phu-my-hung": 0
+        "phu-my-hung": 2
       }
     },
     {
@@ -1883,9 +1883,9 @@
       "dishType": "soup",
       "prominence": 3,
       "lunch": false,
-      "venues": 0,
-      "venuesIncludingTemporarilyUnavailable": 0,
-      "bucket": "0",
+      "venues": 1,
+      "venuesIncludingTemporarilyUnavailable": 1,
+      "bucket": "1-4",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,

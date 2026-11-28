@@ -1014,6 +1014,113 @@
         "report": "research-exchange/reports/CC-FOOD-012.md"
       },
       "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "PO-GMAPS-003",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Google Maps scouting for Section A dishes 1–14",
+      "claims": {
+        "items": [
+          "pho-chua-lang-son",
+          "banh-khuc",
+          "bun-ca-cay-hai-phong",
+          "canh-ca-quynh-coi",
+          "de-nui-ninh-binh",
+          "banh-tom-ho-tay",
+          "com-lang-vong",
+          "banh-troi-banh-chay",
+          "o-mai-hang-duong",
+          "nem-cua-be-hai-phong",
+          "banh-gai-ninh-giang",
+          "banh-cay-thai-binh",
+          "nem-nam-giao-thuy",
+          "banh-phu-the-dinh-bang"
+        ]
+      },
+      "assignedTo": "codex",
+      "status": "imported",
+      "sources": [
+        "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+L%E1%BA%A1ng+S%C6%A1n,+V%E1%BB%8Bt+Quay+M%E1%BA%AFc+M%E1%BA%ADt/data=!4m7!3m6!1s0x31752f9e55555555:0x748569345902412c!8m2!3d10.7408567!4d106.7044668!16s%2Fg%2F11lly2bygd",
+        "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+Tha%CC%80nh/data=!4m7!3m6!1s0x31752f203b2345a1:0x690f9b534b1014b7!8m2!3d10.7709965!4d106.6795425!16s%2Fg%2F1vxvfc0m",
+        "https://www.google.com/maps/place/X%C3%B4i+Kh%C3%BAc+C%C3%B4+Th%E1%BB%A7y+107%2F15/data=!4m7!3m6!1s0x3175290002eee705:0x6df03f738af9e969!8m2!3d10.7985925!4d106.6959218!16s%2Fg%2F11vm4j8yc9",
+        "https://www.google.com/maps/place/B%C3%BAn+C%C3%A1+Cay+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x317529bdf5ad45d7:0x2dbf5c2fedbfdfea!8m2!3d10.8114709!4d106.705633!16s%2Fg%2F11kbdbfp71",
+        "https://www.google.com/maps/place/Canh+c%C3%A1+Qu%E1%BB%B3nh+C%C3%B4i+-+Qu%C3%A1n+%C4%83n+C%C3%B4+D%E1%BB%8Bu/data=!4m7!3m6!1s0x31752fe5a00fc7c5:0x72a23dfb58ef2271!8m2!3d10.7402492!4d106.7093063!16s%2Fg%2F11pptfcd5g",
+        "https://www.google.com/maps/place/%C4%90%E1%BA%B7c+S%E1%BA%A3n+D%C3%AA+N%C3%BAi+35A+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3175288c7edc70d9:0xf8281161bfe19f8!8m2!3d10.8269237!4d106.7030268!16s%2Fg%2F11c3w8fq5s",
+        "https://www.google.com/maps/place/D%C3%AA+N%C3%BAi+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3174d035ccc2a74b:0x26c0ea997e0cf2c8!8m2!3d11.0327624!4d106.6812189!16s%2Fg%2F11f15k464q"
+      ],
+      "importStatus": "imported 2026-11-28 (7 venues)",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 7,
+        "rejected": 0,
+        "warnings": 1,
+        "report": "research-exchange/reports/PO-GMAPS-003.md"
+      },
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "PO-GMAPS-002",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Google Maps scouting for Section A dishes 15–39",
+      "claims": {
+        "items": [
+          "banh-cuon-cao-bang",
+          "banh-bot-loc-hue",
+          "banh-mi-hoi-an",
+          "don-quang-ngai",
+          "ga-dong-tao",
+          "chao-au-tau",
+          "khau-nhuc",
+          "xoi-ngu-sac",
+          "banh-cooc-mo",
+          "nam-pia",
+          "xoi-tu-le",
+          "com-lam-hoa-binh",
+          "thit-chua-thanh-son",
+          "banh-da-ke",
+          "ca-thinh-lap-thach",
+          "banh-gai-tu-tru",
+          "banh-muot-nghe-an",
+          "ram-ha-tinh",
+          "khoai-deo",
+          "chao-vat-giuong",
+          "che-hat-sen-long-nhan",
+          "me-xung-hue",
+          "banh-canh-nam-pho",
+          "che-bap-cam-nam",
+          "goi-ca-nam-o"
+        ]
+      },
+      "assignedTo": "codex",
+      "status": "imported",
+      "sources": [
+        "https://www.google.com/maps/place/B%C3%A1nh+Cu%E1%BB%91n+N%C3%B3ng+Cao+B%E1%BA%B1ng/@10.733296,106.7090776,17z/data=!3m1!4b1!4m6!3m5!1s0x31752500651ff80f:0x75dac1af9548265a!8m2!3d10.733296!4d106.7090776!16s%2Fg%2F11wc1mtkng",
+        "https://www.google.com/maps/place/B%E1%BA%A3o+Ch%C3%A2u+Qu%C3%A1n+-+B%C3%A1nh+cu%E1%BB%91n+Cao+B%E1%BA%B1ng/@10.7775189,106.7645232,17z/data=!3m1!4b1!4m6!3m5!1s0x317525b75e88bea3:0x483dfbe89d48141c!8m2!3d10.7775189!4d106.7645232!16s%2Fg%2F11krmrvmnc",
+        "https://www.google.com/maps/place/Qu%C3%A1n+%C4%82n+Hu%E1%BA%BF+3+M%E1%BA%B9t:+B%C3%A1nh+B%C3%A8o+N%E1%BA%ADm+L%E1%BB%8Dc,+C%C6%A1m+B%C3%BAn+H%E1%BA%BFn,+H%E1%BA%BFn+X%C3%BAc+B%C3%A1nh+%C4%90a,+Nem+Ch%E1%BA%A3+Hu%E1%BA%BF/@10.7996265,106.6876635,17z/data=!3m1!4b1!4m6!3m5!1s0x317529108bed9721:0x3905a6d1d90f8e36!8m2!3d10.7996265!4d106.6876635!16s%2Fg%2F11tmrwklmm",
+        "https://www.google.com/maps/place/G%C3%93C+HU%E1%BA%BE+-+An+D%C6%B0%C6%A1ng+V%C6%B0%C6%A1ng/@10.7593416,106.6780769,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f1ddf83a5ab:0xa6268b4ecae0c6f3!8m2!3d10.7593416!4d106.6780769!16s%2Fg%2F11st_btq4t",
+        "https://www.google.com/maps/place/G%C3%93C+HU%E1%BA%BE+-+K%E1%BB%B3+%C4%90%E1%BB%93ng/@10.7804676,106.6812148,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f87625a3a4b:0xb709ee5bda105613!8m2!3d10.7804676!4d106.6812148!16s%2Fg%2F11j7h337x0",
+        "https://www.google.com/maps/place/Qu%C3%A1n+%C4%82n+Hu%E1%BA%BF+3+M%E1%BA%B9t/@10.8393505,106.6753453,17z/data=!3m1!4b1!4m6!3m5!1s0x317529da570b9045:0x5ef39876b5b7ed46!8m2!3d10.8393505!4d106.6753453!16s%2Fg%2F11pcphkm9n",
+        "https://www.google.com/maps/place/Qu%C3%A1n+B%C3%A1nh+B%C3%A8o+Hu%E1%BA%BF+Ng%E1%BB%8Dc+Tr%C3%A2m/@10.7828649,106.6666458,17z/data=!3m1!4b1!4m6!3m5!1s0x31752edddf500d63:0x46eae272ce8d2beb!8m2!3d10.7828649!4d106.6666458!16s%2Fg%2F1pzrk87mj",
+        "https://www.google.com/maps/place/B%C3%A1nh+b%C3%A8o+Hu%E1%BA%BF/@10.7567543,106.6763564,17z/data=!3m1!4b1!4m6!3m5!1s0x31752efd5f572ff9:0xa9abb66c88240cf4!8m2!3d10.7567543!4d106.6763564!16s%2Fg%2F11c586hk3w",
+        "https://www.google.com/maps/place/B%C3%A1nh+B%C3%A8o+Hu%E1%BA%BF+O+Trinh/@10.769713,106.688075,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f3d34410459:0xbfa33fe7981ba4c7!8m2!3d10.769713!4d106.688075!16s%2Fg%2F11f53ctw63",
+        "https://www.google.com/maps/place/B%C3%A1nh+M%C3%AC+H%E1%BB%99i+An+N%C3%A0ng+%C3%9At/@10.8240907,106.6774882,17z/data=!3m1!4b1!4m6!3m5!1s0x3175290019def2b3:0xc4d1c7b9c6356650!8m2!3d10.8240907!4d106.6774882!16s%2Fg%2F11yqwlh152",
+        "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+An+H%E1%BB%99i+An/@10.7384144,106.7032159,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f0033532aed:0x1f040f680afb29e0!8m2!3d10.7384144!4d106.7032159!16s%2Fg%2F11xkwnzj76",
+        "https://www.google.com/maps/place/B%C3%A1nh+M%C3%AC+%C3%94ng+H%E1%BB%99i+H%E1%BB%99i+An+%7C+B%C3%A1nh+M%C3%AC+Ph%C3%BA+M%E1%BB%B9+H%C6%B0ng+%7C+Bread+Phu+My+Hung/@10.7301835,106.7074393,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f0009c09341:0xf342c804a4518f38!8m2!3d10.7301835!4d106.7074393!16s%2Fg%2F11zfslqy35",
+        "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+H%E1%BB%99i+An+Madam+Thanh/@10.7938,106.6479777,17z/data=!3m1!4b1!4m6!3m5!1s0x317529e477ca4a25:0x594e0ab92dc4fbcf!8m2!3d10.7938!4d106.6479777!16s%2Fg%2F11qn9xbwh3",
+        "https://www.google.com/maps/place/Chan+Chan+-+B%C3%A1nh+M%C3%AC+H%E1%BB%99i+An/@10.8018333,106.68475,17z/data=!3m1!4b1!4m6!3m5!1s0x31752900546f5cb7:0x355e20ae39bdf4fc!8m2!3d10.8018333!4d106.68475!16s%2Fg%2F11zkgxpcs8",
+        "https://www.google.com/maps/place/DON-Qu%C3%A1n+%C4%83n+Qu%E1%BA%A3ng+Ng%C3%A3i/@10.7766673,106.6080242,17z/data=!3m1!4b1!4m6!3m5!1s0x31752c148c823305:0x5218a100c4b2f157!8m2!3d10.7766673!4d106.6080242!16s%2Fg%2F11c5_t3m97"
+      ],
+      "importStatus": "imported 2026-11-28 (15 venues)",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 15,
+        "rejected": 0,
+        "warnings": 1,
+        "report": "research-exchange/reports/PO-GMAPS-002.md"
+      },
+      "updatedAt": "2026-11-28"
     }
   ]
 }

@@ -70,31 +70,31 @@
     "fresh90": "last checked ≤ 90 days ago"
   },
   "overall": {
-    "total": 491,
+    "total": 509,
     "fields": {
       "nameCategory": {
-        "count": 491,
+        "count": 509,
         "pct": 100
       },
       "address": {
-        "count": 491,
+        "count": 509,
         "pct": 100
       },
       "location": {
-        "count": 96,
-        "pct": 19.6
+        "count": 114,
+        "pct": 22.4
       },
       "status": {
         "count": 201,
-        "pct": 40.9
+        "pct": 39.5
       },
       "contact": {
         "count": 18,
-        "pct": 3.7
+        "pct": 3.5
       },
       "hours": {
         "count": 194,
-        "pct": 39.5
+        "pct": 38.1
       },
       "menu": {
         "count": 0,
@@ -102,7 +102,7 @@
       },
       "prices": {
         "count": 27,
-        "pct": 5.5
+        "pct": 5.3
       },
       "photo": {
         "count": 1,
@@ -110,10 +110,10 @@
       },
       "phone": {
         "count": 18,
-        "pct": 3.7
+        "pct": 3.5
       },
       "fresh90": {
-        "count": 491,
+        "count": 509,
         "pct": 100
       }
     },
@@ -236,23 +236,23 @@
       "label": "Q7 & Phú Mỹ Hưng",
       "owner": "ChatGPT",
       "rule": "inside the Phú Mỹ Hưng polygon or address in former Quận 7",
-      "total": 33,
+      "total": 38,
       "fields": {
         "nameCategory": {
-          "count": 33,
+          "count": 38,
           "pct": 100
         },
         "address": {
-          "count": 33,
+          "count": 38,
           "pct": 100
         },
         "location": {
-          "count": 7,
-          "pct": 21.2
+          "count": 12,
+          "pct": 31.6
         },
         "status": {
           "count": 11,
-          "pct": 33.3
+          "pct": 28.9
         },
         "contact": {
           "count": 0,
@@ -260,7 +260,7 @@
         },
         "hours": {
           "count": 11,
-          "pct": 33.3
+          "pct": 28.9
         },
         "menu": {
           "count": 0,
@@ -279,7 +279,7 @@
           "pct": 0
         },
         "fresh90": {
-          "count": 33,
+          "count": 38,
           "pct": 100
         }
       },
@@ -456,19 +456,19 @@
       "label": "District not in address",
       "owner": "unassigned",
       "rule": "address omits the district (pin-only)",
-      "total": 30,
+      "total": 43,
       "fields": {
         "nameCategory": {
-          "count": 30,
+          "count": 43,
           "pct": 100
         },
         "address": {
-          "count": 30,
+          "count": 43,
           "pct": 100
         },
         "location": {
-          "count": 11,
-          "pct": 36.7
+          "count": 24,
+          "pct": 55.8
         },
         "status": {
           "count": 0,
@@ -499,7 +499,7 @@
           "pct": 0
         },
         "fresh90": {
-          "count": 30,
+          "count": 43,
           "pct": 100
         }
       },
@@ -510,31 +510,31 @@
   "byExperience": [
     {
       "experience": "food",
-      "total": 439,
+      "total": 457,
       "fields": {
         "nameCategory": {
-          "count": 439,
+          "count": 457,
           "pct": 100
         },
         "address": {
-          "count": 439,
+          "count": 457,
           "pct": 100
         },
         "location": {
-          "count": 77,
-          "pct": 17.5
+          "count": 95,
+          "pct": 20.8
         },
         "status": {
           "count": 199,
-          "pct": 45.3
+          "pct": 43.5
         },
         "contact": {
           "count": 18,
-          "pct": 4.1
+          "pct": 3.9
         },
         "hours": {
           "count": 194,
-          "pct": 44.2
+          "pct": 42.5
         },
         "menu": {
           "count": 0,
@@ -542,7 +542,7 @@
         },
         "prices": {
           "count": 27,
-          "pct": 6.2
+          "pct": 5.9
         },
         "photo": {
           "count": 1,
@@ -550,10 +550,10 @@
         },
         "phone": {
           "count": 18,
-          "pct": 4.1
+          "pct": 3.9
         },
         "fresh90": {
-          "count": 439,
+          "count": 457,
           "pct": 100
         }
       },
@@ -1177,6 +1177,58 @@
           ]
         },
         {
+          "id": "banh-cuon-nong-cao-bang-33-khu-pho-hung-gia-1",
+          "experience": "food",
+          "name": "Bánh Cuốn Nóng Cao Bằng",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-mi-an-hoi-an-410b-duong-le-van-luong",
+          "experience": "food",
+          "name": "Bánh mì An Hội An",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-mi-ong-hoi-hoi-an-banh-mi-phu-my-hung-bread-phu-my-hung-62-khu-pho-hung-phuoc-3",
+          "experience": "food",
+          "name": "Bánh Mì Ông Hội Hội An | Bánh Mì Phú Mỹ Hưng | Bread Phu My Hung",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "canh-ca-quynh-coi-quan-an-co-diu-82-duong-so-79",
+          "experience": "food",
+          "name": "Canh cá Quỳnh Côi - Quán ăn Cô Dịu",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
           "id": "oc-linh-19-phan-khiem-ich",
           "experience": "food",
           "name": "Ốc Linh",
@@ -1193,6 +1245,19 @@
           "id": "pasteur-street-craft-beer-phu-my-hung-cr5-01",
           "experience": "bars",
           "name": "Pasteur Street Craft Beer – Phú Mỹ Hưng",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-chua-lang-son-vit-quay-mac-mat-357-duong-le-van-luong",
+          "experience": "food",
+          "name": "Phở Chua Lạng Sơn, Vịt Quay Mắc Mật",
           "links": 1,
           "missing": [
             "status",
@@ -1378,6 +1443,20 @@
           ]
         },
         {
+          "id": "goc-hue-ky-dong-41-ky-dong",
+          "experience": "food",
+          "name": "Góc Huế – Kỳ Đồng",
+          "links": 3,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
           "id": "gym-one-pickleball-le-quy-don",
           "experience": "sport",
           "name": "Gym One Pickleball",
@@ -1406,9 +1485,9 @@
           ]
         },
         {
-          "id": "bun-rieu-cua-oc-co-thuy-287-66-nguyen-dinh-chieu",
+          "id": "banh-beo-hue-o-trinh-126-bui-thi-xuan",
           "experience": "food",
-          "name": "Bún riêu cua ốc Cô Thủy",
+          "name": "Bánh Bèo Huế O Trinh",
           "links": 2,
           "missing": [
             "location",
@@ -1420,9 +1499,9 @@
           ]
         },
         {
-          "id": "goc-hue-ky-dong-41-ky-dong",
+          "id": "bun-rieu-cua-oc-co-thuy-287-66-nguyen-dinh-chieu",
           "experience": "food",
-          "name": "Góc Huế – Kỳ Đồng",
+          "name": "Bún riêu cua ốc Cô Thủy",
           "links": 2,
           "missing": [
             "location",
@@ -1474,20 +1553,6 @@
           "id": "an-mien-spa-dinh-tien-hoang",
           "experience": "spa",
           "name": "An Miên Spa",
-          "links": 1,
-          "missing": [
-            "location",
-            "status",
-            "contact",
-            "hours",
-            "menu",
-            "prices"
-          ]
-        },
-        {
-          "id": "banh-beo-hue-o-trinh-126-bui-thi-xuan",
-          "experience": "food",
-          "name": "Bánh Bèo Huế O Trinh",
           "links": 1,
           "missing": [
             "location",

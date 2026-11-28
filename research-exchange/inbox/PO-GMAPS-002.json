@@ -1,0 +1,415 @@
+{
+  "batchId": "PO-GMAPS-002",
+  "experience": "food",
+  "kind": "venues",
+  "agent": "codex",
+  "researchedOn": "2026-11-28",
+  "method": "Google Maps search matching the atlas dish search. Section A rows 15–39, from Gà Đông Tảo through Don Quảng Ngãi. Dish evidence comes from venue names or menus. Exact pins are inside the project HCMC boundary. Minimum target is five verified venues per dish. Don Quảng Ngãi at Gò Da Quán was held because Maps gave an alley entrance without a house number.",
+  "venues": [
+    {
+      "name": "Bánh Cuốn Nóng Cao Bằng",
+      "address": "33 Khu Phố Hưng Gia 1",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/B%C3%A1nh+Cu%E1%BB%91n+N%C3%B3ng+Cao+B%E1%BA%B1ng/@10.733296,106.7090776,17z/data=!3m1!4b1!4m6!3m5!1s0x31752500651ff80f:0x75dac1af9548265a!8m2!3d10.733296!4d106.7090776!16s%2Fg%2F11wc1mtkng"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/B%C3%A1nh+Cu%E1%BB%91n+N%C3%B3ng+Cao+B%E1%BA%B1ng/@10.733296,106.7090776,17z/data=!3m1!4b1!4m6!3m5!1s0x31752500651ff80f:0x75dac1af9548265a!8m2!3d10.733296!4d106.7090776!16s%2Fg%2F11wc1mtkng",
+      "lat": 10.733296,
+      "lon": 106.7090776,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/B%C3%A1nh+Cu%E1%BB%91n+N%C3%B3ng+Cao+B%E1%BA%B1ng/@10.733296,106.7090776,17z/data=!3m1!4b1!4m6!3m5!1s0x31752500651ff80f:0x75dac1af9548265a!8m2!3d10.733296!4d106.7090776!16s%2Fg%2F11wc1mtkng",
+      "dishes": [
+        {
+          "dishId": "banh-cuon-cao-bang",
+          "evidence": "Venue name identifies Bánh cuốn Cao Bằng.",
+          "url": "https://www.google.com/maps/place/B%C3%A1nh+Cu%E1%BB%91n+N%C3%B3ng+Cao+B%E1%BA%B1ng/@10.733296,106.7090776,17z/data=!3m1!4b1!4m6!3m5!1s0x31752500651ff80f:0x75dac1af9548265a!8m2!3d10.733296!4d106.7090776!16s%2Fg%2F11wc1mtkng"
+        }
+      ],
+      "note": "Google Maps address: Đường Nguyễn Văn Linh/33 Khu Phố Hưng Gia 1, Khu đô thị Phú Mỹ Hưng, Quận 7, Hồ Chí Minh 70000, Vietnam"
+    },
+    {
+      "name": "Bảo Châu Quán - Bánh cuốn Cao Bằng",
+      "address": "590 Nguyễn Thị Định",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/B%E1%BA%A3o+Ch%C3%A2u+Qu%C3%A1n+-+B%C3%A1nh+cu%E1%BB%91n+Cao+B%E1%BA%B1ng/@10.7775189,106.7645232,17z/data=!3m1!4b1!4m6!3m5!1s0x317525b75e88bea3:0x483dfbe89d48141c!8m2!3d10.7775189!4d106.7645232!16s%2Fg%2F11krmrvmnc"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/B%E1%BA%A3o+Ch%C3%A2u+Qu%C3%A1n+-+B%C3%A1nh+cu%E1%BB%91n+Cao+B%E1%BA%B1ng/@10.7775189,106.7645232,17z/data=!3m1!4b1!4m6!3m5!1s0x317525b75e88bea3:0x483dfbe89d48141c!8m2!3d10.7775189!4d106.7645232!16s%2Fg%2F11krmrvmnc",
+      "lat": 10.7775189,
+      "lon": 106.7645232,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/B%E1%BA%A3o+Ch%C3%A2u+Qu%C3%A1n+-+B%C3%A1nh+cu%E1%BB%91n+Cao+B%E1%BA%B1ng/@10.7775189,106.7645232,17z/data=!3m1!4b1!4m6!3m5!1s0x317525b75e88bea3:0x483dfbe89d48141c!8m2!3d10.7775189!4d106.7645232!16s%2Fg%2F11krmrvmnc",
+      "dishes": [
+        {
+          "dishId": "banh-cuon-cao-bang",
+          "evidence": "Venue name identifies Bánh cuốn Cao Bằng.",
+          "url": "https://www.google.com/maps/place/B%E1%BA%A3o+Ch%C3%A2u+Qu%C3%A1n+-+B%C3%A1nh+cu%E1%BB%91n+Cao+B%E1%BA%B1ng/@10.7775189,106.7645232,17z/data=!3m1!4b1!4m6!3m5!1s0x317525b75e88bea3:0x483dfbe89d48141c!8m2!3d10.7775189!4d106.7645232!16s%2Fg%2F11krmrvmnc"
+        }
+      ],
+      "note": "Google Maps address: 590 Nguyễn Thị Định, Cát Lái, Hồ Chí Minh, Vietnam"
+    },
+    {
+      "name": "Quán Ăn Huế 3 Mẹt: Bánh Bèo Nậm Lọc, Cơm Bún Hến, Hến Xúc Bánh Đa, Nem Chả Huế",
+      "address": "1B Hoa Cau",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/Qu%C3%A1n+%C4%82n+Hu%E1%BA%BF+3+M%E1%BA%B9t:+B%C3%A1nh+B%C3%A8o+N%E1%BA%ADm+L%E1%BB%8Dc,+C%C6%A1m+B%C3%BAn+H%E1%BA%BFn,+H%E1%BA%BFn+X%C3%BAc+B%C3%A1nh+%C4%90a,+Nem+Ch%E1%BA%A3+Hu%E1%BA%BF/@10.7996265,106.6876635,17z/data=!3m1!4b1!4m6!3m5!1s0x317529108bed9721:0x3905a6d1d90f8e36!8m2!3d10.7996265!4d106.6876635!16s%2Fg%2F11tmrwklmm"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/Qu%C3%A1n+%C4%82n+Hu%E1%BA%BF+3+M%E1%BA%B9t:+B%C3%A1nh+B%C3%A8o+N%E1%BA%ADm+L%E1%BB%8Dc,+C%C6%A1m+B%C3%BAn+H%E1%BA%BFn,+H%E1%BA%BFn+X%C3%BAc+B%C3%A1nh+%C4%90a,+Nem+Ch%E1%BA%A3+Hu%E1%BA%BF/@10.7996265,106.6876635,17z/data=!3m1!4b1!4m6!3m5!1s0x317529108bed9721:0x3905a6d1d90f8e36!8m2!3d10.7996265!4d106.6876635!16s%2Fg%2F11tmrwklmm",
+      "lat": 10.7996265,
+      "lon": 106.6876635,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/Qu%C3%A1n+%C4%82n+Hu%E1%BA%BF+3+M%E1%BA%B9t:+B%C3%A1nh+B%C3%A8o+N%E1%BA%ADm+L%E1%BB%8Dc,+C%C6%A1m+B%C3%BAn+H%E1%BA%BFn,+H%E1%BA%BFn+X%C3%BAc+B%C3%A1nh+%C4%90a,+Nem+Ch%E1%BA%A3+Hu%E1%BA%BF/@10.7996265,106.6876635,17z/data=!3m1!4b1!4m6!3m5!1s0x317529108bed9721:0x3905a6d1d90f8e36!8m2!3d10.7996265!4d106.6876635!16s%2Fg%2F11tmrwklmm",
+      "dishes": [
+        {
+          "dishId": "banh-bot-loc-hue",
+          "evidence": "Google Maps Menu at this Huế restaurant lists Bánh Lọc.",
+          "url": "https://www.google.com/maps/place/Qu%C3%A1n+%C4%82n+Hu%E1%BA%BF+3+M%E1%BA%B9t:+B%C3%A1nh+B%C3%A8o+N%E1%BA%ADm+L%E1%BB%8Dc,+C%C6%A1m+B%C3%BAn+H%E1%BA%BFn,+H%E1%BA%BFn+X%C3%BAc+B%C3%A1nh+%C4%90a,+Nem+Ch%E1%BA%A3+Hu%E1%BA%BF/@10.7996265,106.6876635,17z/data=!3m1!4b1!4m6!3m5!1s0x317529108bed9721:0x3905a6d1d90f8e36!8m2!3d10.7996265!4d106.6876635!16s%2Fg%2F11tmrwklmm"
+        }
+      ],
+      "note": "Google Maps address: 1B Hoa Cau, Cầu Kiệu, Hồ Chí Minh 700000, Vietnam"
+    },
+    {
+      "id": "goc-hue-an-duong-vuong-400-an-duong-vuong",
+      "name": "GÓC HUẾ - An Dương Vương",
+      "address": "400 An Dương Vương",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/G%C3%93C+HU%E1%BA%BE+-+An+D%C6%B0%C6%A1ng+V%C6%B0%C6%A1ng/@10.7593416,106.6780769,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f1ddf83a5ab:0xa6268b4ecae0c6f3!8m2!3d10.7593416!4d106.6780769!16s%2Fg%2F11st_btq4t"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/G%C3%93C+HU%E1%BA%BE+-+An+D%C6%B0%C6%A1ng+V%C6%B0%C6%A1ng/@10.7593416,106.6780769,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f1ddf83a5ab:0xa6268b4ecae0c6f3!8m2!3d10.7593416!4d106.6780769!16s%2Fg%2F11st_btq4t",
+      "lat": 10.7593416,
+      "lon": 106.6780769,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/G%C3%93C+HU%E1%BA%BE+-+An+D%C6%B0%C6%A1ng+V%C6%B0%C6%A1ng/@10.7593416,106.6780769,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f1ddf83a5ab:0xa6268b4ecae0c6f3!8m2!3d10.7593416!4d106.6780769!16s%2Fg%2F11st_btq4t",
+      "dishes": [
+        {
+          "dishId": "banh-bot-loc-hue",
+          "evidence": "Google Maps Menu at this Huế restaurant lists Bánh Bèo Bánh Bột Lọc Gói.",
+          "url": "https://www.google.com/maps/place/G%C3%93C+HU%E1%BA%BE+-+An+D%C6%B0%C6%A1ng+V%C6%B0%C6%A1ng/@10.7593416,106.6780769,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f1ddf83a5ab:0xa6268b4ecae0c6f3!8m2!3d10.7593416!4d106.6780769!16s%2Fg%2F11st_btq4t"
+        }
+      ],
+      "note": "Google Maps address: 400 An Dương Vương, Chợ Quán, Hồ Chí Minh, Vietnam. Matches the existing venue by name and address. The exact Google Maps pin differs from the current catalogue coordinates."
+    },
+    {
+      "id": "goc-hue-ky-dong-41-ky-dong",
+      "name": "GÓC HUẾ - Kỳ Đồng",
+      "address": "41 Đ. Kỳ Đồng",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/G%C3%93C+HU%E1%BA%BE+-+K%E1%BB%B3+%C4%90%E1%BB%93ng/@10.7804676,106.6812148,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f87625a3a4b:0xb709ee5bda105613!8m2!3d10.7804676!4d106.6812148!16s%2Fg%2F11j7h337x0"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/G%C3%93C+HU%E1%BA%BE+-+K%E1%BB%B3+%C4%90%E1%BB%93ng/@10.7804676,106.6812148,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f87625a3a4b:0xb709ee5bda105613!8m2!3d10.7804676!4d106.6812148!16s%2Fg%2F11j7h337x0",
+      "lat": 10.7804676,
+      "lon": 106.6812148,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/G%C3%93C+HU%E1%BA%BE+-+K%E1%BB%B3+%C4%90%E1%BB%93ng/@10.7804676,106.6812148,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f87625a3a4b:0xb709ee5bda105613!8m2!3d10.7804676!4d106.6812148!16s%2Fg%2F11j7h337x0",
+      "dishes": [
+        {
+          "dishId": "banh-bot-loc-hue",
+          "evidence": "Google Maps Menu at this Huế restaurant lists Bánh Bột Lọc Gói Lá Chuối.",
+          "url": "https://www.google.com/maps/place/G%C3%93C+HU%E1%BA%BE+-+K%E1%BB%B3+%C4%90%E1%BB%93ng/@10.7804676,106.6812148,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f87625a3a4b:0xb709ee5bda105613!8m2!3d10.7804676!4d106.6812148!16s%2Fg%2F11j7h337x0"
+        }
+      ],
+      "note": "Google Maps address: 41 Đ. Kỳ Đồng, Nhiêu Lộc, Hồ Chí Minh 700000, Vietnam. Matches the existing venue by name and address. The exact Google Maps pin differs from the current catalogue coordinates."
+    },
+    {
+      "id": "quan-an-hue-3-met-21-4-le-hoang-phai",
+      "name": "Quán Ăn Huế 3 Mẹt",
+      "address": "21/4 Đ. Lê Hoàng Phái",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/Qu%C3%A1n+%C4%82n+Hu%E1%BA%BF+3+M%E1%BA%B9t/@10.8393505,106.6753453,17z/data=!3m1!4b1!4m6!3m5!1s0x317529da570b9045:0x5ef39876b5b7ed46!8m2!3d10.8393505!4d106.6753453!16s%2Fg%2F11pcphkm9n"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/Qu%C3%A1n+%C4%82n+Hu%E1%BA%BF+3+M%E1%BA%B9t/@10.8393505,106.6753453,17z/data=!3m1!4b1!4m6!3m5!1s0x317529da570b9045:0x5ef39876b5b7ed46!8m2!3d10.8393505!4d106.6753453!16s%2Fg%2F11pcphkm9n",
+      "lat": 10.8393505,
+      "lon": 106.6753453,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/Qu%C3%A1n+%C4%82n+Hu%E1%BA%BF+3+M%E1%BA%B9t/@10.8393505,106.6753453,17z/data=!3m1!4b1!4m6!3m5!1s0x317529da570b9045:0x5ef39876b5b7ed46!8m2!3d10.8393505!4d106.6753453!16s%2Fg%2F11pcphkm9n",
+      "dishes": [
+        {
+          "dishId": "banh-bot-loc-hue",
+          "evidence": "Google Maps Menu at this Huế restaurant lists Bánh Bèo Bánh Nậm Bánh Bột Lọc.",
+          "url": "https://www.google.com/maps/place/Qu%C3%A1n+%C4%82n+Hu%E1%BA%BF+3+M%E1%BA%B9t/@10.8393505,106.6753453,17z/data=!3m1!4b1!4m6!3m5!1s0x317529da570b9045:0x5ef39876b5b7ed46!8m2!3d10.8393505!4d106.6753453!16s%2Fg%2F11pcphkm9n"
+        }
+      ],
+      "note": "Google Maps address: 21/4 Đ. Lê Hoàng Phái, Gò Vấp, Hồ Chí Minh 700000, Vietnam. Matches the existing venue by name and address. The exact Google Maps pin differs from the current catalogue coordinates."
+    },
+    {
+      "name": "Quán Bánh Bèo Huế Ngọc Trâm",
+      "address": "121 Đ. Hồ Bá Kiện",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/Qu%C3%A1n+B%C3%A1nh+B%C3%A8o+Hu%E1%BA%BF+Ng%E1%BB%8Dc+Tr%C3%A2m/@10.7828649,106.6666458,17z/data=!3m1!4b1!4m6!3m5!1s0x31752edddf500d63:0x46eae272ce8d2beb!8m2!3d10.7828649!4d106.6666458!16s%2Fg%2F1pzrk87mj"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/Qu%C3%A1n+B%C3%A1nh+B%C3%A8o+Hu%E1%BA%BF+Ng%E1%BB%8Dc+Tr%C3%A2m/@10.7828649,106.6666458,17z/data=!3m1!4b1!4m6!3m5!1s0x31752edddf500d63:0x46eae272ce8d2beb!8m2!3d10.7828649!4d106.6666458!16s%2Fg%2F1pzrk87mj",
+      "lat": 10.7828649,
+      "lon": 106.6666458,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/Qu%C3%A1n+B%C3%A1nh+B%C3%A8o+Hu%E1%BA%BF+Ng%E1%BB%8Dc+Tr%C3%A2m/@10.7828649,106.6666458,17z/data=!3m1!4b1!4m6!3m5!1s0x31752edddf500d63:0x46eae272ce8d2beb!8m2!3d10.7828649!4d106.6666458!16s%2Fg%2F1pzrk87mj",
+      "dishes": [
+        {
+          "dishId": "banh-bot-loc-hue",
+          "evidence": "Google Maps Menu at this Huế restaurant lists Bánh Bèo Và Bánh Bột Lọc.",
+          "url": "https://www.google.com/maps/place/Qu%C3%A1n+B%C3%A1nh+B%C3%A8o+Hu%E1%BA%BF+Ng%E1%BB%8Dc+Tr%C3%A2m/@10.7828649,106.6666458,17z/data=!3m1!4b1!4m6!3m5!1s0x31752edddf500d63:0x46eae272ce8d2beb!8m2!3d10.7828649!4d106.6666458!16s%2Fg%2F1pzrk87mj"
+        }
+      ],
+      "note": "Google Maps address: 121 Đ. Hồ Bá Kiện, Cư xá Bắc Hải, Hòa Hưng, Hồ Chí Minh, Vietnam"
+    },
+    {
+      "name": "Bánh bèo Huế",
+      "address": "120 Đ. Huỳnh Mẫn Đạt",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/B%C3%A1nh+b%C3%A8o+Hu%E1%BA%BF/@10.7567543,106.6763564,17z/data=!3m1!4b1!4m6!3m5!1s0x31752efd5f572ff9:0xa9abb66c88240cf4!8m2!3d10.7567543!4d106.6763564!16s%2Fg%2F11c586hk3w"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/B%C3%A1nh+b%C3%A8o+Hu%E1%BA%BF/@10.7567543,106.6763564,17z/data=!3m1!4b1!4m6!3m5!1s0x31752efd5f572ff9:0xa9abb66c88240cf4!8m2!3d10.7567543!4d106.6763564!16s%2Fg%2F11c586hk3w",
+      "lat": 10.7567543,
+      "lon": 106.6763564,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/B%C3%A1nh+b%C3%A8o+Hu%E1%BA%BF/@10.7567543,106.6763564,17z/data=!3m1!4b1!4m6!3m5!1s0x31752efd5f572ff9:0xa9abb66c88240cf4!8m2!3d10.7567543!4d106.6763564!16s%2Fg%2F11c586hk3w",
+      "dishes": [
+        {
+          "dishId": "banh-bot-loc-hue",
+          "evidence": "Google Maps Menu at this Huế restaurant lists Bánh Bèo Bánh Bột Bánh Bột Lọc.",
+          "url": "https://www.google.com/maps/place/B%C3%A1nh+b%C3%A8o+Hu%E1%BA%BF/@10.7567543,106.6763564,17z/data=!3m1!4b1!4m6!3m5!1s0x31752efd5f572ff9:0xa9abb66c88240cf4!8m2!3d10.7567543!4d106.6763564!16s%2Fg%2F11c586hk3w"
+        }
+      ],
+      "note": "Google Maps address: 120 Đ. Huỳnh Mẫn Đạt, Chợ Quán, Hồ Chí Minh, Vietnam"
+    },
+    {
+      "id": "banh-beo-hue-o-trinh-126-bui-thi-xuan",
+      "name": "Bánh Bèo Huế O Trinh",
+      "address": "126 Bùi Thị Xuân",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/B%C3%A1nh+B%C3%A8o+Hu%E1%BA%BF+O+Trinh/@10.769713,106.688075,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f3d34410459:0xbfa33fe7981ba4c7!8m2!3d10.769713!4d106.688075!16s%2Fg%2F11f53ctw63"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/B%C3%A1nh+B%C3%A8o+Hu%E1%BA%BF+O+Trinh/@10.769713,106.688075,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f3d34410459:0xbfa33fe7981ba4c7!8m2!3d10.769713!4d106.688075!16s%2Fg%2F11f53ctw63",
+      "lat": 10.769713,
+      "lon": 106.688075,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/B%C3%A1nh+B%C3%A8o+Hu%E1%BA%BF+O+Trinh/@10.769713,106.688075,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f3d34410459:0xbfa33fe7981ba4c7!8m2!3d10.769713!4d106.688075!16s%2Fg%2F11f53ctw63",
+      "dishes": [
+        {
+          "dishId": "banh-bot-loc-hue",
+          "evidence": "Google Maps Menu at this Huế restaurant lists Mẹt Bánh Bèo Bánh Bột Lọc.",
+          "url": "https://www.google.com/maps/place/B%C3%A1nh+B%C3%A8o+Hu%E1%BA%BF+O+Trinh/@10.769713,106.688075,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f3d34410459:0xbfa33fe7981ba4c7!8m2!3d10.769713!4d106.688075!16s%2Fg%2F11f53ctw63"
+        }
+      ],
+      "note": "Google Maps address: 126 Bùi Thị Xuân, Bến Thành, Hồ Chí Minh, Vietnam. Matches the existing venue by name and address. The exact Google Maps pin differs from the current catalogue coordinates."
+    },
+    {
+      "name": "Bánh Mì Hội An Nàng Út",
+      "address": "55 Đ. Nguyễn Văn Công",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/B%C3%A1nh+M%C3%AC+H%E1%BB%99i+An+N%C3%A0ng+%C3%9At/@10.8240907,106.6774882,17z/data=!3m1!4b1!4m6!3m5!1s0x3175290019def2b3:0xc4d1c7b9c6356650!8m2!3d10.8240907!4d106.6774882!16s%2Fg%2F11yqwlh152"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/B%C3%A1nh+M%C3%AC+H%E1%BB%99i+An+N%C3%A0ng+%C3%9At/@10.8240907,106.6774882,17z/data=!3m1!4b1!4m6!3m5!1s0x3175290019def2b3:0xc4d1c7b9c6356650!8m2!3d10.8240907!4d106.6774882!16s%2Fg%2F11yqwlh152",
+      "lat": 10.8240907,
+      "lon": 106.6774882,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/B%C3%A1nh+M%C3%AC+H%E1%BB%99i+An+N%C3%A0ng+%C3%9At/@10.8240907,106.6774882,17z/data=!3m1!4b1!4m6!3m5!1s0x3175290019def2b3:0xc4d1c7b9c6356650!8m2!3d10.8240907!4d106.6774882!16s%2Fg%2F11yqwlh152",
+      "dishes": [
+        {
+          "dishId": "banh-mi-hoi-an",
+          "evidence": "Venue name identifies Bánh mì Hội An.",
+          "url": "https://www.google.com/maps/place/B%C3%A1nh+M%C3%AC+H%E1%BB%99i+An+N%C3%A0ng+%C3%9At/@10.8240907,106.6774882,17z/data=!3m1!4b1!4m6!3m5!1s0x3175290019def2b3:0xc4d1c7b9c6356650!8m2!3d10.8240907!4d106.6774882!16s%2Fg%2F11yqwlh152"
+        }
+      ],
+      "note": "Google Maps address: 55 Đ. Nguyễn Văn Công, Hạnh Thông, Hồ Chí Minh, Vietnam"
+    },
+    {
+      "name": "Bánh mì An Hội An",
+      "address": "410B Đường Lê Văn Lương",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+An+H%E1%BB%99i+An/@10.7384144,106.7032159,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f0033532aed:0x1f040f680afb29e0!8m2!3d10.7384144!4d106.7032159!16s%2Fg%2F11xkwnzj76"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+An+H%E1%BB%99i+An/@10.7384144,106.7032159,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f0033532aed:0x1f040f680afb29e0!8m2!3d10.7384144!4d106.7032159!16s%2Fg%2F11xkwnzj76",
+      "lat": 10.7384144,
+      "lon": 106.7032159,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+An+H%E1%BB%99i+An/@10.7384144,106.7032159,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f0033532aed:0x1f040f680afb29e0!8m2!3d10.7384144!4d106.7032159!16s%2Fg%2F11xkwnzj76",
+      "dishes": [
+        {
+          "dishId": "banh-mi-hoi-an",
+          "evidence": "Venue name identifies Bánh mì Hội An.",
+          "url": "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+An+H%E1%BB%99i+An/@10.7384144,106.7032159,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f0033532aed:0x1f040f680afb29e0!8m2!3d10.7384144!4d106.7032159!16s%2Fg%2F11xkwnzj76"
+        }
+      ],
+      "note": "Google Maps address: 410B Đường Lê Văn Lương, Tân Hưng, Hồ Chí Minh 70000, Vietnam"
+    },
+    {
+      "name": "Bánh Mì Ông Hội Hội An | Bánh Mì Phú Mỹ Hưng | Bread Phu My Hung",
+      "address": "62 Khu Phố Hưng Phước 3",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/B%C3%A1nh+M%C3%AC+%C3%94ng+H%E1%BB%99i+H%E1%BB%99i+An+%7C+B%C3%A1nh+M%C3%AC+Ph%C3%BA+M%E1%BB%B9+H%C6%B0ng+%7C+Bread+Phu+My+Hung/@10.7301835,106.7074393,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f0009c09341:0xf342c804a4518f38!8m2!3d10.7301835!4d106.7074393!16s%2Fg%2F11zfslqy35"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/B%C3%A1nh+M%C3%AC+%C3%94ng+H%E1%BB%99i+H%E1%BB%99i+An+%7C+B%C3%A1nh+M%C3%AC+Ph%C3%BA+M%E1%BB%B9+H%C6%B0ng+%7C+Bread+Phu+My+Hung/@10.7301835,106.7074393,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f0009c09341:0xf342c804a4518f38!8m2!3d10.7301835!4d106.7074393!16s%2Fg%2F11zfslqy35",
+      "lat": 10.7301835,
+      "lon": 106.7074393,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/B%C3%A1nh+M%C3%AC+%C3%94ng+H%E1%BB%99i+H%E1%BB%99i+An+%7C+B%C3%A1nh+M%C3%AC+Ph%C3%BA+M%E1%BB%B9+H%C6%B0ng+%7C+Bread+Phu+My+Hung/@10.7301835,106.7074393,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f0009c09341:0xf342c804a4518f38!8m2!3d10.7301835!4d106.7074393!16s%2Fg%2F11zfslqy35",
+      "dishes": [
+        {
+          "dishId": "banh-mi-hoi-an",
+          "evidence": "Venue name identifies Bánh mì Hội An.",
+          "url": "https://www.google.com/maps/place/B%C3%A1nh+M%C3%AC+%C3%94ng+H%E1%BB%99i+H%E1%BB%99i+An+%7C+B%C3%A1nh+M%C3%AC+Ph%C3%BA+M%E1%BB%B9+H%C6%B0ng+%7C+Bread+Phu+My+Hung/@10.7301835,106.7074393,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f0009c09341:0xf342c804a4518f38!8m2!3d10.7301835!4d106.7074393!16s%2Fg%2F11zfslqy35"
+        }
+      ],
+      "note": "Google Maps address: 62 Khu Phố Hưng Phước 3, Khu đô thị Phú Mỹ Hưng, Quận 7, Hồ Chí Minh 70000, Vietnam"
+    },
+    {
+      "name": "Bánh mì Hội An Madam Thanh",
+      "address": "19 Trần Mai Ninh",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+H%E1%BB%99i+An+Madam+Thanh/@10.7938,106.6479777,17z/data=!3m1!4b1!4m6!3m5!1s0x317529e477ca4a25:0x594e0ab92dc4fbcf!8m2!3d10.7938!4d106.6479777!16s%2Fg%2F11qn9xbwh3"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+H%E1%BB%99i+An+Madam+Thanh/@10.7938,106.6479777,17z/data=!3m1!4b1!4m6!3m5!1s0x317529e477ca4a25:0x594e0ab92dc4fbcf!8m2!3d10.7938!4d106.6479777!16s%2Fg%2F11qn9xbwh3",
+      "lat": 10.7938,
+      "lon": 106.6479777,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+H%E1%BB%99i+An+Madam+Thanh/@10.7938,106.6479777,17z/data=!3m1!4b1!4m6!3m5!1s0x317529e477ca4a25:0x594e0ab92dc4fbcf!8m2!3d10.7938!4d106.6479777!16s%2Fg%2F11qn9xbwh3",
+      "dishes": [
+        {
+          "dishId": "banh-mi-hoi-an",
+          "evidence": "Venue name identifies Bánh mì Hội An.",
+          "url": "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+H%E1%BB%99i+An+Madam+Thanh/@10.7938,106.6479777,17z/data=!3m1!4b1!4m6!3m5!1s0x317529e477ca4a25:0x594e0ab92dc4fbcf!8m2!3d10.7938!4d106.6479777!16s%2Fg%2F11qn9xbwh3"
+        }
+      ],
+      "note": "Google Maps address: 19 Trần Mai Ninh, Bảy Hiền, Hồ Chí Minh, Vietnam"
+    },
+    {
+      "name": "Chan Chan - Bánh Mì Hội An",
+      "address": "94C2 Đ. Phùng Văn Cung",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/Chan+Chan+-+B%C3%A1nh+M%C3%AC+H%E1%BB%99i+An/@10.8018333,106.68475,17z/data=!3m1!4b1!4m6!3m5!1s0x31752900546f5cb7:0x355e20ae39bdf4fc!8m2!3d10.8018333!4d106.68475!16s%2Fg%2F11zkgxpcs8"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/Chan+Chan+-+B%C3%A1nh+M%C3%AC+H%E1%BB%99i+An/@10.8018333,106.68475,17z/data=!3m1!4b1!4m6!3m5!1s0x31752900546f5cb7:0x355e20ae39bdf4fc!8m2!3d10.8018333!4d106.68475!16s%2Fg%2F11zkgxpcs8",
+      "lat": 10.8018333,
+      "lon": 106.68475,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/Chan+Chan+-+B%C3%A1nh+M%C3%AC+H%E1%BB%99i+An/@10.8018333,106.68475,17z/data=!3m1!4b1!4m6!3m5!1s0x31752900546f5cb7:0x355e20ae39bdf4fc!8m2!3d10.8018333!4d106.68475!16s%2Fg%2F11zkgxpcs8",
+      "dishes": [
+        {
+          "dishId": "banh-mi-hoi-an",
+          "evidence": "Venue name identifies Bánh mì Hội An.",
+          "url": "https://www.google.com/maps/place/Chan+Chan+-+B%C3%A1nh+M%C3%AC+H%E1%BB%99i+An/@10.8018333,106.68475,17z/data=!3m1!4b1!4m6!3m5!1s0x31752900546f5cb7:0x355e20ae39bdf4fc!8m2!3d10.8018333!4d106.68475!16s%2Fg%2F11zkgxpcs8"
+        }
+      ],
+      "note": "Google Maps address: 94C2 Đ. Phùng Văn Cung, Cầu Kiệu, Hồ Chí Minh 700920, Vietnam"
+    },
+    {
+      "name": "DON-Quán ăn Quảng Ngãi",
+      "address": "298/2A Đ. Lê Văn Quới",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/DON-Qu%C3%A1n+%C4%83n+Qu%E1%BA%A3ng+Ng%C3%A3i/@10.7766673,106.6080242,17z/data=!3m1!4b1!4m6!3m5!1s0x31752c148c823305:0x5218a100c4b2f157!8m2!3d10.7766673!4d106.6080242!16s%2Fg%2F11c5_t3m97"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/DON-Qu%C3%A1n+%C4%83n+Qu%E1%BA%A3ng+Ng%C3%A3i/@10.7766673,106.6080242,17z/data=!3m1!4b1!4m6!3m5!1s0x31752c148c823305:0x5218a100c4b2f157!8m2!3d10.7766673!4d106.6080242!16s%2Fg%2F11c5_t3m97",
+      "lat": 10.7766673,
+      "lon": 106.6080242,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/DON-Qu%C3%A1n+%C4%83n+Qu%E1%BA%A3ng+Ng%C3%A3i/@10.7766673,106.6080242,17z/data=!3m1!4b1!4m6!3m5!1s0x31752c148c823305:0x5218a100c4b2f157!8m2!3d10.7766673!4d106.6080242!16s%2Fg%2F11c5_t3m97",
+      "dishes": [
+        {
+          "dishId": "don-quang-ngai",
+          "evidence": "Venue name identifies Don Quảng Ngãi.",
+          "url": "https://www.google.com/maps/place/DON-Qu%C3%A1n+%C4%83n+Qu%E1%BA%A3ng+Ng%C3%A3i/@10.7766673,106.6080242,17z/data=!3m1!4b1!4m6!3m5!1s0x31752c148c823305:0x5218a100c4b2f157!8m2!3d10.7766673!4d106.6080242!16s%2Fg%2F11c5_t3m97"
+        }
+      ],
+      "note": "Google Maps address: 298/2A Đ. Lê Văn Quới, Bình Trị Đông, Hồ Chí Minh 70000, Vietnam"
+    }
+  ],
+  "notFound": [
+    {
+      "dishId": "ga-dong-tao",
+      "reason": "Maps returned farms, with no qualifying venue serving the dish."
+    },
+    {
+      "dishId": "chao-au-tau",
+      "reason": "The direct result has a conflicting address referring to both Hà Giang and Hồ Chí Minh and no qualifying review history."
+    },
+    {
+      "dishId": "khau-nhuc",
+      "reason": "The exact HCMC matches did not meet the review-count threshold."
+    },
+    {
+      "dishId": "xoi-ngu-sac",
+      "reason": "The exact listing did not qualify, and the checked HCMC menu did not show this dish."
+    },
+    {
+      "dishId": "banh-cooc-mo",
+      "reason": "The initial results were other bakery items, with no exact match."
+    },
+    {
+      "dishId": "nam-pia",
+      "reason": "The initial results did not show the dish. Bánh pía matches are unrelated."
+    },
+    {
+      "dishId": "xoi-tu-le",
+      "reason": "The results showed other sticky-rice dishes without evidence of the Tú Lệ specialty."
+    },
+    {
+      "dishId": "com-lam-hoa-binh",
+      "reason": "No qualifying HCMC result identified the Hòa Bình version."
+    },
+    {
+      "dishId": "thit-chua-thanh-son",
+      "reason": "The exact regional lead was outside HCMC. The HCMC results did not identify the dish."
+    },
+    {
+      "dishId": "banh-da-ke",
+      "reason": "No qualifying local result identified Bánh đa Kế. Bánh đa cua results are a different dish."
+    },
+    {
+      "dishId": "ca-thinh-lap-thach",
+      "reason": "No qualifying HCMC listing for the Lập Thạch dish appeared in the initial results."
+    },
+    {
+      "dishId": "banh-gai-tu-tru",
+      "reason": "The qualifying exact regional result was outside HCMC. Local results did not establish the Tứ Trụ variant."
+    },
+    {
+      "dishId": "banh-muot-nghe-an",
+      "reason": "The exact HCMC listings fell below the review-count threshold."
+    },
+    {
+      "dishId": "ram-ha-tinh",
+      "reason": "The exact local results fell below the review-count threshold or showed temporary closure."
+    },
+    {
+      "dishId": "khoai-deo",
+      "reason": "The HCMC results were khoai dẻo desserts. The exact Quảng Bình snack results were outside HCMC."
+    },
+    {
+      "dishId": "chao-vat-giuong",
+      "reason": "The direct match was in Quảng Trị."
+    },
+    {
+      "dishId": "che-hat-sen-long-nhan",
+      "reason": "Checked HCMC menus showed other desserts with either longan or lotus seeds without confirming both in this dish."
+    },
+    {
+      "dishId": "me-xung-hue",
+      "reason": "The local leads did not meet the review-count threshold."
+    },
+    {
+      "dishId": "banh-canh-nam-pho",
+      "reason": "The qualifying exact match was in Huế, and the exact HCMC lead fell below the rating and review thresholds."
+    },
+    {
+      "dishId": "che-bap-cam-nam",
+      "reason": "The search surfaced general HCMC chè shops without evidence of the Cẩm Nam variant."
+    },
+    {
+      "dishId": "goi-ca-nam-o",
+      "reason": "The qualifying exact matches checked were in Đà Nẵng. The exact HCMC lead fell below the review-count threshold."
+    }
+  ]
+}

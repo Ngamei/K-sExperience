@@ -928,6 +928,18 @@
       "lastVerified": "2026-11-27"
     },
     {
+      "dishId": "banh-bot-loc-hue",
+      "restaurantId": "banh-beo-hue-o-trinh-126-bui-thi-xuan",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Google Maps Menu at this Huế restaurant lists Mẹt Bánh Bèo Bánh Bột Lọc.",
+        "url": "https://www.google.com/maps/place/B%C3%A1nh+B%C3%A8o+Hu%E1%BA%BF+O+Trinh/@10.769713,106.688075,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f3d34410459:0xbfa33fe7981ba4c7!8m2!3d10.769713!4d106.688075!16s%2Fg%2F11f53ctw63"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
       "dishId": "banh-khoai",
       "restaurantId": "goc-hue-ky-dong-41-ky-dong",
       "status": "source-listed",
@@ -948,6 +960,18 @@
         "type": "published-source",
         "note": "Listed for this dish by a published HCMC food guide. Huế restaurant; source lists bánh khoái, bánh nậm lá, bánh ướt and chè bột lọc.",
         "url": "https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-bot-loc-hue",
+      "restaurantId": "goc-hue-ky-dong-41-ky-dong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Google Maps Menu at this Huế restaurant lists Bánh Bột Lọc Gói Lá Chuối.",
+        "url": "https://www.google.com/maps/place/G%C3%93C+HU%E1%BA%BE+-+K%E1%BB%B3+%C4%90%E1%BB%93ng/@10.7804676,106.6812148,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f87625a3a4b:0xb709ee5bda105613!8m2!3d10.7804676!4d106.6812148!16s%2Fg%2F11j7h337x0"
       },
       "lastVerified": "2026-11-27"
     },
@@ -996,6 +1020,18 @@
         "type": "published-source",
         "note": "Listed for this dish by a published HCMC food guide.",
         "url": "https://www.toplist.vn/top-list/dia-chi-thuong-thuc-mon-an-hue-cuc-ngon-o-sai-gon-14357.htm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-bot-loc-hue",
+      "restaurantId": "goc-hue-an-duong-vuong-400-an-duong-vuong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Google Maps Menu at this Huế restaurant lists Bánh Bèo Bánh Bột Lọc Gói.",
+        "url": "https://www.google.com/maps/place/G%C3%93C+HU%E1%BA%BE+-+An+D%C6%B0%C6%A1ng+V%C6%B0%C6%A1ng/@10.7593416,106.6780769,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f1ddf83a5ab:0xa6268b4ecae0c6f3!8m2!3d10.7593416!4d106.6780769!16s%2Fg%2F11st_btq4t"
       },
       "lastVerified": "2026-11-27"
     },
@@ -4696,6 +4732,18 @@
       "lastVerified": "2026-11-27"
     },
     {
+      "dishId": "banh-bot-loc-hue",
+      "restaurantId": "quan-an-hue-3-met-21-4-le-hoang-phai",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Google Maps Menu at this Huế restaurant lists Bánh Bèo Bánh Nậm Bánh Bột Lọc.",
+        "url": "https://www.google.com/maps/place/Qu%C3%A1n+%C4%82n+Hu%E1%BA%BF+3+M%E1%BA%B9t/@10.8393505,106.6753453,17z/data=!3m1!4b1!4m6!3m5!1s0x317529da570b9045:0x5ef39876b5b7ed46!8m2!3d10.8393505!4d106.6753453!16s%2Fg%2F11pcphkm9n"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
       "dishId": "bun-oc-ha-noi",
       "restaurantId": "bun-oc-thanh-hai-14-12-ky-dong",
       "status": "source-listed",
@@ -5436,6 +5484,222 @@
         "type": "published-source",
         "note": "Google Maps listing “Tâm cook Plus - Pate cột đèn đặc sản Hải Phòng, bánh mì và bánh mì que” names bánh mì que Hải Phòng; chosen by the Product Owner from the dish page's Google Maps search (2026-11-28).",
         "url": "https://maps.app.goo.gl/rqww3LUXgKgQCsr86"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-cuon-cao-bang",
+      "restaurantId": "banh-cuon-nong-cao-bang-33-khu-pho-hung-gia-1",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Venue name identifies Bánh cuốn Cao Bằng.",
+        "url": "https://www.google.com/maps/place/B%C3%A1nh+Cu%E1%BB%91n+N%C3%B3ng+Cao+B%E1%BA%B1ng/@10.733296,106.7090776,17z/data=!3m1!4b1!4m6!3m5!1s0x31752500651ff80f:0x75dac1af9548265a!8m2!3d10.733296!4d106.7090776!16s%2Fg%2F11wc1mtkng"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-cuon-cao-bang",
+      "restaurantId": "bao-chau-quan-banh-cuon-cao-bang-590-nguyen-thi-dinh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Venue name identifies Bánh cuốn Cao Bằng.",
+        "url": "https://www.google.com/maps/place/B%E1%BA%A3o+Ch%C3%A2u+Qu%C3%A1n+-+B%C3%A1nh+cu%E1%BB%91n+Cao+B%E1%BA%B1ng/@10.7775189,106.7645232,17z/data=!3m1!4b1!4m6!3m5!1s0x317525b75e88bea3:0x483dfbe89d48141c!8m2!3d10.7775189!4d106.7645232!16s%2Fg%2F11krmrvmnc"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-bot-loc-hue",
+      "restaurantId": "quan-an-hue-3-met-banh-beo-nam-loc-com-bun-hen-hen-xuc-banh-da-nem-cha-hue-1b-hoa-cau",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Google Maps Menu at this Huế restaurant lists Bánh Lọc.",
+        "url": "https://www.google.com/maps/place/Qu%C3%A1n+%C4%82n+Hu%E1%BA%BF+3+M%E1%BA%B9t:+B%C3%A1nh+B%C3%A8o+N%E1%BA%ADm+L%E1%BB%8Dc,+C%C6%A1m+B%C3%BAn+H%E1%BA%BFn,+H%E1%BA%BFn+X%C3%BAc+B%C3%A1nh+%C4%90a,+Nem+Ch%E1%BA%A3+Hu%E1%BA%BF/@10.7996265,106.6876635,17z/data=!3m1!4b1!4m6!3m5!1s0x317529108bed9721:0x3905a6d1d90f8e36!8m2!3d10.7996265!4d106.6876635!16s%2Fg%2F11tmrwklmm"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-bot-loc-hue",
+      "restaurantId": "quan-banh-beo-hue-ngoc-tram-121-d-ho-ba-kien",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Google Maps Menu at this Huế restaurant lists Bánh Bèo Và Bánh Bột Lọc.",
+        "url": "https://www.google.com/maps/place/Qu%C3%A1n+B%C3%A1nh+B%C3%A8o+Hu%E1%BA%BF+Ng%E1%BB%8Dc+Tr%C3%A2m/@10.7828649,106.6666458,17z/data=!3m1!4b1!4m6!3m5!1s0x31752edddf500d63:0x46eae272ce8d2beb!8m2!3d10.7828649!4d106.6666458!16s%2Fg%2F1pzrk87mj"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-bot-loc-hue",
+      "restaurantId": "banh-beo-hue-120-d-huynh-man-dat",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Google Maps Menu at this Huế restaurant lists Bánh Bèo Bánh Bột Bánh Bột Lọc.",
+        "url": "https://www.google.com/maps/place/B%C3%A1nh+b%C3%A8o+Hu%E1%BA%BF/@10.7567543,106.6763564,17z/data=!3m1!4b1!4m6!3m5!1s0x31752efd5f572ff9:0xa9abb66c88240cf4!8m2!3d10.7567543!4d106.6763564!16s%2Fg%2F11c586hk3w"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-hoi-an",
+      "restaurantId": "banh-mi-hoi-an-nang-ut-55-d-nguyen-van-cong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Venue name identifies Bánh mì Hội An.",
+        "url": "https://www.google.com/maps/place/B%C3%A1nh+M%C3%AC+H%E1%BB%99i+An+N%C3%A0ng+%C3%9At/@10.8240907,106.6774882,17z/data=!3m1!4b1!4m6!3m5!1s0x3175290019def2b3:0xc4d1c7b9c6356650!8m2!3d10.8240907!4d106.6774882!16s%2Fg%2F11yqwlh152"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-hoi-an",
+      "restaurantId": "banh-mi-an-hoi-an-410b-duong-le-van-luong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Venue name identifies Bánh mì Hội An.",
+        "url": "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+An+H%E1%BB%99i+An/@10.7384144,106.7032159,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f0033532aed:0x1f040f680afb29e0!8m2!3d10.7384144!4d106.7032159!16s%2Fg%2F11xkwnzj76"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-hoi-an",
+      "restaurantId": "banh-mi-ong-hoi-hoi-an-banh-mi-phu-my-hung-bread-phu-my-hung-62-khu-pho-hung-phuoc-3",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Venue name identifies Bánh mì Hội An.",
+        "url": "https://www.google.com/maps/place/B%C3%A1nh+M%C3%AC+%C3%94ng+H%E1%BB%99i+H%E1%BB%99i+An+%7C+B%C3%A1nh+M%C3%AC+Ph%C3%BA+M%E1%BB%B9+H%C6%B0ng+%7C+Bread+Phu+My+Hung/@10.7301835,106.7074393,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f0009c09341:0xf342c804a4518f38!8m2!3d10.7301835!4d106.7074393!16s%2Fg%2F11zfslqy35"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-hoi-an",
+      "restaurantId": "banh-mi-hoi-an-madam-thanh-19-tran-mai-ninh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Venue name identifies Bánh mì Hội An.",
+        "url": "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+H%E1%BB%99i+An+Madam+Thanh/@10.7938,106.6479777,17z/data=!3m1!4b1!4m6!3m5!1s0x317529e477ca4a25:0x594e0ab92dc4fbcf!8m2!3d10.7938!4d106.6479777!16s%2Fg%2F11qn9xbwh3"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-hoi-an",
+      "restaurantId": "chan-chan-banh-mi-hoi-an-94c2-d-phung-van-cung",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Venue name identifies Bánh mì Hội An.",
+        "url": "https://www.google.com/maps/place/Chan+Chan+-+B%C3%A1nh+M%C3%AC+H%E1%BB%99i+An/@10.8018333,106.68475,17z/data=!3m1!4b1!4m6!3m5!1s0x31752900546f5cb7:0x355e20ae39bdf4fc!8m2!3d10.8018333!4d106.68475!16s%2Fg%2F11zkgxpcs8"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "don-quang-ngai",
+      "restaurantId": "don-quan-an-quang-ngai-298-2a-d-le-van-quoi",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Venue name identifies Don Quảng Ngãi.",
+        "url": "https://www.google.com/maps/place/DON-Qu%C3%A1n+%C4%83n+Qu%E1%BA%A3ng+Ng%C3%A3i/@10.7766673,106.6080242,17z/data=!3m1!4b1!4m6!3m5!1s0x31752c148c823305:0x5218a100c4b2f157!8m2!3d10.7766673!4d106.6080242!16s%2Fg%2F11c5_t3m97"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "pho-chua-lang-son",
+      "restaurantId": "pho-chua-lang-son-vit-quay-mac-mat-357-duong-le-van-luong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Venue name explicitly lists Phở Chua Lạng Sơn.",
+        "url": "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+L%E1%BA%A1ng+S%C6%A1n,+V%E1%BB%8Bt+Quay+M%E1%BA%AFc+M%E1%BA%ADt/data=!4m7!3m6!1s0x31752f9e55555555:0x748569345902412c!8m2!3d10.7408567!4d106.7044668!16s%2Fg%2F11lly2bygd"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "pho-chua-lang-son",
+      "restaurantId": "pho-chua-thanh-242-101-nguyen-thien-thuat",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Google Maps Menu lists Phở Chua Lạng Sơn.",
+        "url": "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+Tha%CC%80nh/data=!4m7!3m6!1s0x31752f203b2345a1:0x690f9b534b1014b7!8m2!3d10.7709965!4d106.6795425!16s%2Fg%2F1vxvfc0m"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-khuc",
+      "restaurantId": "xoi-khuc-co-thuy-107-15-107-15-duong-le-van-duyet",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Google Maps Menu lists Xôi Khúc, also known as bánh khúc.",
+        "url": "https://www.google.com/maps/place/X%C3%B4i+Kh%C3%BAc+C%C3%B4+Th%E1%BB%A7y+107%2F15/data=!4m7!3m6!1s0x3175290002eee705:0x6df03f738af9e969!8m2!3d10.7985925!4d106.6959218!16s%2Fg%2F11vm4j8yc9"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-ca-cay-hai-phong",
+      "restaurantId": "bun-ca-cay-hai-phong-h38-d-so-1",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Venue name explicitly lists Bún Cá Cay Hải Phòng.",
+        "url": "https://www.google.com/maps/place/B%C3%BAn+C%C3%A1+Cay+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x317529bdf5ad45d7:0x2dbf5c2fedbfdfea!8m2!3d10.8114709!4d106.705633!16s%2Fg%2F11kbdbfp71"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "canh-ca-quynh-coi",
+      "restaurantId": "canh-ca-quynh-coi-quan-an-co-diu-82-duong-so-79",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Venue name explicitly lists Canh cá Quỳnh Côi.",
+        "url": "https://www.google.com/maps/place/Canh+c%C3%A1+Qu%E1%BB%B3nh+C%C3%B4i+-+Qu%C3%A1n+%C4%83n+C%C3%B4+D%E1%BB%8Bu/data=!4m7!3m6!1s0x31752fe5a00fc7c5:0x72a23dfb58ef2271!8m2!3d10.7402492!4d106.7093063!16s%2Fg%2F11pptfcd5g"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "de-nui-ninh-binh",
+      "restaurantId": "dac-san-de-nui-35a-ninh-binh-39-d-dang-thuy-tram",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Venue name explicitly lists Dê Núi Ninh Bình.",
+        "url": "https://www.google.com/maps/place/%C4%90%E1%BA%B7c+S%E1%BA%A3n+D%C3%AA+N%C3%BAi+35A+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3175288c7edc70d9:0xf8281161bfe19f8!8m2!3d10.8269237!4d106.7030268!16s%2Fg%2F11c3w8fq5s"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "de-nui-ninh-binh",
+      "restaurantId": "de-nui-ninh-binh-1115-huynh-van-luy",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Venue name explicitly lists Dê Núi Ninh Bình.",
+        "url": "https://www.google.com/maps/place/D%C3%AA+N%C3%BAi+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3174d035ccc2a74b:0x26c0ea997e0cf2c8!8m2!3d11.0327624!4d106.6812189!16s%2Fg%2F11f15k464q"
       },
       "lastVerified": "2026-11-27"
     }
