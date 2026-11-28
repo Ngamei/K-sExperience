@@ -11,7 +11,7 @@ export const READ_COLUMNS = {
   dish_origins: "dish_id,province_id,region_id,role,sort_order",
   dish_photos: "dish_id,url,credit,license,source_url,sort_order",
   dish_sources: "dish_id,title,url,accessed,note",
-  restaurants: "id,name,is_sample,address,neighbourhood,lon,lat,coordinate_precision,google_maps_url,highlights,venue_type,price_range,opening_hours,contact,delivery_links,last_verified,attributes,dining",
+  restaurants: "id,name,is_sample,address,neighbourhood,lon,lat,coordinate_precision,google_maps_url,closure,highlights,venue_type,price_range,opening_hours,contact,delivery_links,last_verified,attributes,dining",
   restaurant_sources: "restaurant_id,title,url,accessed,note",
   dish_restaurant_links: "dish_id,restaurant_id,status,menu_evidence,price_min_vnd,price_max_vnd,last_verified,primary_photo_url,photo_kind,photo_source_url,photo_attribution,photo_license,photo_last_checked_at",
   establishment_experiences: "establishment_id,experience_id",

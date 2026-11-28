@@ -2,7 +2,7 @@
 
 File: `data/source/experiences/sport/` · kind: bundle · rows: 24 · written · 2026-11-28
 
-Result: valid; 0 added, 7 updated, 17 unchanged; nothing deleted.
+Result: valid; 0 added, 0 updated, 24 unchanged; nothing deleted.
 
 ### Errors (0)
 - none
@@ -17,12 +17,6 @@ Result: valid; 0 added, 7 updated, 17 unchanged; nothing deleted.
 ### Added (0)
 - none
 
-### Updated (7)
-- establishment court-one-club-new-world-saigon
-- establishment hcmc-cultural-palace-for-labors
-- establishment pickoland-thao-dien
-- establishment bang-bang-pickleball-club
-- establishment ufitu-pilates-dang-thi-nhu
-- establishment gym-one-pickleball-le-quy-don
-- establishment ufitu-pilates-thao-dien-3-38-quoc-huong
+### Updated (0)
+- none
 

@@ -59,6 +59,7 @@ export function fromEstablishmentRow(r: EstablishmentRow, tags: TagRow[], source
     id: r.id, name: r.name, isSample: r.is_sample, address: r.address, neighbourhood: r.neighbourhood, coordinates: [r.lon, r.lat],
     ...(r.coordinate_precision ? { coordinatePrecision: r.coordinate_precision } : {}),
     ...(r.google_maps_url ? { googleMapsUrl: r.google_maps_url } : {}),
+    ...(r.closure ? { closure: r.closure } : {}),
     ...(r.highlights?.length ? { highlights: r.highlights } : {}),
     venueType: r.venue_type, ...(r.price_range ? { priceRange: r.price_range } : {}),
     ...(r.opening_hours ? { openingHours: r.opening_hours } : {}), ...(r.contact ? { contact: r.contact } : {}),

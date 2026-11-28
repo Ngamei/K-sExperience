@@ -379,6 +379,34 @@
           "coordinateSource": {
             "type": "string",
             "pattern": "^https:\\/\\/[^\\s]+\\.[^\\s]+"
+          },
+          "googleMapsUrl": {
+            "type": "string",
+            "pattern": "^https:\\/\\/[^\\s]+\\.[^\\s]+"
+          },
+          "closure": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "temporarily-closed",
+                  "permanently-closed"
+                ]
+              },
+              "reportedOn": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string",
+                "minLength": 3
+              }
+            },
+            "required": [
+              "status",
+              "reportedOn",
+              "source"
+            ]
           }
         },
         "required": [

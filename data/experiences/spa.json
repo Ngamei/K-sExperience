@@ -348,7 +348,12 @@
         10.771487
       ],
       "coordinatePrecision": "street",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=D%C6%B0%E1%BB%A1ng%20Sinh%20C%C3%B4%20Ba%2C%2059%20V%C3%B5%20V%C4%83n%20T%E1%BA%A7n%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "googleMapsUrl": "https://maps.app.goo.gl/Ubf3rmGz5CyAV27k8",
+      "closure": {
+        "status": "permanently-closed",
+        "reportedOn": "2026-11-28",
+        "source": "Google Maps listing shows \"Permanently closed\" (https://maps.app.goo.gl/Ubf3rmGz5CyAV27k8); checked by the PO's operator"
+      },
       "venueType": "spa",
       "deliveryLinks": [],
       "sources": [

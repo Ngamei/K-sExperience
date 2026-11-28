@@ -125,6 +125,14 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 
 Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-catalogue`, `*-food-dish`, `*-settings`, `*-settings-account-guest`, `*-passport-gate`, `*-coffee-map`, `*-coffee-catalogue`, `*-coffee-item`, `*-coffee-cafe`.
 
+## Share links + closures (2026-11-28, review branch `claude/share-links-closures`, D67)
+
+| Command | Result |
+| --- | --- |
+| `npm run qa` | unit 19 files / 156 · Food e2e 93 (incl. new `e2e/closure.spec.ts` ×2) · account e2e 32 · module e2e 2 failed on first run — the egg-coffee test expected 4 cafés; Ông Chú Cuội Hẻm is now closed → test updated to 3 and the specialty filter derivation excludes closed cafés → module e2e **46 passed** |
+| `npm run test:db` | parity 10/10 · RLS **59/59** (+2: seeded closures stored, invalid closure rejected; migration 0012) |
+| Data | 30 venues carry exact Google Maps place links (27 matched + 3 closed); 3 closures; Bún bò Huế 10 → 9 venues (still 5+); Food buckets unchanged 102 / 26 / 10 |
+
 ## KEX-DB-01 staging (2026-11-28, Supabase `aibainipwgqbluhnqepu`, commit `8f429f1`)
 
 Run by the PO's operator assistant in the Supabase SQL editor; **reported to Claude Code, not independently re-run** (no project access here).

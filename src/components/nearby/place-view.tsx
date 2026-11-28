@@ -32,7 +32,8 @@ export function PlaceView({ id }: { id: string }) {
   const { restaurants, links, dishById } = useFoodData();
   const r = restaurants.find((x) => x.id === id)!;
   const idx = buildAvailabilityIndex(restaurants, links, { includeSamples: r.isSample });
-  const ls = idx.linksByRestaurant.get(id) ?? [];
+  // D67: a closed venue is not in the index (never recommended); its page still lists what it was known for.
+  const ls = r.closure ? links.filter((l) => l.restaurantId === id && l.status !== "candidate" && l.isSample === r.isSample) : idx.linksByRestaurant.get(id) ?? [];
   const open = isOpenAt(r.openingHours, new Date());
   const dirUrl = r.googleMapsUrl ?? `https://www.google.com/maps/search/?api=1&query=${r.coordinates[1]},${r.coordinates[0]}`;
 
@@ -42,6 +43,15 @@ export function PlaceView({ id }: { id: string }) {
       {r.isSample && (
         <div className="mb-4 flex gap-2 rounded-2xl bg-[#fff1c2] p-3 text-sm text-[#5f4a0f] ring-1 ring-[#e4c35a]" data-testid="sample-warning">
           <TriangleAlert className="size-5 shrink-0" /> {t("place.sampleNote")}
+        </div>
+      )}
+      {r.closure && (
+        <div className="mb-4 flex gap-2 rounded-2xl bg-[#fde8e4] p-3 text-sm text-[#7a2e1f] ring-1 ring-[#e7a596]" data-testid="closure-notice" data-status={r.closure.status}>
+          <TriangleAlert className="size-5 shrink-0" />
+          <span>{r.closure.status === "permanently-closed"
+            ? (locale === "vi" ? "Quán đã đóng cửa vĩnh viễn" : "Permanently closed")
+            : (locale === "vi" ? "Quán đang tạm đóng cửa" : "Temporarily closed")}
+            {" · "}{locale === "vi" ? "ghi nhận" : "reported"} {r.closure.reportedOn}. {locale === "vi" ? "Không còn được gợi ý." : "No longer recommended."}</span>
         </div>
       )}
       <div className="rounded-3xl border border-line/80 bg-paper p-6">

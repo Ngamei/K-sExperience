@@ -2,7 +2,7 @@
 
 File: `data/source/experiences/coffee/` · kind: bundle · rows: 32 · written · 2026-11-28
 
-Result: valid; 0 added, 9 updated, 23 unchanged; nothing deleted.
+Result: valid; 0 added, 1 updated, 31 unchanged; nothing deleted.
 
 ### Errors (0)
 - none
@@ -15,14 +15,6 @@ Result: valid; 0 added, 9 updated, 23 unchanged; nothing deleted.
 ### Added (0)
 - none
 
-### Updated (9)
-- establishment cong-caphe-ly-tu-trong
-- establishment okkio-caffe-le-loi
-- establishment the-workshop-coffee
-- establishment goc-ha-noi-nguyen-van-thu
-- establishment japanit-matcha-tran-hung-dao
-- establishment tra-viet-hai-trieu
+### Updated (1)
 - establishment ong-chu-cuoi-hem-cong-quynh
-- establishment runam-bistro-dong-khoi
-- establishment anh-coffee-matcha-bar-37-thao-dien
 

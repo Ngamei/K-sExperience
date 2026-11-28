@@ -774,7 +774,12 @@
         10.765738
       ],
       "coordinatePrecision": "street",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%C3%94ng%20Ch%C3%BA%20Cu%E1%BB%99i%20H%E1%BA%BBm%2C%20117%2F28A%20C%E1%BB%91ng%20Qu%E1%BB%B3nh%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "googleMapsUrl": "https://maps.app.goo.gl/g7jBZwhJoZGJh3148",
+      "closure": {
+        "status": "permanently-closed",
+        "reportedOn": "2026-11-28",
+        "source": "Google Maps listing shows \"Permanently closed\" (https://maps.app.goo.gl/g7jBZwhJoZGJh3148); checked by the PO's operator"
+      },
       "venueType": "café",
       "deliveryLinks": [],
       "sources": [

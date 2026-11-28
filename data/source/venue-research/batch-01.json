@@ -55,7 +55,8 @@
         "https://vinwonders.com/vi/bai-viet-du-lich/bun-bo-hue-ngon-o-sai-gon/"
       ],
       "note": "Huế-cuisine restaurant.",
-      "district": "Quận 1"
+      "district": "Quận 1",
+      "googleMapsUrl": "https://maps.app.goo.gl/mUCGMKaTnWKvueSR7"
     },
     {
       "name": "Bún Bò Huế O Tú",
@@ -98,7 +99,8 @@
       ],
       "sources": [
         "https://vinwonders.com/vi/wonderpedia/news/bun-cha-ha-noi-ngon-o-sai-gon/"
-      ]
+      ],
+      "googleMapsUrl": "https://maps.app.goo.gl/wMGCoNSTmxwBcLrV7"
     },
     {
       "name": "Bún Chả Hà Nội 26",
@@ -296,7 +298,8 @@
       "styleNote": true,
       "sources": [
         "https://vinwonders.com/vi/wonderpedia/news/banh-cuon-ngon-sai-gon/"
-      ]
+      ],
+      "googleMapsUrl": "https://maps.app.goo.gl/2zK3TuBNNeyTzL7w5"
     },
     {
       "name": "Bánh Cuốn Bắc",
@@ -343,7 +346,8 @@
       "styleNote": true,
       "sources": [
         "https://vinwonders.com/vi/wonderpedia/news/banh-cuon-ngon-sai-gon/"
-      ]
+      ],
+      "googleMapsUrl": "https://maps.app.goo.gl/4GC6ugBG4bXB4aEu5"
     }
   ]
 }

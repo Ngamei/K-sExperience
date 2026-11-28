@@ -27,7 +27,7 @@ const errors: string[] = [];
 /** A dish entry is a dish id (generic evidence) or an object with its own evidence, price and photo (research exchange format). */
 type BatchDish = string | { dishId: string; evidence?: string; url?: string; priceVnd?: { min: number; max: number }; photo?: unknown; status?: string; evidenceType?: string };
 type BatchVenue = { id?: string; name: string; address: string; district?: string; dishes: BatchDish[]; sources: string[]; note?: string; styleNote?: boolean; excluded?: string;
-  venueType?: string; priceRange?: string; openingHours?: unknown; contact?: unknown; highlights?: string[]; googleMapsUrl?: string };
+  venueType?: string; priceRange?: string; openingHours?: unknown; contact?: unknown; highlights?: string[]; googleMapsUrl?: string; closure?: unknown };
 const geocoded = read("data/source/venue-research/geocoded.json") as Record<string, { failed?: boolean; reason?: string; lon: number; lat: number; precision: "exact" | "building" | "street"; ward: string | null }>;
 const batchFiles = readdirSync(path.join(root, "data/source/venue-research")).filter((f) => /^batch-[\w-]+\.json$/.test(f)).sort();
 const skipped: string[] = [];
@@ -60,6 +60,7 @@ for (const f of batchFiles) {
       ...(v.openingHours ? { openingHours: v.openingHours } : {}),
       ...(v.contact ? { contact: v.contact } : {}),
       ...(v.googleMapsUrl ? { googleMapsPlaceUrl: v.googleMapsUrl } : {}),
+      ...(v.closure ? { closure: v.closure } : {}),
       ...(v.highlights ? { highlights: v.highlights } : {}),
       sources: [
         ...v.sources.map((url) => ({ title: new URL(url).hostname.replace(/^www\./, ""), url, accessed: batch.researchedOn })),

@@ -33,7 +33,8 @@
       "note": "Coordinates: OpenStreetMap node 13541335701 'Pasteur Street Craft Beer' (amenity=bar) on Đề Thám, Phường Bến Thành — same street and ward as the official directory; the node has no house number. Replaces the street-segment point rejected in GPT-BARS-001.",
       "coordinatePrecision": "exact",
       "coordinateSource": "https://www.openstreetmap.org/node/13541335701",
-      "id": "pasteur-street-craft-beer-bui-vien-212-de-tham"
+      "id": "pasteur-street-craft-beer-bui-vien-212-de-tham",
+      "googleMapsUrl": "https://maps.app.goo.gl/oJASeKorKncWcP4L8"
     },
     {
       "name": "Pasteur Street Craft Beer – Phú Mỹ Hưng",

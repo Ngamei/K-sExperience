@@ -18,7 +18,7 @@ export interface PhotoRow { dish_id: string; url: string; credit: string; licens
 export interface SourceRow { dish_id?: string; restaurant_id?: string; title: string; url: string | null; accessed: string | null; note: string | null }
 export interface RestaurantRow {
   id: string; name: string; is_sample: boolean; address: string; neighbourhood: string; lon: number; lat: number;
-  coordinate_precision: "exact" | "building" | "street" | null; google_maps_url: string | null; highlights: string[]; venue_type: Restaurant["venueType"];
+  coordinate_precision: "exact" | "building" | "street" | null; google_maps_url: string | null; closure?: Restaurant["closure"] | null; highlights: string[]; venue_type: Restaurant["venueType"];
   price_range: Restaurant["priceRange"] | null; opening_hours: Restaurant["openingHours"] | null; contact: Restaurant["contact"] | null;
   delivery_links: Restaurant["deliveryLinks"]; last_verified: string | null;
   /** 0008 — optional dining attributes (null = unknown). */
@@ -56,7 +56,7 @@ export const toDishSourceRows = (d: Dish): SourceRow[] =>
 
 export const toRestaurantRow = (r: Restaurant): RestaurantRow => ({
   id: r.id, name: r.name, is_sample: r.isSample, address: r.address, neighbourhood: r.neighbourhood, lon: r.coordinates[0], lat: r.coordinates[1],
-  coordinate_precision: nn(r.coordinatePrecision), google_maps_url: nn(r.googleMapsUrl), highlights: r.highlights ?? [], venue_type: r.venueType,
+  coordinate_precision: nn(r.coordinatePrecision), google_maps_url: nn(r.googleMapsUrl), closure: nn(r.closure), highlights: r.highlights ?? [], venue_type: r.venueType,
   price_range: nn(r.priceRange), opening_hours: nn(r.openingHours), contact: nn(r.contact), delivery_links: r.deliveryLinks, last_verified: nn(r.lastVerified),
   dining: nn(r.dining),
 });
@@ -116,6 +116,7 @@ export function fromRows(rows: {
     id: r.id, name: r.name, isSample: r.is_sample, address: r.address, neighbourhood: r.neighbourhood, coordinates: [r.lon, r.lat],
     ...(r.coordinate_precision ? { coordinatePrecision: r.coordinate_precision } : {}),
     ...(r.google_maps_url ? { googleMapsUrl: r.google_maps_url } : {}),
+    ...(r.closure ? { closure: r.closure } : {}),
     ...(r.highlights.length ? { highlights: r.highlights } : {}),
     venueType: r.venue_type, ...(r.price_range ? { priceRange: r.price_range } : {}),
     ...(r.opening_hours ? { openingHours: r.opening_hours } : {}), ...(r.contact ? { contact: r.contact } : {}),

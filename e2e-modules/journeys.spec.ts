@@ -52,7 +52,7 @@ test("real Coffee data: sourced cafés per drink, establishment filters, no unve
   await stubCommons(page);
   await page.goto("/coffee/item/?id=ca-phe-trung");
   const rows = page.getByTestId("section-offerings").getByTestId("venue-row");
-  await expect(rows).toHaveCount(4) // Okkio, Góc Hà Nội, Ông Chú Cuội Hẻm, Runam;
+  await expect(rows).toHaveCount(3) // Okkio, Góc Hà Nội, Runam (Ông Chú Cuội Hẻm is closed — D67)
   for (const r of await rows.all()) {
     await expect(r.getByTestId("availability-status")).toHaveAttribute("data-status", "source-listed");
     await expect(r.getByTestId("last-checked")).toBeVisible();
@@ -68,7 +68,7 @@ test("real Coffee data: sourced cafés per drink, establishment filters, no unve
   if (isMobile) await page.keyboard.press("Escape");
   // expected = drinks offered by at least one café tagged "specialty" (derived from the data, not hard-coded)
   const coffee = JSON.parse(readFileSync("data/experiences/coffee.json", "utf8"));
-  const specialty = new Set(coffee.establishments.filter((e: { attributes?: { cafeTypes?: string[] } }) => e.attributes?.cafeTypes?.includes("specialty")).map((e: { id: string }) => e.id));
+  const specialty = new Set(coffee.establishments.filter((e: { closure?: unknown; attributes?: { cafeTypes?: string[] } }) => !e.closure && e.attributes?.cafeTypes?.includes("specialty")).map((e: { id: string }) => e.id));
   const expected = [...new Set(coffee.offerings.filter((o: { establishmentId: string }) => specialty.has(o.establishmentId)).map((o: { itemId: string }) => o.itemId))].sort();
   await expect(page.getByTestId("item-count")).toHaveText(`${expected.length}/${coffee.items.length} coffees`); // matching / total
   expect((await page.getByTestId("item-card").evaluateAll((xs) => xs.map((x) => x.getAttribute("data-item-id")))).sort()).toEqual(expected);

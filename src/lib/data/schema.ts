@@ -196,8 +196,13 @@ export const RestaurantSchema = z.object({
   /** "exact" = building/POI match; "street" = only the street could be geocoded (shown as approximate). */
   /** exact = POI/house number of this venue · building = the building containing the unit (not the unit) · street = street point (approximate). */
   coordinatePrecision: z.enum(["exact", "building", "street"]).optional(),
-  /** Google Maps search link (name + address) — opens the real place listing. */
+  /** Google Maps link: an exact place link (Google Maps → Share) when researched, else a search link (name + address). */
   googleMapsUrl: z.url().optional(),
+  /**
+   * D67 — reported closure. The record stays (saved items, Passport history and notes still resolve) but a closed
+   * establishment is never recommended or listed as a place to go. `source` = where the closure was seen.
+   */
+  closure: z.object({ status: z.enum(["temporarily-closed", "permanently-closed"]), reportedOn: z.string(), source: z.string().min(3) }).optional(),
   /** Short factual notes attributed to a cited source (e.g. guide distinctions). */
   highlights: z.array(z.string()).optional(),
   venueType: z.enum(VENUE_TYPES),

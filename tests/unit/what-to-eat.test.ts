@@ -27,7 +27,7 @@ describe("Hôm nay ăn gì? — PO scenarios on the real dataset", () => {
     for (const x of r.withoutPlaces) expect(x.venues).toHaveLength(0);
     expect(r.eligible).toBe(data.dishes.length); // nothing is hidden just because a place is not listed
     expect(r.withVenue + r.withoutVenue).toBe(r.eligible);
-    const realIds = new Set(data.restaurants.filter((x) => !x.isSample).map((x) => x.id));
+    const realIds = new Set(data.restaurants.filter((x) => !x.isSample && !x.closure).map((x) => x.id)); // D67: closed venues are not places to go
     const linked = new Set(data.links.filter((l) => !l.isSample && realIds.has(l.restaurantId)).map((l) => l.restaurantId));
     expect(r.establishments).toBe(linked.size); // deduplicated
   });

@@ -13,10 +13,10 @@
     "dishes": 138,
     "bucketSum": 138,
     "dishesWithVenue": 36,
-    "realVenues": 118,
+    "realVenues": 117,
     "realVenuesOutsideHcmc": 0,
-    "venuesWithAtLeastOneDish": 118,
-    "publicRealLinks": 121,
+    "venuesWithAtLeastOneDish": 117,
+    "publicRealLinks": 120,
     "candidateLinksExcluded": 0,
     "sampleLinksExcluded": 0,
     "temporarilyUnavailableLinksExcluded": 0,
@@ -67,7 +67,7 @@
         {
           "id": "bun-bo-hue",
           "nameVi": "Bún bò Huế",
-          "citywideVenues": 10,
+          "citywideVenues": 9,
           "lunch": true,
           "prominence": 1
         },
@@ -182,7 +182,7 @@
         {
           "id": "bun-bo-hue",
           "nameVi": "Bún bò Huế",
-          "citywideVenues": 10,
+          "citywideVenues": 9,
           "lunch": true,
           "prominence": 1
         },
@@ -405,7 +405,7 @@
         {
           "id": "bun-bo-hue",
           "nameVi": "Bún bò Huế",
-          "citywideVenues": 10,
+          "citywideVenues": 9,
           "lunch": true,
           "prominence": 1
         },
@@ -1577,8 +1577,8 @@
       "dishType": "noodle-soup",
       "prominence": 1,
       "lunch": true,
-      "venues": 10,
-      "venuesIncludingTemporarilyUnavailable": 10,
+      "venues": 9,
+      "venuesIncludingTemporarilyUnavailable": 9,
       "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {

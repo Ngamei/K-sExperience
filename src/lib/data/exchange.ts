@@ -43,6 +43,8 @@ export const BatchVenueSchema = z.object({
   coordinateSource: Https.optional(),
   /** Exact Google Maps place link (Google Maps → Share), checked by a person. Optional; otherwise a search link is built. */
   googleMapsUrl: Https.refine(isGoogleMapsPlaceUrl, "googleMapsUrl must be a Google Maps place link (google.com/maps/place/…, maps.app.goo.gl/…)").optional(),
+  /** D67 — reported closure (kept as a record, never recommended). */
+  closure: z.object({ status: z.enum(["temporarily-closed", "permanently-closed"]), reportedOn: z.string(), source: z.string().min(3) }).optional(),
 }).superRefine((v, ctx) => {
   if (v.lon != null && v.lat != null && (!v.coordinatePrecision || !v.coordinateSource))
     ctx.addIssue({ code: "custom", path: ["coordinatePrecision"], message: "supplied coordinates need coordinatePrecision (exact | building | street) and coordinateSource" });

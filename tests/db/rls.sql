@@ -243,5 +243,12 @@ insert into results select 'trigger functions + delete_my_account not executable
   and has_function_privilege('anon', 'is_editor()', 'execute');
 insert into results select 'editor policies split (no FOR ALL "editors write")', count(*) = 0 from pg_policies where policyname = 'editors write';
 
+-- 0012 (D67): closure is optional, but must name status, date and source
+insert into results select 'seeded closures stored', count(*) = 3 from restaurants where closure->>'status' = 'permanently-closed';
+do $$ begin
+  update restaurants set closure = '{"status": "gone"}' where id = 'test-cafe';
+  insert into results values ('invalid closure rejected', false);
+exception when check_violation then insert into results values ('invalid closure rejected', true); end $$;
+
 select (case when ok then 'PASS ' else 'FAIL ' end) || name from results;
 select case when bool_and(ok) then 'ALL DB TESTS PASSED' else 'DB TESTS FAILED' end from results;
