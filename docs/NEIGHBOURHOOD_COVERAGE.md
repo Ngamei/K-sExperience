@@ -28,7 +28,7 @@ Generated 2026-11-28 by `npm run data:neighbourhoods` from the canonical data. D
 | Phạm Viết Chánh | 2 | 2 (1 exact · 1 approx) | 0 | 2 (1 exact · 1 approx) | 0 | 0 | 2 | 0 | 0 | Phường Sài Gòn, Phường Thạnh Mỹ Tây |
 | An Phú – An Khánh | 2 | 0 | 1 (0 exact · 1 approx) | 0 | 0 | 0 | 0 | 0 | 0 | Phường An Khánh |
 | Hồ Con Rùa – Quận 3 | 2 | 15 (4 exact · 11 approx) | 0 | 1 (0 exact · 1 approx) | 0 | 1 (0 exact · 1 approx) | 10 | 0 | 6 | Phường Sài Gòn, Phường Tân Định, Phường Xuân Hòa |
-| Bến Vân Đồn – Quận 4 | 2 | 36 (6 exact · 30 approx) | 0 | 1 (0 exact · 1 approx) | 0 | 0 | 9 | 0 | 13 | Phường Cầu Ông Lãnh, Phường Khánh Hội, Phường Vĩnh Hội, Phường Xóm Chiếu |
+| Bến Vân Đồn – Quận 4 | 2 | 37 (6 exact · 31 approx) | 0 | 1 (0 exact · 1 approx) | 0 | 0 | 10 | 0 | 14 | Phường Cầu Ông Lãnh, Phường Khánh Hội, Phường Vĩnh Hội, Phường Xóm Chiếu |
 | Hồ Thị Kỷ – Quận 10 | 2 | 13 (3 exact · 10 approx) | 0 | 0 | 0 | 0 | 11 | 0 | 4 | Phường Bàn Cờ, Phường Chợ Quán, Phường Cầu Ông Lãnh, Phường Vườn Lài |
 | Ba Son – Golden River | 2 | 2 (1 exact · 1 approx) | 0 | 1 (1 exact · 0 approx) | 0 | 0 | 2 | 0 | 1 | Phường Sài Gòn |
 
@@ -51,7 +51,7 @@ Generated 2026-11-28 by `npm run data:neighbourhoods` from the canonical data. D
 
 ## Outside all 12 areas and overlaps
 
-- Establishment records (experience × venue) inside at least one area: **159 / 489**; outside all areas: 330 (kept — nothing outside the priority areas is removed).
+- Establishment records (experience × venue) inside at least one area: **160 / 491**; outside all areas: 331 (kept — nothing outside the priority areas is removed).
 - Overlap: Thảo Điền ∩ An Phú – An Khánh: 1 records (provisional polygons touch; resolve when boundaries are reviewed).
 - Overlap: Quận 1 – Trung tâm ∩ Hồ Con Rùa – Quận 3: 3 records (provisional polygons touch; resolve when boundaries are reviewed).
 - Overlap: Quận 1 – Trung tâm ∩ Ba Son – Golden River: 1 records (provisional polygons touch; resolve when boundaries are reviewed).

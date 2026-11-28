@@ -1,10 +1,10 @@
 # Google Maps worklist
 
-Generated 2026-11-28 from `docs/food-coverage.json` and the intake reports for CC-FOOD-010 and CC-FOOD-011. Use with the prompt in `GMAPS-DISH-VENUES.md`, or just send Claude Code share links with the address line (it reads the name and exact pin from each link). Ask Claude Code to regenerate it after each import.
+Generated 2026-11-28 from `docs/food-coverage.json` (180 dishes) and the intake reports for CC-FOOD-010/011/012. Fastest route: send Claude Code Google Maps share links with each venue's address line (it reads the name and exact pin from the link). Ask Claude Code to regenerate this after each import.
 
-## A. Dishes with no HCMC venue (95)
+## A. Dishes with no HCMC venue (136)
 
-Many are regional specialities that may not be sold in HCMC. `notFound` is a valid answer.
+Everyday dishes added by GPT-CAT-001/002/003 (e.g. gỏi cuốn, bò kho, xíu mại) are sold all over HCMC and are the quickest wins. Regional specialities may not be sold in HCMC; "not found" is a valid answer.
 
 ```
 pho-chua-lang-son → Phở chua Lạng Sơn
@@ -77,6 +77,47 @@ ca-tai-tuong-chien-xu → Cá tai tượng chiên xù
 lap-xuong-can-duoc → Lạp xưởng Cần Đước
 banh-chuoi-nuong → Bánh chuối nướng
 banh-da-lon → Bánh da lợn
+com-ga-xoi-mo → Cơm gà xối mỡ
+bun-rieu-chay → Bún riêu chay
+goi-cuon → Gỏi cuốn
+bun-bo-cuon-la-lot → Bún bò cuốn lá lốt
+nom-hoa-chuoi → Nộm hoa chuối
+xoi-man → Xôi mặn
+dau-hu-sot-ca-chua → Đậu hũ sốt cà chua
+rau-muong-xao-toi → Rau muống xào tỏi
+banh-mi-trung → Bánh mì trứng
+pho-chay → Phở chay
+banh-mi-chay → Bánh mì chay
+bo-kho → Bò kho
+thit-kho-trung → Thịt kho trứng
+xiu-mai → Xíu mại
+canh-hoa-thien-ly-nau-cua-dong → Canh hoa thiên lý nấu cua đồng
+hoa-thien-ly-xao-thit-bo → Hoa thiên lý xào thịt bò
+thit-kho-mang-kho → Thịt kho măng khô
+hu-tieu-ho → Hủ tiếu hồ
+hu-tieu-bo-kho → Hủ tiếu bò kho
+pho-chien-phong → Phở chiên phồng
+muop-xao-long-ga → Mướp xào lòng gà
+bun-bo-nam-bo → Bún bò Nam Bộ
+mien-ga → Miến gà
+mien-luon-tron → Miến lươn trộn
+mi-van-than → Mì vằn thắn
+banh-goi → Bánh gối
+ca-com-sua-rim-dau-phong → Cá cơm sữa rim đậu phộng
+canh-chua-dau-ca-dieu-hong-nau-dau-rong → Canh chua đầu cá diêu hồng nấu đậu rồng
+ca-trich-kho-ca-chua → Cá trích kho cà chua
+canh-rau-san-nau-ca → Canh rau sắn nấu cá
+chan-ga-tron-xi-dau → Chân gà trộn xì dầu
+bo-tai-chanh → Bò tái chanh
+oc-om-chuoi-dau → Ốc om chuối đậu
+tom-rang-thit-ba-chi → Tôm rang thịt ba chỉ
+muc-nhoi-thit-sot-ca-chua → Mực nhồi thịt sốt cà chua
+ba-chi-rang-chay-canh → Ba chỉ rang cháy cạnh
+ca-loc-kho-tieu → Cá lóc kho tiêu
+ca-chim-sot-nam-linh-chi → Cá chim sốt nấm linh chi
+canh-bo-nau-khe → Canh bò nấu khế
+nham-tram → Nham trám
+goi-ca-dang → Gỏi cà đắng
 pho-ga-ha-noi → Phở gà Hà Nội
 pho-bo-nam-dinh → Phở bò Nam Định
 cha-ca-la-vong → Chả cá Lã Vọng
@@ -104,7 +145,7 @@ nem-chua-thanh-hoa → Nem chua Thanh Hóa
 keo-dua-ben-tre → Kẹo dừa Bến Tre
 ```
 
-## B. Dishes with 1–4 venues (24): add venues up to 5
+## B. Dishes with 1–4 venues (25): add venues up to 5
 
 ```
 bun-cha-ca-quy-nhon → Bún chả cá Quy Nhơn   (has 1)
@@ -117,6 +158,7 @@ banh-trang-nuong-da-lat → Bánh tráng nướng Đà Lạt   (has 1)
 xoi-xeo → Xôi xéo   (has 2)
 banh-xeo-tom-nhay-quy-nhon → Bánh xèo tôm nhảy Quy Nhơn   (has 2)
 banh-canh-trang-bang → Bánh canh Trảng Bàng   (has 2)
+bun-thit-nuong → Bún thịt nướng   (has 2)
 com-hen → Cơm hến   (has 2)
 com-ga-hoi-an → Cơm gà Hội An   (has 2)
 banh-can → Bánh căn   (has 2)
@@ -133,9 +175,9 @@ bot-chien → Bột chiên   (has 4)
 che-ba-mau → Chè ba màu   (has 4)
 ```
 
-## C. Venues found on mia.vn but rejected for an imprecise pin (121)
+## C. Venues found on mia.vn but rejected for an imprecise pin (123)
 
-The geocoder found only the street, and the point fell in a different district than the source states. For each one, find **this** venue on Google Maps (same name, house number and street) and send its Share link with the address line. Otherwise list it as not found, with the reason (closed, moved, not found).
+The geocoder found only the street, and the point fell in a different district than the source states. Find **this** venue on Google Maps (same name, house number and street) and send its Share link with the address line, or report it as not found (closed, moved).
 
 | # | Venue | Address (mia.vn) | District | dishId | mia.vn article |
 | --- | --- | --- | --- | --- | --- |
@@ -260,3 +302,5 @@ The geocoder found only the street, and the point fell in a different district t
 | 119 | Phở lòng bò | 251/5 Nguyễn Thiện Thuật | Quận 3 | pho-sai-gon | https://mia.vn/cam-nang-du-lich/top-quan-pho-bo-quan-3-16097 |
 | 120 | Phở Lộc 74 | 74 Điện Biên Phủ | Quận 1 | pho-sai-gon | https://mia.vn/cam-nang-du-lich/top-quan-pho-quan-1-16083 |
 | 121 | Bánh mì Cô Lành | 6 Hồ Xuân Hương | Bình Thạnh | banh-mi-sai-gon | https://mia.vn/cam-nang-du-lich/top-tiem-banh-mi-sai-gon-noi-danh-14370 |
+| 122 | Quán bún thịt nướng Hải Đăng | 149 Chấn Hưng | Tân Bình | bun-thit-nuong | https://mia.vn/cam-nang-du-lich/quan-bun-thit-nuong-sai-gon-16349 |
+| 123 | Quán bún thịt nướng Cô Ba | 65 Tân Thành | Tân Phú | bun-thit-nuong | https://mia.vn/cam-nang-du-lich/quan-bun-thit-nuong-sai-gon-16349 |

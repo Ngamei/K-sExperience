@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
+import { DISH_COUNT } from "../e2e/helpers";
 
 /**
  * Cross-module journeys on the Coffee-flag build with the REAL pilot dataset (no fixtures):
@@ -25,7 +26,7 @@ test("switching repeatedly between Food and Coffee keeps navigation, data and UR
     await expect.poll(() => navTexts(page, isMobile)).toEqual(FOOD[k]);
   }
   await page.goto("/catalogue/");
-  await expect(page.getByTestId("result-count").filter({ visible: true }).first()).toHaveText("138 dishes"); // Food data intact
+  await expect(page.getByTestId("result-count").filter({ visible: true }).first()).toHaveText(`${DISH_COUNT} dishes`); // Food data intact
 });
 
 test("direct URLs, back navigation and refresh keep the right experience", async ({ page, isMobile }) => {

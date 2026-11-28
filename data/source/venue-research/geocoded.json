@@ -3787,5 +3787,37 @@
     "precision": "street",
     "ward": "Phường Chợ Quán",
     "displayName": "Nguyễn Biểu, Khu phố 10, Phường Chợ Quán, Thành phố Hồ Chí Minh, 72722, Việt Nam"
+  },
+  "Bò Kho Gánh|029 Lô H chung cư Ngô Gia Tự|Quận 10": {
+    "failed": true,
+    "reason": "not found"
+  },
+  "Bún thịt nướng Chị Tuyền|175 Cô Giang|Quận 1": {
+    "lon": 106.694085,
+    "lat": 10.762408,
+    "precision": "street",
+    "ward": "Phường Cầu Ông Lãnh",
+    "displayName": "Cô Giang, Khu phố 17, Phường Cầu Ông Lãnh, Thành phố Hồ Chí Minh, 71011, Việt Nam"
+  },
+  "Vị Sài Gòn|157 Nguyễn Văn Thủ|Quận 1": {
+    "lon": 106.701032,
+    "lat": 10.792089,
+    "precision": "street",
+    "ward": "Phường Tân Định",
+    "displayName": "Nguyễn Văn Thủ, Khu phố 13, Phường Tân Định, Thành phố Hồ Chí Minh, 71008, Việt Nam"
+  },
+  "Quán bún thịt nướng Hải Đăng|149 Chấn Hưng|Tân Bình": {
+    "lon": 106.663173,
+    "lat": 10.786024,
+    "precision": "street",
+    "ward": "Phường Tân Hòa",
+    "displayName": "Chấn Hưng, Phường Tân Hòa, Thành phố Hồ Chí Minh, 72125, Việt Nam"
+  },
+  "Quán bún thịt nướng Cô Ba|65 Tân Thành|Tân Phú": {
+    "lon": 106.652354,
+    "lat": 10.755455,
+    "precision": "street",
+    "ward": "Phường Chợ Lớn",
+    "displayName": "Tân Thành, Khu phố 25, Phường Chợ Lớn, Thành phố Hồ Chí Minh, 72723, Việt Nam"
   }
 }

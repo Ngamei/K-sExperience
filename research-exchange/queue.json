@@ -260,13 +260,13 @@
       "kind": "catalogue",
       "scope": "Master catalogue: everyday HCMC meals missing from the atlas (cơm phần, cơm chay, bún chay, cháo, xôi, hủ tiếu variants, office-lunch dishes) with eating attributes and sources",
       "assignedTo": "chatgpt",
-      "status": "validated",
+      "status": "imported",
       "sources": [
         "https://govietnam.travel/food/com-ga-2/com-ga-xoi-mo/",
         "https://vnexpress.net/doi-song-cooking-bun-rieu-chay-cho-mua-vu-lan-4644563.html",
         "https://fptshop.com.vn/tin-tuc/dien-may/quan-chay-tan-binh-166331"
       ],
-      "importStatus": "dry run only",
+      "importStatus": "imported 2026-11-28 (2 venues)",
       "validation": {
         "at": "2026-11-28",
         "accepted": 2,
@@ -814,14 +814,14 @@
       "kind": "catalogue",
       "scope": "Public culinary sources; associated regional geography is a review candidate, not an asserted birthplace. Exact-name com",
       "assignedTo": "chatgpt",
-      "status": "validated",
+      "status": "imported",
       "sources": [],
-      "importStatus": "dry run only",
+      "importStatus": "imported 2026-11-28 (20 venues)",
       "validation": {
         "at": "2026-11-28",
         "accepted": 20,
         "rejected": 0,
-        "warnings": 1,
+        "warnings": 0,
         "report": "research-exchange/reports/GPT-CAT-002.md"
       },
       "updatedAt": "2026-11-28"
@@ -832,15 +832,38 @@
       "kind": "catalogue",
       "scope": "Web search excerpts explicitly naming dishes; full source and regional associations pending review. Region-only values a",
       "assignedTo": "chatgpt",
-      "status": "validated",
+      "status": "imported",
       "sources": [],
-      "importStatus": "dry run only",
+      "importStatus": "imported 2026-11-28 (20 venues)",
       "validation": {
         "at": "2026-11-28",
         "accepted": 20,
         "rejected": 0,
-        "warnings": 1,
+        "warnings": 0,
         "report": "research-exchange/reports/GPT-CAT-003.md"
+      },
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-FOOD-012",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Venues for the 42 dishes added by GPT-CAT-001/002/003, from the 362 mia.vn HCMC food articles already read for CC-FOOD-0",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/bo-kho-ganh-sai-gon-16015",
+        "https://mia.vn/cam-nang-du-lich/quan-an-sang-quan-1-17538",
+        "https://mia.vn/cam-nang-du-lich/quan-banh-xeo-thu-duc-18184",
+        "https://mia.vn/cam-nang-du-lich/quan-bun-thit-nuong-sai-gon-16349"
+      ],
+      "importStatus": "imported 2026-11-28 (2 venues)",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 2,
+        "rejected": 4,
+        "warnings": 1,
+        "report": "research-exchange/reports/CC-FOOD-012.md"
       },
       "updatedAt": "2026-11-28"
     }

@@ -137,3 +137,45 @@ ca-tai-tuong-chien-xu,Cá tai tượng chiên xù,Crispy elephant-ear fish,,,sav
 lap-xuong-can-duoc,Lạp xưởng Cần Đước,Cần Đước Chinese sausage,,,savory,cured,long-an,lunch|dinner,contains-pork,seed-unverified,seed
 banh-chuoi-nuong,Bánh chuối nướng,Baked banana cake,,,sweet,banh,region:tay-nam-bo|region:dong-nam-bo,afternoon,vegetarian|contains-dairy,seed-unverified,seed
 banh-da-lon,Bánh da lợn,Steamed layer cake,,,sweet,banh,region:dong-nam-bo|region:tay-nam-bo,afternoon,vegan,seed-unverified,seed
+com-ga-xoi-mo,Cơm gà xối mỡ,Crisp-skinned chicken rice,,,savory,rice,ho-chi-minh,lunch|dinner,contains-poultry,pending-review,master
+bun-rieu-chay,Bún riêu chay,Vegetarian tomato and tofu noodle soup,,,savory,noodle-soup,ho-chi-minh,,vegetarian,pending-review,master
+goi-cuon,Gỏi cuốn,Fresh rice paper rolls,,,savory,rolls,region:dong-nam-bo,,contains-pork|contains-seafood,pending-review,master
+bun-bo-cuon-la-lot,Bún bò cuốn lá lốt,Betel leaf beef with vermicelli,,,savory,noodles,region:dong-nam-bo,,contains-beef,pending-review,master
+nom-hoa-chuoi,Nộm hoa chuối,Banana blossom salad,,,savory,salad,region:dong-nam-bo,,contains-peanut,pending-review,master
+xoi-man,Xôi mặn,Savory sticky rice,,,savory,rice,region:dong-nam-bo,,,pending-review,master
+dau-hu-sot-ca-chua,Đậu hũ sốt cà chua,Tofu in tomato sauce,,,savory,stew,region:dong-nam-bo,,vegetarian-version-common,pending-review,master
+rau-muong-xao-toi,Rau muống xào tỏi,Garlic stir-fried water spinach,,,savory,fried,region:dong-nam-bo,,,pending-review,master
+banh-mi-trung,Bánh mì trứng,Egg baguette,,,savory,bread,region:dong-nam-bo,,contains-egg,pending-review,master
+pho-chay,Phở chay,Vegetarian phở,,,savory,noodle-soup,region:dong-nam-bo,,vegetarian,pending-review,master
+banh-mi-chay,Bánh mì chay,Vegetarian baguette,,,savory,bread,region:dong-nam-bo,,vegetarian,pending-review,master
+bo-kho,Bò kho,Vietnamese beef stew,,,savory,stew,region:dong-nam-bo,,contains-beef,pending-review,master
+bun-thit-nuong,Bún thịt nướng,Grilled pork vermicelli,,,savory,noodles,region:dong-nam-bo,,contains-pork,pending-review,master
+thit-kho-trung,Thịt kho trứng,Braised pork and eggs,,,savory,stew,region:dong-nam-bo,,contains-pork|contains-egg,pending-review,master
+xiu-mai,Xíu mại,Vietnamese meatballs in tomato sauce,,,savory,stew,region:dong-nam-bo,,,pending-review,master
+canh-hoa-thien-ly-nau-cua-dong,Canh hoa thiên lý nấu cua đồng,Crab and tonkin jasmine soup,,,savory,soup,region:mien-bac,,contains-seafood,pending-review,master
+hoa-thien-ly-xao-thit-bo,Hoa thiên lý xào thịt bò,Stir-fried tonkin jasmine with beef,,,savory,fried,region:mien-bac,,contains-beef,pending-review,master
+thit-kho-mang-kho,Thịt kho măng khô,Braised pork with dried bamboo shoots,,,savory,stew,region:bac-trung-bo,,contains-pork,pending-review,master
+hu-tieu-ho,Hủ tiếu hồ,Hủ tiếu hồ noodles,,,savory,noodle-soup,region:dong-nam-bo,,,pending-review,master
+hu-tieu-bo-kho,Hủ tiếu bò kho,Beef stew noodle soup,,,savory,noodle-soup,region:dong-nam-bo,,contains-beef,pending-review,master
+pho-chien-phong,Phở chiên phồng,Puffed fried phở noodles,,,savory,fried,region:mien-bac,,contains-beef,pending-review,master
+muop-xao-long-ga,Mướp xào lòng gà,Stir-fried luffa and chicken giblets,,,savory,fried,region:dong-nam-bo,,contains-poultry|contains-offal,pending-review,master
+bun-bo-nam-bo,Bún bò Nam Bộ,Southern beef vermicelli,,,savory,noodles,region:dong-nam-bo,,,pending-review,master
+mien-ga,Miến gà,Chicken glass noodle soup,,,savory,noodle-soup,region:mien-bac,,,pending-review,master
+mien-luon-tron,Miến lươn trộn,Dry eel glass noodles,,,savory,noodles,region:mien-bac,,,pending-review,master
+mi-van-than,Mì vằn thắn,Wonton noodle soup,,,savory,noodle-soup,region:mien-bac,,,pending-review,master
+banh-goi,Bánh gối,Fried savory pastry,,,snack,banh,region:mien-bac,,,pending-review,master
+ca-com-sua-rim-dau-phong,Cá cơm sữa rim đậu phộng,Braised anchovies with peanuts,,,savory,stew,region:dong-nam-bo,,,pending-review,master
+canh-chua-dau-ca-dieu-hong-nau-dau-rong,Canh chua đầu cá diêu hồng nấu đậu rồng,Sour red tilapia and winged bean soup,,,savory,soup,region:dong-nam-bo,,,pending-review,master
+ca-trich-kho-ca-chua,Cá trích kho cà chua,Herring braised with tomatoes,,,savory,stew,region:dong-nam-bo,,,pending-review,master
+canh-rau-san-nau-ca,Canh rau sắn nấu cá,Cassava leaf and fish soup,,,savory,soup,phu-tho,,,pending-review,master
+chan-ga-tron-xi-dau,Chân gà trộn xì dầu,Chicken feet with soy sauce,,,savory,salad,region:dong-nam-bo,,,pending-review,master
+bo-tai-chanh,Bò tái chanh,Lime-dressed beef,,,savory,salad,region:dong-nam-bo,,,pending-review,master
+oc-om-chuoi-dau,Ốc om chuối đậu,Snail stew with green banana and tofu,,,savory,stew,region:mien-bac,,,pending-review,master
+tom-rang-thit-ba-chi,Tôm rang thịt ba chỉ,Shrimp and pork belly,,,savory,fried,region:dong-nam-bo,,,pending-review,master
+muc-nhoi-thit-sot-ca-chua,Mực nhồi thịt sốt cà chua,Stuffed squid in tomato sauce,,,savory,stew,region:dong-nam-bo,,,pending-review,master
+ba-chi-rang-chay-canh,Ba chỉ rang cháy cạnh,Pan-fried pork belly,,,savory,fried,region:mien-bac,,,pending-review,master
+ca-loc-kho-tieu,Cá lóc kho tiêu,Pepper-braised snakehead fish,,,savory,stew,region:dong-nam-bo,,,pending-review,master
+ca-chim-sot-nam-linh-chi,Cá chim sốt nấm linh chi,Pomfret with mushroom sauce,,,savory,stew,region:dong-nam-bo,,,pending-review,master
+canh-bo-nau-khe,Canh bò nấu khế,Beef and starfruit soup,,,savory,soup,region:dong-nam-bo,,,pending-review,master
+nham-tram,Nham trám,Black olive salad,,,savory,salad,thai-nguyen,,,pending-review,master
+goi-ca-dang,Gỏi cà đắng,Bitter eggplant salad,,,savory,salad,dak-nong,,,pending-review,master

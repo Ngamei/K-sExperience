@@ -19643,6 +19643,106 @@
       "lastVerified": "2026-11-28"
     },
     {
+      "id": "bun-thit-nuong-chi-tuyen-175-co-giang",
+      "name": "Bún thịt nướng Chị Tuyền",
+      "isSample": false,
+      "address": "175 Cô Giang, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Cầu Ông Lãnh",
+      "coordinates": [
+        106.694085,
+        10.762408
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20th%E1%BB%8Bt%20n%C6%B0%E1%BB%9Bng%20Ch%E1%BB%8B%20Tuy%E1%BB%81n%2C%20175%20C%C3%B4%20Giang%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ],
+        "tue": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ],
+        "wed": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ],
+        "thu": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ],
+        "fri": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ],
+        "sat": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ],
+        "sun": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ]
+      },
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-an-sang-quan-1-17538",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "id": "vi-sai-gon-157-nguyen-van-thu",
+      "name": "Vị Sài Gòn",
+      "isSample": false,
+      "address": "157 Nguyễn Văn Thủ, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Định",
+      "coordinates": [
+        106.701032,
+        10.792089
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=V%E1%BB%8B%20S%C3%A0i%20G%C3%B2n%2C%20157%20Nguy%E1%BB%85n%20V%C4%83n%20Th%E1%BB%A7%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-bun-thit-nuong-sai-gon-16349",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28"
+    },
+    {
       "id": "banh-mi-que-pate-gia-truyen-quan-mau-hai-phong-154-duong-so-2",
       "name": "Bánh mì que - Pate gia truyền Quán Mau Hải Phòng",
       "isSample": false,

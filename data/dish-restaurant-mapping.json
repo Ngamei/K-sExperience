@@ -5264,6 +5264,30 @@
       "lastVerified": "2026-11-27"
     },
     {
+      "dishId": "bun-thit-nuong",
+      "restaurantId": "bun-thit-nuong-chi-tuyen-175-co-giang",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Mách bạn 9 quán ăn sáng quận 1 ngon, bổ, rẻ” (2024-12-30) lists “Bún thịt nướng Chị Tuyền” at Số 175 Cô Giang, Quận 1, Thành phố Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-an-sang-quan-1-17538"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-thit-nuong",
+      "restaurantId": "vi-sai-gon-157-nguyen-van-thu",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Điểm danh 6 quán bún thịt nướng ngon trứ danh Sài Gòn” (2024-08-05) lists “Vị Sài Gòn” at Số 157 đường Nguyễn Văn Thủ, phường Đa Kao, quận 1, Thành phố Hồ Chí Minh.; the article is about this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-bun-thit-nuong-sai-gon-16349"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
       "dishId": "banh-mi-que-hai-phong",
       "restaurantId": "banh-mi-que-pate-gia-truyen-quan-mau-hai-phong-154-duong-so-2",
       "status": "source-listed",
