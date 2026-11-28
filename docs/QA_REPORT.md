@@ -125,6 +125,21 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 
 Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-catalogue`, `*-food-dish`, `*-settings`, `*-settings-account-guest`, `*-passport-gate`, `*-coffee-map`, `*-coffee-catalogue`, `*-coffee-item`, `*-coffee-cafe`.
 
+## Production database: 0011 + 0012 applied (2026-11-28, `aibainipwgqbluhnqepu`)
+
+Applied by Claude Code through the Supabase connector at the PO's request (the GitHub `SUPABASE_DB_URL` secret is not set yet, so the automatic job stopped at its secret check). One transaction, rehearsed first on a local copy in the same state (0001–0010 + seed from `8f429f1`).
+
+| Check after apply | Result |
+| --- | --- |
+| Closures / exact Google Maps links | 3 / 30 |
+| Old `editors write` policies / new per-action editor policies | 0 / 42 |
+| `anon` can call `delete_my_account()` | false |
+| Migration history (`supabase_migrations.schema_migrations`) | 0001–0012 — the automation will see them as applied (`supabase db push` dry run on the rehearsal copy: "up to date") |
+| Row counts (dishes / establishments / links / items / offerings) | 138 / 170 / 121 / 37 / 61 (unchanged) |
+| Security advisors | only the intended ones: `is_editor()` callable (every RLS policy needs it), `delete_my_account()` callable by signed-in users |
+
+Not applied by hand: the tidier search text for the other 140 Google Maps search links — the next automatic run's seed applies it.
+
 ## Share links + closures (2026-11-28, review branch `claude/share-links-closures`, D67)
 
 | Command | Result |
