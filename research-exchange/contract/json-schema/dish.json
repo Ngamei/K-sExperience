@@ -461,7 +461,6 @@
     "regionIds",
     "ingredients",
     "taste",
-    "spiceLevel",
     "dietary",
     "mealTimes",
     "description",

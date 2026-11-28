@@ -63,6 +63,9 @@ Unknown venue values never exclude a dish: budget, open-now, delivery and atmosp
 | budget | u100 | 1 | 1 | dishes with a RECORDED price in range |
 | budget | 100-300 | 0 | 0 | dishes with a RECORDED price in range |
 | budget | 300+ | 0 | 0 | dishes with a RECORDED price in range |
+| spice | recorded (0–3) | 138 | 36 |  |
+| spice | no spice (0) | 78 | 18 | unknown intensity never matches |
+| spice | unknown | 0 | 0 | excluded by any spice limit below 'any' |
 | allergens | known (derived) | 138 | 36 |  |
 | allergens | complete (sourced) | 0 | 0 |  |
 | occasion | special dining (needs a place) | 36 | 36 |  |

@@ -1,0 +1,62 @@
+{
+  "batchId": "CC-BARS-003",
+  "experience": "bars",
+  "kind": "venues",
+  "agent": "claude-code",
+  "researchedOn": "2026-11-28",
+  "method": "KEX-QA-02: re-checks the GPT-BARS-001 withheld Pasteur Street branches against the official taproom directory and OpenStreetMap. Coordinates are taken only from a mapped OSM object that matches the official street/building and ward (no interpolation between house numbers, no street-segment points). 221 Hoàng Sa stays withheld: no mapped POI or house number, and its street points span three wards.",
+  "venues": [
+    {
+      "name": "Pasteur Street Craft Beer – Bùi Viện",
+      "address": "212 Đề Thám",
+      "district": "Quận 1",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms",
+        "https://www.openstreetmap.org/node/13541335701"
+      ],
+      "lon": 106.6940607,
+      "lat": 10.7673944,
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "The official Pasteur Street taproom directory lists the Bùi Viện Taproom & Restaurant at 212 Đề Thám, Bến Thành Ward, serving its craft beer.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "Coordinates: OpenStreetMap node 13541335701 'Pasteur Street Craft Beer' (amenity=bar) on Đề Thám, Phường Bến Thành — same street and ward as the official directory; the node has no house number. Replaces the street-segment point rejected in GPT-BARS-001."
+    },
+    {
+      "name": "Pasteur Street Craft Beer – Phú Mỹ Hưng",
+      "address": "CR5-01, Crescent Residence 5, 8 Trần Văn Trà",
+      "district": "Quận 7",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms",
+        "https://www.openstreetmap.org/way/1510577907"
+      ],
+      "lon": 106.7208204,
+      "lat": 10.7248058,
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "The official Pasteur Street taproom directory lists the Phu My Hung Taproom & Restaurant at CR5-01, Crescent Residence 5 (near Crescent Mall and SECC), serving its craft beer.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "Coordinates: OpenStreetMap way 1510577907 'Crescent Residence 5' (building, 8 Trần Văn Trà, Phường Tân Mỹ) — building-level pin for shop unit CR5-01; the street number comes from OSM, not the official directory."
+    }
+  ]
+}

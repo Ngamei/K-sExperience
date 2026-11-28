@@ -114,3 +114,13 @@ test("Bars craft beer batch (GPT-BARS-001): live venue counts on catalogue, item
   await expect(page.getByTestId("establishment-count")).toHaveText(String(data.establishments.length));
   await expect(page.getByTestId("establishment-card")).toHaveCount(data.establishments.length);
 });
+
+test("KEX-QA-02: street-level pins are labelled approximate; exact pins are not", async ({ page }) => {
+  await page.goto("/bars/nearby/?id=tiem-bia-ga-thao-dien-26b-xuan-thuy");
+  await expect(page.getByTestId("approx-location")).toContainText("Approximate location");
+  await page.goto("/bars/nearby/?id=pasteur-street-craft-beer-thao-dien-120-xuan-thuy");
+  await expect(page.getByTestId("approx-location")).toBeVisible();
+  await page.goto("/bars/nearby/?id=heart-of-darkness-31d-ly-tu-trong"); // exact (mapped POI)
+  await expect(page.getByTestId("establishment-detail")).toBeVisible();
+  await expect(page.getByTestId("approx-location")).toHaveCount(0);
+});

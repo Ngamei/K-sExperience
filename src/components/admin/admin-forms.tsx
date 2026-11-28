@@ -116,10 +116,10 @@ export function DishEditor({ onSave, canPersist }: { onSave: Saver; canPersist: 
     setF(d ? {
       nameVi: d.nameVi, nameEn: d.nameEn, altNames: d.altNames.join(", "), category: d.category, dishType: d.dishType, family: d.family ?? "",
       ingredients: d.ingredients.join(", "), taste: d.taste.join(", "), dietary: d.dietary.join(", "), mealTimes: d.mealTimes.join(", "),
-      spiceLevel: String(d.spiceLevel), prominence: String(d.prominence), descriptionEn: d.description.en, descriptionVi: d.description.vi,
+      spiceLevel: d.spiceLevel === undefined ? "" : String(d.spiceLevel), prominence: String(d.prominence), descriptionEn: d.description.en, descriptionVi: d.description.vi,
       status: d.verification.status, notes: d.verification.notes ?? "", sources: d.sources.map((s) => [s.title, s.url ?? ""].join(" | ")).join("\n"),
       ...eatingToForm(d.eating),
-    } : { category: "savory", dishType: "noodle-soup", spiceLevel: "0", prominence: "3", status: "pending-review" });
+    } : { category: "savory", dishType: "noodle-soup", spiceLevel: "", prominence: "3", status: "pending-review" });
     setOrigins(d ? d.origins.filter((o) => o.provinceId).map((o) => ({ provinceId: o.provinceId!, role: o.role })) : []);
   };
 
@@ -134,7 +134,7 @@ export function DishEditor({ onSave, canPersist }: { onSave: Saver; canPersist: 
       category: f.category as Dish["category"], dishType: f.dishType as Dish["dishType"], ...(f.family ? { family: slugify(f.family) } : { family: undefined }),
       origins: all, regionIds: [...new Set(all.map((o) => o.regionId))],
       ingredients: list(f.ingredients ?? ""), taste: list(f.taste ?? "") as Dish["taste"], dietary: list(f.dietary ?? "") as Dish["dietary"], mealTimes: list(f.mealTimes ?? "") as Dish["mealTimes"],
-      spiceLevel: Number(f.spiceLevel ?? 0), prominence: Number(f.prominence ?? 3) as Dish["prominence"],
+      spiceLevel: f.spiceLevel === "" || f.spiceLevel === undefined ? undefined : Number(f.spiceLevel), prominence: Number(f.prominence ?? 3) as Dish["prominence"],
       description: { en: f.descriptionEn ?? "", vi: f.descriptionVi ?? "" },
       sources: list(f.sources ?? "").map((line) => { const [title, url] = line.split("|").map((x) => x.trim()); return url ? { title: title || url, url } : { title }; }),
       verification: { status: (f.status ?? "pending-review") as Dish["verification"]["status"], ...(f.notes ? { notes: f.notes } : {}) },
@@ -168,7 +168,7 @@ export function DishEditor({ onSave, canPersist }: { onSave: Saver; canPersist: 
             <div><span className={label}>Taste ({TASTES.length} allowed)</span><input className={field} value={f.taste ?? ""} onChange={set("taste")} title={TASTES.join(", ")} /></div>
             <div><span className={label}>Dietary</span><input className={field} value={f.dietary ?? ""} onChange={set("dietary")} title={DIETARY.join(", ")} /></div>
             <div><span className={label}>Meal times</span><input className={field} value={f.mealTimes ?? ""} onChange={set("mealTimes")} title={MEAL_TIMES.join(", ")} /></div>
-            <div><span className={label}>Spice 0–3</span><input className={field} type="number" min={0} max={3} value={f.spiceLevel ?? "0"} onChange={set("spiceLevel")} /></div>
+            <div><span className={label}>Spice 0–3 (blank = not recorded)</span><input className={field} type="number" min={0} max={3} value={f.spiceLevel ?? ""} placeholder="unknown" onChange={set("spiceLevel")} data-testid="dish-spice" /></div>
             <div><span className={label}>Map prominence 1–3</span><input className={field} type="number" min={1} max={3} value={f.prominence ?? "3"} onChange={set("prominence")} /></div>
           </div>
           <EatingFields f={f} set={set} />

@@ -146,7 +146,7 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
         </Block>
         <Block title={t("dish.taste")}>
           <div className="flex flex-wrap gap-1.5">{d.taste.map((x) => <Badge key={x} tone="terracotta" className="text-xs">{lbl(TASTE_LABELS, x, locale)}</Badge>)}</div>
-          <p className="mt-3 text-sm"><span className="text-muted">{t("dish.spice")}: </span>{"🌶".repeat(d.spiceLevel) || "○"} {lbl(SPICE_LABELS, String(d.spiceLevel), locale)}</p>
+          <p className="mt-3 text-sm"><span className="text-muted">{t("dish.spice")}: </span>{d.spiceLevel === undefined ? <span data-testid="spice-unknown">{t("dish.spiceUnknown")}</span> : <>{"🌶".repeat(d.spiceLevel) || "○"} {lbl(SPICE_LABELS, String(d.spiceLevel), locale)}</>}</p>
           <p className="mt-1 text-sm"><span className="text-muted">{t("dish.meal")}: </span>{d.mealTimes.map((m) => lbl(MEAL_LABELS, m, locale)).join(", ")}</p>
         </Block>
         <Block title={t("dish.dietary")}>

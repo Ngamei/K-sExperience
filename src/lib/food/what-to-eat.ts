@@ -14,7 +14,7 @@
 import type { Dish, MealTime, Restaurant, RegionId, Taste } from "../data/schema";
 import { STATUS_RANK } from "../data/evidence";
 import type { AvailabilityIndex } from "./availability";
-import { DIET_PREFS, type DietPref, dishMatchesDiet } from "./filters";
+import { DIET_PREFS, type DietPref, dishMatchesDiet, spiceWithin } from "./filters";
 import { eatingProfile } from "./eating";
 import { isOpenAt } from "./hours";
 import { haversineKm, type LngLat } from "../geo/geo";
@@ -157,7 +157,7 @@ function venuesFor(d: Dish, f: WhatToEatFilters, ctx: WteContext, cautions: L[])
 export function dishBlocker(d: Dish, f: WhatToEatFilters, ctx: WteContext): string | null {
   if (f.strictMeal && !mealFits(d, f.meal)) return "meal";
   for (const p of f.diet) if (!dishMatchesDiet(d, [p])) return `diet:${p}`;
-  if (d.spiceLevel > f.maxSpice) return "maxSpice";
+  if (!spiceWithin(d, f.maxSpice)) return "maxSpice"; // unknown spice never passes a limit (KEX-IMPORT-01)
   if (f.regions.length && !d.regionIds.some((x) => f.regions.includes(x))) return "regions";
   if (ctx.history.notInterested.has(d.id)) return "notInterested";
   if (f.savedOnly && !ctx.history.saved.includes(d.id)) return "savedOnly";

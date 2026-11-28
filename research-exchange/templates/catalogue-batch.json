@@ -15,7 +15,7 @@
       "origins": "region:Đông Nam Bộ",
       "ingredients": "rice; chicken; garlic",
       "taste": "savory; crunchy",
-      "spiceLevel": 0,
+      "spiceLevel": "omit when not sourced (unknown is never 0)",
       "dietary": "contains-poultry",
       "mealTimes": "lunch; dinner",
       "descriptionEn": "…",

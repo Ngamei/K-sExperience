@@ -135,7 +135,8 @@ export const DishSchema = z.object({
   regionIds: z.array(z.enum(REGION_IDS)).min(1),
   ingredients: z.array(z.string()),
   taste: z.array(z.enum(TASTES)),
-  spiceLevel: z.number().int().min(0).max(3),
+  /** 0–3, or absent when the intensity is not recorded (unknown). Never defaulted to 0: unknown must not pass "no spice". */
+  spiceLevel: z.number().int().min(0).max(3).optional(),
   dietary: z.array(z.enum(DIETARY)),
   mealTimes: z.array(z.enum(MEAL_TIMES)),
   description: localized,

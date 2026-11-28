@@ -79,7 +79,7 @@ w("templates/venues-batch.json", json({
 w("templates/catalogue-batch.json", json({
   batchId: "GPT-CAT-001", experience: "food", kind: "catalogue", agent: "chatgpt", researchedOn: "YYYY-MM-DD", method: "…",
   dishes: [{ nameVi: "Cơm gà xối mỡ", nameEn: "Crispy fried chicken rice", category: "Món mặn", dishType: "rice", family: "", origins: "region:Đông Nam Bộ",
-    ingredients: "rice; chicken; garlic", taste: "savory; crunchy", spiceLevel: 0, dietary: "contains-poultry", mealTimes: "lunch; dinner",
+    ingredients: "rice; chicken; garlic", taste: "savory; crunchy", spiceLevel: "omit when not sourced (unknown is never 0)", dietary: "contains-poultry", mealTimes: "lunch; dinner",
     descriptionEn: "…", descriptionVi: "…", sources: "https://…", verificationStatus: "pending-review",
     cookingMethods: "fried", proteins: "poultry", portion: "hearty", eatingSource: "Source title", eatingSourceUrl: "https://…", eatingConfidence: "sourced" }],
 }));

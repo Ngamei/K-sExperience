@@ -161,5 +161,16 @@ exception when check_violation then insert into results values ('nutrition witho
 update restaurants set dining = '{"atmosphere": ["quiet"]}' where id = 'test-cafe';
 insert into results select 'restaurant dining stored', count(*) = 1 from restaurants where dining->'atmosphere' ? 'quiet';
 
+-- 0009 (KEX-IMPORT-01): unknown spice is NULL, never defaulted to 0; the 0–3 check still applies
+insert into dishes (id, name_vi, name_en, category, dish_type, ingredients, taste, dietary, meal_times, description_vi, description_en, prominence, dataset, verification_status)
+values ('kex-unknown-spice', 'Món thử', 'Test dish', 'savory', 'rice', '{}', '{}', '{}', '{}', '', '', 3, 'master', 'pending-review');
+insert into results select 'omitted spice stored as NULL (not 0)', spice_level is null from dishes where id = 'kex-unknown-spice';
+insert into results select 'unknown spice excluded by a strict no-spice query', count(*) = 0 from dishes where id = 'kex-unknown-spice' and spice_level <= 0;
+do $$ begin
+  update dishes set spice_level = 5 where id = 'kex-unknown-spice';
+  insert into results values ('spice outside 0–3 rejected', false);
+exception when check_violation then insert into results values ('spice outside 0–3 rejected', true); end $$;
+insert into results select 'seeded legacy spice levels unchanged (all recorded)', count(*) = 0 from dishes where id <> 'kex-unknown-spice' and spice_level is null;
+
 select (case when ok then 'PASS ' else 'FAIL ' end) || name from results;
 select case when bool_and(ok) then 'ALL DB TESTS PASSED' else 'DB TESTS FAILED' end from results;

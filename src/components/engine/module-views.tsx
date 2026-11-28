@@ -307,6 +307,7 @@ export function EstablishmentsView({ d, title }: { d: ModuleData; title: L }) {
     return (
       <div className="mx-auto max-w-3xl space-y-4 px-4 py-6 md:px-6 md:py-10" data-testid="establishment-detail">
         <Header eyebrow={loc(m.terms.establishment, locale)} title={detail.name} sub={detail.address} />
+        {detail.coordinatePrecision === "street" && <p className="text-xs text-[#8a6420]" data-testid="approx-location">{loc(COPY.approxLocation, locale)}</p>}
         <Button variant={p.visited[detail.id] ? "primary" : "outline"} size="sm" onClick={() => toggleVisited(detail.id)} data-testid="establishment-visited"><Check /> {loc(COPY.visited, locale)}</Button>
         {m.establishmentAttributes.some((a) => attrValue(a, detail.attributes?.[a.id], locale)) && (
           <DetailBlock title={loc(COPY.features, locale)} testid="establishment-features">

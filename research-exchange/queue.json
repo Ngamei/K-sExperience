@@ -320,6 +320,38 @@
       },
       "updatedAt": "2026-11-28",
       "notes": "External batch id BAR-CRAFT-20261128-01; raw files in research-exchange/incoming/BAR-CRAFT-20261128-01/. Excluded by researcher: 7 Bridges Makers Yard (opens Dec 2026), Ong Cao / LAC / Winking Seal / Tê Tê Nguyễn Văn Thủ (closed), Broma (craft beer unconfirmed)."
+    },
+    {
+      "batchId": "CC-BARS-003",
+      "experience": "bars",
+      "kind": "venues",
+      "scope": "KEX-QA-02: withheld GPT-BARS-001 Pasteur Street branches (Bùi Viện, Phú Mỹ Hưng) with OSM-mapped locations; Hoàng Sa stays withheld",
+      "claims": {
+        "items": [
+          "craft-beer"
+        ],
+        "districts": [
+          "Quận 1",
+          "Quận 7"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "validated",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms",
+        "https://www.openstreetmap.org/node/13541335701",
+        "https://www.openstreetmap.org/way/1510577907"
+      ],
+      "importStatus": "dry run only",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 2,
+        "rejected": 0,
+        "warnings": 0,
+        "report": "research-exchange/reports/CC-BARS-003.md"
+      },
+      "updatedAt": "2026-11-28",
+      "notes": "Dry run only — apply held for Codex/PO review (no production push)."
     }
   ]
 }

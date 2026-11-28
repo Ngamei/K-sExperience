@@ -148,7 +148,7 @@ const out = rows.trim().split("\n").map((line, i) => {
   const parts = line.split("|");
   if (parts.length !== cols.length) throw new Error(`Row ${i + 1} has ${parts.length} columns: ${line.slice(0, 40)}`);
   const o = Object.fromEntries(cols.map((c, j) => [c, parts[j].trim()]));
-  o.prominence = Number(o.prominence); o.spiceLevel = Number(o.spiceLevel);
+  o.prominence = Number(o.prominence); if (o.spiceLevel === "") delete o.spiceLevel; else o.spiceLevel = Number(o.spiceLevel); // blank = unknown, never 0
   if (!o.family) delete o.family;
   o.verificationStatus = "seed-unverified";
   return o;

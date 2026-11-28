@@ -55,6 +55,12 @@ export interface FilterContext {
   provincesById?: Map<string, Province>;
 }
 
+/**
+ * Spice limit check (KEX-IMPORT-01): a dish with UNKNOWN intensity never satisfies a limit below 3 ("any"),
+ * so an unrecorded spice level can never match "no spice" / "mild only".
+ */
+export const spiceWithin = (d: Pick<Dish, "spiceLevel">, max: number) => max >= 3 || (d.spiceLevel !== undefined && d.spiceLevel <= max);
+
 export function dishMatchesDiet(d: Dish, prefs: DietPref[]): boolean {
   return prefs.every((p) => {
     const rule = DIET_PREFS[p] as { include?: readonly Dietary[]; exclude?: readonly Dietary[] };
@@ -93,7 +99,7 @@ export function dishMatches(d: Dish, f: DishFilters, ctx: FilterContext): boolea
     if (!d.ingredients.some((i) => normalizeVi(i).includes(q))) return false;
   }
   if (f.tastes.length && !f.tastes.every((t) => d.taste.includes(t))) return false;
-  if (f.maxSpice !== null && d.spiceLevel > f.maxSpice) return false;
+  if (f.maxSpice !== null && !spiceWithin(d, f.maxSpice)) return false;
   if (f.diet.length && !dishMatchesDiet(d, f.diet)) return false;
   if (f.mealTimes.length && !d.mealTimes.some((m) => f.mealTimes.includes(m))) return false;
   if (f.availability.length && !f.availability.includes(statusOf(ctx.availability, d.id))) return false;

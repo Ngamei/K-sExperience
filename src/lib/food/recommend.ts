@@ -1,6 +1,6 @@
 import type { Category, Dish, MealTime, RegionId } from "../data/schema";
 import { type AvailabilityIndex, statusOf } from "./availability";
-import { type DietPref, dishMatchesDiet } from "./filters";
+import { type DietPref, dishMatchesDiet, spiceWithin } from "./filters";
 
 export interface Preferences {
   categories: Category[];
@@ -18,7 +18,7 @@ export const DEFAULT_PREFERENCES: Preferences = { categories: [], regions: [], m
  * influence real recommendations.
  */
 export function scoreDish(d: Dish, p: Preferences, ctx: { availability: AvailabilityIndex; tried: Set<string> }): number {
-  if (d.spiceLevel > p.maxSpice) return -1;
+  if (!spiceWithin(d, p.maxSpice)) return -1;
   if (p.diet.length && !dishMatchesDiet(d, p.diet)) return -1;
   if (p.categories.length && !p.categories.includes(d.category)) return -1;
   let s = 1;

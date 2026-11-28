@@ -17,7 +17,7 @@ import os from "node:os";
 import path from "node:path";
 import { BatchSchema, geocodeProblem, validateVenues, type Batch, type ExistingEstablishment, type VenueVerdict } from "../src/lib/data/exchange";
 import { overlaps, queueMarkdown, readQueue, upsertEntry, writeQueue } from "../src/lib/data/exchange-queue";
-import type { LngLat } from "../src/lib/geo/geo";
+import { haversineKm, type LngLat } from "../src/lib/geo/geo";
 
 const root = path.resolve(__dirname, "..");
 const X = path.join(root, "research-exchange");
@@ -135,9 +135,26 @@ if (!apply) {
 (batch.venues ?? []).forEach((v, i) => {
   const vd = verdicts[i];
   if (vd.decision !== "accept") return;
-  if (v.lon != null && v.lat != null) { geo[`${v.name}|${v.address}|${v.district ?? ""}`] = { lon: v.lon, lat: v.lat, precision: "exact", ward: null, displayName: "researcher-supplied coordinates" }; return; }
+  if (v.lon != null && v.lat != null) {
+    geo[`${v.name}|${v.address}|${v.district ?? ""}`] = { lon: v.lon, lat: v.lat, precision: "exact", ward: null, displayName: "researcher-supplied coordinates" };
+    const c = v.district ? DISTRICTS[v.district] : undefined;
+    if (c && haversineKm(c, [v.lon, v.lat]) > 6) { vd.decision = "reject"; vd.action = "none"; vd.reasons.push(`coordinates: supplied point is ${haversineKm(c, [v.lon, v.lat]).toFixed(1)} km from ${v.district}`); }
+    return;
+  }
   const p = geocodeProblem(v, geo[`${v.name}|${v.address}|${v.district ?? ""}`], DISTRICTS);
   if (p) { vd.decision = "reject"; vd.action = "none"; vd.reasons.push(`coordinates: ${p}`); }
+});
+// KEX-QA-02: a street-level geocode is a street-segment point, so different addresses on one street can get the
+// identical point. Flag it (never presented as exact; the UI labels street-level pins as approximate).
+const pinOf = (i: number) => { const v = (batch.venues ?? [])[i]; return v ? geo[`${v.name}|${v.address}|${v.district ?? ""}`] : undefined; };
+(batch.venues ?? []).forEach((v, i) => {
+  const vd = verdicts[i], g = pinOf(i);
+  if (vd.decision !== "accept" || g?.precision !== "street" || g.lon === undefined) return;
+  const same = [
+    ...(batch.venues ?? []).map((w, j) => (j !== i && verdicts[j].decision === "accept" && pinOf(j)?.lon === g.lon && pinOf(j)?.lat === g.lat ? w.name : null)),
+    ...ests.filter((e) => e.id !== vd.id && e.coordinates[0] === g.lon && e.coordinates[1] === g.lat).map((e) => `${e.name} (${e.experience})`),
+  ].filter(Boolean);
+  if (same.length) vd.warnings.push(`shares an identical street-level point with ${same.join(", ")} — location approximate (house number not mapped)`);
 });
 const accepted = verdicts.filter((v) => v.decision === "accept");
 const rejected = verdicts.filter((v) => v.decision === "reject");
