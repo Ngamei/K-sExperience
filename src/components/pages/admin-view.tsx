@@ -22,7 +22,7 @@ import { DishEditor, EvidenceEditor, RestaurantEditor, field, label, type Saver 
 import { ModuleAdmin, type ModuleTab } from "@/components/admin/module-admin";
 import { EXPERIENCES, isSelectable, loc, type ExperienceId } from "@/experiences/registry";
 import { adminAllowed, adminGate, canEdit, canManageMembers, localAdminAllowed, STAFF_ROLE_LABELS, STAFF_ROLES, type AdminGate, type StaffRole } from "@/lib/admin/access";
-import { PLANS, TIERS, usd, type Tier } from "@/lib/membership/plans";
+import { annualSavingsPct, B2B_PLANS, LIMITS, PLANS, projectRevenue, TIERS, usd, type Tier } from "@/lib/membership/plans";
 import { DEV_DATA } from "@/lib/env";
 import { useUser } from "@/lib/store/user";
 import { cn } from "@/lib/utils";
@@ -330,12 +330,48 @@ function UsersMemberships({ role, user }: { role: StaffRole | null; user: User |
 }
 
 function Billing() {
+  const [users, setUsers] = useState(10000);
+  const [plusPct, setPlusPct] = useState(8);
+  const [premiumPct, setPremiumPct] = useState(3);
+  const r = projectRevenue(users, plusPct / 100, premiumPct / 100);
+  const lim = (n: number) => (n === Infinity ? "Unlimited" : String(n));
+  const num = "h-9 w-28 rounded-xl border border-line bg-paper px-3 text-sm";
+  const kpi = (l: string, v: string, id: string) => <div className="rounded-2xl border border-line/80 bg-paper p-4"><dt className="text-xs text-muted">{l}</dt><dd className="font-display text-2xl text-forest" data-testid={id}>{v}</dd></div>;
   return (
-    <section className="space-y-3" data-testid="admin-billing">
-      <p className="rounded-2xl border border-[#e9d9a6] bg-[#fbf3d9] p-3 text-sm text-[#5f4a0f]">No live payments. Subscription payment integration is a P1 item awaiting Product Owner approval of a payment provider; until then tiers are test entitlements (Users &amp; Memberships).</p>
-      <table className="w-full max-w-xl text-sm"><thead><tr className="text-left text-xs text-muted"><th className="py-1">Plan</th><th>Monthly (USD)</th><th>Yearly (USD)</th></tr></thead>
-        <tbody>{TIERS.map((x) => <tr key={x} className="border-t border-line/60"><td className="py-1.5">{PLANS[x].name}</td><td>{PLANS[x].monthly === null ? "$0" : usd(PLANS[x].monthly!)}</td><td>{PLANS[x].yearly === null ? "$0" : usd(PLANS[x].yearly!)}</td></tr>)}</tbody></table>
-      <p className="text-xs text-muted">Proposed prices (docs/DECISIONS.md D70 — needs PO confirmation).</p>
+    <section className="space-y-5" data-testid="admin-billing">
+      <p className="rounded-2xl border border-[#e9d9a6] bg-[#fbf3d9] p-3 text-sm text-[#5f4a0f]">No live payments. Subscription payment integration is a P1 item awaiting Product Owner approval of a payment provider; until then tiers are test entitlements (Users &amp; Memberships). Limits are defined but not enforced (<code>LIMITS_ENFORCED = false</code>).</p>
+      <div>
+        <h3 className="mb-1 font-display text-lg">Pricing (USD, introductory hypothesis — D70)</h3>
+        <table className="w-full max-w-xl text-sm" data-testid="billing-prices"><thead><tr className="text-left text-xs text-muted"><th className="py-1">Membership</th><th>Monthly</th><th>Annually</th><th>Annual savings</th></tr></thead>
+          <tbody>{TIERS.map((x) => <tr key={x} className="border-t border-line/60"><td className="py-1.5">{PLANS[x].name}</td><td>{PLANS[x].monthly === null ? "$0" : usd(PLANS[x].monthly!)}</td><td>{PLANS[x].yearly === null ? "$0" : usd(PLANS[x].yearly!)}</td><td>{annualSavingsPct(x) === null ? "—" : `${annualSavingsPct(x)}%`}</td></tr>)}</tbody></table>
+      </div>
+      <div>
+        <h3 className="mb-1 font-display text-lg">Entitlement limits (D71)</h3>
+        <table className="w-full max-w-xl text-sm"><thead><tr className="text-left text-xs text-muted"><th className="py-1">Limit</th>{TIERS.map((x) => <th key={x}>{PLANS[x].name}</th>)}</tr></thead>
+          <tbody>
+            <tr className="border-t border-line/60"><td className="py-1.5">Favourites per experience</td>{TIERS.map((x) => <td key={x}>{lim(LIMITS.favouritesPerExperience[x])}</td>)}</tr>
+            <tr className="border-t border-line/60"><td className="py-1.5">Detailed menu views / month <Badge tone="outline">not built</Badge></td>{TIERS.map((x) => <td key={x}>{lim(LIMITS.menuViewsPerMonth[x])}</td>)}</tr>
+          </tbody></table>
+      </div>
+      <div className="rounded-2xl border border-line/80 bg-paper p-4">
+        <h3 className="font-display text-lg">Revenue projection</h3>
+        <div className="mt-2 flex flex-wrap gap-3 text-sm">
+          <label><span className={label}>Registered users</span><input type="number" min={0} className={num} value={users} onChange={(e) => setUsers(Math.max(0, Number(e.target.value) || 0))} data-testid="proj-users" /></label>
+          <label><span className={label}>Plus conversion %</span><input type="number" min={0} max={100} step={0.5} className={num} value={plusPct} onChange={(e) => setPlusPct(Number(e.target.value) || 0)} data-testid="proj-plus" /></label>
+          <label><span className={label}>Premium conversion %</span><input type="number" min={0} max={100} step={0.5} className={num} value={premiumPct} onChange={(e) => setPremiumPct(Number(e.target.value) || 0)} data-testid="proj-premium" /></label>
+        </div>
+        <dl className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-5">
+          {kpi("Free users", r.free.toLocaleString("en-US"), "proj-free-users")}{kpi("Plus users", r.plus.toLocaleString("en-US"), "proj-plus-users")}{kpi("Premium users", r.premium.toLocaleString("en-US"), "proj-premium-users")}
+          {kpi("Monthly recurring revenue", usd(r.mrr), "proj-mrr")}{kpi("Annualised recurring revenue", usd(r.arr), "proj-arr")}
+        </dl>
+        <p className="mt-2 text-xs text-muted">Hypothetical gross subscription revenue at monthly prices, excluding taxes, payment fees, churn, annual-plan discounts and operating costs. Payment fees can take a large share of a $1.99 charge — validate with the chosen provider before finalising prices.</p>
+      </div>
+      <div>
+        <h3 className="mb-1 font-display text-lg">Business memberships — deferred (D74)</h3>
+        <table className="w-full max-w-md text-sm"><tbody>{B2B_PLANS.map((b) => <tr key={b.name} className="border-t border-line/60"><td className="py-1.5">{b.name}</td><td>{b.monthly === null ? "$0" : b.monthly === "custom" ? "Custom pricing" : `${usd(b.monthly)}/month`}</td></tr>)}</tbody></table>
+        <p className="mt-1 text-xs text-muted">Not offered until there is an established customer base.</p>
+      </div>
+      <p className="text-xs text-muted">Currency (D73): memberships in USD · Vietnamese establishments&apos; menu and service prices in VND · internal reporting in USD (local currency where needed) · checkout must show the billing currency and final amount before confirmation.</p>
     </section>
   );
 }

@@ -63,12 +63,12 @@ test("Free customer: plan shown, cannot self-assign Premium or a staff role, Adm
   const email = unique("free");
   await signup(page, email);
   await expectCustomerSettings(page);
-  await expect(page.getByTestId("membership-tier")).toHaveText("Free");
+  await expect(page.getByTestId("membership-tier")).toHaveText("K's Free");
   const uid = await userId(email);
   expect(await restWrite(page, "user_memberships", { user_id: uid, tier: "premium" })).toBe(403);
   expect(await restWrite(page, "user_roles", { user_id: uid, role: "admin" })).toBe(403);
   await page.reload();
-  await expect(page.getByTestId("membership-tier")).toHaveText("Free");
+  await expect(page.getByTestId("membership-tier")).toHaveText("K's Free");
   await expectAdminDenied(page, "not-editor");
 });
 
@@ -79,7 +79,7 @@ for (const tier of ["plus", "premium"] as const) {
     await mock(`/__membership?email=${encodeURIComponent(email)}&tier=${tier}`);
     await page.reload(); // membership is read on sign-in / page load
     await expectCustomerSettings(page);
-    const name = tier === "plus" ? "Plus" : "Premium";
+    const name = tier === "plus" ? "K's Plus" : "K's Premium";
     await expect(page.getByTestId("membership-tier")).toHaveText(name);
     await page.goto("/membership/");
     await expect(page.getByTestId(`membership-plan-${tier}`)).toHaveAttribute("data-current", "true");
@@ -126,7 +126,7 @@ test("admin: full portal, grants a test entitlement that the customer then sees"
   await page.getByTestId("membership-grant").click();
   await expect(page.getByTestId("membership-message")).toHaveText("Saved ✓");
   await cpage.goto("/settings/");
-  await expect(cpage.getByTestId("membership-tier")).toHaveText("Premium");
+  await expect(cpage.getByTestId("membership-tier")).toHaveText("K's Premium");
   await expectAdminDenied(cpage, "not-editor"); // Premium ≠ admin
   await other.close();
 });

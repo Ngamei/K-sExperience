@@ -16,6 +16,16 @@ Environment: Linux cloud container, Node 22.23.5, headless Chromium (Playwright)
 
 **Bug fixed:** the old Settings "Reset my data" (`useUser.reset()`) kept `ownerId`, so for a signed-in user the diff sync treated the emptied device as deletions and removed the account's Passport. Replaced by `clearDevice()` (detaches the device copy first) + `reloadFromAccount()`; the debounced sync also aborts if the device data no longer belongs to the account. Covered by test 6.
 
+### Addendum — membership pricing & benefits (D70, D71, D73, D74)
+| Command | Result |
+| --- | --- |
+| `npx tsc --noEmit` · `npm run lint` | ✅ · ✅ 0 errors (1 pre-existing warning) |
+| `npx vitest run` | ✅ **21 files, 166 tests** — savings 16.3% / 16.5%; projection 10,000 users · 8% · 3% → 8,900 / 800 / 300, MRR $2,789, ARR $33,468; limits 20/150/∞ and 5/30/∞; enforcement off; unbuilt benefits never marked available |
+| `npm run build:e2e` + `npx playwright test` | ✅ **103 passed, 1 skipped (pre-existing)** — Membership benefits, savings, "Coming" labels, currency note (EN + VI); Admin → Subscriptions & Billing projection ($2,789.00 / $33,468.00; 20,000 users → $5,578.00) |
+| `npm run build:auth-test` + `npm run test:e2e-auth` | ✅ **46 passed** (plan names now "K's Free / K's Plus / K's Premium") |
+
+Screenshots: `docs/screenshots/settings-admin/after-membership-*.png`, `after-admin-billing-*.png`.
+
 **Screenshots:** `docs/screenshots/settings-admin/` — `before-*` (old Settings with Data mode, Catalogue administration, coverage table) and `after-*` (guest + Premium Settings, Privacy guest/signed-in, Membership, Admin denied for guest and Premium, Admin Overview / Users & Memberships / System Health; desktop + mobile).
 
 **Not verified (blockers):** nothing ran against the live Supabase project; migration 0013 is not applied (a merge to `main` applies it, D65). Real account creation and cross-device persistence remain unverified on hosted Supabase (test inboxes and independent browser profiles unavailable — KEX-AUTH-01). Account tests use the mock; the RLS rules are proven only in local PostgreSQL. Codex independent review of the access control is still required.

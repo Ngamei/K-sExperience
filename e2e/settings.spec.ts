@@ -31,6 +31,18 @@ test.describe("customer Settings", () => {
     await expect(page.getByTestId("membership-plan-premium")).toContainText("$3.99");
     await expect(page.getByTestId("membership-plan-premium")).toContainText("$39.99");
     await expect(page.getByTestId("membership-not-on-sale")).toBeVisible();
+    await expect(page.getByTestId("membership-yearly-plus")).toContainText("save 16.3%");
+    await expect(page.getByTestId("membership-yearly-premium")).toContainText("save 16.5%");
+    await expect(page.getByTestId("membership-plan-free")).toContainText("Free forever");
+    await expect(page.getByTestId("benefit-free-favourites")).toHaveText("20 favourites per experience");
+    await expect(page.getByTestId("benefit-plus-favourites")).toHaveText("150 favourites per experience");
+    await expect(page.getByTestId("benefit-premium-favourites")).toHaveText("Unlimited favourites");
+    // Unbuilt benefits are labelled "Coming", never shown as available.
+    for (const id of ["free-menuViews", "plus-nutrition", "plus-advancedPrefs", "plus-menuViews", "premium-menuPrices", "premium-priceCompare"]) {
+      await expect(page.getByTestId(`benefit-${id}`)).toHaveAttribute("data-available", "false");
+      await expect(page.getByTestId(`benefit-${id}`)).toContainText("Coming");
+    }
+    await expect(page.getByTestId("membership-currency-note")).toContainText("US dollars");
     await expect(page.getByRole("button", { name: /subscribe|buy|checkout/i })).toHaveCount(0);
   });
 
@@ -44,6 +56,8 @@ test.describe("customer Settings", () => {
     await expect(page.getByTestId("privacy-clear-device")).toContainText("Xóa dữ liệu trên thiết bị này");
     await page.goto("/membership/");
     await expect(page.getByTestId("membership-not-on-sale")).toContainText("không thu bất kỳ khoản phí nào");
+    await expect(page.getByTestId("benefit-plus-nutrition")).toContainText("Calo & dinh dưỡng");
+    await expect(page.getByTestId("membership-yearly-plus")).toContainText("tiết kiệm 16.3%");
   });
 });
 
@@ -104,6 +118,13 @@ test.describe("Admin Portal (local mode)", () => {
     await page.getByTestId("admin-section-catalogue").click();
     await page.getByTestId("admin-mode-coffee").click();
     await expect(page.getByTestId("module-admin")).toHaveAttribute("data-experience", "coffee");
+    await page.goto("/admin/#billing");
+    await expect(page.getByTestId("proj-mrr")).toHaveText("$2,789.00");
+    await expect(page.getByTestId("proj-arr")).toHaveText("$33,468.00");
+    await expect(page.getByTestId("proj-free-users")).toHaveText("8,900");
+    await expect(page.getByTestId("billing-prices")).toContainText("16.3%");
+    await page.getByTestId("proj-users").fill("20000");
+    await expect(page.getByTestId("proj-mrr")).toHaveText("$5,578.00");
     await page.goto("/admin/#system");
     await expect(page.getByTestId("system-data-mode")).toContainText("Local mode");
     await expect(page.getByTestId("toggle-samples")).toBeVisible();
