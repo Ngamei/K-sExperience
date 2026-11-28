@@ -3,6 +3,12 @@
 _Run date: 2026-11-28 (re-run after PO decisions D55–D58: mobile nav, soft meal time, pastel themes, research exchange) · Branch `claude/trusting-clarke-44sf7b` · Environment: Linux cloud container, Node 22.23.5, npm 10.9.9,
 headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is the branch head that contains this file.
 
+## 2026-11-28 · 4 Commons dish photos
+
+- Added to `data/source/dish-photos.json` → `npm run data:seed` (138/138 imported) → dishes with a photo 45 → 49. `db:seed-sql`, `data:report`, `exchange:export` regenerated.
+- `npm run qa` → **exit 0**: vitest 20 files / 159 tests, e2e 93 passed, e2e-auth 32, e2e-modules 46.
+- Known: images were chosen from Commons metadata (title/description/category name the exact dish); the image hosts are rate-limited/blocked from the sandbox, so the **visual check is pending** — PO to confirm on the four dish pages.
+
 ## 2026-11-28 · CC-FOOD-010 mia.vn bulk import
 
 - `npm run intake -- research-exchange/inbox/CC-FOOD-010.json` (dry run) → 277 accepted, 102 rejected, 2 warnings (claims overlap with GPT-PMHFOOD-001 in Quận 7). First dry run hit a geocoder failure (71 venues un-geocoded); the re-run geocoded them.
