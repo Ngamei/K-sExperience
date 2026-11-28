@@ -1,0 +1,3680 @@
+{
+  "generated": "2026-11-28",
+  "targets": [
+    {
+      "key": "nameCategory",
+      "label": "Business name & category",
+      "short": "Name",
+      "target": 100
+    },
+    {
+      "key": "address",
+      "label": "Verified address",
+      "short": "Address",
+      "target": 100
+    },
+    {
+      "key": "location",
+      "label": "Validated location",
+      "short": "Pin",
+      "target": 100
+    },
+    {
+      "key": "status",
+      "label": "Operating status",
+      "short": "Status",
+      "target": 90
+    },
+    {
+      "key": "contact",
+      "label": "Phone or contact channel",
+      "short": "Contact",
+      "target": 85
+    },
+    {
+      "key": "hours",
+      "label": "Opening hours",
+      "short": "Hours",
+      "target": 80
+    },
+    {
+      "key": "menu",
+      "label": "Menu or service list",
+      "short": "Menu",
+      "target": 80
+    },
+    {
+      "key": "prices",
+      "label": "Published prices",
+      "short": "Prices",
+      "target": 70
+    },
+    {
+      "key": "photo",
+      "label": "Actual business photography",
+      "short": "Photo",
+      "target": 50
+    }
+  ],
+  "definitions": {
+    "nameCategory": "name and venueType present",
+    "address": "street address (contains a house number or street) and ≥ 1 cited source",
+    "location": "pin precision exact or building (street-level pins are approximate)",
+    "status": "closure recorded, or checked ≤ 365 days ago AND the record carries a live operating signal (opening hours, contact channel or delivery link) — a listicle mention alone does not confirm the business is operating",
+    "contact": "phone, website, social page or a delivery/booking link",
+    "phone": "phone number recorded (contact.phone)",
+    "hours": "opening hours recorded",
+    "menu": "a menu/service list: ≥ 1 link evidenced by an official menu, delivery listing or menu photo, or ≥ 5 real dish/item links (one listicle dish mention is not a menu)",
+    "prices": "≥ 1 real dish/item link with a published price",
+    "photo": "≥ 1 real photo of the business (data/venue-photos.json), not an illustration",
+    "fresh90": "last checked ≤ 90 days ago"
+  },
+  "overall": {
+    "total": 435,
+    "fields": {
+      "nameCategory": {
+        "count": 435,
+        "pct": 100
+      },
+      "address": {
+        "count": 435,
+        "pct": 100
+      },
+      "location": {
+        "count": 85,
+        "pct": 19.5
+      },
+      "status": {
+        "count": 138,
+        "pct": 31.7
+      },
+      "contact": {
+        "count": 0,
+        "pct": 0
+      },
+      "hours": {
+        "count": 135,
+        "pct": 31
+      },
+      "menu": {
+        "count": 0,
+        "pct": 0
+      },
+      "prices": {
+        "count": 1,
+        "pct": 0.2
+      },
+      "photo": {
+        "count": 1,
+        "pct": 0.2
+      },
+      "phone": {
+        "count": 0,
+        "pct": 0
+      },
+      "fresh90": {
+        "count": 435,
+        "pct": 100
+      }
+    },
+    "launchReady": 0,
+    "medianAgeDays": 0
+  },
+  "byArea": [
+    {
+      "id": "thao-dien-an-phu",
+      "label": "Thảo Điền & An Phú",
+      "owner": "ChatGPT",
+      "rule": "inside the Thảo Điền or An Phú – An Khánh polygon",
+      "total": 8,
+      "fields": {
+        "nameCategory": {
+          "count": 8,
+          "pct": 100
+        },
+        "address": {
+          "count": 8,
+          "pct": 100
+        },
+        "location": {
+          "count": 1,
+          "pct": 12.5
+        },
+        "status": {
+          "count": 0,
+          "pct": 0
+        },
+        "contact": {
+          "count": 0,
+          "pct": 0
+        },
+        "hours": {
+          "count": 0,
+          "pct": 0
+        },
+        "menu": {
+          "count": 0,
+          "pct": 0
+        },
+        "prices": {
+          "count": 0,
+          "pct": 0
+        },
+        "photo": {
+          "count": 0,
+          "pct": 0
+        },
+        "phone": {
+          "count": 0,
+          "pct": 0
+        },
+        "fresh90": {
+          "count": 8,
+          "pct": 100
+        }
+      },
+      "launchReady": 0,
+      "medianAgeDays": 0
+    },
+    {
+      "id": "sala-thu-thiem",
+      "label": "Sala & Thủ Thiêm",
+      "owner": "ChatGPT",
+      "rule": "inside the Sala – Thủ Thiêm polygon",
+      "total": 2,
+      "fields": {
+        "nameCategory": {
+          "count": 2,
+          "pct": 100
+        },
+        "address": {
+          "count": 2,
+          "pct": 100
+        },
+        "location": {
+          "count": 1,
+          "pct": 50
+        },
+        "status": {
+          "count": 0,
+          "pct": 0
+        },
+        "contact": {
+          "count": 0,
+          "pct": 0
+        },
+        "hours": {
+          "count": 0,
+          "pct": 0
+        },
+        "menu": {
+          "count": 0,
+          "pct": 0
+        },
+        "prices": {
+          "count": 0,
+          "pct": 0
+        },
+        "photo": {
+          "count": 0,
+          "pct": 0
+        },
+        "phone": {
+          "count": 0,
+          "pct": 0
+        },
+        "fresh90": {
+          "count": 2,
+          "pct": 100
+        }
+      },
+      "launchReady": 0,
+      "medianAgeDays": 0
+    },
+    {
+      "id": "q7-phu-my-hung",
+      "label": "Q7 & Phú Mỹ Hưng",
+      "owner": "ChatGPT",
+      "rule": "inside the Phú Mỹ Hưng polygon or address in former Quận 7",
+      "total": 30,
+      "fields": {
+        "nameCategory": {
+          "count": 30,
+          "pct": 100
+        },
+        "address": {
+          "count": 30,
+          "pct": 100
+        },
+        "location": {
+          "count": 7,
+          "pct": 23.3
+        },
+        "status": {
+          "count": 8,
+          "pct": 26.7
+        },
+        "contact": {
+          "count": 0,
+          "pct": 0
+        },
+        "hours": {
+          "count": 8,
+          "pct": 26.7
+        },
+        "menu": {
+          "count": 0,
+          "pct": 0
+        },
+        "prices": {
+          "count": 0,
+          "pct": 0
+        },
+        "photo": {
+          "count": 0,
+          "pct": 0
+        },
+        "phone": {
+          "count": 0,
+          "pct": 0
+        },
+        "fresh90": {
+          "count": 30,
+          "pct": 100
+        }
+      },
+      "launchReady": 0,
+      "medianAgeDays": 0
+    },
+    {
+      "id": "q1-q3",
+      "label": "Q1 & Q3",
+      "owner": "Claude Code",
+      "rule": "address in former Quận 1 or Quận 3",
+      "total": 150,
+      "fields": {
+        "nameCategory": {
+          "count": 150,
+          "pct": 100
+        },
+        "address": {
+          "count": 150,
+          "pct": 100
+        },
+        "location": {
+          "count": 39,
+          "pct": 26
+        },
+        "status": {
+          "count": 41,
+          "pct": 27.3
+        },
+        "contact": {
+          "count": 0,
+          "pct": 0
+        },
+        "hours": {
+          "count": 38,
+          "pct": 25.3
+        },
+        "menu": {
+          "count": 0,
+          "pct": 0
+        },
+        "prices": {
+          "count": 1,
+          "pct": 0.7
+        },
+        "photo": {
+          "count": 1,
+          "pct": 0.7
+        },
+        "phone": {
+          "count": 0,
+          "pct": 0
+        },
+        "fresh90": {
+          "count": 150,
+          "pct": 100
+        }
+      },
+      "launchReady": 0,
+      "medianAgeDays": 0
+    },
+    {
+      "id": "phu-nhuan-binh-thanh",
+      "label": "Phú Nhuận & Bình Thạnh",
+      "owner": "Claude Code",
+      "rule": "address in former Phú Nhuận or Bình Thạnh",
+      "total": 27,
+      "fields": {
+        "nameCategory": {
+          "count": 27,
+          "pct": 100
+        },
+        "address": {
+          "count": 27,
+          "pct": 100
+        },
+        "location": {
+          "count": 0,
+          "pct": 0
+        },
+        "status": {
+          "count": 9,
+          "pct": 33.3
+        },
+        "contact": {
+          "count": 0,
+          "pct": 0
+        },
+        "hours": {
+          "count": 9,
+          "pct": 33.3
+        },
+        "menu": {
+          "count": 0,
+          "pct": 0
+        },
+        "prices": {
+          "count": 0,
+          "pct": 0
+        },
+        "photo": {
+          "count": 0,
+          "pct": 0
+        },
+        "phone": {
+          "count": 0,
+          "pct": 0
+        },
+        "fresh90": {
+          "count": 27,
+          "pct": 100
+        }
+      },
+      "launchReady": 0,
+      "medianAgeDays": 0
+    },
+    {
+      "id": "other",
+      "label": "Other districts",
+      "owner": "unassigned",
+      "rule": "address names another former district",
+      "total": 188,
+      "fields": {
+        "nameCategory": {
+          "count": 188,
+          "pct": 100
+        },
+        "address": {
+          "count": 188,
+          "pct": 100
+        },
+        "location": {
+          "count": 26,
+          "pct": 13.8
+        },
+        "status": {
+          "count": 80,
+          "pct": 42.6
+        },
+        "contact": {
+          "count": 0,
+          "pct": 0
+        },
+        "hours": {
+          "count": 80,
+          "pct": 42.6
+        },
+        "menu": {
+          "count": 0,
+          "pct": 0
+        },
+        "prices": {
+          "count": 0,
+          "pct": 0
+        },
+        "photo": {
+          "count": 0,
+          "pct": 0
+        },
+        "phone": {
+          "count": 0,
+          "pct": 0
+        },
+        "fresh90": {
+          "count": 188,
+          "pct": 100
+        }
+      },
+      "launchReady": 0,
+      "medianAgeDays": 0
+    },
+    {
+      "id": "unknown",
+      "label": "District not in address",
+      "owner": "unassigned",
+      "rule": "address omits the district (pin-only)",
+      "total": 30,
+      "fields": {
+        "nameCategory": {
+          "count": 30,
+          "pct": 100
+        },
+        "address": {
+          "count": 30,
+          "pct": 100
+        },
+        "location": {
+          "count": 11,
+          "pct": 36.7
+        },
+        "status": {
+          "count": 0,
+          "pct": 0
+        },
+        "contact": {
+          "count": 0,
+          "pct": 0
+        },
+        "hours": {
+          "count": 0,
+          "pct": 0
+        },
+        "menu": {
+          "count": 0,
+          "pct": 0
+        },
+        "prices": {
+          "count": 0,
+          "pct": 0
+        },
+        "photo": {
+          "count": 0,
+          "pct": 0
+        },
+        "phone": {
+          "count": 0,
+          "pct": 0
+        },
+        "fresh90": {
+          "count": 30,
+          "pct": 100
+        }
+      },
+      "launchReady": 0,
+      "medianAgeDays": 0
+    }
+  ],
+  "byExperience": [
+    {
+      "experience": "food",
+      "total": 383,
+      "fields": {
+        "nameCategory": {
+          "count": 383,
+          "pct": 100
+        },
+        "address": {
+          "count": 383,
+          "pct": 100
+        },
+        "location": {
+          "count": 66,
+          "pct": 17.2
+        },
+        "status": {
+          "count": 136,
+          "pct": 35.5
+        },
+        "contact": {
+          "count": 0,
+          "pct": 0
+        },
+        "hours": {
+          "count": 135,
+          "pct": 35.2
+        },
+        "menu": {
+          "count": 0,
+          "pct": 0
+        },
+        "prices": {
+          "count": 1,
+          "pct": 0.3
+        },
+        "photo": {
+          "count": 1,
+          "pct": 0.3
+        },
+        "phone": {
+          "count": 0,
+          "pct": 0
+        },
+        "fresh90": {
+          "count": 383,
+          "pct": 100
+        }
+      },
+      "launchReady": 0,
+      "medianAgeDays": 0
+    },
+    {
+      "experience": "coffee",
+      "total": 9,
+      "fields": {
+        "nameCategory": {
+          "count": 9,
+          "pct": 100
+        },
+        "address": {
+          "count": 9,
+          "pct": 100
+        },
+        "location": {
+          "count": 3,
+          "pct": 33.3
+        },
+        "status": {
+          "count": 1,
+          "pct": 11.1
+        },
+        "contact": {
+          "count": 0,
+          "pct": 0
+        },
+        "hours": {
+          "count": 0,
+          "pct": 0
+        },
+        "menu": {
+          "count": 0,
+          "pct": 0
+        },
+        "prices": {
+          "count": 0,
+          "pct": 0
+        },
+        "photo": {
+          "count": 0,
+          "pct": 0
+        },
+        "phone": {
+          "count": 0,
+          "pct": 0
+        },
+        "fresh90": {
+          "count": 9,
+          "pct": 100
+        }
+      },
+      "launchReady": 0,
+      "medianAgeDays": 1
+    },
+    {
+      "experience": "bars",
+      "total": 30,
+      "fields": {
+        "nameCategory": {
+          "count": 30,
+          "pct": 100
+        },
+        "address": {
+          "count": 30,
+          "pct": 100
+        },
+        "location": {
+          "count": 14,
+          "pct": 46.7
+        },
+        "status": {
+          "count": 0,
+          "pct": 0
+        },
+        "contact": {
+          "count": 0,
+          "pct": 0
+        },
+        "hours": {
+          "count": 0,
+          "pct": 0
+        },
+        "menu": {
+          "count": 0,
+          "pct": 0
+        },
+        "prices": {
+          "count": 0,
+          "pct": 0
+        },
+        "photo": {
+          "count": 0,
+          "pct": 0
+        },
+        "phone": {
+          "count": 0,
+          "pct": 0
+        },
+        "fresh90": {
+          "count": 30,
+          "pct": 100
+        }
+      },
+      "launchReady": 0,
+      "medianAgeDays": 0
+    },
+    {
+      "experience": "spa",
+      "total": 6,
+      "fields": {
+        "nameCategory": {
+          "count": 6,
+          "pct": 100
+        },
+        "address": {
+          "count": 6,
+          "pct": 100
+        },
+        "location": {
+          "count": 0,
+          "pct": 0
+        },
+        "status": {
+          "count": 1,
+          "pct": 16.7
+        },
+        "contact": {
+          "count": 0,
+          "pct": 0
+        },
+        "hours": {
+          "count": 0,
+          "pct": 0
+        },
+        "menu": {
+          "count": 0,
+          "pct": 0
+        },
+        "prices": {
+          "count": 0,
+          "pct": 0
+        },
+        "photo": {
+          "count": 0,
+          "pct": 0
+        },
+        "phone": {
+          "count": 0,
+          "pct": 0
+        },
+        "fresh90": {
+          "count": 6,
+          "pct": 100
+        }
+      },
+      "launchReady": 0,
+      "medianAgeDays": 1
+    },
+    {
+      "experience": "sport",
+      "total": 7,
+      "fields": {
+        "nameCategory": {
+          "count": 7,
+          "pct": 100
+        },
+        "address": {
+          "count": 7,
+          "pct": 100
+        },
+        "location": {
+          "count": 2,
+          "pct": 28.6
+        },
+        "status": {
+          "count": 0,
+          "pct": 0
+        },
+        "contact": {
+          "count": 0,
+          "pct": 0
+        },
+        "hours": {
+          "count": 0,
+          "pct": 0
+        },
+        "menu": {
+          "count": 0,
+          "pct": 0
+        },
+        "prices": {
+          "count": 0,
+          "pct": 0
+        },
+        "photo": {
+          "count": 0,
+          "pct": 0
+        },
+        "phone": {
+          "count": 0,
+          "pct": 0
+        },
+        "fresh90": {
+          "count": 7,
+          "pct": 100
+        }
+      },
+      "launchReady": 0,
+      "medianAgeDays": 1
+    }
+  ],
+  "worklist": [
+    {
+      "area": "thao-dien-an-phu",
+      "owner": "ChatGPT",
+      "venues": [
+        {
+          "id": "bang-bang-pickleball-club",
+          "experience": "sport",
+          "name": "Bang Bang Pickleball Club",
+          "links": 2,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "anh-coffee-matcha-bar-37-thao-dien",
+          "experience": "coffee",
+          "name": "Anh Coffee Matcha Bar",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "belgica-brewpub-198a-nguyen-van-huong",
+          "experience": "bars",
+          "name": "Belgica Brewpub",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pasteur-street-craft-beer-thao-dien-120-xuan-thuy",
+          "experience": "bars",
+          "name": "Pasteur Street Craft Beer – Thảo Điền",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pickoland-thao-dien",
+          "experience": "sport",
+          "name": "PickoLand Thảo Điền Pickleball Club",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "tiem-bia-ga-thao-dien-26b-xuan-thuy",
+          "experience": "bars",
+          "name": "Tiệm Bia Gà – Thảo Điền",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "ufitu-pilates-thao-dien-3-38-quoc-huong",
+          "experience": "sport",
+          "name": "UFiTU Pilates+ (Thảo Điền)",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "biacraft-thao-dien-90-xuan-thuy",
+          "experience": "bars",
+          "name": "BiaCraft – Thảo Điền",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        }
+      ]
+    },
+    {
+      "area": "sala-thu-thiem",
+      "owner": "ChatGPT",
+      "venues": [
+        {
+          "id": "pasteur-street-craft-beer-metropole-20-nguyen-thien-thanh",
+          "experience": "bars",
+          "name": "Pasteur Street Craft Beer – Metropole",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pasteur-street-craft-beer-sala-74-nguyen-co-thach",
+          "experience": "bars",
+          "name": "Pasteur Street Craft Beer – Sala",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        }
+      ]
+    },
+    {
+      "area": "q7-phu-my-hung",
+      "owner": "ChatGPT",
+      "venues": [
+        {
+          "id": "banh-da-cua-lao-ngu-105-duong-so-53",
+          "experience": "food",
+          "name": "Bánh Đa Cua Lão Ngư",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-cha-ha-noi-xua-144-duong-so-79",
+          "experience": "food",
+          "name": "Bún chả Hà Nội xưa",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-thang-linh-trang-anh-185-duong-so-79",
+          "experience": "food",
+          "name": "Bún thang Linh Trang Anh",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-minh-long-607-nguyen-thi-thap",
+          "experience": "food",
+          "name": "Cơm tấm Minh Long",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "hu-tieu-tai-anh-494-nguyen-thi-thap",
+          "experience": "food",
+          "name": "Hủ Tiếu Tài Anh",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "lau-mam-ba-du-436-nguyen-thi-thap",
+          "experience": "food",
+          "name": "Lẩu Mắm Bà Dú",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-ben-12-duong-so-3",
+          "experience": "food",
+          "name": "Ốc Ben",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-dem-66-80-nguyen-thi-thap",
+          "experience": "food",
+          "name": "Ốc Đêm 66",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-la-ma-quen-903-41-tran-xuan-soan",
+          "experience": "food",
+          "name": "Ốc Lạ Mà Quen",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-tu-nhien-sai-gon-194-le-van-luong",
+          "experience": "food",
+          "name": "Ốc tự nhiên Sài Gòn",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-tu-nhien-sai-gon-2-tran-trong-cung",
+          "experience": "food",
+          "name": "Ốc tự nhiên Sài Gòn",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pasteur-street-craft-beer-nguyen-duc-canh-123-nguyen-duc-canh",
+          "experience": "bars",
+          "name": "Pasteur Street Craft Beer – Nguyễn Đức Cảnh",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-de-nhat-415-nguyen-thi-thap",
+          "experience": "food",
+          "name": "Phở Đệ Nhất",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-dinh-quan-7-3-1a-nguyen-cao",
+          "experience": "food",
+          "name": "Phở Định quận 7",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-thin-quan-7-53-nguyen-duc-canh",
+          "experience": "food",
+          "name": "Phở Thìn quận 7",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-tung-quan-7-98-ha-huy-tap",
+          "experience": "food",
+          "name": "Phở Tùng quận 7",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-oc-cam-7-tan-my",
+          "experience": "food",
+          "name": "Quán Ốc Cẩm",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "tiem-lau-cu-lao-337-le-van-luong",
+          "experience": "food",
+          "name": "Tiệm Lẩu Cù Lao",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-linh-19-phan-khiem-ich",
+          "experience": "food",
+          "name": "Ốc Linh",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pasteur-street-craft-beer-phu-my-hung-cr5-01",
+          "experience": "bars",
+          "name": "Pasteur Street Craft Beer – Phú Mỹ Hưng",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-tho-da-maison-phu-my-hung-17-duong-so-10",
+          "experience": "food",
+          "name": "Phở thố đá Maison Phú Mỹ Hưng",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-trang-since-1936-420-pham-thai-buong",
+          "experience": "food",
+          "name": "Phở Trang Since 1936",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-cha-ha-noi-126-126-duong-so-9",
+          "experience": "food",
+          "name": "Bún chả Hà Nội 126",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-cha-ha-noi-147-147-bui-van-ba",
+          "experience": "food",
+          "name": "Bún chả Hà Nội 147",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-cha-ha-noi-dong-xuan-243a-lam-van-ben",
+          "experience": "food",
+          "name": "Bún chả Hà Nội Đồng Xuân",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-tho-da-hoi-92-hoang-trong-mau",
+          "experience": "food",
+          "name": "Phở thố đá Hội",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-banh-cuon-nong-thanh-cong-403-le-van-luong",
+          "experience": "food",
+          "name": "Quán bánh cuốn nóng Thành Công",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-cha-ha-noi-phu-my-hung-34-cao-trieu-phat",
+          "experience": "food",
+          "name": "Bún chả Hà Nội Phú Mỹ Hưng",
+          "links": 1,
+          "missing": [
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-cha-thang-long-52-duong-so-10",
+          "experience": "food",
+          "name": "Bún Chả Thăng Long",
+          "links": 1,
+          "missing": [
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "o-buncha-45-phan-khiem-ich",
+          "experience": "food",
+          "name": "Ô Buncha",
+          "links": 1,
+          "missing": [
+            "contact",
+            "menu",
+            "prices"
+          ]
+        }
+      ]
+    },
+    {
+      "area": "q1-q3",
+      "owner": "Claude Code",
+      "venues": [
+        {
+          "id": "le-spa-des-artistes",
+          "experience": "spa",
+          "name": "Le Spa des Artistes by L'Apothiquaire (Hôtel des Arts Saigon)",
+          "links": 4,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "gym-one-pickleball-le-quy-don",
+          "experience": "sport",
+          "name": "Gym One Pickleball",
+          "links": 3,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "la-maison-de-lapothiquaire-truong-dinh",
+          "experience": "spa",
+          "name": "La Maison de L'Apothiquaire",
+          "links": 3,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-rieu-cua-oc-co-thuy-287-66-nguyen-dinh-chieu",
+          "experience": "food",
+          "name": "Bún riêu cua ốc Cô Thủy",
+          "links": 2,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "goc-hue-ky-dong-41-ky-dong",
+          "experience": "food",
+          "name": "Góc Huế – Kỳ Đồng",
+          "links": 2,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "goc-hue-nguyen-thai-binh-155-nguyen-thai-binh",
+          "experience": "food",
+          "name": "Góc Huế – Nguyễn Thái Bình",
+          "links": 2,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-minh-63-6-pasteur",
+          "experience": "food",
+          "name": "Phở Minh",
+          "links": 2,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "okkio-caffe-le-loi",
+          "experience": "coffee",
+          "name": "Okkio Caffe (Lê Lợi)",
+          "links": 2,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "an-mien-spa-dinh-tien-hoang",
+          "experience": "spa",
+          "name": "An Miên Spa",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-beo-hue-o-trinh-126-bui-thi-xuan",
+          "experience": "food",
+          "name": "Bánh Bèo Huế O Trinh",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-beo-hue-thuy-linh-209-le-van-sy",
+          "experience": "food",
+          "name": "Bánh Bèo Huế Thùy Linh",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-beo-xiu-284-le-van-sy",
+          "experience": "food",
+          "name": "Bánh Bèo Xíu",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-canh-trang-bang-ba-xi-135-vo-van-tan",
+          "experience": "food",
+          "name": "Bánh canh Trảng Bàng Ba Xi",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-mi-ba-huynh-197a-nguyen-trai",
+          "experience": "food",
+          "name": "Bánh mì Bà Huynh",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-mi-chim-chay-147d-nguyen-thi-minh-khai",
+          "experience": "food",
+          "name": "Bánh Mì Chim Chạy",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-mi-nhu-lan-68-ham-nghi",
+          "experience": "food",
+          "name": "Bánh Mì Như Lan",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-trang-long-34-34-nguyen-thuong-hien",
+          "experience": "food",
+          "name": "Bánh Tráng Long 34",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-xeo-bep-me-in-74-7-hai-ba-trung",
+          "experience": "food",
+          "name": "Bánh Xèo Bếp Mẹ Ỉn",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-xeo-cay-bang-163a-tran-van-dang",
+          "experience": "food",
+          "name": "Bánh Xèo Cây Bàng",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-xeo-mien-tay-139-139-tran-van-dang",
+          "experience": "food",
+          "name": "Bánh Xèo Miền Tây 139",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bia-saigon-73-bui-vien",
+          "experience": "bars",
+          "name": "Bia Saigon 73",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bot-chien-chu-thai-161-ly-chinh-thang",
+          "experience": "food",
+          "name": "Bột Chiên Chú Thái",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-bo-hue-31-31-mac-dinh-chi",
+          "experience": "food",
+          "name": "Bún bò Huế 31",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-bo-hue-ut-hung-6c-tu-xuong",
+          "experience": "food",
+          "name": "Bún bò Huế Út Hưng",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-bo-mo-noi-co-nhu-274-29-vo-van-tan",
+          "experience": "food",
+          "name": "Bún Bò Mỡ Nổi Cô Như",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-bo-nup-hem-o-lieu-108-22f-tran-quang-dieu",
+          "experience": "food",
+          "name": "Bún bò núp hẻm O Liễu",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-cha-ba-lan-than-9b-nguyen-thi-minh-khai",
+          "experience": "food",
+          "name": "Bún Chả Bà Lan \"Thận",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-cha-ha-noi-26-8a-9c2-thai-van-lung",
+          "experience": "food",
+          "name": "Bún Chả Hà Nội 26",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-dau-46-240-tran-hung-dao",
+          "experience": "food",
+          "name": "Bún đậu 46",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-dau-homemade-quan-1-1-nguyen-van-trang",
+          "experience": "food",
+          "name": "Bún Đậu Homemade quận 1",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-dau-mam-tom-quan-no-26-24-24-do-quang-dau",
+          "experience": "food",
+          "name": "Bún Đậu Mắm Tôm Quán No",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-dau-mam-tom-tien-hai-211-nguyen-cu-trinh",
+          "experience": "food",
+          "name": "Bún Đậu Mắm Tôm Tiến Hải",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-oc-suon-co-sau-457-hai-ba-trung",
+          "experience": "food",
+          "name": "Bún ốc sườn cô Sáu",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-oc-thanh-hai-14-12-ky-dong",
+          "experience": "food",
+          "name": "Bún ốc Thanh Hải",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-rieu-co-huong-beo-19b-nguyen-thi-minh-khai",
+          "experience": "food",
+          "name": "Bún riêu Cô Hương Béo",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-rieu-cua-oc-phan-rang-66-nguyen-thai-binh",
+          "experience": "food",
+          "name": "Bún Riêu Cua Ốc Phan Rang",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-rieu-ganh-cho-ben-thanh-163-le-thanh-ton",
+          "experience": "food",
+          "name": "Bún Riêu Gánh Chợ Bến Thành",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-rieu-nha-63b-tran-quoc-thao",
+          "experience": "food",
+          "name": "Bún Riêu Nhà",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-thang-thanh-thao-176-13-ly-tu-trong",
+          "experience": "food",
+          "name": "Bún thang Thanh Thảo",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "che-ba-mau-142-nguyen-phi-khanh",
+          "experience": "food",
+          "name": "Chè Ba Màu",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "che-via-he-co-diep-241-vo-van-tan",
+          "experience": "food",
+          "name": "Chè Vỉa Hè Cô Điệp",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "co-7-bac-lieu-139l-nguyen-trai",
+          "experience": "food",
+          "name": "Cô 7 Bạc Liêu",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-67-tam-99-1b-vo-van-tan",
+          "experience": "food",
+          "name": "Cơm Tấm 67 Tấm",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-phuc-loc-tho-236-dinh-tien-hoang",
+          "experience": "food",
+          "name": "Cơm Tấm Phúc Lộc Thọ",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "duong-sinh-co-ba-nguyen-binh-khiem",
+          "experience": "spa",
+          "name": "Dưỡng Sinh Cô Ba (Nguyễn Bỉnh Khiêm)",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "goc-ha-noi-nguyen-van-thu",
+          "experience": "coffee",
+          "name": "Góc Hà Nội",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "hidden-house-55-3-le-thi-hong-gam",
+          "experience": "food",
+          "name": "Hidden House",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "hu-tieu-my-tho-thanh-xuan-62-ton-that-thiep",
+          "experience": "food",
+          "name": "Hủ Tiếu Mỹ Tho Thanh Xuân",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "hu-tieu-nam-vang-hong-phat-391-vo-van-tan",
+          "experience": "food",
+          "name": "Hủ tiếu Nam Vang Hồng Phát",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "hu-tieu-nam-vang-lien-hua-381-vo-van-tan",
+          "experience": "food",
+          "name": "Hủ Tiếu Nam Vang Liến Húa",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "hu-tieu-nam-vang-nhan-quan-122d-cach-mang-thang-8",
+          "experience": "food",
+          "name": "Hủ tiếu Nam Vang Nhân quán",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "hu-tieu-nam-vang-nhan-quan-122d-cach-mang-thang-tam",
+          "experience": "food",
+          "name": "Hủ tiếu Nam Vang Nhân Quán",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "hu-tieu-nam-vang-quoc-ky-24-ky-con",
+          "experience": "food",
+          "name": "Hủ tiếu Nam Vang Quốc Ký",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "hu-tieu-nam-vang-trung-coi-80-cao-thang",
+          "experience": "food",
+          "name": "Hủ tiếu Nam Vang Trung Còi",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "japanit-matcha-tran-hung-dao",
+          "experience": "coffee",
+          "name": "Japanit Matcha & Coffee (Trần Hưng Đạo)",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "mam-xoi-do-hair-spa",
+          "experience": "spa",
+          "name": "Mâm Xôi Đỏ Hair Spa",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "mi-quang-3-anh-em-193-cach-mang-thang-8",
+          "experience": "food",
+          "name": "Mì Quảng 3 Anh Em",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "nam-giao-136-15-le-thanh-ton",
+          "experience": "food",
+          "name": "Nam Giao",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-beo-ha-noi-10-ban-co",
+          "experience": "food",
+          "name": "Ốc Béo Hà Nội",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-chi-hong-210-15-cach-mang-thang-8",
+          "experience": "food",
+          "name": "Ốc Chị Hồng",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-mint-170-do-thi-loi",
+          "experience": "food",
+          "name": "Ốc Mint",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-34-cao-thang-34-cao-thang",
+          "experience": "food",
+          "name": "Phở 34 Cao Thắng",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-anh-08-ky-dong",
+          "experience": "food",
+          "name": "Phở Anh",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-bo-phu-gia-146e-ly-chinh-thang",
+          "experience": "food",
+          "name": "Phở Bò Phú Gia",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-dau-288-m1-nam-ky-khoi-nghia",
+          "experience": "food",
+          "name": "Phở Dậu",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-ha-17-19-hai-trieu",
+          "experience": "food",
+          "name": "Phở Hà",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-hoang-yen-595-11-nguyen-dinh-chieu",
+          "experience": "food",
+          "name": "Phở Hoàng Yến",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-huong-binh-148-vo-thi-sau",
+          "experience": "food",
+          "name": "Phở Hương Bình",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-ong-ca-66b-cao-thang",
+          "experience": "food",
+          "name": "Phở Ông Cả",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-viet-nam-66-tran-quoc-toan",
+          "experience": "food",
+          "name": "Phở Việt Nam",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-176-176-nam-ky-khoi-nghia",
+          "experience": "food",
+          "name": "Quán 176",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-bun-bo-hue-quan-xua-48-cach-mang-thang-tam",
+          "experience": "food",
+          "name": "Quán bún bò Huế Quán Xưa",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-bun-rieu-trinh-156-tran-quang-khai",
+          "experience": "food",
+          "name": "Quán bún riêu Trinh",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-com-tam-dem-cu-bo-122-nguyen-cu-trinh",
+          "experience": "food",
+          "name": "Quán cơm tấm đêm Cu Bo",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-oc-hong-ngoc-13-vuon-chuoi",
+          "experience": "food",
+          "name": "Quán Ốc Hồng Ngọc",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-oc-phuoc-dat-84-nguyen-thong",
+          "experience": "food",
+          "name": "Quán Ốc Phước Đạt",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-pho-hai-thien-14-bui-vien",
+          "experience": "food",
+          "name": "Quán Phở Hai Thiền",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "runam-bistro-dong-khoi",
+          "experience": "coffee",
+          "name": "Runam Bistro (Đồng Khởi)",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "tra-viet-hai-trieu",
+          "experience": "coffee",
+          "name": "Trà Việt — Tea Experience & Boutique",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "ufitu-pilates-dang-thi-nhu",
+          "experience": "sport",
+          "name": "UFiTU Pilates+ (Đặng Thị Nhu)",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "xoi-xeo-ha-noi-81-ngo-thoi-nhiem",
+          "experience": "food",
+          "name": "Xôi xéo Hà Nội",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-cuon-ba-mien-104-ba-huyen-thanh-quan",
+          "experience": "food",
+          "name": "Bánh Cuốn Ba Miền",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-cuon-hong-hanh-353-le-van-sy",
+          "experience": "food",
+          "name": "Bánh Cuốn Hồng Hạnh",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-cuon-tay-ho-127-dinh-tien-hoang",
+          "experience": "food",
+          "name": "Bánh Cuốn Tây Hồ",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-xeo-46a",
+          "experience": "food",
+          "name": "Bánh Xèo 46A",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-bo-hue-kim-huong-rach-bung-binh-17-rach-bung-binh",
+          "experience": "food",
+          "name": "Bún Bò Huế Kim Hương – Rạch Bùng Binh",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-bo-hue-o-le-cach-mang-thang-8-48-cach-mang-thang-8",
+          "experience": "food",
+          "name": "Bún Bò Huế O Lê – Cách Mạng Tháng 8",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-cha-145-145-bui-vien",
+          "experience": "food",
+          "name": "Bún Chả 145",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-dau-a-chanh-200-cong-quynh",
+          "experience": "food",
+          "name": "Bún đậu A Chảnh",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-rieu-co-huong-beo-110-cao-thang",
+          "experience": "food",
+          "name": "Bún Riêu Cô Hương Béo",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-rieu-duong-nguyen-trai-219-nguyen-trai",
+          "experience": "food",
+          "name": "Bún riêu đường Nguyễn Trãi",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-thang-ha-noi-quan-38-tran-hung-dao",
+          "experience": "food",
+          "name": "Bún thang Hà Nội Quán",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "che-ngon-co-ba-176-co-giang",
+          "experience": "food",
+          "name": "Chè Ngon Cô Ba",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "cong-caphe-ly-tu-trong",
+          "experience": "coffee",
+          "name": "Cộng Cà Phê (Lý Tự Trọng)",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "court-one-club-new-world-saigon",
+          "experience": "sport",
+          "name": "Court One Club (New World Saigon Hotel)",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "duong-sinh-co-ba-vo-van-tan",
+          "experience": "spa",
+          "name": "Dưỡng Sinh Cô Ba (Võ Văn Tần)",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "east-west-brewing-ly-tu-trong",
+          "experience": "bars",
+          "name": "East West Brewing Co.",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "hcmc-cultural-palace-for-labors",
+          "experience": "sport",
+          "name": "Nhà Văn hóa Lao động TP.HCM (pickleball)",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "hu-tieu-hong-phat",
+          "experience": "food",
+          "name": "Hủ Tiếu Hồng Phát",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "hu-tieu-nam-vang-thanh-dat-34-co-bac",
+          "experience": "food",
+          "name": "Hủ tiếu Nam Vang Thành Đạt",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "nam-giao-quan-242-de-tham",
+          "experience": "food",
+          "name": "Nam Giao Quán",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-bac-351-nguyen-thuong-hien",
+          "experience": "food",
+          "name": "Ốc Bắc",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-chi-em-24-nguyen-thai-binh",
+          "experience": "food",
+          "name": "Ốc Chị Em",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "ong-chu-cuoi-hem-cong-quynh",
+          "experience": "coffee",
+          "name": "Ông Chú Cuội Hẻm",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pasteur-street-brewing-pasteur",
+          "experience": "bars",
+          "name": "Pasteur Street Brewing Company",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-cao-van-25-mac-dinh-chi",
+          "experience": "food",
+          "name": "Phở Cao Vân",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-hung-quan-1-243-nguyen-trai",
+          "experience": "food",
+          "name": "Phở Hùng quận 1",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-269-de-tham",
+          "experience": "food",
+          "name": "Quán",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-pho-trang-428-vo-van-tan",
+          "experience": "food",
+          "name": "Quán Phở Trang",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "stir-modern-classic-cocktail-bar",
+          "experience": "bars",
+          "name": "Stir Modern Classic Cocktail Bar",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "the-workshop-coffee",
+          "experience": "coffee",
+          "name": "The Workshop Coffee",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-mi-362-25-tran-cao-van",
+          "experience": "food",
+          "name": "Bánh mì 362",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-mi-huynh-hoa",
+          "experience": "food",
+          "name": "Bánh Mì Huỳnh Hoa",
+          "links": 1,
+          "missing": [
+            "status",
+            "contact",
+            "hours",
+            "menu"
+          ]
+        },
+        {
+          "id": "banh-trang-tron-chu-vien-38-nguyen-thuong-hien",
+          "experience": "food",
+          "name": "Bánh tráng trộn Chú Viên",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-trang-tron-di-hong-25-duong-so-11",
+          "experience": "food",
+          "name": "Bánh tráng trộn Dì Hồng",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "beo-oi-quan-15-20-nguyen-thi-minh-khai",
+          "experience": "food",
+          "name": "Béo Ơi Quán",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-bo-hem-314-11-ly-chinh-thang",
+          "experience": "food",
+          "name": "Bún bò Hẻm",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-bo-hue-725-hoang-sa-725-hoang-sa",
+          "experience": "food",
+          "name": "Bún bò Huế 725 Hoàng Sa",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-bo-hue-song-anh-28a-ban-co",
+          "experience": "food",
+          "name": "Bún bò Huế Song Anh",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-cha-ba-binh-4-nguyen-trung-ngan",
+          "experience": "food",
+          "name": "Bún chả Bà Bính",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-cha-dong-xuan-323-ly-tu-trong",
+          "experience": "food",
+          "name": "Bún chả Đồng Xuân",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-dau-mam-tom-co-khan-102-26-cong-quynh",
+          "experience": "food",
+          "name": "Bún đậu mắm tôm Cô Khàn",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-86-151-co-giang",
+          "experience": "food",
+          "name": "Cơm tấm 86",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-932p-932-truong-sa",
+          "experience": "food",
+          "name": "Cơm tấm 932P",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-con-vit-beo-41-nguyen-son-ha",
+          "experience": "food",
+          "name": "Cơm tấm Con Vịt Béo",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-tran-quy-cap-260-vo-van-tan",
+          "experience": "food",
+          "name": "Cơm tấm Trần Quý Cáp",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "hem-dau-140e-ly-chinh-thang",
+          "experience": "food",
+          "name": "Hẻm Đậu",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-195-195-56-tran-van-dang",
+          "experience": "food",
+          "name": "Ốc 195",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-cuc-91-co-giang",
+          "experience": "food",
+          "name": "Ốc Cúc",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "oc-dieu-bui-vien-50-52-do-quang-dau",
+          "experience": "food",
+          "name": "Ốc Diệu Bùi Viện",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-hien-68-9a-tran-quang-khai",
+          "experience": "food",
+          "name": "Phở Hiền",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-9-oc-23-nguyen-van-giai",
+          "experience": "food",
+          "name": "Quán 9 Ốc",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-bui-100-thach-thi-thanh",
+          "experience": "food",
+          "name": "Quán Bụi",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-com-ba-cuong-263-tran-quang-khai",
+          "experience": "food",
+          "name": "Quán cơm Ba Cường",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-com-tam-hung-194-2-vo-van-tan",
+          "experience": "food",
+          "name": "Quán Cơm tấm Hùng",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-com-tam-quynh-146-ly-chinh-thang",
+          "experience": "food",
+          "name": "Quán Cơm tấm Quỳnh",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-ngon-209-de-tham",
+          "experience": "food",
+          "name": "Quán Ngon",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-oc-chu-lun-76-nguyen-van-thu",
+          "experience": "food",
+          "name": "Quán Ốc Chú Lùn",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-oc-ghe-34-mac-dinh-chi",
+          "experience": "food",
+          "name": "Quán Ốc Ghe",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-oc-lan-2-18-nguyen-dinh-chieu",
+          "experience": "food",
+          "name": "Quán Ốc Lan 2",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-cuon-hong-hanh-17a-nguyen-thi-minh-khai",
+          "experience": "food",
+          "name": "Bánh cuốn Hồng Hạnh",
+          "links": 1,
+          "missing": [
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-bo-hue-o-suu-72-tran-quoc-toan",
+          "experience": "food",
+          "name": "Bún bò Huế O Sửu",
+          "links": 1,
+          "missing": [
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-cha-ho-guom-82-ho-tung-mau",
+          "experience": "food",
+          "name": "Bún Chả Hồ Gươm",
+          "links": 1,
+          "missing": [
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-74-nguyen-van-cu-74-nguyen-van-cu",
+          "experience": "food",
+          "name": "Cơm tấm 74 Nguyễn Văn Cừ",
+          "links": 1,
+          "missing": [
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "cota-subicha-161-nguyen-van-thu",
+          "experience": "food",
+          "name": "Cota Subicha",
+          "links": 1,
+          "missing": [
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "cuc-gach-quan-10-dang-tat",
+          "experience": "food",
+          "name": "Cục Gạch Quán",
+          "links": 1,
+          "missing": [
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "ngo-nho-pho-nho-158-pasteur",
+          "experience": "food",
+          "name": "Ngõ Nhỏ Phố Nhỏ",
+          "links": 1,
+          "missing": [
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-hoa-pasteur",
+          "experience": "food",
+          "name": "Phở Hòa Pasteur",
+          "links": 1,
+          "missing": [
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "pho-phu-vuong-120-nguyen-thai-binh",
+          "experience": "food",
+          "name": "Phở Phú Vương",
+          "links": 1,
+          "missing": [
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-oc-van-cho-ben-thanh-23-nguyen-an-ninh",
+          "experience": "food",
+          "name": "Quán Ốc Vân Chợ Bến Thành",
+          "links": 1,
+          "missing": [
+            "contact",
+            "menu",
+            "prices"
+          ]
+        }
+      ]
+    },
+    {
+      "area": "phu-nhuan-binh-thanh",
+      "owner": "Claude Code",
+      "venues": [
+        {
+          "id": "banh-mi-110-110-hoang-van-thu",
+          "experience": "food",
+          "name": "Bánh Mì 110",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-mi-hoang-lam-168-nguyen-thuong-hien",
+          "experience": "food",
+          "name": "Bánh Mì Hoàng Lam",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bot-chien-51-51-nguyen-van-lac",
+          "experience": "food",
+          "name": "Bột Chiên 51",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-nuoc-leo-soc-trang-le-quang-dinh-401-le-quang-dinh",
+          "experience": "food",
+          "name": "Bún Nước Lèo Sóc Trăng – Lê Quang Định",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-oc-song-anh-100-nguyen-van-dau",
+          "experience": "food",
+          "name": "Bún Ốc Song Anh",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "che-den-dau-504-nguyen-kiem",
+          "experience": "food",
+          "name": "Chè Đèn Dầu",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-ba-chi-hai-51-dang-van-ngu",
+          "experience": "food",
+          "name": "Cơm tấm Bà Chị Hai",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-ba-ghien",
+          "experience": "food",
+          "name": "Cơm Tấm Ba Ghiền",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-ba-rom-55-phan-dinh-phung",
+          "experience": "food",
+          "name": "Cơm tấm Bà Ròm",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-cali-82-nguyen-van-troi",
+          "experience": "food",
+          "name": "Cơm tấm Cali",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-hem-33-33-16-nguyen-dinh-chinh",
+          "experience": "food",
+          "name": "Cơm Tấm Hẻm 33",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-may-26-truong-quoc-dung",
+          "experience": "food",
+          "name": "Cơm Tấm Mây",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-suon-cheo-203-huynh-van-banh",
+          "experience": "food",
+          "name": "Cơm tấm Sườn Chéo",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-thanh-rau-119-phung-van-cung",
+          "experience": "food",
+          "name": "Cơm tấm Thành Râu",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "huong-bun-thang-50-ho-bieu-chanh",
+          "experience": "food",
+          "name": "Hương Bún Thang",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "mi-quang-ech-233-nguyen-trong-tuyen",
+          "experience": "food",
+          "name": "Mì Quảng Ếch",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-bun-thang-madame-thao-157-20-nguyen-gia-tri",
+          "experience": "food",
+          "name": "Quán bún thang Madame Thảo",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-com-tam-men-39-4b-huynh-van-banh",
+          "experience": "food",
+          "name": "Quán Cơm Tấm Mén",
+          "links": 1,
+          "missing": [
+            "location",
+            "status",
+            "contact",
+            "hours",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-mi-di-oanh-229-53-bui-dinh-tuy",
+          "experience": "food",
+          "name": "Bánh mì Dì Oanh",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-xeo-mien-tay-ba-hai-49-nguyen-trong-tuyen",
+          "experience": "food",
+          "name": "Bánh xèo miền Tây Bà Hai",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "banh-xeo-rau-rung-anh-tien-356-phan-van-tri",
+          "experience": "food",
+          "name": "Bánh xèo rau rừng Anh Tiến",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "bun-dau-hang-khay-209-nguyen-trong-tuyen",
+          "experience": "food",
+          "name": "Bún đậu Hàng Khay",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "com-tam-ba-muoi-294-35-xo-viet-nghe-tinh",
+          "experience": "food",
+          "name": "Cơm tấm Bà Mười",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "lau-mam-140-140-13-tran-huy-lieu",
+          "experience": "food",
+          "name": "Lẩu mắm 140",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-oc-mam-sua-282-6-bui-huu-nghia",
+          "experience": "food",
+          "name": "Quán ốc Mắm Sữa",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "quan-oc-thao-295-nguyen-xi",
+          "experience": "food",
+          "name": "Quán ốc Thảo",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        },
+        {
+          "id": "tiem-lau-cu-lao-410-nguyen-xi",
+          "experience": "food",
+          "name": "Tiệm lẩu Cù Lao",
+          "links": 1,
+          "missing": [
+            "location",
+            "contact",
+            "menu",
+            "prices"
+          ]
+        }
+      ]
+    }
+  ]
+}

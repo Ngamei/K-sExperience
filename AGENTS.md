@@ -29,6 +29,9 @@ The repository and the canonical docs below are the source of truth between agen
 | `docs/PLATFORM_AUDIT.md` | Platform & membership blueprint: existing vs missing, schema gaps, component reuse, phased backlog |
 | `docs/STAGING_RUNBOOK.md` | Ordered Supabase staging steps: migrations, seed parity, security + account checks, rollback |
 | `docs/FOOD_COVERAGE.md`, `docs/food-coverage.json` | Generated Food coverage (0 / 1–4 / 5+ venues per dish) + scouting priorities (`npm run data:food-coverage`) |
+| `docs/PROFILE_COMPLETENESS.md`, `docs/profile-completeness.json` | Generated business-profile completeness vs the PO launch standard, per research area (`npm run data:profile-completeness`) |
+| `docs/AUTH_CHECKLIST.md` | Auth + cross-device persistence launch checklist: what is verified, by whom, with what evidence |
+| `docs/QA_HANDOVER.md` | Independent QA departments, customer journeys, usability script |
 | `docs/RESTAURANT_VERIFICATION_PLAN.md` | Evidence levels and workflow for HCMC venues |
 | `docs/DATA_REPORT.md`, `docs/VENUE_COVERAGE.md`, `docs/WHAT_TO_EAT_REPORT.md` | Generated data reports (`npm run data:report`, `npm run data:coverage`, `npm run data:what-to-eat`) |
 
