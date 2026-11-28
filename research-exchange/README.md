@@ -26,7 +26,7 @@ Shared hand-off point between **Claude Code** (establishment-first research, men
 3. **Dry run** — `npm run intake -- research-exchange/inbox/GPT-FOOD-001.json`. Validates schema, ids, sources, prices, photo metadata, HCMC boundary, duplicates against `exports/`, claims overlap, and geocodes in a scratch copy (street must match, ≤ 6 km from the stated district). Writes `reports/<batchId>.md`. Nothing canonical changes.
 4. **Apply** (Claude Code or PO) — `npm run intake -- … --apply`. Backs up canonical files, stores the batch next to the legacy batches (rejected venues kept as `excluded` with the reason), runs the existing importer, verifies that **no existing id disappeared** (user saved items, history, passports and notes reference them) and restores automatically on any failure.
 5. **Rollback** — `npm run intake -- --rollback <batchId>` restores the backup and removes the stored batch.
-6. **After each applied batch** — `npm run db:seed-sql && npm run data:report && npm run data:coverage && npm run data:experiences && npm run data:what-to-eat && npm run exchange:export`, then `npm run qa`; Codex reviews `reports/<batchId>.md`.
+6. **After each applied batch** — `npm run db:seed-sql && npm run data:report && npm run data:coverage && npm run data:experiences && npm run data:what-to-eat && npm run exchange:export && npm run data:food-coverage && npm run data:gaps`, then `npm run qa`; Codex reviews `reports/<batchId>.md`.
 
 ## Rules (non-negotiable)
 

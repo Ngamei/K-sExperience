@@ -31,6 +31,7 @@
     "data:what-to-eat": "tsx scripts/what-to-eat-report.ts",
     "data:neighbourhoods": "tsx scripts/neighbourhood-coverage.ts",
     "data:food-coverage": "tsx scripts/food-coverage.ts",
+    "data:gaps": "tsx scripts/dish-gaps.ts",
     "data:profile-completeness": "tsx scripts/profile-completeness.ts",
     "data:maps-share-list": "tsx scripts/maps-share-list.ts",
     "hub:snapshot": "tsx scripts/hub-snapshot.ts",
