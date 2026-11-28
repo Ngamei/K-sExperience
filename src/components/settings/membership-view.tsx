@@ -1,8 +1,13 @@
 "use client";
-import { Check, Clock } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Check, Clock, Sparkles } from "lucide-react";
 import { useT } from "@/lib/i18n/use-t";
 import { settingsDict, type SettingsStrings } from "@/lib/i18n/settings-dict";
-import { annualSavingsPct, BENEFITS, LIMITS, PLANS, TIERS, usd, type Benefit, type Tier } from "@/lib/membership/plans";
+import { annualSavingsPct, BENEFITS, FOUNDING_BENEFITS, FOUNDING_PROGRAMME, foundingSectionVisible, LIMITS, PLANS, TIERS, usd, type Benefit, type Tier } from "@/lib/membership/plans";
+import { getSupabase } from "@/lib/supabase/client";
+import { claimFoundingMembership, loadFoundingPlacesLeft, loadMenuUnlockUsage } from "@/lib/supabase/membership";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { EXPERIENCES, isSelectable, loc } from "@/experiences/registry";
 import { FOOD } from "@/lib/passport/model";
 import { allPassportsOf, useUser } from "@/lib/store/user";
@@ -13,7 +18,7 @@ import { SubPageHeader } from "./settings-ui";
 
 const benefitLabel = (b: Benefit, s: SettingsStrings) => {
   if (b.id === "favourites") return b.value === Infinity ? s.b_favouritesUnlimited : s.b_favourites.replace("{n}", String(b.value));
-  if (b.id === "menuViews") return s.b_menuViews.replace("{n}", String(b.value));
+  if (b.id === "menuUnlocks") return s.b_menuUnlocks.replace("{n}", String(b.value));
   return s[`b_${b.id}`];
 };
 
@@ -67,6 +72,8 @@ export function MembershipView() {
         })}
       </ul>
 
+      {foundingSectionVisible() && <FoundingSection />}
+
       <section className="space-y-2 rounded-3xl border border-line/80 bg-paper p-5 text-sm text-muted md:p-6">
         <p data-testid="membership-limits-note">{s.limitsNote}</p>
         <p data-testid="membership-currency-note">{s.currencyNote}</p>
@@ -76,10 +83,86 @@ export function MembershipView() {
         <h2 className="font-display text-xl text-forest">{s.usage}</h2>
         {current && <p className="mt-1 text-sm">{s.yourPlan}: <strong data-testid="membership-tier">{PLANS[current].name}</strong></p>}
         <UsageMeters tier={current ?? "free"} />
+        {current && <MenuUnlockMeter tier={current} />}
         <p className="mt-3 text-sm text-muted">{current ? s.usageBody : s.onDevice}</p>
         {current ? <p className="mt-1 text-xs text-muted">{s.subscriptionMgmt}</p> : <p className="mt-1 text-xs text-muted">{s.signInForPlan}</p>}
       </section>
     </div>
+  );
+}
+
+/**
+ * Complete menu unlocks used this billing period (RPC menu_unlock_usage, migration 0016). Signed-in members only —
+ * guests cannot unlock. If the count cannot be read it is shown as unknown ("—"), never as 0.
+ */
+function MenuUnlockMeter({ tier }: { tier: Tier }) {
+  const { locale } = useT();
+  const s = settingsDict(locale);
+  const [used, setUsed] = useState<number | null>(null);
+  useEffect(() => {
+    const sb = getSupabase();
+    if (!sb) return;
+    let live = true;
+    loadMenuUnlockUsage(sb).then((u) => { if (live) setUsed(u.used); }).catch(() => { if (live) setUsed(null); });
+    return () => { live = false; };
+  }, [tier]);
+  const lim = LIMITS.menuUnlocksPerMonth[tier];
+  return (
+    <div className="mt-3 rounded-2xl bg-ivory p-3 text-sm" data-testid="usage-menu-unlocks">
+      <div className="flex justify-between gap-2"><span className="font-medium">{s.menuUnlocksLbl}</span><span className="tabular-nums" data-testid="usage-menu-unlocks-count">{used ?? "—"} / {lim === Infinity ? s.unlimited : lim}</span></div>
+      <p className="mt-1 text-xs text-muted">{s.menuUnlocksNote}</p>
+    </div>
+  );
+}
+
+/**
+ * K's Founding Member (approved by the PO 2026-11-28; NEXT_PUBLIC_FOUNDING_PROGRAMME=0 hides it). Signed-in members
+ * claim a place through claim_founding_membership() (the database enforces the switch, the cap and one claim per
+ * member); guests are asked to sign in. Remaining places come from founding_places_left() — a count only.
+ * Complimentary; nothing is charged afterwards.
+ */
+function FoundingSection() {
+  const { locale } = useT();
+  const s = settingsDict(locale);
+  const { status, refreshMembership } = useAuth();
+  const [left, setLeft] = useState<number | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [result, setResult] = useState<{ ok: true; validUntil: string } | { ok: false; reason: string } | null>(null);
+  useEffect(() => {
+    const sb = getSupabase();
+    if (!sb) return;
+    let live = true;
+    loadFoundingPlacesLeft(sb).then((n) => { if (live) setLeft(n); });
+    return () => { live = false; };
+  }, [result]);
+  const claim = async () => {
+    const sb = getSupabase();
+    if (!sb) return;
+    setBusy(true);
+    const r = await claimFoundingMembership(sb);
+    setResult(r.ok ? r : { ok: false, reason: r.reason });
+    if (r.ok) await refreshMembership();
+    setBusy(false);
+  };
+  const date = (iso: string) => new Date(iso).toLocaleDateString(locale === "vi" ? "vi-VN" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "Asia/Ho_Chi_Minh" });
+  const action = result?.ok ? <p className="text-sm font-medium text-forest" data-testid="founding-joined">{s.foundingJoined.replace("{date}", date(result.validUntil))}</p>
+    : status === "signed-in" ? <Button onClick={claim} disabled={busy} data-testid="founding-join">{s.foundingJoin}</Button>
+    : status === "guest" ? <Button asChild variant="outline"><Link href="/login/?next=/membership/" data-testid="founding-sign-in">{s.foundingSignIn}</Link></Button>
+    : status === "disabled" ? <p className="text-xs text-muted" data-testid="founding-no-accounts">{s.foundingNoAccounts}</p> : null;
+  return (
+    <section className="rounded-3xl border border-forest/40 bg-sage-soft/40 p-5 md:p-6" data-testid="founding-programme">
+      <p className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-forest"><Sparkles className="size-3.5" aria-hidden /> {s.foundingTag}</p>
+      <h2 className="mt-1 font-display text-2xl text-forest">{s.foundingTitle}</h2>
+      <p className="mt-1 text-sm">{s.foundingLead}</p>
+      <p className="mt-2 text-sm text-muted">{s.foundingBody.replace("{days}", String(FOUNDING_PROGRAMME.durationDays)).replace("{cap}", String(FOUNDING_PROGRAMME.cap))}</p>
+      <ul className="mt-3 space-y-1.5 text-sm">
+        {FOUNDING_BENEFITS.map((b) => <li key={b} className="flex items-start gap-2" data-testid={`founding-benefit-${b}`}><Check className="mt-0.5 size-4 shrink-0 text-forest" aria-hidden /><span>{s[`fb_${b}`]}</span></li>)}
+      </ul>
+      <p className="mt-3 text-sm font-medium text-forest" data-testid="founding-no-charge">{s.foundingNoCharge}</p>
+      {left !== null && <p className="mt-1 text-xs text-muted" data-testid="founding-places-left">{s.foundingPlacesLeft.replace("{n}", String(left)).replace("{cap}", String(FOUNDING_PROGRAMME.cap))}</p>}
+      <div className="mt-3" data-testid="founding-action">{action}</div>
+      {result && !result.ok && <p className="mt-2 text-sm text-terracotta" role="alert" data-testid="founding-error" data-reason={result.reason}>{s[`foundingErr_${result.reason as "error"}`] ?? s.foundingErr_error}</p>}
+    </section>
   );
 }
 

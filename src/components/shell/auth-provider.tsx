@@ -19,12 +19,14 @@ interface AuthCtx {
   reloadFromAccount: () => Promise<void>;
   migration: { state: "idle" | "running" | "failed"; error: string | null; retry: () => void };
   refreshProfile: () => Promise<void>;
+  /** Re-read the membership tier (e.g. after claiming a Founding Member place). */
+  refreshMembership: () => Promise<void>;
   signOut: () => Promise<void>;
 }
 const Ctx = createContext<AuthCtx>({
   status: "disabled", user: null, profile: null, membership: null, reloadFromAccount: async () => {},
   migration: { state: "idle", error: null, retry: () => {} },
-  refreshProfile: async () => {}, signOut: async () => {},
+  refreshProfile: async () => {}, refreshMembership: async () => {}, signOut: async () => {},
 });
 export const useAuth = () => useContext(Ctx);
 
@@ -111,6 +113,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     reloadFromAccount: async () => { if (user) await adopt(user); },
     migration: { ...migration, retry: () => { if (user) adopt(user); } },
     refreshProfile: async () => { if (sb && user) setProfile(await loadProfile(sb, user.id)); },
+    refreshMembership: async () => { if (sb && user) setMembership(await loadMembership(sb, user.id).catch(() => null)); },
     signOut: async () => {
       if (!sb) return;
       await sb.auth.signOut();

@@ -38,10 +38,18 @@ test.describe("customer Settings", () => {
     await expect(page.getByTestId("benefit-plus-favourites")).toHaveText("150 favourites per experience");
     await expect(page.getByTestId("benefit-premium-favourites")).toHaveText("Unlimited favourites");
     // Unbuilt benefits are labelled "Coming", never shown as available.
-    for (const id of ["free-menuViews", "plus-nutrition", "plus-advancedPrefs", "plus-menuViews", "premium-menuPrices", "premium-priceCompare"]) {
+    for (const id of ["free-menuUnlocks", "plus-nutrition", "plus-advancedPrefs", "plus-menuUnlocks", "premium-menuPrices", "premium-priceCompare"]) {
       await expect(page.getByTestId(`benefit-${id}`)).toHaveAttribute("data-available", "false");
       await expect(page.getByTestId(`benefit-${id}`)).toContainText("Coming");
     }
+    await expect(page.getByTestId("benefit-free-menuUnlocks")).toContainText("5 complete establishment menu unlocks per month");
+    await expect(page.getByTestId("benefit-plus-menuUnlocks")).toContainText("30 complete establishment menu unlocks per month");
+    // Founding Member programme (PO-approved) is shown by default; without accounts nobody can claim; guests have no unlock meter.
+    await expect(page.getByTestId("founding-programme")).toContainText("K's Founding Member");
+    await expect(page.getByTestId("founding-no-charge")).toContainText("No automatic charge afterwards");
+    await expect(page.getByTestId("founding-no-accounts")).toBeVisible();
+    await expect(page.getByTestId("founding-join")).toHaveCount(0);
+    await expect(page.getByTestId("usage-menu-unlocks")).toHaveCount(0);
     await expect(page.getByTestId("membership-currency-note")).toContainText("US dollars");
     await expect(page.getByRole("button", { name: /subscribe|buy|checkout/i })).toHaveCount(0);
   });

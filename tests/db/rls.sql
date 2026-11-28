@@ -301,6 +301,9 @@ exception when check_violation then insert into results values ('unknown staff r
 
 -- 0014 (KEX-MEM-04): membership quotas enforced in the database, off by default.
 reset role;
+-- 0016 makes Plus the default tier during development; these tests exercise the Free quotas, so pin Free
+-- (restored to the migration default in the 0016 section below).
+update membership_settings set default_tier = 'free';
 insert into auth.users values ('00000000-0000-0000-0000-000000000010'), ('00000000-0000-0000-0000-000000000011');
 -- (a) enforcement off: a Free member may save more than 20 references
 set role authenticated;
@@ -394,6 +397,197 @@ do $$ begin
   insert into results values ('unknown photo kind rejected', false);
 exception when check_violation then insert into results values ('unknown photo kind rejected', true); end $$;
 delete from venue_photos where url = 'https://upload.wikimedia.org/x.jpg';
+
+-- ===================================================================================================
+-- 0016 menu unlocks + founding
+-- ===================================================================================================
+reset role;
+insert into auth.users values ('00000000-0000-0000-0000-000000000020'), ('00000000-0000-0000-0000-000000000021'), ('00000000-0000-0000-0000-000000000022'),
+  ('00000000-0000-0000-0000-000000000023'), ('00000000-0000-0000-0000-000000000024'), ('00000000-0000-0000-0000-000000000025'), ('00000000-0000-0000-0000-000000000026');
+insert into results select 'quota key renamed menu_views → menu_unlocks (5 / 30 / unlimited)',
+  not exists (select 1 from membership_limits where limit_key = 'menu_views')
+  and (select value from membership_limits where tier = 'free' and limit_key = 'menu_unlocks') = 5
+  and (select value from membership_limits where tier = 'plus' and limit_key = 'menu_unlocks') = 30
+  and (select value from membership_limits where tier = 'premium' and limit_key = 'menu_unlocks') is null;
+insert into results select 'billing period = calendar month in Asia/Ho_Chi_Minh', menu_unlock_period_start() = date_trunc('month', now() at time zone 'Asia/Ho_Chi_Minh')::date;
+insert into results select 'enforcement is off going into 0016 tests', not enforce_limits from membership_settings;
+create temp table r16 (k text, v jsonb);
+grant all on r16 to anon, authenticated;
+-- (a) idempotent unlock: reopening the same menu returns the existing unlock and never counts twice
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000020';
+insert into r16 select 'first', unlock_menu('pho-hoa-pasteur', 'food');
+insert into r16 select 'again', unlock_menu('pho-hoa-pasteur', 'food');
+insert into r16 select 'usage', menu_unlock_usage();
+insert into results select 'first unlock consumes one', (v->>'unlocked')::boolean and not (v->>'already')::boolean and (v->>'used')::int = 1 and (v->>'limit')::int = 5 from r16 where k = 'first';
+insert into results select 'reopening the same menu is idempotent (already, still 1 used)', (v->>'unlocked')::boolean and (v->>'already')::boolean and (v->>'used')::int = 1 from r16 where k = 'again';
+insert into results select 'usage meter: 1 used of 5, not enforced', (v->>'used')::int = 1 and (v->>'limit')::int = 5 and not (v->>'enforced')::boolean from r16 where k = 'usage';
+insert into results select 'one unlock row stored (no double count)', count(*) = 1 from menu_unlocks where establishment_id = 'pho-hoa-pasteur';
+-- (b) no direct client writes
+do $$ begin
+  begin insert into menu_unlocks (user_id, establishment_id, experience, period_start) values ('00000000-0000-0000-0000-000000000020', 'pho-hoa-pasteur', 'food', '2020-01-01'); exception when others then null; end;
+  begin update menu_unlocks set period_start = '2020-01-01'; exception when others then null; end;
+  begin delete from menu_unlocks; exception when others then null; end;
+end $$;
+reset role;
+insert into results select 'client cannot insert/update/delete menu_unlocks directly', count(*) = 1 and bool_and(period_start = menu_unlock_period_start()) from menu_unlocks where user_id = '00000000-0000-0000-0000-000000000020';
+-- (c) read-own isolation
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000021';
+insert into results select 'another member cannot read my unlocks', count(*) = 0 from menu_unlocks;
+do $$ begin
+  perform unlock_menu('no-such-place', 'food');
+  insert into results values ('unknown establishment refused', false);
+exception when others then insert into results values ('unknown establishment refused', sqlerrm = 'unknown_establishment'); end $$;
+-- (d) enforcement off: a Free member may unlock more than 5 menus
+do $$ declare e text; r jsonb; ok boolean := true; begin
+  for e in select establishment_id from establishment_experiences where experience_id = 'food' order by 1 limit 7 loop
+    r := unlock_menu(e, 'food'); ok := ok and (r->>'unlocked')::boolean;
+  end loop;
+  insert into results values ('limits off: Free unlocks 7 menus', ok and (menu_unlock_usage()->>'used')::int = 7);
+end $$;
+reset role;
+set role anon;
+do $$ begin
+  perform unlock_menu('pho-hoa-pasteur', 'food');
+  insert into results values ('guest cannot unlock', false);
+exception when others then insert into results values ('guest cannot unlock', true); end $$;
+reset role;
+-- (e) enforcement on: Free refused above 5, re-opening an unlocked menu still allowed; Premium unlimited
+update membership_settings set enforce_limits = true;
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000022';
+do $$ declare e text; r jsonb; n int := 0; refused jsonb; again jsonb; begin
+  for e in select establishment_id from establishment_experiences where experience_id = 'food' order by 1 limit 6 loop
+    r := unlock_menu(e, 'food');
+    if (r->>'unlocked')::boolean then n := n + 1; else refused := r; end if;
+  end loop;
+  insert into results values ('enforced: Free unlocks exactly 5 menus', n = 5);
+  insert into results values ('enforced: 6th unlock refused (unlocked=false, used 5, limit 5)', refused is not null and (refused->>'used')::int = 5 and (refused->>'limit')::int = 5);
+  again := unlock_menu((select establishment_id from establishment_experiences where experience_id = 'food' order by 1 limit 1), 'food');
+  insert into results values ('enforced: reopening an unlocked menu never consumes quota', (again->>'unlocked')::boolean and (again->>'already')::boolean and (again->>'used')::int = 5);
+end $$;
+reset role;
+insert into results select 'refused unlock not stored', count(*) = 5 from menu_unlocks where user_id = '00000000-0000-0000-0000-000000000022';
+insert into user_memberships (user_id, tier, source) values ('00000000-0000-0000-0000-000000000023', 'premium', 'test');
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000023';
+do $$ declare e text; ok boolean := true; begin
+  for e in select establishment_id from establishment_experiences where experience_id = 'food' order by 1 limit 8 loop
+    ok := ok and (unlock_menu(e, 'food')->>'unlocked')::boolean;
+  end loop;
+  insert into results values ('enforced: Premium unlocks are unlimited (limit null)', ok and menu_unlock_usage()->'limit' = 'null'::jsonb);
+end $$;
+reset role;
+update membership_settings set enforce_limits = false;
+
+-- (f) Founding Member programme (PO-approved): on by default; admin can switch it off; cap, single claim, paid refused
+insert into results select 'founding programme on by default (cap 100, 90 days)', enabled and cap = 100 and duration_days = 90 from founding_programme;
+set role anon;
+insert into results select 'anon reads remaining founding places (count only)', founding_places_left() = 100;
+reset role;
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000007';
+update founding_programme set enabled = false;
+reset role;
+insert into results select 'admin switches the founding programme off', not enabled from founding_programme;
+insert into results select 'no remaining places shown while off', founding_places_left() is null;
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000024';
+do $$ begin
+  perform claim_founding_membership();
+  insert into results values ('founding claim refused while disabled', false);
+exception when others then insert into results values ('founding claim refused while disabled', sqlerrm = 'founding_refused:disabled'); end $$;
+update founding_programme set enabled = true;
+reset role;
+insert into results select 'customer cannot switch the founding programme on', not enabled from founding_programme;
+insert into results select 'disabled refusal granted nothing', count(*) = 0 from user_memberships where user_id = '00000000-0000-0000-0000-000000000024';
+-- admin enables it with a cap of 2 for the test
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000007';
+update founding_programme set enabled = true, cap = 2;
+reset role;
+insert into results select 'admin enables the founding programme', enabled and cap = 2 from founding_programme;
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000024';
+insert into r16 select 'claim', claim_founding_membership();
+insert into results select 'founding claim grants Premium', (v->>'claimed')::boolean and v->>'tier' = 'premium' from r16 where k = 'claim';
+do $$ begin
+  perform claim_founding_membership();
+  insert into results values ('no double founding claim', false);
+exception when others then insert into results values ('no double founding claim', sqlerrm = 'founding_refused:already_claimed'); end $$;
+reset role;
+insert into results select 'founding membership: premium, source founding, valid ~90 days', tier = 'premium' and source = 'founding' and valid_until between now() + interval '89 days' and now() + interval '91 days' from user_memberships where user_id = '00000000-0000-0000-0000-000000000024';
+insert into results select 'founding grant audited', count(*) >= 1 from content_audit where table_name = 'user_memberships' and row_key = '00000000-0000-0000-0000-000000000024';
+insert into results select 'founding member is Premium now', member_tier('00000000-0000-0000-0000-000000000024') = 'premium';
+-- billing-tier member refused; an active (test) Premium member refused
+insert into user_memberships (user_id, tier, source) values ('00000000-0000-0000-0000-000000000025', 'plus', 'billing');
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000025';
+do $$ begin
+  perform claim_founding_membership();
+  insert into results values ('billing-tier member refused', false);
+exception when others then insert into results values ('billing-tier member refused', sqlerrm = 'founding_refused:already_member'); end $$;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000023';
+do $$ begin
+  perform claim_founding_membership();
+  insert into results values ('active Premium member refused', false);
+exception when others then insert into results values ('active Premium member refused', sqlerrm = 'founding_refused:already_member'); end $$;
+-- a second Free member takes the last place; the third is refused (cap 2)
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000021';
+insert into r16 select 'claim2', claim_founding_membership();
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000026';
+do $$ begin
+  perform claim_founding_membership();
+  insert into results values ('founding cap refusal', false);
+exception when others then insert into results values ('founding cap refusal', sqlerrm = 'founding_refused:cap_reached'); end $$;
+insert into results select 'member reads only own founding claim', count(*) = 0 from founding_claims;
+do $$ begin
+  begin insert into founding_claims (user_id, valid_until) values ('00000000-0000-0000-0000-000000000026', now()); exception when others then null; end;
+end $$;
+reset role;
+insert into results select 'client cannot write founding_claims directly', count(*) = 2 from founding_claims;
+-- expiry: the founding membership simply reverts to the default tier (no billing; Free pinned here); the place is not freed
+update user_memberships set valid_until = now() - interval '1 second' where user_id = '00000000-0000-0000-0000-000000000024';
+insert into results select 'expired founding membership reverts to the default tier (Free pinned)', member_tier('00000000-0000-0000-0000-000000000024') = 'free';
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000026';
+do $$ begin
+  perform claim_founding_membership();
+  insert into results values ('expiry does not free a founding place', false);
+exception when others then insert into results values ('expiry does not free a founding place', sqlerrm = 'founding_refused:cap_reached'); end $$;
+reset role;
+update founding_programme set enabled = true, cap = 100;  -- migration default (on)
+
+-- (g) Default member tier: Plus during development (migration default), Free when the PO flips it; grants win
+reset role;
+update membership_settings set default_tier = 'plus';  -- back to the migration default (pinned to Free for the 0014 tests)
+insert into results select 'default member tier is Plus during development', default_tier = 'plus' from membership_settings;
+insert into auth.users values ('00000000-0000-0000-0000-000000000030');
+insert into results select 'no membership row → Plus (default tier)', member_tier('00000000-0000-0000-0000-000000000030') = 'plus'
+  and member_limit('00000000-0000-0000-0000-000000000030', 'saved_references') = 150 and member_limit('00000000-0000-0000-0000-000000000030', 'menu_unlocks') = 30;
+insert into results select 'expired grant → default tier (founding expiry reverts to Plus now)', member_tier('00000000-0000-0000-0000-000000000024') = 'plus';
+insert into results select 'active founding Premium beats the default tier', member_tier('00000000-0000-0000-0000-000000000021') = 'premium';
+insert into results select 'active test grant beats the default tier', member_tier('00000000-0000-0000-0000-000000000009') = 'plus' and member_tier('00000000-0000-0000-0000-000000000006') = 'premium';
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000030';
+insert into r16 select 'usage-default', menu_unlock_usage();
+update membership_settings set default_tier = 'premium';
+reset role;
+insert into results select 'unlock meter uses the default tier quota (30)', (v->>'limit')::int = 30 from r16 where k = 'usage-default';
+insert into results select 'customer cannot change the default tier', default_tier = 'plus' from membership_settings;
+-- the PO flips the default back to Free (admin data change)
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000007';
+update membership_settings set default_tier = 'free';
+reset role;
+insert into results select 'default_tier flipped to free → no-row member is Free', member_tier('00000000-0000-0000-0000-000000000030') = 'free' and member_limit('00000000-0000-0000-0000-000000000030', 'menu_unlocks') = 5;
+insert into results select 'flip: expired grant → Free', member_tier('00000000-0000-0000-0000-000000000024') = 'free';
+do $$ begin
+  update membership_settings set default_tier = 'gold';
+  insert into results values ('unknown default tier rejected', false);
+exception when check_violation then insert into results values ('unknown default tier rejected', true); end $$;
+update membership_settings set default_tier = 'plus';
 
 select (case when ok then 'PASS ' else 'FAIL ' end) || name from results;
 select case when bool_and(ok) then 'ALL DB TESTS PASSED' else 'DB TESTS FAILED' end from results;

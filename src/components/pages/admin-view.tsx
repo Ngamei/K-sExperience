@@ -349,7 +349,7 @@ function Billing() {
         <h3 className="mb-1 font-display text-lg">Entitlement limits (D72)</h3>
         <table className="w-full max-w-xl text-sm"><thead><tr className="text-left text-xs text-muted"><th className="py-1">Limit</th>{TIERS.map((x) => <th key={x}>{PLANS[x].name}</th>)}</tr></thead>
           <tbody>
-            {([["favouritesPerExperience", "Saved references per experience", true], ["collectionsPerExperience", "Collections per experience", true], ["menuViewsPerMonth", "Detailed menu views / month", false], ["presetsPerExperience", "Saved preference presets per experience", false], ["savedLocations", "Saved locations per account", false]] as const).map(([k, l, built]) => (
+            {([["favouritesPerExperience", "Saved references per experience", true], ["collectionsPerExperience", "Collections per experience", true], ["menuUnlocksPerMonth", "Complete menu unlocks / month (one establishment, per billing period)", false], ["presetsPerExperience", "Saved preference presets per experience", false], ["savedLocations", "Saved locations per account", false]] as const).map(([k, l, built]) => (
               <tr key={k} className="border-t border-line/60"><td className="py-1.5">{l} {built ? <Badge tone="forest">DB-enforceable</Badge> : <Badge tone="outline">not built</Badge>}</td>{TIERS.map((x) => <td key={x}>{lim(LIMITS[k][x])}</td>)}</tr>
             ))}
           </tbody></table>

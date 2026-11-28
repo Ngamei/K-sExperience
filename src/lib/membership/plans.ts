@@ -39,15 +39,15 @@ export const annualSavingsPct = (tier: Tier): number | null => {
  * Usage limits (Infinity = unlimited), mirrored in the database (migration 0014 `membership_limits`; a unit test keeps
  * them in step). "Favourites" = saved references: unique saved items + saved places, counted per experience.
  */
-export const LIMITS: Record<"favouritesPerExperience" | "collectionsPerExperience" | "menuViewsPerMonth" | "presetsPerExperience" | "savedLocations", Record<Tier, number>> = {
+export const LIMITS: Record<"favouritesPerExperience" | "collectionsPerExperience" | "menuUnlocksPerMonth" | "presetsPerExperience" | "savedLocations", Record<Tier, number>> = {
   favouritesPerExperience: { free: 20, plus: 150, premium: Infinity },
   collectionsPerExperience: { free: 2, plus: 10, premium: Infinity },
-  menuViewsPerMonth: { free: 5, plus: 30, premium: Infinity },
+  menuUnlocksPerMonth: { free: 5, plus: 30, premium: Infinity },
   presetsPerExperience: { free: 3, plus: 10, premium: Infinity },
   savedLocations: { free: 2, plus: 10, premium: Infinity },
 };
 /** LIMITS key → membership_limits.limit_key. */
-export const DB_LIMIT_KEYS = { favouritesPerExperience: "saved_references", collectionsPerExperience: "collections", menuViewsPerMonth: "menu_views", presetsPerExperience: "preference_presets", savedLocations: "saved_locations" } as const;
+export const DB_LIMIT_KEYS = { favouritesPerExperience: "saved_references", collectionsPerExperience: "collections", menuUnlocksPerMonth: "menu_unlocks", presetsPerExperience: "preference_presets", savedLocations: "saved_locations" } as const;
 export type LimitKey = keyof typeof LIMITS;
 /**
  * Off until paid plans are on sale (D72). The database has its own switch (membership_settings.enforce_limits, also
@@ -62,20 +62,20 @@ export const withinLimit = (tier: Tier | null, key: LimitKey, used: number, enfo
  * Plan benefits as shown on the Membership page. `available` = the feature exists in the app today;
  * otherwise it is listed as coming (never presented as working).
  */
-export type BenefitId = "favourites" | "profiles" | "passport" | "menuViews" | "nutrition" | "advancedPrefs" | "menuPrices" | "priceCompare" | "allPlus";
+export type BenefitId = "favourites" | "profiles" | "passport" | "menuUnlocks" | "nutrition" | "advancedPrefs" | "menuPrices" | "priceCompare" | "allPlus";
 export interface Benefit { id: BenefitId; available: boolean; value?: number }
 export const BENEFITS: Record<Tier, Benefit[]> = {
   free: [
     { id: "favourites", available: true, value: LIMITS.favouritesPerExperience.free },
     { id: "profiles", available: true },
     { id: "passport", available: true },
-    { id: "menuViews", available: false, value: LIMITS.menuViewsPerMonth.free },
+    { id: "menuUnlocks", available: false, value: LIMITS.menuUnlocksPerMonth.free },
   ],
   plus: [
     { id: "favourites", available: true, value: LIMITS.favouritesPerExperience.plus },
     { id: "nutrition", available: false },
     { id: "advancedPrefs", available: false },
-    { id: "menuViews", available: false, value: LIMITS.menuViewsPerMonth.plus },
+    { id: "menuUnlocks", available: false, value: LIMITS.menuUnlocksPerMonth.plus },
   ],
   premium: [
     { id: "favourites", available: true, value: Infinity },
@@ -98,10 +98,104 @@ export const B2B_PLANS: { name: string; monthly: number | null | "custom" }[] = 
   { name: "Business Free", monthly: null }, { name: "Business Plus", monthly: 9.99 }, { name: "Business Pro", monthly: 19.99 }, { name: "Business Enterprise", monthly: "custom" },
 ];
 
-/** The tier shown for a viewer: guests have none; signed-in users without a row are Free. */
-export const effectiveTier = (signedIn: boolean, row: { tier?: unknown; valid_until?: string | null } | null, now = new Date()): Tier | null => {
+/**
+ * Default tier for a signed-in member without an active membership row (no row, or an expired one).
+ * PO 2026-11-28: Plus while the product is in development; the PO will switch it back to "free" when development is
+ * done. One switch, mirrored in the database (migration 0016 membership_settings.default_tier, used by member_tier()
+ * and therefore every quota lookup; a unit test keeps the defaults in step). Founding / test / admin grants (an
+ * active user_memberships row) always take precedence. Guests have no tier (public information = Free).
+ */
+export const DEFAULT_MEMBER_TIER: Tier = "plus";
+
+/** The tier shown for a viewer: guests have none; signed-in users without an active, valid row get the default tier. */
+export const effectiveTier = (signedIn: boolean, row: { tier?: unknown; valid_until?: string | null } | null, now = new Date(), defaultTier: Tier = DEFAULT_MEMBER_TIER): Tier | null => {
   if (!signedIn) return null;
-  if (!row || !isTier(row.tier)) return "free";
-  if (row.valid_until && new Date(row.valid_until) < now) return "free";
+  if (!row || !isTier(row.tier)) return defaultTier;
+  if (row.valid_until && new Date(row.valid_until) < now) return defaultTier;
   return row.tier;
 };
+
+/**
+ * Complete menu unlocks (PO 2026-11-28). One unlock = access to ONE establishment's complete available menu prices for
+ * the current billing period; reopening a menu already unlocked in that period never consumes quota.
+ * Free 5 / Plus 30 / Premium unlimited per period (LIMITS.menuUnlocksPerMonth ↔ membership_limits `menu_unlocks`).
+ * Until billing exists the period is the calendar month in Ho Chi Minh City time (DB: menu_unlock_period_start(),
+ * migration 0016); later it follows the subscription period. Unlocks are recorded only by the `unlock_menu` RPC.
+ */
+export const MENU_UNLOCK_POLICY = { scope: "establishment", period: "calendar-month", timeZone: "Asia/Ho_Chi_Minh", futurePeriod: "subscription-period" } as const;
+/** Start of the current billing period (YYYY-MM-01, Ho Chi Minh City calendar month), same rule as the database. */
+export function menuUnlockPeriodStart(now = new Date()): string {
+  const parts = new Intl.DateTimeFormat("en-CA", { timeZone: MENU_UNLOCK_POLICY.timeZone, year: "numeric", month: "2-digit" }).formatToParts(now);
+  const get = (t: string) => parts.find((p) => p.type === t)!.value;
+  return `${get("year")}-${get("month")}-01`;
+}
+/**
+ * State of one establishment's complete menu for a viewer. Guests cannot unlock (they sign in first).
+ * `open` = everything shown (limits not enforced, unlimited plan, or already unlocked this period).
+ */
+export type MenuUnlockState = "open" | "unlockable" | "exhausted" | "sign-in";
+export function menuUnlockState(tier: Tier | null, opts: { unlocked: boolean; used: number }, enforced = LIMITS_ENFORCED): MenuUnlockState {
+  if (!enforced) return "open";
+  if (tier === null) return "sign-in";
+  if (LIMITS.menuUnlocksPerMonth[tier] === Infinity || opts.unlocked) return "open";
+  return opts.used < LIMITS.menuUnlocksPerMonth[tier] ? "unlockable" : "exhausted";
+}
+
+/**
+ * Information visibility matrix (PO 2026-11-28): which information each viewer's plan includes, as data.
+ *  full = included · limited = included in a reduced form · unlock = included per complete menu unlock (quota) ·
+ *  none = not included. This says what a plan *includes*; whether we hold the data is separate (see infoState).
+ */
+export const VIEWERS = ["guest", "free", "plus", "premium"] as const;
+export type Viewer = (typeof VIEWERS)[number];
+export const viewerOf = (tier: Tier | null): Viewer => tier ?? "guest";
+export const INFO_TYPES = [
+  "businessName", "address", "phone", "openingHours", "menuItemNames", "basicPriceRange", "previewPrices", "allergens",
+  "completeMenuPrices", "calories", "nutritionBreakdown", "advancedPriceComparison",
+] as const;
+export type InfoType = (typeof INFO_TYPES)[number];
+export type Visibility = "full" | "limited" | "unlock" | "none";
+const EVERYONE: Record<Viewer, Visibility> = { guest: "full", free: "full", plus: "full", premium: "full" };
+const PLUS_UP: Record<Viewer, Visibility> = { guest: "none", free: "none", plus: "full", premium: "full" };
+export const VISIBILITY: Record<InfoType, Record<Viewer, Visibility>> = {
+  businessName: EVERYONE, address: EVERYONE, phone: EVERYONE, openingHours: EVERYONE, menuItemNames: EVERYONE,
+  basicPriceRange: EVERYONE, previewPrices: EVERYONE, allergens: EVERYONE,
+  completeMenuPrices: { guest: "none", free: "unlock", plus: "unlock", premium: "full" },
+  calories: PLUS_UP, nutritionBreakdown: PLUS_UP,
+  advancedPriceComparison: { guest: "none", free: "none", plus: "limited", premium: "full" },
+};
+/**
+ * What a viewer sees for one piece of information:
+ *  unavailable = we hold no data (shown as such, never as restricted, never guessed) ·
+ *  restricted = the data exists but the viewer's plan does not include it (or no unlock left this period) ·
+ *  available = shown. While limits are not enforced, everything we hold is available to everyone.
+ */
+export type InfoState = "available" | "restricted" | "unavailable";
+export function infoState(type: InfoType, tier: Tier | null, opts: { hasData: boolean; unlocked?: boolean; usedUnlocks?: number }, enforced = LIMITS_ENFORCED): InfoState {
+  if (!opts.hasData) return "unavailable";
+  if (!enforced) return "available";
+  const v = VISIBILITY[type][viewerOf(tier)];
+  if (v === "full" || v === "limited") return "available";
+  if (v === "none") return "restricted";
+  return menuUnlockState(tier, { unlocked: !!opts.unlocked, used: opts.usedUnlocks ?? 0 }, enforced) === "open" ? "available" : "restricted";
+}
+
+/**
+ * K's Founding Member — early access programme (approved by the PO 2026-11-28; on by default, admins can switch it off).
+ * Complimentary Premium for `durationDays` to the first `cap` members who claim it. No automatic billing afterwards:
+ * at valid_until the membership simply reverts to the default member tier. Mirrors migration 0016 `founding_programme`
+ * defaults (unit-tested). The database switch (founding_programme.enabled) gates claims; the public switch
+ * (NEXT_PUBLIC_FOUNDING_PROGRAMME=0) only hides the section.
+ */
+export const FOUNDING_PROGRAMME = { enabled: true, cap: 100, durationDays: 90, tier: "premium", autoBilling: false } as const satisfies { tier: Tier } & Record<string, unknown>;
+export const FOUNDING_BENEFITS = ["unlimitedSaved", "allMenuPrices", "nutrition", "earlyAccess", "feedbackChannel"] as const;
+export type FoundingBenefit = (typeof FOUNDING_BENEFITS)[number];
+/** Refusal reasons raised by claim_founding_membership() as 'founding_refused:<reason>'. */
+export const FOUNDING_REFUSALS = ["disabled", "cap_reached", "already_claimed", "already_member"] as const;
+export type FoundingRefusal = (typeof FOUNDING_REFUSALS)[number];
+export const foundingRefusalOf = (message: string): FoundingRefusal | null => {
+  const r = /founding_refused:(\w+)/.exec(message)?.[1];
+  return (FOUNDING_REFUSALS as readonly string[]).includes(r ?? "") ? (r as FoundingRefusal) : null;
+};
+/** Whether the Founding Member section is shown: on unless NEXT_PUBLIC_FOUNDING_PROGRAMME=0. Display only. */
+export const foundingSectionVisible = (flag = process.env.NEXT_PUBLIC_FOUNDING_PROGRAMME) => FOUNDING_PROGRAMME.enabled && flag !== "0";
