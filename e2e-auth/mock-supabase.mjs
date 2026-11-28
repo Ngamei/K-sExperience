@@ -15,7 +15,7 @@ const reset = () => { db = { users: [], roles: {}, refresh: {}, fail: false, tab
 reset();
 
 const b64 = (o) => Buffer.from(JSON.stringify(o)).toString("base64url");
-const publicUser = (u) => ({ id: u.id, aud: "authenticated", role: "authenticated", email: u.email, email_confirmed_at: u.created_at, created_at: u.created_at, app_metadata: { provider: "email", providers: ["email"] }, user_metadata: u.meta ?? {}, identities: [{ id: u.id, provider: "email", identity_data: { email: u.email } }] });
+const publicUser = (u) => { const p = u.phone ? "phone" : "email"; return { id: u.id, aud: "authenticated", role: "authenticated", email: u.email ?? "", phone: u.phone ?? "", email_confirmed_at: u.email ? u.created_at : undefined, phone_confirmed_at: u.phone ? u.created_at : undefined, created_at: u.created_at, app_metadata: { provider: p, providers: [p] }, user_metadata: u.meta ?? {}, identities: [{ id: u.id, provider: p, identity_data: u.phone ? { phone: u.phone } : { email: u.email } }] }; };
 const session = (u) => {
   const exp = Math.floor(Date.now() / 1000) + 3600;
   const access_token = `${b64({ alg: "HS256", typ: "JWT" })}.${b64({ sub: u.id, email: u.email, role: "authenticated", aud: "authenticated", exp })}.mock`;
@@ -49,7 +49,7 @@ createServer(async (req, res) => {
     db.roles[u.id] = url.searchParams.get("role");
     return send(res, 200, { ok: true });
   }
-  if (p === "/__db") return send(res, 200, { users: db.users.map((u) => ({ id: u.id, email: u.email })), ...db.tables });
+  if (p === "/__db") return send(res, 200, { users: db.users.map((u) => ({ id: u.id, email: u.email, phone: u.phone })), ...db.tables });
   // ---- auth ---------------------------------------------------------------------------------
   if (p === "/auth/v1/signup" && req.method === "POST") {
     const { email, password, data } = await readBody(req);
@@ -76,6 +76,26 @@ createServer(async (req, res) => {
     if (!u) return send(res, 401, { code: 401, msg: "invalid JWT" });
     if (req.method === "PUT") { const b = await readBody(req); if (b.password) u.password = b.password; }
     return send(res, 200, publicUser(u));
+  }
+  // Phone sign-in: any valid E.164 number gets code 123456 (stands in for the SMS provider).
+  if (p === "/auth/v1/otp" && req.method === "POST") {
+    const { phone } = await readBody(req);
+    if (!/^\+?\d{8,15}$/.test(phone ?? "")) return send(res, 422, { code: 422, error_code: "validation_failed", msg: "Invalid phone number format" });
+    db.otp = { ...(db.otp ?? {}), [phone.replace(/^\+/, "")]: "123456" };
+    return send(res, 200, {});
+  }
+  if (p === "/auth/v1/verify" && req.method === "POST") {
+    const { phone, token, type } = await readBody(req);
+    const key = (phone ?? "").replace(/^\+/, "");
+    if (type !== "sms" || db.otp?.[key] !== token) return send(res, 403, { code: 403, error_code: "otp_expired", msg: "Token has expired or is invalid" });
+    let u = db.users.find((x) => x.phone === key);
+    if (!u) {
+      u = { id: randomUUID(), phone: key, password: null, meta: {}, created_at: new Date().toISOString() };
+      db.users.push(u);
+      db.tables.user_profiles.push({ user_id: u.id, display_name: null, avatar_url: null, locale: "en", share_passport: false, created_at: u.created_at });
+    }
+    delete db.otp[key];
+    return send(res, 200, session(u));
   }
   if (p === "/auth/v1/logout") return send(res, 204);
   if (p === "/auth/v1/recover") return send(res, 200, {});

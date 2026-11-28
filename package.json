@@ -39,7 +39,7 @@
     "db:seed-sql": "tsx scripts/build-supabase-seed.ts",
     "test:db": "bash scripts/test-db.sh",
     "db:export": "tsx scripts/export-supabase.ts",
-    "build:auth-test": "node scripts/copy-vendor.mjs && STATIC_EXPORT=1 BUILD_DIST_DIR=out-auth NEXT_PUBLIC_DATA_MODE=supabase NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321 NEXT_PUBLIC_SUPABASE_ANON_KEY=mock-anon-key NEXT_PUBLIC_FEATURE_COFFEE=1 NEXT_PUBLIC_BASEMAP_STYLE_URL=none next build",
+    "build:auth-test": "node scripts/copy-vendor.mjs && STATIC_EXPORT=1 BUILD_DIST_DIR=out-auth NEXT_PUBLIC_DATA_MODE=supabase NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321 NEXT_PUBLIC_SUPABASE_ANON_KEY=mock-anon-key NEXT_PUBLIC_FEATURE_COFFEE=1 NEXT_PUBLIC_AUTH_METHODS=google,facebook,phone NEXT_PUBLIC_BASEMAP_STYLE_URL=none next build",
     "test:e2e-auth": "playwright test -c playwright.auth.config.ts",
     "build:modules-test": "node scripts/copy-vendor.mjs && STATIC_EXPORT=1 BUILD_DIST_DIR=out-modules NEXT_PUBLIC_FEATURE_COFFEE=1 NEXT_PUBLIC_BASEMAP_STYLE_URL=none next build",
     "test:e2e-modules": "playwright test -c playwright.modules.config.ts"
