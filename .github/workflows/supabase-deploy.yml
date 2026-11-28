@@ -35,7 +35,9 @@ jobs:
           sudo apt-get update -q
           sudo apt-get install -y -q postgresql-16 postgresql-16-postgis-3
           sudo systemctl start postgresql.service
+          sudo -u postgres createuser --superuser "$USER"
       - run: npm run test:db
+        env: { TEST_DB_DIRECT: "1", PGDATABASE: postgres }
 
   deploy-production-db:
     needs: db-test
