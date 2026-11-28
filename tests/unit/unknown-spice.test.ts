@@ -89,7 +89,10 @@ describe("KEX-IMPORT-01 · strict spice filters exclude unknown", () => {
 describe("KEX-IMPORT-01 · bundled data and Supabase mapping", () => {
   it("bundled catalogue keeps its recorded numeric levels (all 0–3)", () => {
     for (const d of data.dishes) expect(d.spiceLevel === undefined || [0, 1, 2, 3].includes(d.spiceLevel)).toBe(true);
-    expect(data.dishes.filter((d) => d.spiceLevel !== undefined)).toHaveLength(data.dishes.length); // legacy data is all recorded
+    // Legacy (seed) data is all recorded; master-catalogue imports may leave spice unknown (KEX-IMPORT-01).
+    const seed = data.dishes.filter((d) => d.dataset === "seed");
+    expect(seed.length).toBeGreaterThan(0);
+    expect(seed.filter((d) => d.spiceLevel !== undefined)).toHaveLength(seed.length);
   });
   it("Supabase rows: unknown ↔ NULL, recorded levels round-trip unchanged", () => {
     const u = unknownDish();

@@ -1,0 +1,210 @@
+{
+  "batchId": "CC-FOOD-012",
+  "experience": "food",
+  "kind": "venues",
+  "agent": "claude-code",
+  "researchedOn": "2026-11-28",
+  "method": "Venues for the 42 dishes added by GPT-CAT-001/002/003, from the 362 mia.vn HCMC food articles already read for CC-FOOD-011 (re-parsed with the 180-dish catalogue). Linked only when the venue's name contains the dish name or the article is about that exact dish. Hours only for one same-day range; no prices. Status: source-listed.",
+  "venues": [
+    {
+      "name": "Bò Kho Gánh",
+      "address": "029 Lô H chung cư Ngô Gia Tự",
+      "district": "Quận 10",
+      "venueType": "eatery",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/bo-kho-ganh-sai-gon-16015"
+      ],
+      "dishes": [
+        {
+          "dishId": "bo-kho",
+          "evidence": "mia.vn guide “Bò Kho Gánh mang hương vị Sài Gòn xưa đến với thực khách hiện đại” (2024-07-03) lists “Bò Kho Gánh Sài Gòn” at 029 Lô H chung cư Ngô Gia Tự, đường Sư Vạn Hạnh, phường 2, quận 10, TP.HCM; the venue's name names this dish.",
+          "url": "https://mia.vn/cam-nang-du-lich/bo-kho-ganh-sai-gon-16015"
+        }
+      ],
+      "note": "Source address: 029 Lô H chung cư Ngô Gia Tự, đường Sư Vạn Hạnh, phường 2, quận 10, TP.HCM · Source hours: hàng ngày từ 14h - 22h",
+      "id": "bo-kho-ganh-029-lo-h-chung-cu-ngo-gia-tu",
+      "excluded": "intake CC-FOOD-012: coordinates: not geocoded: not found"
+    },
+    {
+      "name": "Bún thịt nướng Chị Tuyền",
+      "address": "175 Cô Giang",
+      "district": "Quận 1",
+      "venueType": "eatery",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-an-sang-quan-1-17538"
+      ],
+      "dishes": [
+        {
+          "dishId": "bun-thit-nuong",
+          "evidence": "mia.vn guide “Mách bạn 9 quán ăn sáng quận 1 ngon, bổ, rẻ” (2024-12-30) lists “Bún thịt nướng Chị Tuyền” at Số 175 Cô Giang, Quận 1, Thành phố Hồ Chí Minh; the venue's name names this dish.",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-an-sang-quan-1-17538"
+        }
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ],
+        "tue": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ],
+        "wed": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ],
+        "thu": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ],
+        "fri": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ],
+        "sat": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ],
+        "sun": [
+          [
+            "07:00",
+            "20:00"
+          ]
+        ]
+      },
+      "note": "Source address: Số 175 Cô Giang, Quận 1, Thành phố Hồ Chí Minh · Source hours: 07:00 - 20:00",
+      "id": "bun-thit-nuong-chi-tuyen-175-co-giang"
+    },
+    {
+      "name": "Bánh Xèo Gỏi Cuốn Cô Tuyên",
+      "address": "152 Long Phước",
+      "district": "Thủ Đức",
+      "venueType": "eatery",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-banh-xeo-thu-duc-18184"
+      ],
+      "dishes": [
+        {
+          "dishId": "goi-cuon",
+          "evidence": "mia.vn guide “Top 9 quán bánh xèo Thủ Đức thơm ngon, giá bình dân” (2025-04-07) lists “Bánh Xèo Gỏi Cuốn Cô Tuyên” at 152 đường Long Phước, Thành phố Thủ Đức, Thành phố Hồ Chí Minh; the venue's name names this dish.",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-banh-xeo-thu-duc-18184"
+        }
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "10:00",
+            "22:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:00",
+            "22:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:00",
+            "22:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:00",
+            "22:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:00",
+            "22:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:00",
+            "22:00"
+          ]
+        ]
+      },
+      "note": "Source address: 152 đường Long Phước, Thành phố Thủ Đức, Thành phố Hồ Chí Minh · Source hours: 10:00 - 22:00",
+      "id": "banh-xeo-goi-cuon-co-tuyen-152-long-phuoc",
+      "excluded": "intake CC-FOOD-012: coordinates: geocoder matched \"Trường Trung học phổ thông Phước Long, 18D, Dương Đình Hội, Khu phố 48, Phường Phước Long, Thành phố Hồ Chí Minh, 71321, Việt Nam\", which is not on 152 Long Phước"
+    },
+    {
+      "name": "Vị Sài Gòn",
+      "address": "157 Nguyễn Văn Thủ",
+      "district": "Quận 1",
+      "venueType": "eatery",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-bun-thit-nuong-sai-gon-16349"
+      ],
+      "dishes": [
+        {
+          "dishId": "bun-thit-nuong",
+          "evidence": "mia.vn guide “Điểm danh 6 quán bún thịt nướng ngon trứ danh Sài Gòn” (2024-08-05) lists “Vị Sài Gòn” at Số 157 đường Nguyễn Văn Thủ, phường Đa Kao, quận 1, Thành phố Hồ Chí Minh.; the article is about this dish.",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-bun-thit-nuong-sai-gon-16349"
+        }
+      ],
+      "note": "Source address: Số 157 đường Nguyễn Văn Thủ, phường Đa Kao, quận 1, Thành phố Hồ Chí Minh.",
+      "id": "vi-sai-gon-157-nguyen-van-thu"
+    },
+    {
+      "name": "Quán bún thịt nướng Hải Đăng",
+      "address": "149 Chấn Hưng",
+      "district": "Tân Bình",
+      "venueType": "eatery",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-bun-thit-nuong-sai-gon-16349"
+      ],
+      "dishes": [
+        {
+          "dishId": "bun-thit-nuong",
+          "evidence": "mia.vn guide “Điểm danh 6 quán bún thịt nướng ngon trứ danh Sài Gòn” (2024-08-05) lists “Quán bún thịt nướng Hải Đăng” at Số 149 đường Chấn Hưng, Phường 6, Quận Tân Bình, Thành phố Hồ Chí Minh.; the venue's name names this dish.",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-bun-thit-nuong-sai-gon-16349"
+        }
+      ],
+      "note": "Source address: Số 149 đường Chấn Hưng, Phường 6, Quận Tân Bình, Thành phố Hồ Chí Minh.",
+      "id": "quan-bun-thit-nuong-hai-dang-149-chan-hung",
+      "excluded": "intake CC-FOOD-012: coordinates: street-level pin (house number not located) lies nearer Quận 10 than Tân Bình — exact location unconfirmed"
+    },
+    {
+      "name": "Quán bún thịt nướng Cô Ba",
+      "address": "65 Tân Thành",
+      "district": "Tân Phú",
+      "venueType": "eatery",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-bun-thit-nuong-sai-gon-16349"
+      ],
+      "dishes": [
+        {
+          "dishId": "bun-thit-nuong",
+          "evidence": "mia.vn guide “Điểm danh 6 quán bún thịt nướng ngon trứ danh Sài Gòn” (2024-08-05) lists “Quán bún thịt nướng Cô Ba Sài Gòn” at Số 65 Tân Thành, Phường Hoà Thanh, Quận Tân Phú, Thành phố Hồ Chí Minh.; the venue's name names this dish.",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-bun-thit-nuong-sai-gon-16349"
+        }
+      ],
+      "note": "Source address: Số 65 Tân Thành, Phường Hoà Thanh, Quận Tân Phú, Thành phố Hồ Chí Minh.",
+      "id": "quan-bun-thit-nuong-co-ba-65-tan-thanh",
+      "excluded": "intake CC-FOOD-012: coordinates: street-level pin (house number not located) lies nearer Quận 11 than Tân Phú — exact location unconfirmed"
+    }
+  ]
+}

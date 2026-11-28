@@ -5,6 +5,7 @@
  * migration failure + retry.
  */
 import { expect, test, type Page } from "@playwright/test";
+import { DISH_COUNT } from "../e2e/helpers";
 
 const MOCK = "http://localhost:54321";
 const mock = (path: string) => fetch(`${MOCK}${path}`).then((r) => r.json());
@@ -66,7 +67,7 @@ test("guests browse freely; Passport asks to sign in and cancelling returns to w
   await expect(page.getByRole("banner").getByTestId("account-login")).toHaveCount(0); // no auth buttons in the header
   await tryDish(page, "mi-quang");
   await page.goto("/catalogue/");
-  await expect(page.getByTestId("result-count").filter({ visible: true }).first()).toHaveText("138 dishes");
+  await expect(page.getByTestId("result-count").filter({ visible: true }).first()).toHaveText(`${DISH_COUNT} dishes`);
   await openPassportFromNav(page, isMobile);
   await expect(gate(page)).toBeVisible();
   await expect(gate(page).getByTestId("google-login")).toBeVisible();

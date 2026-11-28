@@ -1,0 +1,98 @@
+{
+  "batchId": "PO-GMAPS-001",
+  "experience": "food",
+  "kind": "venues",
+  "agent": "product-owner",
+  "researchedOn": "2026-11-28",
+  "method": "Product Owner picked venues from the dish page's 'Search on Google Maps' results and sent Google Maps share links. Claude Code resolved each link (name + exact pin from the place URL, !3d/!4d), confirmed the street with an OpenStreetMap reverse lookup, and took the house number from the PO's screenshot or the listing name. Only name, address, pin and the place link are stored; no ratings, reviews, hours or photos (D79).",
+  "venues": [
+    {
+      "name": "Bánh mì que - Pate gia truyền Quán Mau Hải Phòng",
+      "address": "154 Đường Số 2",
+      "district": "Gò Vấp",
+      "venueType": "eatery",
+      "sources": [
+        "https://maps.app.goo.gl/7Uqh8aQN8FxjN4kz5"
+      ],
+      "googleMapsUrl": "https://maps.app.goo.gl/7Uqh8aQN8FxjN4kz5",
+      "lat": 10.8499385,
+      "lon": 106.6621091,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+que+-+Pate+gia+truy%E1%BB%81n+Qu%C3%A1n+Mau+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x317529001eb08f29:0x99fc92fb973ed978!8m2!3d10.8499385!4d106.6621091",
+      "dishes": [
+        {
+          "dishId": "banh-mi-que-hai-phong",
+          "evidence": "Google Maps listing “Bánh mì que - Pate gia truyền Quán Mau Hải Phòng” names bánh mì que Hải Phòng; chosen by the Product Owner from the dish page's Google Maps search (2026-11-28).",
+          "url": "https://maps.app.goo.gl/7Uqh8aQN8FxjN4kz5"
+        }
+      ],
+      "note": "Pin from the Google Maps place link; OpenStreetMap places it on the same street (Phường An Hội Đông). House number from the PO's Google Maps screenshot / listing name."
+    },
+    {
+      "name": "Bánh mì que pate Hải Phòng Mẹ Nấm",
+      "address": "291/45 Nguyễn Hồng Đào",
+      "district": "Tân Bình",
+      "venueType": "eatery",
+      "sources": [
+        "https://maps.app.goo.gl/ERQUyUnmgXTgq2YJ9"
+      ],
+      "googleMapsUrl": "https://maps.app.goo.gl/ERQUyUnmgXTgq2YJ9",
+      "lat": 10.7954887,
+      "lon": 106.6433419,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+que+pate+H%E1%BA%A3i+Ph%C3%B2ng+M%E1%BA%B9+N%E1%BA%A5m/data=!4m7!3m6!1s0x317529003e25c7ff:0xf858c6093ace0482!8m2!3d10.7954887!4d106.6433419",
+      "dishes": [
+        {
+          "dishId": "banh-mi-que-hai-phong",
+          "evidence": "Google Maps listing “Bánh mì que pate Hải Phòng Mẹ Nấm” names bánh mì que Hải Phòng; chosen by the Product Owner from the dish page's Google Maps search (2026-11-28).",
+          "url": "https://maps.app.goo.gl/ERQUyUnmgXTgq2YJ9"
+        }
+      ],
+      "note": "Pin from the Google Maps place link; OpenStreetMap places it on the same street (Phường Tân Bình). House number from the PO's Google Maps screenshot / listing name."
+    },
+    {
+      "name": "The Bready - Bánh Mì Pate Que Hải Phòng",
+      "address": "686/6 Cách Mạng Tháng 8",
+      "district": "Tân Bình",
+      "venueType": "eatery",
+      "sources": [
+        "https://maps.app.goo.gl/BDZVVKJdeqGzgAqo8"
+      ],
+      "googleMapsUrl": "https://maps.app.goo.gl/BDZVVKJdeqGzgAqo8",
+      "lat": 10.7875303,
+      "lon": 106.6639547,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/The+Bready+-+B%C3%A1nh+M%C3%AC+Pate+Que+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x31752fef9835006f:0xccea92def9e67286!8m2!3d10.7875303!4d106.6639547",
+      "dishes": [
+        {
+          "dishId": "banh-mi-que-hai-phong",
+          "evidence": "Google Maps listing “The Bready - Bánh Mì Pate Que Hải Phòng” names bánh mì que Hải Phòng; chosen by the Product Owner from the dish page's Google Maps search (2026-11-28).",
+          "url": "https://maps.app.goo.gl/BDZVVKJdeqGzgAqo8"
+        }
+      ],
+      "note": "Pin from the Google Maps place link; OpenStreetMap places it on the same street (Phường Tân Sơn Nhất). House number from the PO's Google Maps screenshot / listing name."
+    },
+    {
+      "name": "Tâm cook Plus - Pate cột đèn đặc sản Hải Phòng, bánh mì và bánh mì que",
+      "address": "100 Phạm Ngũ Lão",
+      "district": "Gò Vấp",
+      "venueType": "eatery",
+      "sources": [
+        "https://maps.app.goo.gl/rqww3LUXgKgQCsr86"
+      ],
+      "googleMapsUrl": "https://maps.app.goo.gl/rqww3LUXgKgQCsr86",
+      "lat": 10.8227371,
+      "lon": 106.6822585,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/T%C3%A2m+cook+Plus-+Pate+c%E1%BB%99t+%C4%91%C3%A8n+%C4%91%E1%BA%B7c+s%E1%BA%A3n+H%E1%BA%A3i+ph%C3%B2ng,+b%C3%A1nh+m%C3%AC+v%C3%A0+b%C3%A1nh+m%C3%AC+que,+100+Ph%E1%BA%A1m+Ng%C5%A9+L%C3%A3o/data=!4m7!3m6!1s0x317529b4bc0f4ed7:0xe0170124c0792260!8m2!3d10.8227371!4d106.6822585",
+      "dishes": [
+        {
+          "dishId": "banh-mi-que-hai-phong",
+          "evidence": "Google Maps listing “Tâm cook Plus - Pate cột đèn đặc sản Hải Phòng, bánh mì và bánh mì que” names bánh mì que Hải Phòng; chosen by the Product Owner from the dish page's Google Maps search (2026-11-28).",
+          "url": "https://maps.app.goo.gl/rqww3LUXgKgQCsr86"
+        }
+      ],
+      "note": "Pin from the Google Maps place link; OpenStreetMap places it on the same street (Phường Hạnh Thông). House number from the PO's Google Maps screenshot / listing name."
+    }
+  ]
+}
