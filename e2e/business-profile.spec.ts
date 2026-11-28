@@ -10,6 +10,8 @@ test("restaurant profile: shared components, unknown contact shown honestly, onl
   await expect(page.getByTestId("fact-phone")).toHaveAttribute("data-known", "false");
   await expect(page.getByTestId("fact-phone")).toContainText("Not published yet");
   await expect(page.getByTestId("action-call")).toBeDisabled();
+  await expect(page.getByTestId("maps-photos-link")).toHaveAttribute("href", /google\.com\/maps|maps\.app\.goo\.gl|goo\.gl/);
+  await expect(page.getByTestId("maps-photos-link")).toHaveAttribute("target", "_blank");
   await expect(page.getByTestId("google-maps-link")).toHaveAttribute("href", /google\.com\/maps|maps\.app\.goo\.gl|goo\.gl/);
   await expect(page.getByRole("heading", { name: "Menu" })).toBeVisible();
   const priced = page.locator('[data-testid=place-offering][data-offering="banh-mi-sai-gon"]');
