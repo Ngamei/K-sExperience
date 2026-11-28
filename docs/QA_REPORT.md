@@ -210,3 +210,14 @@ Mobile (Pixel 7): `mobile-01-discover`, `02-explore`, `03-explore-region`, `04-e
 - Service-worker offline behaviour verified only indirectly (navigations work with SW active); no airplane-mode test.
 - No formal accessibility (axe) or Lighthouse performance audit yet.
 - Supabase migration is authored but has not been applied to a database.
+
+## Independent production checks · 28 Nov 2026
+
+- PASS: At 390 × 844 the Food bottom bar displayed Explore, Eat today, Catalogue, Nearby and Passport, with icons. Explore contained Food Map and Discover tabs. Public Food and What to eat loaded as a guest. Settings listed Account first and Shopping disabled.
+- PASS: Vegan + No pork remained selected after requesting recommendations. The tested live baseline showed 21 eligible dishes, 1 dish with places (4 venues) and 20 suggestions explicitly labelled without a local listing.
+- PASS: Vercel showed 9787dc3 Current Production, and live Settings counted 28 Bars branches and 36/138 Food dishes with places. Live Settings identified Local mode.
+- OPEN KEX-QA-01: the generated meal report reads `recommend(...).eligible` as a venue count. Expected 36/138. Actual 138/138 at production source commit 9787dc3. The issue was queued to Claude, which acknowledged it and reported a passing local regression. Review the actual follow-up diff before closing.
+- OPEN KEX-QA-02: duplicate street-level coordinate for two Xuân Thủy branches in the deployed Bars data. Their addresses are 120 and 26B. Review exact pins and shared street-cache results before relying on marker placement.
+- OPEN KEX-IMPORT-01: unknown spice becomes 0 during catalogue intake and can pass the strict no-spice filter. Hold GPT-CAT-001 until the behavior is corrected or the candidate's spice level can be sourced accurately.
+- Baseline runner: Node typecheck, lint (one unused-variable warning), 129 Vitest checks including the separate 20/20 data-validator run, and production/test builds passed at e10b701. Playwright did not complete successfully in this environment. The runner reported local network-interface errors and browser launch failures. Claude reported Food 91/91, module 40/40, and local database 40/40 at 9787dc3. Those runs have agent-reported status. Signed-in production persistence, full theme/contrast coverage, exact Bars pins, and the Passport auth return remain open.
+- On the production source at 9787dc3, the independent Vitest rerun passed 129/129. ESLint failed at `e2e-modules/journeys.spec.ts:105` because the new Bars test uses a restricted `require()` import. Claude identified the same failure and reported correcting it locally. That fix needs review.

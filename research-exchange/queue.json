@@ -260,11 +260,22 @@
       "kind": "catalogue",
       "scope": "Master catalogue: everyday HCMC meals missing from the atlas (cơm phần, cơm chay, bún chay, cháo, xôi, hủ tiếu variants, office-lunch dishes) with eating attributes and sources",
       "assignedTo": "chatgpt",
-      "status": "planned",
-      "sources": [],
-      "importStatus": "not imported",
+      "status": "validated",
+      "sources": [
+        "https://govietnam.travel/food/com-ga-2/com-ga-xoi-mo/",
+        "https://vnexpress.net/doi-song-cooking-bun-rieu-chay-cho-mua-vu-lan-4644563.html",
+        "https://fptshop.com.vn/tin-tuc/dien-may/quan-chay-tan-binh-166331"
+      ],
+      "importStatus": "dry run only",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 2,
+        "rejected": 0,
+        "warnings": 0,
+        "report": "research-exchange/reports/GPT-CAT-001.md"
+      },
       "updatedAt": "2026-11-28",
-      "notes": "Dish names/ids must not collide with contract/exports/food-dishes.csv; regional variants stay separate (family)."
+      "notes": "First slice: Cơm gà xối mỡ and Bún riêu chay. Both use associated HCMC geography. Hold apply until unknown spice intensity is preserved and tested. No venue links are proposed. See docs/DATA_SOURCES.md."
     },
     {
       "batchId": "GPT-FOOD-001",
@@ -284,7 +295,8 @@
       "status": "planned",
       "sources": [],
       "importStatus": "not imported",
-      "updatedAt": "2026-11-28"
+      "updatedAt": "2026-11-28",
+      "notes": "ChatGPT owns outer districts. Chay Quán Âm in Tân Bình is a candidate for bún riêu chay. Confirm current operation, exact branch and offering before submitting venue data."
     },
     {
       "batchId": "GPT-BARS-001",

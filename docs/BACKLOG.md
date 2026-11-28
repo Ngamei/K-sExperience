@@ -61,3 +61,11 @@ Status: ✅ done · 🔄 in progress · ⬜ todo · ⛔ blocked (reason).
 | CC-14 | P2 | CC | Discovery engine v2: "what to eat now" (time of day, budget, nearby listed venues, preferences) | Discover shows ranked suggestions with reasons; unit tested | ⬜ |
 | CX-03 | P1 | CX | Independent QA on deployed build (which commit is live?) | QA notes in `docs/QA_REPORT.md` → *Independent QA* | ⬜ |
 | — | — | — | Bars / Coffee / Spa / Shopping modules | **Out of scope this sprint** (remain "Coming soon") | — |
+
+### 28 Nov 2026 · Audit follow-up
+
+| ID | Priority | Owner | Acceptance and state |
+| --- | --- | --- | --- |
+| KEX-QA-01 | P0 | Claude Code | Report returns 36/138 from linked dishes, with regression coverage. Review the local fix and deploy only with release approval. |
+| KEX-IMPORT-01 | P0 | Claude Code | Unknown spice intensity survives intake and stays out of strict no-spice matches. ChatGPT holds GPT-CAT-001 until the test passes. |
+| KEX-QA-02 | P1 | Claude Code | Resolve the two Xuân Thủy branch pins and compare the six withheld Craft Beer branches against branch sources. Review cache behavior and preserve usable IDs and evidence. |

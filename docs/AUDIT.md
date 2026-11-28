@@ -49,3 +49,34 @@ Legend: ✅ Implemented & verified · 🟡 Implemented but unverified · 🟠 Pa
 1. Catalogue is seed and unsourced → credibility.
 2. Venue coverage: 28/138 dishes have any venue; none confirmed first-hand.
 3. Admin cannot persist edits → PO cannot maintain data without code.
+
+## 28 Nov 2026 · Independent production baseline
+
+Vercel marked [9787dc3](https://github.com/Ngamei/K-sExperience/commit/9787dc3a3e6e820504f96eb37df22e6e06b4fbcd) current production on `claude/trusting-clarke-44sf7b`. Live Settings showed Local mode and the same item and branch totals as the bundled files below. Supabase migrations and read paths exist, and the current public production app reads bundled JSON. Hosted Supabase row parity, account persistence, and a successful Passport auth round trip remain unverified.
+
+| Experience | Visible items | Bundled seed items | Listed branches | Items with places | Source-listed offerings | In-boundary pins (exact / street) | Priced offerings | Catalogue photos |
+| --- | ---: | ---: | ---: | ---: | ---: | --- | ---: | ---: |
+| Food | 138 | 138 | 118 | 36 | 121 | 118 (25 / 93) | 1 | 45 |
+| Bars | 9 | 9 | 28 | 3 | 28 | 28 (12 / 16) | 0 | 8 |
+| Coffee | 13 | 13 | 8 | 5 | 9 | 8 (3 / 5) | 0 | 9 |
+| Spa | 8 | 8 | 6 | 5 | 11 | 6 (0 / 6) | 0 | 3 |
+| Sport | 7 | 7 | 6 | 5 | 9 | 6 (2 / 4) | 0 | 4 |
+| Shopping | 0 | 0 | 0 | 0 | 0 | — | 0 | 0 |
+
+Count method: unique catalogue ID, unique establishment ID, and unique item–establishment pair. Counted non-sample records and tested pins against the HCMC boundary. Seed catalogue items currently render publicly. All listed branches have at least one source. Current operation and a canonical brand roll-up are untracked in the production model. The Craft Beer import has 26 branches across 12 source-labelled brands. Nail and Pilates candidates are outside these totals. Every experience has zero menu-confirmed, directly confirmed and visit-confirmed offerings, and zero offering photos. Venue exteriors have no canonical field.
+
+| Experience | Venues missing hours | Venues missing structured attributes | Exact normalized name/address duplicates | Rejection evidence |
+| --- | ---: | ---: | ---: | --- |
+| Food | 115 | 118 | 0 | 1 CC-FOOD-009 exclusion and 8 legacy ambiguous-street skips in its report |
+| Bars | 28 | 0 | 0 | 6 GPT-BARS-001 rejects. One pair shares a street-level pin. |
+| Coffee | 8 | 3 | 0 | 1 explicit source-batch exclusion |
+| Spa | 6 | 0 | 0 | 0 explicit source-batch exclusions. Legacy notes mention unresolved addresses. |
+| Sport | 6 | 0 | 0 | 4 explicit source-batch exclusions |
+| Shopping | — | — | — | No intake |
+
+### Vietnamese Food
+
+- Categories: 92 savory, 22 sweet, 24 snack. Regional memberships count each dish once per region, so totals overlap. Miền Bắc 49, Bắc Trung Bộ 18, Nam Trung Bộ 24, Tây Nguyên 8, Đông Nam Bộ 20, Tây Nam Bộ 24.
+- Historical province IDs and dish counts, including associated origins: ha-giang 3, cao-bang 1, bac-kan 2, tuyen-quang 1, lao-cai 1, yen-bai 1, thai-nguyen 0, lang-son 3, bac-giang 1, phu-tho 2, quang-ninh 1, dien-bien 2, lai-chau 1, son-la 3, hoa-binh 1, ha-noi 16, hai-phong 4, vinh-phuc 1, bac-ninh 1, hung-yen 1, hai-duong 2, thai-binh 2, ha-nam 1, nam-dinh 2, ninh-binh 2, thanh-hoa 2, nghe-an 2, ha-tinh 2, quang-binh 2, quang-tri 2, thua-thien-hue 9, da-nang 3, quang-nam 5, quang-ngai 3, binh-dinh 5, phu-yen 2, khanh-hoa 2, ninh-thuan 2, binh-thuan 2, kon-tum 2, gia-lai 2, dak-lak 2, dak-nong 0, lam-dong 4, ho-chi-minh 10, binh-duong 1, binh-phuoc 1, tay-ninh 3, dong-nai 0, ba-ria-vung-tau 2, long-an 1, tien-giang 1, ben-tre 1, tra-vinh 2, vinh-long 1, dong-thap 3, an-giang 3, kien-giang 2, can-tho 1, hau-giang 0, soc-trang 3, bac-lieu 1, ca-mau 1.
+- 36 dishes with an HCMC venue, 102 without. Filter coverage includes 46 breakfast, 67 lunch, 50 dinner, 48 snack and 11 late-night dishes. The strict meal-plus-diet cases with zero places include vegan breakfast, lunch, dinner and late night, and vegetarian dinner. This is zero-result potential from the bundled dataset. Traffic frequency is unknown.
+- 21 vegan and 5 vegetarian catalogue tags, plus 3 tagged with common vegetarian variants. The app's broader Vegetarian filter includes all 29 and has 4 with places. There are zero sourced complete allergen lists and zero sourced nutrition records. One offering has a recorded price. See [filter-level coverage](WHAT_TO_EAT_REPORT.md) and the headline issue in [QA](QA_REPORT.md).
