@@ -125,6 +125,21 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 
 Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-catalogue`, `*-food-dish`, `*-settings`, `*-settings-account-guest`, `*-passport-gate`, `*-coffee-map`, `*-coffee-catalogue`, `*-coffee-item`, `*-coffee-cafe`.
 
+## KEX-SEC-01 / KEX-DB-01 / Food coverage (2026-11-28, review branch `claude/kex-sec-01`, base cd7504c)
+
+| Command | Result |
+| --- | --- |
+| `npm run qa` | ✅ exit 0 — typecheck, lint (1 pre-existing warning in `scripts/neighbourhood-coverage.ts`), unit+integration 16 files / 148, Food e2e 91, account e2e **32** (was 28: +guest, +editor admin flows, non-editor test rewritten; ×2 viewports), module e2e **46** (was 42: +public-build admin gate ×2) |
+| `npx vitest run` (after adding the coverage test) | ✅ 17 files / 151 |
+| `npm run test:db` | ✅ seed parity **10/10 PASS**, RLS **53/53 PASS** (7 new KEX-SEC-01 checks) |
+| Mutation check | Granting the "attacker" identity the editor role turns 5 KEX-SEC-01 checks red → the checks are not vacuous |
+| `VERCEL=1 NEXT_PUBLIC_LOCAL_ADMIN=1` config load | ✅ refused with the KEX-SEC-01 error; without the flag the config loads |
+| `npm run data:food-coverage` | ✅ 0 = 102 · 1–4 = 26 · 5+ = 10 (sum 138), 118 real venues, 0 outside HCMC, 121 public links |
+
+**Evidence by flow.** Public build (no Supabase, no flag; modules build): `/admin/` → "Admin is not available on this deployment", no `admin`/`admin-auth`/tabs/save/coverage elements, no Settings entry point; Food and Bars catalogues still load. Supabase build + mock: guest → editor sign-in only (`admin-locked` state guest); signed-in non-editor → "not an editor — no access", no tools; editor (role granted through the mock's `/__role`, standing in for an admin's `user_roles` insert) → tools, "Save to database". Database: anon and a signed-in non-editor attempt insert/update/delete on dishes, restaurants, links, offerings, items, experience tags, dish origins, `user_roles` (self-escalation) and `content_audit` (forge/erase) — all refused, counts unchanged; the editor's write succeeds and is audited with the editor id.
+
+**Not verified:** a hosted Supabase project (no authorized staging project or credentials; see `docs/STAGING_RUNBOOK.md` §0). The mock does not enforce RLS for curated tables, so bypass protection is proven on PostgreSQL only.
+
 ## KEX-QA-03 (2026-11-28, review branch `claude/kex-review-2026-11-28`)
 - Reproduced at 1b6a1be: `scripts/intake.ts` set `precision: "exact"` for every supplied coordinate; `research-exchange/geocodes/CC-BARS-003.json` held a stale **street** point for Bùi Viện (10.762988, 106.696052 — GPT-BARS-001's cached geocode for the same key) instead of the supplied OSM POI (10.7673944, 106.6940607), and no pin for Phú Mỹ Hưng; the snapshot was written **before** supplied coordinates were applied.
 - Fix: `selectPin` / `resolvePins` / `snapshotMismatches` in `src/lib/data/exchange.ts` (shared by dry run and apply); batch schema requires `coordinatePrecision` + `coordinateSource` with lon/lat; snapshot stores selected pins; apply reuses it with a parity check and no geocoder calls; precision `building` added (schema, migration 0010, Admin, UI label "building-level location").

@@ -18,6 +18,11 @@ COLS_SQL=$(cd "$ROOT" && npx tsx scripts/print-read-columns-sql.ts)
 echo "$COLS_SQL" > "/tmp/ksx_cols_$$.sql"; chmod 644 "/tmp/ksx_cols_$$.sql"
 as_pg psql -X -At -v ON_ERROR_STOP=1 -d "$DB" -f "/tmp/ksx_cols_$$.sql" | sed 's/^/columns readable by anon: /'
 rm -f "/tmp/ksx_cols_$$.sql"
+# KEX-DB-01: the seeded database matches the canonical JSON (read-only parity checks, also usable on staging).
+(cd "$ROOT" && npx tsx scripts/print-seed-parity-sql.ts) > "/tmp/ksx_parity_$$.sql"; chmod 644 "/tmp/ksx_parity_$$.sql"
+PARITY=$(as_pg psql -X -At -v ON_ERROR_STOP=1 -d "$DB" -f "/tmp/ksx_parity_$$.sql"); rm -f "/tmp/ksx_parity_$$.sql"
+echo "$PARITY"
+echo "$PARITY" | grep -q "PARITY FAIL" && { echo "SEED PARITY FAILED"; exit 1; }
 OUT=$(as_pg psql -X -At -d "$DB" -f "$ROOT/tests/db/rls.sql")
 echo "$OUT"
 echo "$OUT" | grep -q "ALL DB TESTS PASSED"

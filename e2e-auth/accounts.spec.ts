@@ -226,13 +226,36 @@ test("password recovery and reset", async ({ page }) => {
   await login(page, email, "new-password-42");
 });
 
-test("ordinary users cannot use admin functions", async ({ page }) => {
+// KEX-SEC-01: /admin/ fails closed — guests and signed-in non-editors get no editor tools; editors do.
+// (Writes are also refused by RLS for non-editors, whatever the UI does: tests/db/rls.sql.)
+const ADMIN_TOOLS = ["admin-modes", "admin-tab-dishes", "admin-tab-import", "admin-save", "admin-coverage"];
+test("admin: a guest sees only the editor sign-in, no tools", async ({ page }) => {
+  await page.goto("/admin/");
+  await expect(page.getByTestId("admin-locked")).toHaveAttribute("data-state", "guest");
+  await expect(page.getByTestId("admin-auth")).toContainText("Editors sign in");
+  for (const id of ADMIN_TOOLS) await expect(page.getByTestId(id)).toHaveCount(0);
+  await page.goto("/catalogue/"); // public discovery is unaffected
+  await expect(page.getByTestId("dish-card").first()).toBeVisible();
+});
+
+test("admin: a signed-in non-editor is refused, no tools", async ({ page }) => {
   await signup(page, unique("plain"));
   await page.goto("/admin/");
   await expect(page.getByTestId("admin-auth")).toContainText("not an editor");
+  await expect(page.getByTestId("admin-locked")).toHaveAttribute("data-state", "not-editor");
+  for (const id of ADMIN_TOOLS) await expect(page.getByTestId(id)).toHaveCount(0);
+});
+
+test("admin: an authorized editor gets the tools with database saving", async ({ page }) => {
+  const email = unique("editor");
+  await signup(page, email);
+  await mock(`/__role?email=${encodeURIComponent(email)}&role=editor`);
+  await page.goto("/admin/");
+  await expect(page.getByTestId("admin-auth")).toContainText("editor");
+  await expect(page.getByTestId("admin-locked")).toHaveCount(0);
   await page.getByTestId("admin-tab-dishes").click();
   await page.getByTestId("dish-editor-select").selectOption("mi-quang");
-  await expect(page.getByTestId("admin-save")).toHaveText("Download validated JSON");
+  await expect(page.getByTestId("admin-save")).toHaveText("Save to database");
 });
 
 test("guest progress is kept when migration fails, then migrates on retry", async ({ page }) => {

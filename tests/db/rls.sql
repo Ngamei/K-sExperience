@@ -180,5 +180,61 @@ do $$ begin
   insert into results values ('unknown precision rejected', false);
 exception when check_violation then insert into results values ('unknown precision rejected', true); end $$;
 
+-- KEX-SEC-01: privileged writes are refused by the database for anon and signed-in non-editors,
+-- whatever the UI shows (direct REST calls with the public anon key hit exactly these policies).
+reset role;
+insert into auth.users values ('00000000-0000-0000-0000-000000000003');
+create temp table sec_before as select
+  (select count(*) from dishes) d, (select count(*) from restaurants) r, (select count(*) from dish_restaurant_links) l,
+  (select count(*) from offerings) o, (select count(*) from experience_items) i, (select count(*) from establishment_experiences) e,
+  (select count(*) from dish_origins) dorig, (select count(*) from user_roles) ur, (select count(*) from content_audit where table_name <> 'user_roles') a;
+grant select on sec_before to anon, authenticated;
+create or replace function pg_temp.sec_attack() returns void language plpgsql as $f$ begin
+  begin insert into dishes (id, name_vi, name_en, category, dish_type, ingredients, taste, dietary, meal_times, description_vi, description_en, prominence, dataset, verification_status) values ('sec-x', 'x', 'x', 'savory', 'rice', '{}', '{}', '{}', '{}', '', '', 3, 'master', 'pending-review'); exception when others then null; end;
+  begin delete from dishes where id = 'pho-bo-ha-noi'; exception when others then null; end;
+  begin insert into restaurants (id, name, address, neighbourhood, location, venue_type, last_verified) values ('sec-r', 'x', 'x', 'x', extensions.st_setsrid(extensions.st_makepoint(106.70, 10.775), 4326)::extensions.geography, 'eatery', '2026-11-28'); exception when others then null; end;
+  begin update restaurants set name = 'hacked' where id = 'pho-hoa-pasteur'; exception when others then null; end;
+  begin delete from restaurants where id = 'pho-hoa-pasteur'; exception when others then null; end;
+  begin insert into dish_restaurant_links (dish_id, restaurant_id, status, menu_evidence) values ('mi-quang', 'pho-hoa-pasteur', 'candidate', '{"type":"search-result","note":"x"}'); exception when others then null; end;
+  begin update dish_restaurant_links set status = 'source-listed' where status = 'candidate'; exception when others then null; end;
+  begin delete from dish_restaurant_links; exception when others then null; end;
+  begin delete from offerings; exception when others then null; end;
+  begin update offerings set status = 'menu-confirmed'; exception when others then null; end;
+  begin insert into experience_items (id, experience_id, name_vi, name_en, category) values ('sec-i', 'coffee', 'x', 'x', 'tea'); exception when others then null; end;
+  begin delete from experience_items; exception when others then null; end;
+  begin insert into establishment_experiences values ('pho-hoa-pasteur', 'bars'); exception when others then null; end;
+  begin delete from establishment_experiences; exception when others then null; end;
+  begin delete from dish_origins; exception when others then null; end;
+  begin insert into user_roles values ('00000000-0000-0000-0000-000000000003', 'admin'); exception when others then null; end;
+  begin update user_roles set user_id = '00000000-0000-0000-0000-000000000003'; exception when others then null; end;
+  begin insert into content_audit (table_name, row_key, action) values ('dishes', 'x', 'UPDATE'); exception when others then null; end;
+  begin delete from content_audit; exception when others then null; end;
+end $f$;
+grant execute on function pg_temp.sec_attack() to anon, authenticated;
+set role anon;
+select pg_temp.sec_attack();
+reset role;
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000003';  -- signed in, no role
+select pg_temp.sec_attack();
+insert into results select 'non-editor sees no candidate links', count(*) = 0 from dish_restaurant_links where status = 'candidate';
+insert into results select 'non-editor is_editor() is false', not is_editor();
+reset role;
+insert into results select 'anon + non-editor content writes all refused (counts unchanged)',
+  (select count(*) from dishes) = d and (select count(*) from restaurants) = r and (select count(*) from dish_restaurant_links) = l
+  and (select count(*) from offerings) = o and (select count(*) from experience_items) = i and (select count(*) from establishment_experiences) = e
+  and (select count(*) from dish_origins) = dorig from sec_before;
+insert into results select 'anon + non-editor updates had no effect', (select name from restaurants where id = 'pho-hoa-pasteur') <> 'hacked'
+  and (select count(*) from dish_restaurant_links where status = 'candidate') = 1 and not exists (select 1 from offerings where status = 'menu-confirmed' and menu_evidence->>'type' = 'published-source');
+insert into results select 'no self-escalation into user_roles', (select count(*) from user_roles) = ur and not exists (select 1 from user_roles where user_id = '00000000-0000-0000-0000-000000000003') from sec_before;
+insert into results select 'audit trail cannot be forged or erased', (select count(*) from content_audit where table_name <> 'user_roles') = a from sec_before;
+-- the same writes succeed for an authorized editor (role granted by an admin with the service role)
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000001';
+insert into experience_items (id, experience_id, name_vi, name_en, category) values ('sec-editor-item', 'coffee', 'x', 'x', 'tea');
+update restaurants set name = name where id = 'pho-hoa-pasteur';
+reset role;
+insert into results select 'authorized editor write succeeds and is audited', count(*) = 1 from content_audit where table_name = 'experience_items' and row_key = 'sec-editor-item' and changed_by = '00000000-0000-0000-0000-000000000001';
+
 select (case when ok then 'PASS ' else 'FAIL ' end) || name from results;
 select case when bool_and(ok) then 'ALL DB TESTS PASSED' else 'DB TESTS FAILED' end from results;
