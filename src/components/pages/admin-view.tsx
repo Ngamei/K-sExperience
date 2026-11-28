@@ -1,5 +1,5 @@
 "use client";
-import { Activity, BookOpen, Building2, ClipboardList, CreditCard, Download, FileUp, FlaskConical, LayoutDashboard, LogOut, Salad, ShieldAlert, ShieldCheck, Tags, Users } from "lucide-react";
+import { Activity, BookOpen, Building2, ClipboardList, CreditCard, Download, FileUp, Flag, FlaskConical, LayoutDashboard, LogOut, Salad, ShieldAlert, ShieldCheck, Tags, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
@@ -20,6 +20,7 @@ import { whatToEatReport } from "@/lib/food/what-to-eat-report";
 import { PlatformSummary, usePlatformStats } from "@/components/engine/platform-summary";
 import { DishEditor, EvidenceEditor, RestaurantEditor, field, label, type Saver } from "@/components/admin/admin-forms";
 import { ModuleAdmin, type ModuleTab } from "@/components/admin/module-admin";
+import { ReportsQueue } from "@/components/admin/reports-queue";
 import { EXPERIENCES, isSelectable, loc, type ExperienceId } from "@/experiences/registry";
 import { adminAllowed, adminGate, canEdit, canManageMembers, localAdminAllowed, STAFF_ROLE_LABELS, STAFF_ROLES, type AdminGate, type StaffRole } from "@/lib/admin/access";
 import { annualSavingsPct, B2B_PLANS, LIMITS, PLANS, projectRevenue, TIERS, usd, type Tier } from "@/lib/membership/plans";
@@ -38,7 +39,7 @@ function download(name: string, data: unknown) {
  * Admin Portal (KEX-ADM-01): the existing Admin tools organised into operations modules. One admin system —
  * Food uses the dish/venue editors, other experiences reuse ModuleAdmin. Restricted: see src/lib/admin/access.ts.
  */
-type SectionId = "overview" | "business" | "catalogue" | "menus" | "nutrition" | "research" | "quality" | "users" | "billing" | "system" | "audit";
+type SectionId = "overview" | "business" | "catalogue" | "menus" | "nutrition" | "research" | "quality" | "reports" | "users" | "billing" | "system" | "audit";
 const SECTIONS: { id: SectionId; label: string; icon: LucideIcon; tabs?: { id: string; label: string }[]; module?: ModuleTab }[] = [
   { id: "overview", label: "Overview", icon: LayoutDashboard },
   { id: "business", label: "Business Directory", icon: Building2, tabs: [{ id: "establishments", label: "Establishments" }], module: "Establishments" },
@@ -47,6 +48,7 @@ const SECTIONS: { id: SectionId; label: string; icon: LucideIcon; tabs?: { id: s
   { id: "nutrition", label: "Nutrition Database", icon: Salad },
   { id: "research", label: "Research & Imports", icon: FlaskConical, tabs: [{ id: "import", label: "Import" }], module: "Import" },
   { id: "quality", label: "Data Quality & Coverage", icon: ClipboardList, tabs: [{ id: "review", label: "Review queue" }, { id: "coverage", label: "Coverage" }, { id: "recommendations", label: "Recommendations" }], module: "Overview" },
+  { id: "reports", label: "Customer Reports", icon: Flag },
   { id: "users", label: "Users & Memberships", icon: Users },
   { id: "billing", label: "Subscriptions & Billing", icon: CreditCard },
   { id: "system", label: "System Health", icon: Activity },
@@ -207,6 +209,7 @@ export function AdminView() {
             {tab === "review" && <Review />}
             {tab === "coverage" && <section className="rounded-2xl border border-line/80 bg-paper p-4"><h3 className="mb-2 font-display text-lg">Data coverage by experience</h3><PlatformSummary detailed /></section>}
             {tab === "recommendations" && <RecommendationCoverage />}
+            {section === "reports" && <ReportsQueue enabled={Boolean(sb && role)} />}
             {section === "users" && <UsersMemberships role={role} user={user} />}
             {section === "billing" && <Billing />}
             {section === "system" && <SystemHealth gate={gate} source={source ?? "local"} role={role} user={user} />}

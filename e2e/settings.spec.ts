@@ -111,7 +111,7 @@ test.describe("Privacy & Data (guest)", () => {
 });
 
 test.describe("Admin Portal (local mode)", () => {
-  test("all eleven modules render; overview shows live coverage; deep links work", async ({ page }) => {
+  test("all twelve modules render; overview shows live coverage; deep links work", async ({ page }) => {
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message));
     await page.goto("/admin/");
@@ -119,7 +119,7 @@ test.describe("Admin Portal (local mode)", () => {
     await expect(page.getByTestId("kpi-provinces")).toContainText(/\d+\/63/);
     await expect(page.getByTestId("kpi-dishes-with-places")).toContainText(/\d+(\.\d)?%/);
     for (const id of ["food", "bars", "coffee", "spa", "sport"]) await expect(page.getByTestId(`coverage-${id}`)).toContainText(/\d+\/\d+/);
-    const expected: Record<string, string> = { business: "restaurant-name", catalogue: "dish-editor-select", menus: "evidence-status", nutrition: "admin-nutrition", research: "import-tool", quality: "admin-review", users: "admin-users", billing: "admin-billing", system: "admin-system", audit: "admin" };
+    const expected: Record<string, string> = { business: "restaurant-name", catalogue: "dish-editor-select", menus: "evidence-status", nutrition: "admin-nutrition", research: "import-tool", quality: "admin-review", reports: "admin-reports-local", users: "admin-users", billing: "admin-billing", system: "admin-system", audit: "admin" };
     for (const [s, id] of Object.entries(expected)) {
       await page.getByTestId(`admin-section-${s}`).click();
       await expect(page).toHaveURL(new RegExp(`#${s}$`));
