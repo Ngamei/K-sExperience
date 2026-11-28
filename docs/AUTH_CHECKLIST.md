@@ -11,7 +11,7 @@ Legend: ✅ verified (evidence linked) · 🟡 reported or indirect evidence onl
 
 | # | Check | Owner | State | Evidence |
 | --- | --- | --- | --- | --- |
-| A1 | Migrations 0001–0015 applied, in order, once | CI → CX | 🟡 | GitHub Actions *Supabase migrations* run 46158376758 on `main` @ `d1d0dc3` — `deploy-production-db` → "Apply migrations, seed, parity" **success** (2026-11-28 15:11 UTC). Not yet re-checked by a query against `supabase_migrations.schema_migrations`. |
+| A1 | Migrations 0001–0015 applied (0016, 0017 apply on merge of this branch), in order, once | CI → CX | 🟡 | GitHub Actions *Supabase migrations* run 46158376758 on `main` @ `d1d0dc3` — `deploy-production-db` → "Apply migrations, seed, parity" **success** (2026-11-28 15:11 UTC). Not yet re-checked by a query against `supabase_migrations.schema_migrations`. |
 | A2 | Seed parity 10/10 on production | CI → CX | 🟡 | Same run (parity step inside `scripts/db-deploy.sh`). |
 | A3 | RLS on for every public table; advisors clean | CX | ⬜ | Run the read-only checks in `docs/STAGING_RUNBOOK.md` §4 + Supabase advisors. (Claude Code's Supabase connector failed to connect this session.) |
 | A4 | Independent review of **0013** (staff roles ≠ memberships) and **0014** (quotas) | **Codex** | ⬜ | Review scope below (§E). |
