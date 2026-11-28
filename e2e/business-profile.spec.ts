@@ -37,3 +37,31 @@ test("Vietnamese business profile", async ({ page }) => {
   await expect(page.getByTestId("action-share")).toContainText("Chia sẻ");
   await expect(page.getByTestId("hours-panel")).toContainText("T2");
 });
+
+/** KEX-BIZ-03 — the header shows the venue's own credited photo when one exists (synthetic test fixture, not data). */
+const PNG = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==", "base64");
+const FIXTURE = { metadata: { note: "e2e fixture", updatedOn: "2026-11-28" }, photos: [{
+  venueId: "pho-hoa-pasteur", url: "https://upload.wikimedia.org/test/venue.png", kind: "exterior",
+  sourceUrl: "https://commons.wikimedia.org/wiki/File:Test_venue.png", attribution: "Test Author", license: "CC BY-SA 4.0", lastCheckedAt: "2026-11-28",
+}] };
+
+test("venue photo in the header, with caption, author link and licence; other venues keep the illustration", async ({ page }) => {
+  await page.route("**/data/venue-photos.json", (r) => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(FIXTURE) }));
+  await page.route("https://upload.wikimedia.org/test/**", (r) => r.fulfill({ status: 200, contentType: "image/png", body: PNG }));
+  await page.goto("/places/pho-hoa-pasteur/");
+  const hero = page.getByTestId("hero-media");
+  await expect(hero).toHaveAttribute("data-media", "photo");
+  await expect(page.getByTestId("hero-photo")).toHaveAttribute("alt", /Phở Hòa Pasteur — Outside the venue/);
+  await expect(page.getByTestId("hero-credit")).toContainText("Outside the venue");
+  await expect(page.getByTestId("hero-credit")).toContainText("CC BY-SA 4.0");
+  await expect(page.getByTestId("hero-credit").getByRole("link", { name: "Test Author" })).toHaveAttribute("href", FIXTURE.photos[0].sourceUrl);
+  await page.goto("/places/banh-mi-huynh-hoa/");
+  await expect(page.getByTestId("hero-media")).toHaveAttribute("data-media", "illustration");
+});
+
+test("a venue photo that fails to load falls back to the illustration", async ({ page }) => {
+  await page.route("**/data/venue-photos.json", (r) => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(FIXTURE) }));
+  await page.route("https://upload.wikimedia.org/test/**", (r) => r.fulfill({ status: 404, body: "" }));
+  await page.goto("/places/pho-hoa-pasteur/");
+  await expect(page.getByTestId("hero-media")).toHaveAttribute("data-media", "illustration");
+});

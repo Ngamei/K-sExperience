@@ -3,6 +3,7 @@
  *   npm run db:seed-sql
  * Idempotent: upserts regions/provinces/dishes/restaurants and rebuilds child rows; user data is untouched.
  */
+import { toVenuePhotoRows, VenuePhotoFileSchema } from "../src/lib/data/venue-photos";
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { DishCatalogueSchema, MappingFileSchema, RestaurantFileSchema } from "../src/lib/data/schema";
@@ -95,6 +96,14 @@ ${ests.flatMap((e) => e.sources.map((s) => `(${q(e.id)}, ${q(s.title)}, ${q(s.ur
   if (offs.length) out.push(`insert into offerings (item_id, establishment_id, status, menu_evidence, price_min_vnd, price_max_vnd, price_unit, last_verified, primary_photo_url, photo_kind, photo_source_url, photo_attribution, photo_license, photo_last_checked_at) values
 ${offs.map((o) => `(${q(o.item_id)}, ${q(o.establishment_id)}, ${q(o.status)}, ${json(o.menu_evidence)}, ${num(o.price_min_vnd)}, ${num(o.price_max_vnd)}, ${q(o.price_unit)}, ${q(o.last_verified)}, ${q(o.primary_photo_url)}, ${q(o.photo_kind)}, ${q(o.photo_source_url)}, ${q(o.photo_attribution)}, ${q(o.photo_license)}, ${q(o.photo_last_checked_at)})`).join(",\n")}
 on conflict (item_id, establishment_id) do update set status = excluded.status, menu_evidence = excluded.menu_evidence, price_min_vnd = excluded.price_min_vnd, price_max_vnd = excluded.price_max_vnd, price_unit = excluded.price_unit, last_verified = excluded.last_verified, primary_photo_url = excluded.primary_photo_url, photo_kind = excluded.photo_kind, photo_source_url = excluded.photo_source_url, photo_attribution = excluded.photo_attribution, photo_license = excluded.photo_license, photo_last_checked_at = excluded.photo_last_checked_at;`);
+}
+// KEX-BIZ-03: curated venue photos (data/venue-photos.json). Replaced per establishment so removals propagate.
+{
+  const vp = VenuePhotoFileSchema.parse(JSON.parse(readFileSync(path.join(root, "data/venue-photos.json"), "utf8"))).photos;
+  out.push("delete from venue_photos;");
+  const rows = toVenuePhotoRows(vp);
+  if (rows.length) out.push(`insert into venue_photos (establishment_id, url, kind, source_url, attribution, license, last_checked_at, caption, sort_order) values
+${rows.map((r) => `(${q(r.establishment_id)}, ${q(r.url)}, ${q(r.kind)}, ${q(r.source_url)}, ${q(r.attribution)}, ${q(r.license)}, ${q(r.last_checked_at)}, ${json(r.caption)}, ${r.sort_order})`).join(",\n")};`);
 }
 out.push("commit;");
 writeFileSync(path.join(root, "supabase/seed.sql"), out.join("\n\n") + "\n");

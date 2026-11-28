@@ -1,0 +1,7 @@
+{
+  "metadata": {
+    "note": "Curated, licence-checked photos of the establishments themselves (exterior, interior, signage, or something served there). Each one was opened and checked to show this establishment. Source: Wikimedia Commons file pages (author + licence from the Commons API). Validated by VenuePhotoFileSchema and tests/integration/data-integrity.test.ts.",
+    "updatedOn": "2026-11-28"
+  },
+  "photos": []
+}

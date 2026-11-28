@@ -364,5 +364,36 @@ reset role;
 insert into results select 'after downgrade: all 200 saves kept', count(*) = 200 from saved_experiences where user_id = '00000000-0000-0000-0000-000000000011';
 update membership_settings set enforce_limits = false;
 
+-- 0015 (KEX-BIZ-03): venue photos — public read, editors write, constraints, audit.
+reset role;
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000001';
+insert into venue_photos (establishment_id, url, kind, source_url, attribution, license, last_checked_at) values ('pho-hoa-pasteur', 'https://upload.wikimedia.org/x.jpg', 'exterior', 'https://commons.wikimedia.org/wiki/File:X.jpg', 'Author', 'CC BY-SA 4.0', '2026-11-28');
+reset role;
+insert into results select 'editor adds a venue photo (audited)', count(*) = 1 from content_audit where table_name = 'venue_photos' and row_key = 'pho-hoa-pasteur';
+set role anon;
+insert into results select 'anon reads venue photos', count(*) >= 1 from venue_photos where establishment_id = 'pho-hoa-pasteur';
+do $$ begin
+  begin insert into venue_photos (establishment_id, url, kind, source_url, attribution, license, last_checked_at) values ('pho-hoa-pasteur', 'https://x.test/a.jpg', 'exterior', 'https://x.test', 'A', 'CC0', '2026-11-28'); exception when others then null; end;
+end $$;
+reset role;
+insert into results select 'anon cannot add venue photos', count(*) = 0 from venue_photos where url = 'https://x.test/a.jpg';
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000006';
+do $$ begin
+  begin insert into venue_photos (establishment_id, url, kind, source_url, attribution, license, last_checked_at) values ('pho-hoa-pasteur', 'https://x.test/b.jpg', 'exterior', 'https://x.test', 'A', 'CC0', '2026-11-28'); exception when others then null; end;
+end $$;
+reset role;
+insert into results select 'customer (even Premium) cannot add venue photos', count(*) = 0 from venue_photos where url = 'https://x.test/b.jpg';
+do $$ begin
+  insert into venue_photos (establishment_id, url, kind, source_url, attribution, license, last_checked_at) values ('pho-hoa-pasteur', 'http://insecure.test/c.jpg', 'exterior', 'https://x.test', 'A', 'CC0', '2026-11-28');
+  insert into results values ('non-https / uncredited venue photo rejected', false);
+exception when check_violation then insert into results values ('non-https / uncredited venue photo rejected', true); end $$;
+do $$ begin
+  insert into venue_photos (establishment_id, url, kind, source_url, attribution, license, last_checked_at) values ('pho-hoa-pasteur', 'https://x.test/d.jpg', 'stock', 'https://x.test', 'A', 'CC0', '2026-11-28');
+  insert into results values ('unknown photo kind rejected', false);
+exception when check_violation then insert into results values ('unknown photo kind rejected', true); end $$;
+delete from venue_photos where url = 'https://upload.wikimedia.org/x.jpg';
+
 select (case when ok then 'PASS ' else 'FAIL ' end) || name from results;
 select case when bool_and(ok) then 'ALL DB TESTS PASSED' else 'DB TESTS FAILED' end from results;

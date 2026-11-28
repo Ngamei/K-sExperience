@@ -17,12 +17,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SampleBadge, StatusDot } from "@/components/food/badges";
 import { useAuth } from "@/components/shell/auth-provider";
+import { useVenuePhotos } from "./venue-photos";
 import { cn } from "@/lib/utils";
 
 const DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] as const;
 
 /** Schematic illustration per business type — always labelled, never presented as the venue. */
-function HeroMedia({ def, s }: { def: BusinessTypeDef; s: BusinessStrings }) {
+function HeroIllustration({ def, s }: { def: BusinessTypeDef; s: BusinessStrings }) {
   const stroke = { fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
   const art: Record<BusinessTypeDef["art"], React.ReactNode> = {
     plate: <><circle cx="100" cy="50" r="30" {...stroke} /><circle cx="100" cy="50" r="18" {...stroke} /><path d="M52 24v52M46 24v14a6 6 0 0 0 12 0V24M148 24c-8 6-8 26 0 30v22" {...stroke} /></>,
@@ -35,10 +36,33 @@ function HeroMedia({ def, s }: { def: BusinessTypeDef; s: BusinessStrings }) {
     bags: <>{[55, 90, 125].map((x) => <g key={x}><rect x={x} y="34" width="26" height="44" rx="2" {...stroke} /><path d={`M${x + 6} 34v-6a7 7 0 0 1 14 0v6`} {...stroke} /></g>)}</>,
   };
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-sage-soft/70 text-forest" data-testid="hero-media" data-art={def.art}>
+    <div className="relative overflow-hidden rounded-2xl bg-sage-soft/70 text-forest" data-testid="hero-media" data-art={def.art} data-media="illustration">
       <svg viewBox="0 0 200 100" className="mx-auto h-32 w-full max-w-sm md:h-40" role="img" aria-label={s.illustration}>{art[def.art]}</svg>
       <span className="absolute bottom-2 left-3 rounded-full bg-paper/90 px-2 py-0.5 text-[10.5px] font-semibold uppercase tracking-wider text-muted">{s.illustration}</span>
     </div>
+  );
+}
+
+/**
+ * HeroMedia: the venue's own credited photo (data/venue-photos.json · venue_photos) when one exists,
+ * otherwise the labelled illustration. A photo that fails to load falls back to the illustration.
+ */
+function HeroMedia({ def, s, venueId, name }: { def: BusinessTypeDef; s: BusinessStrings; venueId: string; name: string }) {
+  const { locale } = useT();
+  const photos = useVenuePhotos(venueId);
+  const [failed, setFailed] = useState<string[]>([]);
+  const photo = photos.find((p) => !failed.includes(p.url));
+  if (!photo) return <HeroIllustration def={def} s={s} />;
+  const caption = photo.caption ? loc(photo.caption, locale) : s.photoKinds[photo.kind];
+  return (
+    <figure className="overflow-hidden rounded-2xl bg-ivory-deep" data-testid="hero-media" data-media="photo" data-kind={photo.kind}>
+      {/* eslint-disable-next-line @next/next/no-img-element -- licensed third-party photo (Wikimedia Commons), shown with its credit */}
+      <img src={photo.url} alt={`${name} — ${caption}`} className="h-48 w-full object-cover md:h-64" loading="eager" referrerPolicy="no-referrer" onError={() => setFailed((f) => [...f, photo.url])} data-testid="hero-photo" />
+      <figcaption className="flex flex-wrap items-center justify-between gap-x-3 gap-y-0.5 px-3 py-1.5 text-[11px] text-muted" data-testid="hero-credit">
+        <span>{caption}</span>
+        <span>{s.photo}: <a href={photo.sourceUrl} target="_blank" rel="noreferrer" className="underline hover:text-forest">{photo.attribution}</a> · {photo.license}</span>
+      </figcaption>
+    </figure>
   );
 }
 
@@ -126,7 +150,7 @@ export function BusinessProfile({ model: m, back, actions, offeringTestId = "off
       )}
 
       <section className="space-y-4 rounded-3xl border border-line/80 bg-paper p-4 md:p-5">
-        <HeroMedia def={def} s={s} />
+        <HeroMedia def={def} s={s} venueId={m.id} name={m.name} />
         <header data-testid="branch-identity">
           <h1 className="font-display text-3xl text-forest md:text-4xl">{m.name}</h1>
           <p className="mt-1 text-sm text-muted">{[m.area, loc(def.label, locale)].filter(Boolean).join(" · ")}</p>

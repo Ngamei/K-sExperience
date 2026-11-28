@@ -1295,4 +1295,6 @@ insert into offerings (item_id, establishment_id, status, menu_evidence, price_m
 ('reformer-pilates', 'ufitu-pilates-thao-dien-3-38-quoc-huong', 'source-listed', '{"type":"published-source","note":"Press release (Feb 2026) on UFiTU Pilates+, a reformer Pilates studio, lists its Thảo Điền studio at 3/38 Quốc Hương.","url":"https://business.mammothtimes.com/mammothtimes/article/abnewswire-2026-2-4-ufitu-pilates-named-best-reformer-pilates-studio-in-ho-chi-minh-city-vietnam"}'::jsonb, null, null, null, '2026-11-28', null, null, null, null, null, null)
 on conflict (item_id, establishment_id) do update set status = excluded.status, menu_evidence = excluded.menu_evidence, price_min_vnd = excluded.price_min_vnd, price_max_vnd = excluded.price_max_vnd, price_unit = excluded.price_unit, last_verified = excluded.last_verified, primary_photo_url = excluded.primary_photo_url, photo_kind = excluded.photo_kind, photo_source_url = excluded.photo_source_url, photo_attribution = excluded.photo_attribution, photo_license = excluded.photo_license, photo_last_checked_at = excluded.photo_last_checked_at;
 
+delete from venue_photos;
+
 commit;
