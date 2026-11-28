@@ -5,7 +5,7 @@ Generated 2026-11-28 by `npm run data:what-to-eat`. Do not edit by hand.
 Provenance: **sourced** = recorded with a citation (catalogue tags count as sourced); **estimate** = recorded, marked as an estimate;
 **derived** = inferred from existing tags (e.g. proteins from `contains-*`, cooking method from dish type); **unknown** = not recorded — the engine never assumes a value.
 
-Dishes recommendable with at least one real HCMC venue: **34 / 138**.
+Dishes recommendable with at least one real HCMC venue: **138 / 138**.
 
 ## Dish attributes
 
@@ -41,21 +41,21 @@ Unknown venue values never exclude a dish: budget, open-now, delivery and atmosp
 
 | Preset | Eligible dishes | Shown |
 | --- | ---: | ---: |
-| Cơm trưa văn phòng (`com-trua-van-phong`) | 17 | 6 |
-| Ăn ngon tiết kiệm (`an-ngon-tiet-kiem`) | 34 | 6 |
-| Ăn ngon, ăn cân bằng (`an-can-bang`) | 29 | 6 |
-| Bữa ăn giàu protein (`giau-protein`) | 34 | 6 |
-| Cơm nhà (`com-nha`) | 19 | 6 |
-| Hôm nay ăn chay (`an-chay`) | 4 | 4 |
+| Cơm trưa văn phòng (`com-trua-van-phong`) | 67 | 6 |
+| Ăn ngon tiết kiệm (`an-ngon-tiet-kiem`) | 138 | 6 |
+| Ăn ngon, ăn cân bằng (`an-can-bang`) | 138 | 6 |
+| Bữa ăn giàu protein (`giau-protein`) | 138 | 6 |
+| Cơm nhà (`com-nha`) | 67 | 6 |
+| Hôm nay ăn chay (`an-chay`) | 29 | 6 |
 | Hẹn hò tối nay (`hen-ho`) | 10 | 6 |
-| Đi ăn cùng bạn bè (`ban-be`) | 34 | 6 |
+| Đi ăn cùng bạn bè (`ban-be`) | 138 | 6 |
 | Tự thưởng cho mình (`tu-thuong`) | 34 | 6 |
-| Hôm nay ăn món lạ (`mon-la`) | 34 | 6 |
-| Ăn khuya Sài Gòn (`an-khuya`) | 6 | 5 |
-| Món ăn nhẹ nhàng (`nhe-nhang`) | 31 | 6 |
-| Ăn hằng ngày (`hang-ngay`) | 34 | 6 |
-| Ăn nhanh (`nhanh-gon`) | 9 | 6 |
+| Hôm nay ăn món lạ (`mon-la`) | 138 | 6 |
+| Ăn khuya Sài Gòn (`an-khuya`) | 11 | 6 |
+| Món ăn nhẹ nhàng (`nhe-nhang`) | 132 | 6 |
+| Ăn hằng ngày (`hang-ngay`) | 138 | 6 |
+| Ăn nhanh (`nhanh-gon`) | 138 | 6 |
+| Giữ dáng lành mạnh (`giu-dang`) | 138 | 6 |
 | Ăn cùng gia đình (`gia-dinh`) | 34 | 6 |
-| Tiếp khách (`cong-viec`) | 34 | 6 |
 | Ăn sang (`cao-cap`) | 34 | 6 |
-| Khám phá vùng miền (`vung-mien`) | 20 | 6 |
+| Khám phá vùng miền (`vung-mien`) | 98 | 6 |

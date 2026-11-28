@@ -10,11 +10,11 @@ headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is
 | 1 | `npm ci` | ✅ installed, **0 vulnerabilities**; postinstall copied MapLibre worker |
 | 2 | `npm run typecheck` (`next typegen && tsc --noEmit`) | ✅ exit 0 |
 | 3 | `npm run lint` | ✅ exit 0, 0 errors, 0 warnings |
-| 4–5 | `npx vitest run` (unit + integration; integration = `npm run data:validate`) | ✅ **13 files, 117 tests passed** (+ Hôm nay ăn gì? engine/provenance/importer) — + shared engine rows round-trip, module rules (item vs establishment attributes, vocabularies, categories, price units), writes never report false success (failing client), module import (CSV/JSON, merge, duplicates, HCMC boundary, evidence), pilot data sources |
+| 4–5 | `npx vitest run` (unit + integration; integration = `npm run data:validate`) | ✅ **13 files, 120 tests passed** (+ Hôm nay ăn gì? engine/provenance/importer) — + shared engine rows round-trip, module rules (item vs establishment attributes, vocabularies, categories, price units), writes never report false success (failing client), module import (CSV/JSON, merge, duplicates, HCMC boundary, evidence), pilot data sources |
 | 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **40 checks** — migrations 0001–0008 (eating/dining attributes, nutrition must cite a source) + seed ×2 (incl. pilot data); establishment attributes; no implicit Food tag; tag audit; every establishment has an experience tag; seeded coffee offerings readable by anon; items/offerings rules; plus all earlier RLS/account/evidence checks |
 | 6 | `npm run build` (production config) | ✅ exit 0 — no sample venues in `/data/food.json` |
 | 6b | `npm run build:e2e` (`NEXT_PUBLIC_DEV_DATA=1`) | ✅ exit 0 |
-| 7 | `npx playwright test` (against `next start`) | ✅ **76 passed** (38 Food + cross-module scenarios incl. 6 Hôm nay ăn gì? × desktop + Pixel 7) |
+| 7 | `npx playwright test` (against `next start`) | ✅ **84 passed** (42 Food + cross-module scenarios incl. 10 Hôm nay ăn gì? × desktop + Pixel 7) |
 | 7b | `npm run build:auth-test && npm run test:e2e-auth` (**mock** Supabase Auth + REST; Coffee flag on) | ✅ **28 passed** (14 scenarios × desktop + Pixel 7) |
 | 7c | `npm run build:modules-test && npm run test:e2e-modules` (production-like static build, Coffee flag on, real pilot data; real service worker in cache.spec) | ✅ **36 passed** (18 scenarios × desktop + Pixel 7, incl. visual parity) |
 | 8–9 | `NEXT_PUBLIC_DEV_DATA=1 STATIC_EXPORT=1 npx next build` + `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` | ✅ **76 passed** (offline static export) |
@@ -124,6 +124,12 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 | Failed writes never report success | unit "writes never report false success"; Admin shows ✗ with the database message |
 
 Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-catalogue`, `*-food-dish`, `*-settings`, `*-settings-account-guest`, `*-passport-gate`, `*-coffee-map`, `*-coffee-catalogue`, `*-coffee-item`, `*-coffee-cafe`.
+
+## Hôm nay ăn gì? P0 fix (EAT-01…08) — reproduced, root-caused, fixed
+**Reproduced** on the deployed commit (`60bb14f`, production build, Pixel 7 + desktop, clock 12:00 HCMC) with saved preferences Vegan + No pork: **0 cards**, empty state below a full-screen panel, 0 console errors → `docs/screenshots/what-to-eat/p0/before-*`.
+**Root cause** (real bundled data): 21/138 dishes are tagged vegan but only 1 has a listed HCMC place and none is a lunch dish; the engine required a place for every suggestion; saved diet chips were locked on (no per-meal override); the empty message gave no reason. Also found: the page used the browse availability index (could include sample venues when enabled) — now `useRealAvailability`; on mobile the pill rows widened the page (horizontal overflow) — fixed with a `minmax(0,1fr)` grid track and an e2e guard.
+**After**: same setup → vegan suggestions (Cơm lam Hòa Bình, Xôi ngũ sắc) labelled "No HCMC place listed yet"; default lunch → 6 suggestions (67 eligible, 19 with a place); zero-result example (late night + vegetarian + no pork + no seafood) lists Meal time → 27 dishes, Vegetarian → 3, No pork → 1, No fish/seafood → 0 → `docs/screenshots/what-to-eat/p0/after-*`.
+Tests: `tests/unit/what-to-eat.test.ts` (16, all on the real dataset: PO scenario table — no filters, lunch + <50k, weight management, vegan, saved Vegan + No pork, zero-result explanation, special dining, surprise, missing restaurant data), `e2e/what-to-eat.spec.ts` (10 × desktop + Pixel 7: guest default + scroll to results + no overflow, saved-preference bug, explained zero results, budget presets/validation/group total/reset, goals + special dining, surprise/not today/alternatives, advanced filters/save/find nearby, eaten + skip recent, Vietnamese, Admin). Supabase mode uses the same `useFoodData` path; not exercised live (project not provisioned).
 
 ## Hôm nay ăn gì? (CC-30) — `tests/unit/what-to-eat.test.ts`, `e2e/what-to-eat.spec.ts`, `tests/db/rls.sql` (0008)
 | Acceptance | Evidence |

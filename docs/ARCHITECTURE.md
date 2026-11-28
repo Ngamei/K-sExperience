@@ -96,7 +96,7 @@ Establishments can belong to several modes (`establishment_experiences`, migrati
 
 ## Hôm nay ăn gì? (CC-30)
 - `lib/food/eating.ts` — `eatingProfile(dish)`: proteins, cooking methods, allergens (+complete), portion, vegetables, occasions, service styles, nutrition, each as `{ value, provenance }` (sourced / estimate / derived / unknown).
-- `lib/food/what-to-eat.ts` — `WhatToEatFilters`, `evaluate` (hard constraints → score + reasons + cautions + venues), `recommend` (diverse top 6 + alternatives), `surprise` (weighted, injectable RNG). Pure; tested in `tests/unit/what-to-eat.test.ts`.
+- `lib/food/what-to-eat.ts` — `WhatToEatFilters` (budget min/max per person, soft `goals`, `occasion`), `dishBlocker` (hard constraints), `needsVenue`, `explainEmpty` (zero-result diagnostics), `evaluate` (hard constraints → score + reasons + cautions + venues), `recommend` (diverse top 6 + alternatives), `surprise` (weighted, injectable RNG). Pure; tested in `tests/unit/what-to-eat.test.ts`.
 - `lib/food/what-to-eat-presets.ts` — 12 collections + 6 modes as filter presets. `lib/food/what-to-eat-report.ts` — completeness (Admin tab + `scripts/what-to-eat-report.ts`).
 - UI: `components/food/what-to-eat-view.tsx` (zustand page state; shared `FilterDrawer`, `Sheet`, `DishThumb`, `DishArt`, `Button`, `Chip`; `useUser` for saved/tried/notes/preferences). Nav: registry `extraNav` inserts module-specific entries after a shared slot (`navFor`); mobile tab bar sizes its grid to the entries.
 - Data: migration 0008 adds nullable `dishes.eating` and `restaurants.dining` (jsonb; nutrition must name a source); mapped in `db-rows.ts`, `READ_COLUMNS`, seed generator, importer (`cookingMethods`, `proteins`, `allergens`, …) and merge (`eating` overwrites only when provided).
