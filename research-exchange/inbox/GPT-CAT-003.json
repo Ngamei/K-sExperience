@@ -1,0 +1,350 @@
+{
+  "batchId": "GPT-CAT-003",
+  "experience": "food",
+  "kind": "catalogue",
+  "agent": "chatgpt",
+  "researchedOn": "2026-11-28",
+  "method": "Web search excerpts explicitly naming dishes; full source and regional associations pending review. Region-only values are provisional associations, not birthplace claims. No unsupported diet, prices, nutrition or venue links. Exact normalized name deduplication against main and GPT-CAT-002; semantic overlap (especially fish stews) must be reviewed.",
+  "dishes": [
+    {
+      "nameVi": "Bún bò Nam Bộ",
+      "nameEn": "Southern beef vermicelli",
+      "category": "savory",
+      "dishType": "noodles",
+      "origins": "region:dong-nam-bo",
+      "descriptionVi": "Bún khô ăn cùng bò xào và nước trộn.",
+      "descriptionEn": "Dry vermicelli with stir-fried beef and dressing.",
+      "sources": [
+        {
+          "title": "Vietnam Tourism culinary guide",
+          "url": "https://vietnam.travel/things-to-do/explore-delicious-dishes-ho-chi-minh-city/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Miến gà",
+      "nameEn": "Chicken glass noodle soup",
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": "region:mien-bac",
+      "descriptionVi": "Miến nước với thịt gà.",
+      "descriptionEn": "Glass noodles in chicken soup.",
+      "sources": [
+        {
+          "title": "Vietnam Tourism culinary guide",
+          "url": "https://vietnam.travel/things-to-do/noodles-of-vietnam/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Miến lươn trộn",
+      "nameEn": "Dry eel glass noodles",
+      "category": "savory",
+      "dishType": "noodles",
+      "origins": "region:mien-bac",
+      "descriptionVi": "Miến trộn ăn cùng lươn giòn.",
+      "descriptionEn": "Glass noodles tossed with crispy eel.",
+      "sources": [
+        {
+          "title": "Vietnam Tourism culinary guide",
+          "url": "https://vietnam.travel/things-to-do/noodles-of-vietnam/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Mì vằn thắn",
+      "nameEn": "Wonton noodle soup",
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": "region:mien-bac",
+      "descriptionVi": "Mì nước ăn cùng hoành thánh.",
+      "descriptionEn": "Noodle soup with wontons.",
+      "sources": [
+        {
+          "title": "Vietnam Tourism culinary guide",
+          "url": "https://vietnam.travel/things-to-do/noodles-of-vietnam/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Bánh gối",
+      "nameEn": "Fried savory pastry",
+      "category": "snack",
+      "dishType": "banh",
+      "origins": "region:mien-bac",
+      "descriptionVi": "Bánh chiên nhân thịt và nấm.",
+      "descriptionEn": "Fried pastry filled with meat and mushrooms.",
+      "sources": [
+        {
+          "title": "Vietnam Tourism culinary guide",
+          "url": "https://vietnam.travel/things-to-do/noodles-of-vietnam/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Cá cơm sữa rim đậu phộng",
+      "nameEn": "Braised anchovies with peanuts",
+      "category": "savory",
+      "dishType": "stew",
+      "origins": "region:dong-nam-bo",
+      "descriptionVi": "Cá cơm nhỏ rim với đậu phộng.",
+      "descriptionEn": "Small anchovies braised with peanuts.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p29",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Canh chua đầu cá diêu hồng nấu đậu rồng",
+      "nameEn": "Sour red tilapia and winged bean soup",
+      "category": "savory",
+      "dishType": "soup",
+      "origins": "region:dong-nam-bo",
+      "descriptionVi": "Canh chua nấu đầu cá diêu hồng và đậu rồng.",
+      "descriptionEn": "Sour soup with red tilapia head and winged beans.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p27",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Cá trích kho cà chua",
+      "nameEn": "Herring braised with tomatoes",
+      "category": "savory",
+      "dishType": "stew",
+      "origins": "region:dong-nam-bo",
+      "descriptionVi": "Cá trích kho cùng cà chua.",
+      "descriptionEn": "Herring braised with tomatoes.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p6",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Canh rau sắn nấu cá",
+      "nameEn": "Cassava leaf and fish soup",
+      "category": "savory",
+      "dishType": "soup",
+      "origins": "phu-tho",
+      "descriptionVi": "Canh rau sắn nấu cùng cá.",
+      "descriptionEn": "Cassava leaf soup with fish.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p28",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Chân gà trộn xì dầu",
+      "nameEn": "Chicken feet with soy sauce",
+      "category": "savory",
+      "dishType": "salad",
+      "origins": "region:dong-nam-bo",
+      "descriptionVi": "Chân gà trộn nước tương.",
+      "descriptionEn": "Chicken feet tossed with soy sauce.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p28",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Bò tái chanh",
+      "nameEn": "Lime-dressed beef",
+      "category": "savory",
+      "dishType": "salad",
+      "origins": "region:dong-nam-bo",
+      "descriptionVi": "Thịt bò tái trộn với chanh.",
+      "descriptionEn": "Rare beef dressed with lime.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p8",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Ốc om chuối đậu",
+      "nameEn": "Snail stew with green banana and tofu",
+      "category": "savory",
+      "dishType": "stew",
+      "origins": "region:mien-bac",
+      "descriptionVi": "Ốc om với chuối xanh và đậu phụ.",
+      "descriptionEn": "Snails stewed with green banana and tofu.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p8",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Tôm rang thịt ba chỉ",
+      "nameEn": "Shrimp and pork belly",
+      "category": "savory",
+      "dishType": "fried",
+      "origins": "region:dong-nam-bo",
+      "descriptionVi": "Tôm rang cùng thịt ba chỉ.",
+      "descriptionEn": "Shrimp cooked with pork belly.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p17",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Mực nhồi thịt sốt cà chua",
+      "nameEn": "Stuffed squid in tomato sauce",
+      "category": "savory",
+      "dishType": "stew",
+      "origins": "region:dong-nam-bo",
+      "descriptionVi": "Mực nhồi thịt nấu sốt cà chua.",
+      "descriptionEn": "Meat-stuffed squid in tomato sauce.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p9",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Ba chỉ rang cháy cạnh",
+      "nameEn": "Pan-fried pork belly",
+      "category": "savory",
+      "dishType": "fried",
+      "origins": "region:mien-bac",
+      "descriptionVi": "Thịt ba chỉ rang vàng cạnh.",
+      "descriptionEn": "Pork belly fried until browned at the edges.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p9",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Cá lóc kho tiêu",
+      "nameEn": "Pepper-braised snakehead fish",
+      "category": "savory",
+      "dishType": "stew",
+      "origins": "region:dong-nam-bo",
+      "descriptionVi": "Cá lóc kho với tiêu.",
+      "descriptionEn": "Snakehead fish braised with pepper.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p9",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Cá chim sốt nấm linh chi",
+      "nameEn": "Pomfret with mushroom sauce",
+      "category": "savory",
+      "dishType": "stew",
+      "origins": "region:dong-nam-bo",
+      "descriptionVi": "Cá chim dùng với sốt nấm linh chi.",
+      "descriptionEn": "Pomfret served with mushroom sauce.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p21",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Canh bò nấu khế",
+      "nameEn": "Beef and starfruit soup",
+      "category": "savory",
+      "dishType": "soup",
+      "origins": "region:dong-nam-bo",
+      "descriptionVi": "Canh thịt bò nấu cùng khế.",
+      "descriptionEn": "Beef soup with starfruit.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p21",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Nham trám",
+      "nameEn": "Black olive salad",
+      "category": "savory",
+      "dishType": "salad",
+      "origins": "thai-nguyen",
+      "descriptionVi": "Món nham làm từ quả trám đen ở Hà Châu.",
+      "descriptionEn": "A black olive preparation from Hà Châu.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/nham-tram-dac-san-tru-danh-cua-thai-nguyen-4415739.html",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    },
+    {
+      "nameVi": "Gỏi cà đắng",
+      "nameEn": "Bitter eggplant salad",
+      "category": "savory",
+      "dishType": "salad",
+      "origins": "~dak-nong",
+      "descriptionVi": "Gỏi cà đắng được giới thiệu trong ẩm thực Đắk Nông.",
+      "descriptionEn": "Bitter eggplant salad associated with Đắk Nông.",
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/ba-ngay-kham-pha-thien-nhien-dak-nong-dip-nam-moi-3334320.html",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review"
+    }
+  ]
+}

@@ -807,6 +807,42 @@
         "report": "research-exchange/reports/CC-FOOD-011.md"
       },
       "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "GPT-CAT-002",
+      "experience": "food",
+      "kind": "catalogue",
+      "scope": "Public culinary sources; associated regional geography is a review candidate, not an asserted birthplace. Exact-name com",
+      "assignedTo": "chatgpt",
+      "status": "validated",
+      "sources": [],
+      "importStatus": "dry run only",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 20,
+        "rejected": 0,
+        "warnings": 1,
+        "report": "research-exchange/reports/GPT-CAT-002.md"
+      },
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "GPT-CAT-003",
+      "experience": "food",
+      "kind": "catalogue",
+      "scope": "Web search excerpts explicitly naming dishes; full source and regional associations pending review. Region-only values a",
+      "assignedTo": "chatgpt",
+      "status": "validated",
+      "sources": [],
+      "importStatus": "dry run only",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 20,
+        "rejected": 0,
+        "warnings": 1,
+        "report": "research-exchange/reports/GPT-CAT-003.md"
+      },
+      "updatedAt": "2026-11-28"
     }
   ]
 }

@@ -24,3 +24,5 @@
 {"at":"2026-11-28T15:33:44.456Z","batchId":"PO-GMAPS-001","action":"apply","result":"ok","accepted":4,"rejected":0,"warnings":1,"file":"research-exchange/inbox/PO-GMAPS-001.json"}
 {"at":"2026-11-28T15:42:06.321Z","batchId":"CC-FOOD-011","action":"dry-run","result":"ok","accepted":50,"rejected":94,"warnings":2,"file":"research-exchange/inbox/CC-FOOD-011.json"}
 {"at":"2026-11-28T15:42:29.292Z","batchId":"CC-FOOD-011","action":"apply","result":"ok","accepted":50,"rejected":94,"warnings":2,"file":"research-exchange/inbox/CC-FOOD-011.json"}
+{"at":"2026-11-28T15:48:27.910Z","batchId":"GPT-CAT-002","action":"dry-run","result":"ok","accepted":20,"rejected":0,"warnings":1,"file":"research-exchange/inbox/GPT-CAT-002.json"}
+{"at":"2026-11-28T15:48:28.903Z","batchId":"GPT-CAT-003","action":"dry-run","result":"ok","accepted":20,"rejected":0,"warnings":1,"file":"research-exchange/inbox/GPT-CAT-003.json"}
