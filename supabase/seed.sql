@@ -1297,4 +1297,8 @@ on conflict (item_id, establishment_id) do update set status = excluded.status, 
 
 delete from venue_photos;
 
+insert into venue_photos (establishment_id, url, kind, source_url, attribution, license, last_checked_at, caption, sort_order) values
+('banh-mi-nhu-lan-68-ham-nghi', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Nhu_lan%2C_duong_ham_nghi%2C_phuong_B%E1%BA%BFn_Ngh%C3%A9%2C_Qu%E1%BA%ADn_1%2C_TPHCM%2C_Vi%E1%BB%87t_Nam_-_panoramio.jpg/960px-Nhu_lan%2C_duong_ham_nghi%2C_phuong_B%E1%BA%BFn_Ngh%C3%A9%2C_Qu%E1%BA%ADn_1%2C_TPHCM%2C_Vi%E1%BB%87t_Nam_-_panoramio.jpg', 'exterior', 'https://commons.wikimedia.org/wiki/File:Nhu_lan,_duong_ham_nghi,_phuong_B%E1%BA%BFn_Ngh%C3%A9,_Qu%E1%BA%ADn_1,_TPHCM,_Vi%E1%BB%87t_Nam_-_panoramio.jpg', 'trungydang (Panoramio), via Wikimedia Commons', 'CC BY 3.0', '2026-11-28', '{"en":"The shop on Hàm Nghi · photographed February 2015","vi":"Tiệm trên đường Hàm Nghi · chụp tháng 2/2015"}'::jsonb, 0),
+('banh-mi-nhu-lan-68-ham-nghi', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Tiem_banh_nhu_Lan_%2C_ham_nghi%2C_quan_1_tphcmvn_-_panoramio.jpg/960px-Tiem_banh_nhu_Lan_%2C_ham_nghi%2C_quan_1_tphcmvn_-_panoramio.jpg', 'exterior', 'https://commons.wikimedia.org/wiki/File:Tiem_banh_nhu_Lan_,_ham_nghi,_quan_1_tphcmvn_-_panoramio.jpg', 'trungydang (Panoramio), via Wikimedia Commons', 'CC BY 3.0', '2026-11-28', '{"en":"The shop on Hàm Nghi at night · photographed February 2015","vi":"Tiệm trên đường Hàm Nghi lúc tối · chụp tháng 2/2015"}'::jsonb, 1);
+
 commit;

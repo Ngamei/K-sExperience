@@ -3,5 +3,32 @@
     "note": "Curated, licence-checked photos of the establishments themselves (exterior, interior, signage, or something served there). Each one was opened and checked to show this establishment. Source: Wikimedia Commons file pages (author + licence from the Commons API). Validated by VenuePhotoFileSchema and tests/integration/data-integrity.test.ts.",
     "updatedOn": "2026-11-28"
   },
-  "photos": []
+  "photos": [
+    {
+      "venueId": "banh-mi-nhu-lan-68-ham-nghi",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Nhu_lan%2C_duong_ham_nghi%2C_phuong_B%E1%BA%BFn_Ngh%C3%A9%2C_Qu%E1%BA%ADn_1%2C_TPHCM%2C_Vi%E1%BB%87t_Nam_-_panoramio.jpg/960px-Nhu_lan%2C_duong_ham_nghi%2C_phuong_B%E1%BA%BFn_Ngh%C3%A9%2C_Qu%E1%BA%ADn_1%2C_TPHCM%2C_Vi%E1%BB%87t_Nam_-_panoramio.jpg",
+      "kind": "exterior",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nhu_lan,_duong_ham_nghi,_phuong_B%E1%BA%BFn_Ngh%C3%A9,_Qu%E1%BA%ADn_1,_TPHCM,_Vi%E1%BB%87t_Nam_-_panoramio.jpg",
+      "attribution": "trungydang (Panoramio), via Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "lastCheckedAt": "2026-11-28",
+      "caption": {
+        "en": "The shop on Hàm Nghi · photographed February 2015",
+        "vi": "Tiệm trên đường Hàm Nghi · chụp tháng 2/2015"
+      }
+    },
+    {
+      "venueId": "banh-mi-nhu-lan-68-ham-nghi",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Tiem_banh_nhu_Lan_%2C_ham_nghi%2C_quan_1_tphcmvn_-_panoramio.jpg/960px-Tiem_banh_nhu_Lan_%2C_ham_nghi%2C_quan_1_tphcmvn_-_panoramio.jpg",
+      "kind": "exterior",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tiem_banh_nhu_Lan_,_ham_nghi,_quan_1_tphcmvn_-_panoramio.jpg",
+      "attribution": "trungydang (Panoramio), via Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "lastCheckedAt": "2026-11-28",
+      "caption": {
+        "en": "The shop on Hàm Nghi at night · photographed February 2015",
+        "vi": "Tiệm trên đường Hàm Nghi lúc tối · chụp tháng 2/2015"
+      }
+    }
+  ]
 }
