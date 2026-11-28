@@ -6,7 +6,7 @@ import { describe, expect, it } from "vitest";
 // The public project status read by FIRSTLAB Agent Hub: stable schema, counts that match the data, no secrets.
 const root = path.resolve(__dirname, "../..");
 describe("hub snapshot", () => {
-  execFileSync("npx", ["tsx", "scripts/hub-snapshot.ts"], { cwd: root, stdio: "pipe" });
+  execFileSync(process.execPath, ["--import", "tsx", "scripts/hub-snapshot.ts"], { cwd: root, stdio: "pipe" });
   const raw = readFileSync(path.join(root, "public/hub/snapshot.json"), "utf8");
   const s = JSON.parse(raw);
   it("has the versioned schema and the project identity", () => {
@@ -22,7 +22,7 @@ describe("hub snapshot", () => {
     expect(s.metrics.modules.find((m: { id: string }) => m.id === "food").items).toBe(dishes.length);
   });
   it("lists only unfinished work and contains no secrets", () => {
-    expect(s.openWork.every((t: { status: string }) => t.status !== "done")).toBe(true);
+    expect(s.openWork.every((t: { status: string; note: string }) => t.status !== "done" && t.note === "")).toBe(true);
     expect(raw).not.toMatch(/service[_-]?role|sb_secret|SUPABASE_DB_URL=|postgres(ql)?:\/\/|password/i);
   });
 });

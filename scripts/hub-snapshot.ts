@@ -31,13 +31,14 @@ const modules = EXPERIENCES.map((e) => {
 const allPlaces = uniqueEstablishments([food.restaurants, ...EXPERIENCES.filter((e) => e.id !== "food" && e.implemented).map((e) => json(`data/experiences/${e.id}.json`).establishments)]);
 const coverage = json("docs/food-coverage.json");
 
+// Publish task labels and statuses only. Free-form progress notes can contain infrastructure details.
 // ---- open work (BACKLOG rows not done) ---------------------------------------------------------------
 const STATUS = [["⛔", "blocked"], ["🔄", "in progress"], ["🟡", "partly done"], ["⬜", "to do"], ["✅", "done"]] as const;
 const backlog = read("docs/BACKLOG.md").split("\n").filter((l) => /^\| [A-Z]{2,}[\w-]*-\d+/.test(l)).map((l) => {
   const c = l.split("|").slice(1, -1).map((x) => x.trim());
   const raw = c[c.length - 1];
   const status = STATUS.find(([e]) => raw.includes(e))?.[1] ?? "to do";
-  return { id: c[0], priority: c[1], owner: c[2], title: short(plain(c[3]), 140), status, note: short(plain(raw.replace(/[⛔🔄🟡⬜✅]/gu, "")), 160) };
+  return { id: c[0], priority: c[1], owner: c[2], title: short(plain(c[3]), 140), status, note: "" };
 }).filter((t) => t.status !== "done");
 
 // ---- decisions waiting for the Product Owner -------------------------------------------------------
