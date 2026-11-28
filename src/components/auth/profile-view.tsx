@@ -1,4 +1,5 @@
 "use client";
+import { contactOf, displayNameOf } from "@/lib/auth/methods";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -53,8 +54,8 @@ function ProfileForm({ user, profile, refreshProfile, signOut }: Pick<ReturnType
         {/* eslint-disable-next-line @next/next/no-img-element -- user-supplied avatar URL */}
         {avatar ? <img src={avatar} alt="" className="size-16 rounded-full object-cover" /> : <span className="flex size-16 items-center justify-center rounded-full bg-sage-soft text-forest"><UserRound className="size-8" /></span>}
         <div>
-          <h1 className="font-display text-3xl text-forest">{profile?.display_name || user.email}</h1>
-          <p className="text-sm text-muted">{user.email} · {a.memberSince} {profile ? new Date(profile.created_at).toLocaleDateString(locale === "vi" ? "vi-VN" : "en-GB", { month: "long", year: "numeric" }) : ""}</p>
+          <h1 className="font-display text-3xl text-forest">{displayNameOf(user, profile?.display_name)}</h1>
+          <p className="text-sm text-muted">{contactOf(user)} · {a.memberSince} {profile ? new Date(profile.created_at).toLocaleDateString(locale === "vi" ? "vi-VN" : "en-GB", { month: "long", year: "numeric" }) : ""}</p>
         </div>
       </div>
 

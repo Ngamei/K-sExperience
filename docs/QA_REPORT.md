@@ -163,6 +163,14 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 
 Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-catalogue`, `*-food-dish`, `*-settings`, `*-settings-account-guest`, `*-passport-gate`, `*-coffee-map`, `*-coffee-catalogue`, `*-coffee-item`, `*-coffee-cafe`.
 
+## Facebook + phone sign-in (2026-11-28, review branch `claude/auth-facebook-phone`, D69)
+
+| Command | Result |
+| --- | --- |
+| `npm run qa` | ✅ exit 0 — unit 21 files / 162 (+3 sign-in method rules), Food e2e 93, account e2e **36** (+2 tests ×2 viewports: phone flow with bad number / wrong code / right code + guest progress kept; Facebook button → provider=facebook with return to the requested page), module e2e 46 |
+
+Not verified live: real Google/Facebook/SMS sign-in needs the providers switched on in Supabase and the Vercel settings (`docs/AUTH_SETUP.md`).
+
 ## Production database: 0011 + 0012 applied (2026-11-28, `aibainipwgqbluhnqepu`)
 
 Applied by Claude Code through the Supabase connector at the PO's request (the GitHub `SUPABASE_DB_URL` secret is not set yet, so the automatic job stopped at its secret check). One transaction, rehearsed first on a local copy in the same state (0001–0010 + seed from `8f429f1`).

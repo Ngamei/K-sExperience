@@ -6,6 +6,7 @@ import { authDict } from "@/lib/i18n/auth-dict";
 import { useT } from "@/lib/i18n/use-t";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/components/shell/auth-provider";
+import { enabledAuthMethods, normalizePhone } from "@/lib/auth/methods";
 
 const input = "h-11 w-full rounded-xl border border-line bg-paper px-3 text-sm outline-none focus:border-forest/50";
 const origin = () => (typeof window !== "undefined" ? window.location.origin : "");
@@ -27,19 +28,81 @@ export function AuthCard({ title, children, hideTitle }: { title: string; childr
   );
 }
 
-function GoogleButton({ next = "/passport/" }: { next?: string }) {
+const GOOGLE_ICON = <svg viewBox="0 0 24 24" className="size-4" aria-hidden><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.7-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.8z" /><path fill="#34A853" d="M12 24c3.2 0 6-1.1 7.9-2.9l-3.9-3c-1.1.7-2.4 1.2-4 1.2-3.1 0-5.7-2.1-6.6-4.9H1.4v3.1C3.4 21.4 7.4 24 12 24z" /><path fill="#FBBC05" d="M5.4 14.4c-.2-.7-.4-1.5-.4-2.4s.1-1.6.4-2.4V6.6H1.4C.5 8.2 0 10 0 12s.5 3.8 1.4 5.4l4-3z" /><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4C17.9 1.2 15.2 0 12 0 7.4 0 3.4 2.6 1.4 6.6l4 3.1c.9-2.8 3.5-4.9 6.6-4.9z" /></svg>;
+const FACEBOOK_ICON = <svg viewBox="0 0 24 24" className="size-4" aria-hidden><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z" /></svg>;
+const PHONE_ICON = <svg viewBox="0 0 24 24" className="size-4" aria-hidden fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5" /><path d="M11 18h2" /></svg>;
+
+/** Google / Facebook (OAuth, returns via /auth/callback/) and phone (SMS code), as enabled in NEXT_PUBLIC_AUTH_METHODS. */
+function OtherMethods({ next = "/passport/", onPhone }: { next?: string; onPhone: () => void }) {
   const { locale } = useT();
   const a = authDict(locale);
+  const methods = enabledAuthMethods();
+  if (!methods.length) return null;
+  const oauth = (provider: "google" | "facebook") =>
+    getSupabase()?.auth.signInWithOAuth({ provider, options: { redirectTo: `${origin()}/auth/callback/?next=${encodeURIComponent(safeNext(next))}` } });
   return (
     <>
-      <Button variant="outline" className="w-full" type="button" data-testid="google-login"
-        onClick={() => getSupabase()?.auth.signInWithOAuth({ provider: "google", options: { redirectTo: `${origin()}/auth/callback/?next=${encodeURIComponent(safeNext(next))}` } })}>
-        <svg viewBox="0 0 24 24" className="size-4" aria-hidden><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.7-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.8z" /><path fill="#34A853" d="M12 24c3.2 0 6-1.1 7.9-2.9l-3.9-3c-1.1.7-2.4 1.2-4 1.2-3.1 0-5.7-2.1-6.6-4.9H1.4v3.1C3.4 21.4 7.4 24 12 24z" /><path fill="#FBBC05" d="M5.4 14.4c-.2-.7-.4-1.5-.4-2.4s.1-1.6.4-2.4V6.6H1.4C.5 8.2 0 10 0 12s.5 3.8 1.4 5.4l4-3z" /><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4C17.9 1.2 15.2 0 12 0 7.4 0 3.4 2.6 1.4 6.6l4 3.1c.9-2.8 3.5-4.9 6.6-4.9z" /></svg>
-        {a.google}
-      </Button>
-      <p className="mt-1 text-center text-[11px] text-muted">{a.apple}</p>
+      <div className="space-y-2">
+        {methods.includes("google") && <Button variant="outline" className="w-full" type="button" data-testid="google-login" onClick={() => oauth("google")}>{GOOGLE_ICON}{a.google}</Button>}
+        {methods.includes("facebook") && <Button variant="outline" className="w-full" type="button" data-testid="facebook-login" onClick={() => oauth("facebook")}>{FACEBOOK_ICON}{a.facebook}</Button>}
+        {methods.includes("phone") && <Button variant="outline" className="w-full" type="button" data-testid="phone-login" onClick={onPhone}>{PHONE_ICON}{a.usePhone}</Button>}
+      </div>
       <div className="my-4 flex items-center gap-3 text-xs text-muted"><span className="h-px flex-1 bg-line" />{a.or}<span className="h-px flex-1 bg-line" /></div>
     </>
+  );
+}
+
+/** Phone sign-in / sign-up: one flow (an unknown number creates the account). Code by SMS, 6 digits. */
+function PhonePanel({ onSignedIn, onBack }: { onSignedIn?: () => void; onBack: () => void }) {
+  const { locale } = useT();
+  const a = authDict(locale);
+  const [phone, setPhone] = useState(""); const [sentTo, setSentTo] = useState<string | null>(null); const [code, setCode] = useState("");
+  const [msg, setMsg] = useState<{ t: string; ok?: boolean }>({ t: "" }); const [busy, setBusy] = useState(false);
+  const send = async (e?: React.FormEvent) => {
+    e?.preventDefault();
+    const sb = getSupabase(); if (!sb) return;
+    const e164 = normalizePhone(sentTo ?? phone);
+    if (!e164) return setMsg({ t: a.badPhone });
+    setBusy(true); setMsg({ t: "" });
+    try {
+      const { error } = await sb.auth.signInWithOtp({ phone: e164 });
+      if (error) return setMsg({ t: friendly(error.message, a) });
+      setSentTo(e164); setMsg({ t: a.codeSent.replace("{phone}", e164), ok: true });
+    } catch { setMsg({ t: a.networkError }); } finally { setBusy(false); }
+  };
+  const verify = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const sb = getSupabase(); if (!sb || !sentTo) return;
+    if (!/^\d{6}$/.test(code.trim())) return setMsg({ t: a.badCode });
+    setBusy(true); setMsg({ t: "" });
+    try {
+      const { error } = await sb.auth.verifyOtp({ phone: sentTo, token: code.trim(), type: "sms" });
+      if (error) return setMsg({ t: /expired|invalid|token/i.test(error.message) ? a.badCode : friendly(error.message, a) });
+      onSignedIn?.();
+    } catch { setMsg({ t: a.networkError }); } finally { setBusy(false); }
+  };
+  return (
+    <div data-testid="phone-panel">
+      <h2 className="font-display text-2xl" data-testid="auth-title">{a.phoneTitle}</h2>
+      <p className="mt-1 text-xs text-muted">{a.phoneIntro}</p>
+      {!sentTo ? (
+        <form className="mt-4 space-y-3" onSubmit={send}>
+          <input className={input} type="tel" required autoComplete="tel" inputMode="tel" placeholder={a.phone} value={phone} onChange={(e) => setPhone(e.target.value)} data-testid="phone-number" />
+          <Button className="w-full" disabled={busy} data-testid="phone-send">{busy ? a.wait : a.sendCode}</Button>
+        </form>
+      ) : (
+        <form className="mt-4 space-y-3" onSubmit={verify}>
+          <input className={`${input} tracking-[0.4em]`} required autoComplete="one-time-code" inputMode="numeric" maxLength={6} placeholder="••••••" value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))} data-testid="phone-code" />
+          <Button className="w-full" disabled={busy} data-testid="phone-verify">{busy ? a.wait : a.verifyCode}</Button>
+          <div className="flex justify-between text-sm">
+            <button type="button" className="text-forest hover:underline" onClick={() => { setSentTo(null); setCode(""); setMsg({ t: "" }); }} data-testid="phone-change">{a.changeNumber}</button>
+            <button type="button" className="text-forest hover:underline" disabled={busy} onClick={() => send()} data-testid="phone-resend">{a.resendCode}</button>
+          </div>
+        </form>
+      )}
+      <Message text={msg.t} ok={msg.ok} />
+      <div className="mt-4 text-sm"><button type="button" onClick={onBack} className="text-forest hover:underline" data-testid="phone-back">{a.useEmail}</button></div>
+    </div>
   );
 }
 
@@ -48,7 +111,7 @@ function Message({ text, ok }: { text: string; ok?: boolean }) {
   return <p className={`mt-3 rounded-xl p-3 text-sm ${ok ? "bg-forest/10 text-forest" : "bg-[#f6e3dc] text-[#8a3f26]"}`} data-testid="auth-message">{text}</p>;
 }
 
-export type AuthMode = "login" | "signup" | "forgot";
+export type AuthMode = "login" | "signup" | "forgot" | "phone";
 
 /**
  * The one sign-in / sign-up / password-recovery panel, used by the account pages, the Passport gate and
@@ -90,11 +153,12 @@ export function AuthPanel({ initialMode = "login", next = "/passport/", onSigned
       setBusy(false);
     }
   };
+  if (mode === "phone") return <div data-testid="auth-panel" data-mode={mode}><PhonePanel onSignedIn={onSignedIn} onBack={() => go("login")} /></div>;
   return (
     <div data-testid="auth-panel" data-mode={mode}>
       <h2 className="font-display text-2xl" data-testid="auth-title">{mode === "login" ? a.login : mode === "signup" ? a.signup : a.forgot}</h2>
       {mode !== "forgot" && <p className="mt-1 text-xs text-muted">{a.guestKept}</p>}
-      {mode !== "forgot" && <div className="mt-4"><GoogleButton next={next} /></div>}
+      {mode !== "forgot" && <div className="mt-4"><OtherMethods next={next} onPhone={() => go("phone")} /></div>}
       <form className={mode === "forgot" ? "mt-4 space-y-3" : "space-y-3"} onSubmit={submit}>
         <input className={input} type="email" required autoComplete="email" placeholder={a.email} value={f.email} onChange={(e) => setF({ ...f, email: e.target.value })} data-testid={`${mode}-email`} />
         {mode !== "forgot" && (
@@ -129,7 +193,7 @@ function PageAuth({ mode }: { mode: AuthMode }) {
   const router = useRouter();
   const next = safeNext(useSearchParams().get("next"));
   return (
-    <AuthCard title={mode === "login" ? a.login : mode === "signup" ? a.signup : a.forgot} hideTitle>
+    <AuthCard title={mode === "login" ? a.login : mode === "signup" ? a.signup : mode === "phone" ? a.phoneTitle : a.forgot} hideTitle>
       <div className="mt-6"><AuthPanel initialMode={mode} next={next} onSignedIn={() => router.push(next)} /></div>
     </AuthCard>
   );

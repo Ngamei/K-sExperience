@@ -88,3 +88,5 @@ The links staged in commit `b4684d7` are alternate references for three venues. 
 | Lê Thánh Tôn | [26A Lê Thánh Tôn](https://maps.app.goo.gl/qsKaojbzXVttf4rN6) |
 | Metropole | [20 Nguyễn Thiện Thành](https://maps.app.goo.gl/S3nii48mVGjLvyVD8) |
 | Thảo Điền | [120 Xuân Thủy](https://goo.gl/maps/vEf8J6TxYzJo6pCK7) |
+- **2026-11-28 · Claude Code — Facebook + phone sign-in (D69)** — Auth panel offers Google, Facebook and phone (SMS code) next to email, each shown only when in `NEXT_PUBLIC_AUTH_METHODS`; account card/profile show the phone or provider name for accounts without email. Mock Supabase handles `/auth/v1/otp` + `/verify` (code 123456). Setup steps for the PO: `docs/AUTH_SETUP.md`. Live sign-in still needs the Supabase providers + Vercel env (PO).
+
