@@ -1,4 +1,9 @@
-# Staging runbook — migrations 0009/0010, seed parity, accounts & Passport (KEX-DB-01)
+# Database runbook — migrations, seed parity, accounts & Passport (KEX-DB-01)
+
+> **D65 (2026-11-28, PO):** `aibainipwgqbluhnqepu` is the **only** database and is treated as **production**. There is no
+> staging database. Everything below that says "staging" refers to this project. Consequences: merges that carry a
+> migration apply it to production (§7); test accounts created during preview checks live in production and must be
+> deleted afterwards; a separate free staging project can be added later if previews need a database of their own.
 
 Ordered steps for an **authorized Supabase staging project** and a **Vercel preview** (never Production). Tracks
 [GitHub issue #2](https://github.com/Ngamei/K-sExperience/issues/2). Every step lists its evidence; record results in
@@ -72,15 +77,15 @@ Record: review commit, preview URL, staging project ref, pass/fail per row, any 
 
 `npm run test:db` applies `0001`–`0010` in order to a fresh PostgreSQL 16 + PostGIS database, runs the seed twice, checks the columns the app reads as `anon`, runs the seed parity SQL above (10/10 PASS) and the RLS suite (53/53 PASS, incl. KEX-SEC-01: anon and signed-in non-editor writes to dishes, restaurants, links, offerings, items, tags, origins, `user_roles` and `content_audit` are all refused; the editor's write succeeds and is audited). The account flows run end-to-end against a mock Supabase in `npm run test:e2e-auth`.
 
-## 7. Automatic migrations (GitHub Actions)
+## 7. Automatic migrations (GitHub Actions) — production database
 
 Migrations live in `supabase/migrations/` and travel with the branch. `.github/workflows/supabase-deploy.yml`:
 
 1. **Every push or pull request that touches the database** (migrations, seed, data, DB tests): runs `npm run test:db` on GitHub — all migrations and the seed on a fresh PostgreSQL + PostGIS, seed parity and the RLS/security suite. A broken migration fails here, before it can be merged.
-2. **After a merge to the production branch:** applies pending migrations to **staging** with `scripts/db-deploy.sh` (`supabase db push`), re-runs the idempotent seed and the parity check. Each migration runs once; history lives in `supabase_migrations.schema_migrations`.
+2. **After a merge to the production branch:** applies pending migrations to the **production database** (`aibainipwgqbluhnqepu`) with `scripts/db-deploy.sh` (`supabase db push`), re-runs the idempotent seed and the parity check. Each migration runs once; history lives in `supabase_migrations.schema_migrations`.
 3. **First run only:** because 0001–0010 were applied by hand, the script records exactly those as applied (`supabase migration repair`) when the schema exists but the history is empty, then applies only newer ones (0011 onwards).
 
-**One-time setup (PO, GitHub → Settings → Environments → New environment `staging` → Add secret):** `SUPABASE_DB_URL` = Supabase → Connect → **Session pooler** connection string, with the database password filled in. It is a secret: never commit it or paste it in chat. Until it exists the deploy job fails with a clear message; the test job still runs.
+**One-time setup (PO, GitHub → Settings → Environments → New environment `production` → Add secret):** `SUPABASE_DB_URL` = Supabase → Connect → **Session pooler** connection string, with the database password filled in. It is a secret: never commit it or paste it in chat. Until it exists the deploy job fails with a clear message; the test job still runs.
 
-**Rules:** write a new numbered migration (`0012_….sql`) for every change — never edit one that has been applied. Migrations must be additive or safe to run on live data. A production database will get its own job behind a `production` environment with required approval.
+**Rules:** write a new numbered migration (`0012_….sql`) for every change — never edit one that has been applied. Migrations must be additive or safe to run on live data. The merge is the approval. For a second check, add **Required reviewers** to the `production` environment: each apply then waits for a click in GitHub.
 
