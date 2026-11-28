@@ -1,8 +1,8 @@
 # Import report — bars
 
-File: `data/source/experiences/bars/` · kind: bundle · rows: 65 · written · 2026-11-28
+File: `data/source/experiences/bars/` · kind: bundle · rows: 69 · written · 2026-11-28
 
-Result: valid; 0 added, 2 updated, 63 unchanged; nothing deleted.
+Result: valid; 4 added, 0 updated, 65 unchanged; nothing deleted.
 
 ### Errors (0)
 - none
@@ -15,10 +15,12 @@ Result: valid; 0 added, 2 updated, 63 unchanged; nothing deleted.
 - skipped venue — Tiệm Bia Gà – Tên Lửa: intake GPT-BARS-001: coordinates: street-level pin (house number not located) lies nearer Quận 6 than Bình Tân — exact location unconfirmed
 - skipped venue — Deme Brewing Taproom: intake GPT-BARS-001: coordinates: street-level pin (house number not located) lies nearer Quận 1 than Quận 3 — exact location unconfirmed
 
-### Added (0)
-- none
+### Added (4)
+- establishment test-bar-building-8-tran-van-tra
+- establishment test-bar-geocoded-100-xuan-thuy
+- offering craft-beer@test-bar-building-8-tran-van-tra
+- offering craft-beer@test-bar-geocoded-100-xuan-thuy
 
-### Updated (2)
-- establishment heart-of-darkness-31d-ly-tu-trong
-- offering craft-beer@heart-of-darkness-31d-ly-tu-trong
+### Updated (0)
+- none
 

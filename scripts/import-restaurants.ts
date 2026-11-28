@@ -27,7 +27,7 @@ const errors: string[] = [];
 type BatchDish = string | { dishId: string; evidence?: string; url?: string; priceVnd?: { min: number; max: number }; photo?: unknown; status?: string; evidenceType?: string };
 type BatchVenue = { id?: string; name: string; address: string; district?: string; dishes: BatchDish[]; sources: string[]; note?: string; styleNote?: boolean; excluded?: string;
   venueType?: string; priceRange?: string; openingHours?: unknown; contact?: unknown; highlights?: string[] };
-const geocoded = read("data/source/venue-research/geocoded.json") as Record<string, { failed?: boolean; reason?: string; lon: number; lat: number; precision: "exact" | "street"; ward: string | null }>;
+const geocoded = read("data/source/venue-research/geocoded.json") as Record<string, { failed?: boolean; reason?: string; lon: number; lat: number; precision: "exact" | "building" | "street"; ward: string | null }>;
 const batchFiles = readdirSync(path.join(root, "data/source/venue-research")).filter((f) => /^batch-[\w-]+\.json$/.test(f)).sort();
 const skipped: string[] = [];
 const byId = new Map<string, Record<string, unknown> & { dishes: { dishId: string; evidence: string; url: string }[] }>();

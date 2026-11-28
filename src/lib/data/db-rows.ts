@@ -18,7 +18,7 @@ export interface PhotoRow { dish_id: string; url: string; credit: string; licens
 export interface SourceRow { dish_id?: string; restaurant_id?: string; title: string; url: string | null; accessed: string | null; note: string | null }
 export interface RestaurantRow {
   id: string; name: string; is_sample: boolean; address: string; neighbourhood: string; lon: number; lat: number;
-  coordinate_precision: "exact" | "street" | null; google_maps_url: string | null; highlights: string[]; venue_type: Restaurant["venueType"];
+  coordinate_precision: "exact" | "building" | "street" | null; google_maps_url: string | null; highlights: string[]; venue_type: Restaurant["venueType"];
   price_range: Restaurant["priceRange"] | null; opening_hours: Restaurant["openingHours"] | null; contact: Restaurant["contact"] | null;
   delivery_links: Restaurant["deliveryLinks"]; last_verified: string | null;
   /** 0008 — optional dining attributes (null = unknown). */

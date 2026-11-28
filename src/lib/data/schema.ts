@@ -194,7 +194,8 @@ export const RestaurantSchema = z.object({
   neighbourhood: z.string().min(1),
   coordinates: lonLat,
   /** "exact" = building/POI match; "street" = only the street could be geocoded (shown as approximate). */
-  coordinatePrecision: z.enum(["exact", "street"]).optional(),
+  /** exact = POI/house number of this venue · building = the building containing the unit (not the unit) · street = street point (approximate). */
+  coordinatePrecision: z.enum(["exact", "building", "street"]).optional(),
   /** Google Maps search link (name + address) — opens the real place listing. */
   googleMapsUrl: z.url().optional(),
   /** Short factual notes attributed to a cited source (e.g. guide distinctions). */

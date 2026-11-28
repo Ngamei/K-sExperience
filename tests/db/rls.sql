@@ -172,5 +172,13 @@ do $$ begin
 exception when check_violation then insert into results values ('spice outside 0–3 rejected', true); end $$;
 insert into results select 'seeded legacy spice levels unchanged (all recorded)', count(*) = 0 from dishes where id <> 'kex-unknown-spice' and spice_level is null;
 
+-- 0010 (KEX-QA-03): building-level pins allowed; other precision values rejected
+update restaurants set coordinate_precision = 'building' where id = 'test-cafe';
+insert into results select 'building precision stored', coordinate_precision = 'building' from restaurants where id = 'test-cafe';
+do $$ begin
+  update restaurants set coordinate_precision = 'unit' where id = 'test-cafe';
+  insert into results values ('unknown precision rejected', false);
+exception when check_violation then insert into results values ('unknown precision rejected', true); end $$;
+
 select (case when ok then 'PASS ' else 'FAIL ' end) || name from results;
 select case when bool_and(ok) then 'ALL DB TESTS PASSED' else 'DB TESTS FAILED' end from results;

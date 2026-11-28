@@ -367,6 +367,18 @@
           },
           "confirmDistinct": {
             "type": "boolean"
+          },
+          "coordinatePrecision": {
+            "type": "string",
+            "enum": [
+              "exact",
+              "building",
+              "street"
+            ]
+          },
+          "coordinateSource": {
+            "type": "string",
+            "pattern": "^https:\\/\\/[^\\s]+\\.[^\\s]+"
           }
         },
         "required": [

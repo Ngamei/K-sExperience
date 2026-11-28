@@ -234,7 +234,7 @@ export function RestaurantEditor({ onSave, canPersist, inHcmc }: { onSave: Saver
       ...(base ?? { deliveryLinks: [] }),
       id: base?.id ?? slugify(`${name} ${(f.address ?? "").split(",")[0]}`),
       name, isSample: false, address: f.address ?? "", neighbourhood: f.neighbourhood ?? "",
-      coordinates: [Number(f.lon), Number(f.lat)] as [number, number], coordinatePrecision: f.precision as "exact" | "street",
+      coordinates: [Number(f.lon), Number(f.lat)] as [number, number], coordinatePrecision: f.precision as "exact" | "building" | "street",
       googleMapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`,
       venueType: f.venueType as Restaurant["venueType"], ...(f.priceRange ? { priceRange: f.priceRange as Restaurant["priceRange"] } : { priceRange: undefined }),
       highlights: list(f.highlights ?? "").length ? (f.highlights ?? "").split("\n").map((x) => x.trim()).filter(Boolean) : undefined,
@@ -269,7 +269,7 @@ export function RestaurantEditor({ onSave, canPersist, inHcmc }: { onSave: Saver
             <div className="grid grid-cols-3 gap-2">
               <div><span className={label}>Longitude</span><input className={field} value={f.lon ?? ""} onChange={set("lon")} data-testid="restaurant-lon" /></div>
               <div><span className={label}>Latitude</span><input className={field} value={f.lat ?? ""} onChange={set("lat")} data-testid="restaurant-lat" /></div>
-              <div><span className={label}>Pin</span><select className={field} value={f.precision} onChange={set("precision")}><option>exact</option><option>street</option></select></div>
+              <div><span className={label}>Pin</span><select className={field} value={f.precision} onChange={set("precision")}><option>exact</option><option>building</option><option>street</option></select></div>
             </div>
             <div><span className={label}>Venue type</span><select className={field} value={f.venueType} onChange={set("venueType")}>{VENUE_TYPES.map((v) => <option key={v}>{v}</option>)}</select></div>
             <div><span className={label}>Price range</span><select className={field} value={f.priceRange ?? ""} onChange={set("priceRange")}><option value="">unknown</option>{PRICE_RANGES.map((v) => <option key={v}>{v}</option>)}</select></div>

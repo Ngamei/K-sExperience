@@ -32,6 +32,7 @@ Shared hand-off point between **Claude Code** (establishment-first research, men
 - Never fabricate dishes, venues, prices, hours, menus, reviews, dietary attributes or photos. Omit unknown fields — unknown is a valid value.
 - Every venue cites at least one https source that names it; every offering cites a source naming **this venue AND this exact item**. Menu-confirmed status needs an official menu / delivery listing / menu photo (see `allowedEvidencePerStatus`).
 - Prices only from a menu, delivery listing or dated article (VND per item, `priceVnd {min,max}` for Food; `price {minVnd,maxVnd,unit}` for modules).
+- Supplied coordinates must state `coordinatePrecision` (`exact` = mapped POI of this venue or its house number · `building` = the building that contains the unit · `street`) and `coordinateSource` (e.g. the OSM object URL). They always win over geocoder results; a building pin is never shown as the unit.
 - Addresses must be inside current Ho Chi Minh City (2025 boundary). Give house number + street and the former district; coordinates are geocoded and checked — wrong-ward matches are rejected, never guessed.
 - Evidence only moves up: a weaker status never overwrites a stronger one (except a dated `temporarily-unavailable`).
 - Regional variants are separate dishes linked by `family`. Existing ids never change; nothing is deleted by an import.

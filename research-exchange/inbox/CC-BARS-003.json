@@ -30,7 +30,9 @@
           "url": "https://www.pasteurstreet.com/taprooms"
         }
       ],
-      "note": "Coordinates: OpenStreetMap node 13541335701 'Pasteur Street Craft Beer' (amenity=bar) on Đề Thám, Phường Bến Thành — same street and ward as the official directory; the node has no house number. Replaces the street-segment point rejected in GPT-BARS-001."
+      "note": "Coordinates: OpenStreetMap node 13541335701 'Pasteur Street Craft Beer' (amenity=bar) on Đề Thám, Phường Bến Thành — same street and ward as the official directory; the node has no house number. Replaces the street-segment point rejected in GPT-BARS-001.",
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.openstreetmap.org/node/13541335701"
     },
     {
       "name": "Pasteur Street Craft Beer – Phú Mỹ Hưng",
@@ -56,7 +58,9 @@
           "url": "https://www.pasteurstreet.com/taprooms"
         }
       ],
-      "note": "Coordinates: OpenStreetMap way 1510577907 'Crescent Residence 5' (building, 8 Trần Văn Trà, Phường Tân Mỹ) — building-level pin for shop unit CR5-01; the street number comes from OSM, not the official directory."
+      "note": "Coordinates: OpenStreetMap way 1510577907 'Crescent Residence 5' (building, 8 Trần Văn Trà, Phường Tân Mỹ) — building-level pin for shop unit CR5-01; the street number comes from OSM, not the official directory.",
+      "coordinatePrecision": "building",
+      "coordinateSource": "https://www.openstreetmap.org/way/1510577907"
     }
   ]
 }

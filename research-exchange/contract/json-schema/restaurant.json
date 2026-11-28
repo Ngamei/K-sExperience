@@ -43,6 +43,7 @@
       "type": "string",
       "enum": [
         "exact",
+        "building",
         "street"
       ]
     },

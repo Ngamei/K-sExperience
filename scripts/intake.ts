@@ -15,7 +15,7 @@ import { execFileSync } from "node:child_process";
 import { appendFileSync, copyFileSync, cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { BatchSchema, geocodeProblem, validateVenues, type Batch, type ExistingEstablishment, type VenueVerdict } from "../src/lib/data/exchange";
+import { BatchSchema, geocodeProblem, pinKey, resolvePins, snapshotMismatches, validateVenues, type Batch, type ExistingEstablishment, type FailedPin, type Pin, type VenueVerdict } from "../src/lib/data/exchange";
 import { overlaps, queueMarkdown, readQueue, upsertEntry, writeQueue } from "../src/lib/data/exchange-queue";
 import { haversineKm, type LngLat } from "../src/lib/geo/geo";
 
@@ -107,42 +107,46 @@ const srcDir = batch.experience === "food" ? "data/source/venue-research" : `dat
 const scratch = mkdtempSync(path.join(os.tmpdir(), "intake-geo-"));
 const cache = path.join(root, srcDir, "geocoded.json");
 if (existsSync(cache)) copyFileSync(cache, path.join(scratch, "geocoded.json"));
-// KEX-QA-01: an apply evaluates the SAME coordinates as the reviewed dry run. Nominatim can return a different
-// street-level point for the same query between runs (GPT-BARS-001: 27/5 dry run vs 26/6 apply), so the dry run's
-// geocodes are snapshotted and reused here instead of querying again.
+// KEX-QA-01/03: an apply evaluates the SAME pins as the reviewed dry run. The dry run snapshots the SELECTED pins
+// (supplied coordinates take precedence over cached/geocoded points and keep their source-derived precision);
+// the apply reuses that snapshot without new Nominatim queries and refuses if the batch no longer matches it.
 const snapshot = path.join(X, "geocodes", `${batch.batchId}.json`);
-let reusedFrom: string | null = null;
-if (apply && existsSync(snapshot)) {
-  const snap = JSON.parse(readFileSync(snapshot, "utf8")) as { at: string; geocodes: Record<string, unknown> };
-  const merged = { ...(existsSync(path.join(scratch, "geocoded.json")) ? JSON.parse(readFileSync(path.join(scratch, "geocoded.json"), "utf8")) : {}), ...snap.geocodes };
-  writeFileSync(path.join(scratch, "geocoded.json"), JSON.stringify(merged));
-  reusedFrom = snap.at;
-  warnings.push(`geocodes reused from the dry run of ${snap.at} (no new Nominatim queries for this batch's venues)`);
-} else if (apply) warnings.push("no dry-run geocode snapshot for this batch — geocoded now; run a dry run first so the reviewed coordinates are the imported ones");
-void reusedFrom;
-const toGeocode = (batch.venues ?? []).filter((v, i) => verdicts[i].decision === "accept" && (v.lon == null || v.lat == null));
-writeFileSync(path.join(scratch, "batch-intake.json"), JSON.stringify({ researchedOn: batch.researchedOn, venues: toGeocode }));
-if (toGeocode.length) {
-  try { execFileSync("node", [path.join(root, "scripts/geocode-venue-research.mjs"), scratch], { cwd: root, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, NODE_USE_ENV_PROXY: "1" } }); }
-  catch (e) { warnings.push(`geocoder failed: ${(e as Error).message.split("\n")[0]} — venues without coordinates are rejected`); }
-}
-const geo = existsSync(path.join(scratch, "geocoded.json")) ? JSON.parse(readFileSync(path.join(scratch, "geocoded.json"), "utf8")) : {};
-const batchKeys = (batch.venues ?? []).map((v) => `${v.name}|${v.address}|${v.district ?? ""}`);
-if (!apply) {
+const venuesAll = batch.venues ?? [];
+let pins: Record<string, Pin | FailedPin>;
+const snap = apply && existsSync(snapshot) ? (JSON.parse(readFileSync(snapshot, "utf8")) as { at: string; pins?: Record<string, Pin | FailedPin> }) : null;
+if (apply && !snap?.pins) { console.error(`✗ ${batch.batchId}: no dry-run pin snapshot (research-exchange/geocodes/${batch.batchId}.json) — run the dry run first`); process.exit(1); }
+if (snap?.pins) {
+  const mism = snapshotMismatches(venuesAll.filter((_, i) => verdicts[i].decision === "accept"), snap.pins);
+  if (mism.length) { console.error(`✗ ${batch.batchId}: batch differs from its dry run — re-run the dry run:\n  ${mism.join("\n  ")}`); process.exit(1); }
+  pins = snap.pins;
+  warnings.push(`pins reused from the dry run of ${snap.at} (no new Nominatim queries; supplied coordinates verified unchanged)`);
+} else {
+  const toGeocode = venuesAll.filter((v, i) => verdicts[i].decision === "accept" && (v.lon == null || v.lat == null));
+  writeFileSync(path.join(scratch, "batch-intake.json"), JSON.stringify({ researchedOn: batch.researchedOn, venues: toGeocode }));
+  if (toGeocode.length) {
+    try { execFileSync("node", [path.join(root, "scripts/geocode-venue-research.mjs"), scratch], { cwd: root, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, NODE_USE_ENV_PROXY: "1" } }); }
+    catch (e) { warnings.push(`geocoder failed: ${(e as Error).message.split("\n")[0]} — venues without coordinates are rejected`); }
+  }
+  const cacheNow = existsSync(path.join(scratch, "geocoded.json")) ? JSON.parse(readFileSync(path.join(scratch, "geocoded.json"), "utf8")) : {};
+  pins = resolvePins(venuesAll, cacheNow);
   mkdirSync(path.join(X, "geocodes"), { recursive: true });
-  writeFileSync(snapshot, JSON.stringify({ at: now(), geocodes: Object.fromEntries(batchKeys.filter((k) => geo[k]).map((k) => [k, geo[k]])) }, null, 2) + "\n");
+  writeFileSync(snapshot, JSON.stringify({ at: now(), pins: Object.fromEntries(venuesAll.map((v) => [pinKey(v), pins[pinKey(v)]]).filter(([, p]) => p)) }, null, 2) + "\n");
 }
-(batch.venues ?? []).forEach((v, i) => {
+// `geo` = selected pins in the geocode-cache shape the importers read (precision preserved: exact | building | street)
+const geo: Record<string, { lon?: number; lat?: number; precision?: string; ward?: string | null; displayName?: string; failed?: boolean; reason?: string }> =
+  existsSync(path.join(scratch, "geocoded.json")) ? JSON.parse(readFileSync(path.join(scratch, "geocoded.json"), "utf8")) : {};
+for (const [k, p] of Object.entries(pins)) geo[k] = "failed" in p ? { failed: true, reason: p.reason } : { lon: p.lon, lat: p.lat, precision: p.precision, ward: p.ward, displayName: p.displayName };
+venuesAll.forEach((v, i) => {
   const vd = verdicts[i];
   if (vd.decision !== "accept") return;
-  if (v.lon != null && v.lat != null) {
-    geo[`${v.name}|${v.address}|${v.district ?? ""}`] = { lon: v.lon, lat: v.lat, precision: "exact", ward: null, displayName: "researcher-supplied coordinates" };
+  const p = pins[pinKey(v)];
+  if (p && !("failed" in p) && p.origin === "supplied") {
     const c = v.district ? DISTRICTS[v.district] : undefined;
-    if (c && haversineKm(c, [v.lon, v.lat]) > 6) { vd.decision = "reject"; vd.action = "none"; vd.reasons.push(`coordinates: supplied point is ${haversineKm(c, [v.lon, v.lat]).toFixed(1)} km from ${v.district}`); }
+    if (c && haversineKm(c, [p.lon, p.lat]) > 6) { vd.decision = "reject"; vd.action = "none"; vd.reasons.push(`coordinates: supplied point is ${haversineKm(c, [p.lon, p.lat]).toFixed(1)} km from ${v.district}`); }
     return;
   }
-  const p = geocodeProblem(v, geo[`${v.name}|${v.address}|${v.district ?? ""}`], DISTRICTS);
-  if (p) { vd.decision = "reject"; vd.action = "none"; vd.reasons.push(`coordinates: ${p}`); }
+  const prob = geocodeProblem(v, geo[pinKey(v)], DISTRICTS);
+  if (prob) { vd.decision = "reject"; vd.action = "none"; vd.reasons.push(`coordinates: ${prob}`); }
 });
 // KEX-QA-02: a street-level geocode is a street-segment point, so different addresses on one street can get the
 // identical point. Flag it (never presented as exact; the UI labels street-level pins as approximate).
@@ -190,8 +194,9 @@ finish({
     ...verdicts.map((v: VenueVerdict, i: number) => {
       const bv = (batch.venues ?? [])[i];
       const g = bv ? geo[`${bv.name}|${bv.address}|${bv.district ?? ""}`] : undefined;
-      const pin = g?.lon !== undefined ? `${g.precision ?? ""} ${Number(g.lat).toFixed(5)},${Number(g.lon).toFixed(5)}` : "—";
-      return `| ${v.name} | \`${v.id}\` | ${v.decision === "accept" ? "✅ accept" : "❌ reject"} | ${v.action} | ${v.offerings} | ${v.priced} | ${pin} | ${String(g?.displayName ?? "—").slice(0, 90).replace(/\|/g, "/")} | ${[...v.reasons, ...v.warnings].join("; ").replace(/\|/g, "/") || "—"} |`;
+      const sel = bv ? pins[pinKey(bv)] : undefined;
+      const pin = sel && !("failed" in sel) ? `${sel.precision} · ${sel.origin} ${Number(sel.lat).toFixed(7)},${Number(sel.lon).toFixed(7)}` : "—";
+      return `| ${v.name} | \`${v.id}\` | ${v.decision === "accept" ? "✅ accept" : "❌ reject"} | ${v.action} | ${v.offerings} | ${v.priced} | ${pin} | ${String((sel && !("failed" in sel) ? sel.sourceRef ?? sel.displayName : g?.displayName) ?? "—").slice(0, 90).replace(/\|/g, "/")} | ${[...v.reasons, ...v.warnings].join("; ").replace(/\|/g, "/") || "—"} |`;
     }),
     ...(importOut ? ["", "## Importer output", "", "```", importOut.trim(), "```"] : []),
   ],

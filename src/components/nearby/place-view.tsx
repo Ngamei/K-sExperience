@@ -54,6 +54,7 @@ export function PlaceView({ id }: { id: string }) {
         <p className="mt-1 text-muted">{r.address} · {r.neighbourhood}</p>
         {r.highlights?.length ? <ul className="mt-2 flex flex-wrap gap-1.5">{r.highlights.map((h) => <li key={h}><Badge tone="forest">{h}</Badge></li>)}</ul> : null}
         {r.coordinatePrecision === "street" && <p className="mt-2 text-xs text-[#8a6420]" data-testid="approx-location">{t("place.approx")}</p>}
+        {r.coordinatePrecision === "building" && <p className="mt-2 text-xs text-[#8a6420]" data-testid="building-location">{t("place.building")}</p>}
         <div className="mt-4 flex flex-wrap gap-2">
           {r.isSample ? (
             <Button variant="outline" disabled title="Sample venue — no real location"><Navigation /> {t("place.directions")}</Button>

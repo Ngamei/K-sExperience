@@ -1,7 +1,8 @@
 /** Research exchange: batch schema + venue validation against the real data (no fixtures for existing records). */
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { BatchSchema, establishmentId, geocodeProblem, validateVenues, type Batch } from "@/lib/data/exchange";
+import { BatchSchema, establishmentId, geocodeProblem, pinKey, resolvePins, selectPin, snapshotMismatches, validateVenues, type Batch } from "@/lib/data/exchange";
+import { RestaurantSchema } from "@/lib/data/schema";
 import { overlaps, type Queue } from "@/lib/data/exchange-queue";
 
 const read = (p: string) => JSON.parse(readFileSync(p, "utf8"));
@@ -28,7 +29,7 @@ describe("research exchange — batch validation", () => {
     const [ok, bad, out] = validateVenues(batch([
       { name: "Quán Thử Nghiệm", address: "999 Đường Không Tồn Tại", sources: ["https://example.vn/a"], dishes: [{ dishId: "pho-sai-gon", evidence: "Menu lists phở bò tái.", priceVnd: { min: 55000, max: 75000 } }] },
       { name: "Quán Lạ", address: "998 Đường Không Tồn Tại", sources: ["https://example.vn/b"], dishes: ["mon-khong-co"] },
-      { name: "Quán Hà Nội", address: "1 Phố Huế", sources: ["https://example.vn/c"], dishes: ["pho-sai-gon"], lon: 105.85, lat: 21.02 },
+      { name: "Quán Hà Nội", address: "1 Phố Huế", sources: ["https://example.vn/c"], dishes: ["pho-sai-gon"], lon: 105.85, lat: 21.02, coordinatePrecision: "exact", coordinateSource: "https://www.openstreetmap.org/node/1" },
     ]), ctx);
     expect(ok).toMatchObject({ decision: "accept", action: "new", offerings: 1, priced: 1 });
     expect(bad.decision).toBe("reject");
@@ -83,5 +84,56 @@ describe("research exchange — batch validation", () => {
     const q = read("research-exchange/queue.json");
     expect(q.batches.length).toBeGreaterThan(10);
     expect(new Set(q.batches.map((b: { batchId: string }) => b.batchId)).size).toBe(q.batches.length);
+  });
+});
+
+describe("KEX-QA-03 · pin precision and repeatable intake", () => {
+  const bv = (o: Record<string, unknown>) => BatchSchema.parse({ ...base, experience: "bars", batchId: "CC-BARS-901", venues: [{ name: "Pasteur Street Craft Beer – Bùi Viện", address: "212 Đề Thám", district: "Quận 1", sources: ["https://www.pasteurstreet.com/taprooms"], offerings: [{ item: "craft-beer", evidence: "Official directory lists this taproom.", url: "https://www.pasteurstreet.com/taprooms" }], ...o }] }).venues![0];
+  const poi = { lon: 106.6940607, lat: 10.7673944, coordinatePrecision: "exact", coordinateSource: "https://www.openstreetmap.org/node/13541335701" };
+  const building = { lon: 106.7208204, lat: 10.7248058, coordinatePrecision: "building", coordinateSource: "https://www.openstreetmap.org/way/1510577907" };
+  // the stale street-level point that the 1b6a1be dry-run snapshot held for the same key (from GPT-BARS-001's cache)
+  const staleCache = { lon: 106.696052, lat: 10.762988, precision: "street", ward: "Phường Cầu Ông Lãnh", displayName: "Đề Thám, …" };
+
+  it("supplied coordinates need a precision and a source", () => {
+    expect(BatchSchema.safeParse({ ...base, venues: [{ name: "Quán A", address: "1 Lê Lợi", sources: ["https://x.vn/a"], dishes: ["pho-sai-gon"], lon: 106.7, lat: 10.77 }] }).success).toBe(false);
+    expect(BatchSchema.safeParse({ ...base, venues: [{ name: "Quán A", address: "1 Lê Lợi", sources: ["https://x.vn/a"], dishes: ["pho-sai-gon"], lon: 106.7, lat: 10.77, coordinatePrecision: "exact", coordinateSource: "https://www.openstreetmap.org/node/1" }] }).success).toBe(true);
+  });
+
+  it("a supplied POI is exact; a supplied building pin stays building (never promoted to exact)", () => {
+    expect(selectPin(bv(poi), undefined)).toMatchObject({ precision: "exact", origin: "supplied", lon: poi.lon, lat: poi.lat, sourceRef: poi.coordinateSource });
+    expect(selectPin(bv(building), undefined)).toMatchObject({ precision: "building", origin: "supplied", lon: building.lon });
+  });
+
+  it("supplied coordinates take precedence over a conflicting cached/geocoded point for the same key", () => {
+    const v = bv(poi);
+    expect(selectPin(v, staleCache)).toMatchObject({ origin: "supplied", lon: poi.lon, lat: poi.lat, precision: "exact" });
+    const pins = resolvePins([v], { [pinKey(v)]: staleCache });
+    expect(pins[pinKey(v)]).toMatchObject({ lon: poi.lon, lat: poi.lat });
+  });
+
+  it("geocoder pins keep their own precision; unknown precision is treated as street", () => {
+    const v = bv({});
+    expect(selectPin(v, staleCache)).toMatchObject({ origin: "geocoder", precision: "street" });
+    expect(selectPin(v, { lon: 1, lat: 2 })).toMatchObject({ precision: "street" });
+    expect(selectPin(v, { failed: true, reason: "not found" })).toEqual({ failed: true, reason: "not found" });
+  });
+
+  it("dry-run/apply parity: apply uses the snapshot pins; stale or changed snapshots are refused", () => {
+    const v1 = bv(poi), v2 = bv({ name: "Other bar", address: "1 Đề Thám" });
+    const dry = resolvePins([v1, v2], { [pinKey(v1)]: staleCache, [pinKey(v2)]: { ...staleCache, lon: 106.6941 } });
+    expect(snapshotMismatches([v1, v2], dry)).toEqual([]); // the apply would reuse exactly these pins
+    // a later, different geocoder answer does not matter: apply reads the snapshot, not the cache
+    const later = resolvePins([v1, v2], { [pinKey(v2)]: { ...staleCache, lon: 106.70 } });
+    expect(later[pinKey(v2)]).not.toEqual(dry[pinKey(v2)]);
+    // the 1b6a1be snapshot (street point stored for a supplied venue) is refused
+    const stale = { [pinKey(v1)]: { ...staleCache, origin: "geocoder" as const, ward: null, displayName: "", precision: "street" as const }, [pinKey(v2)]: dry[pinKey(v2)] };
+    expect(snapshotMismatches([v1, v2], stale).join()).toMatch(/dry-run snapshot has geocoder street/);
+    // changing the supplied coordinates/precision after the dry run is refused
+    expect(snapshotMismatches([bv({ ...poi, coordinatePrecision: "building" }), v2], dry)).toHaveLength(1);
+  });
+
+  it("establishments accept building precision", () => {
+    expect(RestaurantSchema.shape.coordinatePrecision.safeParse("building").success).toBe(true);
+    expect(RestaurantSchema.shape.coordinatePrecision.safeParse("unit").success).toBe(false);
   });
 });

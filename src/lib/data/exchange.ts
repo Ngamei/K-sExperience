@@ -33,6 +33,16 @@ export const BatchVenueSchema = z.object({
   attributes: z.record(z.string(), z.unknown()).optional(), note: z.string().optional(), excluded: z.string().optional(),
   /** Set to true after checking that a same-name venue nearby is a different branch. */
   confirmDistinct: z.boolean().optional(),
+  /**
+   * KEX-QA-03 — required with supplied lon/lat: what the point actually is. `exact` = a mapped POI of this venue
+   * or its house number; `building` = the building that contains the unit (not the unit); `street` = a street point.
+   */
+  coordinatePrecision: z.enum(["exact", "building", "street"]).optional(),
+  /** Source of supplied coordinates (e.g. https://www.openstreetmap.org/node/…). Required with lon/lat. */
+  coordinateSource: Https.optional(),
+}).superRefine((v, ctx) => {
+  if (v.lon != null && v.lat != null && (!v.coordinatePrecision || !v.coordinateSource))
+    ctx.addIssue({ code: "custom", path: ["coordinatePrecision"], message: "supplied coordinates need coordinatePrecision (exact | building | street) and coordinateSource" });
 });
 export const BatchSchema = z.object({
   /** Id given by an external research team (e.g. BAR-CRAFT-20261128-01), kept for traceability. */
@@ -159,4 +169,51 @@ export function geocodeProblem(v: Pick<BatchVenue, "address" | "district">, g: {
     if (nearest && nearest[1] + 0.5 < d0) return `street-level pin (house number not located) lies nearer ${nearest[0]} than ${v.district} — exact location unconfirmed`;
   }
   return null;
+}
+
+// ---- KEX-QA-03: coordinate selection shared by dry run and apply -------------------------------------
+export const PIN_PRECISIONS = ["exact", "building", "street"] as const;
+export type PinPrecision = (typeof PIN_PRECISIONS)[number];
+export interface Pin {
+  lon: number; lat: number; precision: PinPrecision; ward: string | null; displayName: string;
+  /** supplied = from the batch (researcher + source); geocoder = Nominatim result. */
+  origin: "supplied" | "geocoder"; sourceRef?: string;
+}
+export interface FailedPin { failed: true; reason: string }
+type CacheEntry = { lon?: number; lat?: number; precision?: string; ward?: string | null; displayName?: string; failed?: boolean; reason?: string };
+export const pinKey = (v: Pick<BatchVenue, "name" | "address" | "district">) => `${v.name}|${v.address}|${v.district ?? ""}`;
+
+/**
+ * Supplied coordinates always win over any cached or geocoded point for the same key, and keep the precision the
+ * researcher derived from the source (a building pin is never promoted to exact). Otherwise the cached geocoder
+ * result is used with its own precision (exact = house number/POI, street = street segment).
+ */
+export function selectPin(v: BatchVenue, cached: CacheEntry | undefined): Pin | FailedPin | undefined {
+  if (v.lon != null && v.lat != null && v.coordinatePrecision)
+    return { lon: v.lon, lat: v.lat, precision: v.coordinatePrecision, ward: null, displayName: `supplied (${v.coordinatePrecision}): ${v.coordinateSource ?? "no source"}`, origin: "supplied", ...(v.coordinateSource ? { sourceRef: v.coordinateSource } : {}) };
+  if (!cached) return undefined;
+  if (cached.failed || cached.lon === undefined || cached.lat === undefined) return { failed: true, reason: cached.reason ?? "no result" };
+  const precision = (PIN_PRECISIONS as readonly string[]).includes(cached.precision ?? "") ? (cached.precision as PinPrecision) : "street";
+  return { lon: cached.lon, lat: cached.lat, precision, ward: cached.ward ?? null, displayName: cached.displayName ?? "", origin: "geocoder" };
+}
+export function resolvePins(venues: BatchVenue[], cache: Record<string, CacheEntry>): Record<string, Pin | FailedPin> {
+  const out: Record<string, Pin | FailedPin> = {};
+  for (const v of venues) { const p = selectPin(v, cache[pinKey(v)]); if (p) out[pinKey(v)] = p; }
+  return out;
+}
+/**
+ * Apply-time parity check: the dry-run snapshot must contain exactly the supplied coordinates/precision now in the
+ * batch (a changed batch, or a snapshot taken before supplied pins took precedence, means: re-run the dry run).
+ */
+export function snapshotMismatches(venues: BatchVenue[], snapshot: Record<string, Pin | FailedPin>): string[] {
+  const out: string[] = [];
+  for (const v of venues) {
+    if (v.excluded) continue;
+    const s = snapshot[pinKey(v)];
+    if (v.lon != null && v.lat != null) {
+      if (!s || "failed" in s || s.origin !== "supplied" || s.lon !== v.lon || s.lat !== v.lat || s.precision !== v.coordinatePrecision)
+        out.push(`${v.name}: dry-run snapshot has ${s && !("failed" in s) ? `${s.origin} ${s.precision} ${s.lat},${s.lon}` : "no pin"}, batch supplies ${v.coordinatePrecision} ${v.lat},${v.lon}`);
+    } else if (!s) out.push(`${v.name}: no pin in the dry-run snapshot`);
+  }
+  return out;
 }
