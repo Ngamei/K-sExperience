@@ -10,10 +10,10 @@ Generated 2026-11-28 by `npm run data:neighbourhoods` from the canonical data. D
 | --- | --- | --- | --- | --- | --- | ---: | ---: |
 | Thảo Điền | 0/100 (gap 100) | 1/40 (gap 39) | 4/20 (gap 16) | 0/25 (gap 25) | 3/15 (gap 12) | 8 | 200 |
 | Sala – Thủ Thiêm | 0/50 (gap 50) | 0/25 (gap 25) | 2/10 (gap 8) | 0/15 (gap 15) | 0/10 (gap 10) | 2 | 110 |
-| Quận 1 – Trung tâm | 13/150 (gap 137) | 5/60 (gap 55) | 14/40 (gap 26) | 0/30 (gap 30) | 3/15 (gap 12) | 35 | 295 |
-| Phú Mỹ Hưng | 5/100 (gap 95) | 0/40 (gap 40) | 2/15 (gap 13) | 0/35 (gap 35) | 0/20 (gap 20) | 7 | 210 |
+| Quận 1 – Trung tâm | 27/150 (gap 123) | 5/60 (gap 55) | 14/40 (gap 26) | 0/30 (gap 30) | 3/15 (gap 12) | 49 | 295 |
+| Phú Mỹ Hưng | 19/100 (gap 81) | 0/40 (gap 40) | 2/15 (gap 13) | 0/35 (gap 35) | 0/20 (gap 20) | 21 | 210 |
 | Vinhomes Central Park – Nguyễn Hữu Cảnh | 0/60 (gap 60) | 0/25 (gap 25) | 0/10 (gap 10) | 0/20 (gap 20) | 0/10 (gap 10) | 0 | 125 |
-| Phan Xích Long – Phú Nhuận | 1/100 (gap 99) | 0/40 (gap 40) | 0/15 (gap 15) | 0/30 (gap 30) | 0/10 (gap 10) | 1 | 195 |
+| Phan Xích Long – Phú Nhuận | 3/100 (gap 97) | 0/40 (gap 40) | 0/15 (gap 15) | 0/30 (gap 30) | 0/10 (gap 10) | 3 | 195 |
 
 ## All neighbourhoods — detail
 
@@ -21,16 +21,16 @@ Generated 2026-11-28 by `npm run data:neighbourhoods` from the canonical data. D
 | --- | ---: | --- | --- | --- | --- | --- | ---: | ---: | ---: | --- |
 | Thảo Điền | 1 | 0 | 1 (0 exact · 1 approx) | 4 (1 exact · 3 approx) | 0 | 3 (0 exact · 3 approx) | 0 | 0 | 0 | Phường An Khánh |
 | Sala – Thủ Thiêm | 1 | 0 | 0 | 2 (1 exact · 1 approx) | 0 | 0 | 0 | 0 | 0 | Phường An Khánh |
-| Quận 1 – Trung tâm | 1 | 13 (3 exact · 10 approx) | 5 (3 exact · 2 approx) | 14 (8 exact · 6 approx) | 0 | 3 (2 exact · 1 approx) | 12 | 1 | 1 | Phường Bến Thành, Phường Sài Gòn, Phường Xuân Hòa, Quận 1 |
-| Phú Mỹ Hưng | 1 | 5 (1 exact · 4 approx) | 0 | 2 (0 exact · 1 approx) | 0 | 0 | 4 | 0 | 0 | Phường Tân Hưng, Phường Tân Thuận, Quận 7, Xã Nhà Bè |
+| Quận 1 – Trung tâm | 1 | 27 (9 exact · 18 approx) | 5 (3 exact · 2 approx) | 14 (8 exact · 6 approx) | 0 | 3 (2 exact · 1 approx) | 17 | 1 | 7 | Phường Bến Thành, Phường Sài Gòn, Phường Xuân Hòa, Quận 1 |
+| Phú Mỹ Hưng | 1 | 19 (5 exact · 14 approx) | 0 | 2 (0 exact · 1 approx) | 0 | 0 | 8 | 0 | 4 | Phường Tân Hưng, Phường Tân Thuận, Quận 7, Xã Nhà Bè |
 | Vinhomes Central Park – Nguyễn Hữu Cảnh | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
-| Phan Xích Long – Phú Nhuận | 1 | 1 (1 exact · 0 approx) | 0 | 0 | 0 | 0 | 1 | 0 | 0 | Phường Cầu Kiệu |
+| Phan Xích Long – Phú Nhuận | 1 | 3 (1 exact · 2 approx) | 0 | 0 | 0 | 0 | 3 | 0 | 1 | Phường Cầu Kiệu, Phường Gia Định |
 | Phạm Viết Chánh | 2 | 1 (0 exact · 1 approx) | 0 | 2 (1 exact · 1 approx) | 0 | 0 | 1 | 0 | 0 | Phường Thạnh Mỹ Tây |
 | An Phú – An Khánh | 2 | 0 | 1 (0 exact · 1 approx) | 0 | 0 | 0 | 0 | 0 | 0 | Phường An Khánh |
-| Hồ Con Rùa – Quận 3 | 2 | 5 (2 exact · 3 approx) | 0 | 1 (0 exact · 1 approx) | 0 | 1 (0 exact · 1 approx) | 4 | 0 | 1 | Phường Sài Gòn, Phường Xuân Hòa |
-| Bến Vân Đồn – Quận 4 | 2 | 8 (1 exact · 7 approx) | 0 | 1 (0 exact · 1 approx) | 0 | 0 | 4 | 0 | 0 | Phường Khánh Hội, Phường Xóm Chiếu |
-| Hồ Thị Kỷ – Quận 10 | 2 | 3 (2 exact · 1 approx) | 0 | 0 | 0 | 0 | 3 | 0 | 0 | Phường Bàn Cờ, Phường Chợ Quán |
-| Ba Son – Golden River | 2 | 0 | 0 | 1 (1 exact · 0 approx) | 0 | 0 | 0 | 0 | 0 | Phường Sài Gòn |
+| Hồ Con Rùa – Quận 3 | 2 | 12 (3 exact · 9 approx) | 0 | 1 (0 exact · 1 approx) | 0 | 1 (0 exact · 1 approx) | 9 | 0 | 4 | Phường Sài Gòn, Phường Tân Định, Phường Xuân Hòa |
+| Bến Vân Đồn – Quận 4 | 2 | 34 (6 exact · 28 approx) | 0 | 1 (0 exact · 1 approx) | 0 | 0 | 8 | 0 | 12 | Phường Cầu Ông Lãnh, Phường Khánh Hội, Phường Vĩnh Hội, Phường Xóm Chiếu |
+| Hồ Thị Kỷ – Quận 10 | 2 | 12 (3 exact · 9 approx) | 0 | 0 | 0 | 0 | 10 | 0 | 3 | Phường Bàn Cờ, Phường Chợ Quán, Phường Cầu Ông Lãnh, Phường Vườn Lài |
+| Ba Son – Golden River | 2 | 1 (0 exact · 1 approx) | 0 | 1 (1 exact · 0 approx) | 0 | 0 | 1 | 0 | 1 | Phường Sài Gòn |
 
 ## Category-level coverage (establishments offering ≥1 item in the category)
 
@@ -51,8 +51,8 @@ Generated 2026-11-28 by `npm run data:neighbourhoods` from the canonical data. D
 
 ## Outside all 12 areas and overlaps
 
-- Establishment records (experience × venue) inside at least one area: **73 / 170**; outside all areas: 97 (kept — nothing outside the priority areas is removed).
+- Establishment records (experience × venue) inside at least one area: **145 / 435**; outside all areas: 290 (kept — nothing outside the priority areas is removed).
 - Overlap: Thảo Điền ∩ An Phú – An Khánh: 1 records (provisional polygons touch; resolve when boundaries are reviewed).
-- Overlap: Quận 1 – Trung tâm ∩ Hồ Con Rùa – Quận 3: 2 records (provisional polygons touch; resolve when boundaries are reviewed).
+- Overlap: Quận 1 – Trung tâm ∩ Hồ Con Rùa – Quận 3: 3 records (provisional polygons touch; resolve when boundaries are reviewed).
 - Overlap: Quận 1 – Trung tâm ∩ Ba Son – Golden River: 1 records (provisional polygons touch; resolve when boundaries are reviewed).
 

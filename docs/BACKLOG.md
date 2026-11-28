@@ -11,9 +11,11 @@ Status: ✅ done · 🔄 in progress · ⬜ todo · ⛔ blocked (reason).
 | CC-03 | P0 | CC | Automated data completeness report | `npm run data:report` → `docs/DATA_REPORT.md` | ✅ |
 | CC-04 | P0 | CC | Restaurant verification plan + priority-50 list | `docs/RESTAURANT_VERIFICATION_PLAN.md`, `data/source/priority-dishes.json` | ✅ |
 | CC-05 | P0 | CC | L1 desk research for priority-50 dishes | each priority dish ≥ 1 listed venue or documented "none found" with searches tried | 🔄 after batch 7: 6 at ≥5, 16 at 1–4, 28 none (searches for chả cá Lã Vọng, xôi xéo, bún sứa, bún đỏ, bánh tằm bì found no named HCMC venue) |
+| CC-FOOD-010 | P0 | CC | Bulk import every HCMC dish listicle on mia.vn | intake applied; report `research-exchange/reports/CC-FOOD-010.md` | ✅ 2026-11-28: +265 venues (118 → 383), +12 links on existing venues |
 | CC-06 | P1 | CC | Dish page: Copy dish name, More from origin province | e2e | ✅ |
 | CC-07 | P0 | CC | Evidence levels + confirmation capture | 7 levels in schema/importer/DB/UI; Admin → Evidence editor filters evidence types per level; e2e | ✅ Sprint 3 |
 | PO-01 | P0 | PO | Menu-confirm ~20 venues/week via Grab/ShopeeFood/official menus (no visits required) | Admin → Evidence entries with URL + date | ⬜ |
+| PO-02 | P0 | PO (+ browser agent) | Google Maps venue collection for dishes with 0–4 HCMC venues and the 60 unpinned mia.vn venues — prompt `research-exchange/briefs/GMAPS-DISH-VENUES.md`, worklist `…worklist.md` (D79) | batch `PO-GMAPS-001.json` in `research-exchange/inbox/`; Claude Code runs intake | ⬜ |
 | CC-08 | P1 | CC | Photo audit tool: list dishes without photo, flag duplicates, show licence; add photos for priority-50 first | report section + ≥ 30/50 priority dishes with accurate licensed photo | ⬜ |
 | CC-09 | P1 | CC | Browser check that Commons photos render on the live site | screenshot from a normal browser (needs PO or Codex browser) | ⛔ sandbox blocked |
 | CX-02 | P1 | PO | Provision free Supabase project (docs/SUPABASE.md steps 1–6) | Preview env shows "Data mode: Supabase"; editor sign-in works | ⬜ approved, PO to provision |
