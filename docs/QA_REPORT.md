@@ -3,6 +3,14 @@
 _Run date: 2026-11-28 (re-run after PO decisions D55–D58: mobile nav, soft meal time, pastel themes, research exchange) · Branch `claude/trusting-clarke-44sf7b` · Environment: Linux cloud container, Node 22.23.5, npm 10.9.9,
 headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is the branch head that contains this file.
 
+## 2026-11-28 · CC-FOOD-010 mia.vn bulk import
+
+- `npm run intake -- research-exchange/inbox/CC-FOOD-010.json` (dry run) → 277 accepted, 102 rejected, 2 warnings (claims overlap with GPT-PMHFOOD-001 in Quận 7). First dry run hit a geocoder failure (71 venues un-geocoded); the re-run geocoded them.
+- `npm run intake -- … --apply` → applied with dry-run pins reused; no existing id disappeared. Food venues 118 → 383, links 121 → 388.
+- Reports regenerated: `db:seed-sql`, `data:report` (0 possible duplicates), `data:coverage`, `data:experiences`, `data:what-to-eat` (39/138 dishes with a real venue), `exchange:export`, `data:food-coverage` (0 = 99 · 1–4 = 22 · 5+ = 17, reconciled), `data:neighbourhoods`, `data:maps-share-list` (97 venues need a Share link).
+- `npm run qa` → **exit 0**: typecheck ✓, lint ✓, vitest 20 files / 159 tests ✓ (incl. data validation: HCMC boundary, evidence rules), build ✓, e2e 93 passed / 1 skipped, e2e-auth 32 passed, e2e-modules 46 passed.
+- Known: venue pins are mostly street-level (labelled approximate in the UI); mia.vn listings are not field-verified (`source-listed`).
+
 ## Commands and results (clean checkout)
 
 | # | Command | Result |

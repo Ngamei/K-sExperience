@@ -17,3 +17,6 @@
 {"at":"2026-11-28T05:57:07.396Z","batchId":"CC-BARS-003","action":"dry-run","result":"ok","accepted":2,"rejected":0,"warnings":0,"file":"research-exchange/inbox/CC-BARS-003.json"}
 {"at":"2026-11-28T06:10:37.817Z","batchId":"CC-BARS-003","action":"apply","result":"ok","accepted":2,"rejected":0,"warnings":1,"file":"research-exchange/inbox/CC-BARS-003.json"}
 {"at":"2026-11-28T09:15:57.608Z","batchId":"GPT-CAT-001","action":"dry-run","result":"ok","accepted":2,"rejected":0,"warnings":0,"file":"research-exchange/inbox/GPT-CAT-001.json"}
+{"at":"2026-11-28T11:01:50.781Z","batchId":"CC-FOOD-010","action":"dry-run","result":"ok","accepted":226,"rejected":153,"warnings":4,"file":"research-exchange/inbox/CC-FOOD-010.json"}
+{"at":"2026-11-28T11:10:08.810Z","batchId":"CC-FOOD-010","action":"dry-run","result":"ok","accepted":277,"rejected":102,"warnings":2,"file":"research-exchange/inbox/CC-FOOD-010.json"}
+{"at":"2026-11-28T11:10:29.748Z","batchId":"CC-FOOD-010","action":"apply","result":"ok","accepted":277,"rejected":102,"warnings":3,"file":"research-exchange/inbox/CC-FOOD-010.json"}
