@@ -7,7 +7,7 @@ import type { LinkStatus, EvidenceType } from "./evidence";
 
 export interface DishRow {
   id: string; name_vi: string; name_en: string; alt_names: string[]; category: Dish["category"]; dish_type: Dish["dishType"];
-  family: string | null; ingredients: string[]; taste: string[]; spice_level: number; dietary: string[]; meal_times: string[];
+  family: string | null; ingredients: string[]; taste: string[]; spice_level: number | null; dietary: string[]; meal_times: string[];
   description_vi: string; description_en: string; prominence: number; dataset: Dish["dataset"];
   verification_status: Dish["verification"]["status"]; verification_notes: string | null; verified_at: string | null;
   /** 0008 — optional eating attributes (null = unknown). */
@@ -18,7 +18,7 @@ export interface PhotoRow { dish_id: string; url: string; credit: string; licens
 export interface SourceRow { dish_id?: string; restaurant_id?: string; title: string; url: string | null; accessed: string | null; note: string | null }
 export interface RestaurantRow {
   id: string; name: string; is_sample: boolean; address: string; neighbourhood: string; lon: number; lat: number;
-  coordinate_precision: "exact" | "street" | null; google_maps_url: string | null; highlights: string[]; venue_type: Restaurant["venueType"];
+  coordinate_precision: "exact" | "building" | "street" | null; google_maps_url: string | null; closure?: Restaurant["closure"] | null; highlights: string[]; venue_type: Restaurant["venueType"];
   price_range: Restaurant["priceRange"] | null; opening_hours: Restaurant["openingHours"] | null; contact: Restaurant["contact"] | null;
   delivery_links: Restaurant["deliveryLinks"]; last_verified: string | null;
   /** 0008 — optional dining attributes (null = unknown). */
@@ -42,7 +42,7 @@ const und = <T,>(v: T | null): T | undefined => (v === null ? undefined : v);
 
 export const toDishRow = (d: Dish): DishRow => ({
   id: d.id, name_vi: d.nameVi, name_en: d.nameEn, alt_names: d.altNames, category: d.category, dish_type: d.dishType,
-  family: nn(d.family), ingredients: d.ingredients, taste: d.taste, spice_level: d.spiceLevel, dietary: d.dietary, meal_times: d.mealTimes,
+  family: nn(d.family), ingredients: d.ingredients, taste: d.taste, spice_level: nn(d.spiceLevel), dietary: d.dietary, meal_times: d.mealTimes,
   description_vi: d.description.vi, description_en: d.description.en, prominence: d.prominence, dataset: d.dataset,
   verification_status: d.verification.status, verification_notes: nn(d.verification.notes), verified_at: nn(d.verification.verifiedAt),
   eating: nn(d.eating),
@@ -56,7 +56,7 @@ export const toDishSourceRows = (d: Dish): SourceRow[] =>
 
 export const toRestaurantRow = (r: Restaurant): RestaurantRow => ({
   id: r.id, name: r.name, is_sample: r.isSample, address: r.address, neighbourhood: r.neighbourhood, lon: r.coordinates[0], lat: r.coordinates[1],
-  coordinate_precision: nn(r.coordinatePrecision), google_maps_url: nn(r.googleMapsUrl), highlights: r.highlights ?? [], venue_type: r.venueType,
+  coordinate_precision: nn(r.coordinatePrecision), google_maps_url: nn(r.googleMapsUrl), closure: nn(r.closure), highlights: r.highlights ?? [], venue_type: r.venueType,
   price_range: nn(r.priceRange), opening_hours: nn(r.openingHours), contact: nn(r.contact), delivery_links: r.deliveryLinks, last_verified: nn(r.lastVerified),
   dining: nn(r.dining),
 });
@@ -103,7 +103,7 @@ export function fromRows(rows: {
       id: d.id, nameVi: d.name_vi, nameEn: d.name_en, altNames: d.alt_names, category: d.category, dishType: d.dish_type,
       ...(d.family ? { family: d.family } : {}),
       origins, regionIds: [...new Set(origins.map((o) => o.regionId))],
-      ingredients: d.ingredients, taste: d.taste as Dish["taste"], spiceLevel: d.spice_level, dietary: d.dietary as Dish["dietary"], mealTimes: d.meal_times as Dish["mealTimes"],
+      ingredients: d.ingredients, taste: d.taste as Dish["taste"], ...(d.spice_level !== null && d.spice_level !== undefined ? { spiceLevel: d.spice_level } : {}), dietary: d.dietary as Dish["dietary"], mealTimes: d.meal_times as Dish["mealTimes"],
       description: { vi: d.description_vi, en: d.description_en },
       photos: (photosBy.get(d.id) ?? []).sort((a, b) => a.sort_order - b.sort_order).map((p) => ({ url: p.url, credit: p.credit, license: p.license, ...(p.source_url ? { sourceUrl: p.source_url } : {}) })),
       sources: (dsrcBy.get(d.id) ?? []).map(src),
@@ -116,6 +116,7 @@ export function fromRows(rows: {
     id: r.id, name: r.name, isSample: r.is_sample, address: r.address, neighbourhood: r.neighbourhood, coordinates: [r.lon, r.lat],
     ...(r.coordinate_precision ? { coordinatePrecision: r.coordinate_precision } : {}),
     ...(r.google_maps_url ? { googleMapsUrl: r.google_maps_url } : {}),
+    ...(r.closure ? { closure: r.closure } : {}),
     ...(r.highlights.length ? { highlights: r.highlights } : {}),
     venueType: r.venue_type, ...(r.price_range ? { priceRange: r.price_range } : {}),
     ...(r.opening_hours ? { openingHours: r.opening_hours } : {}), ...(r.contact ? { contact: r.contact } : {}),

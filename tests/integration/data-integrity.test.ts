@@ -104,7 +104,8 @@ describe("HCMC establishments", () => {
     const real = restaurants.filter((r) => !r.isSample);
     expect(real.length).toBeGreaterThanOrEqual(5);
     for (const r of real) {
-      expect(r.googleMapsUrl, r.id).toMatch(/^https:\/\/www\.google\.com\/maps\//);
+      // a search link, or an exact place link from research (Google Maps → Share)
+      expect(r.googleMapsUrl, r.id).toMatch(/^https:\/\/(www\.google\.com\/maps\/|maps\.app\.goo\.gl\/|goo\.gl\/maps\/)/);
       expect(r.sources.some((s) => s.url), r.id).toBe(true);
     }
   });

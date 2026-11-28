@@ -1,0 +1,2978 @@
+{
+  "report": "food-coverage",
+  "version": 1,
+  "generatedFrom": {
+    "dishes": "data/vietnamese-dishes.json",
+    "venues": "data/hcmc-restaurants.json",
+    "links": "data/dish-restaurant-mapping.json",
+    "areas": "data/neighbourhoods/neighbourhoods.json",
+    "boundary": "data/hcmc-boundary.geojson"
+  },
+  "rules": "distinct non-sample venues inside the HCMC boundary with a public link (status ≠ candidate, ≠ temporarily-unavailable); buckets 0 · 1-4 · 5+",
+  "reconciliation": {
+    "dishes": 138,
+    "bucketSum": 138,
+    "dishesWithVenue": 36,
+    "realVenues": 117,
+    "realVenuesOutsideHcmc": 0,
+    "venuesWithAtLeastOneDish": 117,
+    "publicRealLinks": 120,
+    "candidateLinksExcluded": 0,
+    "sampleLinksExcluded": 0,
+    "temporarilyUnavailableLinksExcluded": 0,
+    "ok": true
+  },
+  "buckets": {
+    "0": 102,
+    "1-4": 26,
+    "5+": 10
+  },
+  "scouting": [
+    {
+      "area": "thao-dien",
+      "name": "Thảo Điền",
+      "formerDistrict": "Thủ Đức",
+      "researchOwner": "chatgpt (GPT-FOOD-001)",
+      "overlapsGptFood001": true,
+      "dishesWithVenueInArea": 0,
+      "topDishesToScout": [
+        {
+          "id": "banh-da-cua-hai-phong",
+          "nameVi": "Bánh đa cua Hải Phòng",
+          "citywideVenues": 3,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "hu-tieu-my-tho",
+          "nameVi": "Hủ tiếu Mỹ Tho",
+          "citywideVenues": 2,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "pho-bo-ha-noi",
+          "nameVi": "Phở bò Hà Nội",
+          "citywideVenues": 2,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "banh-mi-sai-gon",
+          "nameVi": "Bánh mì Sài Gòn",
+          "citywideVenues": 6,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "bun-bo-hue",
+          "nameVi": "Bún bò Huế",
+          "citywideVenues": 9,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "bun-cha-ha-noi",
+          "nameVi": "Bún chả Hà Nội",
+          "citywideVenues": 5,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "com-tam-sai-gon",
+          "nameVi": "Cơm tấm Sài Gòn",
+          "citywideVenues": 7,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "mi-quang",
+          "nameVi": "Mì Quảng",
+          "citywideVenues": 5,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "banh-chung",
+          "nameVi": "Bánh chưng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "banh-trang-cuon-thit-heo",
+          "nameVi": "Bánh tráng cuốn thịt heo",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "banh-trang-phoi-suong-trang-bang",
+          "nameVi": "Bánh tráng phơi sương Trảng Bàng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "bun-cha-ca-da-nang",
+          "nameVi": "Bún chả cá Đà Nẵng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "bun-sua-nha-trang",
+          "nameVi": "Bún sứa Nha Trang",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "bun-thang",
+          "nameVi": "Bún thang",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "ca-kho-lang-vu-dai",
+          "nameVi": "Cá kho làng Vũ Đại",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        }
+      ]
+    },
+    {
+      "area": "sala-thu-thiem",
+      "name": "Sala – Thu Thiem",
+      "formerDistrict": "Thủ Đức",
+      "researchOwner": "chatgpt (GPT-FOOD-001)",
+      "overlapsGptFood001": true,
+      "dishesWithVenueInArea": 0,
+      "topDishesToScout": [
+        {
+          "id": "banh-da-cua-hai-phong",
+          "nameVi": "Bánh đa cua Hải Phòng",
+          "citywideVenues": 3,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "hu-tieu-my-tho",
+          "nameVi": "Hủ tiếu Mỹ Tho",
+          "citywideVenues": 2,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "pho-bo-ha-noi",
+          "nameVi": "Phở bò Hà Nội",
+          "citywideVenues": 2,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "banh-mi-sai-gon",
+          "nameVi": "Bánh mì Sài Gòn",
+          "citywideVenues": 6,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "bun-bo-hue",
+          "nameVi": "Bún bò Huế",
+          "citywideVenues": 9,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "bun-cha-ha-noi",
+          "nameVi": "Bún chả Hà Nội",
+          "citywideVenues": 5,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "com-tam-sai-gon",
+          "nameVi": "Cơm tấm Sài Gòn",
+          "citywideVenues": 7,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "mi-quang",
+          "nameVi": "Mì Quảng",
+          "citywideVenues": 5,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "banh-chung",
+          "nameVi": "Bánh chưng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "banh-trang-cuon-thit-heo",
+          "nameVi": "Bánh tráng cuốn thịt heo",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "banh-trang-phoi-suong-trang-bang",
+          "nameVi": "Bánh tráng phơi sương Trảng Bàng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "bun-cha-ca-da-nang",
+          "nameVi": "Bún chả cá Đà Nẵng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "bun-sua-nha-trang",
+          "nameVi": "Bún sứa Nha Trang",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "bun-thang",
+          "nameVi": "Bún thang",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "ca-kho-lang-vu-dai",
+          "nameVi": "Cá kho làng Vũ Đại",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        }
+      ]
+    },
+    {
+      "area": "q1-cbd",
+      "name": "District 1 – CBD",
+      "formerDistrict": "Quận 1",
+      "researchOwner": "claude-code (CC-CBDFOOD-001)",
+      "overlapsGptFood001": false,
+      "dishesWithVenueInArea": 12,
+      "topDishesToScout": [
+        {
+          "id": "banh-da-cua-hai-phong",
+          "nameVi": "Bánh đa cua Hải Phòng",
+          "citywideVenues": 3,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "com-tam-sai-gon",
+          "nameVi": "Cơm tấm Sài Gòn",
+          "citywideVenues": 7,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "mi-quang",
+          "nameVi": "Mì Quảng",
+          "citywideVenues": 5,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "banh-chung",
+          "nameVi": "Bánh chưng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "banh-trang-cuon-thit-heo",
+          "nameVi": "Bánh tráng cuốn thịt heo",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "banh-trang-phoi-suong-trang-bang",
+          "nameVi": "Bánh tráng phơi sương Trảng Bàng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "bun-cha-ca-da-nang",
+          "nameVi": "Bún chả cá Đà Nẵng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "bun-sua-nha-trang",
+          "nameVi": "Bún sứa Nha Trang",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "bun-thang",
+          "nameVi": "Bún thang",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "ca-kho-lang-vu-dai",
+          "nameVi": "Cá kho làng Vũ Đại",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "ca-kho-to",
+          "nameVi": "Cá kho tộ",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "cao-lau-hoi-an",
+          "nameVi": "Cao lầu Hội An",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "cha-ca-la-vong",
+          "nameVi": "Chả cá Lã Vọng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "cha-muc-ha-long",
+          "nameVi": "Chả mực Hạ Long",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "com-chay-ninh-binh",
+          "nameVi": "Cơm cháy Ninh Bình",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        }
+      ]
+    },
+    {
+      "area": "phu-my-hung",
+      "name": "Phu My Hung",
+      "formerDistrict": "Quận 7",
+      "researchOwner": "claude-code (proposed CC-PMHFOOD-001)",
+      "overlapsGptFood001": false,
+      "dishesWithVenueInArea": 4,
+      "topDishesToScout": [
+        {
+          "id": "hu-tieu-my-tho",
+          "nameVi": "Hủ tiếu Mỹ Tho",
+          "citywideVenues": 2,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "pho-bo-ha-noi",
+          "nameVi": "Phở bò Hà Nội",
+          "citywideVenues": 2,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "banh-mi-sai-gon",
+          "nameVi": "Bánh mì Sài Gòn",
+          "citywideVenues": 6,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "bun-bo-hue",
+          "nameVi": "Bún bò Huế",
+          "citywideVenues": 9,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "bun-cha-ha-noi",
+          "nameVi": "Bún chả Hà Nội",
+          "citywideVenues": 5,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "com-tam-sai-gon",
+          "nameVi": "Cơm tấm Sài Gòn",
+          "citywideVenues": 7,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "mi-quang",
+          "nameVi": "Mì Quảng",
+          "citywideVenues": 5,
+          "lunch": true,
+          "prominence": 1
+        },
+        {
+          "id": "banh-chung",
+          "nameVi": "Bánh chưng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "banh-trang-cuon-thit-heo",
+          "nameVi": "Bánh tráng cuốn thịt heo",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "banh-trang-phoi-suong-trang-bang",
+          "nameVi": "Bánh tráng phơi sương Trảng Bàng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "bun-cha-ca-da-nang",
+          "nameVi": "Bún chả cá Đà Nẵng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "bun-sua-nha-trang",
+          "nameVi": "Bún sứa Nha Trang",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "bun-thang",
+          "nameVi": "Bún thang",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "ca-kho-lang-vu-dai",
+          "nameVi": "Cá kho làng Vũ Đại",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "ca-kho-to",
+          "nameVi": "Cá kho tộ",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        }
+      ]
+    }
+  ],
+  "dishes": [
+    {
+      "id": "pho-bo-ha-noi",
+      "nameVi": "Phở bò Hà Nội",
+      "nameEn": "Hanoi beef phở",
+      "dishType": "noodle-soup",
+      "prominence": 1,
+      "lunch": true,
+      "venues": 2,
+      "venuesIncludingTemporarilyUnavailable": 2,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 1,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "pho-ga-ha-noi",
+      "nameVi": "Phở gà Hà Nội",
+      "nameEn": "Hanoi chicken phở",
+      "dishType": "noodle-soup",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "pho-bo-nam-dinh",
+      "nameVi": "Phở bò Nam Định",
+      "nameEn": "Nam Định beef phở",
+      "dishType": "noodle-soup",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "pho-cuon",
+      "nameVi": "Phở cuốn",
+      "nameEn": "Phở rolls",
+      "dishType": "rolls",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "pho-chua-lang-son",
+      "nameVi": "Phở chua Lạng Sơn",
+      "nameEn": "Lạng Sơn sour phở",
+      "dishType": "noodles",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "pho-kho-gia-lai",
+      "nameVi": "Phở khô Gia Lai",
+      "nameEn": "Gia Lai dry phở (two-bowl phở)",
+      "dishType": "noodles",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 1,
+      "venuesIncludingTemporarilyUnavailable": 1,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "pho-sai-gon",
+      "nameVi": "Phở Sài Gòn",
+      "nameEn": "Saigon-style phở",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 4,
+      "venuesIncludingTemporarilyUnavailable": 4,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 1,
+        "phu-my-hung": 1
+      }
+    },
+    {
+      "id": "bun-cha-ha-noi",
+      "nameVi": "Bún chả Hà Nội",
+      "nameEn": "Hanoi grilled pork with noodles",
+      "dishType": "noodles",
+      "prominence": 1,
+      "lunch": true,
+      "venues": 5,
+      "venuesIncludingTemporarilyUnavailable": 5,
+      "bucket": "5+",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 1,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bun-thang",
+      "nameVi": "Bún thang",
+      "nameEn": "Bún thang",
+      "dishType": "noodle-soup",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bun-rieu-cua",
+      "nameVi": "Bún riêu cua",
+      "nameEn": "Crab paste noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 6,
+      "venuesIncludingTemporarilyUnavailable": 6,
+      "bucket": "5+",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 2,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "cha-ca-la-vong",
+      "nameVi": "Chả cá Lã Vọng",
+      "nameEn": "Lã Vọng turmeric fish",
+      "dishType": "grilled",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-cuon-thanh-tri",
+      "nameVi": "Bánh cuốn Thanh Trì",
+      "nameEn": "Thanh Trì steamed rice rolls",
+      "dishType": "banh",
+      "prominence": 2,
+      "lunch": false,
+      "venues": 5,
+      "venuesIncludingTemporarilyUnavailable": 5,
+      "bucket": "5+",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bun-dau-mam-tom",
+      "nameVi": "Bún đậu mắm tôm",
+      "nameEn": "Noodles with fried tofu and shrimp paste",
+      "dishType": "noodles",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 2,
+      "venuesIncludingTemporarilyUnavailable": 2,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bun-oc-ha-noi",
+      "nameVi": "Bún ốc Hà Nội",
+      "nameEn": "Hanoi snail noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "xoi-xeo",
+      "nameVi": "Xôi xéo",
+      "nameEn": "Turmeric sticky rice with mung bean",
+      "dishType": "rice",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 1,
+      "venuesIncludingTemporarilyUnavailable": 1,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-tom-ho-tay",
+      "nameVi": "Bánh tôm Hồ Tây",
+      "nameEn": "West Lake shrimp fritters",
+      "dishType": "fried",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "com-lang-vong",
+      "nameVi": "Cốm làng Vòng",
+      "nameEn": "Vòng village green rice flakes",
+      "dishType": "confection",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-troi-banh-chay",
+      "nameVi": "Bánh trôi bánh chay",
+      "nameEn": "Floating rice dumplings",
+      "dishType": "dessert",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "o-mai-hang-duong",
+      "nameVi": "Ô mai Hàng Đường",
+      "nameEn": "Hanoi preserved fruits",
+      "dishType": "confection",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-khuc",
+      "nameVi": "Bánh khúc",
+      "nameEn": "Cudweed sticky rice cake",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-da-cua-hai-phong",
+      "nameVi": "Bánh đa cua Hải Phòng",
+      "nameEn": "Hải Phòng crab noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 1,
+      "lunch": true,
+      "venues": 3,
+      "venuesIncludingTemporarilyUnavailable": 3,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 1
+      }
+    },
+    {
+      "id": "nem-cua-be-hai-phong",
+      "nameVi": "Nem cua bể Hải Phòng",
+      "nameEn": "Hải Phòng sea crab spring rolls",
+      "dishType": "fried",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-mi-que-hai-phong",
+      "nameVi": "Bánh mì que Hải Phòng",
+      "nameEn": "Hải Phòng baguette sticks",
+      "dishType": "bread",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bun-ca-cay-hai-phong",
+      "nameVi": "Bún cá cay Hải Phòng",
+      "nameEn": "Hải Phòng spicy fish noodles",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "cha-muc-ha-long",
+      "nameVi": "Chả mực Hạ Long",
+      "nameEn": "Hạ Long squid cakes",
+      "dishType": "seafood",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-dau-xanh-hai-duong",
+      "nameVi": "Bánh đậu xanh Hải Dương",
+      "nameEn": "Hải Dương mung bean cakes",
+      "dishType": "confection",
+      "prominence": 2,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-gai-ninh-giang",
+      "nameVi": "Bánh gai Ninh Giang",
+      "nameEn": "Ninh Giang ramie leaf cake",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-cay-thai-binh",
+      "nameVi": "Bánh cáy Thái Bình",
+      "nameEn": "Thái Bình crab-roe sweets",
+      "dishType": "confection",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "canh-ca-quynh-coi",
+      "nameVi": "Canh cá Quỳnh Côi",
+      "nameEn": "Quỳnh Côi fish noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "ca-kho-lang-vu-dai",
+      "nameVi": "Cá kho làng Vũ Đại",
+      "nameEn": "Vũ Đại village braised fish",
+      "dishType": "stew",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "nem-nam-giao-thuy",
+      "nameVi": "Nem nắm Giao Thủy",
+      "nameEn": "Giao Thủy fermented pork balls",
+      "dishType": "cured",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "com-chay-ninh-binh",
+      "nameVi": "Cơm cháy Ninh Bình",
+      "nameEn": "Ninh Bình crispy rice",
+      "dishType": "rice",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "de-nui-ninh-binh",
+      "nameVi": "Dê núi Ninh Bình",
+      "nameEn": "Ninh Bình mountain goat",
+      "dishType": "grilled",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-phu-the-dinh-bang",
+      "nameVi": "Bánh phu thê Đình Bảng",
+      "nameEn": "Đình Bảng husband-and-wife cake",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "ga-dong-tao",
+      "nameVi": "Gà Đông Tảo",
+      "nameEn": "Đông Tảo chicken",
+      "dishType": "stew",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "thang-co",
+      "nameVi": "Thắng cố",
+      "nameEn": "Thắng cố highland stew",
+      "dishType": "hotpot",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "chao-au-tau",
+      "nameVi": "Cháo ấu tẩu",
+      "nameEn": "Ấu tẩu porridge",
+      "dishType": "porridge",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-cuon-cao-bang",
+      "nameVi": "Bánh cuốn Cao Bằng",
+      "nameEn": "Cao Bằng rice rolls in broth",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "vit-quay-lang-son",
+      "nameVi": "Vịt quay Lạng Sơn",
+      "nameEn": "Lạng Sơn roast duck",
+      "dishType": "grilled",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "khau-nhuc",
+      "nameVi": "Khâu nhục",
+      "nameEn": "Khâu nhục braised pork belly",
+      "dishType": "stew",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "xoi-ngu-sac",
+      "nameVi": "Xôi ngũ sắc",
+      "nameEn": "Five-colour sticky rice",
+      "dishType": "rice",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-cooc-mo",
+      "nameVi": "Bánh coóc mò",
+      "nameEn": "Coóc mò cake",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "pa-pinh-top",
+      "nameVi": "Pa pỉnh tộp",
+      "nameEn": "Thái-style folded grilled fish",
+      "dishType": "grilled",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "nam-pia",
+      "nameVi": "Nậm pịa",
+      "nameEn": "Nậm pịa",
+      "dishType": "stew",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "thit-trau-gac-bep",
+      "nameVi": "Thịt trâu gác bếp",
+      "nameEn": "Smoked dried buffalo",
+      "dishType": "cured",
+      "prominence": 2,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "xoi-tu-le",
+      "nameVi": "Xôi Tú Lệ",
+      "nameEn": "Tú Lệ sticky rice",
+      "dishType": "rice",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "com-lam-hoa-binh",
+      "nameVi": "Cơm lam Hòa Bình",
+      "nameEn": "Hòa Bình bamboo rice",
+      "dishType": "rice",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-chung",
+      "nameVi": "Bánh chưng",
+      "nameEn": "Square sticky rice cake",
+      "dishType": "banh",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "thit-chua-thanh-son",
+      "nameVi": "Thịt chua Thanh Sơn",
+      "nameEn": "Thanh Sơn fermented pork",
+      "dishType": "cured",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-da-ke",
+      "nameVi": "Bánh đa Kế",
+      "nameEn": "Kế village rice crackers",
+      "dishType": "confection",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "ca-thinh-lap-thach",
+      "nameVi": "Cá thính Lập Thạch",
+      "nameEn": "Lập Thạch fermented fish",
+      "dishType": "cured",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "nem-chua-thanh-hoa",
+      "nameVi": "Nem chua Thanh Hóa",
+      "nameEn": "Thanh Hóa fermented pork rolls",
+      "dishType": "cured",
+      "prominence": 1,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-gai-tu-tru",
+      "nameVi": "Bánh gai Tứ Trụ",
+      "nameEn": "Tứ Trụ ramie leaf cake",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "chao-luon-nghe-an",
+      "nameVi": "Cháo lươn Nghệ An",
+      "nameEn": "Nghệ An eel porridge",
+      "dishType": "porridge",
+      "prominence": 2,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-muot-nghe-an",
+      "nameVi": "Bánh mướt Nghệ An",
+      "nameEn": "Nghệ An thin rice sheets",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "keo-cu-do-ha-tinh",
+      "nameVi": "Kẹo cu đơ Hà Tĩnh",
+      "nameEn": "Hà Tĩnh peanut brittle",
+      "dishType": "confection",
+      "prominence": 2,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "ram-ha-tinh",
+      "nameVi": "Ram Hà Tĩnh",
+      "nameEn": "Hà Tĩnh crispy rolls",
+      "dishType": "fried",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "chao-canh-quang-binh",
+      "nameVi": "Cháo canh Quảng Bình",
+      "nameEn": "Quảng Bình noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 2,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "khoai-deo",
+      "nameVi": "Khoai deo",
+      "nameEn": "Dried sweet potato",
+      "dishType": "confection",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "chao-vat-giuong",
+      "nameVi": "Cháo vạt giường",
+      "nameEn": "Cháo vạt giường",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bun-bo-hue",
+      "nameVi": "Bún bò Huế",
+      "nameEn": "Huế spicy beef noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 1,
+      "lunch": true,
+      "venues": 9,
+      "venuesIncludingTemporarilyUnavailable": 9,
+      "bucket": "5+",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 1,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "com-hen",
+      "nameVi": "Cơm hến",
+      "nameEn": "Huế baby clam rice",
+      "dishType": "rice",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 1,
+      "venuesIncludingTemporarilyUnavailable": 1,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-beo-hue",
+      "nameVi": "Bánh bèo Huế",
+      "nameEn": "Huế water fern cakes",
+      "dishType": "banh",
+      "prominence": 2,
+      "lunch": false,
+      "venues": 3,
+      "venuesIncludingTemporarilyUnavailable": 3,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-khoai",
+      "nameVi": "Bánh khoái",
+      "nameEn": "Huế crispy pancake",
+      "dishType": "fried",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 3,
+      "venuesIncludingTemporarilyUnavailable": 3,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 1,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-nam",
+      "nameVi": "Bánh nậm",
+      "nameEn": "Bánh nậm",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 3,
+      "venuesIncludingTemporarilyUnavailable": 3,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 1,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-bot-loc-hue",
+      "nameVi": "Bánh bột lọc Huế",
+      "nameEn": "Huế tapioca dumplings",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "che-hat-sen-long-nhan",
+      "nameVi": "Chè hạt sen long nhãn",
+      "nameEn": "Lotus seed and longan sweet soup",
+      "dishType": "che",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "me-xung-hue",
+      "nameVi": "Mè xửng Huế",
+      "nameEn": "Huế sesame candy",
+      "dishType": "confection",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-canh-nam-pho",
+      "nameVi": "Bánh canh Nam Phổ",
+      "nameEn": "Nam Phổ noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "mi-quang",
+      "nameVi": "Mì Quảng",
+      "nameEn": "Quảng-style turmeric noodles",
+      "dishType": "noodles",
+      "prominence": 1,
+      "lunch": true,
+      "venues": 5,
+      "venuesIncludingTemporarilyUnavailable": 5,
+      "bucket": "5+",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "cao-lau-hoi-an",
+      "nameVi": "Cao lầu Hội An",
+      "nameEn": "Hội An cao lầu",
+      "dishType": "noodles",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "com-ga-hoi-an",
+      "nameVi": "Cơm gà Hội An",
+      "nameEn": "Hội An chicken rice",
+      "dishType": "rice",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 1,
+      "venuesIncludingTemporarilyUnavailable": 1,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-mi-hoi-an",
+      "nameVi": "Bánh mì Hội An",
+      "nameEn": "Hội An bánh mì",
+      "dishType": "bread",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "che-bap-cam-nam",
+      "nameVi": "Chè bắp Cẩm Nam",
+      "nameEn": "Cẩm Nam sweet corn pudding",
+      "dishType": "che",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-trang-cuon-thit-heo",
+      "nameVi": "Bánh tráng cuốn thịt heo",
+      "nameEn": "Rice paper rolls with pork",
+      "dishType": "rolls",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bun-cha-ca-da-nang",
+      "nameVi": "Bún chả cá Đà Nẵng",
+      "nameEn": "Đà Nẵng fish cake noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "goi-ca-nam-o",
+      "nameVi": "Gỏi cá Nam Ô",
+      "nameEn": "Nam Ô raw fish salad",
+      "dishType": "salad",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "don-quang-ngai",
+      "nameVi": "Don Quảng Ngãi",
+      "nameEn": "Quảng Ngãi don clam soup",
+      "dishType": "soup",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "ca-bong-song-tra",
+      "nameVi": "Cá bống sông Trà",
+      "nameEn": "Trà river goby",
+      "dishType": "stew",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "keo-guong-quang-ngai",
+      "nameVi": "Kẹo gương Quảng Ngãi",
+      "nameEn": "Quảng Ngãi mirror candy",
+      "dishType": "confection",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-xeo-tom-nhay-quy-nhon",
+      "nameVi": "Bánh xèo tôm nhảy Quy Nhơn",
+      "nameEn": "Quy Nhơn jumping-shrimp pancakes",
+      "dishType": "fried",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 2,
+      "venuesIncludingTemporarilyUnavailable": 2,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bun-cha-ca-quy-nhon",
+      "nameVi": "Bún chả cá Quy Nhơn",
+      "nameEn": "Quy Nhơn fish cake noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 1,
+      "venuesIncludingTemporarilyUnavailable": 1,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-it-la-gai-binh-dinh",
+      "nameVi": "Bánh ít lá gai Bình Định",
+      "nameEn": "Bình Định ramie dumplings",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "nem-cho-huyen",
+      "nameVi": "Nem chợ Huyện",
+      "nameEn": "Chợ Huyện fermented pork",
+      "dishType": "cured",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-hoi-chao-long",
+      "nameVi": "Bánh hỏi cháo lòng",
+      "nameEn": "Woven rice noodles with offal porridge",
+      "dishType": "noodles",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "mat-ca-ngu-dai-duong",
+      "nameVi": "Mắt cá ngừ đại dương",
+      "nameEn": "Ocean tuna eye stew",
+      "dishType": "stew",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-canh-he-phu-yen",
+      "nameVi": "Bánh canh hẹ Phú Yên",
+      "nameEn": "Phú Yên chive noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bun-sua-nha-trang",
+      "nameVi": "Bún sứa Nha Trang",
+      "nameEn": "Nha Trang jellyfish noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "nem-nuong-ninh-hoa",
+      "nameVi": "Nem nướng Ninh Hòa",
+      "nameEn": "Ninh Hòa grilled pork rolls",
+      "dishType": "grilled",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 3,
+      "venuesIncludingTemporarilyUnavailable": 3,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-can",
+      "nameVi": "Bánh căn",
+      "nameEn": "Bánh căn mini rice cakes",
+      "dishType": "banh",
+      "prominence": 2,
+      "lunch": false,
+      "venues": 2,
+      "venuesIncludingTemporarilyUnavailable": 2,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "thit-de-phan-rang",
+      "nameVi": "Thịt dê Phan Rang",
+      "nameEn": "Phan Rang goat",
+      "dishType": "grilled",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-canh-cha-ca-phan-thiet",
+      "nameVi": "Bánh canh chả cá Phan Thiết",
+      "nameEn": "Phan Thiết fish cake noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "goi-ca-mai",
+      "nameVi": "Gỏi cá mai",
+      "nameEn": "Silver anchovy salad",
+      "dishType": "salad",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "goi-la-kon-tum",
+      "nameVi": "Gỏi lá Kon Tum",
+      "nameEn": "Kon Tum leaf salad",
+      "dishType": "salad",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "com-lam-ga-nuong-tay-nguyen",
+      "nameVi": "Cơm lam gà nướng Tây Nguyên",
+      "nameEn": "Highland bamboo rice with grilled chicken",
+      "dishType": "grilled",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bun-do-buon-ma-thuot",
+      "nameVi": "Bún đỏ Buôn Ma Thuột",
+      "nameEn": "Buôn Ma Thuột red noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 1,
+      "venuesIncludingTemporarilyUnavailable": 1,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-trang-nuong-da-lat",
+      "nameVi": "Bánh tráng nướng Đà Lạt",
+      "nameEn": "Đà Lạt grilled rice paper",
+      "dishType": "fried",
+      "prominence": 1,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "lau-ga-la-e",
+      "nameVi": "Lẩu gà lá é",
+      "nameEn": "Chicken hotpot with lá é",
+      "dishType": "hotpot",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "kem-bo-da-lat",
+      "nameVi": "Kem bơ Đà Lạt",
+      "nameEn": "Đà Lạt avocado ice cream",
+      "dishType": "dessert",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-mi-sai-gon",
+      "nameVi": "Bánh mì Sài Gòn",
+      "nameEn": "Saigon bánh mì",
+      "dishType": "bread",
+      "prominence": 1,
+      "lunch": true,
+      "venues": 6,
+      "venuesIncludingTemporarilyUnavailable": 6,
+      "bucket": "5+",
+      "pricedVenues": 1,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 2,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "com-tam-sai-gon",
+      "nameVi": "Cơm tấm Sài Gòn",
+      "nameEn": "Saigon broken rice",
+      "dishType": "rice",
+      "prominence": 1,
+      "lunch": true,
+      "venues": 7,
+      "venuesIncludingTemporarilyUnavailable": 7,
+      "bucket": "5+",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "hu-tieu-nam-vang",
+      "nameVi": "Hủ tiếu Nam Vang",
+      "nameEn": "Phnom Penh-style noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 6,
+      "venuesIncludingTemporarilyUnavailable": 6,
+      "bucket": "5+",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 1
+      }
+    },
+    {
+      "id": "bot-chien",
+      "nameVi": "Bột chiên",
+      "nameEn": "Fried rice flour cake",
+      "dishType": "fried",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 4,
+      "venuesIncludingTemporarilyUnavailable": 4,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-trang-tron",
+      "nameVi": "Bánh tráng trộn",
+      "nameEn": "Rice paper salad",
+      "dishType": "salad",
+      "prominence": 2,
+      "lunch": false,
+      "venues": 3,
+      "venuesIncludingTemporarilyUnavailable": 3,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bo-bia",
+      "nameVi": "Bò bía",
+      "nameEn": "Bò bía rolls",
+      "dishType": "rolls",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 1,
+      "venuesIncludingTemporarilyUnavailable": 1,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "oc-sai-gon",
+      "nameVi": "Ốc Sài Gòn",
+      "nameEn": "Saigon snail feast",
+      "dishType": "seafood",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 8,
+      "venuesIncludingTemporarilyUnavailable": 8,
+      "bucket": "5+",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 1,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-flan",
+      "nameVi": "Bánh flan",
+      "nameEn": "Vietnamese crème caramel",
+      "dishType": "dessert",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "che-ba-mau",
+      "nameVi": "Chè ba màu",
+      "nameEn": "Three-colour sweet soup",
+      "dishType": "che",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 4,
+      "venuesIncludingTemporarilyUnavailable": 4,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "sam-bo-luong",
+      "nameVi": "Sâm bổ lượng",
+      "nameEn": "Sâm bổ lượng cooling sweet soup",
+      "dishType": "che",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-khot-vung-tau",
+      "nameVi": "Bánh khọt Vũng Tàu",
+      "nameEn": "Vũng Tàu crispy mini pancakes",
+      "dishType": "fried",
+      "prominence": 2,
+      "lunch": false,
+      "venues": 3,
+      "venuesIncludingTemporarilyUnavailable": 3,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 1,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-canh-ghe-vung-tau",
+      "nameVi": "Bánh canh ghẹ Vũng Tàu",
+      "nameEn": "Vũng Tàu crab noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-trang-phoi-suong-trang-bang",
+      "nameVi": "Bánh tráng phơi sương Trảng Bàng",
+      "nameEn": "Trảng Bàng dew-dried rice paper",
+      "dishType": "rolls",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-canh-trang-bang",
+      "nameVi": "Bánh canh Trảng Bàng",
+      "nameEn": "Trảng Bàng noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 2,
+      "venuesIncludingTemporarilyUnavailable": 2,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "goi-ga-mang-cut-lai-thieu",
+      "nameVi": "Gỏi gà măng cụt Lái Thiêu",
+      "nameEn": "Lái Thiêu mangosteen chicken salad",
+      "dishType": "salad",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "hat-dieu-rang-muoi-binh-phuoc",
+      "nameVi": "Hạt điều rang muối Bình Phước",
+      "nameEn": "Bình Phước salt-roasted cashews",
+      "dishType": "confection",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "hu-tieu-my-tho",
+      "nameVi": "Hủ tiếu Mỹ Tho",
+      "nameEn": "Mỹ Tho noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 1,
+      "lunch": true,
+      "venues": 2,
+      "venuesIncludingTemporarilyUnavailable": 2,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 1,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "hu-tieu-sa-dec",
+      "nameVi": "Hủ tiếu Sa Đéc",
+      "nameEn": "Sa Đéc noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "nem-lai-vung",
+      "nameVi": "Nem Lai Vung",
+      "nameEn": "Lai Vung fermented pork",
+      "dishType": "cured",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-xeo-nam-bo",
+      "nameVi": "Bánh xèo Nam Bộ",
+      "nameEn": "Southern crispy pancake",
+      "dishType": "fried",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 3,
+      "venuesIncludingTemporarilyUnavailable": 3,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 1,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "lau-mam",
+      "nameVi": "Lẩu mắm",
+      "nameEn": "Fermented fish hotpot",
+      "dishType": "hotpot",
+      "prominence": 2,
+      "lunch": false,
+      "venues": 6,
+      "venuesIncludingTemporarilyUnavailable": 6,
+      "bucket": "5+",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 2
+      }
+    },
+    {
+      "id": "canh-chua-ca-loc",
+      "nameVi": "Canh chua cá lóc",
+      "nameEn": "Sour snakehead fish soup",
+      "dishType": "soup",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 1,
+      "venuesIncludingTemporarilyUnavailable": 1,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "ca-kho-to",
+      "nameVi": "Cá kho tộ",
+      "nameEn": "Clay pot caramelised fish",
+      "dishType": "stew",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "ca-loc-nuong-trui",
+      "nameVi": "Cá lóc nướng trui",
+      "nameEn": "Straw-roasted snakehead fish",
+      "dishType": "grilled",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bun-nuoc-leo-soc-trang",
+      "nameVi": "Bún nước lèo Sóc Trăng",
+      "nameEn": "Sóc Trăng Khmer fish noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 2,
+      "lunch": true,
+      "venues": 1,
+      "venuesIncludingTemporarilyUnavailable": 1,
+      "bucket": "1-4",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-pia-soc-trang",
+      "nameVi": "Bánh pía Sóc Trăng",
+      "nameEn": "Sóc Trăng flaky pastry",
+      "dishType": "banh",
+      "prominence": 2,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-tam-bi-bac-lieu",
+      "nameVi": "Bánh tằm bì Bạc Liêu",
+      "nameEn": "Bạc Liêu silkworm noodles with pork skin",
+      "dishType": "noodles",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "ba-khia-muoi-rach-goc",
+      "nameVi": "Ba khía muối Rạch Gốc",
+      "nameEn": "Rạch Gốc salted marsh crabs",
+      "dishType": "cured",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bun-ca-chau-doc",
+      "nameVi": "Bún cá Châu Đốc",
+      "nameEn": "Châu Đốc fish noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-bo-thot-not",
+      "nameVi": "Bánh bò thốt nốt",
+      "nameEn": "Palm sugar sponge cake",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "bun-ken-phu-quoc",
+      "nameVi": "Bún kèn Phú Quốc",
+      "nameEn": "Phú Quốc bún kèn",
+      "dishType": "noodles",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "goi-ca-trich-phu-quoc",
+      "nameVi": "Gỏi cá trích Phú Quốc",
+      "nameEn": "Phú Quốc herring salad",
+      "dishType": "salad",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "keo-dua-ben-tre",
+      "nameVi": "Kẹo dừa Bến Tre",
+      "nameEn": "Bến Tre coconut candy",
+      "dishType": "confection",
+      "prominence": 1,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-tet-tra-cuon",
+      "nameVi": "Bánh tét Trà Cuôn",
+      "nameEn": "Trà Cuôn cylindrical rice cake",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-canh-ben-co",
+      "nameVi": "Bánh canh Bến Có",
+      "nameEn": "Bến Có noodle soup",
+      "dishType": "noodle-soup",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "ca-tai-tuong-chien-xu",
+      "nameVi": "Cá tai tượng chiên xù",
+      "nameEn": "Crispy elephant-ear fish",
+      "dishType": "fried",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "lap-xuong-can-duoc",
+      "nameVi": "Lạp xưởng Cần Đước",
+      "nameEn": "Cần Đước Chinese sausage",
+      "dishType": "cured",
+      "prominence": 3,
+      "lunch": true,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-chuoi-nuong",
+      "nameVi": "Bánh chuối nướng",
+      "nameEn": "Baked banana cake",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    },
+    {
+      "id": "banh-da-lon",
+      "nameVi": "Bánh da lợn",
+      "nameEn": "Steamed layer cake",
+      "dishType": "banh",
+      "prominence": 3,
+      "lunch": false,
+      "venues": 0,
+      "venuesIncludingTemporarilyUnavailable": 0,
+      "bucket": "0",
+      "pricedVenues": 0,
+      "byArea": {
+        "thao-dien": 0,
+        "sala-thu-thiem": 0,
+        "q1-cbd": 0,
+        "phu-my-hung": 0
+      }
+    }
+  ]
+}

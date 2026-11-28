@@ -20,6 +20,7 @@ import { PlatformSummary } from "@/components/engine/platform-summary";
 import { DishEditor, EvidenceEditor, RestaurantEditor, field, label, type Saver } from "@/components/admin/admin-forms";
 import { ModuleAdmin } from "@/components/admin/module-admin";
 import { EXPERIENCES, isSelectable, loc, type ExperienceId } from "@/experiences/registry";
+import { adminAllowed, adminGate } from "@/lib/admin/access";
 
 function download(name: string, data: unknown) {
   const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));
@@ -43,17 +44,24 @@ export function AdminView() {
   const [editor, setEditor] = useState(false);
   const [email, setEmail] = useState("");
   const [authMsg, setAuthMsg] = useState("");
+  const [checked, setChecked] = useState(false);
+  const gate = adminGate();
 
   useEffect(() => {
     if (!sb) return;
-    const refresh = async () => { const u = await currentUser(sb); setUser(u); setEditor(await isEditor(sb, u)); };
+    const refresh = async () => {
+      try { const u = await currentUser(sb); setUser(u); setEditor(await isEditor(sb, u)); }
+      catch { setUser(null); setEditor(false); } // fail closed on any auth/role error
+      finally { setChecked(true); }
+    };
     refresh();
     const { data: sub } = sb.auth.onAuthStateChange(() => { refresh(); });
     return () => sub.subscription.unsubscribe();
   }, [sb]);
 
   const canPersist = Boolean(sb && editor);
-  const hcmc = useQuery({ queryKey: ["geo", "hcmc"], queryFn: () => fetch("/geo/hcmc.json").then((r) => r.json()) });
+  const allowed = adminAllowed(gate, editor);
+  const hcmc = useQuery({ queryKey: ["geo", "hcmc"], queryFn: () => fetch("/geo/hcmc.json").then((r) => r.json()), enabled: allowed });
   // /geo/hcmc.json is a GeometryCollection (mapshaper dissolve); accept a FeatureCollection too.
   const inHcmc = (p: [number, number]) => {
     const g = hcmc.data as { geometries?: GeoJsonGeometry[]; features?: { geometry: GeoJsonGeometry }[] } | undefined;
@@ -74,18 +82,17 @@ export function AdminView() {
     await qc.invalidateQueries({ queryKey: ["food-data"] });
   };
 
-  return (
-    <div className="mx-auto max-w-6xl space-y-6 px-4 py-6 md:px-6 md:py-10" data-testid="admin">
+  const header = (
       <header>
         <h1 className="font-display text-4xl text-forest">{t("admin.title")}</h1>
         <p className="text-muted">{t("admin.subtitle")}</p>
         <div className="mt-3 rounded-2xl border border-line bg-paper p-3 text-sm" data-testid="admin-auth">
           {!supabaseEnabled ? (
-            <p className="flex gap-2 text-[#8a3f26]"><ShieldAlert className="size-5 shrink-0" /> Local mode — editors validate records and download them as JSON; saving to a database needs Supabase (docs/SUPABASE.md). This screen is not access-controlled in local mode.</p>
+            <p className="flex gap-2 text-[#8a3f26]"><ShieldAlert className="size-5 shrink-0" /> Local mode (development build only) — editors validate records and download them as JSON; saving to a database needs Supabase (docs/SUPABASE.md). Public deployments never show this screen.</p>
           ) : user ? (
             <div className="flex flex-wrap items-center gap-2">
               <ShieldCheck className="size-5 text-forest" /> Signed in as <strong>{user.email}</strong>
-              {editor ? <Badge tone="forest">editor</Badge> : <Badge tone="warn">not an editor — read only</Badge>}
+              {editor ? <Badge tone="forest">editor</Badge> : <Badge tone="warn">not an editor — no access</Badge>}
               <Button size="sm" variant="ghost" onClick={() => sb!.auth.signOut()}><LogOut /> Sign out</Button>
             </div>
           ) : (
@@ -99,6 +106,31 @@ export function AdminView() {
           <p className="mt-1 text-xs text-muted">Data source: {source ?? "local"}</p>
         </div>
       </header>
+  );
+
+  // KEX-SEC-01: fail closed — no editor tools (and no Admin data views) unless allowed.
+  if (gate === "unavailable") {
+    return (
+      <div className="mx-auto max-w-xl space-y-3 px-4 py-10" data-testid="admin-unavailable">
+        <h1 className="font-display text-3xl text-forest">{t("admin.title")}</h1>
+        <p className="flex gap-2 rounded-2xl border border-line bg-paper p-3 text-sm text-muted"><ShieldAlert className="size-5 shrink-0" /> Admin is not available on this deployment. Editors use a deployment connected to the database and sign in with an editor account.</p>
+      </div>
+    );
+  }
+  if (!allowed) {
+    return (
+      <div className="mx-auto max-w-6xl space-y-6 px-4 py-6 md:px-6 md:py-10" data-testid="admin">
+        {header}
+        <p className="rounded-2xl border border-line bg-paper p-3 text-sm text-muted" data-testid="admin-locked" data-state={!checked ? "checking" : user ? "not-editor" : "guest"}>
+          {!checked ? "Checking access…" : user ? "This account does not have editor access. Ask an admin to grant the editor role." : "Sign in with an editor account to open the editing tools."}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mx-auto max-w-6xl space-y-6 px-4 py-6 md:px-6 md:py-10" data-testid="admin">
+      {header}
 
       <div className="flex flex-wrap items-center gap-2" data-testid="admin-modes" aria-label="Experience mode">
         <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">Experience</span>

@@ -1,4 +1,5 @@
 "use client";
+import { adminGate } from "@/lib/admin/access";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Check, Lock, ShieldCheck } from "lucide-react";
@@ -134,9 +135,10 @@ export function SettingsView() {
       </Card>
 
       <div className="grid gap-5 sm:grid-cols-2">
+        {adminGate() !== "unavailable" && ( // KEX-SEC-01: no Admin entry point on public deployments without the database
         <Card title={t("settings.admin")}>
           <Button asChild variant="outline"><Link href="/admin/" data-testid="admin-link"><ShieldCheck /> {t("nav.admin")}</Link></Button>
-        </Card>
+        </Card>)}
         <Card title={t("settings.reset")}>
           <p className="mb-3 text-xs text-muted">{t("settings.resetBody")}</p>
           <Button variant="outline" onClick={() => confirm(t("settings.resetBody")) && u.reset()}>{t("settings.reset")}</Button>

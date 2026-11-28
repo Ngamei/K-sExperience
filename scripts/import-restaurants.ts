@@ -12,6 +12,7 @@ import { slugify } from "../src/lib/search/normalize";
 import path from "node:path";
 import { DishRestaurantLinkSchema, RestaurantSchema, type DishRestaurantLink, type Restaurant } from "../src/lib/data/schema";
 import { pointInGeometry, type GeoJsonGeometry } from "../src/lib/geo/geo";
+import { googleMapsLink, isGoogleMapsPlaceUrl } from "../src/lib/geo/maps-link";
 
 const root = path.resolve(__dirname, "..");
 const read = (p: string) => JSON.parse(readFileSync(path.join(root, p), "utf8"));
@@ -26,8 +27,8 @@ const errors: string[] = [];
 /** A dish entry is a dish id (generic evidence) or an object with its own evidence, price and photo (research exchange format). */
 type BatchDish = string | { dishId: string; evidence?: string; url?: string; priceVnd?: { min: number; max: number }; photo?: unknown; status?: string; evidenceType?: string };
 type BatchVenue = { id?: string; name: string; address: string; district?: string; dishes: BatchDish[]; sources: string[]; note?: string; styleNote?: boolean; excluded?: string;
-  venueType?: string; priceRange?: string; openingHours?: unknown; contact?: unknown; highlights?: string[] };
-const geocoded = read("data/source/venue-research/geocoded.json") as Record<string, { failed?: boolean; reason?: string; lon: number; lat: number; precision: "exact" | "street"; ward: string | null }>;
+  venueType?: string; priceRange?: string; openingHours?: unknown; contact?: unknown; highlights?: string[]; googleMapsUrl?: string; closure?: unknown };
+const geocoded = read("data/source/venue-research/geocoded.json") as Record<string, { failed?: boolean; reason?: string; lon: number; lat: number; precision: "exact" | "building" | "street"; ward: string | null }>;
 const batchFiles = readdirSync(path.join(root, "data/source/venue-research")).filter((f) => /^batch-[\w-]+\.json$/.test(f)).sort();
 const skipped: string[] = [];
 const byId = new Map<string, Record<string, unknown> & { dishes: { dishId: string; evidence: string; url: string }[] }>();
@@ -58,6 +59,8 @@ for (const f of batchFiles) {
       ...(v.priceRange ? { priceRange: v.priceRange } : {}),
       ...(v.openingHours ? { openingHours: v.openingHours } : {}),
       ...(v.contact ? { contact: v.contact } : {}),
+      ...(v.googleMapsUrl ? { googleMapsPlaceUrl: v.googleMapsUrl } : {}),
+      ...(v.closure ? { closure: v.closure } : {}),
       ...(v.highlights ? { highlights: v.highlights } : {}),
       sources: [
         ...v.sources.map((url) => ({ title: new URL(url).hostname.replace(/^www\./, ""), url, accessed: batch.researchedOn })),
@@ -73,11 +76,12 @@ const restaurants: Restaurant[] = [];
 const links: DishRestaurantLink[] = [];
 
 for (const r of src.restaurants) {
-  const { dishes, ...venue } = r;
+  const { dishes, googleMapsPlaceUrl, ...venue } = r;
   const candidate = {
     ...venue,
     isSample: false,
-    googleMapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${venue.name}, ${venue.address}`)}`,
+    // exact place link from research (Google Maps → Share) when supplied; otherwise a cleaned search link
+    googleMapsUrl: googleMapsLink(venue.name, venue.address, { placeUrl: googleMapsPlaceUrl ?? (isGoogleMapsPlaceUrl(venue.googleMapsUrl) ? venue.googleMapsUrl : null) }),
     deliveryLinks: venue.deliveryLinks ?? [],
     lastVerified: venue.lastVerified ?? date,
   };

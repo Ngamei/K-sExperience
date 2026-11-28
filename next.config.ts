@@ -8,6 +8,11 @@ import type { NextConfig } from "next";
  */
 const isStaticExport = process.env.STATIC_EXPORT === "1";
 
+// KEX-SEC-01: offline (unauthenticated) Admin is a local/test-build entry point only — never on a Vercel deployment.
+if (process.env.NEXT_PUBLIC_LOCAL_ADMIN === "1" && process.env.VERCEL) {
+  throw new Error("NEXT_PUBLIC_LOCAL_ADMIN=1 is not allowed on Vercel deployments (KEX-SEC-01). Remove it from the project environment.");
+}
+
 /** Identifies a deployment (service-worker cache version). Vercel provides the commit; local builds use the build time. */
 const BUILD_ID = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 12) ?? `local-${Date.now().toString(36)}`;
 

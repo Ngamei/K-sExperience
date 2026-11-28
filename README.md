@@ -30,7 +30,7 @@ Unzip, run `node serve.mjs` inside the folder, open http://localhost:4173 (Node 
 
 | Command | What it does |
 | --- | --- |
-| `npm run dev` | Dev server |
+| `npm run dev` | Dev server (the only place `/admin/` works offline; public builds without Supabase show "Admin is not available", D64) |
 | `npm run build` / `npm start` | Production build / server (Vercel-compatible) |
 | `npm run build:preview` | Static export to `out/` + offline zip in `preview/` |
 | `npm run typecheck` | `tsc --noEmit` |
@@ -54,6 +54,8 @@ Unzip, run `node serve.mjs` inside the folder, open http://localhost:4173 (Node 
 | `npm run exchange:export` | Regenerate the research contract, templates and duplicate-check exports in `research-exchange/` |
 | `npm run intake -- <batch.json> [--apply]` / `-- --rollback <batchId>` | Validate (dry run) / import / roll back a research batch (see `research-exchange/README.md`) |
 | `npm run data:what-to-eat` | Hôm nay ăn gì? attribute completeness → `docs/WHAT_TO_EAT_REPORT.md` |
+| `npm run data:food-coverage` | Food coverage (0 / 1–4 / 5+ venues per dish, reconciled) → `docs/food-coverage.json`, `docs/FOOD_COVERAGE.md` |
+| `npm run data:maps-share-list` | Venues whose Google Maps search link may open a list or another branch → `research-exchange/briefs/MAPS-SHARE-LINKS.md` / `.csv` (paste exact Share links) |
 | `npm run data:report` | Regenerate `docs/DATA_REPORT.md` (catalogue, photo, venue completeness; priority-50 progress) |
 | `npm run data:import -- <file.json\|csv> --dataset master` | Import the master catalogue |
 | `npm run data:validate` | Integrity checks across all data files (incl. HCMC-only rule) |

@@ -34,7 +34,7 @@ describe("master catalogue merge (no data loss)", () => {
     expect(after.sources.map((s) => s.url)).toContain("https://example.org/mi-quang");
     expect(after.description.en).toBe("Updated.");
     expect(after.ingredients).toEqual(before.ingredients); // not supplied → kept
-    expect(after.spiceLevel).toBe(before.spiceLevel); // importer default (0) must not overwrite
+    expect(after.spiceLevel).toBe(before.spiceLevel); // omitted spice is unknown and must not overwrite
     expect(after.prominence).toBe(before.prominence); // importer default (3) must not overwrite
     expect(after.mealTimes).toEqual(before.mealTimes);
     expect(report.matched[0].changes.sort()).toEqual(["description", "nameEn", "sources+"].sort());

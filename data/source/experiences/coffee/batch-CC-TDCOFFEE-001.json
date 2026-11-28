@@ -1,0 +1,73 @@
+{
+  "batchId": "CC-TDCOFFEE-001",
+  "experience": "coffee",
+  "kind": "venues",
+  "agent": "claude-code",
+  "researchedOn": "2026-11-28",
+  "method": "Neighbourhood-first research (Thảo Điền, approved search area). Desk research from guides/official pages naming the venue AND the exact item (search-result excerpts; direct fetches blocked — spot-check). Coordinates: OpenStreetMap; venues with conflicting addresses withheld.",
+  "venues": [
+    {
+      "name": "Anh Coffee Matcha Bar",
+      "address": "37 Thảo Điền",
+      "district": "Thảo Điền",
+      "venueType": "café",
+      "sources": [
+        "https://matchaplaces.com/places/plc_016b5fb361-anh-coffee-matcha-bar-wx9hk8"
+      ],
+      "offerings": [
+        {
+          "item": "matcha-latte",
+          "evidence": "Matchaplaces lists Anh Coffee Matcha Bar at 37 Thảo Điền as a matcha bar (matcha drinks), open about 8:00–21:00/22:00.",
+          "url": "https://matchaplaces.com/places/plc_016b5fb361-anh-coffee-matcha-bar-wx9hk8"
+        }
+      ],
+      "attributes": {
+        "cafeTypes": [
+          "specialty"
+        ]
+      },
+      "id": "anh-coffee-matcha-bar-37-thao-dien"
+    },
+    {
+      "name": "Cafe 1/4 (Oishi Town)",
+      "address": "19 Đường số 38",
+      "district": "Thảo Điền",
+      "venueType": "café",
+      "sources": [
+        "https://vietcetera.com/en/a-day-in-thao-dien-saigons-cool-neighborhood"
+      ],
+      "offerings": [
+        {
+          "item": "matcha-latte",
+          "evidence": "Vietcetera's Thảo Điền guide (Jul 2025) describes Cafe 1/4 in Oishi Town as a matcha-focused café serving matcha lattes and affogatos.",
+          "url": "https://vietcetera.com/en/a-day-in-thao-dien-saigons-cool-neighborhood"
+        }
+      ],
+      "attributes": {
+        "cafeTypes": [
+          "concept"
+        ]
+      },
+      "id": "cafe-1-4-oishi-town-19-duong-so-38",
+      "excluded": "intake CC-TDCOFFEE-001: coordinates: pin (Đường Số 38, Khu phố 21, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam) is outside the approved Thảo Điền area — street name likely repeats elsewhere"
+    },
+    {
+      "name": "The Snap Cafe",
+      "address": "32 Trần Ngọc Diện",
+      "district": "Thảo Điền",
+      "venueType": "café",
+      "sources": [
+        "https://au.trip.com/travel-guide/foods/Ho%20Chi%20Minh%20City-434-restaurant/The%20Snap%20Cafe-17201440"
+      ],
+      "offerings": [
+        {
+          "item": "ca-phe-trung",
+          "evidence": "Trip.com listing (user reviews) for The Snap Cafe, 32 Trần Ngọc Diện, praises its egg coffee.",
+          "url": "https://au.trip.com/travel-guide/foods/Ho%20Chi%20Minh%20City-434-restaurant/The%20Snap%20Cafe-17201440"
+        }
+      ],
+      "excluded": "Address conflict: the source gives 32 Trần Ngọc Diện, but OpenStreetMap maps No. 32 as a different business (node 5388501721) and places 'The Snap Cafe' ~350 m east (node 9587618750). Not published until the location is confirmed.",
+      "id": "the-snap-cafe-32-tran-ngoc-dien"
+    }
+  ]
+}

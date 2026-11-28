@@ -12,6 +12,7 @@ Shared hand-off point between **Claude Code** (establishment-first research, men
 | `templates/` | `venues-batch.json`, `catalogue-batch.json`, `catalogue-import.csv`, `module-*.csv`, `media.json` | generated |
 | `samples/` | Real, already-imported batches (Food, Bars, Coffee) | copied |
 | `exports/*.csv` | Current dishes, establishments (all experiences), offerings (dish/item × establishment) and module items — **check these for duplicates before researching** | generated |
+| `briefs/<batchId>.md` | Research brief for a handed-over batch (scope, priorities, leads to confirm) | assigning agent |
 | `queue.json` / `QUEUE.md` | Shared research queue (batch id, experience, scope, claims, assignee, status, sources, import status, validation) | edit `queue.json`; intake updates it |
 | `inbox/` | Put submitted batches here (`<batchId>.json`) | researchers |
 | `reports/<batchId>.md` | Intake report: accepted / rejected / warnings per venue | `npm run intake` |
@@ -32,6 +33,7 @@ Shared hand-off point between **Claude Code** (establishment-first research, men
 - Never fabricate dishes, venues, prices, hours, menus, reviews, dietary attributes or photos. Omit unknown fields — unknown is a valid value.
 - Every venue cites at least one https source that names it; every offering cites a source naming **this venue AND this exact item**. Menu-confirmed status needs an official menu / delivery listing / menu photo (see `allowedEvidencePerStatus`).
 - Prices only from a menu, delivery listing or dated article (VND per item, `priceVnd {min,max}` for Food; `price {minVnd,maxVnd,unit}` for modules).
+- Supplied coordinates must state `coordinatePrecision` (`exact` = mapped POI of this venue or its house number · `building` = the building that contains the unit · `street`) and `coordinateSource` (e.g. the OSM object URL). They always win over geocoder results; a building pin is never shown as the unit.
 - Addresses must be inside current Ho Chi Minh City (2025 boundary). Give house number + street and the former district; coordinates are geocoded and checked — wrong-ward matches are rejected, never guessed.
 - Evidence only moves up: a weaker status never overwrites a stronger one (except a dated `temporarily-unavailable`).
 - Regional variants are separate dishes linked by `family`. Existing ids never change; nothing is deleted by an import.

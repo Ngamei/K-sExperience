@@ -1,0 +1,676 @@
+{
+  "note": "Neighbourhood search areas for the neighbourhood-first strategy (PO, 2026-11-28). Each area is a simple polygon drawn around the PO's named streets/landmarks approved by the PO on 2026-11-28 for coverage audit and research targeting (not yet shown to users). Membership is decided by establishment coordinates inside the polygon (never by district name); street-level pins are reported separately as approximate. Current wards are derived from geocoded establishments in the audit, not asserted here. `intakeAliases`: when a research batch states one of these as a venue's area, intake requires the pin to fall inside this polygon.",
+  "neighbourhoods": [
+    {
+      "id": "thao-dien",
+      "tier": 1,
+      "name": {
+        "vi": "Thảo Điền",
+        "en": "Thảo Điền"
+      },
+      "historicalDistricts": [
+        "Quận 2",
+        "Thủ Đức"
+      ],
+      "searchArea": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.722,
+              10.796
+            ],
+            [
+              106.748,
+              10.796
+            ],
+            [
+              106.748,
+              10.822
+            ],
+            [
+              106.722,
+              10.822
+            ],
+            [
+              106.722,
+              10.796
+            ]
+          ]
+        ],
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
+      },
+      "tags": [
+        "international",
+        "remote-work",
+        "wellness",
+        "craft-beer",
+        "date-night"
+      ],
+      "landmarks": [
+        "Xuân Thủy",
+        "Quốc Hương",
+        "Nguyễn Văn Hưởng",
+        "Nguyễn Bá Huân"
+      ],
+      "targets": {
+        "food": 100,
+        "coffee": 40,
+        "bars": 20,
+        "spa": 25,
+        "sport": 15
+      },
+      "intakeAliases": [
+        "Thảo Điền"
+      ]
+    },
+    {
+      "id": "sala-thu-thiem",
+      "tier": 1,
+      "name": {
+        "vi": "Sala – Thủ Thiêm",
+        "en": "Sala – Thu Thiem"
+      },
+      "historicalDistricts": [
+        "Quận 2",
+        "Thủ Đức"
+      ],
+      "searchArea": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.712,
+              10.762
+            ],
+            [
+              106.738,
+              10.762
+            ],
+            [
+              106.738,
+              10.782
+            ],
+            [
+              106.712,
+              10.782
+            ],
+            [
+              106.712,
+              10.762
+            ]
+          ]
+        ],
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
+      },
+      "tags": [
+        "residential",
+        "office",
+        "family"
+      ],
+      "landmarks": [
+        "Nguyễn Cơ Thạch",
+        "Thiso Mall",
+        "Empire City",
+        "The Metropole"
+      ],
+      "targets": {
+        "food": 50,
+        "coffee": 25,
+        "bars": 10,
+        "spa": 15,
+        "sport": 10
+      },
+      "intakeAliases": [
+        "Sala",
+        "Thủ Thiêm"
+      ]
+    },
+    {
+      "id": "q1-cbd",
+      "tier": 1,
+      "name": {
+        "vi": "Quận 1 – Trung tâm",
+        "en": "District 1 – CBD"
+      },
+      "historicalDistricts": [
+        "Quận 1"
+      ],
+      "searchArea": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.692,
+              10.766
+            ],
+            [
+              106.708,
+              10.766
+            ],
+            [
+              106.708,
+              10.782
+            ],
+            [
+              106.692,
+              10.782
+            ],
+            [
+              106.692,
+              10.766
+            ]
+          ]
+        ],
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
+      },
+      "tags": [
+        "office-lunch",
+        "after-work",
+        "premium",
+        "tourist"
+      ],
+      "landmarks": [
+        "Nguyễn Huệ",
+        "Đồng Khởi",
+        "Bến Thành",
+        "Lê Thánh Tôn",
+        "Nguyễn Thái Bình"
+      ],
+      "targets": {
+        "food": 150,
+        "coffee": 60,
+        "bars": 40,
+        "spa": 30,
+        "sport": 15
+      }
+    },
+    {
+      "id": "phu-my-hung",
+      "tier": 1,
+      "name": {
+        "vi": "Phú Mỹ Hưng",
+        "en": "Phu My Hung"
+      },
+      "historicalDistricts": [
+        "Quận 7"
+      ],
+      "searchArea": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.698,
+              10.715
+            ],
+            [
+              106.732,
+              10.715
+            ],
+            [
+              106.732,
+              10.742
+            ],
+            [
+              106.698,
+              10.742
+            ],
+            [
+              106.698,
+              10.715
+            ]
+          ]
+        ],
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
+      },
+      "tags": [
+        "family",
+        "wellness",
+        "international"
+      ],
+      "landmarks": [
+        "Hồ Bán Nguyệt",
+        "Nguyễn Đức Cảnh",
+        "Sky Garden",
+        "Midtown"
+      ],
+      "targets": {
+        "food": 100,
+        "coffee": 40,
+        "bars": 15,
+        "spa": 35,
+        "sport": 20
+      },
+      "intakeAliases": [
+        "Phú Mỹ Hưng"
+      ]
+    },
+    {
+      "id": "vinhomes-central-park",
+      "tier": 1,
+      "name": {
+        "vi": "Vinhomes Central Park – Nguyễn Hữu Cảnh",
+        "en": "Vinhomes Central Park – Nguyen Huu Canh"
+      },
+      "historicalDistricts": [
+        "Bình Thạnh"
+      ],
+      "searchArea": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.712,
+              10.786
+            ],
+            [
+              106.728,
+              10.786
+            ],
+            [
+              106.728,
+              10.8
+            ],
+            [
+              106.712,
+              10.8
+            ],
+            [
+              106.712,
+              10.786
+            ]
+          ]
+        ],
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
+      },
+      "tags": [
+        "residential",
+        "fitness",
+        "young-professionals"
+      ],
+      "landmarks": [
+        "Nguyễn Hữu Cảnh",
+        "Landmark 81",
+        "Saigon Pearl"
+      ],
+      "targets": {
+        "food": 60,
+        "coffee": 25,
+        "bars": 10,
+        "spa": 20,
+        "sport": 10
+      },
+      "intakeAliases": [
+        "Vinhomes Central Park"
+      ]
+    },
+    {
+      "id": "phan-xich-long",
+      "tier": 1,
+      "name": {
+        "vi": "Phan Xích Long – Phú Nhuận",
+        "en": "Phan Xich Long – Phu Nhuan"
+      },
+      "historicalDistricts": [
+        "Phú Nhuận"
+      ],
+      "searchArea": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.682,
+              10.796
+            ],
+            [
+              106.7,
+              10.796
+            ],
+            [
+              106.7,
+              10.806
+            ],
+            [
+              106.682,
+              10.806
+            ],
+            [
+              106.682,
+              10.796
+            ]
+          ]
+        ],
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
+      },
+      "tags": [
+        "everyday-dining",
+        "beauty",
+        "affordable"
+      ],
+      "landmarks": [
+        "Phan Xích Long",
+        "Hoa Lan",
+        "Hoa Cúc",
+        "Hoa Sứ"
+      ],
+      "targets": {
+        "food": 100,
+        "coffee": 40,
+        "bars": 15,
+        "spa": 30,
+        "sport": 10
+      },
+      "intakeAliases": [
+        "Phan Xích Long"
+      ]
+    },
+    {
+      "id": "pham-viet-chanh",
+      "tier": 2,
+      "name": {
+        "vi": "Phạm Viết Chánh",
+        "en": "Pham Viet Chanh"
+      },
+      "historicalDistricts": [
+        "Bình Thạnh"
+      ],
+      "searchArea": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.703,
+              10.786
+            ],
+            [
+              106.715,
+              10.786
+            ],
+            [
+              106.715,
+              10.795
+            ],
+            [
+              106.703,
+              10.795
+            ],
+            [
+              106.703,
+              10.786
+            ]
+          ]
+        ],
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
+      },
+      "tags": [
+        "japanese-dining",
+        "craft-beer",
+        "independent-bars"
+      ],
+      "landmarks": [
+        "Phạm Viết Chánh"
+      ]
+    },
+    {
+      "id": "an-phu-an-khanh",
+      "tier": 2,
+      "name": {
+        "vi": "An Phú – An Khánh",
+        "en": "An Phu – An Khanh"
+      },
+      "historicalDistricts": [
+        "Quận 2",
+        "Thủ Đức"
+      ],
+      "searchArea": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.736,
+              10.788
+            ],
+            [
+              106.762,
+              10.788
+            ],
+            [
+              106.762,
+              10.806
+            ],
+            [
+              106.736,
+              10.806
+            ],
+            [
+              106.736,
+              10.788
+            ]
+          ]
+        ],
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
+      },
+      "tags": [
+        "residential",
+        "family",
+        "pilates"
+      ],
+      "landmarks": [],
+      "intakeAliases": [
+        "An Phú"
+      ]
+    },
+    {
+      "id": "ho-con-rua-q3",
+      "tier": 2,
+      "name": {
+        "vi": "Hồ Con Rùa – Quận 3",
+        "en": "Turtle Lake – District 3"
+      },
+      "historicalDistricts": [
+        "Quận 3"
+      ],
+      "searchArea": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.688,
+              10.777
+            ],
+            [
+              106.7,
+              10.777
+            ],
+            [
+              106.7,
+              10.788
+            ],
+            [
+              106.688,
+              10.788
+            ],
+            [
+              106.688,
+              10.777
+            ]
+          ]
+        ],
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
+      },
+      "tags": [
+        "students",
+        "office-lunch",
+        "coffee"
+      ],
+      "landmarks": [
+        "Hồ Con Rùa"
+      ]
+    },
+    {
+      "id": "ben-van-don-q4",
+      "tier": 2,
+      "name": {
+        "vi": "Bến Vân Đồn – Quận 4",
+        "en": "Ben Van Don – District 4"
+      },
+      "historicalDistricts": [
+        "Quận 4"
+      ],
+      "searchArea": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.694,
+              10.755
+            ],
+            [
+              106.712,
+              10.755
+            ],
+            [
+              106.712,
+              10.766
+            ],
+            [
+              106.694,
+              10.766
+            ],
+            [
+              106.694,
+              10.755
+            ]
+          ]
+        ],
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
+      },
+      "tags": [
+        "street-food",
+        "affordable"
+      ],
+      "landmarks": [
+        "Bến Vân Đồn",
+        "Vĩnh Khánh"
+      ]
+    },
+    {
+      "id": "ho-thi-ky-q10",
+      "tier": 2,
+      "name": {
+        "vi": "Hồ Thị Kỷ – Quận 10",
+        "en": "Ho Thi Ky – District 10"
+      },
+      "historicalDistricts": [
+        "Quận 10"
+      ],
+      "searchArea": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.676,
+              10.762
+            ],
+            [
+              106.684,
+              10.762
+            ],
+            [
+              106.684,
+              10.77
+            ],
+            [
+              106.676,
+              10.77
+            ],
+            [
+              106.676,
+              10.762
+            ]
+          ]
+        ],
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
+      },
+      "tags": [
+        "street-food",
+        "desserts",
+        "students"
+      ],
+      "landmarks": [
+        "Hồ Thị Kỷ"
+      ]
+    },
+    {
+      "id": "ba-son-golden-river",
+      "tier": 2,
+      "name": {
+        "vi": "Ba Son – Golden River",
+        "en": "Ba Son – Golden River"
+      },
+      "historicalDistricts": [
+        "Quận 1"
+      ],
+      "searchArea": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.703,
+              10.781
+            ],
+            [
+              106.712,
+              10.781
+            ],
+            [
+              106.712,
+              10.789
+            ],
+            [
+              106.703,
+              10.789
+            ],
+            [
+              106.703,
+              10.781
+            ]
+          ]
+        ],
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
+      },
+      "tags": [
+        "residential",
+        "premium",
+        "office"
+      ],
+      "landmarks": [
+        "Tôn Đức Thắng"
+      ]
+    }
+  ]
+}

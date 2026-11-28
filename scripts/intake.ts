@@ -15,9 +15,9 @@ import { execFileSync } from "node:child_process";
 import { appendFileSync, copyFileSync, cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { BatchSchema, geocodeProblem, validateVenues, type Batch, type ExistingEstablishment, type VenueVerdict } from "../src/lib/data/exchange";
+import { BatchSchema, geocodeProblem, pinKey, resolvePins, snapshotMismatches, validateVenues, type Batch, type ExistingEstablishment, type FailedPin, type Pin, type VenueVerdict } from "../src/lib/data/exchange";
 import { overlaps, queueMarkdown, readQueue, upsertEntry, writeQueue } from "../src/lib/data/exchange-queue";
-import type { LngLat } from "../src/lib/geo/geo";
+import { haversineKm, pointInGeometry, type GeoJsonGeometry, type LngLat } from "../src/lib/geo/geo";
 
 const root = path.resolve(__dirname, "..");
 const X = path.join(root, "research-exchange");
@@ -36,6 +36,9 @@ const DISTRICTS: Record<string, LngLat> = {
   "Quận 8": [106.655, 10.738], "Quận 10": [106.667, 10.773], "Quận 11": [106.650, 10.763], "Quận 12": [106.654, 10.867], "Bình Thạnh": [106.709, 10.810], "Phú Nhuận": [106.680, 10.800],
   "Tân Bình": [106.652, 10.801], "Tân Phú": [106.628, 10.791], "Gò Vấp": [106.665, 10.838], "Bình Tân": [106.603, 10.765], "Thủ Đức": [106.762, 10.850], "Thảo Điền": [106.733, 10.805], "Thủ Thiêm": [106.720, 10.775], "An Phú": [106.748, 10.800], "Nhà Bè": [106.730, 10.695], "Bình Chánh": [106.590, 10.730],
 };
+
+const NEIGHBOURHOODS: { id: string; name: { vi: string }; intakeAliases?: string[]; searchArea: GeoJsonGeometry }[] =
+  existsSync(path.join(root, "data/neighbourhoods/neighbourhoods.json")) ? readJson("data/neighbourhoods/neighbourhoods.json").neighbourhoods : [];
 
 // ---- rollback ---------------------------------------------------------------------------------------
 if (args[0] === "--rollback") {
@@ -107,19 +110,70 @@ const srcDir = batch.experience === "food" ? "data/source/venue-research" : `dat
 const scratch = mkdtempSync(path.join(os.tmpdir(), "intake-geo-"));
 const cache = path.join(root, srcDir, "geocoded.json");
 if (existsSync(cache)) copyFileSync(cache, path.join(scratch, "geocoded.json"));
-const toGeocode = (batch.venues ?? []).filter((v, i) => verdicts[i].decision === "accept" && (v.lon == null || v.lat == null));
-writeFileSync(path.join(scratch, "batch-intake.json"), JSON.stringify({ researchedOn: batch.researchedOn, venues: toGeocode }));
-if (toGeocode.length) {
-  try { execFileSync("node", [path.join(root, "scripts/geocode-venue-research.mjs"), scratch], { cwd: root, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, NODE_USE_ENV_PROXY: "1" } }); }
-  catch (e) { warnings.push(`geocoder failed: ${(e as Error).message.split("\n")[0]} — venues without coordinates are rejected`); }
+// KEX-QA-01/03: an apply evaluates the SAME pins as the reviewed dry run. The dry run snapshots the SELECTED pins
+// (supplied coordinates take precedence over cached/geocoded points and keep their source-derived precision);
+// the apply reuses that snapshot without new Nominatim queries and refuses if the batch no longer matches it.
+const snapshot = path.join(X, "geocodes", `${batch.batchId}.json`);
+const venuesAll = batch.venues ?? [];
+let pins: Record<string, Pin | FailedPin>;
+const snap = apply && existsSync(snapshot) ? (JSON.parse(readFileSync(snapshot, "utf8")) as { at: string; pins?: Record<string, Pin | FailedPin> }) : null;
+if (apply && !snap?.pins) { console.error(`✗ ${batch.batchId}: no dry-run pin snapshot (research-exchange/geocodes/${batch.batchId}.json) — run the dry run first`); process.exit(1); }
+if (snap?.pins) {
+  const mism = snapshotMismatches(venuesAll.filter((_, i) => verdicts[i].decision === "accept"), snap.pins);
+  if (mism.length) { console.error(`✗ ${batch.batchId}: batch differs from its dry run — re-run the dry run:\n  ${mism.join("\n  ")}`); process.exit(1); }
+  pins = snap.pins;
+  warnings.push(`pins reused from the dry run of ${snap.at} (no new Nominatim queries; supplied coordinates verified unchanged)`);
+} else {
+  const toGeocode = venuesAll.filter((v, i) => verdicts[i].decision === "accept" && (v.lon == null || v.lat == null));
+  writeFileSync(path.join(scratch, "batch-intake.json"), JSON.stringify({ researchedOn: batch.researchedOn, venues: toGeocode }));
+  if (toGeocode.length) {
+    try { execFileSync("node", [path.join(root, "scripts/geocode-venue-research.mjs"), scratch], { cwd: root, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, NODE_USE_ENV_PROXY: "1" } }); }
+    catch (e) { warnings.push(`geocoder failed: ${(e as Error).message.split("\n")[0]} — venues without coordinates are rejected`); }
+  }
+  const cacheNow = existsSync(path.join(scratch, "geocoded.json")) ? JSON.parse(readFileSync(path.join(scratch, "geocoded.json"), "utf8")) : {};
+  pins = resolvePins(venuesAll, cacheNow);
+  mkdirSync(path.join(X, "geocodes"), { recursive: true });
+  writeFileSync(snapshot, JSON.stringify({ at: now(), pins: Object.fromEntries(venuesAll.map((v) => [pinKey(v), pins[pinKey(v)]]).filter(([, p]) => p)) }, null, 2) + "\n");
 }
-const geo = existsSync(path.join(scratch, "geocoded.json")) ? JSON.parse(readFileSync(path.join(scratch, "geocoded.json"), "utf8")) : {};
-(batch.venues ?? []).forEach((v, i) => {
+// `geo` = selected pins in the geocode-cache shape the importers read (precision preserved: exact | building | street)
+const geo: Record<string, { lon?: number; lat?: number; precision?: string; ward?: string | null; displayName?: string; failed?: boolean; reason?: string }> =
+  existsSync(path.join(scratch, "geocoded.json")) ? JSON.parse(readFileSync(path.join(scratch, "geocoded.json"), "utf8")) : {};
+for (const [k, p] of Object.entries(pins)) geo[k] = "failed" in p ? { failed: true, reason: p.reason } : { lon: p.lon, lat: p.lat, precision: p.precision, ward: p.ward, displayName: p.displayName };
+venuesAll.forEach((v, i) => {
   const vd = verdicts[i];
   if (vd.decision !== "accept") return;
-  if (v.lon != null && v.lat != null) { geo[`${v.name}|${v.address}|${v.district ?? ""}`] = { lon: v.lon, lat: v.lat, precision: "exact", ward: null, displayName: "researcher-supplied coordinates" }; return; }
-  const p = geocodeProblem(v, geo[`${v.name}|${v.address}|${v.district ?? ""}`], DISTRICTS);
-  if (p) { vd.decision = "reject"; vd.action = "none"; vd.reasons.push(`coordinates: ${p}`); }
+  const p = pins[pinKey(v)];
+  if (p && !("failed" in p) && p.origin === "supplied") {
+    const c = v.district ? DISTRICTS[v.district] : undefined;
+    if (c && haversineKm(c, [p.lon, p.lat]) > 6) { vd.decision = "reject"; vd.action = "none"; vd.reasons.push(`coordinates: supplied point is ${haversineKm(c, [p.lon, p.lat]).toFixed(1)} km from ${v.district}`); }
+    return;
+  }
+  const prob = geocodeProblem(v, geo[pinKey(v)], DISTRICTS);
+  if (prob) { vd.decision = "reject"; vd.action = "none"; vd.reasons.push(`coordinates: ${prob}`); }
+});
+// Neighbourhood-first: a venue stated to be in an approved neighbourhood must be pinned inside its polygon
+// (numbered streets such as "Đường số 10" repeat across the city and can geocode elsewhere). Applies to supplied pins too.
+venuesAll.forEach((v, i) => {
+  const vd = verdicts[i];
+  const p = pins[pinKey(v)];
+  if (vd.decision !== "accept" || !p || "failed" in p) return;
+  const area = NEIGHBOURHOODS.find((n) => n.intakeAliases?.includes(v.district ?? ""));
+  if (area && !pointInGeometry([p.lon, p.lat], area.searchArea)) {
+    vd.decision = "reject"; vd.action = "none";
+    vd.reasons.push(`coordinates: pin (${p.origin === "supplied" ? p.sourceRef ?? "supplied" : p.displayName || "geocoded"}) is outside the approved ${area.name.vi} area — street name likely repeats elsewhere`);
+  }
+});
+// KEX-QA-02: a street-level geocode is a street-segment point, so different addresses on one street can get the
+// identical point. Flag it (never presented as exact; the UI labels street-level pins as approximate).
+const pinOf = (i: number) => { const v = (batch.venues ?? [])[i]; return v ? geo[`${v.name}|${v.address}|${v.district ?? ""}`] : undefined; };
+(batch.venues ?? []).forEach((v, i) => {
+  const vd = verdicts[i], g = pinOf(i);
+  if (vd.decision !== "accept" || g?.precision !== "street" || g.lon === undefined) return;
+  const same = [
+    ...(batch.venues ?? []).map((w, j) => (j !== i && verdicts[j].decision === "accept" && pinOf(j)?.lon === g.lon && pinOf(j)?.lat === g.lat ? w.name : null)),
+    ...ests.filter((e) => e.id !== vd.id && e.coordinates[0] === g.lon && e.coordinates[1] === g.lat).map((e) => `${e.name} (${e.experience})`),
+  ].filter(Boolean);
+  if (same.length) vd.warnings.push(`shares an identical street-level point with ${same.join(", ")} — location approximate (house number not mapped)`);
 });
 const accepted = verdicts.filter((v) => v.decision === "accept");
 const rejected = verdicts.filter((v) => v.decision === "reject");
@@ -155,8 +209,9 @@ finish({
     ...verdicts.map((v: VenueVerdict, i: number) => {
       const bv = (batch.venues ?? [])[i];
       const g = bv ? geo[`${bv.name}|${bv.address}|${bv.district ?? ""}`] : undefined;
-      const pin = g?.lon !== undefined ? `${g.precision ?? ""} ${Number(g.lat).toFixed(5)},${Number(g.lon).toFixed(5)}` : "—";
-      return `| ${v.name} | \`${v.id}\` | ${v.decision === "accept" ? "✅ accept" : "❌ reject"} | ${v.action} | ${v.offerings} | ${v.priced} | ${pin} | ${String(g?.displayName ?? "—").slice(0, 90).replace(/\|/g, "/")} | ${[...v.reasons, ...v.warnings].join("; ").replace(/\|/g, "/") || "—"} |`;
+      const sel = bv ? pins[pinKey(bv)] : undefined;
+      const pin = sel && !("failed" in sel) ? `${sel.precision} · ${sel.origin} ${Number(sel.lat).toFixed(7)},${Number(sel.lon).toFixed(7)}` : "—";
+      return `| ${v.name} | \`${v.id}\` | ${v.decision === "accept" ? "✅ accept" : "❌ reject"} | ${v.action} | ${v.offerings} | ${v.priced} | ${pin} | ${String((sel && !("failed" in sel) ? sel.sourceRef ?? sel.displayName : g?.displayName) ?? "—").slice(0, 90).replace(/\|/g, "/")} | ${[...v.reasons, ...v.warnings].join("; ").replace(/\|/g, "/") || "—"} |`;
     }),
     ...(importOut ? ["", "## Importer output", "", "```", importOut.trim(), "```"] : []),
   ],
@@ -210,11 +265,16 @@ function finish({ accepted, rejected, body, ok }: { accepted: number; rejected: 
   ].join("\n");
   mkdirSync(path.join(X, "reports"), { recursive: true });
   writeFileSync(path.join(X, "reports", `${batch.batchId}.md`), report + "\n");
+  // Every run is kept (the latest report above is overwritten): reports/history/<batch>-<mode>-<timestamp>.md
+  const stamp = now().replace(/[:.]/g, "-");
+  mkdirSync(path.join(X, "reports", "history"), { recursive: true });
+  writeFileSync(path.join(X, "reports", "history", `${batch.batchId}-${apply ? "apply" : "dryrun"}-${stamp}.md`), report + "\n");
   const sources = [...new Set((batch.venues ?? []).flatMap((v) => v.sources))];
   queue = upsertEntry(readQueue(root), {
     batchId: batch.batchId, experience: batch.experience, kind: batch.kind, assignedTo: entry?.assignedTo ?? batch.agent, scope: entry?.scope ?? batch.method.slice(0, 120),
-    status: apply ? (ok ? "imported" : "rejected") : accepted ? "validated" : "rejected",
-    importStatus: apply ? (ok ? `imported ${now().slice(0, 10)} (${accepted} venues)` : "import failed — restored") : "dry run only",
+    // a dry run never downgrades an already imported batch in the shared queue
+    status: apply ? (ok ? "imported" : "rejected") : entry?.status === "imported" ? "imported" : accepted ? "validated" : "rejected",
+    importStatus: apply ? (ok ? `imported ${now().slice(0, 10)} (${accepted} venues)` : "import failed — restored") : entry?.status === "imported" ? entry.importStatus : "dry run only",
     sources: sources.length ? sources : entry?.sources ?? [],
     validation: { at: now().slice(0, 10), accepted, rejected, warnings: warnings.length, report: `research-exchange/reports/${batch.batchId}.md` },
   });

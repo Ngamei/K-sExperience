@@ -11,7 +11,7 @@ const PK = {
   user_profiles: ["user_id"],
 };
 let db;
-const reset = () => { db = { users: [], refresh: {}, fail: false, tables: { saved_experiences: [], experience_history: [], tasting_notes: [], user_profiles: [] } }; };
+const reset = () => { db = { users: [], roles: {}, refresh: {}, fail: false, tables: { saved_experiences: [], experience_history: [], tasting_notes: [], user_profiles: [] } }; };
 reset();
 
 const b64 = (o) => Buffer.from(JSON.stringify(o)).toString("base64url");
@@ -43,6 +43,12 @@ createServer(async (req, res) => {
   // ---- test control -------------------------------------------------------------------------
   if (p === "/__reset") { reset(); return send(res, 200, { ok: true }); }
   if (p === "/__fail") { db.fail = url.searchParams.get("on") === "1"; return send(res, 200, { fail: db.fail }); }
+  if (p === "/__role") { // grant a role to a test identity (stands in for an admin inserting into user_roles)
+    const u = db.users.find((x) => x.email === url.searchParams.get("email"));
+    if (!u) return send(res, 404, { message: "no such user" });
+    db.roles[u.id] = url.searchParams.get("role");
+    return send(res, 200, { ok: true });
+  }
   if (p === "/__db") return send(res, 200, { users: db.users.map((u) => ({ id: u.id, email: u.email })), ...db.tables });
   // ---- auth ---------------------------------------------------------------------------------
   if (p === "/auth/v1/signup" && req.method === "POST") {
@@ -82,7 +88,12 @@ createServer(async (req, res) => {
     return send(res, 204);
   }
   const table = p.replace("/rest/v1/", "");
-  if (table === "user_roles") return send(res, 200, []);
+  if (table === "user_roles") { // "read own role" policy: a user sees only their own row
+    const sub = subOf(req), role = sub && db.roles[sub];
+    const rows = role && match({ user_id: sub }, filters(url)) ? [{ role }] : [];
+    if ((req.headers.accept ?? "").includes("vnd.pgrst.object")) return rows.length === 1 ? send(res, 200, rows[0]) : send(res, 406, { code: "PGRST116", message: "0 rows", details: "", hint: null });
+    return send(res, 200, rows);
+  }
   if (!db.tables[table]) return send(res, 500, { message: `mock: table ${table} not served (catalogue falls back to bundled data)` });
   const sub = subOf(req);
   const own = (r) => sub && r.user_id === sub; // emulates owner-only RLS

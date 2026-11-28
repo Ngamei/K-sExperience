@@ -145,6 +145,8 @@ steersman-brewery-84-pham-viet-chanh,bars,Steersman Brewery,84 Phạm Viết Ch�
 malt-saigon-46-48-mac-thi-buoi,bars,Malt Saigon,46-48 Mạc Thị Bưởi,Phường Sài Gòn,106.704821,10.775475,exact,craft beer bar,1,2026-11-28
 mighty-moon-27-ly-van-phuc,bars,Mighty Moon,27 Lý Văn Phức,Phường Tân Định,106.693915,10.791107,street,brewpub,1,2026-11-28
 reham-saigon-taproom-165-37-nguyen-thai-binh,bars,Reham Saigon Taproom,165/37 Nguyễn Thái Bình,Phường Bến Thành,106.700455,10.769915,street,taproom,1,2026-11-28
+pasteur-street-craft-beer-bui-vien-212-de-tham,bars,Pasteur Street Craft Beer – Bùi Viện,212 Đề Thám,Quận 1,106.6940607,10.7673944,exact,taproom,1,2026-11-28
+pasteur-street-craft-beer-phu-my-hung-cr5-01,bars,Pasteur Street Craft Beer – Phú Mỹ Hưng,"CR5-01, Crescent Residence 5, 8 Trần Văn Trà",Quận 7,106.7208204,10.7248058,building,taproom,1,2026-11-28
 cong-caphe-ly-tu-trong,coffee,Cộng Cà Phê (Lý Tự Trọng),"26 Lý Tự Trọng, Quận 1, TP. Hồ Chí Minh",Phường Sài Gòn,106.701026,10.778168,exact,café,1,2026-11-27
 okkio-caffe-le-loi,coffee,Okkio Caffe (Lê Lợi),"122 Lê Lợi, Quận 1, TP. Hồ Chí Minh",Phường Bến Thành,106.698948,10.772524,exact,café,2,2026-11-27
 the-workshop-coffee,coffee,The Workshop Coffee,"27 Ngô Đức Kế, Quận 1, TP. Hồ Chí Minh",Phường Sài Gòn,106.705539,10.773406,exact,café,1,2026-11-27
@@ -153,6 +155,7 @@ japanit-matcha-tran-hung-dao,coffee,Japanit Matcha & Coffee (Trần Hưng Đạo
 tra-viet-hai-trieu,coffee,Trà Việt — Tea Experience & Boutique,"19 Hải Triều, Quận 1, TP. Hồ Chí Minh",Phường Sài Gòn,106.704876,10.771668,street,tea house,1,2026-11-27
 ong-chu-cuoi-hem-cong-quynh,coffee,Ông Chú Cuội Hẻm,"117/28A Cống Quỳnh, Quận 1, TP. Hồ Chí Minh",Phường Cầu Ông Lãnh,106.689818,10.765738,street,café,1,2026-11-28
 runam-bistro-dong-khoi,coffee,Runam Bistro (Đồng Khởi),"2-4-6 Đồng Khởi, Quận 1, TP. Hồ Chí Minh",Phường Sài Gòn,106.702866,10.77624,street,café,1,2026-11-28
+anh-coffee-matcha-bar-37-thao-dien,coffee,Anh Coffee Matcha Bar,37 Thảo Điền,Phường An Khánh,106.738253,10.801316,street,café,1,2026-11-28
 an-mien-spa-dinh-tien-hoang,spa,An Miên Spa,"16/22B Đinh Tiên Hoàng, Quận 1, TP. Hồ Chí Minh",Phường Sài Gòn,106.702387,10.785864,street,spa,1,2026-11-27
 duong-sinh-co-ba-nguyen-binh-khiem,spa,Dưỡng Sinh Cô Ba (Nguyễn Bỉnh Khiêm),"25/65 Nguyễn Bỉnh Khiêm, Quận 1, TP. Hồ Chí Minh",Phường Tân Định,106.698939,10.792858,street,spa,1,2026-11-27
 duong-sinh-co-ba-vo-van-tan,spa,Dưỡng Sinh Cô Ba (Võ Văn Tần),"59 Võ Văn Tần, Quận 3, TP. Hồ Chí Minh",Phường Bàn Cờ,106.685605,10.771487,street,spa,1,2026-11-27
@@ -165,3 +168,4 @@ pickoland-thao-dien,sport,PickoLand Thảo Điền Pickleball Club,"188A6 Nguy�
 bang-bang-pickleball-club,sport,Bang Bang Pickleball Club,"247 Nguyễn Văn Hưởng, Thủ Đức, TP. Hồ Chí Minh",Phường An Khánh,106.728262,10.81642,street,pickleball club,2,2026-11-27
 ufitu-pilates-dang-thi-nhu,sport,UFiTU Pilates+ (Đặng Thị Nhu),"41 Đặng Thị Nhu, Quận 1, TP. Hồ Chí Minh",Phường Bến Thành,106.697306,10.769364,street,pilates studio,1,2026-11-27
 gym-one-pickleball-le-quy-don,sport,Gym One Pickleball,"26A Lê Quý Đôn, Quận 3, TP. Hồ Chí Minh",Phường Xuân Hòa,106.689952,10.782135,street,pickleball courts,3,2026-11-28
+ufitu-pilates-thao-dien-3-38-quoc-huong,sport,UFiTU Pilates+ (Thảo Điền),3/38 Quốc Hương,Phường An Khánh,106.730888,10.807384,street,pilates studio,1,2026-11-28

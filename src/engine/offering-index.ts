@@ -16,13 +16,14 @@ export interface OfferingIndex<O, E> {
  * `includeSamples` must be false for anything presented as a real recommendation;
  * candidates are admin-only.
  */
-export function buildOfferingIndex<O extends OfferingLike, E extends { id: string; isSample: boolean }>(
+export function buildOfferingIndex<O extends OfferingLike, E extends { id: string; isSample: boolean; closure?: unknown }>(
   establishments: E[],
   offerings: O[],
   key: { item: (o: O) => string; establishment: (o: O) => string },
   opts: { includeSamples: boolean; includeCandidates?: boolean },
 ): OfferingIndex<O, E> {
-  const es = new Map(establishments.filter((e) => opts.includeSamples || !e.isSample).map((e) => [e.id, e]));
+  // D67: a closed establishment is never a place to go (its record still exists for history and saved items).
+  const es = new Map(establishments.filter((e) => (opts.includeSamples || !e.isSample) && !e.closure).map((e) => [e.id, e]));
   const statusByItem = new Map<string, LinkStatus | "none-found">();
   const byItem = new Map<string, O[]>();
   const byEstablishment = new Map<string, O[]>();

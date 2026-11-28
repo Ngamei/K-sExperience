@@ -125,10 +125,76 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 
 Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-catalogue`, `*-food-dish`, `*-settings`, `*-settings-account-guest`, `*-passport-gate`, `*-coffee-map`, `*-coffee-catalogue`, `*-coffee-item`, `*-coffee-cafe`.
 
+## Share links + closures (2026-11-28, review branch `claude/share-links-closures`, D67)
+
+| Command | Result |
+| --- | --- |
+| `npm run qa` | unit 19 files / 156 · Food e2e 93 (incl. new `e2e/closure.spec.ts` ×2) · account e2e 32 · module e2e 2 failed on first run — the egg-coffee test expected 4 cafés; Ông Chú Cuội Hẻm is now closed → test updated to 3 and the specialty filter derivation excludes closed cafés → module e2e **46 passed** |
+| `npm run test:db` | parity 10/10 · RLS **59/59** (+2: seeded closures stored, invalid closure rejected; migration 0012) |
+| Data | 30 venues carry exact Google Maps place links (27 matched + 3 closed); 3 closures; Bún bò Huế 10 → 9 venues (still 5+); Food buckets unchanged 102 / 26 / 10 |
+
+## KEX-DB-01 staging (2026-11-28, Supabase `aibainipwgqbluhnqepu`, commit `8f429f1`)
+
+Run by the PO's operator assistant in the Supabase SQL editor; **reported to Claude Code, not independently re-run** (no project access here).
+
+| Step | Result |
+| --- | --- |
+| Migrations 0001 → 0010 (once each, in order) | ✅ no errors |
+| Pre-flight query (0006 / 0008 / 0009 / 0010) | ✅ all `true` |
+| RLS on public tables | ✅ 23/23 enabled |
+| `supabase/seed.sql` | ✅ no errors |
+| Seed parity (`scripts/print-seed-parity-sql.ts`) | ✅ 10/10 PASS — dishes 138, unknown-spice 0, establishments 170, tags 170, Food links 121, items 37, offerings 61, street pins 126, building pins 1, samples 0 |
+| Access checks (guest / non-editor / editor), REST bypass, issue #2 A1–A6 | ⏳ need the Vercel Preview with the staging env + redirect URLs |
+
+## KEX-SEC-01 / KEX-DB-01 / Food coverage (2026-11-28, review branch `claude/kex-sec-01`, base cd7504c)
+
+| Command | Result |
+| --- | --- |
+| `npm run qa` | ✅ exit 0 — typecheck, lint (1 pre-existing warning in `scripts/neighbourhood-coverage.ts`), unit+integration 16 files / 148, Food e2e 91, account e2e **32** (was 28: +guest, +editor admin flows, non-editor test rewritten; ×2 viewports), module e2e **46** (was 42: +public-build admin gate ×2) |
+| `npx vitest run` (after adding the coverage test) | ✅ 17 files / 151 |
+| `npm run test:db` | ✅ seed parity **10/10 PASS**, RLS **53/53 PASS** (7 new KEX-SEC-01 checks) |
+| Mutation check | Granting the "attacker" identity the editor role turns 5 KEX-SEC-01 checks red → the checks are not vacuous |
+| `VERCEL=1 NEXT_PUBLIC_LOCAL_ADMIN=1` config load | ✅ refused with the KEX-SEC-01 error; without the flag the config loads |
+| `npm run data:food-coverage` | ✅ 0 = 102 · 1–4 = 26 · 5+ = 10 (sum 138), 118 real venues, 0 outside HCMC, 121 public links |
+
+**Evidence by flow.** Public build (no Supabase, no flag; modules build): `/admin/` → "Admin is not available on this deployment", no `admin`/`admin-auth`/tabs/save/coverage elements, no Settings entry point; Food and Bars catalogues still load. Supabase build + mock: guest → editor sign-in only (`admin-locked` state guest); signed-in non-editor → "not an editor — no access", no tools; editor (role granted through the mock's `/__role`, standing in for an admin's `user_roles` insert) → tools, "Save to database". Database: anon and a signed-in non-editor attempt insert/update/delete on dishes, restaurants, links, offerings, items, experience tags, dish origins, `user_roles` (self-escalation) and `content_audit` (forge/erase) — all refused, counts unchanged; the editor's write succeeds and is audited with the editor id.
+
+**Not verified:** a hosted Supabase project (no authorized staging project or credentials; see `docs/STAGING_RUNBOOK.md` §0). The mock does not enforce RLS for curated tables, so bypass protection is proven on PostgreSQL only.
+
+## KEX-QA-03 (2026-11-28, review branch `claude/kex-review-2026-11-28`)
+- Reproduced at 1b6a1be: `scripts/intake.ts` set `precision: "exact"` for every supplied coordinate; `research-exchange/geocodes/CC-BARS-003.json` held a stale **street** point for Bùi Viện (10.762988, 106.696052 — GPT-BARS-001's cached geocode for the same key) instead of the supplied OSM POI (10.7673944, 106.6940607), and no pin for Phú Mỹ Hưng; the snapshot was written **before** supplied coordinates were applied.
+- Fix: `selectPin` / `resolvePins` / `snapshotMismatches` in `src/lib/data/exchange.ts` (shared by dry run and apply); batch schema requires `coordinatePrecision` + `coordinateSource` with lon/lat; snapshot stores selected pins; apply reuses it with a parity check and no geocoder calls; precision `building` added (schema, migration 0010, Admin, UI label "building-level location").
+- Tests: `tests/unit/exchange.test.ts` KEX-QA-03 block (6): schema requires precision+source; supplied POI → exact, supplied building → building; supplied wins over the conflicting cached point (the real Bùi Viện values); geocoder precision preserved, unknown → street; dry-run/apply parity (snapshot reused, later geocoder change ignored, stale 1b6a1be-style snapshot refused, changed supplied precision refused); `building` accepted, other values rejected. DB: building stored, `unit` rejected by CHECK.
+- Intake evidence: apply against the old CC-BARS-003 snapshot **refused** before any write; fresh dry run pins Bùi Viện `exact · supplied` (OSM node 13541335701) and Phú Mỹ Hưng `building · supplied` (OSM way 1510577907); CC-BARS-003 apply still **held**. Throwaway CC-TEST-996: dry-run pins == applied establishments (building 10.7248058,106.7208204; geocoded exact 10.803692,106.735325), then rolled back, artifacts removed, data identical to HEAD.
+- `npm run qa` exit 0: unit **16 files / 148** · Food e2e **91** · account e2e **28** · module e2e **42**; `npm run test:db` **46 checks, ALL PASSED**. Live Supabase: unverified.
+
+## CC-BARS-003 applied (2026-11-28, production branch)
+- `npm run intake -- research-exchange/inbox/CC-BARS-003.json --apply`: 2 accepted, 0 rejected; "pins reused from the dry run of 2026-11-28T05:57:07Z (no new Nominatim queries; supplied coordinates verified unchanged)".
+- Stored: `pasteur-street-craft-beer-bui-vien-212-de-tham` **exact** 10.7673944, 106.6940607 (OSM node 13541335701); `pasteur-street-craft-beer-phu-my-hung-cr5-01` **building** 10.7248058, 106.7208204 (OSM way 1510577907, shown as "building-level location"). Brand attribute + official directory source on both.
+- Net: Bars establishments 28 → **30** (+2 distinct); Bars offerings 28 → **30** (+2 craft-beer links); Craft Beer venues 26 → **28**. All experiences: 168 → 170 establishments, 180 → 182 offerings (exchange export). Hoàng Sa still withheld.
+- `npm run qa` exit 0: unit **16 / 148** · Food e2e **91** · account e2e **28** · module e2e **42**; `npm run test:db` ALL PASSED.
+
+## Thảo Điền sprint round 1 (2026-11-28, branch `claude/neighbourhood-audit`, original commit f0e062b — rebased onto 8982520)
+- Intake: CC-TDCOFFEE-001 dry run 2/1 → after the new approved-area pin rule 1/2; apply 1/2 (geocodes reused from the dry run). CC-TDSPORT-001 dry run 2/0 → 1/1; apply 1/1. Imported: Anh Coffee Matcha Bar, UFiTU Pilates+ Thảo Điền. Withheld with reasons: Cafe 1/4, Olaben (pins outside the approved area), The Snap Cafe (address conflict). Spa / bars: 0 eligible (recorded in queue.json).
+- Defect found and fixed: two numbered-street geocodes ("Đường số 38", "Đường số 10") landed outside Thảo Đien but passed the 6 km district check → new rule (pin must be inside the approved neighbourhood polygon).
+- Test change: `e2e-modules/journeys.spec.ts` specialty-café filter expectation now derived from the data (was hard-coded 1/13; correct value after the import is 2/13).
+- `npm run qa` exit 0: unit **16 files / 142** · Food e2e **91** · account e2e **28** · module e2e **42**; `npm run test:db` ALL PASSED. Coverage: `npm run data:neighbourhoods` → Thảo Điền 8 venues (bars 4, sport 3, coffee 1).
+
+## KEX-IMPORT-01 + KEX-QA-02 (2026-11-28, review branch `claude/kex-review-2026-11-28`)
+- KEX-IMPORT-01: `tests/unit/unknown-spice.test.ts` (10): omitted/blank spice → unknown (not provided, never 0); legacy numbers and numeric strings kept (incl. a real 0); out-of-range clamped with warning; non-numeric → unknown with warning; merge never erases a recorded level; `spiceWithin` + catalogue filter + Surprise me + Hôm nay ăn gì? exclude unknown below "any"; bundled data all recorded; Supabase NULL ↔ absent round trip. DB (`tests/db/rls.sql`, migration 0009): omitted spice stored NULL; NULL excluded by `spice_level <= 0`; 5 rejected by CHECK; seeded legacy levels all non-null. GPT-CAT-001 rows from PR #1 (scratch copy, importer + merge only, no queue/audit change): both dishes import with spice unknown and are excluded from strict no-spice. Seed SQL byte-identical.
+- KEX-QA-02: see `research-exchange/reports/KEX-QA-02.md`. e2e `KEX-QA-02: street-level pins are labelled approximate` (desktop + Pixel 7). Intake smoke test for the shared-pin warning (throwaway row, artifacts removed). CC-BARS-003 dry run 2 accepted / 0 rejected (apply held).
+- `npm run qa` exit 0: unit **16 files / 142 tests** · Food e2e **91** · account e2e **28** · module e2e **42**; `npm run test:db` **44 checks, ALL PASSED**. Live Supabase: unverified.
+
+## KEX-QA-01 (2026-11-28)
+- `src/lib/food/what-to-eat-report.ts`: headline `dishesWithVenue` now uses `recommend(...).withVenue` (was `.eligible` → 138/138); report shows **36 / 138** = public page; `dishesEligible` (138) reported separately. Regression `tests/unit/what-to-eat-report.test.ts` (3 tests): equals unique real linked dishes and `foodStats().itemsWithEstablishments`; an added unlinked dish does not change the headline; sample-only links never count.
+- Intake determinism: dry-run geocode snapshot reused by apply; per-run report history; dry run never downgrades an imported queue entry. Smoke test (throwaway batch CC-TEST-998: dry run → apply showed "geocodes reused from the dry run" → `--rollback`, artifacts removed; data and queue identical to HEAD).
+- Lint defect found by `npm run qa`: `e2e-modules/journeys.spec.ts` used `require()` (introduced in 9787dc3) — fixed with an ES import.
+- `npm run qa` exit 0: typecheck ✓ · lint ✓ · unit+integration **15 files / 132 tests** · build ✓ · build:e2e ✓ · Food e2e **91** · account e2e (mock Supabase) **28** · module e2e **40**; `npm run test:db` **ALL DB TESTS PASSED** (40). Live Supabase still unverified.
+
 ## Craft beer batch GPT-BARS-001 (BAR-CRAFT-20261128-01) — 2026-11-28
 - Converted with `npm run exchange:convert` (field mapping printed; 2 existing venues matched), dry run → apply via `npm run intake`; report `research-exchange/reports/GPT-BARS-001.md` (per venue: decision, pin precision, geocoder match, reasons).
 - Result: 32 received · 2 existing duplicates merged (ids, names, evidence kept; sources + brand added) · 24 new establishments · 6 rejected with reasons · 24 new offering links (craft-beer) · Bars: 28 unique venues, Craft beer: 26 venues · 0 prices · 0 photos.
-- Note: Nominatim returned a different street-level point for Tiệm Bia Gà – Tên Lửa between the dry run and the apply; the apply run rejected it (conservative).
+- Dry run 27/5 vs apply 26/6: Nominatim returned different street-level points in dry run 3; the apply's points equal dry run 1's (correction of my first note). Analysis + fixes (snapshot reuse, per-run report history) in `research-exchange/reports/GPT-BARS-001-dryrun-vs-apply.md`.
 - Tests: `e2e-modules/journeys.spec.ts` "Bars craft beer batch: live venue counts" (catalogue coverage, item places, item venue rows, map list count = data) desktop + Pixel 7; module suite 40/40; Food 91/91; unit 129/129. Screenshots `docs/screenshots/bars-craft/`.
 - Copy fix: the pilot banner said "verified entries"; now "every entry cites a published source; most are not yet independently verified".
 

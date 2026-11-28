@@ -23,7 +23,10 @@ The repository and the canonical docs below are the source of truth between agen
 | `docs/AGENT_HANDOVER.md` | Coordination between Codex and Claude Code, file ownership, session log |
 | `docs/AUDIT.md` | Feature audit against the PRD with evidence |
 | `docs/EXPERIENCE_ENGINE.md` | Multi-experience architecture: registry, reuse matrix, sequence |
+| `docs/NEIGHBOURHOODS.md`, `docs/NEIGHBOURHOOD_COVERAGE.md` | Neighbourhood-first strategy proposal; generated coverage audit (`npm run data:neighbourhoods`) |
 | `research-exchange/README.md` | Shared research contract, queue and intake workflow (Claude Code · ChatGPT · Codex) |
+| `docs/STAGING_RUNBOOK.md` | Ordered Supabase staging steps: migrations, seed parity, security + account checks, rollback |
+| `docs/FOOD_COVERAGE.md`, `docs/food-coverage.json` | Generated Food coverage (0 / 1–4 / 5+ venues per dish) + scouting priorities (`npm run data:food-coverage`) |
 | `docs/RESTAURANT_VERIFICATION_PLAN.md` | Evidence levels and workflow for HCMC venues |
 | `docs/DATA_REPORT.md`, `docs/VENUE_COVERAGE.md`, `docs/WHAT_TO_EAT_REPORT.md` | Generated data reports (`npm run data:report`, `npm run data:coverage`, `npm run data:what-to-eat`) |
 
@@ -38,6 +41,7 @@ The repository and the canonical docs below are the source of truth between agen
 8. No production deployment, paid services or permission changes without Product Owner approval.
 
 ## Working agreement
+- **`main` is production** (D66): Vercel deploys it and merges to it apply database migrations (D65). Work on a feature/review branch and merge into `main` only when the Product Owner approves. `claude/trusting-clarke-44sf7b` is retired.
 - Run `npm run qa` (typecheck, lint, unit+integration, build, e2e) before declaring work done; record results in `docs/QA_REPORT.md`.
 - Do not mark a feature complete from code inspection alone — it needs a passing test or browser evidence.
 - Data changes go through the importer (`npm run data:import`) and validators, never hand-edited canonical files.

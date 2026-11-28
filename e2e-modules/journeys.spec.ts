@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 
 /**
@@ -51,7 +52,7 @@ test("real Coffee data: sourced cafés per drink, establishment filters, no unve
   await stubCommons(page);
   await page.goto("/coffee/item/?id=ca-phe-trung");
   const rows = page.getByTestId("section-offerings").getByTestId("venue-row");
-  await expect(rows).toHaveCount(4) // Okkio, Góc Hà Nội, Ông Chú Cuội Hẻm, Runam;
+  await expect(rows).toHaveCount(3) // Okkio, Góc Hà Nội, Runam (Ông Chú Cuội Hẻm is closed — D67)
   for (const r of await rows.all()) {
     await expect(r.getByTestId("availability-status")).toHaveAttribute("data-status", "source-listed");
     await expect(r.getByTestId("last-checked")).toBeVisible();
@@ -65,8 +66,13 @@ test("real Coffee data: sourced cafés per drink, establishment filters, no unve
   if (isMobile) await page.getByTestId("open-filters").click();
   await page.getByTestId("filter-est-cafeTypes-specialty").filter({ visible: true }).first().click();
   if (isMobile) await page.keyboard.press("Escape");
-  await expect(page.getByTestId("item-count")).toHaveText("1/13 coffees"); // matching / total
-  await expect(page.getByTestId("item-card")).toHaveAttribute("data-item-id", "pour-over");
+  // expected = drinks offered by at least one café tagged "specialty" (derived from the data, not hard-coded)
+  const coffee = JSON.parse(readFileSync("data/experiences/coffee.json", "utf8"));
+  const specialty = new Set(coffee.establishments.filter((e: { closure?: unknown; attributes?: { cafeTypes?: string[] } }) => !e.closure && e.attributes?.cafeTypes?.includes("specialty")).map((e: { id: string }) => e.id));
+  const expected = [...new Set(coffee.offerings.filter((o: { establishmentId: string }) => specialty.has(o.establishmentId)).map((o: { itemId: string }) => o.itemId))].sort();
+  await expect(page.getByTestId("item-count")).toHaveText(`${expected.length}/${coffee.items.length} coffees`); // matching / total
+  expect((await page.getByTestId("item-card").evaluateAll((xs) => xs.map((x) => x.getAttribute("data-item-id")))).sort()).toEqual(expected);
+  expect(expected).toContain("pour-over");
   await page.getByTestId("clear-filters").first().click();
   await expect(page.getByTestId("item-count")).toHaveText("13 coffees");
   // café page shows its characteristics separately from its drinks
@@ -102,7 +108,7 @@ test("production-like build: no fictional venues, no sample toggle, no developme
 });
 
 test("Bars craft beer batch (GPT-BARS-001): live venue counts on catalogue, item and map", async ({ page }) => {
-  const data = JSON.parse(require("node:fs").readFileSync("data/experiences/bars.json", "utf8"));
+  const data = JSON.parse(readFileSync("data/experiences/bars.json", "utf8"));
   const craft = new Set(data.offerings.filter((o: { itemId: string }) => o.itemId === "craft-beer").map((o: { establishmentId: string }) => o.establishmentId)).size;
   await page.goto("/bars/catalogue/");
   await expect(page.getByTestId("module-coverage").filter({ visible: true })).toContainText(`${data.establishments.length} HCMC places`);
@@ -112,4 +118,14 @@ test("Bars craft beer batch (GPT-BARS-001): live venue counts on catalogue, item
   await page.goto("/bars/nearby/");
   await expect(page.getByTestId("establishment-count")).toHaveText(String(data.establishments.length));
   await expect(page.getByTestId("establishment-card")).toHaveCount(data.establishments.length);
+});
+
+test("KEX-QA-02: street-level pins are labelled approximate; exact pins are not", async ({ page }) => {
+  await page.goto("/bars/nearby/?id=tiem-bia-ga-thao-dien-26b-xuan-thuy");
+  await expect(page.getByTestId("approx-location")).toContainText("Approximate location");
+  await page.goto("/bars/nearby/?id=pasteur-street-craft-beer-thao-dien-120-xuan-thuy");
+  await expect(page.getByTestId("approx-location")).toBeVisible();
+  await page.goto("/bars/nearby/?id=heart-of-darkness-31d-ly-tu-trong"); // exact (mapped POI)
+  await expect(page.getByTestId("establishment-detail")).toBeVisible();
+  await expect(page.getByTestId("approx-location")).toHaveCount(0);
 });

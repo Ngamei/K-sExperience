@@ -43,12 +43,37 @@
       "type": "string",
       "enum": [
         "exact",
+        "building",
         "street"
       ]
     },
     "googleMapsUrl": {
       "type": "string",
       "format": "uri"
+    },
+    "closure": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "temporarily-closed",
+            "permanently-closed"
+          ]
+        },
+        "reportedOn": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 3
+        }
+      },
+      "required": [
+        "status",
+        "reportedOn",
+        "source"
+      ]
     },
     "highlights": {
       "type": "array",

@@ -7,3 +7,13 @@
 {"at":"2026-11-28T05:10:49.013Z","batchId":"GPT-BARS-001","action":"dry-run","result":"ok","accepted":27,"rejected":5,"warnings":0,"file":"research-exchange/inbox/GPT-BARS-001.json"}
 {"at":"2026-11-28T05:11:34.834Z","batchId":"GPT-BARS-001","action":"apply","result":"ok","accepted":26,"rejected":6,"warnings":0,"file":"research-exchange/inbox/GPT-BARS-001.json"}
 {"at":"2026-11-28T05:21:16.511Z","batchId":"GPT-CAT-001","action":"dry-run","result":"ok","accepted":2,"rejected":0,"warnings":0,"file":"research-exchange/inbox/GPT-CAT-001.json"}
+{"at":"2026-11-28T05:31:34.413Z","batchId":"CC-BARS-003","action":"dry-run","result":"ok","accepted":2,"rejected":0,"warnings":0,"file":"research-exchange/inbox/CC-BARS-003.json"}
+{"at":"2026-11-28T05:42:36.412Z","batchId":"CC-TDCOFFEE-001","action":"dry-run","result":"ok","accepted":2,"rejected":1,"warnings":0,"file":"research-exchange/inbox/CC-TDCOFFEE-001.json"}
+{"at":"2026-11-28T05:42:40.206Z","batchId":"CC-TDSPORT-001","action":"dry-run","result":"ok","accepted":2,"rejected":0,"warnings":0,"file":"research-exchange/inbox/CC-TDSPORT-001.json"}
+{"at":"2026-11-28T05:43:08.064Z","batchId":"CC-TDCOFFEE-001","action":"dry-run","result":"ok","accepted":1,"rejected":2,"warnings":0,"file":"research-exchange/inbox/CC-TDCOFFEE-001.json"}
+{"at":"2026-11-28T05:43:12.304Z","batchId":"CC-TDSPORT-001","action":"dry-run","result":"ok","accepted":1,"rejected":1,"warnings":0,"file":"research-exchange/inbox/CC-TDSPORT-001.json"}
+{"at":"2026-11-28T05:43:19.523Z","batchId":"CC-TDCOFFEE-001","action":"apply","result":"ok","accepted":1,"rejected":2,"warnings":1,"file":"research-exchange/inbox/CC-TDCOFFEE-001.json"}
+{"at":"2026-11-28T05:43:20.641Z","batchId":"CC-TDSPORT-001","action":"apply","result":"ok","accepted":1,"rejected":1,"warnings":1,"file":"research-exchange/inbox/CC-TDSPORT-001.json"}
+{"at":"2026-11-28T05:57:07.396Z","batchId":"CC-BARS-003","action":"dry-run","result":"ok","accepted":2,"rejected":0,"warnings":0,"file":"research-exchange/inbox/CC-BARS-003.json"}
+{"at":"2026-11-28T06:10:37.817Z","batchId":"CC-BARS-003","action":"apply","result":"ok","accepted":2,"rejected":0,"warnings":1,"file":"research-exchange/inbox/CC-BARS-003.json"}
+{"at":"2026-11-28T09:15:57.608Z","batchId":"GPT-CAT-001","action":"dry-run","result":"ok","accepted":2,"rejected":0,"warnings":0,"file":"research-exchange/inbox/GPT-CAT-001.json"}

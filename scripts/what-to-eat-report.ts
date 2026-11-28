@@ -6,4 +6,4 @@ import { reportMarkdown, whatToEatReport } from "../src/lib/food/what-to-eat-rep
 const d = getFoodData();
 const r = whatToEatReport(d.dishes, d.restaurants, d.links);
 writeFileSync("docs/WHAT_TO_EAT_REPORT.md", reportMarkdown(r, new Date().toISOString().slice(0, 10)));
-console.log(`✓ docs/WHAT_TO_EAT_REPORT.md — ${r.dishesWithVenue}/${r.totalDishes} dishes recommendable; ${r.presets.filter((p) => p.shown === 0).length} empty presets`);
+console.log(`✓ docs/WHAT_TO_EAT_REPORT.md — ${r.dishesWithVenue}/${r.totalDishes} dishes with a real HCMC venue (${r.dishesEligible} suggestible); ${r.presets.filter((p) => p.shown === 0).length} empty presets`);

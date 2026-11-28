@@ -166,7 +166,16 @@ export function importCatalogue(
     seen.add(id);
 
     const status = slugify(r.verificationStatus ?? (ctx.dataset === "seed" ? "seed-unverified" : "pending-review"));
-    const spice = r.spiceLevel ?? 0;
+    // KEX-IMPORT-01: an omitted/blank spice level stays UNKNOWN (never 0). Legacy numeric values ("2", 2) are kept;
+    // out-of-range numbers are clamped with a warning; non-numeric values are dropped with a warning.
+    let spice: number | undefined;
+    if (r.spiceLevel !== undefined) {
+      if (!Number.isFinite(r.spiceLevel)) warn(`Ignored non-numeric spiceLevel — spice intensity left unknown`);
+      else {
+        spice = Math.max(0, Math.min(3, Math.round(r.spiceLevel)));
+        if (spice !== r.spiceLevel) warn(`spiceLevel ${r.spiceLevel} normalised to ${spice} (allowed 0–3)`);
+      }
+    }
     const prominence = r.prominence ?? 3;
     const sources = typeof r.sources === "string"
       ? r.sources.split(";").map((s) => s.trim()).filter(Boolean).map((s) => (/^https?:\/\//.test(s) ? { title: s, url: s } : { title: s }))
@@ -211,7 +220,7 @@ export function importCatalogue(
       regionIds: [...new Set(origins.map((o) => o.regionId))],
       ingredients: r.ingredients,
       taste: pick(r.taste, TASTES, "taste"),
-      spiceLevel: Math.max(0, Math.min(3, Math.round(spice))),
+      ...(spice !== undefined ? { spiceLevel: spice } : {}),
       dietary: pick(r.dietary, DIETARY, "dietary"),
       mealTimes: pick(r.mealTimes, MEAL_TIMES, "mealTime"),
       description: { en: r.descriptionEn, vi: r.descriptionVi },
@@ -233,7 +242,7 @@ export function importCatalogue(
     if (has("origins")) p.push("origins", "regionIds");
     if (has("ingredients")) p.push("ingredients");
     if (has("taste")) p.push("taste");
-    if (has("spiceLevel")) p.push("spiceLevel");
+    if (has("spiceLevel") && spice !== undefined) p.push("spiceLevel"); // unknown never overwrites a recorded level
     if (has("dietary")) p.push("dietary");
     if (has("mealTimes")) p.push("mealTimes");
     if (has("descriptionEn") || has("descriptionVi")) p.push("description");

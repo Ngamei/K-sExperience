@@ -2,6 +2,8 @@ import type { L } from "@/experiences/registry";
 
 /** Shared engine UI copy (EN/VI). Module-specific nouns come from the registry `terms`. */
 export const COPY = {
+  approxLocation: { en: "Approximate location — only the street could be matched, so the pin may sit at another point on the street (other venues on this street can share it). Use Google Maps for the exact spot.", vi: "Vị trí gần đúng — chỉ khớp được tên đường, nên ghim có thể nằm ở điểm khác trên đường (có thể trùng với quán khác cùng đường). Dùng Google Maps để biết chính xác." },
+  buildingLocation: { en: "Building-level location — the pin marks the building; the venue is a unit inside it (check floor/unit).", vi: "Vị trí theo tòa nhà — ghim là tòa nhà; cơ sở nằm trong tòa (xem tầng/số phòng)." },
   placeOne: { en: "HCMC place", vi: "cơ sở ở TP.HCM" }, placeMany: { en: "HCMC places", vi: "cơ sở ở TP.HCM" }, withPlaces: { en: "with places", vi: "có cơ sở" },
   comingSoon: { en: "This experience is not available yet.", vi: "Trải nghiệm này chưa sẵn sàng." },
   comingSoonBody: { en: "It is being prepared on the shared K's Experience engine. Vietnamese Food is available now.", vi: "Đang được chuẩn bị trên nền tảng chung của K's Experience. Ẩm thực Việt Nam đã sẵn sàng." },

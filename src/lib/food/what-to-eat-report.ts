@@ -20,7 +20,10 @@ export interface WteReport {
   dishes: CoverageRow[];
   venues: { attribute: string; known: number; total: number }[];
   presets: { id: string; name: string; eligible: number; shown: number }[];
+  /** Dishes with at least one REAL (non-sample) HCMC establishment — same count as the public page ("with HCMC places"). */
   dishesWithVenue: number;
+  /** All dishes the engine can suggest (including those without a listed place). */
+  dishesEligible: number;
   totalDishes: number;
 }
 
@@ -66,6 +69,9 @@ export function whatToEatReport(dishes: Dish[], restaurants: Restaurant[], links
     sup("goal", "quick", (d) => ["bread", "rolls", "banh", "rice", "noodles", "porridge"].includes(d.dishType) || prof.get(d.id)!.portion.value === "light"),
     sup("goal", "budget", (d) => ["bread", "rolls", "banh", "rice", "noodles", "noodle-soup", "porridge"].includes(d.dishType) || d.category === "snack", "dish type only — prices mostly unknown"),
     ...BUDGET_PRESETS.filter((b) => b.id !== "any").map((b) => sup("budget", b.id, (d) => links.some((l) => l.dishId === d.id && !l.isSample && l.priceVnd && (b.max === null || l.priceVnd.min <= b.max) && (b.min === null || l.priceVnd.max >= b.min)), "dishes with a RECORDED price in range")),
+    sup("spice", "recorded (0–3)", (d) => d.spiceLevel !== undefined),
+    sup("spice", "no spice (0)", (d) => d.spiceLevel === 0, "unknown intensity never matches"),
+    sup("spice", "unknown", (d) => d.spiceLevel === undefined, "excluded by any spice limit below 'any'"),
     sup("allergens", "known (derived)", (d) => prof.get(d.id)!.allergens.provenance !== "unknown"),
     sup("allergens", "complete (sourced)", (d) => prof.get(d.id)!.allergens.complete),
     sup("occasion", "special dining (needs a place)", (d) => placed.has(d.id)),
@@ -90,7 +96,9 @@ export function whatToEatReport(dishes: Dish[], restaurants: Restaurant[], links
       { attribute: "Dish price at venue (link)", known: realLinks.filter((l) => l.priceVnd).length, total: realLinks.length },
     ],
     presets: PRESETS.map((p) => { const r = recommend(dishes, applyPreset(p), ctx); return { id: p.id, name: p.name.vi, eligible: r.eligible, shown: r.results.length }; }),
-    dishesWithVenue: recommend(dishes, DEFAULT_WTE, ctx).eligible,
+    // KEX-QA-01: the headline is venue-backed (was `.eligible`, which also counts dishes without any place → 138/138).
+    dishesWithVenue: recommend(dishes, DEFAULT_WTE, ctx).withVenue,
+    dishesEligible: recommend(dishes, DEFAULT_WTE, ctx).eligible,
     totalDishes: dishes.length,
   };
 }
@@ -105,7 +113,7 @@ export function reportMarkdown(r: WteReport, generated: string) {
     "Provenance: **sourced** = recorded with a citation (catalogue tags count as sourced); **estimate** = recorded, marked as an estimate;",
     "**derived** = inferred from existing tags (e.g. proteins from `contains-*`, cooking method from dish type); **unknown** = not recorded — the engine never assumes a value.",
     "",
-    `Dishes recommendable with at least one real HCMC venue: **${r.dishesWithVenue} / ${r.totalDishes}**.`,
+    `Dishes recommendable with at least one real HCMC venue: **${r.dishesWithVenue} / ${r.totalDishes}**. All ${r.dishesEligible} dishes can be suggested; the other ${r.dishesEligible - r.dishesWithVenue} appear only as "no HCMC place listed yet".`,
     "",
     "## Dish attributes",
     "",

@@ -56,11 +56,11 @@
     "displayName": "Lê Thánh Tôn, Khu phố 3, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
   },
   "Pasteur Street Craft Beer – Bùi Viện|212 Đề Thám|Quận 1": {
-    "lon": 106.696052,
-    "lat": 10.762988,
-    "precision": "street",
-    "ward": "Phường Cầu Ông Lãnh",
-    "displayName": "Đề Thám, Khu phố 14, Phường Cầu Ông Lãnh, Thành phố Hồ Chí Minh, 71011, Việt Nam"
+    "lon": 106.6940607,
+    "lat": 10.7673944,
+    "precision": "exact",
+    "ward": null,
+    "displayName": "supplied (exact): https://www.openstreetmap.org/node/13541335701"
   },
   "Pasteur Street Craft Beer – Hoàng Sa|221 Hoàng Sa|Quận 1": {
     "lon": 106.675984,
@@ -247,5 +247,12 @@
     "precision": "street",
     "ward": "Phường Bến Thành",
     "displayName": "Nguyễn Thái Bình, Khu phố 17, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "Pasteur Street Craft Beer – Phú Mỹ Hưng|CR5-01, Crescent Residence 5, 8 Trần Văn Trà|Quận 7": {
+    "lon": 106.7208204,
+    "lat": 10.7248058,
+    "precision": "building",
+    "ward": null,
+    "displayName": "supplied (building): https://www.openstreetmap.org/way/1510577907"
   }
 }

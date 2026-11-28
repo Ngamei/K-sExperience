@@ -28,7 +28,7 @@ Local mode remains the default and keeps working without Supabase.
    (accounts & Experience Passport), `0004_link_photos.sql` (dish-at-place photos), `0005_multi_experience.sql`
    (six experience modes incl. Sport, establishments in several modes), `0006_experience_items_offerings.sql`
    (shared engine items + offerings), `0007_establishment_attributes.sql` (establishment attributes; explicit
-   experience tags), `0008_what_to_eat.sql` (eating/dining attributes) — **then** `supabase/seed.sql` (the seed needs 0005–0008; it also loads the Coffee/Bars/Spa/Sport pilot data).
+   experience tags), `0008_what_to_eat.sql` (eating/dining attributes), `0009_unknown_spice.sql` (nullable spice level = unknown), `0010_pin_precision.sql` (building-level pins), `0011_advisor_hardening.sql` (Supabase advisor fixes; no data change), `0012_establishment_closure.sql` (reported closures) — **then** `supabase/seed.sql` (the seed needs 0005–0010; it also loads the Coffee/Bars/Spa/Sport pilot data).
 3. Authentication settings:
    Authentication → URL configuration: Site URL = production URL; Redirect URLs for each environment: `/auth/callback/`, `/reset-password/` and `/admin/` on the production domain, on previews (`https://*-<team>.vercel.app/...`) and on `http://localhost:3000/...`.
    Authentication → Providers: **Email** enabled with "Confirm email" ON; **Google** enabled (Google Cloud Console → OAuth client "Web", authorised redirect URI = `https://<project-ref>.supabase.co/auth/v1/callback`; paste client ID/secret into Supabase — the secret stays in Supabase, never in the app). Apple: later.
@@ -43,6 +43,7 @@ Local mode remains the default and keeps working without Supabase.
 Recommended: a **separate development project** for previews and one for production later (both free tier allows 2 active projects).
 
 ## Security model
+- **Admin access (KEX-SEC-01, D64):** `/admin/` renders editor tools only for a signed-in `user_roles` editor; builds without Supabase show "Admin is not available on this deployment". The UI gate is convenience — RLS is the enforcement (see `tests/db/rls.sql`). Staging steps: `docs/STAGING_RUNBOOK.md`.
 - RLS on every table. Public: read catalogue, provinces, regions, real establishments, non-candidate links, photos. Hidden: candidate links, sample venues, audit, other users' data.
 - Writes to curated content: only users in `user_roles` (`admin`/`editor`), checked by `is_editor()` in every policy, including Storage. Admin roles are separate from ordinary accounts: signing up never grants editing.
 - Personal data (passport, notes, profile, media): owner-only (`auth.uid() = user_id`) on every table; no one else — editors included — can read it. Users delete their own account via `delete_my_account()` (cascades).

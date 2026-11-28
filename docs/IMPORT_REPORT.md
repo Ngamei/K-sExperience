@@ -1,6 +1,6 @@
 # Master catalogue import report
 
-_Generated 2026-11-28 from `../../../../tmp/intake-IjY4ag/dishes.json` (dry run — nothing written)._
+_Generated 2026-11-28 from `../../../../tmp/intake-TSPQPf/dishes.json` (dry run — nothing written)._
 
 | | Count |
 | --- | ---: |

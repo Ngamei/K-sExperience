@@ -275,7 +275,7 @@
         "report": "research-exchange/reports/GPT-CAT-001.md"
       },
       "updatedAt": "2026-11-28",
-      "notes": "First slice: Cơm gà xối mỡ and Bún riêu chay. Both use associated HCMC geography. Hold apply until unknown spice intensity is preserved and tested. No venue links are proposed. See docs/DATA_SOURCES.md."
+      "notes": "Cơm gà xối mỡ and Bún riêu chay. Both use associated HCMC geography. Unknown spice is preserved by KEX-IMPORT-01. Dry-run candidates only, pending separate apply approval."
     },
     {
       "batchId": "GPT-FOOD-001",
@@ -332,6 +332,256 @@
       },
       "updatedAt": "2026-11-28",
       "notes": "External batch id BAR-CRAFT-20261128-01; raw files in research-exchange/incoming/BAR-CRAFT-20261128-01/. Excluded by researcher: 7 Bridges Makers Yard (opens Dec 2026), Ong Cao / LAC / Winking Seal / Tê Tê Nguyễn Văn Thủ (closed), Broma (craft beer unconfirmed)."
+    },
+    {
+      "batchId": "CC-BARS-003",
+      "experience": "bars",
+      "kind": "venues",
+      "scope": "KEX-QA-02: withheld GPT-BARS-001 Pasteur Street branches (Bùi Viện, Phú Mỹ Hưng) with OSM-mapped locations; Hoàng Sa stays withheld",
+      "claims": {
+        "items": [
+          "craft-beer"
+        ],
+        "districts": [
+          "Quận 1",
+          "Quận 7"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms",
+        "https://www.openstreetmap.org/node/13541335701",
+        "https://www.openstreetmap.org/way/1510577907"
+      ],
+      "importStatus": "imported 2026-11-28 (2 venues)",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 2,
+        "rejected": 0,
+        "warnings": 1,
+        "report": "research-exchange/reports/CC-BARS-003.md"
+      },
+      "updatedAt": "2026-11-28",
+      "notes": "KEX-QA-03: pins carry source-derived precision (Bùi Viện exact = OSM POI node 13541335701; Phú Mỹ Hưng building = OSM way 1510577907). Dry run re-run 2026-11-28 with the new pin snapshot. Apply HELD for Codex/PO review (no production push)."
+    },
+    {
+      "batchId": "CC-TDCOFFEE-001",
+      "experience": "coffee",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Thảo Điền — coffee incl. laptop-friendly cafés; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thảo Điền"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [
+        "https://matchaplaces.com/places/plc_016b5fb361-anh-coffee-matcha-bar-wx9hk8",
+        "https://vietcetera.com/en/a-day-in-thao-dien-saigons-cool-neighborhood",
+        "https://au.trip.com/travel-guide/foods/Ho%20Chi%20Minh%20City-434-restaurant/The%20Snap%20Cafe-17201440"
+      ],
+      "importStatus": "imported 2026-11-28 (1 venues)",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 1,
+        "rejected": 2,
+        "warnings": 1,
+        "report": "research-exchange/reports/CC-TDCOFFEE-001.md"
+      },
+      "updatedAt": "2026-11-28",
+      "notes": "Started 2026-11-28 after PO approved the search areas."
+    },
+    {
+      "batchId": "CC-TDSPA-001",
+      "experience": "spa",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Thảo Điền — nail salons, gội đầu dưỡng sinh, massage; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thảo Điền"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "in-progress",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Round 1 (2026-11-28): 0 eligible — Mộc Hương Spa Thảo Điền has conflicting addresses (61 vs 104 Xuân Thủy); Thao Dien Spa (47/1/13 Quốc Hương), Mojo Spa, Eggsy Nails: no named treatment or no address in sources. Next: official menus/booking pages."
+    },
+    {
+      "batchId": "CC-TDSPORT-001",
+      "experience": "sport",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Thảo Điền — Pilates, pickleball; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thảo Điền"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [
+        "https://business.mammothtimes.com/mammothtimes/article/abnewswire-2026-2-4-ufitu-pilates-named-best-reformer-pilates-studio-in-ho-chi-minh-city-vietnam",
+        "https://olaben.com/pages/olaben-studio",
+        "https://olaben.com/en-gb/pages/olaben-store-location"
+      ],
+      "importStatus": "imported 2026-11-28 (1 venues)",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 1,
+        "rejected": 1,
+        "warnings": 1,
+        "report": "research-exchange/reports/CC-TDSPORT-001.md"
+      },
+      "updatedAt": "2026-11-28",
+      "notes": "Started 2026-11-28 after PO approved the search areas."
+    },
+    {
+      "batchId": "CC-TDBARS-001",
+      "experience": "bars",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Thảo Điền — craft beer & cocktail bars; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thảo Điền"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "in-progress",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Round 1 (2026-11-28): 0 eligible — Lost Birds (24A Xuân Thủy), Dram Bar (2 Đặng Hữu Phổ), 86 Proof (109 Xuân Thủy): sources name no specific drink from the catalogue. Next: official menus."
+    },
+    {
+      "batchId": "CC-SALACOFFEE-001",
+      "experience": "coffee",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Sala – Thủ Thiêm — coffee; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thủ Thiêm"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-SALASPA-001",
+      "experience": "spa",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Sala – Thủ Thiêm — nails, spa, massage; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thủ Thiêm"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-SALASPORT-001",
+      "experience": "sport",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Sala – Thủ Thiêm — Pilates, pickleball; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thủ Thiêm"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-SALABARS-001",
+      "experience": "bars",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Sala – Thủ Thiêm — bars; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thủ Thiêm"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-CBDFOOD-001",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Q1 CBD — office lunch, everyday, affordable, special dining — menus + published prices; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Quận 1"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-CBDCOFFEE-001",
+      "experience": "coffee",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Q1 CBD — coffee; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Quận 1"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "GPT-PMHFOOD-001",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Phú Mỹ Hưng (Quận 7) — everyday Vietnamese lunch dishes with no venue inside the Phú Mỹ Hưng polygon (docs/food-coverage.json scouting list): bún bò Huế, cơm tấm, bánh mì, bún chả, phở bò Hà Nội, mì Quảng, hủ tiếu Mỹ Tho; published menus/prices where available",
+      "claims": {
+        "items": [
+          "bun-bo-hue",
+          "com-tam-sai-gon",
+          "banh-mi-sai-gon",
+          "bun-cha-ha-noi",
+          "pho-bo-ha-noi",
+          "mi-quang",
+          "hu-tieu-my-tho"
+        ],
+        "districts": [
+          "Quận 7"
+        ]
+      },
+      "assignedTo": "chatgpt",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Handed from Claude Code (CC-PMHFOOD-001) on 2026-11-28: Claude's sandbox cannot open the Vietnamese guide/delivery sites. Brief: research-exchange/briefs/GPT-PMHFOOD-001.md. Submit to research-exchange/inbox/GPT-PMHFOOD-001.json; Claude Code runs the dry run; nothing reaches production before Codex review + PO approval."
     }
   ]
 }
