@@ -57,7 +57,7 @@ function HeroMedia({ def, s, venueId, name }: { def: BusinessTypeDef; s: Busines
   return (
     <figure className="overflow-hidden rounded-2xl bg-ivory-deep" data-testid="hero-media" data-media="photo" data-kind={photo.kind}>
       {/* eslint-disable-next-line @next/next/no-img-element -- licensed third-party photo (Wikimedia Commons), shown with its credit */}
-      <img src={photo.url} alt={`${name} — ${caption}`} className="h-48 w-full object-cover md:h-64" loading="eager" referrerPolicy="no-referrer" onError={() => setFailed((f) => [...f, photo.url])} data-testid="hero-photo" />
+      <img src={photo.url} alt={`${name} — ${caption}`} className="h-48 w-full object-cover object-[center_30%] md:h-64" loading="eager" referrerPolicy="no-referrer" onError={() => setFailed((f) => [...f, photo.url])} data-testid="hero-photo" />
       <figcaption className="flex flex-wrap items-center justify-between gap-x-3 gap-y-0.5 px-3 py-1.5 text-[11px] text-muted" data-testid="hero-credit">
         <span>{caption}</span>
         <span>{s.photo}: <a href={photo.sourceUrl} target="_blank" rel="noreferrer" className="underline hover:text-forest">{photo.attribution}</a> · {photo.license}</span>

@@ -16,6 +16,18 @@ Environment: Linux cloud container, Node 22.23.5, headless Chromium (Playwright)
 
 **Bug fixed:** the old Settings "Reset my data" (`useUser.reset()`) kept `ownerId`, so for a signed-in user the diff sync treated the emptied device as deletions and removed the account's Passport. Replaced by `clearDevice()` (detaches the device copy first) + `reloadFromAccount()`; the debounced sync also aborts if the device data no longer belongs to the account. Covered by test 6.
 
+### Addendum — venue photos in the profile header (D78, KEX-BIZ-03)
+| Command | Result |
+| --- | --- |
+| `npx tsc --noEmit` · `npm run lint` · `npm run build` | ✅ · ✅ 0 errors · ✅ |
+| `npx vitest run` | ✅ 23 files, **177 tests** (+ venue-photo integrity: real establishments only, no duplicates; licence rule accepts CC BY / BY-SA / CC0 / PD / owner permission, refuses NC / all-rights-reserved / Google Maps) |
+| `npm run test:db` | ✅ ALL DB TESTS PASSED (+ 0015: editor adds a photo (audited), anon reads, anon and customers cannot add, non-https / unknown kind rejected; parity "venue photos: expected 2, got 2") |
+| `npx playwright test` | ✅ **113 passed**, 1 pre-existing skip (+ header photo with caption, author link, licence via a synthetic fixture; failed image → illustration) |
+| `test:e2e-auth` / `test:e2e-modules` | ✅ 50 / 62 (run on the header code before the photo data was added; data change touches one Food venue) |
+| Real photo in the browser (`next start`) | ✅ Bánh Mì Như Lan header loads the Commons photo (naturalWidth 960) on desktop + Pixel 7 — `docs/screenshots/business-profiles/restaurant-photo-*.png` |
+
+**Research (Wikimedia Commons, 28 Nov 2026):** file search for 28 well-known venues + category search (in progress; Commons rate-limits this environment to roughly one request every few minutes). **Accepted:** Bánh Mì Như Lan — 2 exterior photos (Feb 2015, trungydang, CC BY 3.0), each opened and matched to the shop at Hàm Nghi (sign "NHƯ LAN · BÁNH MÌ THỊT NGUỘI"). **Rejected:** "Bánh Canh Cua" (different stall), two Tết flower-market photos returned for Nhà Văn hóa Lao động. No freely licensed photos found for the other 26 searched venues; most venues will need owner permission (KEX-BIZ-04).
+
 ### Addendum — Business Profile Engine (D77, KEX-BIZ-02)
 | Command | Result |
 | --- | --- |
