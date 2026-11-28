@@ -1,0 +1,195 @@
+{
+  "batchId": "PO-GMAPS-003",
+  "experience": "food",
+  "kind": "venues",
+  "agent": "codex",
+  "researchedOn": "2026-11-28",
+  "method": "Google Maps search using the dish name and Hồ Chí Minh, matching the atlas search. Venue names or menus establish the dish. Exact pins were checked against the project HCMC boundary. First pass on the first 14 Section A dishes. Target: at least five verified venues per dish; all five dishes with matches in this batch are still below target.",
+  "venues": [
+    {
+      "name": "Phở Chua Lạng Sơn, Vịt Quay Mắc Mật",
+      "address": "357 Đường Lê Văn Lương",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+L%E1%BA%A1ng+S%C6%A1n,+V%E1%BB%8Bt+Quay+M%E1%BA%AFc+M%E1%BA%ADt/data=!4m7!3m6!1s0x31752f9e55555555:0x748569345902412c!8m2!3d10.7408567!4d106.7044668!16s%2Fg%2F11lly2bygd"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+L%E1%BA%A1ng+S%C6%A1n,+V%E1%BB%8Bt+Quay+M%E1%BA%AFc+M%E1%BA%ADt/data=!4m7!3m6!1s0x31752f9e55555555:0x748569345902412c!8m2!3d10.7408567!4d106.7044668!16s%2Fg%2F11lly2bygd",
+      "lat": 10.7408567,
+      "lon": 106.7044668,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+L%E1%BA%A1ng+S%C6%A1n,+V%E1%BB%8Bt+Quay+M%E1%BA%AFc+M%E1%BA%ADt/data=!4m7!3m6!1s0x31752f9e55555555:0x748569345902412c!8m2!3d10.7408567!4d106.7044668!16s%2Fg%2F11lly2bygd",
+      "dishes": [
+        {
+          "dishId": "pho-chua-lang-son",
+          "evidence": "Venue name explicitly lists Phở Chua Lạng Sơn.",
+          "url": "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+L%E1%BA%A1ng+S%C6%A1n,+V%E1%BB%8Bt+Quay+M%E1%BA%AFc+M%E1%BA%ADt/data=!4m7!3m6!1s0x31752f9e55555555:0x748569345902412c!8m2!3d10.7408567!4d106.7044668!16s%2Fg%2F11lly2bygd"
+        }
+      ],
+      "note": "Google Maps address: Chung cư Hoàng Anh Gia Lai, 357 Đường Lê Văn Lương, P. Phú Thuận, Tân Hưng, Hồ Chí Minh, Vietnam"
+    },
+    {
+      "name": "Phở Chua Thành",
+      "address": "242/101 Nguyễn Thiện Thuật",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+Tha%CC%80nh/data=!4m7!3m6!1s0x31752f203b2345a1:0x690f9b534b1014b7!8m2!3d10.7709965!4d106.6795425!16s%2Fg%2F1vxvfc0m"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+Tha%CC%80nh/data=!4m7!3m6!1s0x31752f203b2345a1:0x690f9b534b1014b7!8m2!3d10.7709965!4d106.6795425!16s%2Fg%2F1vxvfc0m",
+      "lat": 10.7709965,
+      "lon": 106.6795425,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+Tha%CC%80nh/data=!4m7!3m6!1s0x31752f203b2345a1:0x690f9b534b1014b7!8m2!3d10.7709965!4d106.6795425!16s%2Fg%2F1vxvfc0m",
+      "dishes": [
+        {
+          "dishId": "pho-chua-lang-son",
+          "evidence": "Google Maps Menu lists Phở Chua Lạng Sơn.",
+          "url": "https://www.google.com/maps/place/Ph%E1%BB%9F+Chua+Tha%CC%80nh/data=!4m7!3m6!1s0x31752f203b2345a1:0x690f9b534b1014b7!8m2!3d10.7709965!4d106.6795425!16s%2Fg%2F1vxvfc0m"
+        }
+      ],
+      "note": "Google Maps address: 242/101 Nguyễn Thiện Thuật, Bàn Cờ, Hồ Chí Minh, Vietnam"
+    },
+    {
+      "name": "Xôi Khúc Cô Thủy 107/15",
+      "address": "107/15 Đường Lê Văn Duyệt",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/X%C3%B4i+Kh%C3%BAc+C%C3%B4+Th%E1%BB%A7y+107%2F15/data=!4m7!3m6!1s0x3175290002eee705:0x6df03f738af9e969!8m2!3d10.7985925!4d106.6959218!16s%2Fg%2F11vm4j8yc9"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/X%C3%B4i+Kh%C3%BAc+C%C3%B4+Th%E1%BB%A7y+107%2F15/data=!4m7!3m6!1s0x3175290002eee705:0x6df03f738af9e969!8m2!3d10.7985925!4d106.6959218!16s%2Fg%2F11vm4j8yc9",
+      "lat": 10.7985925,
+      "lon": 106.6959218,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/X%C3%B4i+Kh%C3%BAc+C%C3%B4+Th%E1%BB%A7y+107%2F15/data=!4m7!3m6!1s0x3175290002eee705:0x6df03f738af9e969!8m2!3d10.7985925!4d106.6959218!16s%2Fg%2F11vm4j8yc9",
+      "dishes": [
+        {
+          "dishId": "banh-khuc",
+          "evidence": "Google Maps Menu lists Xôi Khúc, also known as bánh khúc.",
+          "url": "https://www.google.com/maps/place/X%C3%B4i+Kh%C3%BAc+C%C3%B4+Th%E1%BB%A7y+107%2F15/data=!4m7!3m6!1s0x3175290002eee705:0x6df03f738af9e969!8m2!3d10.7985925!4d106.6959218!16s%2Fg%2F11vm4j8yc9"
+        }
+      ],
+      "note": "Google Maps address: 107/15 Đường Lê Văn Duyệt, Bình Thạnh, Hồ Chí Minh, Vietnam"
+    },
+    {
+      "name": "Bún Cá Cay Hải Phòng",
+      "address": "H38 Đ. Số 1",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/B%C3%BAn+C%C3%A1+Cay+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x317529bdf5ad45d7:0x2dbf5c2fedbfdfea!8m2!3d10.8114709!4d106.705633!16s%2Fg%2F11kbdbfp71"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/B%C3%BAn+C%C3%A1+Cay+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x317529bdf5ad45d7:0x2dbf5c2fedbfdfea!8m2!3d10.8114709!4d106.705633!16s%2Fg%2F11kbdbfp71",
+      "lat": 10.8114709,
+      "lon": 106.705633,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/B%C3%BAn+C%C3%A1+Cay+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x317529bdf5ad45d7:0x2dbf5c2fedbfdfea!8m2!3d10.8114709!4d106.705633!16s%2Fg%2F11kbdbfp71",
+      "dishes": [
+        {
+          "dishId": "bun-ca-cay-hai-phong",
+          "evidence": "Venue name explicitly lists Bún Cá Cay Hải Phòng.",
+          "url": "https://www.google.com/maps/place/B%C3%BAn+C%C3%A1+Cay+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x317529bdf5ad45d7:0x2dbf5c2fedbfdfea!8m2!3d10.8114709!4d106.705633!16s%2Fg%2F11kbdbfp71"
+        }
+      ],
+      "note": "Google Maps address: H38 Đ. Số 1, Bình Thạnh, Hồ Chí Minh, Vietnam"
+    },
+    {
+      "name": "Canh cá Quỳnh Côi - Quán ăn Cô Dịu",
+      "address": "82 Đường số 79",
+      "venueType": "eatery",
+      "sources": [
+        "https://www.google.com/maps/place/Canh+c%C3%A1+Qu%E1%BB%B3nh+C%C3%B4i+-+Qu%C3%A1n+%C4%83n+C%C3%B4+D%E1%BB%8Bu/data=!4m7!3m6!1s0x31752fe5a00fc7c5:0x72a23dfb58ef2271!8m2!3d10.7402492!4d106.7093063!16s%2Fg%2F11pptfcd5g"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/Canh+c%C3%A1+Qu%E1%BB%B3nh+C%C3%B4i+-+Qu%C3%A1n+%C4%83n+C%C3%B4+D%E1%BB%8Bu/data=!4m7!3m6!1s0x31752fe5a00fc7c5:0x72a23dfb58ef2271!8m2!3d10.7402492!4d106.7093063!16s%2Fg%2F11pptfcd5g",
+      "lat": 10.7402492,
+      "lon": 106.7093063,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/Canh+c%C3%A1+Qu%E1%BB%B3nh+C%C3%B4i+-+Qu%C3%A1n+%C4%83n+C%C3%B4+D%E1%BB%8Bu/data=!4m7!3m6!1s0x31752fe5a00fc7c5:0x72a23dfb58ef2271!8m2!3d10.7402492!4d106.7093063!16s%2Fg%2F11pptfcd5g",
+      "dishes": [
+        {
+          "dishId": "canh-ca-quynh-coi",
+          "evidence": "Venue name explicitly lists Canh cá Quỳnh Côi.",
+          "url": "https://www.google.com/maps/place/Canh+c%C3%A1+Qu%E1%BB%B3nh+C%C3%B4i+-+Qu%C3%A1n+%C4%83n+C%C3%B4+D%E1%BB%8Bu/data=!4m7!3m6!1s0x31752fe5a00fc7c5:0x72a23dfb58ef2271!8m2!3d10.7402492!4d106.7093063!16s%2Fg%2F11pptfcd5g"
+        }
+      ],
+      "note": "Google Maps address: 82 Đường số 79, Tân Hưng, Hồ Chí Minh 72900, Vietnam"
+    },
+    {
+      "name": "Đặc Sản Dê Núi 35A Ninh Bình",
+      "address": "39 Đ. Đặng Thuỳ Trâm",
+      "venueType": "restaurant",
+      "sources": [
+        "https://www.google.com/maps/place/%C4%90%E1%BA%B7c+S%E1%BA%A3n+D%C3%AA+N%C3%BAi+35A+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3175288c7edc70d9:0xf8281161bfe19f8!8m2!3d10.8269237!4d106.7030268!16s%2Fg%2F11c3w8fq5s"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/%C4%90%E1%BA%B7c+S%E1%BA%A3n+D%C3%AA+N%C3%BAi+35A+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3175288c7edc70d9:0xf8281161bfe19f8!8m2!3d10.8269237!4d106.7030268!16s%2Fg%2F11c3w8fq5s",
+      "lat": 10.8269237,
+      "lon": 106.7030268,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/%C4%90%E1%BA%B7c+S%E1%BA%A3n+D%C3%AA+N%C3%BAi+35A+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3175288c7edc70d9:0xf8281161bfe19f8!8m2!3d10.8269237!4d106.7030268!16s%2Fg%2F11c3w8fq5s",
+      "dishes": [
+        {
+          "dishId": "de-nui-ninh-binh",
+          "evidence": "Venue name explicitly lists Dê Núi Ninh Bình.",
+          "url": "https://www.google.com/maps/place/%C4%90%E1%BA%B7c+S%E1%BA%A3n+D%C3%AA+N%C3%BAi+35A+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3175288c7edc70d9:0xf8281161bfe19f8!8m2!3d10.8269237!4d106.7030268!16s%2Fg%2F11c3w8fq5s"
+        }
+      ],
+      "note": "Google Maps address: 39 Đ. Đặng Thuỳ Trâm, Bình Lợi Trung, Hồ Chí Minh, Vietnam"
+    },
+    {
+      "name": "Dê Núi Ninh Bình",
+      "address": "1115 Huỳnh Văn Lũy",
+      "venueType": "restaurant",
+      "sources": [
+        "https://www.google.com/maps/place/D%C3%AA+N%C3%BAi+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3174d035ccc2a74b:0x26c0ea997e0cf2c8!8m2!3d11.0327624!4d106.6812189!16s%2Fg%2F11f15k464q"
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/place/D%C3%AA+N%C3%BAi+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3174d035ccc2a74b:0x26c0ea997e0cf2c8!8m2!3d11.0327624!4d106.6812189!16s%2Fg%2F11f15k464q",
+      "lat": 11.0327624,
+      "lon": 106.6812189,
+      "coordinatePrecision": "exact",
+      "coordinateSource": "https://www.google.com/maps/place/D%C3%AA+N%C3%BAi+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3174d035ccc2a74b:0x26c0ea997e0cf2c8!8m2!3d11.0327624!4d106.6812189!16s%2Fg%2F11f15k464q",
+      "dishes": [
+        {
+          "dishId": "de-nui-ninh-binh",
+          "evidence": "Venue name explicitly lists Dê Núi Ninh Bình.",
+          "url": "https://www.google.com/maps/place/D%C3%AA+N%C3%BAi+Ninh+B%C3%ACnh/data=!4m7!3m6!1s0x3174d035ccc2a74b:0x26c0ea997e0cf2c8!8m2!3d11.0327624!4d106.6812189!16s%2Fg%2F11f15k464q"
+        }
+      ],
+      "note": "Google Maps address: 1115 Huỳnh Văn Lũy, Phú Mỹ, Thủ Dầu Một, Thành Phố mới, Bình Dương, Hồ Chí Minh 75000, Vietnam"
+    }
+  ],
+  "notFound": [
+    {
+      "dishId": "banh-tom-ho-tay",
+      "reason": "Initial search showed out-of-city, permanently closed, or low-review listings without a numbered address."
+    },
+    {
+      "dishId": "com-lang-vong",
+      "reason": "Initial search surfaced Hanoi sellers and HCMC restaurants with Làng Vòng in the brand name, with no verified exact dish."
+    },
+    {
+      "dishId": "banh-troi-banh-chay",
+      "reason": "Initial search surfaced other snacks and vegetarian venues without exact-dish evidence in the results."
+    },
+    {
+      "dishId": "o-mai-hang-duong",
+      "reason": "Initial search surfaced generic ô mai sellers in HCMC and a Hàng Đường shop in Hanoi."
+    },
+    {
+      "dishId": "nem-cua-be-hai-phong",
+      "reason": "The direct HCMC match is marked permanently closed."
+    },
+    {
+      "dishId": "banh-gai-ninh-giang",
+      "reason": "Exact regional results were outside HCMC. HCMC results did not show the dish."
+    },
+    {
+      "dishId": "banh-cay-thai-binh",
+      "reason": "Exact regional results did not provide a qualifying HCMC venue."
+    },
+    {
+      "dishId": "nem-nam-giao-thuy",
+      "reason": "The HCMC results did not meet the scouting brief's review threshold."
+    },
+    {
+      "dishId": "banh-phu-the-dinh-bang",
+      "reason": "Initial search did not establish the exact Đình Bảng variant at an eligible HCMC venue."
+    }
+  ]
+}

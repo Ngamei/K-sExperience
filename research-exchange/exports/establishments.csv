@@ -73,10 +73,10 @@ lau-mam-song-nhi-6-tran-thi-trong,food,Lẩu Mắm Song Nhi,"6 Trần Thị Tr�
 tiem-lau-cu-lao-337-le-van-luong,food,Tiệm Lẩu Cù Lao,"337 Lê Văn Lương, Quận 7, TP. Hồ Chí Minh",Xã Nhà Bè,106.699973,10.716879,street,eatery,1,2026-11-27
 banh-beo-hue-thuy-linh-209-le-van-sy,food,Bánh Bèo Huế Thùy Linh,"209 Lê Văn Sỹ, Quận 3, TP. Hồ Chí Minh",Phường Tân Sơn Hòa,106.665982,10.795976,street,eatery,1,2026-11-27
 banh-beo-xiu-284-le-van-sy,food,Bánh Bèo Xíu,"284 Lê Văn Sỹ, Quận 3, TP. Hồ Chí Minh",Phường Nhiêu Lộc,106.679614,10.78682,street,eatery,1,2026-11-27
-banh-beo-hue-o-trinh-126-bui-thi-xuan,food,Bánh Bèo Huế O Trinh,"126 Bùi Thị Xuân, Quận 1, TP. Hồ Chí Minh",Phường Tân Sơn Hòa,106.665437,10.792243,street,eatery,1,2026-11-27
-goc-hue-ky-dong-41-ky-dong,food,Góc Huế – Kỳ Đồng,"41 Kỳ Đồng, Quận 3, TP. Hồ Chí Minh",Phường Nhiêu Lộc,106.682823,10.783991,street,eatery,2,2026-11-27
+banh-beo-hue-o-trinh-126-bui-thi-xuan,food,Bánh Bèo Huế O Trinh,"126 Bùi Thị Xuân, Quận 1, TP. Hồ Chí Minh",Phường Tân Sơn Hòa,106.665437,10.792243,street,eatery,2,2026-11-27
+goc-hue-ky-dong-41-ky-dong,food,Góc Huế – Kỳ Đồng,"41 Kỳ Đồng, Quận 3, TP. Hồ Chí Minh",Phường Nhiêu Lộc,106.682823,10.783991,street,eatery,3,2026-11-27
 goc-hue-nguyen-thai-binh-155-nguyen-thai-binh,food,Góc Huế – Nguyễn Thái Bình,"155 Nguyễn Thái Bình, Quận 1, TP. Hồ Chí Minh",Phường Bến Thành,106.699386,10.768919,street,eatery,2,2026-11-27
-goc-hue-an-duong-vuong-400-an-duong-vuong,food,Góc Huế – An Dương Vương,"400 An Dương Vương, Quận 5, TP. Hồ Chí Minh",Phường An Đông,106.671751,10.75713,street,eatery,2,2026-11-27
+goc-hue-an-duong-vuong-400-an-duong-vuong,food,Góc Huế – An Dương Vương,"400 An Dương Vương, Quận 5, TP. Hồ Chí Minh",Phường An Đông,106.671751,10.75713,street,eatery,3,2026-11-27
 che-ba-mau-142-nguyen-phi-khanh,food,Chè Ba Màu,"142 Nguyễn Phi Khanh, Quận 1, TP. Hồ Chí Minh",Phường Tân Định,106.69363,10.791741,street,eatery,1,2026-11-27
 che-den-dau-504-nguyen-kiem,food,Chè Đèn Dầu,"504 Nguyễn Kiệm, Phú Nhuận, TP. Hồ Chí Minh",Phường Hạnh Thông,106.678531,10.812559,street,eatery,1,2026-11-27
 che-ngon-co-ba-176-co-giang,food,Chè Ngon Cô Ba,"176 Cô Giang, Quận 1, TP. Hồ Chí Minh",Phường Cầu Ông Lãnh,106.693423,10.761995,exact,eatery,1,2026-11-27
@@ -375,7 +375,7 @@ banh-xeo-tom-nhay-thanh-dieu-33-truong-son,food,Bánh xèo tôm nhảy Thanh Di�
 banh-xeo-gion-gion-438-8-le-hong-phong,food,Bánh xèo Giòn Giòn,"438/8 Lê Hồng Phong, Quận 10, TP. Hồ Chí Minh",Phường Vườn Lài,106.67588,10.763869,street,eatery,1,2026-11-28
 pho-xuan-mai-63-nguyen-thi-nho,food,Phở Xuân Mai,"63 Nguyễn Thị Nhỏ, Quận 6, TP. Hồ Chí Minh",Phường Bình Tây,106.650551,10.75255,exact,eatery,1,2026-11-28
 com-tam-mai-129-doan-van-bo,food,Cơm tấm Mai,"129 Đoàn Văn Bơ, Quận 4, TP. Hồ Chí Minh",Phường Khánh Hội,106.709392,10.759966,street,eatery,1,2026-11-28
-quan-an-hue-3-met-21-4-le-hoang-phai,food,Quán Ăn Huế 3 Mẹt,"21/4 Lê Hoàng Phái, Gò Vấp, TP. Hồ Chí Minh",Phường Gò Vấp,106.675354,10.841008,street,eatery,1,2026-11-28
+quan-an-hue-3-met-21-4-le-hoang-phai,food,Quán Ăn Huế 3 Mẹt,"21/4 Lê Hoàng Phái, Gò Vấp, TP. Hồ Chí Minh",Phường Gò Vấp,106.675354,10.841008,street,eatery,2,2026-11-28
 bun-oc-thanh-hai-14-12-ky-dong,food,Bún ốc Thanh Hải,"14/12 Kỳ Đồng, Quận 3, TP. Hồ Chí Minh",Phường Nhiêu Lộc,106.682823,10.783991,street,eatery,1,2026-11-28
 bun-oc-suon-co-sau-457-hai-ba-trung,food,Bún ốc sườn cô Sáu,"457 Hai Bà Trưng, Quận 3, TP. Hồ Chí Minh",Phường Xuân Hòa,106.695405,10.785137,street,eatery,1,2026-11-28
 bun-oc-song-anh-100-nguyen-van-dau,food,Bún Ốc Song Anh,"100 Nguyễn Văn Đậu, Bình Thạnh, TP. Hồ Chí Minh",Phường Bình Lợi Trung,106.693094,10.812343,street,eatery,1,2026-11-28
@@ -438,6 +438,24 @@ banh-mi-que-pate-gia-truyen-quan-mau-hai-phong-154-duong-so-2,food,Bánh mì que
 banh-mi-que-pate-hai-phong-me-nam-291-45-nguyen-hong-dao,food,Bánh mì que pate Hải Phòng Mẹ Nấm,"291/45 Nguyễn Hồng Đào, Tân Bình, TP. Hồ Chí Minh",Tân Bình,106.6433419,10.7954887,exact,eatery,1,2026-11-28
 the-bready-banh-mi-pate-que-hai-phong-686-6-cach-mang-thang-8,food,The Bready - Bánh Mì Pate Que Hải Phòng,"686/6 Cách Mạng Tháng 8, Tân Bình, TP. Hồ Chí Minh",Tân Bình,106.6639547,10.7875303,exact,eatery,1,2026-11-28
 tam-cook-plus-pate-cot-den-dac-san-hai-phong-banh-mi-va-banh-mi-que-100-pham-ngu-lao,food,"Tâm cook Plus - Pate cột đèn đặc sản Hải Phòng, bánh mì và bánh mì que","100 Phạm Ngũ Lão, Gò Vấp, TP. Hồ Chí Minh",Gò Vấp,106.6822585,10.8227371,exact,eatery,1,2026-11-28
+banh-cuon-nong-cao-bang-33-khu-pho-hung-gia-1,food,Bánh Cuốn Nóng Cao Bằng,"33 Khu Phố Hưng Gia 1, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.7090776,10.733296,exact,eatery,1,2026-11-28
+bao-chau-quan-banh-cuon-cao-bang-590-nguyen-thi-dinh,food,Bảo Châu Quán - Bánh cuốn Cao Bằng,"590 Nguyễn Thị Định, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.7645232,10.7775189,exact,eatery,1,2026-11-28
+quan-an-hue-3-met-banh-beo-nam-loc-com-bun-hen-hen-xuc-banh-da-nem-cha-hue-1b-hoa-cau,food,"Quán Ăn Huế 3 Mẹt: Bánh Bèo Nậm Lọc, Cơm Bún Hến, Hến Xúc Bánh Đa, Nem Chả Huế","1B Hoa Cau, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.6876635,10.7996265,exact,eatery,1,2026-11-28
+quan-banh-beo-hue-ngoc-tram-121-d-ho-ba-kien,food,Quán Bánh Bèo Huế Ngọc Trâm,"121 Đ. Hồ Bá Kiện, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.6666458,10.7828649,exact,eatery,1,2026-11-28
+banh-beo-hue-120-d-huynh-man-dat,food,Bánh bèo Huế,"120 Đ. Huỳnh Mẫn Đạt, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.6763564,10.7567543,exact,eatery,1,2026-11-28
+banh-mi-hoi-an-nang-ut-55-d-nguyen-van-cong,food,Bánh Mì Hội An Nàng Út,"55 Đ. Nguyễn Văn Công, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.6774882,10.8240907,exact,eatery,1,2026-11-28
+banh-mi-an-hoi-an-410b-duong-le-van-luong,food,Bánh mì An Hội An,"410B Đường Lê Văn Lương, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.7032159,10.7384144,exact,eatery,1,2026-11-28
+banh-mi-ong-hoi-hoi-an-banh-mi-phu-my-hung-bread-phu-my-hung-62-khu-pho-hung-phuoc-3,food,Bánh Mì Ông Hội Hội An | Bánh Mì Phú Mỹ Hưng | Bread Phu My Hung,"62 Khu Phố Hưng Phước 3, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.7074393,10.7301835,exact,eatery,1,2026-11-28
+banh-mi-hoi-an-madam-thanh-19-tran-mai-ninh,food,Bánh mì Hội An Madam Thanh,"19 Trần Mai Ninh, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.6479777,10.7938,exact,eatery,1,2026-11-28
+chan-chan-banh-mi-hoi-an-94c2-d-phung-van-cung,food,Chan Chan - Bánh Mì Hội An,"94C2 Đ. Phùng Văn Cung, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.68475,10.8018333,exact,eatery,1,2026-11-28
+don-quan-an-quang-ngai-298-2a-d-le-van-quoi,food,DON-Quán ăn Quảng Ngãi,"298/2A Đ. Lê Văn Quới, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.6080242,10.7766673,exact,eatery,1,2026-11-28
+pho-chua-lang-son-vit-quay-mac-mat-357-duong-le-van-luong,food,"Phở Chua Lạng Sơn, Vịt Quay Mắc Mật","357 Đường Lê Văn Lương, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.7044668,10.7408567,exact,eatery,1,2026-11-28
+pho-chua-thanh-242-101-nguyen-thien-thuat,food,Phở Chua Thành,"242/101 Nguyễn Thiện Thuật, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.6795425,10.7709965,exact,eatery,1,2026-11-28
+xoi-khuc-co-thuy-107-15-107-15-duong-le-van-duyet,food,Xôi Khúc Cô Thủy 107/15,"107/15 Đường Lê Văn Duyệt, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.6959218,10.7985925,exact,eatery,1,2026-11-28
+bun-ca-cay-hai-phong-h38-d-so-1,food,Bún Cá Cay Hải Phòng,"H38 Đ. Số 1, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.705633,10.8114709,exact,eatery,1,2026-11-28
+canh-ca-quynh-coi-quan-an-co-diu-82-duong-so-79,food,Canh cá Quỳnh Côi - Quán ăn Cô Dịu,"82 Đường số 79, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.7093063,10.7402492,exact,eatery,1,2026-11-28
+dac-san-de-nui-35a-ninh-binh-39-d-dang-thuy-tram,food,Đặc Sản Dê Núi 35A Ninh Bình,"39 Đ. Đặng Thuỳ Trâm, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.7030268,10.8269237,exact,restaurant,1,2026-11-28
+de-nui-ninh-binh-1115-huynh-van-luy,food,Dê Núi Ninh Bình,"1115 Huỳnh Văn Lũy, TP. Hồ Chí Minh",TP. Hồ Chí Minh,106.6812189,11.0327624,exact,restaurant,1,2026-11-28
 stir-modern-classic-cocktail-bar,bars,Stir Modern Classic Cocktail Bar,"136 Lê Thánh Tôn, Quận 1, TP. Hồ Chí Minh",Phường Sài Gòn,106.705483,10.781661,exact,cocktail bar,1,2026-11-27
 pasteur-street-brewing-pasteur,bars,Pasteur Street Brewing Company,"144 Pasteur, Quận 1, TP. Hồ Chí Minh",Phường Sài Gòn,106.700746,10.775184,exact,taproom,1,2026-11-27
 east-west-brewing-ly-tu-trong,bars,East West Brewing Co.,"181-185 Lý Tự Trọng, Quận 1, TP. Hồ Chí Minh",Phường Bến Thành,106.695916,10.773065,exact,brewpub,1,2026-11-28

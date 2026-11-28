@@ -38,3 +38,7 @@
 {"at":"2026-11-28T15:49:47.985Z","batchId":"GPT-CAT-003","action":"apply","result":"ok","accepted":20,"rejected":0,"warnings":0,"file":"research-exchange/inbox/GPT-CAT-003.json"}
 {"at":"2026-11-28T15:57:01.268Z","batchId":"CC-FOOD-012","action":"dry-run","result":"ok","accepted":2,"rejected":4,"warnings":1,"file":"research-exchange/inbox/CC-FOOD-012.json"}
 {"at":"2026-11-28T15:57:07.310Z","batchId":"CC-FOOD-012","action":"apply","result":"ok","accepted":2,"rejected":4,"warnings":1,"file":"research-exchange/inbox/CC-FOOD-012.json"}
+{"at":"2026-11-28T16:46:55.641Z","batchId":"PO-GMAPS-003","action":"dry-run","result":"ok","accepted":7,"rejected":0,"warnings":0,"file":"research-exchange/inbox/PO-GMAPS-003.json"}
+{"at":"2026-11-28T16:46:57.033Z","batchId":"PO-GMAPS-003","action":"apply","result":"ok","accepted":7,"rejected":0,"warnings":1,"file":"research-exchange/inbox/PO-GMAPS-003.json"}
+{"at":"2026-11-28T16:46:57.694Z","batchId":"PO-GMAPS-002","action":"dry-run","result":"ok","accepted":15,"rejected":0,"warnings":0,"file":"research-exchange/inbox/PO-GMAPS-002.json"}
+{"at":"2026-11-28T16:46:58.821Z","batchId":"PO-GMAPS-002","action":"apply","result":"ok","accepted":15,"rejected":0,"warnings":1,"file":"research-exchange/inbox/PO-GMAPS-002.json"}

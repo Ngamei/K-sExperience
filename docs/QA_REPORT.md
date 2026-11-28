@@ -1,5 +1,12 @@
 # QA report
 
+## Google Maps venue intake (2026-11-28)
+
+- `PO-GMAPS-003` (renamed from the scouting attachment `PO-GMAPS-001`) and `PO-GMAPS-002` passed dry run and apply on `main` at `e3ad225`. Intake accepted 22 records and rejected none. Four matched existing venue IDs.
+- Regenerated seed SQL, Food coverage, experience and neighbourhood reports, profile completeness, and research-exchange exports. The Food catalogue gained 18 venues and 22 dish links. All existing venue and link IDs survived.
+- `npm run qa` passed type checking, lint with one existing warning, 217 unit and integration tests, and both the production and local browser-test builds. The Playwright stage could not run with the required Chromium executable. Its download returned HTTP 403 and a fallback smoke test timed out. Database checks are pending in GitHub Actions.
+- A direct call to the Food catalogue route returned 457 venues and 466 links, including seven for Bánh bột lọc Huế and five for Bánh mì Hội An. All 12 links cite exact Google Maps listings. The four existing venue profiles retained their prior location and directions fields.
+
 ## Sprint 4 — launch readiness (2026-11-28, branch `claude/k-experience-priorities-iy63kn`)
 
 Scope: menu unlocks + default Plus + Founding Member (0016), report incorrect information (0017), CC-ENRICH-Q1Q3PNBT-001 (52 venues), profile completeness dashboard; merged with `origin/main` @ `cdb070a`. Environment: Linux cloud container, headless Chromium, local PostgreSQL 16 + PostGIS 3. Run step by step (equivalent to `npm run qa` + `npm run test:db`).
