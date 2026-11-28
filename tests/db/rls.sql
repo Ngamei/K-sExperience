@@ -395,5 +395,133 @@ do $$ begin
 exception when check_violation then insert into results values ('unknown photo kind rejected', true); end $$;
 delete from venue_photos where url = 'https://upload.wikimedia.org/x.jpg';
 
+-- 0017 info reports ---------------------------------------------------------------------------------------
+-- "Report incorrect information": anyone files a NEW report; only staff read all and triage; no client deletes.
+reset role;
+insert into auth.users values ('00000000-0000-0000-0000-000000000017');
+create temp table r17_before as select (select name from restaurants where id = 'pho-hoa-pasteur') as name, (select address from restaurants where id = 'pho-hoa-pasteur') as address;
+grant select on r17_before to anon, authenticated;
+-- (a) guest: insert allowed (return=minimal), cannot set status / reviewer / reporter / photo, cannot read back
+set role anon;
+set request.jwt.claim.sub = '';
+insert into info_reports (establishment_id, experience, category, details, evidence_url, contact_email)
+  values ('pho-hoa-pasteur', 'food', 'incorrect-hours', 'Closes at 21:00 now, not 22:00.', 'https://example.com/post', 'guest@example.com');
+do $$ begin
+  begin insert into info_reports (establishment_id, experience, category, details, status) values ('pho-hoa-pasteur', 'food', 'other', 'forced resolved status', 'resolved');
+  insert into results values ('guest cannot file a report as resolved', false);
+  exception when others then insert into results values ('guest cannot file a report as resolved', true); end;
+  begin insert into info_reports (establishment_id, experience, category, details, reviewed_by, reviewed_at, resolution_note) values ('pho-hoa-pasteur', 'food', 'other', 'forged reviewer fields', '00000000-0000-0000-0000-000000000007', now(), 'ok');
+  insert into results values ('guest cannot set reviewer fields', false);
+  exception when others then insert into results values ('guest cannot set reviewer fields', true); end;
+  begin insert into info_reports (establishment_id, experience, category, details, reporter_id) values ('pho-hoa-pasteur', 'food', 'other', 'impersonating a user', '00000000-0000-0000-0000-000000000006');
+  insert into results values ('guest cannot attribute a report to a user', false);
+  exception when others then insert into results values ('guest cannot attribute a report to a user', true); end;
+  begin insert into info_reports (establishment_id, experience, category, details, evidence_photo_path) values ('pho-hoa-pasteur', 'food', 'incorrect-photo', 'photo without account', '00000000-0000-0000-0000-000000000006/x.jpg');
+  insert into results values ('guest cannot attach a photo path', false);
+  exception when others then insert into results values ('guest cannot attach a photo path', true); end;
+  begin insert into info_reports (establishment_id, experience, category, details) values ('pho-hoa-pasteur', 'food', 'hacked', 'unknown category here');
+  insert into results values ('unknown report category rejected', false);
+  exception when check_violation then insert into results values ('unknown report category rejected', true); end;
+  begin insert into info_reports (establishment_id, experience, category, details) values ('pho-hoa-pasteur', 'food', 'other', 'x');
+  insert into results values ('too-short details rejected', false);
+  exception when check_violation then insert into results values ('too-short details rejected', true); end;
+  begin insert into info_reports (establishment_id, experience, category, details) values ('pho-hoa-pasteur', 'food', 'other', repeat('x', 2001));
+  insert into results values ('too-long details rejected', false);
+  exception when check_violation then insert into results values ('too-long details rejected', true); end;
+  begin insert into info_reports (establishment_id, experience, category, details, evidence_url) values ('pho-hoa-pasteur', 'food', 'other', 'javascript evidence', 'javascript:alert(1)');
+  insert into results values ('non-http evidence URL rejected', false);
+  exception when check_violation then insert into results values ('non-http evidence URL rejected', true); end;
+  begin insert into info_reports (establishment_id, experience, category, details) values ('no-such-venue', 'food', 'other', 'venue does not exist');
+  insert into results values ('report on unknown establishment rejected', false);
+  exception when others then insert into results values ('report on unknown establishment rejected', true); end;
+end $$;
+insert into results select 'guest cannot read reports (not even their own)', count(*) = 0 from info_reports;
+do $$ begin
+  begin update info_reports set status = 'resolved'; exception when others then null; end;
+  begin delete from info_reports; exception when others then null; end;
+end $$;
+reset role;
+insert into results select 'guest report stored as new, unattributed, unreviewed', count(*) = 1 and bool_and(status = 'new' and reporter_id is null and reviewed_by is null and reviewed_at is null)
+  from info_reports where establishment_id = 'pho-hoa-pasteur' and category = 'incorrect-hours';
+insert into results select 'guest update/delete had no effect', count(*) = 1 and bool_and(status = 'new') from info_reports;
+-- (b) signed-in customer: report attributed to them, photo only from own folder, reads own reports only
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000017';
+insert into storage.objects (bucket_id, name) values ('report-evidence', '00000000-0000-0000-0000-000000000017/r1.jpg');
+do $$ begin
+  begin insert into storage.objects (bucket_id, name) values ('report-evidence', '00000000-0000-0000-0000-000000000006/r1.jpg');
+  insert into results values ('report evidence upload only into own folder', false);
+  exception when others then insert into results values ('report evidence upload only into own folder', true); end;
+end $$;
+insert into results select 'reporter cannot read evidence (staff only)', count(*) = 0 from storage.objects where bucket_id = 'report-evidence';
+insert into info_reports (establishment_id, establishment_name, experience, category, details, evidence_photo_path)
+  values ('pho-hoa-pasteur', 'Phở Hòa Pasteur', 'food', 'incorrect-photo', 'The header photo is another shop.', '00000000-0000-0000-0000-000000000017/r1.jpg');
+insert into info_reports (establishment_id, experience, category, details) values ('pickoland-thao-dien', 'sport', 'incorrect-phone', 'Phone number rings a different business.');
+do $$ begin
+  begin insert into info_reports (establishment_id, experience, category, details, evidence_photo_path) values ('pho-hoa-pasteur', 'food', 'incorrect-photo', 'someone else folder photo', '00000000-0000-0000-0000-000000000006/r1.jpg');
+  insert into results values ('reporter cannot attach a photo from another folder', false);
+  exception when others then insert into results values ('reporter cannot attach a photo from another folder', true); end;
+end $$;
+insert into results select 'signed-in report attributed to the caller', count(*) = 2 and bool_and(reporter_id = '00000000-0000-0000-0000-000000000017') from info_reports;
+insert into results select 'reporter reads own reports only', count(*) = 2 from info_reports;
+update info_reports set status = 'resolved', resolution_note = 'self-resolved';
+reset role;
+insert into results select 'reporter cannot triage own report', count(*) = 0 from info_reports where status <> 'new';
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000006';  -- another customer (Premium)
+insert into results select 'other customer (even Premium) cannot read reports', count(*) = 0 from info_reports;
+update info_reports set status = 'rejected';
+reset role;
+insert into results select 'non-staff update had no effect', count(*) = 0 from info_reports where status <> 'new';
+-- (c) abuse guard: 10 per signed-in reporter / 24 h; 5 guest reports per establishment / hour
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000017';
+insert into info_reports (establishment_id, experience, category, details) select 'pho-hoa-pasteur', 'food', 'other', 'burst report ' || g from generate_series(1, 8) g;
+do $$ begin
+  insert into info_reports (establishment_id, experience, category, details) values ('pho-hoa-pasteur', 'food', 'other', 'eleventh report today');
+  insert into results values ('11th report in 24 h refused', false);
+exception when others then insert into results values ('11th report in 24 h refused', sqlerrm like 'report_rate_limited:reporter%'); end $$;
+reset role;
+set role anon;
+set request.jwt.claim.sub = '';
+insert into info_reports (establishment_id, experience, category, details) select 'banh-mi-huynh-hoa', 'food', 'other', 'guest burst ' || g from generate_series(1, 5) g;
+do $$ begin
+  insert into info_reports (establishment_id, experience, category, details) values ('banh-mi-huynh-hoa', 'food', 'other', 'sixth guest report');
+  insert into results values ('6th guest report per establishment per hour refused', false);
+exception when others then insert into results values ('6th guest report per establishment per hour refused', sqlerrm like 'report_rate_limited:establishment%'); end $$;
+insert into info_reports (establishment_id, experience, category, details) values ('pho-hoa-pasteur', 'food', 'other', 'another venue still accepted');
+reset role;
+insert into results select 'guest limit is per establishment', count(*) = 2 from info_reports where reporter_id is null and establishment_id = 'pho-hoa-pasteur';
+-- (d) staff: a reviewer reads all + evidence and triages (stamped + audited); report body immutable; no delete
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000008';  -- reviewer
+insert into results select 'staff reads every report', count(*) = 17 from info_reports;
+insert into results select 'staff reads report evidence', count(*) = 1 from storage.objects where bucket_id = 'report-evidence';
+update info_reports set status = 'reviewing', resolution_note = 'Checking the venue page.' where category = 'incorrect-photo';
+do $$ begin
+  update info_reports set details = 'rewritten by staff' where category = 'incorrect-photo';
+  insert into results values ('report body cannot be rewritten', false);
+exception when others then insert into results values ('report body cannot be rewritten', true); end $$;
+do $$ begin
+  update info_reports set status = 'archived' where category = 'incorrect-photo';
+  insert into results values ('unknown report status rejected', false);
+exception when check_violation then insert into results values ('unknown report status rejected', true); end $$;
+delete from info_reports;
+reset role;
+insert into results select 'staff triage stamped with reviewer + time', status = 'reviewing' and reviewed_by = '00000000-0000-0000-0000-000000000008' and reviewed_at is not null and resolution_note = 'Checking the venue page.'
+  from info_reports where category = 'incorrect-photo';
+insert into results select 'staff status change audited', count(*) = 1 from content_audit c join info_reports r on c.row_key = r.id::text
+  where c.table_name = 'info_reports' and r.category = 'incorrect-photo' and c.action = 'UPDATE' and c.changed_by = '00000000-0000-0000-0000-000000000008' and c.new_row->>'status' = 'reviewing';
+insert into results select 'no client can delete reports', count(*) = 17 from info_reports;
+insert into results select 'reports never change the listing', r.name = b.name and r.address = b.address from restaurants r, r17_before b where r.id = 'pho-hoa-pasteur';
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000007';  -- admin resolves
+update info_reports set status = 'resolved', resolution_note = 'Photo removed by editor.' where category = 'incorrect-photo';
+reset role;
+insert into results select 'admin resolves a report', status = 'resolved' and reviewed_by = '00000000-0000-0000-0000-000000000007' from info_reports where category = 'incorrect-photo';
+insert into results select 'info_reports trigger functions not executable by API roles', not has_function_privilege('anon', 'info_report_before_insert()', 'execute')
+  and not has_function_privilege('anon', 'audit_info_report()', 'execute') and not has_function_privilege('anon', 'info_report_before_update()', 'execute');
+-- end 0017 info reports -----------------------------------------------------------------------------------
+
 select (case when ok then 'PASS ' else 'FAIL ' end) || name from results;
 select case when bool_and(ok) then 'ALL DB TESTS PASSED' else 'DB TESTS FAILED' end from results;

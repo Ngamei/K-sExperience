@@ -114,7 +114,7 @@ test("admin: full portal, grants a test entitlement that the customer then sees"
   await mock(`/__role?email=${encodeURIComponent(adminEmail)}&role=admin`);
   await page.goto("/admin/");
   await expect(page.getByTestId("admin-role")).toContainText("Admin · editor");
-  for (const s of ["overview", "business", "catalogue", "menus", "nutrition", "research", "quality", "users", "billing", "system", "audit"]) {
+  for (const s of ["overview", "business", "catalogue", "menus", "nutrition", "research", "quality", "reports", "users", "billing", "system", "audit"]) {
     await page.getByTestId(`admin-section-${s}`).click();
     await expect(page.getByTestId("admin")).toHaveAttribute("data-section", s);
   }
