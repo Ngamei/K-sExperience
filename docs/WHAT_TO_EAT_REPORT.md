@@ -5,7 +5,7 @@ Generated 2026-11-28 by `npm run data:what-to-eat`. Do not edit by hand.
 Provenance: **sourced** = recorded with a citation (catalogue tags count as sourced); **estimate** = recorded, marked as an estimate;
 **derived** = inferred from existing tags (e.g. proteins from `contains-*`, cooking method from dish type); **unknown** = not recorded — the engine never assumes a value.
 
-Dishes recommendable with at least one real HCMC venue: **39 / 138**. All 138 dishes can be suggested; the other 99 appear only as "no HCMC place listed yet".
+Dishes recommendable with at least one real HCMC venue: **43 / 138**. All 138 dishes can be suggested; the other 95 appear only as "no HCMC place listed yet".
 
 ## Dish attributes
 
@@ -29,11 +29,11 @@ Dishes recommendable with at least one real HCMC venue: **39 / 138**. All 138 di
 
 | Attribute | Known | Coverage |
 | --- | ---: | ---: |
-| Price range | 1 / 383 | 0% |
-| Opening hours | 135 / 383 | 35% |
-| Delivery links | 0 / 383 | 0% |
-| Dining attributes (atmosphere, occasions) | 0 / 383 | 0% |
-| Dish price at venue (link) | 1 / 388 | 0% |
+| Price range | 1 / 437 | 0% |
+| Opening hours | 167 / 437 | 38% |
+| Delivery links | 0 / 437 | 0% |
+| Dining attributes (atmosphere, occasions) | 0 / 437 | 0% |
+| Dish price at venue (link) | 1 / 442 | 0% |
 
 Unknown venue values never exclude a dish: budget, open-now, delivery and atmosphere filters add a caution instead.
 
@@ -42,33 +42,33 @@ Unknown venue values never exclude a dish: budget, open-now, delivery and atmosp
 | Filter | Value | Dishes | With an HCMC place | Note |
 | --- | --- | ---: | ---: | --- |
 | meal | breakfast | 46 | 21 |  |
-| meal | lunch | 67 | 24 |  |
-| meal | dinner | 50 | 12 |  |
-| meal | snack | 48 | 10 |  |
-| meal | late-night | 11 | 6 |  |
+| meal | lunch | 67 | 25 |  |
+| meal | dinner | 50 | 14 |  |
+| meal | snack | 48 | 12 |  |
+| meal | late-night | 11 | 8 |  |
 | diet | vegetarian | 29 | 4 | includes dishes with a common vegetarian version |
 | diet | vegan | 21 | 1 |  |
-| diet | no-pork | 84 | 19 |  |
-| diet | no-beef | 130 | 34 |  |
-| diet | no-seafood | 82 | 17 |  |
-| diet | no-peanut | 126 | 35 |  |
-| diet | no-offal | 133 | 38 |  |
-| goal | balanced | 56 | 22 | derived from taste/cooking tags |
-| goal | weight | 46 | 19 | derived; no calorie data |
-| goal | protein | 112 | 38 | derived from contains-* tags |
-| goal | quick | 76 | 20 |  |
-| goal | budget | 91 | 32 | dish type only — prices mostly unknown |
+| diet | no-pork | 84 | 21 |  |
+| diet | no-beef | 130 | 38 |  |
+| diet | no-seafood | 82 | 20 |  |
+| diet | no-peanut | 126 | 39 |  |
+| diet | no-offal | 133 | 42 |  |
+| goal | balanced | 56 | 24 | derived from taste/cooking tags |
+| goal | weight | 46 | 21 | derived; no calorie data |
+| goal | protein | 112 | 42 | derived from contains-* tags |
+| goal | quick | 76 | 22 |  |
+| goal | budget | 91 | 35 | dish type only — prices mostly unknown |
 | budget | u30 | 0 | 0 | dishes with a RECORDED price in range |
 | budget | u50 | 1 | 1 | dishes with a RECORDED price in range |
 | budget | u100 | 1 | 1 | dishes with a RECORDED price in range |
 | budget | 100-300 | 0 | 0 | dishes with a RECORDED price in range |
 | budget | 300+ | 0 | 0 | dishes with a RECORDED price in range |
-| spice | recorded (0–3) | 138 | 39 |  |
+| spice | recorded (0–3) | 138 | 43 |  |
 | spice | no spice (0) | 78 | 20 | unknown intensity never matches |
 | spice | unknown | 0 | 0 | excluded by any spice limit below 'any' |
-| allergens | known (derived) | 138 | 39 |  |
+| allergens | known (derived) | 138 | 43 |  |
 | allergens | complete (sourced) | 0 | 0 |  |
-| occasion | special dining (needs a place) | 39 | 39 |  |
+| occasion | special dining (needs a place) | 43 | 43 |  |
 | atmosphere | recorded | 0 | 0 |  |
 | nutrition | recorded | 0 | 0 |  |
 
@@ -94,15 +94,15 @@ By default meal time only ranks, so these combinations still return dishes; they
 | Bữa ăn giàu protein (`giau-protein`) | 138 | 6 |
 | Cơm nhà (`com-nha`) | 138 | 6 |
 | Hôm nay ăn chay (`an-chay`) | 29 | 4 |
-| Hẹn hò tối nay (`hen-ho`) | 39 | 6 |
+| Hẹn hò tối nay (`hen-ho`) | 43 | 6 |
 | Đi ăn cùng bạn bè (`ban-be`) | 138 | 6 |
-| Tự thưởng cho mình (`tu-thuong`) | 39 | 6 |
+| Tự thưởng cho mình (`tu-thuong`) | 43 | 6 |
 | Hôm nay ăn món lạ (`mon-la`) | 138 | 6 |
 | Ăn khuya Sài Gòn (`an-khuya`) | 138 | 6 |
 | Món ăn nhẹ nhàng (`nhe-nhang`) | 132 | 6 |
 | Ăn hằng ngày (`hang-ngay`) | 138 | 6 |
 | Ăn nhanh (`nhanh-gon`) | 138 | 6 |
 | Giữ dáng lành mạnh (`giu-dang`) | 138 | 6 |
-| Ăn cùng gia đình (`gia-dinh`) | 39 | 6 |
-| Ăn sang (`cao-cap`) | 39 | 6 |
+| Ăn cùng gia đình (`gia-dinh`) | 43 | 6 |
+| Ăn sang (`cao-cap`) | 43 | 6 |
 | Khám phá vùng miền (`vung-mien`) | 98 | 6 |

@@ -1,0 +1,41 @@
+{
+  "at": "2026-11-28T15:33:38.770Z",
+  "pins": {
+    "Bánh mì que - Pate gia truyền Quán Mau Hải Phòng|154 Đường Số 2|Gò Vấp": {
+      "lon": 106.6621091,
+      "lat": 10.8499385,
+      "precision": "exact",
+      "ward": null,
+      "displayName": "supplied (exact): https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+que+-+Pate+gia+truy%E1%BB%81n+Qu%C3%A1n+Mau+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x317529001eb08f29:0x99fc92fb973ed978!8m2!3d10.8499385!4d106.6621091",
+      "origin": "supplied",
+      "sourceRef": "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+que+-+Pate+gia+truy%E1%BB%81n+Qu%C3%A1n+Mau+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x317529001eb08f29:0x99fc92fb973ed978!8m2!3d10.8499385!4d106.6621091"
+    },
+    "Bánh mì que pate Hải Phòng Mẹ Nấm|291/45 Nguyễn Hồng Đào|Tân Bình": {
+      "lon": 106.6433419,
+      "lat": 10.7954887,
+      "precision": "exact",
+      "ward": null,
+      "displayName": "supplied (exact): https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+que+pate+H%E1%BA%A3i+Ph%C3%B2ng+M%E1%BA%B9+N%E1%BA%A5m/data=!4m7!3m6!1s0x317529003e25c7ff:0xf858c6093ace0482!8m2!3d10.7954887!4d106.6433419",
+      "origin": "supplied",
+      "sourceRef": "https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+que+pate+H%E1%BA%A3i+Ph%C3%B2ng+M%E1%BA%B9+N%E1%BA%A5m/data=!4m7!3m6!1s0x317529003e25c7ff:0xf858c6093ace0482!8m2!3d10.7954887!4d106.6433419"
+    },
+    "The Bready - Bánh Mì Pate Que Hải Phòng|686/6 Cách Mạng Tháng 8|Tân Bình": {
+      "lon": 106.6639547,
+      "lat": 10.7875303,
+      "precision": "exact",
+      "ward": null,
+      "displayName": "supplied (exact): https://www.google.com/maps/place/The+Bready+-+B%C3%A1nh+M%C3%AC+Pate+Que+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x31752fef9835006f:0xccea92def9e67286!8m2!3d10.7875303!4d106.6639547",
+      "origin": "supplied",
+      "sourceRef": "https://www.google.com/maps/place/The+Bready+-+B%C3%A1nh+M%C3%AC+Pate+Que+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x31752fef9835006f:0xccea92def9e67286!8m2!3d10.7875303!4d106.6639547"
+    },
+    "Tâm cook Plus - Pate cột đèn đặc sản Hải Phòng, bánh mì và bánh mì que|100 Phạm Ngũ Lão|Gò Vấp": {
+      "lon": 106.6822585,
+      "lat": 10.8227371,
+      "precision": "exact",
+      "ward": null,
+      "displayName": "supplied (exact): https://www.google.com/maps/place/T%C3%A2m+cook+Plus-+Pate+c%E1%BB%99t+%C4%91%C3%A8n+%C4%91%E1%BA%B7c+s%E1%BA%A3n+H%E1%BA%A3i+ph%C3%B2ng,+b%C3%A1nh+m%C3%AC+v%C3%A0+b%C3%A1nh+m%C3%AC+que,+100+Ph%E1%BA%A1m+Ng%C5%A9+L%C3%A3o/data=!4m7!3m6!1s0x317529b4bc0f4ed7:0xe0170124c0792260!8m2!3d10.8227371!4d106.6822585",
+      "origin": "supplied",
+      "sourceRef": "https://www.google.com/maps/place/T%C3%A2m+cook+Plus-+Pate+c%E1%BB%99t+%C4%91%C3%A8n+%C4%91%E1%BA%B7c+s%E1%BA%A3n+H%E1%BA%A3i+ph%C3%B2ng,+b%C3%A1nh+m%C3%AC+v%C3%A0+b%C3%A1nh+m%C3%AC+que,+100+Ph%E1%BA%A1m+Ng%C5%A9+L%C3%A3o/data=!4m7!3m6!1s0x317529b4bc0f4ed7:0xe0170124c0792260!8m2!3d10.8227371!4d106.6822585"
+    }
+  }
+}

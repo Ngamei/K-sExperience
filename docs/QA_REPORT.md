@@ -66,6 +66,12 @@ Screenshots: `docs/screenshots/settings-admin/after-membership-*.png`, `after-ad
 _Run date: 2026-11-28 (re-run after PO decisions D55–D58: mobile nav, soft meal time, pastel themes, research exchange) · Branch `claude/trusting-clarke-44sf7b` · Environment: Linux cloud container, Node 22.23.5, npm 10.9.9,
 headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is the branch head that contains this file.
 
+## 2026-11-28 · CC-FOOD-011 + PO-GMAPS-001
+
+- `npm run intake` dry run + `--apply`: PO-GMAPS-001 4/4 accepted (exact supplied pins); CC-FOOD-011 50 accepted / 94 rejected (61 imprecise pins, 29 not geocoded or other street, 4 duplicates). Venues 383 → 437; links 388 → 442.
+- Regenerated: db:seed-sql, data:report (0 possible duplicates), data:coverage, data:experiences, data:what-to-eat (43/138), exchange:export, data:food-coverage (0 = 95 · 1–4 = 24 · 5+ = 19), data:neighbourhoods, data:maps-share-list.
+- `npm run qa` → **exit 0**: vitest 23 files / 177 tests, e2e 113, e2e-auth 50, e2e-modules 62.
+
 ## 2026-11-28 · 4 Commons dish photos
 
 - Added to `data/source/dish-photos.json` → `npm run data:seed` (138/138 imported) → dishes with a photo 45 → 49. `db:seed-sql`, `data:report`, `exchange:export` regenerated.
