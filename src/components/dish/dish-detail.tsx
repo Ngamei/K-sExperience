@@ -63,6 +63,29 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
   const realLinks = real.linksByDish.get(id) ?? [];
   const sampleLinks = showSamples ? sample.linksByDish.get(id) ?? [] : [];
   const variants = d.family ? dishes.filter((x) => x.family === d.family && x.id !== d.id) : [];
+  const hasPhoto = d.photos.length > 0;
+  const originBlock = (
+    <Block title={t("dish.origin")} testid="origin-block">
+      <div className="flex h-72 justify-center">{locator}</div>
+      <ul className="mt-3 space-y-2 text-sm">
+        {d.origins.map((o, i) => {
+          const p = o.provinceId ? provinceById.get(o.provinceId) : null;
+          return (
+            <li key={i} className="flex gap-2">
+              <span className={`mt-1.5 size-2.5 shrink-0 rounded-full ${o.role === "primary" ? "bg-terracotta" : "bg-terracotta-soft"}`} />
+              <span>
+                <span className="text-[11px] uppercase tracking-wider text-muted">{o.role === "primary" ? t("dish.primary") : t("dish.associated")}</span>
+                <br />
+                <strong className="font-medium">{p ? p.nameVi : `${regionById.get(o.regionId)?.nameVi} (${t("dish.regionWide")})`}</strong>
+                {p && <span className="text-muted"> · {regionById.get(p.regionId)?.nameVi}</span>}
+                {p && p.current.nameVi !== p.nameVi && <span className="block text-xs text-muted" data-testid="current-admin">{t("explore.now", { name: p.current.nameVi })}</span>}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+    </Block>
+  );
   const verification = (override as typeof d.verification.status | undefined) ?? d.verification.status;
 
   return (
@@ -115,32 +138,13 @@ export function DishDetail({ id, locator }: { id: string; locator: React.ReactNo
           </div>
         </div>
 
-        <div className="space-y-6">
-        <div className="hidden md:block"><DishHeroPhoto dish={d} creditLabel={t("dish.photoCredit")} /></div>
-        <Block title={t("dish.origin")} testid="origin-block">
-          <div className="flex h-72 justify-center">{locator}</div>
-          <ul className="mt-3 space-y-2 text-sm">
-            {d.origins.map((o, i) => {
-              const p = o.provinceId ? provinceById.get(o.provinceId) : null;
-              return (
-                <li key={i} className="flex gap-2">
-                  <span className={`mt-1.5 size-2.5 shrink-0 rounded-full ${o.role === "primary" ? "bg-terracotta" : "bg-terracotta-soft"}`} />
-                  <span>
-                    <span className="text-[11px] uppercase tracking-wider text-muted">{o.role === "primary" ? t("dish.primary") : t("dish.associated")}</span>
-                    <br />
-                    <strong className="font-medium">{p ? p.nameVi : `${regionById.get(o.regionId)?.nameVi} (${t("dish.regionWide")})`}</strong>
-                    {p && <span className="text-muted"> · {regionById.get(p.regionId)?.nameVi}</span>}
-                    {p && p.current.nameVi !== p.nameVi && <span className="block text-xs text-muted" data-testid="current-admin">{t("explore.now", { name: p.current.nameVi })}</span>}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-        </Block>
-        </div>
+        {/* With a photo, the photo sits beside the title card (similar heights) and the origin map moves into the grid
+            below; without one, the origin map keeps this slot. Avoids a half-empty title card stretched to a tall column. */}
+        {hasPhoto ? <div className="hidden md:block"><DishHeroPhoto dish={d} creditLabel={t("dish.photoCredit")} /></div> : originBlock}
       </div>
 
       <div className="mt-6 grid gap-6 md:grid-cols-2">
+        {hasPhoto && <div className="md:row-span-2">{originBlock}</div>}
         <Block title={t("dish.ingredients")}>
           <ul className="flex flex-wrap gap-1.5">{d.ingredients.map((i) => <li key={i}><Badge tone="neutral" className="text-xs">{i}</Badge></li>)}</ul>
         </Block>
