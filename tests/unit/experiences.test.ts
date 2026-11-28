@@ -31,12 +31,14 @@ describe("experience registry", () => {
   });
   it("navigation: same slots, icons and positions in every module; module labels and routes", () => {
     const food = navFor(EXPERIENCES[0]);
-    expect(food.map((n) => n.href)).toEqual(["/", "/discover/", "/catalogue/", "/nearby/", "/passport/", "/saved/"]);
-    expect(food.filter((n) => n.mobile).map((n) => n.short.en)).toEqual(["Explore", "Discover", "Catalogue", "Nearby", "Passport"]);
+    // Food adds one module-specific entry ("Hôm nay ăn gì?") after Discover; the shared slots are unchanged.
+    expect(food.map((n) => n.href)).toEqual(["/", "/discover/", "/what-to-eat/", "/catalogue/", "/nearby/", "/passport/", "/saved/"]);
+    expect(food.filter((n) => n.mobile).map((n) => n.short.en)).toEqual(["Explore", "Discover", "Eat today", "Catalogue", "Nearby", "Passport"]);
+    const shared = (e: (typeof EXPERIENCES)[number]) => navFor(e).filter((x) => (NAV_SLOTS as readonly string[]).includes(x.slot));
     for (const e of EXPERIENCES) {
-      const n = navFor(e);
+      const n = shared(e);
       expect(n.map((x) => x.slot)).toEqual([...NAV_SLOTS]);
-      expect(n.map((x) => x.icon)).toEqual(food.map((x) => x.icon));
+      expect(n.map((x) => x.icon)).toEqual(shared(EXPERIENCES[0]).map((x) => x.icon));
       expect(n.find((x) => x.slot === "saved")!.href).toBe("/saved/");
     }
     const coffee = navFor(EXPERIENCES.find((e) => e.id === "coffee")!);
@@ -63,7 +65,8 @@ describe("experience registry", () => {
     expect(getExperience("nonsense").id).toBe("food");
     expect(getExperience("coffee").id).toBe("coffee");
     expect(getExperience("shopping").id).toBe("food"); // not implemented
-    expect(navFor(getExperience("food")).length).toBe(6);
+    expect(navFor(getExperience("food")).length).toBe(7);
+    expect(navFor(getExperience("coffee")).length).toBe(6);
   });
   it("every module labels the same navigation slots in both languages", () => {
     for (const e of EXPERIENCES) for (const s of NAV_SLOTS) {

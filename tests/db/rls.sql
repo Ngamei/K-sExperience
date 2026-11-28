@@ -150,5 +150,16 @@ insert into establishment_experiences values ('test-cafe', 'coffee');
 insert into results select 'mode tag audited', count(*) = 1 from content_audit where table_name = 'establishment_experiences' and row_key = 'test-cafe@coffee';
 insert into results select 'seed tagged every Food establishment', (select count(*) from establishment_experiences where experience_id = 'food') >= 113;
 
+-- 0008: optional eating/dining attributes; nutrition must name its source
+insert into results select 'dishes.eating defaults to unknown (null)', bool_and(eating is null) from dishes;
+update dishes set eating = '{"cookingMethods": ["simmered"], "allergensComplete": false}' where id = (select id from dishes order by id limit 1);
+insert into results select 'dish eating stored', count(*) = 1 from dishes where eating->'cookingMethods' ? 'simmered';
+do $$ begin
+  update dishes set eating = '{"nutrition": {"kcal": 500, "confidence": "estimate"}}' where id = (select id from dishes order by id limit 1);
+  insert into results values ('nutrition without source rejected', false);
+exception when check_violation then insert into results values ('nutrition without source rejected', true); end $$;
+update restaurants set dining = '{"atmosphere": ["quiet"]}' where id = 'test-cafe';
+insert into results select 'restaurant dining stored', count(*) = 1 from restaurants where dining->'atmosphere' ? 'quiet';
+
 select (case when ok then 'PASS ' else 'FAIL ' end) || name from results;
 select case when bool_and(ok) then 'ALL DB TESTS PASSED' else 'DB TESTS FAILED' end from results;

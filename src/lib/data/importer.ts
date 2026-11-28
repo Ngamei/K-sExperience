@@ -8,7 +8,7 @@
 import { z } from "zod";
 import { normalizeVi, slugify } from "../search/normalize";
 import {
-  CATEGORIES, DIETARY, DISH_TYPES, DishSchema, MEAL_TIMES, REGION_IDS, TASTES, VERIFICATION_STATUSES,
+  ALLERGENS, CATEGORIES, COOKING_METHODS, DIETARY, DISH_TYPES, DishEatingSchema, DishSchema, OCCASIONS, PROTEINS, SERVICE_STYLES, MEAL_TIMES, REGION_IDS, TASTES, VERIFICATION_STATUSES,
   type Dish, type DishOrigin, type Province, type Region,
 } from "./schema";
 
@@ -37,7 +37,15 @@ export const ImportRowSchema = z.object({
   sources: z.union([z.array(z.object({ title: z.string(), url: z.string().optional(), accessed: z.string().optional() })), z.string()]).optional(),
   photos: z.array(z.object({ url: z.string(), credit: z.string(), license: z.string(), sourceUrl: z.string().optional() })).optional(),
   verificationStatus: z.string().optional(),
+  // ---- optional Hôm nay ăn gì? attributes (empty = unknown; never defaulted)
+  cookingMethods: list, proteins: list, allergens: list,
+  allergensComplete: z.union([z.boolean(), z.string()]).optional(),
+  portion: z.string().optional(), vegetables: z.string().optional(),
+  occasions: list, serviceStyles: list, customisation: list,
+  kcal: num, proteinG: num, nutritionSource: z.string().optional(), nutritionConfidence: z.string().optional(),
+  eatingSource: z.string().optional(), eatingSourceUrl: z.string().optional(), eatingConfidence: z.string().optional(),
 });
+const EATING_COLUMNS = ["cookingMethods", "proteins", "allergens", "allergensComplete", "portion", "vegetables", "occasions", "serviceStyles", "customisation", "kcal", "proteinG"] as const;
 export type ImportRow = z.input<typeof ImportRowSchema>;
 
 export interface ImportIssue { row: number; name?: string; level: "error" | "warning"; message: string }
@@ -167,6 +175,30 @@ export function importCatalogue(
     if (status === "verified" && sources.length === 0) warn("Marked verified but has no source references");
     if (!r.descriptionEn || !r.descriptionVi) warn("Missing English or Vietnamese description");
 
+    const eatingRaw = {
+      cookingMethods: r.cookingMethods.length ? pick(r.cookingMethods, COOKING_METHODS, "cookingMethod") : undefined,
+      proteins: r.proteins.length ? pick(r.proteins, PROTEINS, "protein") : undefined,
+      allergens: r.allergens.length ? pick(r.allergens, ALLERGENS, "allergen") : undefined,
+      allergensComplete: r.allergensComplete === true || /^(true|yes|1)$/i.test(String(r.allergensComplete ?? "")) ? true : undefined,
+      portion: r.portion ? slugify(r.portion) : undefined, vegetables: r.vegetables ? slugify(r.vegetables) : undefined,
+      occasions: r.occasions.length ? pick(r.occasions, OCCASIONS, "occasion") : undefined,
+      serviceStyles: r.serviceStyles.length ? pick(r.serviceStyles, SERVICE_STYLES, "serviceStyle") : undefined,
+      customisation: r.customisation.length ? r.customisation : undefined,
+      nutrition: r.kcal !== undefined || r.proteinG !== undefined
+        ? { kcal: r.kcal, proteinG: r.proteinG, source: r.nutritionSource ?? "", confidence: slugify(r.nutritionConfidence ?? "estimate") }
+        : undefined,
+      source: r.eatingSource ? { title: r.eatingSource, ...(r.eatingSourceUrl ? { url: r.eatingSourceUrl } : {}), confidence: slugify(r.eatingConfidence ?? "sourced") } : undefined,
+    };
+    const eatingClean = Object.fromEntries(Object.entries(eatingRaw).filter(([, v]) => v !== undefined));
+    let eating: Dish["eating"];
+    if (Object.keys(eatingClean).length) {
+      const ev = DishEatingSchema.safeParse(eatingClean);
+      if (!ev.success) return err(ev.error.issues.map((x) => `eating.${x.path.join(".")}: ${x.message}`).join("; "));
+      if (ev.data.allergensComplete && ev.data.source?.confidence !== "sourced") return err("allergensComplete needs a cited source (eatingSource with eatingConfidence=sourced)");
+      if (EATING_COLUMNS.some((k) => k !== "kcal" && k !== "proteinG" && eatingClean[k] !== undefined) && !ev.data.source) warn("Eating attributes without eatingSource — they will show as unsourced estimates");
+      eating = ev.data;
+    }
+
     const candidate = {
       id,
       nameVi: r.nameVi.trim(),
@@ -188,6 +220,7 @@ export function importCatalogue(
       verification: { status: (VERIFICATION_STATUSES as readonly string[]).includes(status) ? status : "pending-review" },
       dataset: ctx.dataset,
       prominence: [1, 2, 3].includes(prominence) ? prominence : 3,
+      ...(eating ? { eating } : {}),
     };
     const valid = DishSchema.safeParse(candidate);
     if (!valid.success) return err(valid.error.issues.map((x) => `${x.path.join(".")}: ${x.message}`).join("; "));
@@ -205,6 +238,7 @@ export function importCatalogue(
     if (has("mealTimes")) p.push("mealTimes");
     if (has("descriptionEn") || has("descriptionVi")) p.push("description");
     if (has("prominence")) p.push("prominence");
+    if (eating) p.push("eating");
     provided[valid.data.id] = p;
   });
 

@@ -28,7 +28,7 @@ test("Food navigation and passport are unchanged; all six passports listed, Shop
   await page.goto("/catalogue/");
   if (!isMobile) {
     const nav = page.getByRole("navigation", { name: "Main" });
-    await expect(nav.getByRole("link")).toHaveText(["Food Map", "Discover", "Food Catalogue", "Nearby", "Food Passport", "Saved"]);
+    await expect(nav.getByRole("link")).toHaveText(["Food Map", "Discover", "What to eat", "Food Catalogue", "Nearby", "Food Passport", "Saved"]);
   }
   await expect(page.getByTestId("result-count").filter({ visible: true }).first()).toHaveText("138 dishes");
   await page.goto("/passport/");

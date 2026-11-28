@@ -12,7 +12,7 @@ _For the Product Owner and Codex before Preview QA and before any production rel
 | Accounts | `NEXT_PUBLIC_DATA_MODE=supabase`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Account in Settings, Passport sign-in gate, cross-device passports. Without them the app is the local demo (guest passport on the device, "Accounts are coming soon"). |
 
 ## Before Preview QA
-- [ ] Supabase project created (free tier); migrations **0001 → 0007** run in order, then `supabase/seed.sql` (docs/SUPABASE.md).
+- [ ] Supabase project created (free tier); migrations **0001 → 0008** run in order, then `supabase/seed.sql` (docs/SUPABASE.md).
 - [ ] Auth: Email (confirm on) + Google enabled; redirect URLs include `/auth/callback/` (with `?next=`), `/reset-password/`, `/admin/` for Preview and Production domains.
 - [ ] Vercel Preview env vars set as above (only `NEXT_PUBLIC_*` values; never the service-role key).
 - [ ] Editors added in `user_roles`.

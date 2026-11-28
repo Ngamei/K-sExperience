@@ -15,6 +15,7 @@ Local mode remains the default and keeps working without Supabase.
 | Multi-experience foundations: `pilot-planned` status, Sport module, `establishment_experiences`, generic passport item types/actions | `supabase/migrations/0005_multi_experience.sql` |
 | Shared engine: `experience_items`, `offerings` (evidence + photo constraints, mode-tag trigger, RLS, audit) | `supabase/migrations/0006_experience_items_offerings.sql` |
 | Establishment attributes (`restaurants.attributes`), explicit experience tags (no implicit Food tag), tag audit | `supabase/migrations/0007_establishment_attributes.sql` |
+| Hôm nay ăn gì? optional `dishes.eating` + `restaurants.dining` (nutrition must cite a source) | `supabase/migrations/0008_what_to_eat.sql` |
 | User accounts & Experience Passport (profiles, preferences, saved items, history, tasting notes, media, achievements; owner-only RLS; account deletion; private `user-media` bucket) | `supabase/migrations/0003_user_accounts.sql` |
 | Guest-first auth + passport sync (client) | `src/components/shell/auth-provider.tsx`, `src/lib/supabase/passport.ts`, `src/lib/passport/model.ts`, `src/components/auth/` |
 | Account-flow e2e against a mock Supabase | `npm run build:auth-test && npm run test:e2e-auth` |
@@ -27,7 +28,7 @@ Local mode remains the default and keeps working without Supabase.
    (accounts & Experience Passport), `0004_link_photos.sql` (dish-at-place photos), `0005_multi_experience.sql`
    (six experience modes incl. Sport, establishments in several modes), `0006_experience_items_offerings.sql`
    (shared engine items + offerings), `0007_establishment_attributes.sql` (establishment attributes; explicit
-   experience tags) — **then** `supabase/seed.sql` (the seed needs 0005–0007; it also loads the Coffee/Bars/Spa/Sport pilot data).
+   experience tags), `0008_what_to_eat.sql` (eating/dining attributes) — **then** `supabase/seed.sql` (the seed needs 0005–0008; it also loads the Coffee/Bars/Spa/Sport pilot data).
 3. Authentication settings:
    Authentication → URL configuration: Site URL = production URL; Redirect URLs for each environment: `/auth/callback/`, `/reset-password/` and `/admin/` on the production domain, on previews (`https://*-<team>.vercel.app/...`) and on `http://localhost:3000/...`.
    Authentication → Providers: **Email** enabled with "Confirm email" ON; **Google** enabled (Google Cloud Console → OAuth client "Web", authorised redirect URI = `https://<project-ref>.supabase.co/auth/v1/callback`; paste client ID/secret into Supabase — the secret stays in Supabase, never in the app). Apple: later.

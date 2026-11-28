@@ -93,6 +93,35 @@ export const DishOriginSchema = z.object({
 });
 export type DishOrigin = z.infer<typeof DishOriginSchema>;
 
+/* ---------------------------------------------------------------------------------------------
+ * Hôm nay ăn gì? — optional eating attributes (sourced or estimated; never assumed).
+ * Anything not recorded here is UNKNOWN; src/lib/food/eating.ts may derive a few facts from existing
+ * tags and labels them "derived".
+ * ------------------------------------------------------------------------------------------- */
+export const COOKING_METHODS = ["grilled", "fried", "simmered", "steamed", "braised", "stir-fried", "raw-fresh", "baked"] as const;
+export const PROTEINS = ["pork", "beef", "poultry", "seafood", "fish", "egg", "tofu", "goat", "offal"] as const;
+export const ALLERGENS = ["peanut", "egg", "dairy", "fish", "shellfish", "soy", "gluten", "sesame"] as const;
+export const OCCASIONS = ["everyday", "office-lunch", "date", "family", "group", "business", "celebration", "late-night"] as const;
+export const SERVICE_STYLES = ["dine-in", "takeaway", "delivery", "home-cooking"] as const;
+const provenance = z.enum(["sourced", "estimate"]);
+export const DishEatingSchema = z.object({
+  cookingMethods: z.array(z.enum(COOKING_METHODS)).optional(),
+  proteins: z.array(z.enum(PROTEINS)).optional(),
+  /** Allergens present. `allergensComplete: true` only when a source lists all allergens. */
+  allergens: z.array(z.enum(ALLERGENS)).optional(),
+  allergensComplete: z.boolean().optional(),
+  vegetables: z.enum(["low", "medium", "high"]).optional(),
+  portion: z.enum(["light", "regular", "hearty"]).optional(),
+  occasions: z.array(z.enum(OCCASIONS)).optional(),
+  serviceStyles: z.array(z.enum(SERVICE_STYLES)).optional(),
+  customisation: z.array(z.string()).optional(),
+  /** Per serving; must cite its source and say whether it is sourced or an estimate. */
+  nutrition: z.object({ kcal: z.number().positive().optional(), proteinG: z.number().nonnegative().optional(), source: z.string().min(1), confidence: provenance }).optional(),
+  /** Where the non-nutrition fields above come from. */
+  source: z.object({ title: z.string().min(1), url: z.url().optional(), confidence: provenance }).optional(),
+});
+export type DishEating = z.infer<typeof DishEatingSchema>;
+
 export const DishSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   nameVi: z.string().min(1),
@@ -120,6 +149,8 @@ export const DishSchema = z.object({
   dataset: z.enum(DATASETS),
   /** 1 = shown at national zoom, 2 = regional zoom, 3 = provincial zoom. */
   prominence: z.union([z.literal(1), z.literal(2), z.literal(3)]),
+  /** Optional eating/recommendation attributes (Hôm nay ăn gì?). */
+  eating: DishEatingSchema.optional(),
 });
 export type Dish = z.infer<typeof DishSchema>;
 
@@ -174,6 +205,14 @@ export const RestaurantSchema = z.object({
   deliveryLinks: z.array(z.object({ provider: z.string(), url: z.url() })),
   sources: z.array(sourceRef),
   lastVerified: z.string().optional(),
+  /** Optional dining attributes for special-occasion recommendations (only when sourced). */
+  dining: z.object({
+    atmosphere: z.array(z.enum(["casual", "lively", "quiet", "romantic", "family-friendly", "upscale", "outdoor"])).optional(),
+    serviceStyles: z.array(z.enum(SERVICE_STYLES)).optional(),
+    occasions: z.array(z.enum(OCCASIONS)).optional(),
+    maxGroupSize: z.number().int().positive().optional(),
+    source: z.object({ title: z.string().min(1), url: z.url().optional() }),
+  }).optional(),
 });
 export type Restaurant = z.infer<typeof RestaurantSchema>;
 

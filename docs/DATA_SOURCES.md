@@ -52,6 +52,13 @@ JSON (array, or `{ "label", "dataset", "dishes": [...] }`) or CSV with a header 
 | `descriptionEn`, `descriptionVi` | | | |
 | `sources` | for `verified` | `https://…; Book title p.12` | `;`-separated; URLs detected |
 | `verificationStatus` | | `pending-review` | seed-unverified, pending-review, verified, rejected |
+| `cookingMethods` | | `simmered; grilled` | Hôm nay ăn gì? (optional, empty = unknown): grilled, fried, simmered, steamed, braised, stir-fried, raw-fresh, baked |
+| `proteins` | | `beef` | pork, beef, poultry, seafood, fish, egg, tofu, goat, offal |
+| `allergens`, `allergensComplete` | | `peanut; shellfish`, `yes` | peanut, egg, dairy, fish, shellfish, soy, gluten, sesame; `allergensComplete=yes` only with a cited source |
+| `portion`, `vegetables` | | `hearty`, `high` | light/regular/hearty; low/medium/high |
+| `occasions`, `serviceStyles`, `customisation` | | `office-lunch; family`, `takeaway` | everyday, office-lunch, date, family, group, business, celebration, late-night; dine-in, takeaway, delivery, home-cooking |
+| `kcal`, `proteinG`, `nutritionSource`, `nutritionConfidence` | source required with values | `520`, `28`, `Viện Dinh dưỡng table`, `estimate` | per serving; sourced or estimate |
+| `eatingSource`, `eatingSourceUrl`, `eatingConfidence` | recommended | `Cookbook p.40`, `https://…`, `sourced` | where the eating attributes come from; without it they show as estimates |
 
 Run: `npm run data:import -- master.csv --dataset master` (add `--dry-run` to validate only). Master imports **merge** into the existing catalogue (ids, photos, sources and venue links preserved; only columns present in the file overwrite) and write `docs/IMPORT_REPORT.md`; the import refuses to write if any venue link would be orphaned. The importer rejects
 unknown provinces/categories/types and duplicate ids, warns on unknown vocabulary, missing translations, and

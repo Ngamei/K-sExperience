@@ -15,6 +15,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { useFoodData } from "@/components/food/food-data";
+import { whatToEatReport } from "@/lib/food/what-to-eat-report";
 import { DishEditor, EvidenceEditor, RestaurantEditor, field, label, type Saver } from "@/components/admin/admin-forms";
 import { ModuleAdmin } from "@/components/admin/module-admin";
 import { EXPERIENCES, isSelectable, loc, type ExperienceId } from "@/experiences/registry";
@@ -26,7 +27,7 @@ function download(name: string, data: unknown) {
   URL.revokeObjectURL(url);
 }
 
-const TABS = ["Overview", "Review", "Dishes", "Establishments", "Evidence", "Photos", "Import", "Audit"] as const;
+const TABS = ["Overview", "Review", "Dishes", "Establishments", "Evidence", "Photos", "Recommendations", "Import", "Audit"] as const;
 type Tab = (typeof TABS)[number];
 
 export function AdminView() {
@@ -118,6 +119,7 @@ export function AdminView() {
       {tab === "Establishments" && <RestaurantEditor onSave={onSave} canPersist={canPersist} inHcmc={inHcmc} />}
       {tab === "Evidence" && <EvidenceEditor onSave={onSave} canPersist={canPersist} />}
       {tab === "Photos" && <Photos canPersist={canPersist} />}
+      {tab === "Recommendations" && <RecommendationCoverage />}
       {tab === "Import" && <ImportTool canPersist={canPersist} />}
       {tab === "Audit" && <Audit enabled={canPersist} />}
       </>}
@@ -275,3 +277,24 @@ function Audit({ enabled }: { enabled: boolean }) {
   );
 }
 
+
+/** Hôm nay ăn gì? attribute completeness (same numbers as docs/WHAT_TO_EAT_REPORT.md). */
+function RecommendationCoverage() {
+  const { dishes, restaurants, links } = useFoodData();
+  const r = whatToEatReport(dishes, restaurants, links);
+  const cell = "px-2 py-1 text-right tabular-nums";
+  return (
+    <section className="space-y-6" data-testid="admin-recommendations">
+      <div>
+        <h2 className="font-display text-2xl">Hôm nay ăn gì? — data completeness</h2>
+        <p className="text-sm text-muted">{r.dishesWithVenue} / {r.totalDishes} dishes can be recommended with a real HCMC venue. Unknown values are never assumed; edit attributes in Dishes / Establishments or import them (see docs/DATA_SOURCES.md).</p>
+      </div>
+      <table className="w-full max-w-3xl text-sm"><thead><tr className="text-left text-muted"><th className="px-2">Dish attribute</th><th className={cell}>Sourced</th><th className={cell}>Estimate</th><th className={cell}>Derived</th><th className={cell}>Unknown</th></tr></thead>
+        <tbody>{r.dishes.map((x) => <tr key={x.attribute} className="border-t border-line/60"><td className="px-2 py-1">{x.attribute}</td><td className={cell}>{x.sourced}</td><td className={cell}>{x.estimate}</td><td className={cell}>{x.derived}</td><td className={cell}>{x.unknown}</td></tr>)}</tbody></table>
+      <table className="w-full max-w-3xl text-sm"><thead><tr className="text-left text-muted"><th className="px-2">Venue attribute</th><th className={cell}>Known</th><th className={cell}>Total</th></tr></thead>
+        <tbody>{r.venues.map((x) => <tr key={x.attribute} className="border-t border-line/60"><td className="px-2 py-1">{x.attribute}</td><td className={cell}>{x.known}</td><td className={cell}>{x.total}</td></tr>)}</tbody></table>
+      <table className="w-full max-w-3xl text-sm" data-testid="admin-presets"><thead><tr className="text-left text-muted"><th className="px-2">Collection / mode</th><th className={cell}>Eligible</th><th className={cell}>Shown</th></tr></thead>
+        <tbody>{r.presets.map((x) => <tr key={x.id} className="border-t border-line/60"><td className="px-2 py-1">{x.name}</td><td className={cell}>{x.eligible}</td><td className={cell}>{x.shown}</td></tr>)}</tbody></table>
+    </section>
+  );
+}

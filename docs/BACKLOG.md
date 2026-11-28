@@ -37,7 +37,9 @@ Status: ✅ done · 🔄 in progress · ⬜ todo · ⛔ blocked (reason).
 | CC-27 | P0 | CC | Remove consumer seed banners; dev-only samples; provenance in Admin | e2e | ✅ |
 | CC-28 | P1 | CC | SW cache versioning + cache/mode-switching/back/refresh/isolation/flag tests | e2e | ✅ |
 | CC-29 | P1 | CC | Multi-experience visual parity (icons, illustrations, Commons photos, hero, venue fallbacks, markers, visual data report) | e2e visual tests; Codex visual review | ✅ code + tests; Codex review pending |
-| CC-30 | P0 | CC | Hôm nay ăn gì? daily recommendation module (`/what-to-eat`) | see request | ⬜ next |
+| CC-30 | P0 | CC | Hôm nay ăn gì? daily recommendation module (`/what-to-eat`): attribute audit, deterministic engine, 12 collections + 6 modes, filters, actions, personalisation, migration 0008, Admin fields + coverage tab, importer columns, report | unit (14 engine + importer) + e2e 12 + DB 5 checks | ✅ MVP; Codex QA pending |
+| CX-09 | P1 | Codex | Source eating attributes (cooking method, portion, allergens) and venue dining data (price range, hours, atmosphere) — coverage in `docs/WHAT_TO_EAT_REPORT.md` | report coverage ↑ | ⬜ |
+| CC-31 | P2 | CC | Hôm nay ăn gì? v2: weather/time-aware boosts, weekly variety, optional AI explanations on top of the deterministic engine (after PO approval) | — | ⬜ later |
 | CX-07 | P1 | CX/PO | Research verified venues for Bars, Spa, Sport and remaining Coffee items (salt coffee, cold brew, matcha, tea); confirm Cheo Leo coordinates | `npm run data:research -- <module>` clean | 🔄 CC added Bars 2, Spa 4, Sport 5 venues (source-listed); Codex to spot-check sources; confirm Rudal/HitPark/Olaben/Cheo Leo coordinates; find sources for classic cocktails, massage/facial/nails, pickleball coaching, Pilates trial/private |
 | PO-03 | P0 | PO | Enable pilots on Preview only (`NEXT_PUBLIC_FEATURE_*`) for Codex QA — see docs/PREVIEW_CHECKLIST.md | checklist complete | ⬜ |
 | CX-05 | P0 | CX | Architecture review of `docs/EXPERIENCE_ENGINE.md` reuse matrix | approved / changes requested | ⬜ |

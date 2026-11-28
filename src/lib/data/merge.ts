@@ -15,7 +15,7 @@ export interface MergeReport {
   downgraded: string[];
 }
 
-const FIELDS: (keyof Dish)[] = ["nameVi", "nameEn", "altNames", "category", "dishType", "family", "origins", "regionIds", "ingredients", "taste", "spiceLevel", "dietary", "mealTimes", "description", "prominence"];
+const FIELDS: (keyof Dish)[] = ["nameVi", "nameEn", "altNames", "category", "dishType", "family", "origins", "regionIds", "ingredients", "taste", "spiceLevel", "dietary", "mealTimes", "description", "prominence", "eating"];
 const empty = (v: unknown) => v === undefined || v === null || v === "" || (Array.isArray(v) && v.length === 0) || (typeof v === "object" && v !== null && !Array.isArray(v) && Object.values(v).every((x) => x === "" || x === undefined));
 
 export function mergeCatalogues(

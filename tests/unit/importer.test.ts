@@ -53,4 +53,18 @@ describe("catalogue importer", () => {
     const r = importCatalogue(rows, ctx);
     expect(r.dishes[0].id).toBe("bun-cha");
   });
+
+  it("imports optional eating attributes; unknown stays unknown; allergen completeness needs a cited source", () => {
+    const none = importCatalogue([{ ...base }], ctx);
+    expect(none.dishes[0].eating).toBeUndefined();
+    expect(none.provided[none.dishes[0].id]).not.toContain("eating");
+    const r = importCatalogue([{ ...base, cookingMethods: "simmered; nope", proteins: "beef", portion: "Hearty", eatingSource: "Cookbook", eatingConfidence: "sourced" }], ctx);
+    expect(r.dishes[0].eating).toEqual({ cookingMethods: ["simmered"], proteins: ["beef"], portion: "hearty", source: { title: "Cookbook", confidence: "sourced" } });
+    expect(r.issues.some((x) => x.message.includes('"nope"'))).toBe(true);
+    expect(r.provided[r.dishes[0].id]).toContain("eating");
+    const bad = importCatalogue([{ ...base, allergens: "peanut", allergensComplete: "yes" }], ctx);
+    expect(bad.dishes).toHaveLength(0);
+    const noSrc = importCatalogue([{ ...base, kcal: 500 }], ctx);
+    expect(noSrc.dishes).toHaveLength(0); // nutrition without its source is rejected
+  });
 });

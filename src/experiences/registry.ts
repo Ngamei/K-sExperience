@@ -47,6 +47,8 @@ export interface ExperienceModule {
   implemented: boolean;
   /** Env flag that must be "1" to enable an implemented, not-yet-active module (null = no flag needed). */
   featureFlag: string | null;
+  /** Extra navigation entries for this module only. */
+  extraNav?: ExtraNav[];
   /** Visual identity: accent colour for markers, medallion rings and category dots (design-token palette). */
   accent: string;
   /** PO decision: open this pilot to everyone without a flag (shown with a "Pilot" badge). */
@@ -86,14 +88,17 @@ export interface ExperienceModule {
 }
 
 /** A rendered navigation entry (built from the shared slots — same positions in every module). */
-export interface NavItem { slot: NavSlot; href: string; label: L; short: L; icon: string; mobile: boolean }
+export interface NavItem { slot: NavSlot | string; href: string; label: L; short: L; icon: string; mobile: boolean }
+/** A module-specific navigation entry inserted after a shared slot (Food: Hôm nay ăn gì?). */
+export interface ExtraNav { id: string; after: NavSlot; href: string; label: L; short: L; icon: string }
 const SLOT_ICON: Record<NavSlot, string> = { map: "map", discover: "compass", catalogue: "book", nearby: "pin", passport: "stamp", saved: "bookmark" };
 
 /** The module's navigation: shared slots and icons, module labels and routes. Saved stays shared. */
 export const navFor = (m: ExperienceModule): NavItem[] =>
-  NAV_SLOTS.map((slot) => ({
-    slot, href: m.routes[slot], label: m.navLabels[slot], short: m.navShort[slot] ?? m.navLabels[slot], icon: SLOT_ICON[slot], mobile: slot !== "saved",
-  }));
+  NAV_SLOTS.flatMap((slot) => [
+    { slot, href: m.routes[slot], label: m.navLabels[slot], short: m.navShort[slot] ?? m.navLabels[slot], icon: SLOT_ICON[slot], mobile: slot !== "saved" },
+    ...(m.extraNav ?? []).filter((x) => x.after === slot).map((x) => ({ slot: x.id, href: x.href, label: x.label, short: x.short, icon: x.icon, mobile: true })),
+  ]);
 
 
 const routesFor = (base: string) => ({
@@ -111,7 +116,7 @@ const nav = (map: L, catalogue: L, passport: L): Record<NavSlot, L> => ({
 export const EXPERIENCES: ExperienceModule[] = [
   {
     id: "food", labelKey: "exp.food", name: { en: "Vietnamese Food", vi: "Ẩm thực Việt Nam" }, status: "active", icon: "utensils",
-    implemented: true, featureFlag: null, accent: "#294C3D", basePath: "/",
+    implemented: true, featureFlag: null, accent: "#294C3D", extraNav: [{ id: "what-to-eat", after: "discover", href: "/what-to-eat/", label: { en: "What to eat", vi: "Hôm nay ăn gì?" }, short: { en: "Eat today", vi: "Ăn gì?" }, icon: "sparkles" }], basePath: "/",
     navLabels: nav({ en: "Food Map", vi: "Bản đồ ẩm thực" }, { en: "Food Catalogue", vi: "Danh mục món ăn" }, { en: "Food Passport", vi: "Hộ chiếu ẩm thực" }),
     navShort: { map: { en: "Explore", vi: "Bản đồ" }, catalogue: { en: "Catalogue", vi: "Món ăn" }, passport: SHORT.passport },
     routes: { map: "/", discover: "/discover/", catalogue: "/catalogue/", nearby: "/nearby/", passport: "/passport/", saved: "/saved/", item: "/dishes/", establishment: "/places/" },

@@ -19,7 +19,7 @@ export function Wordmark({ className }: { className?: string }) {
 }
 
 /** URLs that belong to the Food module (historical, unprefixed). */
-const FOOD_PATHS = ["/", "/explore", "/discover", "/catalogue", "/dishes", "/nearby", "/places", "/passport"];
+const FOOD_PATHS = ["/", "/explore", "/discover", "/what-to-eat", "/catalogue", "/dishes", "/nearby", "/places", "/passport"];
 const norm = (p: string) => (p.endsWith("/") ? p : p + "/");
 /** A module's map slot is its base path, so it matches exactly; other slots match their subtree. */
 const isActive = (path: string, href: string, base: string) =>
@@ -108,7 +108,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden"
         aria-label="Main mobile"
       >
-        <div className="mx-auto grid max-w-lg grid-cols-5">
+        <div className="mx-auto grid max-w-lg" style={{ gridTemplateColumns: `repeat(${nav.filter((n) => n.mobile).length}, minmax(0, 1fr))` }}>
           {nav.filter((n) => n.mobile).map((n) => {
             const Icon = NAV_ICONS[n.icon];
             const active = isActive(path, n.href, exp.basePath);

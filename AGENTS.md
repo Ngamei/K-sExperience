@@ -24,7 +24,7 @@ The repository and the canonical docs below are the source of truth between agen
 | `docs/AUDIT.md` | Feature audit against the PRD with evidence |
 | `docs/EXPERIENCE_ENGINE.md` | Multi-experience architecture: registry, reuse matrix, sequence |
 | `docs/RESTAURANT_VERIFICATION_PLAN.md` | Evidence levels and workflow for HCMC venues |
-| `docs/DATA_REPORT.md`, `docs/VENUE_COVERAGE.md` | Generated data reports (`npm run data:report`, `npm run data:coverage`) |
+| `docs/DATA_REPORT.md`, `docs/VENUE_COVERAGE.md`, `docs/WHAT_TO_EAT_REPORT.md` | Generated data reports (`npm run data:report`, `npm run data:coverage`, `npm run data:what-to-eat`) |
 
 ## Non-negotiable rules
 1. **Never fabricate** dishes, restaurants, prices, reviews, opening hours or menu availability.

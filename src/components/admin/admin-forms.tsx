@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { CATEGORIES, DIETARY, DISH_TYPES, MEAL_TIMES, PRICE_RANGES, TASTES, VENUE_TYPES, DishRestaurantLinkSchema, DishSchema, LINK_PHOTO_KINDS, type LinkPhotoKind, RestaurantSchema, type Dish, type DishRestaurantLink, type Restaurant } from "@/lib/data/schema";
+import { ALLERGENS, COOKING_METHODS, OCCASIONS, PROTEINS, SERVICE_STYLES, DishEatingSchema, type DishEating, CATEGORIES, DIETARY, DISH_TYPES, MEAL_TIMES, PRICE_RANGES, TASTES, VENUE_TYPES, DishRestaurantLinkSchema, DishSchema, LINK_PHOTO_KINDS, type LinkPhotoKind, RestaurantSchema, type Dish, type DishRestaurantLink, type Restaurant } from "@/lib/data/schema";
 import { ALLOWED_EVIDENCE, LINK_STATUSES, type EvidenceType, type LinkStatus } from "@/lib/data/evidence";
 import { slugify } from "@/lib/search/normalize";
 import { Button } from "@/components/ui/button";
@@ -29,6 +29,77 @@ function SaveBar({ onSave, disabled, canPersist }: { onSave: () => void; disable
   );
 }
 
+// ---- Hôm nay ăn gì? eating attributes (optional; empty = unknown) ----------------------------------
+const eatingToForm = (e?: DishEating): Record<string, string> => ({
+  eatCooking: (e?.cookingMethods ?? []).join(", "), eatProteins: (e?.proteins ?? []).join(", "), eatAllergens: (e?.allergens ?? []).join(", "),
+  eatAllergensComplete: e?.allergensComplete ? "yes" : "", eatPortion: e?.portion ?? "", eatVegetables: e?.vegetables ?? "",
+  eatOccasions: (e?.occasions ?? []).join(", "), eatService: (e?.serviceStyles ?? []).join(", "), eatCustom: (e?.customisation ?? []).join(", "),
+  eatKcal: e?.nutrition?.kcal ? String(e.nutrition.kcal) : "", eatProteinG: e?.nutrition?.proteinG !== undefined ? String(e.nutrition.proteinG) : "",
+  eatNutritionSource: e?.nutrition?.source ?? "", eatNutritionConfidence: e?.nutrition?.confidence ?? "estimate",
+  eatSourceTitle: e?.source?.title ?? "", eatSourceUrl: e?.source?.url ?? "", eatSourceConfidence: e?.source?.confidence ?? "sourced",
+});
+/** Builds the optional `eating` block; undefined when nothing was entered (unknown stays unknown). */
+export function eatingFromForm(f: Record<string, string>): DishEating | undefined {
+  const arr = (k: string) => { const v = list(f[k] ?? ""); return v.length ? v : undefined; };
+  const kcal = f.eatKcal ? Number(f.eatKcal) : undefined;
+  const proteinG = f.eatProteinG ? Number(f.eatProteinG) : undefined;
+  const e = {
+    cookingMethods: arr("eatCooking"), proteins: arr("eatProteins"), allergens: arr("eatAllergens"),
+    allergensComplete: f.eatAllergensComplete === "yes" ? true : undefined,
+    portion: f.eatPortion || undefined, vegetables: f.eatVegetables || undefined,
+    occasions: arr("eatOccasions"), serviceStyles: arr("eatService"), customisation: arr("eatCustom"),
+    nutrition: kcal !== undefined || proteinG !== undefined ? { kcal, proteinG, source: f.eatNutritionSource ?? "", confidence: f.eatNutritionConfidence || "estimate" } : undefined,
+    source: f.eatSourceTitle ? { title: f.eatSourceTitle, ...(f.eatSourceUrl ? { url: f.eatSourceUrl } : {}), confidence: f.eatSourceConfidence || "sourced" } : undefined,
+  };
+  const clean = Object.fromEntries(Object.entries(e).filter(([, v]) => v !== undefined));
+  return Object.keys(clean).length ? (clean as DishEating) : undefined;
+}
+export function eatingIssues(e: DishEating | undefined): string[] {
+  if (!e) return [];
+  const out = issuesOf(DishEatingSchema.safeParse(e)).map((x) => `eating.${x}`);
+  const hasAttrs = Object.keys(e).some((k) => !["nutrition", "source"].includes(k));
+  if (hasAttrs && !e.source) out.push("eating.source: say where these eating attributes come from (title, and sourced or estimate)");
+  if (e.allergensComplete && e.source?.confidence !== "sourced") out.push("eating.allergensComplete: only a cited source can mark the allergen list complete");
+  return out;
+}
+function EatingFields({ f, set }: { f: Record<string, string>; set: (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void }) {
+  const txt = (k: string, l: string, allowed?: readonly string[], testid?: string) => (
+    <div><span className={label}>{l}</span><input className={field} value={f[k] ?? ""} onChange={set(k)} title={allowed?.join(", ")} placeholder={allowed?.slice(0, 4).join(", ")} data-testid={testid} /></div>
+  );
+  return (
+    <details className="rounded-2xl border border-line/80 p-3" data-testid="dish-eating">
+      <summary className="cursor-pointer text-sm font-medium">Hôm nay ăn gì? attributes <span className="text-xs text-muted">(optional — leave empty when unknown; never guess)</span></summary>
+      <div className="mt-3 grid gap-3 md:grid-cols-2">
+        {txt("eatCooking", "Cooking methods", COOKING_METHODS, "eat-cooking")}
+        {txt("eatProteins", "Proteins", PROTEINS)}
+        {txt("eatAllergens", "Allergens present", ALLERGENS)}
+        <div><span className={label}>Allergen list complete?</span><select className={field} value={f.eatAllergensComplete ?? ""} onChange={set("eatAllergensComplete")}><option value="">no / unknown</option><option value="yes">yes — the cited source lists all allergens</option></select></div>
+        <div><span className={label}>Portion</span><select className={field} value={f.eatPortion ?? ""} onChange={set("eatPortion")}><option value="">unknown</option><option>light</option><option>regular</option><option>hearty</option></select></div>
+        <div><span className={label}>Vegetables</span><select className={field} value={f.eatVegetables ?? ""} onChange={set("eatVegetables")}><option value="">unknown</option><option>low</option><option>medium</option><option>high</option></select></div>
+        {txt("eatOccasions", "Occasions", OCCASIONS)}
+        {txt("eatService", "Service styles", SERVICE_STYLES)}
+        {txt("eatCustom", "Customisation (e.g. less sugar, no MSG)")}
+        <div className="grid grid-cols-2 gap-2">{txt("eatKcal", "kcal / serving")}{txt("eatProteinG", "Protein g / serving")}</div>
+        {txt("eatNutritionSource", "Nutrition source (required with values)")}
+        <div><span className={label}>Nutrition confidence</span><select className={field} value={f.eatNutritionConfidence ?? "estimate"} onChange={set("eatNutritionConfidence")}><option>estimate</option><option>sourced</option></select></div>
+        {txt("eatSourceTitle", "Attributes source title", undefined, "eat-source")}
+        {txt("eatSourceUrl", "Attributes source URL")}
+        <div><span className={label}>Attributes confidence</span><select className={field} value={f.eatSourceConfidence ?? "sourced"} onChange={set("eatSourceConfidence")}><option>sourced</option><option>estimate</option></select></div>
+      </div>
+    </details>
+  );
+}
+
+const ATMOSPHERES = ["casual", "lively", "quiet", "romantic", "family-friendly", "upscale", "outdoor"] as const;
+/** Optional dining block; undefined when nothing was entered. */
+export function diningFromForm(f: Record<string, string>): Restaurant["dining"] {
+  const arr = (k: string) => { const v = list(f[k] ?? ""); return v.length ? v : undefined; };
+  const d = { atmosphere: arr("dinAtmosphere"), serviceStyles: arr("dinService"), occasions: arr("dinOccasions"), maxGroupSize: f.dinGroup ? Number(f.dinGroup) : undefined };
+  const clean = Object.fromEntries(Object.entries(d).filter(([, v]) => v !== undefined));
+  if (!Object.keys(clean).length) return undefined;
+  return { ...clean, source: { title: f.dinSourceTitle ?? "", ...(f.dinSourceUrl ? { url: f.dinSourceUrl } : {}) } } as Restaurant["dining"];
+}
+
 // ---- Dish ------------------------------------------------------------------------------------
 export function DishEditor({ onSave, canPersist }: { onSave: Saver; canPersist: boolean }) {
   const { dishes, provinces, regions, provinceById } = useFoodData();
@@ -47,6 +118,7 @@ export function DishEditor({ onSave, canPersist }: { onSave: Saver; canPersist: 
       ingredients: d.ingredients.join(", "), taste: d.taste.join(", "), dietary: d.dietary.join(", "), mealTimes: d.mealTimes.join(", "),
       spiceLevel: String(d.spiceLevel), prominence: String(d.prominence), descriptionEn: d.description.en, descriptionVi: d.description.vi,
       status: d.verification.status, notes: d.verification.notes ?? "", sources: d.sources.map((s) => [s.title, s.url ?? ""].join(" | ")).join("\n"),
+      ...eatingToForm(d.eating),
     } : { category: "savory", dishType: "noodle-soup", spiceLevel: "0", prominence: "3", status: "pending-review" });
     setOrigins(d ? d.origins.filter((o) => o.provinceId).map((o) => ({ provinceId: o.provinceId!, role: o.role })) : []);
   };
@@ -66,9 +138,10 @@ export function DishEditor({ onSave, canPersist }: { onSave: Saver; canPersist: 
       description: { en: f.descriptionEn ?? "", vi: f.descriptionVi ?? "" },
       sources: list(f.sources ?? "").map((line) => { const [title, url] = line.split("|").map((x) => x.trim()); return url ? { title: title || url, url } : { title }; }),
       verification: { status: (f.status ?? "pending-review") as Dish["verification"]["status"], ...(f.notes ? { notes: f.notes } : {}) },
+      eating: eatingFromForm(f),
     } as Dish;
   })();
-  const issues = [...issuesOf(DishSchema.safeParse(record)), ...(record.verification.status === "verified" && !record.sources.length ? ["verification: a verified dish needs at least one source"] : [])];
+  const issues = [...issuesOf(DishSchema.safeParse(record)), ...eatingIssues(record.eating), ...(record.verification.status === "verified" && !record.sources.length ? ["verification: a verified dish needs at least one source"] : [])];
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setF((x) => ({ ...x, [k]: e.target.value }));
 
   return (
@@ -98,6 +171,7 @@ export function DishEditor({ onSave, canPersist }: { onSave: Saver; canPersist: 
             <div><span className={label}>Spice 0–3</span><input className={field} type="number" min={0} max={3} value={f.spiceLevel ?? "0"} onChange={set("spiceLevel")} /></div>
             <div><span className={label}>Map prominence 1–3</span><input className={field} type="number" min={1} max={3} value={f.prominence ?? "3"} onChange={set("prominence")} /></div>
           </div>
+          <EatingFields f={f} set={set} />
           <div>
             <span className={label}>Culinary origins (historical provinces)</span>
             <div className="space-y-1.5">
@@ -148,6 +222,8 @@ export function RestaurantEditor({ onSave, canPersist, inHcmc }: { onSave: Saver
       name: r.name, address: r.address, neighbourhood: r.neighbourhood, lon: String(r.coordinates[0]), lat: String(r.coordinates[1]), precision: r.coordinatePrecision ?? "exact",
       venueType: r.venueType, priceRange: r.priceRange ?? "", highlights: (r.highlights ?? []).join("\n"), sources: r.sources.map((s) => [s.title, s.url ?? ""].join(" | ")).join("\n"),
       lastVerified: r.lastVerified ?? "",
+      dinAtmosphere: (r.dining?.atmosphere ?? []).join(", "), dinService: (r.dining?.serviceStyles ?? []).join(", "), dinOccasions: (r.dining?.occasions ?? []).join(", "),
+      dinGroup: r.dining?.maxGroupSize ? String(r.dining.maxGroupSize) : "", dinSourceTitle: r.dining?.source.title ?? "", dinSourceUrl: r.dining?.source.url ?? "",
     } : { venueType: "eatery", precision: "exact", lastVerified: new Date().toISOString().slice(0, 10) });
   };
   const base = real.find((x) => x.id === id);
@@ -164,6 +240,7 @@ export function RestaurantEditor({ onSave, canPersist, inHcmc }: { onSave: Saver
       highlights: list(f.highlights ?? "").length ? (f.highlights ?? "").split("\n").map((x) => x.trim()).filter(Boolean) : undefined,
       sources: (f.sources ?? "").split("\n").map((x) => x.trim()).filter(Boolean).map((line) => { const [title, url] = line.split("|").map((x) => x.trim()); return url ? { title: title || url, url } : { title }; }),
       lastVerified: f.lastVerified || undefined,
+      dining: diningFromForm(f),
     } as Restaurant;
   })();
   const inside = Number.isFinite(record.coordinates[0]) && Number.isFinite(record.coordinates[1]) ? inHcmc(record.coordinates) : null;
@@ -172,6 +249,7 @@ export function RestaurantEditor({ onSave, canPersist, inHcmc }: { onSave: Saver
     ...(!record.sources.length ? ["sources: at least one source is required"] : []),
     ...(!record.lastVerified ? ["lastVerified: last-checked date is required"] : []),
     ...(inside === false ? ["coordinates: outside Ho Chi Minh City (2025 boundary)"] : []),
+    ...(record.dining && !record.dining.source.title ? ["dining.source: dining attributes need a source"] : []),
   ];
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setF((x) => ({ ...x, [k]: e.target.value }));
   return (
@@ -199,6 +277,17 @@ export function RestaurantEditor({ onSave, canPersist, inHcmc }: { onSave: Saver
             <div><span className={label}>Sources (one per line: title | url)</span><textarea className={field + " h-20 py-2"} value={f.sources ?? ""} onChange={set("sources")} data-testid="restaurant-sources" /></div>
             <div><span className={label}>Last checked</span><input type="date" className={field} value={f.lastVerified ?? ""} onChange={set("lastVerified")} /></div>
           </div>
+          <details className="rounded-2xl border border-line/80 p-3" data-testid="restaurant-dining">
+            <summary className="cursor-pointer text-sm font-medium">Dining attributes <span className="text-xs text-muted">(optional — used for special-occasion suggestions; needs a source)</span></summary>
+            <div className="mt-3 grid gap-3 md:grid-cols-2">
+              <div><span className={label}>Atmosphere</span><input className={field} value={f.dinAtmosphere ?? ""} onChange={set("dinAtmosphere")} placeholder={ATMOSPHERES.join(", ")} /></div>
+              <div><span className={label}>Service styles</span><input className={field} value={f.dinService ?? ""} onChange={set("dinService")} placeholder={SERVICE_STYLES.join(", ")} /></div>
+              <div><span className={label}>Occasions</span><input className={field} value={f.dinOccasions ?? ""} onChange={set("dinOccasions")} placeholder={OCCASIONS.join(", ")} /></div>
+              <div><span className={label}>Max group size</span><input type="number" min={1} className={field} value={f.dinGroup ?? ""} onChange={set("dinGroup")} /></div>
+              <div><span className={label}>Source title</span><input className={field} value={f.dinSourceTitle ?? ""} onChange={set("dinSourceTitle")} /></div>
+              <div><span className={label}>Source URL</span><input className={field} value={f.dinSourceUrl ?? ""} onChange={set("dinSourceUrl")} /></div>
+            </div>
+          </details>
           <Issues items={issues} />
           <SaveBar canPersist={canPersist} disabled={busy || issues.length > 0} onSave={async () => { setBusy(true); setMsg(""); try { await onSave("restaurant", record); setMsg("Saved ✓"); } catch (e) { setMsg((e as Error).message); } finally { setBusy(false); } }} />
           {msg && <p className="text-sm" data-testid="admin-message">{msg}</p>}

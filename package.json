@@ -28,6 +28,7 @@
     "data:restaurants": "tsx scripts/import-restaurants.ts",
     "data:coverage": "tsx scripts/venue-coverage.ts",
     "data:report": "tsx scripts/data-report.ts",
+    "data:what-to-eat": "tsx scripts/what-to-eat-report.ts",
     "db:seed-sql": "tsx scripts/build-supabase-seed.ts",
     "test:db": "bash scripts/test-db.sh",
     "db:export": "tsx scripts/export-supabase.ts",

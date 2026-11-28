@@ -47,6 +47,10 @@ Legend: ✅ done and verified by automated test and/or browser evidence · 🟡 
 - ✅ Save + collections; tried dishes; Food Passport (tried, provinces, per-region completion, stamps) — e2e.
 - ✅ Surprise me (weighted by preferences; hard constraints for diet/spice/category; never uses samples) — unit + e2e.
 
+## Phase 7b — Hôm nay ăn gì? (CC-30)
+- [x] Attribute audit (`docs/WHAT_TO_EAT_REPORT.md`), optional eating/dining schema (migration 0008), deterministic engine, `/what-to-eat` UI, 12 collections + 6 modes, Admin + importer + report, unit/e2e/DB tests.
+- [ ] Codex QA; source cooking/portion/allergen and venue price/hours/atmosphere data (CX-09); v2 boosts / AI explanations only after PO approval (CC-31).
+
 ## Phase 8 — Admin
 - ✅ Stats, coverage gaps, in-browser import validator + canonical JSON download, verification queue (local overrides, export; "verified" disabled without sources).
 - ⛔ Auth/role protection (Supabase Auth) — blocked on credentials.

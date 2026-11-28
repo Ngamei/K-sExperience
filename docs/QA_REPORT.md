@@ -1,6 +1,6 @@
 # QA report
 
-_Run date: 2026-11-27 (re-run after venue imagery + multi-experience foundations) · Branch `claude/trusting-clarke-44sf7b` · Environment: Linux cloud container, Node 22.23.5, npm 10.9.9,
+_Run date: 2026-11-28 (re-run after Hôm nay ăn gì? CC-30) · Branch `claude/trusting-clarke-44sf7b` · Environment: Linux cloud container, Node 22.23.5, npm 10.9.9,
 headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is the branch head that contains this file.
 
 ## Commands and results (clean checkout)
@@ -124,6 +124,20 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 | Failed writes never report success | unit "writes never report false success"; Admin shows ✗ with the database message |
 
 Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-catalogue`, `*-food-dish`, `*-settings`, `*-settings-account-guest`, `*-passport-gate`, `*-coffee-map`, `*-coffee-catalogue`, `*-coffee-item`, `*-coffee-cafe`.
+
+## Hôm nay ăn gì? (CC-30) — `tests/unit/what-to-eat.test.ts`, `e2e/what-to-eat.spec.ts`, `tests/db/rls.sql` (0008)
+| Acceptance | Evidence |
+| --- | --- |
+| Works for guests without completing filters; small diverse result set with reasons | unit "small, diverse set"; e2e "guest gets suggestions with reasons" (desktop + Pixel 7) |
+| Hard constraints (meal, diet, spice, region, known allergens, ingredient words, recent / not-interested / new / saved) | unit tests ×4; e2e "filters change the results", "marking as eaten with skip-recent" |
+| Unknown price / hours never exclude, they add cautions | unit "never excludes on unknown price/hours" |
+| Only real (non-sample) HCMC venues; distance respected | unit tests |
+| All 12 collections + 6 modes return suggestions, bilingual reasons | unit; `docs/WHAT_TO_EAT_REPORT.md` (0 empty presets) |
+| Surprise / alternatives / save / find places / not today | e2e "collection preset, surprise, save and find places", "alternatives differ" |
+| Settings preferences applied (no pork removes Cơm tấm) | e2e "saved preferences are applied" |
+| Provenance: nothing recorded without a source is called sourced; nutrition needs a source | unit "eating profile provenance"; importer test; DB "nutrition without source rejected" |
+| Admin eating/dining fields + Recommendations completeness tab | e2e "Admin shows recommendation data completeness"; typecheck |
+Screenshots: `docs/screenshots/what-to-eat/{desktop,mobile,desktop-filters,mobile-filters}.png` (clock fixed to 12:00 HCMC). Defect found and fixed: eating attributes saved without a source were labelled "sourced" (now "estimate").
 
 ## P1 visual parity — `e2e-modules/visual.spec.ts` + screenshots
 | Criterion | Evidence |
