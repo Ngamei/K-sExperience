@@ -352,6 +352,176 @@
       },
       "updatedAt": "2026-11-28",
       "notes": "KEX-QA-03: pins carry source-derived precision (Bùi Viện exact = OSM POI node 13541335701; Phú Mỹ Hưng building = OSM way 1510577907). Dry run re-run 2026-11-28 with the new pin snapshot. Apply HELD for Codex/PO review (no production push)."
+    },
+    {
+      "batchId": "CC-TDCOFFEE-001",
+      "experience": "coffee",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Thảo Điền — coffee incl. laptop-friendly cafés; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thảo Điền"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-TDSPA-001",
+      "experience": "spa",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Thảo Điền — nail salons, gội đầu dưỡng sinh, massage; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thảo Điền"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-TDSPORT-001",
+      "experience": "sport",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Thảo Điền — Pilates, pickleball; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thảo Điền"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-TDBARS-001",
+      "experience": "bars",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Thảo Điền — craft beer & cocktail bars; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thảo Điền"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-SALACOFFEE-001",
+      "experience": "coffee",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Sala – Thủ Thiêm — coffee; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thủ Thiêm"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-SALASPA-001",
+      "experience": "spa",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Sala – Thủ Thiêm — nails, spa, massage; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thủ Thiêm"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-SALASPORT-001",
+      "experience": "sport",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Sala – Thủ Thiêm — Pilates, pickleball; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thủ Thiêm"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-SALABARS-001",
+      "experience": "bars",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Sala – Thủ Thiêm — bars; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Thủ Thiêm"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-CBDFOOD-001",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Q1 CBD — office lunch, everyday, affordable, special dining — menus + published prices; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Quận 1"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-CBDCOFFEE-001",
+      "experience": "coffee",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Q1 CBD — coffee; exact pins, published menus/prices, opening info",
+      "claims": {
+        "districts": [
+          "Quận 1"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
     }
   ]
 }

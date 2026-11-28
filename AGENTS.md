@@ -23,6 +23,7 @@ The repository and the canonical docs below are the source of truth between agen
 | `docs/AGENT_HANDOVER.md` | Coordination between Codex and Claude Code, file ownership, session log |
 | `docs/AUDIT.md` | Feature audit against the PRD with evidence |
 | `docs/EXPERIENCE_ENGINE.md` | Multi-experience architecture: registry, reuse matrix, sequence |
+| `docs/NEIGHBOURHOODS.md`, `docs/NEIGHBOURHOOD_COVERAGE.md` | Neighbourhood-first strategy proposal; generated coverage audit (`npm run data:neighbourhoods`) |
 | `research-exchange/README.md` | Shared research contract, queue and intake workflow (Claude Code · ChatGPT · Codex) |
 | `docs/RESTAURANT_VERIFICATION_PLAN.md` | Evidence levels and workflow for HCMC venues |
 | `docs/DATA_REPORT.md`, `docs/VENUE_COVERAGE.md`, `docs/WHAT_TO_EAT_REPORT.md` | Generated data reports (`npm run data:report`, `npm run data:coverage`, `npm run data:what-to-eat`) |
