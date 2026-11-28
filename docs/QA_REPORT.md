@@ -16,7 +16,7 @@ Environment: Linux cloud container, Node 22.23.5, headless Chromium (Playwright)
 
 **Bug fixed:** the old Settings "Reset my data" (`useUser.reset()`) kept `ownerId`, so for a signed-in user the diff sync treated the emptied device as deletions and removed the account's Passport. Replaced by `clearDevice()` (detaches the device copy first) + `reloadFromAccount()`; the debounced sync also aborts if the device data no longer belongs to the account. Covered by test 6.
 
-### Addendum — default header banners + Google Maps photos link (D79)
+### Addendum — default header banners + Google Maps photos link (D80)
 | Command | Result |
 | --- | --- |
 | `npx tsc --noEmit` · `npm run lint` · `npm run build` | ✅ · ✅ 0 errors · ✅ |
