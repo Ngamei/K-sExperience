@@ -16,6 +16,16 @@ Environment: Linux cloud container, Node 22.23.5, headless Chromium (Playwright)
 
 **Bug fixed:** the old Settings "Reset my data" (`useUser.reset()`) kept `ownerId`, so for a signed-in user the diff sync treated the emptied device as deletions and removed the account's Passport. Replaced by `clearDevice()` (detaches the device copy first) + `reloadFromAccount()`; the debounced sync also aborts if the device data no longer belongs to the account. Covered by test 6.
 
+### Addendum — default header banners + Google Maps photos link (D79)
+| Command | Result |
+| --- | --- |
+| `npx tsc --noEmit` · `npm run lint` · `npm run build` | ✅ · ✅ 0 errors · ✅ |
+| `npx vitest run` | ✅ **178 tests** (+ every business type has an existing banner) |
+| `npx playwright test` | ✅ **113 passed**, 1 pre-existing skip. One unidentified failure in an earlier run (log not captured) did not reproduce: full suite re-run 113/113, and `business-profile` + `settings` specs ×3 repeats = 60/60 |
+| `npm run test:e2e-modules` | ✅ **62 passed** (banner loads for café, bar, head spa, spa, Pilates, pickleball; Maps link visible; no overflow at 390 px) |
+
+Screenshots: `docs/screenshots/business-profiles/*-desktop.png`, `*-mobile.png`. Visible "Illustrative image" label removed at the PO's request (screen-reader text kept).
+
 ### Addendum — venue photos in the profile header (D78, KEX-BIZ-03)
 | Command | Result |
 | --- | --- |

@@ -45,7 +45,7 @@ function HeroIllustration({ def, s, mapsUrl }: { def: BusinessTypeDef; s: Busine
       ) : (
         <svg viewBox="0 0 200 100" className="mx-auto h-32 w-full max-w-sm md:h-40" role="img" aria-label={s.illustration}>{art[def.art]}</svg>
       )}
-      <span className="absolute left-3 top-2 rounded-full bg-paper/90 px-2 py-0.5 text-[10.5px] font-semibold uppercase tracking-wider text-muted" data-testid="hero-illustrative-label">{s.illustration}</span>
+      <span className="sr-only" data-testid="hero-illustrative-label">{s.illustration}</span>
       {mapsUrl && (
         <a href={mapsUrl} target="_blank" rel="noreferrer" className="absolute bottom-2 right-3 inline-flex items-center gap-1 rounded-full bg-paper/95 px-2.5 py-1 text-xs font-medium text-forest shadow-sm hover:bg-paper" data-testid="maps-photos-link">
           <Images className="size-3.5" aria-hidden /> {s.mapsPhotos}
