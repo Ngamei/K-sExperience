@@ -4,14 +4,15 @@ Ordered steps for an **authorized Supabase staging project** and a **Vercel prev
 [GitHub issue #2](https://github.com/Ngamei/K-sExperience/issues/2). Every step lists its evidence; record results in
 `docs/QA_REPORT.md` with the review commit and environment. Production promotion stays pending PO review.
 
-## 0. Current blocker (28 Nov 2026)
+## 0. Status (28 Nov 2026)
 
 | Item | State |
 | --- | --- |
-| Authorized staging project | **Not confirmed.** A project `aibainipwgqbluhnqepu` exists and is empty ("No migrations"), but nobody has confirmed it is staging rather than the future production database. |
-| Credentials in this workspace | None. No DB password, access token or anon key is available to Claude Code, and none should be pasted into chat. |
-| What Claude Code did | Nothing against that project (no `supabase link`, no `db push`, no SQL). All evidence below is from a throwaway local PostgreSQL 16 + PostGIS database (`npm run test:db`). |
-| Needed from PO | (1) Confirm `aibainipwgqbluhnqepu` is staging (or create a separate staging project). (2) Run steps 1–4 yourself in the Supabase dashboard, or give a trusted operator access — the DB password / service-role key stay with the operator, never in Git, Vercel or chat. (3) Add the three `NEXT_PUBLIC_*` values to the Vercel **Preview** environment only. |
+| Staging project | **`aibainipwgqbluhnqepu`**: the PO's only project, designated staging (empty, no real users). Connect it to Vercel **Preview** only. Production stays in local mode until launch; then reuse this project after clearing test accounts and re-seeding, or create a second free project for production. |
+| Steps 1–3 | ✅ **Done by the PO's operator assistant in the Supabase SQL editor, from commit `8f429f1`** (reported; Claude Code has no access to the project and did not re-check it): migrations 0001–0010 once each, in order, no errors; pre-flight query all `true`; RLS on for all 23 public tables; `seed.sql` OK; parity **10/10 PASS** (138 · 0 · 170 · 170 · 121 · 37 · 61 · 126 · 1 · 0). The dashboard's risk warnings on 0001 and 0005–0007 were expected: 0001 enables RLS itself, and the "destructive" statements only drop empty tables or constraints/policies/triggers that are recreated straight away. The "main · PRODUCTION" badge is Supabase's default branch name, not this app's production. |
+| Step 4 (Vercel Preview env) | ⏳ PO: `NEXT_PUBLIC_DATA_MODE=supabase`, `NEXT_PUBLIC_SUPABASE_URL=https://aibainipwgqbluhnqepu.supabase.co`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` = the **publishable** key (`sb_publishable_…`; supabase-js 2.119 supports it). Preview only. |
+| Redirect URLs | ⏳ PO: Authentication → URL Configuration — add the preview domain's `/auth/callback/`, `/reset-password/` and `/admin/`. |
+| Steps 4.1–5 (roles, access checks, issue #2 flows) | ⏳ Need the preview URL. Roles: the PO's own account gets `'admin'`; the separate editor test identity gets `'editor'` (both pass `is_editor()`; only the PO grants roles). |
 
 ## 1. Pre-flight (operator, before touching the database)
 

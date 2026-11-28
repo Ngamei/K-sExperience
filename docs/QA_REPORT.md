@@ -125,6 +125,19 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 
 Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-catalogue`, `*-food-dish`, `*-settings`, `*-settings-account-guest`, `*-passport-gate`, `*-coffee-map`, `*-coffee-catalogue`, `*-coffee-item`, `*-coffee-cafe`.
 
+## KEX-DB-01 staging (2026-11-28, Supabase `aibainipwgqbluhnqepu`, commit `8f429f1`)
+
+Run by the PO's operator assistant in the Supabase SQL editor; **reported to Claude Code, not independently re-run** (no project access here).
+
+| Step | Result |
+| --- | --- |
+| Migrations 0001 → 0010 (once each, in order) | ✅ no errors |
+| Pre-flight query (0006 / 0008 / 0009 / 0010) | ✅ all `true` |
+| RLS on public tables | ✅ 23/23 enabled |
+| `supabase/seed.sql` | ✅ no errors |
+| Seed parity (`scripts/print-seed-parity-sql.ts`) | ✅ 10/10 PASS — dishes 138, unknown-spice 0, establishments 170, tags 170, Food links 121, items 37, offerings 61, street pins 126, building pins 1, samples 0 |
+| Access checks (guest / non-editor / editor), REST bypass, issue #2 A1–A6 | ⏳ need the Vercel Preview with the staging env + redirect URLs |
+
 ## KEX-SEC-01 / KEX-DB-01 / Food coverage (2026-11-28, review branch `claude/kex-sec-01`, base cd7504c)
 
 | Command | Result |
