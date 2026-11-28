@@ -2,9 +2,10 @@
   "metadata": {
     "dataset": "seed",
     "label": "SEED DATA — demonstration catalogue authored by Claude Code from general culinary knowledge. Not yet verified against sources. To be replaced by the ChatGPT master catalogue.",
-    "generatedAt": "2026-11-27",
+    "generatedAt": "2026-11-28",
     "sourceFile": "data/source/seed-catalogue.json",
-    "recordCount": 138
+    "recordCount": 138,
+    "seedCount": 138
   },
   "dishes": [
     {
@@ -107,7 +108,14 @@
         "vi": "Phở với thịt gà luộc, nước dùng xương gà và lá chanh thái chỉ.",
         "en": "A lighter phở with poached chicken, chicken-bone broth and finely shredded lime leaves."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Chicken_Noodle_Soup_%28Pho_Ga%29%2C_T%C3%A2y_H%E1%BB%93_%287069116563%29.jpg?width=960",
+          "credit": "David McKelvey from Brisbane, Australia / Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chicken_Noodle_Soup_(Pho_Ga),_T%C3%A2y_H%E1%BB%93_(7069116563).jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -1217,7 +1225,14 @@
         "vi": "Bánh mì que nhỏ giòn phết pa tê và tương ớt.",
         "en": "Slender, crisp baguettes spread with pâté and chilli sauce."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh_m%C3%AC_que.jpg?width=960",
+          "credit": "Baoothersks / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_m%C3%AC_que.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -4845,7 +4860,14 @@
         "vi": "Bánh tráng nướng than với trứng và topping — món ăn vặt ban đêm của Đà Lạt.",
         "en": "Rice paper grilled over charcoal with egg and toppings — the highlands' favourite night snack."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Banh_trang_nuong_dalat.jpg?width=960",
+          "credit": "Blueconcorde / Wikimedia Commons",
+          "license": "CC0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Banh_trang_nuong_dalat.jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"
@@ -5820,7 +5842,14 @@
         "vi": "Hủ tiếu Mỹ Tho sợi dai, nước dùng xương ngọt thanh với tôm, mực, thịt.",
         "en": "Clear, sweet pork-and-seafood broth over Mỹ Tho's famous chewy dried noodles."
       },
-      "photos": [],
+      "photos": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Khu_ngh%E1%BB%89_d%C6%B0%E1%BB%A1ng_%E1%BB%9F_C%C3%A1i_B%C3%A8_%28%C4%90%E1%BB%93_%C4%83n%2C_t%C3%B4_h%E1%BB%A7_t%C3%ADu_M%E1%BB%B9_Tho%29_%281%29.jpg?width=960",
+          "credit": "Phương Huy / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khu_ngh%E1%BB%89_d%C6%B0%E1%BB%A1ng_%E1%BB%9F_C%C3%A1i_B%C3%A8_(%C4%90%E1%BB%93_%C4%83n,_t%C3%B4_h%E1%BB%A7_t%C3%ADu_M%E1%BB%B9_Tho)_(1).jpg"
+        }
+      ],
       "sources": [],
       "verification": {
         "status": "seed-unverified"

@@ -12,20 +12,20 @@
   "reconciliation": {
     "dishes": 138,
     "bucketSum": 138,
-    "dishesWithVenue": 36,
-    "realVenues": 117,
+    "dishesWithVenue": 39,
+    "realVenues": 382,
     "realVenuesOutsideHcmc": 0,
-    "venuesWithAtLeastOneDish": 117,
-    "publicRealLinks": 120,
+    "venuesWithAtLeastOneDish": 382,
+    "publicRealLinks": 387,
     "candidateLinksExcluded": 0,
     "sampleLinksExcluded": 0,
     "temporarilyUnavailableLinksExcluded": 0,
     "ok": true
   },
   "buckets": {
-    "0": 102,
-    "1-4": 26,
-    "5+": 10
+    "0": 99,
+    "1-4": 22,
+    "5+": 17
   },
   "scouting": [
     {
@@ -60,28 +60,28 @@
         {
           "id": "banh-mi-sai-gon",
           "nameVi": "Bánh mì Sài Gòn",
-          "citywideVenues": 6,
+          "citywideVenues": 12,
           "lunch": true,
           "prominence": 1
         },
         {
           "id": "bun-bo-hue",
           "nameVi": "Bún bò Huế",
-          "citywideVenues": 9,
+          "citywideVenues": 45,
           "lunch": true,
           "prominence": 1
         },
         {
           "id": "bun-cha-ha-noi",
           "nameVi": "Bún chả Hà Nội",
-          "citywideVenues": 5,
+          "citywideVenues": 18,
           "lunch": true,
           "prominence": 1
         },
         {
           "id": "com-tam-sai-gon",
           "nameVi": "Cơm tấm Sài Gòn",
-          "citywideVenues": 7,
+          "citywideVenues": 61,
           "lunch": true,
           "prominence": 1
         },
@@ -128,15 +128,15 @@
           "prominence": 2
         },
         {
-          "id": "bun-thang",
-          "nameVi": "Bún thang",
+          "id": "ca-kho-lang-vu-dai",
+          "nameVi": "Cá kho làng Vũ Đại",
           "citywideVenues": 0,
           "lunch": true,
           "prominence": 2
         },
         {
-          "id": "ca-kho-lang-vu-dai",
-          "nameVi": "Cá kho làng Vũ Đại",
+          "id": "ca-kho-to",
+          "nameVi": "Cá kho tộ",
           "citywideVenues": 0,
           "lunch": true,
           "prominence": 2
@@ -175,28 +175,28 @@
         {
           "id": "banh-mi-sai-gon",
           "nameVi": "Bánh mì Sài Gòn",
-          "citywideVenues": 6,
+          "citywideVenues": 12,
           "lunch": true,
           "prominence": 1
         },
         {
           "id": "bun-bo-hue",
           "nameVi": "Bún bò Huế",
-          "citywideVenues": 9,
+          "citywideVenues": 45,
           "lunch": true,
           "prominence": 1
         },
         {
           "id": "bun-cha-ha-noi",
           "nameVi": "Bún chả Hà Nội",
-          "citywideVenues": 5,
+          "citywideVenues": 18,
           "lunch": true,
           "prominence": 1
         },
         {
           "id": "com-tam-sai-gon",
           "nameVi": "Cơm tấm Sài Gòn",
-          "citywideVenues": 7,
+          "citywideVenues": 61,
           "lunch": true,
           "prominence": 1
         },
@@ -243,15 +243,15 @@
           "prominence": 2
         },
         {
-          "id": "bun-thang",
-          "nameVi": "Bún thang",
+          "id": "ca-kho-lang-vu-dai",
+          "nameVi": "Cá kho làng Vũ Đại",
           "citywideVenues": 0,
           "lunch": true,
           "prominence": 2
         },
         {
-          "id": "ca-kho-lang-vu-dai",
-          "nameVi": "Cá kho làng Vũ Đại",
+          "id": "ca-kho-to",
+          "nameVi": "Cá kho tộ",
           "citywideVenues": 0,
           "lunch": true,
           "prominence": 2
@@ -264,19 +264,12 @@
       "formerDistrict": "Quận 1",
       "researchOwner": "claude-code (CC-CBDFOOD-001)",
       "overlapsGptFood001": false,
-      "dishesWithVenueInArea": 12,
+      "dishesWithVenueInArea": 17,
       "topDishesToScout": [
         {
           "id": "banh-da-cua-hai-phong",
           "nameVi": "Bánh đa cua Hải Phòng",
           "citywideVenues": 3,
-          "lunch": true,
-          "prominence": 1
-        },
-        {
-          "id": "com-tam-sai-gon",
-          "nameVi": "Cơm tấm Sài Gòn",
-          "citywideVenues": 7,
           "lunch": true,
           "prominence": 1
         },
@@ -318,13 +311,6 @@
         {
           "id": "bun-sua-nha-trang",
           "nameVi": "Bún sứa Nha Trang",
-          "citywideVenues": 0,
-          "lunch": true,
-          "prominence": 2
-        },
-        {
-          "id": "bun-thang",
-          "nameVi": "Bún thang",
           "citywideVenues": 0,
           "lunch": true,
           "prominence": 2
@@ -370,6 +356,20 @@
           "citywideVenues": 0,
           "lunch": true,
           "prominence": 2
+        },
+        {
+          "id": "goi-la-kon-tum",
+          "nameVi": "Gỏi lá Kon Tum",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "pa-pinh-top",
+          "nameVi": "Pa pỉnh tộp",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
         }
       ]
     },
@@ -379,7 +379,7 @@
       "formerDistrict": "Quận 7",
       "researchOwner": "claude-code (proposed CC-PMHFOOD-001)",
       "overlapsGptFood001": false,
-      "dishesWithVenueInArea": 4,
+      "dishesWithVenueInArea": 8,
       "topDishesToScout": [
         {
           "id": "hu-tieu-my-tho",
@@ -398,28 +398,14 @@
         {
           "id": "banh-mi-sai-gon",
           "nameVi": "Bánh mì Sài Gòn",
-          "citywideVenues": 6,
+          "citywideVenues": 12,
           "lunch": true,
           "prominence": 1
         },
         {
           "id": "bun-bo-hue",
           "nameVi": "Bún bò Huế",
-          "citywideVenues": 9,
-          "lunch": true,
-          "prominence": 1
-        },
-        {
-          "id": "bun-cha-ha-noi",
-          "nameVi": "Bún chả Hà Nội",
-          "citywideVenues": 5,
-          "lunch": true,
-          "prominence": 1
-        },
-        {
-          "id": "com-tam-sai-gon",
-          "nameVi": "Cơm tấm Sài Gòn",
-          "citywideVenues": 7,
+          "citywideVenues": 45,
           "lunch": true,
           "prominence": 1
         },
@@ -466,13 +452,6 @@
           "prominence": 2
         },
         {
-          "id": "bun-thang",
-          "nameVi": "Bún thang",
-          "citywideVenues": 0,
-          "lunch": true,
-          "prominence": 2
-        },
-        {
           "id": "ca-kho-lang-vu-dai",
           "nameVi": "Cá kho làng Vũ Đại",
           "citywideVenues": 0,
@@ -482,6 +461,27 @@
         {
           "id": "ca-kho-to",
           "nameVi": "Cá kho tộ",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "cao-lau-hoi-an",
+          "nameVi": "Cao lầu Hội An",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "cha-ca-la-vong",
+          "nameVi": "Chả cá Lã Vọng",
+          "citywideVenues": 0,
+          "lunch": true,
+          "prominence": 2
+        },
+        {
+          "id": "cha-muc-ha-long",
+          "nameVi": "Chả mực Hạ Long",
           "citywideVenues": 0,
           "lunch": true,
           "prominence": 2
@@ -551,14 +551,14 @@
       "dishType": "rolls",
       "prominence": 3,
       "lunch": true,
-      "venues": 0,
-      "venuesIncludingTemporarilyUnavailable": 0,
-      "bucket": "0",
+      "venues": 4,
+      "venuesIncludingTemporarilyUnavailable": 4,
+      "bucket": "1-4",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
-        "q1-cbd": 0,
+        "q1-cbd": 1,
         "phu-my-hung": 0
       }
     },
@@ -605,15 +605,15 @@
       "dishType": "noodle-soup",
       "prominence": 3,
       "lunch": true,
-      "venues": 4,
-      "venuesIncludingTemporarilyUnavailable": 4,
-      "bucket": "1-4",
+      "venues": 26,
+      "venuesIncludingTemporarilyUnavailable": 26,
+      "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
-        "q1-cbd": 1,
-        "phu-my-hung": 1
+        "q1-cbd": 4,
+        "phu-my-hung": 5
       }
     },
     {
@@ -623,15 +623,15 @@
       "dishType": "noodles",
       "prominence": 1,
       "lunch": true,
-      "venues": 5,
-      "venuesIncludingTemporarilyUnavailable": 5,
+      "venues": 18,
+      "venuesIncludingTemporarilyUnavailable": 18,
       "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
-        "q1-cbd": 1,
-        "phu-my-hung": 0
+        "q1-cbd": 4,
+        "phu-my-hung": 5
       }
     },
     {
@@ -641,15 +641,15 @@
       "dishType": "noodle-soup",
       "prominence": 2,
       "lunch": true,
-      "venues": 0,
-      "venuesIncludingTemporarilyUnavailable": 0,
-      "bucket": "0",
+      "venues": 10,
+      "venuesIncludingTemporarilyUnavailable": 10,
+      "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
-        "q1-cbd": 0,
-        "phu-my-hung": 0
+        "q1-cbd": 1,
+        "phu-my-hung": 1
       }
     },
     {
@@ -659,8 +659,8 @@
       "dishType": "noodle-soup",
       "prominence": 2,
       "lunch": true,
-      "venues": 6,
-      "venuesIncludingTemporarilyUnavailable": 6,
+      "venues": 21,
+      "venuesIncludingTemporarilyUnavailable": 21,
       "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
@@ -695,8 +695,8 @@
       "dishType": "banh",
       "prominence": 2,
       "lunch": false,
-      "venues": 5,
-      "venuesIncludingTemporarilyUnavailable": 5,
+      "venues": 12,
+      "venuesIncludingTemporarilyUnavailable": 12,
       "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
@@ -713,14 +713,14 @@
       "dishType": "noodles",
       "prominence": 2,
       "lunch": true,
-      "venues": 2,
-      "venuesIncludingTemporarilyUnavailable": 2,
-      "bucket": "1-4",
+      "venues": 19,
+      "venuesIncludingTemporarilyUnavailable": 19,
+      "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
-        "q1-cbd": 0,
+        "q1-cbd": 3,
         "phu-my-hung": 0
       }
     },
@@ -731,9 +731,9 @@
       "dishType": "noodle-soup",
       "prominence": 3,
       "lunch": true,
-      "venues": 0,
-      "venuesIncludingTemporarilyUnavailable": 0,
-      "bucket": "0",
+      "venues": 5,
+      "venuesIncludingTemporarilyUnavailable": 5,
+      "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
@@ -1577,14 +1577,14 @@
       "dishType": "noodle-soup",
       "prominence": 1,
       "lunch": true,
-      "venues": 9,
-      "venuesIncludingTemporarilyUnavailable": 9,
+      "venues": 45,
+      "venuesIncludingTemporarilyUnavailable": 45,
       "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
-        "q1-cbd": 1,
+        "q1-cbd": 2,
         "phu-my-hung": 0
       }
     },
@@ -1595,8 +1595,8 @@
       "dishType": "rice",
       "prominence": 2,
       "lunch": true,
-      "venues": 1,
-      "venuesIncludingTemporarilyUnavailable": 1,
+      "venues": 2,
+      "venuesIncludingTemporarilyUnavailable": 2,
       "bucket": "1-4",
       "pricedVenues": 0,
       "byArea": {
@@ -2279,8 +2279,8 @@
       "dishType": "bread",
       "prominence": 1,
       "lunch": true,
-      "venues": 6,
-      "venuesIncludingTemporarilyUnavailable": 6,
+      "venues": 12,
+      "venuesIncludingTemporarilyUnavailable": 12,
       "bucket": "5+",
       "pricedVenues": 1,
       "byArea": {
@@ -2297,15 +2297,15 @@
       "dishType": "rice",
       "prominence": 1,
       "lunch": true,
-      "venues": 7,
-      "venuesIncludingTemporarilyUnavailable": 7,
+      "venues": 61,
+      "venuesIncludingTemporarilyUnavailable": 61,
       "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
-        "q1-cbd": 0,
-        "phu-my-hung": 0
+        "q1-cbd": 1,
+        "phu-my-hung": 1
       }
     },
     {
@@ -2315,14 +2315,14 @@
       "dishType": "noodle-soup",
       "prominence": 2,
       "lunch": true,
-      "venues": 6,
-      "venuesIncludingTemporarilyUnavailable": 6,
+      "venues": 12,
+      "venuesIncludingTemporarilyUnavailable": 12,
       "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
-        "q1-cbd": 0,
+        "q1-cbd": 1,
         "phu-my-hung": 1
       }
     },
@@ -2351,9 +2351,9 @@
       "dishType": "salad",
       "prominence": 2,
       "lunch": false,
-      "venues": 3,
-      "venuesIncludingTemporarilyUnavailable": 3,
-      "bucket": "1-4",
+      "venues": 6,
+      "venuesIncludingTemporarilyUnavailable": 6,
+      "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
@@ -2369,8 +2369,8 @@
       "dishType": "rolls",
       "prominence": 3,
       "lunch": false,
-      "venues": 1,
-      "venuesIncludingTemporarilyUnavailable": 1,
+      "venues": 3,
+      "venuesIncludingTemporarilyUnavailable": 3,
       "bucket": "1-4",
       "pricedVenues": 0,
       "byArea": {
@@ -2387,15 +2387,15 @@
       "dishType": "seafood",
       "prominence": 3,
       "lunch": false,
-      "venues": 8,
-      "venuesIncludingTemporarilyUnavailable": 8,
+      "venues": 48,
+      "venuesIncludingTemporarilyUnavailable": 48,
       "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
-        "q1-cbd": 1,
-        "phu-my-hung": 0
+        "q1-cbd": 2,
+        "phu-my-hung": 3
       }
     },
     {
@@ -2459,9 +2459,9 @@
       "dishType": "fried",
       "prominence": 2,
       "lunch": false,
-      "venues": 3,
-      "venuesIncludingTemporarilyUnavailable": 3,
-      "bucket": "1-4",
+      "venues": 10,
+      "venuesIncludingTemporarilyUnavailable": 10,
+      "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
@@ -2621,9 +2621,9 @@
       "dishType": "fried",
       "prominence": 2,
       "lunch": true,
-      "venues": 3,
-      "venuesIncludingTemporarilyUnavailable": 3,
-      "bucket": "1-4",
+      "venues": 20,
+      "venuesIncludingTemporarilyUnavailable": 20,
+      "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {
         "thao-dien": 0,
@@ -2639,8 +2639,8 @@
       "dishType": "hotpot",
       "prominence": 2,
       "lunch": false,
-      "venues": 6,
-      "venuesIncludingTemporarilyUnavailable": 6,
+      "venues": 8,
+      "venuesIncludingTemporarilyUnavailable": 8,
       "bucket": "5+",
       "pricedVenues": 0,
       "byArea": {

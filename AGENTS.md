@@ -44,6 +44,10 @@ The repository and the canonical docs below are the source of truth between agen
 
 ## Working agreement
 - **`main` is production** (D66): Vercel deploys it and merges to it apply database migrations (D65). Work on a feature/review branch and merge into `main` only when the Product Owner approves. `claude/trusting-clarke-44sf7b` is retired.
+- **Stay current with `main` (PO rule, 2026-11-28)** — every agent, every PR:
+  1. **Before opening a PR:** `git fetch origin main && git merge origin/main` into your branch. Resolve conflicts (decision numbers in `docs/DECISIONS.md` are taken by whoever merged first; renumber yours to the next free D-number and update its references). Re-run the generators your change touches (`npm run db:seed-sql`, `data:*` reports, `exchange:export`), then `npm run qa`, then push and open the PR.
+  2. **Right before merging:** fetch again. If `main` has moved since your last merge (`git log HEAD..origin/main` is not empty), merge it in again, re-run `npm run qa`, push, and wait for CI to pass before merging.
+  3. Never merge a PR that GitHub shows as out of date or conflicting.
 - Run `npm run qa` (typecheck, lint, unit+integration, build, e2e) before declaring work done; record results in `docs/QA_REPORT.md`.
 - Do not mark a feature complete from code inspection alone — it needs a passing test or browser evidence.
 - Data changes go through the importer (`npm run data:import`) and validators, never hand-edited canonical files.
