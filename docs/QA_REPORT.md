@@ -125,10 +125,16 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 
 Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-catalogue`, `*-food-dish`, `*-settings`, `*-settings-account-guest`, `*-passport-gate`, `*-coffee-map`, `*-coffee-catalogue`, `*-coffee-item`, `*-coffee-cafe`.
 
+## KEX-QA-01 (2026-11-28)
+- `src/lib/food/what-to-eat-report.ts`: headline `dishesWithVenue` now uses `recommend(...).withVenue` (was `.eligible` → 138/138); report shows **36 / 138** = public page; `dishesEligible` (138) reported separately. Regression `tests/unit/what-to-eat-report.test.ts` (3 tests): equals unique real linked dishes and `foodStats().itemsWithEstablishments`; an added unlinked dish does not change the headline; sample-only links never count.
+- Intake determinism: dry-run geocode snapshot reused by apply; per-run report history; dry run never downgrades an imported queue entry. Smoke test (throwaway batch CC-TEST-998: dry run → apply showed "geocodes reused from the dry run" → `--rollback`, artifacts removed; data and queue identical to HEAD).
+- Lint defect found by `npm run qa`: `e2e-modules/journeys.spec.ts` used `require()` (introduced in 9787dc3) — fixed with an ES import.
+- `npm run qa` exit 0: typecheck ✓ · lint ✓ · unit+integration **15 files / 132 tests** · build ✓ · build:e2e ✓ · Food e2e **91** · account e2e (mock Supabase) **28** · module e2e **40**; `npm run test:db` **ALL DB TESTS PASSED** (40). Live Supabase still unverified.
+
 ## Craft beer batch GPT-BARS-001 (BAR-CRAFT-20261128-01) — 2026-11-28
 - Converted with `npm run exchange:convert` (field mapping printed; 2 existing venues matched), dry run → apply via `npm run intake`; report `research-exchange/reports/GPT-BARS-001.md` (per venue: decision, pin precision, geocoder match, reasons).
 - Result: 32 received · 2 existing duplicates merged (ids, names, evidence kept; sources + brand added) · 24 new establishments · 6 rejected with reasons · 24 new offering links (craft-beer) · Bars: 28 unique venues, Craft beer: 26 venues · 0 prices · 0 photos.
-- Note: Nominatim returned a different street-level point for Tiệm Bia Gà – Tên Lửa between the dry run and the apply; the apply run rejected it (conservative).
+- Dry run 27/5 vs apply 26/6: Nominatim returned different street-level points in dry run 3; the apply's points equal dry run 1's (correction of my first note). Analysis + fixes (snapshot reuse, per-run report history) in `research-exchange/reports/GPT-BARS-001-dryrun-vs-apply.md`.
 - Tests: `e2e-modules/journeys.spec.ts` "Bars craft beer batch: live venue counts" (catalogue coverage, item places, item venue rows, map list count = data) desktop + Pixel 7; module suite 40/40; Food 91/91; unit 129/129. Screenshots `docs/screenshots/bars-craft/`.
 - Copy fix: the pilot banner said "verified entries"; now "every entry cites a published source; most are not yet independently verified".
 

@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 
 /**
@@ -102,7 +103,7 @@ test("production-like build: no fictional venues, no sample toggle, no developme
 });
 
 test("Bars craft beer batch (GPT-BARS-001): live venue counts on catalogue, item and map", async ({ page }) => {
-  const data = JSON.parse(require("node:fs").readFileSync("data/experiences/bars.json", "utf8"));
+  const data = JSON.parse(readFileSync("data/experiences/bars.json", "utf8"));
   const craft = new Set(data.offerings.filter((o: { itemId: string }) => o.itemId === "craft-beer").map((o: { establishmentId: string }) => o.establishmentId)).size;
   await page.goto("/bars/catalogue/");
   await expect(page.getByTestId("module-coverage").filter({ visible: true })).toContainText(`${data.establishments.length} HCMC places`);

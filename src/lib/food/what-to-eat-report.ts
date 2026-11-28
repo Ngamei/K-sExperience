@@ -20,7 +20,10 @@ export interface WteReport {
   dishes: CoverageRow[];
   venues: { attribute: string; known: number; total: number }[];
   presets: { id: string; name: string; eligible: number; shown: number }[];
+  /** Dishes with at least one REAL (non-sample) HCMC establishment — same count as the public page ("with HCMC places"). */
   dishesWithVenue: number;
+  /** All dishes the engine can suggest (including those without a listed place). */
+  dishesEligible: number;
   totalDishes: number;
 }
 
@@ -90,7 +93,9 @@ export function whatToEatReport(dishes: Dish[], restaurants: Restaurant[], links
       { attribute: "Dish price at venue (link)", known: realLinks.filter((l) => l.priceVnd).length, total: realLinks.length },
     ],
     presets: PRESETS.map((p) => { const r = recommend(dishes, applyPreset(p), ctx); return { id: p.id, name: p.name.vi, eligible: r.eligible, shown: r.results.length }; }),
-    dishesWithVenue: recommend(dishes, DEFAULT_WTE, ctx).eligible,
+    // KEX-QA-01: the headline is venue-backed (was `.eligible`, which also counts dishes without any place → 138/138).
+    dishesWithVenue: recommend(dishes, DEFAULT_WTE, ctx).withVenue,
+    dishesEligible: recommend(dishes, DEFAULT_WTE, ctx).eligible,
     totalDishes: dishes.length,
   };
 }
@@ -105,7 +110,7 @@ export function reportMarkdown(r: WteReport, generated: string) {
     "Provenance: **sourced** = recorded with a citation (catalogue tags count as sourced); **estimate** = recorded, marked as an estimate;",
     "**derived** = inferred from existing tags (e.g. proteins from `contains-*`, cooking method from dish type); **unknown** = not recorded — the engine never assumes a value.",
     "",
-    `Dishes recommendable with at least one real HCMC venue: **${r.dishesWithVenue} / ${r.totalDishes}**.`,
+    `Dishes recommendable with at least one real HCMC venue: **${r.dishesWithVenue} / ${r.totalDishes}**. All ${r.dishesEligible} dishes can be suggested; the other ${r.dishesEligible - r.dishesWithVenue} appear only as "no HCMC place listed yet".`,
     "",
     "## Dish attributes",
     "",

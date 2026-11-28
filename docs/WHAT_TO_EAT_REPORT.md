@@ -5,7 +5,7 @@ Generated 2026-11-28 by `npm run data:what-to-eat`. Do not edit by hand.
 Provenance: **sourced** = recorded with a citation (catalogue tags count as sourced); **estimate** = recorded, marked as an estimate;
 **derived** = inferred from existing tags (e.g. proteins from `contains-*`, cooking method from dish type); **unknown** = not recorded — the engine never assumes a value.
 
-Dishes recommendable with at least one real HCMC venue: **138 / 138**.
+Dishes recommendable with at least one real HCMC venue: **36 / 138**. All 138 dishes can be suggested; the other 102 appear only as "no HCMC place listed yet".
 
 ## Dish attributes
 

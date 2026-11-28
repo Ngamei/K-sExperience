@@ -107,6 +107,19 @@ const srcDir = batch.experience === "food" ? "data/source/venue-research" : `dat
 const scratch = mkdtempSync(path.join(os.tmpdir(), "intake-geo-"));
 const cache = path.join(root, srcDir, "geocoded.json");
 if (existsSync(cache)) copyFileSync(cache, path.join(scratch, "geocoded.json"));
+// KEX-QA-01: an apply evaluates the SAME coordinates as the reviewed dry run. Nominatim can return a different
+// street-level point for the same query between runs (GPT-BARS-001: 27/5 dry run vs 26/6 apply), so the dry run's
+// geocodes are snapshotted and reused here instead of querying again.
+const snapshot = path.join(X, "geocodes", `${batch.batchId}.json`);
+let reusedFrom: string | null = null;
+if (apply && existsSync(snapshot)) {
+  const snap = JSON.parse(readFileSync(snapshot, "utf8")) as { at: string; geocodes: Record<string, unknown> };
+  const merged = { ...(existsSync(path.join(scratch, "geocoded.json")) ? JSON.parse(readFileSync(path.join(scratch, "geocoded.json"), "utf8")) : {}), ...snap.geocodes };
+  writeFileSync(path.join(scratch, "geocoded.json"), JSON.stringify(merged));
+  reusedFrom = snap.at;
+  warnings.push(`geocodes reused from the dry run of ${snap.at} (no new Nominatim queries for this batch's venues)`);
+} else if (apply) warnings.push("no dry-run geocode snapshot for this batch — geocoded now; run a dry run first so the reviewed coordinates are the imported ones");
+void reusedFrom;
 const toGeocode = (batch.venues ?? []).filter((v, i) => verdicts[i].decision === "accept" && (v.lon == null || v.lat == null));
 writeFileSync(path.join(scratch, "batch-intake.json"), JSON.stringify({ researchedOn: batch.researchedOn, venues: toGeocode }));
 if (toGeocode.length) {
@@ -114,6 +127,11 @@ if (toGeocode.length) {
   catch (e) { warnings.push(`geocoder failed: ${(e as Error).message.split("\n")[0]} — venues without coordinates are rejected`); }
 }
 const geo = existsSync(path.join(scratch, "geocoded.json")) ? JSON.parse(readFileSync(path.join(scratch, "geocoded.json"), "utf8")) : {};
+const batchKeys = (batch.venues ?? []).map((v) => `${v.name}|${v.address}|${v.district ?? ""}`);
+if (!apply) {
+  mkdirSync(path.join(X, "geocodes"), { recursive: true });
+  writeFileSync(snapshot, JSON.stringify({ at: now(), geocodes: Object.fromEntries(batchKeys.filter((k) => geo[k]).map((k) => [k, geo[k]])) }, null, 2) + "\n");
+}
 (batch.venues ?? []).forEach((v, i) => {
   const vd = verdicts[i];
   if (vd.decision !== "accept") return;
@@ -210,11 +228,16 @@ function finish({ accepted, rejected, body, ok }: { accepted: number; rejected: 
   ].join("\n");
   mkdirSync(path.join(X, "reports"), { recursive: true });
   writeFileSync(path.join(X, "reports", `${batch.batchId}.md`), report + "\n");
+  // Every run is kept (the latest report above is overwritten): reports/history/<batch>-<mode>-<timestamp>.md
+  const stamp = now().replace(/[:.]/g, "-");
+  mkdirSync(path.join(X, "reports", "history"), { recursive: true });
+  writeFileSync(path.join(X, "reports", "history", `${batch.batchId}-${apply ? "apply" : "dryrun"}-${stamp}.md`), report + "\n");
   const sources = [...new Set((batch.venues ?? []).flatMap((v) => v.sources))];
   queue = upsertEntry(readQueue(root), {
     batchId: batch.batchId, experience: batch.experience, kind: batch.kind, assignedTo: entry?.assignedTo ?? batch.agent, scope: entry?.scope ?? batch.method.slice(0, 120),
-    status: apply ? (ok ? "imported" : "rejected") : accepted ? "validated" : "rejected",
-    importStatus: apply ? (ok ? `imported ${now().slice(0, 10)} (${accepted} venues)` : "import failed — restored") : "dry run only",
+    // a dry run never downgrades an already imported batch in the shared queue
+    status: apply ? (ok ? "imported" : "rejected") : entry?.status === "imported" ? "imported" : accepted ? "validated" : "rejected",
+    importStatus: apply ? (ok ? `imported ${now().slice(0, 10)} (${accepted} venues)` : "import failed — restored") : entry?.status === "imported" ? entry.importStatus : "dry run only",
     sources: sources.length ? sources : entry?.sources ?? [],
     validation: { at: now().slice(0, 10), accepted, rejected, warnings: warnings.length, report: `research-exchange/reports/${batch.batchId}.md` },
   });
