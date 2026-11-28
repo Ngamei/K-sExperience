@@ -66,6 +66,9 @@ test.describe("Privacy & Data (guest)", () => {
     await page.goto("/dishes/pho-bo-ha-noi/");
     await page.getByTestId("save-dish").click();
     await expect(page.getByTestId("save-dish")).toHaveAttribute("aria-pressed", "true");
+    await page.goto("/membership/");
+    await expect(page.getByTestId("usage-food-refs")).toHaveText("1 / 20"); // guest = Free quota, counted on this device
+    await expect(page.getByTestId("usage-food")).toContainText("Collections: 0 / 2");
     await page.goto("/settings/preferences/");
     await page.getByTestId("pref-spice-1").click();
     await expect(page.getByTestId("pref-spice-1")).toHaveAttribute("aria-pressed", "true");

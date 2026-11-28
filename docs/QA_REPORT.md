@@ -16,7 +16,15 @@ Environment: Linux cloud container, Node 22.23.5, headless Chromium (Playwright)
 
 **Bug fixed:** the old Settings "Reset my data" (`useUser.reset()`) kept `ownerId`, so for a signed-in user the diff sync treated the emptied device as deletions and removed the account's Passport. Replaced by `clearDevice()` (detaches the device copy first) + `reloadFromAccount()`; the debounced sync also aborts if the device data no longer belongs to the account. Covered by test 6.
 
-### Addendum — membership pricing & benefits (D70, D71, D73, D74)
+### Addendum — server-side quotas (migration 0014, D76) + blueprint audit
+| Command | Result |
+| --- | --- |
+| `npm run test:db` | ✅ **ALL DB TESTS PASSED** incl. 15 new 0014 checks: off by default (Free saved 22); seeded 20/150/∞; customer cannot switch enforcement or change quotas; admin can; with enforcement on: 21st reference refused (`quota_exceeded:saved_references:20`), re-saving an existing reference into a collection allowed, third collection refused, quota per experience, Passport history unlimited (40), over-quota saves retained; Premium saves 200; expired Premium = Free, no new saves, all 200 kept |
+| Concurrency race (two `psql` sessions, scratch DB, 19 saved, both insert the 20th inside a transaction with `pg_sleep(1)`) | ✅ one committed, the other `quota_exceeded:saved_references:20`; final count **20** (script recorded in the session; not part of `npm run test:db`) |
+| `npx vitest run` | ✅ 21 files, **167 tests** (+ quota parity: `plans.ts` LIMITS = migration 0014 seed, 15 values) |
+| `npx playwright test` / `test:e2e-auth` / `test:e2e-modules` | ✅ **103** (1 pre-existing skip) / **46** / **46** — + usage meter (guest saving 1 dish → "1 / 20", collections "0 / 2") |
+
+### Addendum — membership pricing & benefits (D71, D72, D74, D75)
 | Command | Result |
 | --- | --- |
 | `npx tsc --noEmit` · `npm run lint` | ✅ · ✅ 0 errors (1 pre-existing warning) |

@@ -49,3 +49,14 @@ describe("KEX-SEC-02 — staff roles and membership tiers are separate", () => {
     for (const t of TIERS) for (const b of BENEFITS[t]) expect(b.available, `${t}.${b.id}`).toBe(built.has(b.id));
   });
 });
+
+describe("quota parity: plans.ts ↔ migration 0014", () => {
+  it("every LIMITS value matches the membership_limits seed", async () => {
+    const { readFileSync } = await import("node:fs");
+    const { DB_LIMIT_KEYS } = await import("@/lib/membership/plans");
+    const sql = readFileSync("supabase/migrations/0014_membership_quotas.sql", "utf8");
+    const seeded = new Map([...sql.matchAll(/\('(free|plus|premium)',\s*'(\w+)',\s*(\d+|null)\)/g)].map((m) => [`${m[1]}|${m[2]}`, m[3] === "null" ? Infinity : Number(m[3])]));
+    expect(seeded.size).toBe(15);
+    for (const [k, dbKey] of Object.entries(DB_LIMIT_KEYS)) for (const t of TIERS) expect(seeded.get(`${t}|${dbKey}`), `${t} ${dbKey}`).toBe(LIMITS[k as keyof typeof LIMITS][t]);
+  });
+});

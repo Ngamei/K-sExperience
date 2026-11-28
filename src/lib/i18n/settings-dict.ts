@@ -46,7 +46,7 @@ const en = {
   b_priceCompare: "Advanced price comparisons", b_allPlus: "All Plus benefits",
   limitsNote: "Benefits marked “Coming” are being built. Until paid plans open, no limits are applied — everything you can use today stays available.",
   currencyNote: "Memberships are billed in US dollars; the final amount is shown before you confirm. Menu and service prices at Vietnamese places stay in đồng (₫).",
-  usage: "Usage & limits", usageBody: "Limits are not applied yet — they start only when paid plans open.", signInForPlan: "Sign in to see your plan.",
+  usage: "Usage & limits", savedRefs: "Saved", collectionsLbl: "Collections", unlimited: "Unlimited", onDevice: "Counted on this device. Sign in to keep your saves in your account.", usageBody: "Limits are not applied yet — they start only when paid plans open.", signInForPlan: "Sign in to see your plan.",
   guestPlan: "Guest", subscriptionMgmt: "Subscription management will appear here when paid plans open.",
   // About
   aboutBody1: "K's Experience helps you discover Vietnamese food and everyday experiences in Ho Chi Minh City — and keep your own Passport of everything you try.",
@@ -95,7 +95,7 @@ const vi: typeof en = {
   b_priceCompare: "So sánh giá nâng cao", b_allPlus: "Mọi quyền lợi của Plus",
   limitsNote: "Quyền lợi ghi “Sắp có” đang được xây dựng. Trước khi mở gói trả phí, không áp dụng giới hạn nào — mọi thứ bạn dùng được hôm nay vẫn giữ nguyên.",
   currencyNote: "Gói thành viên tính phí bằng đô la Mỹ; số tiền cuối cùng hiển thị trước khi bạn xác nhận. Giá thực đơn và dịch vụ tại các cơ sở Việt Nam vẫn tính bằng đồng (₫).",
-  usage: "Mức dùng & giới hạn", usageBody: "Chưa áp dụng giới hạn — chỉ bắt đầu khi mở gói trả phí.", signInForPlan: "Đăng nhập để xem gói của bạn.",
+  usage: "Mức dùng & giới hạn", savedRefs: "Đã lưu", collectionsLbl: "Bộ sưu tập", unlimited: "Không giới hạn", onDevice: "Đếm trên thiết bị này. Đăng nhập để giữ mục đã lưu trong tài khoản.", usageBody: "Chưa áp dụng giới hạn — chỉ bắt đầu khi mở gói trả phí.", signInForPlan: "Đăng nhập để xem gói của bạn.",
   guestPlan: "Khách", subscriptionMgmt: "Quản lý đăng ký sẽ xuất hiện ở đây khi mở gói trả phí.",
   aboutBody1: "K's Experience giúp bạn khám phá ẩm thực Việt và những trải nghiệm thường ngày tại TP. Hồ Chí Minh — và giữ Hộ chiếu của riêng bạn cho mọi điều đã thử.",
   aboutBody2: "Địa điểm được tìm hiểu từ nguồn công khai và mỗi nơi đều ghi rõ cách xác minh. Thông tin mẫu hoặc chưa xác minh luôn được gắn nhãn.",

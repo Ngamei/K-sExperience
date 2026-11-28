@@ -2,7 +2,10 @@
 import { Check, Clock } from "lucide-react";
 import { useT } from "@/lib/i18n/use-t";
 import { settingsDict, type SettingsStrings } from "@/lib/i18n/settings-dict";
-import { annualSavingsPct, BENEFITS, PLANS, TIERS, usd, type Benefit } from "@/lib/membership/plans";
+import { annualSavingsPct, BENEFITS, LIMITS, PLANS, TIERS, usd, type Benefit, type Tier } from "@/lib/membership/plans";
+import { EXPERIENCES, isSelectable, loc } from "@/experiences/registry";
+import { FOOD } from "@/lib/passport/model";
+import { allPassportsOf, useUser } from "@/lib/store/user";
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/components/shell/auth-provider";
 import { cn } from "@/lib/utils";
@@ -15,7 +18,7 @@ const benefitLabel = (b: Benefit, s: SettingsStrings) => {
 };
 
 /**
- * K's Membership (KEX-MEM-01): plan comparison with the PO's introductory USD prices and benefits (D70, D71).
+ * K's Membership (KEX-MEM-01): plan comparison with the PO's introductory USD prices and benefits (D71, D72).
  * Benefits not built yet are marked "Coming"; limits are not enforced and there is no checkout.
  */
 export function MembershipView() {
@@ -71,16 +74,41 @@ export function MembershipView() {
 
       <section className="rounded-3xl border border-line/80 bg-paper p-5 md:p-6" data-testid="membership-usage">
         <h2 className="font-display text-xl text-forest">{s.usage}</h2>
-        {current ? (
-          <>
-            <p className="mt-1 text-sm">{s.yourPlan}: <strong data-testid="membership-tier">{PLANS[current].name}</strong></p>
-            <p className="text-sm text-muted">{s.usageBody}</p>
-            <p className="mt-2 text-xs text-muted">{s.subscriptionMgmt}</p>
-          </>
-        ) : (
-          <p className="mt-1 text-sm text-muted">{s.signInForPlan}</p>
-        )}
+        {current && <p className="mt-1 text-sm">{s.yourPlan}: <strong data-testid="membership-tier">{PLANS[current].name}</strong></p>}
+        <UsageMeters tier={current ?? "free"} />
+        <p className="mt-3 text-sm text-muted">{current ? s.usageBody : s.onDevice}</p>
+        {current ? <p className="mt-1 text-xs text-muted">{s.subscriptionMgmt}</p> : <p className="mt-1 text-xs text-muted">{s.signInForPlan}</p>}
       </section>
     </div>
+  );
+}
+
+/** UsageMeter: saved references and collections per experience against the plan's quota (not enforced yet). */
+function UsageMeters({ tier }: { tier: Tier }) {
+  const { locale } = useT();
+  const s = settingsDict(locale);
+  const state = useUser();
+  const passports = allPassportsOf(state);
+  const exps = EXPERIENCES.filter((e) => e.implemented && isSelectable(e));
+  const fmt = (n: number) => (n === Infinity ? s.unlimited : String(n));
+  return (
+    <ul className="mt-3 grid gap-3 sm:grid-cols-2" data-testid="usage-meters">
+      {exps.map((e) => {
+        const p = passports[e.id === "food" ? FOOD : e.id];
+        const refs = new Set([...(p?.saved ?? []).map((x) => `i:${x}`), ...(p?.savedVenues ?? []).map((x) => `e:${x}`)]).size;
+        const cols = p?.collections.length ?? 0;
+        const lim = LIMITS.favouritesPerExperience[tier];
+        const pct = lim === Infinity ? 0 : Math.min(100, (refs / lim) * 100);
+        return (
+          <li key={e.id} className="rounded-2xl bg-ivory p-3 text-sm" data-testid={`usage-${e.id}`}>
+            <div className="flex justify-between gap-2"><span className="font-medium">{loc(e.name, locale)}</span><span className="tabular-nums" data-testid={`usage-${e.id}-refs`}>{refs} / {fmt(lim)}</span></div>
+            <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-line/70" role="meter" aria-label={`${loc(e.name, locale)} · ${s.savedRefs}`} aria-valuemin={0} aria-valuemax={lim === Infinity ? undefined : lim} aria-valuenow={refs}>
+              <span className={cn("block h-full rounded-full", pct >= 100 ? "bg-terracotta" : "bg-forest/70")} style={{ width: `${pct}%` }} />
+            </div>
+            <p className="mt-1 text-xs text-muted">{s.collectionsLbl}: {cols} / {fmt(LIMITS.collectionsPerExperience[tier])}</p>
+          </li>
+        );
+      })}
+    </ul>
   );
 }

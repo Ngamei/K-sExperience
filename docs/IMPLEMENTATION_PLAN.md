@@ -73,7 +73,7 @@ Legend: ✅ done and verified by automated test and/or browser evidence · 🟡 
 9. SEO: dish body text is client-rendered after `/data/food.json` loads (metadata is server-rendered). Consider server-rendering dish text if organic search matters.
 
 ## Next actions (proposed)
-- **Settings/Admin separation (2026-11-28):** done on `claude/gifted-franklin-iltr35` — needs Codex access-control review, PO decisions D70/D71, PO approval to merge (applies migration 0013). Real hosted account creation + cross-device persistence still unverified (KEX-AUTH-01).
+- **Settings/Admin separation (2026-11-28):** done on `claude/gifted-franklin-iltr35` — needs Codex access-control review, PO decisions D71/D72, PO approval to merge (applies migration 0013). Real hosted account creation + cross-device persistence still unverified (KEX-AUTH-01).
 1. ChatGPT exports the master catalogue in the import format → `npm run data:import -- master.csv --dataset master --dry-run`, fix, import.
 2. ~~PO decisions~~ — done (D4, D6, D13, D14 confirmed).
 3. Extend HCMC venues (add via `data/source/hcmc-restaurants.source.json` + `npm run data:restaurants`) and confirm availability on site/by phone to upgrade links.
