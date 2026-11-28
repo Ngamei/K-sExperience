@@ -113,6 +113,28 @@ createServer(async (req, res) => {
     for (const t of Object.keys(db.tables)) db.tables[t] = db.tables[t].filter((r) => r.user_id !== sub);
     return send(res, 204);
   }
+  // 0016 Founding Member programme (cap 100, 90 days; the real rules are tested in PostgreSQL)
+  if (p === "/rest/v1/rpc/founding_places_left") return send(res, 200, 100 - Object.keys(db.founding ?? {}).length);
+  if (p === "/rest/v1/rpc/claim_founding_membership") {
+    const sub = subOf(req);
+    if (!sub) return send(res, 401, { message: "not_authenticated" });
+    db.founding ??= {};
+    const refuse = (r) => send(res, 400, { code: "P0001", message: `founding_refused:${r}`, details: null, hint: null });
+    if (db.founding[sub]) return refuse("already_claimed");
+    const m = db.memberships[sub];
+    if (m && m.tier !== "free" && (!m.valid_until || new Date(m.valid_until) > new Date())) return refuse("already_member");
+    const valid_until = new Date(Date.now() + 90 * 86400e3).toISOString();
+    db.founding[sub] = valid_until;
+    db.memberships[sub] = { user_id: sub, tier: "premium", source: "founding", valid_until, updated_at: new Date().toISOString() };
+    return send(res, 200, { claimed: true, tier: "premium", valid_until });
+  }
+  if (p === "/rest/v1/rpc/menu_unlock_usage") { // 0016: the member's unlocks this period (the mock records none) + quota
+    const sub = subOf(req);
+    if (!sub) return send(res, 401, { message: "not_authenticated" });
+    const m = db.memberships[sub], tier = m && (!m.valid_until || new Date(m.valid_until) > new Date()) ? m.tier : "plus"; // default tier (0016)
+    const now = new Date(Date.now() + 7 * 3600e3); // Ho Chi Minh City calendar month
+    return send(res, 200, { used: 0, limit: { free: 5, plus: 30, premium: null }[tier], period_start: `${now.toISOString().slice(0, 7)}-01`, enforced: false });
+  }
   const table = p.replace("/rest/v1/", "");
   const one = (rows) => (req.headers.accept ?? "").includes("vnd.pgrst.object")
     ? (rows.length === 1 ? send(res, 200, rows[0]) : send(res, 406, { code: "PGRST116", message: "0 rows", details: "", hint: null })) : send(res, 200, rows);

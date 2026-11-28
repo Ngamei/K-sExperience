@@ -8,7 +8,7 @@
  */
 import type { ExperienceId } from "@/experiences/registry";
 import type { AvailabilityStatus, OpeningHours } from "@/lib/data/schema";
-import { LIMITS, LIMITS_ENFORCED, type Tier } from "@/lib/membership/plans";
+import { LIMITS_ENFORCED, menuUnlockState, type Tier } from "@/lib/membership/plans";
 
 type L = { en: string; vi: string };
 export const BUSINESS_TYPES = ["restaurant", "cafe", "bar", "nail-salon", "spa", "head-spa", "pilates", "pickleball", "boutique"] as const;
@@ -104,14 +104,14 @@ export const formatVnd = (p: { min: number; max: number }) =>
   p.min === p.max ? `${p.min.toLocaleString("vi-VN")}₫` : `${p.min.toLocaleString("vi-VN")}–${p.max.toLocaleString("vi-VN")}₫`;
 
 /**
- * Detailed-price access (PriceEntitlement). Centralised so the rule changes in one place.
+ * Complete-menu price access (PriceEntitlement), on the menu unlock model (plans.ts MENU_UNLOCK_POLICY): one unlock
+ * opens one establishment's complete menu prices for the billing period. Centralised so the rule changes in one place.
  * While limits are not enforced (D72/D76) every viewer sees every recorded price. When enforced: Premium sees all;
- * Free/Plus see a price they already unlocked or while unlocks remain this period (the unlock itself must be
- * recorded server-side, idempotently, per branch menu — KEX-MEM-04; prices must then leave the public payload).
+ * Free/Plus see the prices of a menu they unlocked this period, or may unlock while quota remains (recorded only by the
+ * `unlock_menu` RPC, migration 0016 — prices must then leave the public payload); guests see none (sign in first).
+ * Public preview prices and the basic price range are not governed by this (VISIBILITY: everyone).
  */
 export function priceAccess(tier: Tier | null, opts: { unlocked: boolean; usedUnlocks: number }, enforced = LIMITS_ENFORCED): "full" | "unlockable" | "locked" {
-  if (!enforced) return "full";
-  const t = tier ?? "free";
-  if (LIMITS.menuViewsPerMonth[t] === Infinity || opts.unlocked) return "full";
-  return opts.usedUnlocks < LIMITS.menuViewsPerMonth[t] ? "unlockable" : "locked";
+  const s = menuUnlockState(tier, { unlocked: opts.unlocked, used: opts.usedUnlocks }, enforced);
+  return s === "open" ? "full" : s === "unlockable" ? "unlockable" : "locked";
 }

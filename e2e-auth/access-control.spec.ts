@@ -56,21 +56,64 @@ test("guest: customer Settings only, membership teaser, Admin denied", async ({ 
   await expect(page.getByTestId("account-guest")).toContainText("Welcome to K's Experience");
   await expect(page.getByTestId("membership-card")).toContainText("Plans from $1.99/month");
   await expect(page.getByTestId("membership-tier")).toHaveCount(0);
+  // 0016: the Founding Member section is shown by default; guests are asked to sign in (no claim button)
+  await page.goto("/membership/");
+  await expect(page.getByTestId("founding-sign-in")).toHaveText("Sign in to join");
+  await expect(page.getByTestId("founding-join")).toHaveCount(0);
+  await expect(page.getByTestId("founding-places-left")).toHaveText(/^\d+ of 100 places left$/); // a count only
+  await expect(page.getByTestId("usage-menu-unlocks")).toHaveCount(0);
   await expectAdminDenied(page, "guest");
 });
 
-test("Free customer: plan shown, cannot self-assign Premium or a staff role, Admin denied", async ({ page }) => {
-  const email = unique("free");
+test("member without a membership row: K's Plus by default (development), cannot self-assign Premium or a staff role, Admin denied", async ({ page }) => {
+  const email = unique("member");
   await signup(page, email);
   await expectCustomerSettings(page);
-  await expect(page.getByTestId("membership-tier")).toHaveText("K's Free");
+  await expect(page.getByTestId("membership-tier")).toHaveText("K's Plus");
   const uid = await userId(email);
   expect(await restWrite(page, "user_memberships", { user_id: uid, tier: "premium" })).toBe(403);
   expect(await restWrite(page, "user_roles", { user_id: uid, role: "admin" })).toBe(403);
   await page.reload();
-  await expect(page.getByTestId("membership-tier")).toHaveText("K's Free");
+  await expect(page.getByTestId("membership-tier")).toHaveText("K's Plus");
+  // 0016: complete menu unlocks meter (RPC menu_unlock_usage) at the Plus quota; no trial wording
+  await page.goto("/membership/");
+  await expect(page.getByTestId("membership-plan-plus")).toHaveAttribute("data-current", "true");
+  await expect(page.getByTestId("usage-menu-unlocks-count")).toHaveText("0 / 30");
+  await expect(page.getByTestId("membership-usage")).not.toContainText(/trial/i);
   await expectAdminDenied(page, "not-editor");
 });
+
+test("Free customer (explicit grant): Free quotas shown", async ({ page }) => {
+  const email = unique("free");
+  await signup(page, email);
+  await mock(`/__membership?email=${encodeURIComponent(email)}&tier=free`);
+  await page.goto("/membership/");
+  await expect(page.getByTestId("membership-tier")).toHaveText("K's Free");
+  await expect(page.getByTestId("usage-menu-unlocks-count")).toHaveText("0 / 5");
+});
+
+test("Founding Member: a signed-in member claims a place once; Premium for 90 days, no automatic charge", async ({ page }) => {
+  await signup(page, unique("founding"));
+  await page.goto("/membership/");
+  const section = page.getByTestId("founding-programme");
+  await expect(section).toContainText("K's Founding Member");
+  await expect(section).toContainText("Early access programme");
+  await expect(section).toContainText("Explore everything. Help us make it better.");
+  await expect(page.getByTestId("founding-no-charge")).toContainText("No automatic charge afterwards");
+  for (const b of ["unlimitedSaved", "allMenuPrices", "nutrition", "earlyAccess", "feedbackChannel"]) await expect(page.getByTestId(`founding-benefit-${b}`)).toBeVisible();
+  await expect(page.getByTestId("founding-places-left")).toHaveText(/^\d+ of 100 places left$/);
+  const before = Number((await page.getByTestId("founding-places-left").textContent())!.split(" ")[0]);
+  await page.getByTestId("founding-join").click();
+  await expect(page.getByTestId("founding-joined")).toContainText("You are a K's Founding Member until");
+  await expect(page.getByTestId("membership-tier")).toHaveText("K's Premium");
+  await expect(page.getByTestId("founding-places-left")).toHaveText(`${before - 1} of 100 places left`);
+  await page.reload();
+  await expect(page.getByTestId("membership-tier")).toHaveText("K's Premium");
+  await page.getByTestId("founding-join").click(); // a second claim is refused, and says why
+  await expect(page.getByTestId("founding-error")).toHaveAttribute("data-reason", "already_claimed");
+  await expect(page.getByTestId("founding-error")).toContainText("already joined");
+});
+
 
 for (const tier of ["plus", "premium"] as const) {
   test(`${tier} customer (test entitlement): plan shown, still no administrative access`, async ({ page }) => {
@@ -84,6 +127,7 @@ for (const tier of ["plus", "premium"] as const) {
     await page.goto("/membership/");
     await expect(page.getByTestId(`membership-plan-${tier}`)).toHaveAttribute("data-current", "true");
     await expect(page.getByTestId("membership-not-on-sale")).toContainText("no payment is taken");
+    await expect(page.getByTestId("usage-menu-unlocks-count")).toHaveText(tier === "plus" ? "0 / 30" : "0 / Unlimited");
     await expectAdminDenied(page, "not-editor");
     expect(await restWrite(page, "user_roles", { user_id: await userId(email), role: "editor" })).toBe(403);
   });
