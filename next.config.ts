@@ -24,6 +24,12 @@ const nextConfig: NextConfig = {
   // Same URL shape in server and static-export builds (avoids redirect hops, which also break SW navigations).
   trailingSlash: true,
   images: { unoptimized: true },
+  // FIRSTLAB Agent Hub (and other tools) read the public project status from another origin. Read-only, no secrets.
+  ...(isStaticExport ? {} : {
+    async headers() {
+      return [{ source: "/hub/snapshot.json", headers: [{ key: "Access-Control-Allow-Origin", value: "*" }, { key: "Cache-Control", value: "public, max-age=300" }] }];
+    },
+  }),
   turbopack: {
     rules: {
       "*.css": {
