@@ -81,3 +81,46 @@ Targets are recalculated after each batch from `docs/NEIGHBOURHOOD_COVERAGE.md`;
 | CC-TDBARS-001 | 0 | — | Lost Birds, Dram Bar, 86 Proof (no catalogue drink named in sources) |
 
 New intake rule: a venue stated to be in an approved neighbourhood (`intakeAliases`) must be pinned inside that polygon. Thảo Điền now: 8 venues (craft beer 4, sport 3, coffee 1). The binding constraint is item-level evidence: most Thảo Điền guides give addresses but not services; next round uses official menus/booking pages.
+
+## 8. KEX-GROWTH-01 — workplace pilot go/no-go (2026-11-28)
+
+**Scope (PM/PO):** decide one first pilot + one fallback from the founder's existing list only — The Hive Thảo Điền, Inspire Hub (Sala), Dreamplex Nguyễn Trung Ngạn. First user: a coworking member or nearby office worker choosing a **weekday Vietnamese lunch ≤ 70,000 VND within ~10 minutes on foot**. Guest-accessible, existing K's data only; no feature build, redesign, outreach, signup or production change. Food near Thảo Điền/Sala is inside ChatGPT's GPT-FOOD-001 (Thủ Đức) claim: audited only, no venue batch created or applied anywhere.
+
+**Method.** Workplace pins from OpenStreetMap. Pedestrian routing: **unavailable in this environment** (routing.openstreetmap.de and router.project-osrm.org both unreachable), so every walk is **UNVERIFIED** and screened by straight-line distance ≤ 0.65 km (≈ 10 min at 5 km/h with a 1.3 detour factor). "Catalogue link" = existing K's dish–venue record (source-listed); "research evidence" = public page found today, **not imported**. Prices in K's data: none for these venues; the prices below are diner reviews or guides, mostly undated (weak).
+
+| Criterion | **Dreamplex Nguyễn Trung Ngạn (Q1)** | **The Hive Thảo Điền** | **Inspire Hub — Sala** |
+| --- | --- | --- | --- |
+| Operator / location | ✅ Official page: Levels 9–11, Miss Áo Dài Building, 21 Nguyễn Trung Ngạn, Sài Gòn Ward; weekdays 9:00–18:00 (private offices 24/7) — [dreamplex.co](https://dreamplex.co/en/locations/ho-chi-minh-city/district-1/nguyen-trung-ngan/). Pin: OSM way 503730840 "Miss Áo Dài", house 21 (exact). | 🟡 94 Xuân Thủy in third-party listings only ([coworker.com](https://www.coworker.com/vietnam/ho-chi-minh-city/the-hive-thao-dien/review), [CBRE](https://www.cbrevietnam.com/properties/serviced-office-and-coworking/ho-chi-minh/the-hive/thao-dien), [office-hub](https://www.office-hub.com/vn/buildings/94-xuan-thuy-ho-chi-minh-city-thao-dien-a363m000001Ss4bAAC)); one Hive Life page gives a different address. Official current listing **not verified**. Pin: OSM house 94 Xuân Thủy (shared by other businesses). | 🔴 "3 / 03 Nguyễn Cơ Thạch, Sala" in broker listings ([Maison Office](https://maisonoffice.vn/en/serviced-office/ho-chi-minh/inspire-hub-sala), [coworker.com](https://www.coworker.com/vietnam/ho-chi-minh-city/inspire-hub/review), [offices.co](https://offices.co/vietnam/ho-chi-minh-city/62101)); Maison Office names it **"Inspire Hub II – Sala"**, not Hub 1; wards differ (An Khánh / An Lợi Đông). Official page not verified. Pin: street-level only. |
+| Public route to community manager | 🟡 Official general hotline 0909 90 34 99 and weekday hours; no named community-manager contact found. | 🔴 Leasing enquiry line on CBRE only; no community contact found. | 🔴 None verified. |
+| Product coverage (current branch) | 🟡 Official page: coworking + private offices at this branch. Member numbers: **not claimed**. | 🟡 Listings: private offices 2–6 people, coworking, business lounge (third-party, may be dated). | 🟡 Listings: serviced office / coworking (third-party). |
+| Catalogue links within ≤ 0.65 km (straight line) | **4**: Bún Chả Hà Nội 26 (8A/9C2 Thái Văn Lung, 0.41 km, street pin) · Cơm Tấm Phúc Lộc Thọ (236 Đinh Tiên Hoàng, 0.43 km, street pin) · Bún Riêu Gánh Chợ Bến Thành (163 Lê Thánh Tôn, 0.62 km by **street-level pin — actual address near Bến Thành market is likely ~1 km+**) · Phở Cao Vân (25 Mạc Đĩnh Chi, 0.63 km, exact). Next: Bánh Xèo Bếp Mẹ Ỉn 0.78 km. | **0** food records within 1.2 km. | **0** food records within 1.2 km. |
+| Sourced price ≤ 70k | Bún chả 42–45k (Foody diner comments, undated — [foody](https://www.foody.vn/ho-chi-minh/bun-cha-ha-noi-26)) · Phở Cao Vân 55k (Foody diner review — [foody](https://foody.vn/ho-chi-minh/pho-cao-van)) · Bún riêu 55–60k (guides — [mia.vn](https://mia.vn/cam-nang-du-lich/bun-rieu-ganh-cho-ben-thanh-17591)) · Cơm tấm: chain-wide 35–39k, **not branch-specific** ([Grab blog](https://www.grab.com/vn/food-blog/talk-of-the-town/tphcm-com-tam-tran-dia-no-cang-bua-sang/)) · Bếp Mẹ Ỉn: no price. → **2–3 weak, 0 menu-confirmed** | — | — |
+| Weekday lunch hours | Phở Cao Vân 6:00–21:00 daily (Grab); Phúc Lộc Thọ chain 6:00–22:00 (Foody); others unknown. | — | — |
+| Pedestrian route | ⚠️ UNVERIFIED (routing unavailable). | ⚠️ UNVERIFIED. | ⚠️ UNVERIFIED. |
+| Target ≥ 5 qualifying branches | 🔴 **Not met** (≤ 3 with a weak price; routes unverified; one pin unreliable). | 🔴 Not met (0; GPT-FOOD-001 scope). | 🔴 Not met (0; GPT-FOOD-001 scope). |
+| **Decision** | **No-go for now — conditional lead** | **No-go for now — fallback** | **No-go** (identity/address unresolved) |
+
+**Recommendation:** no pilot starts yet. **Dreamplex Nguyễn Trung Ngạn is the conditional lead** (verified operator page, exact pin, four existing lunch links nearby); **The Hive Thảo Điền is the fallback** (credible location, no food coverage). Exact gaps to close for Dreamplex: (1) a public or operator-confirmed route to the community manager (today: general hotline only); (2) ≥ 5 distinct branches within a verified ~10-minute walk with a **menu-level** weekday lunch price ≤ 70,000 VND — need one more branch plus menu/delivery-listing prices for the existing four (diner reviews are not enough); (3) pedestrian routes measured with a routing service or on foot; (4) exact pin for Bún Riêu Gánh (163 Lê Thánh Tôn) — its street-level pin understates the walk. For The Hive: official current listing + community route, and GPT-FOOD-001 coverage of Xuân Thủy lunch options (ChatGPT). Inspire Hub: confirm which hub (I vs II) and the official address first.
+
+### Proposed two-week pilot (only after the go criteria are met)
+
+- **Artifact:** a shareable, Vietnamese-first lunch guide for the chosen workplace ("Ăn trưa quanh Dreamplex Nguyễn Trung Ngạn — dưới 70k, đi bộ 10 phút"), generated from existing K's records (dish, venue, price source, walking time, Google Maps link), guest-accessible link; shared in the operator's community channel **only if the operator approves**.
+- **Participants:** ≥ 20 consenting pilot users (members or nearby office workers), informed what is measured.
+- **Proposed decision gates (not results):** ≥ 40 % of pilot users open a restaurant or route from the guide; ≥ 25 % return within 7 days. Supporting: zero-result / "nothing fits" feedback < 10 %; reported price or route mismatches logged per venue.
+- **Measurement:** needs a privacy-reviewed, consented method (no analytics is installed today — decision in §6). Without it, use a short opt-in check-in form at day 3 and day 10.
+
+### Five-person usability test script (moderated, 20 min, Vietnamese first)
+
+1. Context: "Hôm nay là thứ Ba, 11:45. Bạn có 45 phút và tối đa 70.000đ." Open the guide link (no account).
+2. Task A — "Chọn một món ăn trưa trong 10 phút đi bộ." Observe time-to-choice, what they read first (price, distance, dish photo, reasons).
+3. Task B — "Mở đường đi tới quán." Does the route/Maps link work; is the walking time believable?
+4. Task C — "Bạn ăn chay / không ăn thịt heo hôm nay." Can they filter; do they trust the 'not recorded' labels?
+5. Task D — "Gửi hướng dẫn này cho đồng nghiệp." Share flow.
+6. Debrief: confidence in price/hours (1–5); what was missing; would they use it again tomorrow; where do they normally decide lunch (Grab, Zalo group, walking past)?
+Success signals: ≥ 4/5 choose a meal in < 2 minutes without help; ≥ 4/5 open a route; no one is misled by an unknown price or hours.
+
+### Evidence that would justify building saved workplaces later
+
+Build "home/work neighbourhood" saving only if, in the pilot: ≥ 25 % return within 7 days **and** ≥ 30 % of returners open the guide from the same workplace context ≥ 2 times; usability debriefs show people re-finding the guide as friction (≥ 3/5); and at least one more workplace passes the same go criteria (so the feature serves more than one location). Until then, the shareable guide link is the workplace experience.
+
+**Later wave:** expand toward the founder's 100-anchor directory only after the first pilot's gates are evaluated; no directory research now (superseded shortlist request not run).

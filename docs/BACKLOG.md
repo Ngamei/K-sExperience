@@ -56,6 +56,7 @@ Status: ✅ done · 🔄 in progress · ⬜ todo · ⛔ blocked (reason).
 | NB-02 | P0 | PO/Business/Product + CX | Review polygons, wards, publish thresholds, analytics/consent (docs/NEIGHBOURHOODS.md §6) | decisions | ⬜ |
 | NB-03 | P1 | CC | Research CC-TD*/CC-SALA*/CC-CBD* batches (queue.json) after NB-02 | intake reports | ⬜ planned |
 | NB-04 | P1 | CC | Neighbourhood model in app + `/areas/` pages per docs/NEIGHBOURHOODS.md §5 (after NB-02) | e2e + SEO checks | ⬜ |
+| KEX-GROWTH-01 | P0 | CC → PO | Workplace pilot go/no-go (docs/NEIGHBOURHOODS.md §8) | decision table | ✅ delivered: **no-go for now** — Dreamplex NTN conditional lead, The Hive Thảo Điền fallback, Inspire Hub no-go; gaps listed |
 | BAR-02 | P2 | ChatGPT/CC | Craft beer gaps: exact pins for 6 rejected branches; venue-level tap lists (individual beers); prices; licensed venue photos; operating-status confirmation | — | ⬜ |
 | GPT-CAT-001 / GPT-FOOD-001 | P0 | ChatGPT | Master catalogue (everyday meals, vegan/vegetarian main meals, office lunch, dinner) and outer-district venue scouting — see research-exchange/queue.json | intake dry run | ⬜ planned |
 | CX-09 | P1 | Codex | Source eating attributes (cooking method, portion, allergens) and venue dining data (price range, hours, atmosphere) — coverage in `docs/WHAT_TO_EAT_REPORT.md` | report coverage ↑ | ⬜ |
