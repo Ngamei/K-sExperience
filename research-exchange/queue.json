@@ -544,6 +544,32 @@
       "importStatus": "not imported",
       "updatedAt": "2026-11-28",
       "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+    },
+    {
+      "batchId": "CC-PMHFOOD-001",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Neighbourhood-first · Phú Mỹ Hưng (Quận 7) — everyday Vietnamese lunch dishes with no venue inside the Phú Mỹ Hưng polygon (docs/food-coverage.json scouting list): bún bò Huế, cơm tấm, bánh mì, bún chả, phở bò Hà Nội, mì Quảng, hủ tiếu Mỹ Tho; published menus/prices where available",
+      "claims": {
+        "items": [
+          "bun-bo-hue",
+          "com-tam-sai-gon",
+          "banh-mi-sai-gon",
+          "bun-cha-ha-noi",
+          "pho-bo-ha-noi",
+          "mi-quang",
+          "hu-tieu-my-tho"
+        ],
+        "districts": [
+          "Quận 7"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "in-progress",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Review branch only; candidates stay out of production until dry run + Codex review + PO approval."
     }
   ]
 }
