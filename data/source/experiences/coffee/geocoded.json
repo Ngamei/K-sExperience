@@ -47,5 +47,19 @@
   "precision": "street",
   "ward": "Phường Sài Gòn",
   "displayName": "Hải Triều, Khu phố 9, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+ },
+ "Ông Chú Cuội Hẻm|117/28A Cống Quỳnh, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.689818,
+  "lat": 10.765738,
+  "precision": "street",
+  "ward": "Phường Cầu Ông Lãnh",
+  "displayName": "Cống Quỳnh, Khu phố 4, Phường Cầu Ông Lãnh, Thành phố Hồ Chí Minh, 71011, Việt Nam"
+ },
+ "Runam Bistro (Đồng Khởi)|2-4-6 Đồng Khởi, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.702866,
+  "lat": 10.77624,
+  "precision": "street",
+  "ward": "Phường Sài Gòn",
+  "displayName": "Đồng Khởi, Khu phố 5, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
  }
 }

@@ -54,5 +54,19 @@
   "precision": "street",
   "ward": "Phường Bến Thành",
   "displayName": "Đặng Thị Nhu, Khu phố 15, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+ },
+ "Gym One Pickleball|26A Lê Quý Đôn, Quận 3, TP. Hồ Chí Minh|Quận 3": {
+  "lon": 106.689952,
+  "lat": 10.782135,
+  "precision": "street",
+  "ward": "Phường Xuân Hòa",
+  "displayName": "Lê Quý Đôn, Khu phố 2, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+ },
+ "Kira Pilates|Shophouse 7, Hưng Phúc Premier, Phú Mỹ Hưng, Quận 7, TP. Hồ Chí Minh|Quận 7": {
+  "lon": 106.708749,
+  "lat": 10.730524,
+  "precision": "street",
+  "ward": "Phường Tân Hưng",
+  "displayName": "Nhà Thuốc An Khang, 7, Bùi Bằng Đoàn, Khu phố 33, Khu phố ẨM THỰC ĐÊM Phú Mỹ Hưng -Sky Garden, Phường Tân Hưng, Nhà Bè, Thành phố Hồ Chí Minh, 72912, Việt Nam"
  }
 }

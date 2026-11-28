@@ -3,7 +3,7 @@
     "experienceId": "bars",
     "note": "bars pilot: catalogue items from published references (seed, not yet reviewed); venues and offerings from desk research — every offering cites a published source; status source-listed. Built by scripts/build-experience-research.ts.",
     "dataset": "seed",
-    "generatedAt": "2026-11-27"
+    "generatedAt": "2026-11-28"
   },
   "items": [
     {
@@ -456,6 +456,84 @@
           "craft-beer"
         ]
       }
+    },
+    {
+      "id": "east-west-brewing-ly-tu-trong",
+      "name": "East West Brewing Co.",
+      "isSample": false,
+      "address": "181-185 Lý Tự Trọng, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.695916,
+        10.773065
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=East%20West%20Brewing%20Co.%2C%20181-185%20L%C3%BD%20T%E1%BB%B1%20Tr%E1%BB%8Dng%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "brewpub",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "saigoneer.com",
+          "url": "https://saigoneer.com/sponsored-listings/8759-east-west-brewing-brings-high-quality-microbrews-to-ly-tu-trong",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "rustycompass.com",
+          "url": "https://rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/nightlife-17/east-west-brewery-saigon-1282",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer",
+          "rooftop"
+        ]
+      }
+    },
+    {
+      "id": "bia-saigon-73-bui-vien",
+      "name": "Bia Saigon 73",
+      "isSample": false,
+      "address": "73 Bùi Viện, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.692668,
+        10.766833
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bia%20Saigon%2073%2C%2073%20B%C3%B9i%20Vi%E1%BB%87n%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "bia hơi",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "tourhero.com",
+          "url": "https://www.tourhero.com/en/magazine/?p=3345",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "atmosphere": [
+          "lively"
+        ]
+      }
     }
   ],
   "offerings": [
@@ -482,6 +560,30 @@
         "url": "https://e.vnexpress.net/news/travel-life/three-really-cool-crafty-draughty-weekend-haunts-in-saigon-3868280.html"
       },
       "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "east-west-brewing-ly-tu-trong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Saigoneer: East West Brewing brews its own craft beers (e.g. Far East IPA, Pale Ale) on site at 181-185 Lý Tự Trọng, with a taproom and rooftop beer garden.",
+        "url": "https://saigoneer.com/sponsored-listings/8759-east-west-brewing-brings-high-quality-microbrews-to-ly-tu-trong"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "bia-hoi",
+      "establishmentId": "bia-saigon-73-bui-vien",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "TourHero 'Beer in Saigon' lists Bia Saigon 73 (73 Bùi Viện) as a bia hơi spot on red plastic chairs, frequented by backpackers and locals.",
+        "url": "https://www.tourhero.com/en/magazine/?p=3345"
+      },
+      "lastVerified": "2026-11-28"
     }
   ]
 }

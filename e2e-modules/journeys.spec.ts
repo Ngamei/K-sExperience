@@ -51,7 +51,7 @@ test("real Coffee data: sourced cafés per drink, establishment filters, no unve
   await stubCommons(page);
   await page.goto("/coffee/item/?id=ca-phe-trung");
   const rows = page.getByTestId("section-offerings").getByTestId("venue-row");
-  await expect(rows).toHaveCount(2);
+  await expect(rows).toHaveCount(4) // Okkio, Góc Hà Nội, Ông Chú Cuội Hẻm, Runam;
   for (const r of await rows.all()) {
     await expect(r.getByTestId("availability-status")).toHaveAttribute("data-status", "source-listed");
     await expect(r.getByTestId("last-checked")).toBeVisible();

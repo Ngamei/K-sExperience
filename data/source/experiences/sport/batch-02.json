@@ -1,0 +1,64 @@
+{
+ "researchedOn": "2026-11-28",
+ "method": "Desk research from published guides/directories naming the venue AND the exact item (pages read via search-result excerpts; direct page fetches were blocked in the research environment — PO/Codex should spot-check). Coordinates: OpenStreetMap Nominatim. Status source-listed; no prices/hours/photos added.",
+ "venues": [
+  {
+   "id": "gym-one-pickleball-le-quy-don",
+   "name": "Gym One Pickleball",
+   "address": "26A Lê Quý Đôn, Quận 3, TP. Hồ Chí Minh",
+   "district": "Quận 3",
+   "venueType": "pickleball courts",
+   "sources": [
+    "https://mia.vn/cam-nang-du-lich/san-pickleball-quan-3-20408"
+   ],
+   "attributes": {
+    "venueKinds": [
+     "pickleball-courts"
+    ],
+    "indoorOutdoor": [
+     "outdoor"
+    ]
+   },
+   "offerings": [
+    {
+     "item": "pickleball-court-rental",
+     "evidence": "mia.vn: Gym One Pickleball, 26A Lê Quý Đôn, 4 outdoor courts for rent with LED lighting.",
+     "url": "https://mia.vn/cam-nang-du-lich/san-pickleball-quan-3-20408"
+    },
+    {
+     "item": "pickleball-equipment-rental",
+     "evidence": "mia.vn: rackets and balls can be rented at Gym One Pickleball.",
+     "url": "https://mia.vn/cam-nang-du-lich/san-pickleball-quan-3-20408"
+    },
+    {
+     "item": "pickleball-coaching",
+     "evidence": "mia.vn: Gym One Pickleball offers classes for beginners.",
+     "url": "https://mia.vn/cam-nang-du-lich/san-pickleball-quan-3-20408"
+    }
+   ]
+  },
+  {
+   "id": "kira-pilates-phu-my-hung",
+   "name": "Kira Pilates",
+   "address": "Shophouse 7, Hưng Phúc Premier, Phú Mỹ Hưng, Quận 7, TP. Hồ Chí Minh",
+   "district": "Quận 7",
+   "venueType": "pilates studio",
+   "sources": [
+    "https://www.expat.com/en/business/142274_kira-pilates.html"
+   ],
+   "attributes": {
+    "venueKinds": [
+     "pilates-studio"
+    ]
+   },
+   "offerings": [
+    {
+     "item": "reformer-pilates",
+     "evidence": "Expat.com business listing: Kira Pilates is a reformer-focused boutique studio at Shophouse 7, Hưng Phúc Premier, Phú Mỹ Hưng.",
+     "url": "https://www.expat.com/en/business/142274_kira-pilates.html"
+    }
+   ],
+   "excluded": "Geocoding matched an unrelated business (7 Bùi Bằng Đoàn), not the Hưng Phúc Premier shophouse. Not published until coordinates are confirmed (official listing or first-hand)."
+  }
+ ]
+}

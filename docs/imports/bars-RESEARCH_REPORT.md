@@ -1,8 +1,8 @@
 # Import report — bars
 
-File: `data/source/experiences/bars/` · kind: bundle · rows: 13 · written · 2026-11-27
+File: `data/source/experiences/bars/` · kind: bundle · rows: 17 · written · 2026-11-28
 
-Result: valid; 0 added, 8 updated, 5 unchanged; nothing deleted.
+Result: valid; 4 added, 0 updated, 13 unchanged; nothing deleted.
 
 ### Errors (0)
 - none
@@ -10,16 +10,12 @@ Result: valid; 0 added, 8 updated, 5 unchanged; nothing deleted.
 ### Warnings (0)
 - none
 
-### Added (0)
-- none
+### Added (4)
+- establishment east-west-brewing-ly-tu-trong
+- establishment bia-saigon-73-bui-vien
+- offering craft-beer@east-west-brewing-ly-tu-trong
+- offering bia-hoi@bia-saigon-73-bui-vien
 
-### Updated (8)
-- item espresso-martini
-- item negroni
-- item mojito
-- item old-fashioned
-- item margarita
-- item bia-hoi
-- item virgin-mojito
-- item craft-beer
+### Updated (0)
+- none
 

@@ -1,0 +1,52 @@
+{
+ "researchedOn": "2026-11-28",
+ "method": "Desk research from published guides/directories naming the venue AND the exact item (pages read via search-result excerpts; direct page fetches were blocked in the research environment — PO/Codex should spot-check). Coordinates: OpenStreetMap Nominatim. Status source-listed; no prices/hours/photos added.",
+ "venues": [
+  {
+   "id": "east-west-brewing-ly-tu-trong",
+   "name": "East West Brewing Co.",
+   "address": "181-185 Lý Tự Trọng, Quận 1, TP. Hồ Chí Minh",
+   "district": "Quận 1",
+   "venueType": "brewpub",
+   "sources": [
+    "https://saigoneer.com/sponsored-listings/8759-east-west-brewing-brings-high-quality-microbrews-to-ly-tu-trong",
+    "https://rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/nightlife-17/east-west-brewery-saigon-1282"
+   ],
+   "attributes": {
+    "barTypes": [
+     "craft-beer",
+     "rooftop"
+    ]
+   },
+   "offerings": [
+    {
+     "item": "craft-beer",
+     "evidence": "Saigoneer: East West Brewing brews its own craft beers (e.g. Far East IPA, Pale Ale) on site at 181-185 Lý Tự Trọng, with a taproom and rooftop beer garden.",
+     "url": "https://saigoneer.com/sponsored-listings/8759-east-west-brewing-brings-high-quality-microbrews-to-ly-tu-trong"
+    }
+   ]
+  },
+  {
+   "id": "bia-saigon-73-bui-vien",
+   "name": "Bia Saigon 73",
+   "address": "73 Bùi Viện, Quận 1, TP. Hồ Chí Minh",
+   "district": "Quận 1",
+   "venueType": "bia hơi",
+   "sources": [
+    "https://www.tourhero.com/en/magazine/?p=3345"
+   ],
+   "attributes": {
+    "atmosphere": [
+     "lively"
+    ]
+   },
+   "offerings": [
+    {
+     "item": "bia-hoi",
+     "evidence": "TourHero 'Beer in Saigon' lists Bia Saigon 73 (73 Bùi Viện) as a bia hơi spot on red plastic chairs, frequented by backpackers and locals.",
+     "url": "https://www.tourhero.com/en/magazine/?p=3345"
+    }
+   ]
+  }
+ ]
+}

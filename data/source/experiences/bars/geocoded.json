@@ -12,5 +12,19 @@
   "precision": "exact",
   "ward": "Phường Sài Gòn",
   "displayName": "Công Ty Sản Xuất Bia Pasteur, 144, Pasteur, Khu phố 5, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+ },
+ "East West Brewing Co.|181-185 Lý Tự Trọng, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.695916,
+  "lat": 10.773065,
+  "precision": "exact",
+  "ward": "Phường Bến Thành",
+  "displayName": "East West Brewing Co., 181-185, Lý Tự Trọng, Khu phố 3, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+ },
+ "Bia Saigon 73|73 Bùi Viện, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+  "lon": 106.692668,
+  "lat": 10.766833,
+  "precision": "street",
+  "ward": "Phường Bến Thành",
+  "displayName": "Bùi Viện, Khu phố 11, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
  }
 }

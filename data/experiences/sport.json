@@ -3,7 +3,7 @@
     "experienceId": "sport",
     "note": "sport pilot: catalogue items from published references (seed, not yet reviewed); venues and offerings from desk research — every offering cites a published source; status source-listed. Built by scripts/build-experience-research.ts.",
     "dataset": "seed",
-    "generatedAt": "2026-11-27"
+    "generatedAt": "2026-11-28"
   },
   "items": [
     {
@@ -480,6 +480,45 @@
           "pilates-studio"
         ]
       }
+    },
+    {
+      "id": "gym-one-pickleball-le-quy-don",
+      "name": "Gym One Pickleball",
+      "isSample": false,
+      "address": "26A Lê Quý Đôn, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Xuân Hòa",
+      "coordinates": [
+        106.689952,
+        10.782135
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Gym%20One%20Pickleball%2C%2026A%20L%C3%AA%20Qu%C3%BD%20%C4%90%C3%B4n%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "pickleball courts",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/san-pickleball-quan-3-20408",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "sport"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pickleball-courts"
+        ],
+        "indoorOutdoor": [
+          "outdoor"
+        ]
+      }
     }
   ],
   "offerings": [
@@ -554,6 +593,42 @@
         "url": "https://business.mammothtimes.com/mammothtimes/article/abnewswire-2026-2-4-ufitu-pilates-named-best-reformer-pilates-studio-in-ho-chi-minh-city-vietnam"
       },
       "lastVerified": "2026-11-27"
+    },
+    {
+      "itemId": "pickleball-court-rental",
+      "establishmentId": "gym-one-pickleball-le-quy-don",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn: Gym One Pickleball, 26A Lê Quý Đôn, 4 outdoor courts for rent with LED lighting.",
+        "url": "https://mia.vn/cam-nang-du-lich/san-pickleball-quan-3-20408"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "pickleball-equipment-rental",
+      "establishmentId": "gym-one-pickleball-le-quy-don",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn: rackets and balls can be rented at Gym One Pickleball.",
+        "url": "https://mia.vn/cam-nang-du-lich/san-pickleball-quan-3-20408"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "pickleball-coaching",
+      "establishmentId": "gym-one-pickleball-le-quy-don",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn: Gym One Pickleball offers classes for beginners.",
+        "url": "https://mia.vn/cam-nang-du-lich/san-pickleball-quan-3-20408"
+      },
+      "lastVerified": "2026-11-28"
     }
   ]
 }
