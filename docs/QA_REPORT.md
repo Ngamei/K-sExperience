@@ -1,5 +1,22 @@
 # QA report
 
+## Sprint 4 — launch readiness (2026-11-28, branch `claude/k-experience-priorities-iy63kn`)
+
+Scope: menu unlocks + default Plus + Founding Member (0016), report incorrect information (0017), CC-ENRICH-Q1Q3PNBT-001 (52 venues), profile completeness dashboard; merged with `origin/main` @ `cdb070a`. Environment: Linux cloud container, headless Chromium, local PostgreSQL 16 + PostGIS 3. Run step by step (equivalent to `npm run qa` + `npm run test:db`).
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | `npm run typecheck` | ✅ exit 0 |
+| 2 | `npm run lint` | ✅ 0 errors; 1 pre-existing warning (`scripts/neighbourhood-coverage.ts`) |
+| 3 | `npm run test` | ✅ 27 files, **217 tests** |
+| 4 | `npm run test:db` | ✅ **ALL DB TESTS PASSED** (173 checks); seed parity PASS (180 dishes, 491 establishments, 444 links) |
+| 5 | `npm run build` + `npm run build:e2e` + `npx playwright test --trace off` | ✅ **123 passed**, 1 skipped |
+| 6 | `npm run build:auth-test` + auth e2e | ✅ **62 passed** (incl. report submission, failed submission never shown as sent) |
+| 7 | `npm run build:modules-test` + modules e2e | ✅ **62 passed** |
+
+Data checks: canonical `hcmc-restaurants.json` after the textual merge is byte-identical (sorted JSON) to the importer's regeneration from all batches (`npm run data:restaurants`): 439 Food venues, 18 phones, 194 with hours, 27 priced links; no ids lost.
+Notes: merge left one conflict marker in `tests/db/rls.sql` (caught by step 4, fixed in a follow-up commit). Known flake (pre-existing): `e2e/business-profile.spec.ts` venue-photo header test can race the service worker — passed in this run. Not verified here: live sign-in, cross-device persistence, production RLS (see `docs/AUTH_CHECKLIST.md`).
+
 ## KEX-SET-01 / KEX-SEC-02 — Customer Settings & Admin separation (2026-11-28, branch `claude/gifted-franklin-iltr35`)
 
 Environment: Linux cloud container, Node 22.23.5, headless Chromium (Playwright), local PostgreSQL 16 + PostGIS 3.
