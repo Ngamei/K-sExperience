@@ -41,6 +41,7 @@ The repository and the canonical docs below are the source of truth between agen
 8. No production deployment, paid services or permission changes without Product Owner approval.
 
 ## Working agreement
+- **`main` is production** (D66): Vercel deploys it and merges to it apply database migrations (D65). Work on a feature/review branch and merge into `main` only when the Product Owner approves. `claude/trusting-clarke-44sf7b` is retired.
 - Run `npm run qa` (typecheck, lint, unit+integration, build, e2e) before declaring work done; record results in `docs/QA_REPORT.md`.
 - Do not mark a feature complete from code inspection alone — it needs a passing test or browser evidence.
 - Data changes go through the importer (`npm run data:import`) and validators, never hand-edited canonical files.

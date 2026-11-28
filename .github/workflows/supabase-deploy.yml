@@ -1,7 +1,7 @@
 # Database migrations travel with the branch and are applied automatically after merge.
 #  - Any push / pull request that touches the database: run the local DB test (all migrations + seed on a fresh
 #    PostgreSQL + PostGIS, seed parity, RLS/security checks). A broken migration fails here, before merge.
-#  - Push to the production branch (= a merge, which is the PO's approval): after that test passes, apply pending
+#  - Push to main, the production branch (= a merge, which is the PO's approval): after that test passes, apply pending
 #    migrations to the PRODUCTION Supabase project (aibainipwgqbluhnqepu — the only database, D65), re-run the seed
 #    and the parity check (scripts/db-deploy.sh).
 # Needs one secret in the GitHub "production" environment: SUPABASE_DB_URL (connection string with password).
@@ -39,7 +39,7 @@ jobs:
 
   deploy-production-db:
     needs: db-test
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/claude/trusting-clarke-44sf7b'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
     environment: production
     steps:
