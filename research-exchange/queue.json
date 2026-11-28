@@ -546,7 +546,7 @@
       "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
     },
     {
-      "batchId": "CC-PMHFOOD-001",
+      "batchId": "GPT-PMHFOOD-001",
       "experience": "food",
       "kind": "venues",
       "scope": "Neighbourhood-first · Phú Mỹ Hưng (Quận 7) — everyday Vietnamese lunch dishes with no venue inside the Phú Mỹ Hưng polygon (docs/food-coverage.json scouting list): bún bò Huế, cơm tấm, bánh mì, bún chả, phở bò Hà Nội, mì Quảng, hủ tiếu Mỹ Tho; published menus/prices where available",
@@ -564,12 +564,12 @@
           "Quận 7"
         ]
       },
-      "assignedTo": "claude-code",
-      "status": "in-progress",
+      "assignedTo": "chatgpt",
+      "status": "planned",
       "sources": [],
       "importStatus": "not imported",
       "updatedAt": "2026-11-28",
-      "notes": "Review branch only; candidates stay out of production until dry run + Codex review + PO approval."
+      "notes": "Handed from Claude Code (CC-PMHFOOD-001) on 2026-11-28: Claude's sandbox cannot open the Vietnamese guide/delivery sites. Brief: research-exchange/briefs/GPT-PMHFOOD-001.md. Submit to research-exchange/inbox/GPT-PMHFOOD-001.json; Claude Code runs the dry run; nothing reaches production before Codex review + PO approval."
     }
   ]
 }

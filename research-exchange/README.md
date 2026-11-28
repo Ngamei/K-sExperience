@@ -12,6 +12,7 @@ Shared hand-off point between **Claude Code** (establishment-first research, men
 | `templates/` | `venues-batch.json`, `catalogue-batch.json`, `catalogue-import.csv`, `module-*.csv`, `media.json` | generated |
 | `samples/` | Real, already-imported batches (Food, Bars, Coffee) | copied |
 | `exports/*.csv` | Current dishes, establishments (all experiences), offerings (dish/item × establishment) and module items — **check these for duplicates before researching** | generated |
+| `briefs/<batchId>.md` | Research brief for a handed-over batch (scope, priorities, leads to confirm) | assigning agent |
 | `queue.json` / `QUEUE.md` | Shared research queue (batch id, experience, scope, claims, assignee, status, sources, import status, validation) | edit `queue.json`; intake updates it |
 | `inbox/` | Put submitted batches here (`<batchId>.json`) | researchers |
 | `reports/<batchId>.md` | Intake report: accepted / rejected / warnings per venue | `npm run intake` |
