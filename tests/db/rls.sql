@@ -8,10 +8,13 @@ insert into dish_restaurant_links (dish_id, restaurant_id, status, menu_evidence
 
 create temp table results (name text, ok boolean);
 grant all on results to anon, authenticated;
+-- seeded catalogue size (as owner), so the anon check does not hard-code a count that changes with each import
+create temp table seeded as select count(*) as dishes from dishes;
+grant select on seeded to anon, authenticated;
 
 -- 1. anonymous read: catalogue visible, candidate hidden, writes refused
 set role anon;
-insert into results select 'anon reads 138 dishes', count(*) = 138 from dishes;
+insert into results select 'anon reads every seeded dish', count(*) = (select dishes from seeded) and count(*) >= 138 from dishes;
 insert into results select 'six experience modules, sport pilot-planned last', (select count(*) from experience_modules) = 6 and (select status from experience_modules where id = 'sport') = 'pilot-planned' and (select max(sort_order) from experience_modules) = (select sort_order from experience_modules where id = 'sport');
 insert into results select 'every establishment has an experience tag', not exists (select 1 from restaurants r where not exists (select 1 from establishment_experiences e where e.establishment_id = r.id));
 insert into results select 'anon cannot see candidate links', count(*) = 0 from dish_restaurant_links where status = 'candidate';
@@ -151,7 +154,7 @@ insert into results select 'mode tag audited', count(*) = 1 from content_audit w
 insert into results select 'seed tagged every Food establishment', (select count(*) from establishment_experiences where experience_id = 'food') >= 113;
 
 -- 0008: optional eating/dining attributes; nutrition must name its source
-insert into results select 'dishes.eating defaults to unknown (null)', bool_and(eating is null) from dishes;
+insert into results select 'dishes.eating defaults to unknown (null)', bool_and(eating is null) from dishes where dataset = 'seed'; -- master imports may record eating attributes
 update dishes set eating = '{"cookingMethods": ["simmered"], "allergensComplete": false}' where id = (select id from dishes order by id limit 1);
 insert into results select 'dish eating stored', count(*) = 1 from dishes where eating->'cookingMethods' ? 'simmered';
 do $$ begin
@@ -170,7 +173,7 @@ do $$ begin
   update dishes set spice_level = 5 where id = 'kex-unknown-spice';
   insert into results values ('spice outside 0–3 rejected', false);
 exception when check_violation then insert into results values ('spice outside 0–3 rejected', true); end $$;
-insert into results select 'seeded legacy spice levels unchanged (all recorded)', count(*) = 0 from dishes where id <> 'kex-unknown-spice' and spice_level is null;
+insert into results select 'seeded legacy spice levels unchanged (all recorded)', count(*) = 0 from dishes where dataset = 'seed' and spice_level is null; -- master imports may leave spice unknown (NULL)
 
 -- 0010 (KEX-QA-03): building-level pins allowed; other precision values rejected
 update restaurants set coordinate_precision = 'building' where id = 'test-cafe';
