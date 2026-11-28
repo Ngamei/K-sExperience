@@ -1,0 +1,56 @@
+# Database migrations travel with the branch and are applied automatically after merge.
+#  - Any push / pull request that touches the database: run the local DB test (all migrations + seed on a fresh
+#    PostgreSQL + PostGIS, seed parity, RLS/security checks). A broken migration fails here, before merge.
+#  - Push to the production branch (= a merge): after that test passes, apply pending migrations to the STAGING
+#    Supabase project, re-run the seed and the parity check (scripts/db-deploy.sh).
+# Needs one secret in the GitHub "staging" environment: SUPABASE_DB_URL (staging connection string with password).
+# A production database will get its own job behind a "production" environment with required approval (AGENTS.md rule 8).
+name: Supabase migrations
+
+on:
+  push:
+    paths: ["supabase/**", "data/**", "scripts/db-deploy.sh", "scripts/test-db.sh", "scripts/print-seed-parity-sql.ts", "tests/db/**", ".github/workflows/supabase-deploy.yml"]
+  pull_request:
+    paths: ["supabase/**", "data/**", "scripts/db-deploy.sh", "scripts/test-db.sh", "scripts/print-seed-parity-sql.ts", "tests/db/**"]
+  workflow_dispatch:
+
+concurrency:
+  group: supabase-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  db-test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: PostgreSQL 16 + PostGIS
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q postgresql-16 postgresql-16-postgis-3
+          sudo systemctl start postgresql.service
+      - run: npm run test:db
+
+  deploy-staging:
+    needs: db-test
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/claude/trusting-clarke-44sf7b'
+    runs-on: ubuntu-24.04
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - uses: supabase/setup-cli@v1
+        with: { version: 2.122.1 }
+      - name: Check the secret is configured
+        env: { SUPABASE_DB_URL: "${{ secrets.SUPABASE_DB_URL }}" }
+        run: test -n "$SUPABASE_DB_URL" || { echo "::error::Add SUPABASE_DB_URL to the GitHub 'staging' environment (see docs/STAGING_RUNBOOK.md §7)"; exit 1; }
+      - name: Apply migrations, seed, parity
+        env: { SUPABASE_DB_URL: "${{ secrets.SUPABASE_DB_URL }}" }
+        run: bash scripts/db-deploy.sh

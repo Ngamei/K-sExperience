@@ -71,3 +71,16 @@ Record: review commit, preview URL, staging project ref, pass/fail per row, any 
 ## Local evidence (no hosted access needed)
 
 `npm run test:db` applies `0001`–`0010` in order to a fresh PostgreSQL 16 + PostGIS database, runs the seed twice, checks the columns the app reads as `anon`, runs the seed parity SQL above (10/10 PASS) and the RLS suite (53/53 PASS, incl. KEX-SEC-01: anon and signed-in non-editor writes to dishes, restaurants, links, offerings, items, tags, origins, `user_roles` and `content_audit` are all refused; the editor's write succeeds and is audited). The account flows run end-to-end against a mock Supabase in `npm run test:e2e-auth`.
+
+## 7. Automatic migrations (GitHub Actions)
+
+Migrations live in `supabase/migrations/` and travel with the branch. `.github/workflows/supabase-deploy.yml`:
+
+1. **Every push or pull request that touches the database** (migrations, seed, data, DB tests): runs `npm run test:db` on GitHub — all migrations and the seed on a fresh PostgreSQL + PostGIS, seed parity and the RLS/security suite. A broken migration fails here, before it can be merged.
+2. **After a merge to the production branch:** applies pending migrations to **staging** with `scripts/db-deploy.sh` (`supabase db push`), re-runs the idempotent seed and the parity check. Each migration runs once; history lives in `supabase_migrations.schema_migrations`.
+3. **First run only:** because 0001–0010 were applied by hand, the script records exactly those as applied (`supabase migration repair`) when the schema exists but the history is empty, then applies only newer ones (0011 onwards).
+
+**One-time setup (PO, GitHub → Settings → Environments → New environment `staging` → Add secret):** `SUPABASE_DB_URL` = Supabase → Connect → **Session pooler** connection string, with the database password filled in. It is a secret: never commit it or paste it in chat. Until it exists the deploy job fails with a clear message; the test job still runs.
+
+**Rules:** write a new numbered migration (`0012_….sql`) for every change — never edit one that has been applied. Migrations must be additive or safe to run on live data. A production database will get its own job behind a `production` environment with required approval.
+
