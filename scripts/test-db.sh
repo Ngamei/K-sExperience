@@ -4,7 +4,9 @@
 set -euo pipefail
 DB=ksx_test_$$
 PSQL="psql -v ON_ERROR_STOP=1 -q -X"
-as_pg() { if [ "$(id -un)" = "postgres" ]; then "$@"; elif [ "$(id -u)" = 0 ]; then su postgres -c "$(printf '%q ' "$@")"; else sudo -u postgres "$@"; fi; }
+# TEST_DB_DIRECT=1 (CI): the current user is a PostgreSQL superuser, so run psql as ourselves (the runner's checkout
+# is not readable by the postgres OS user).
+as_pg() { if [ "${TEST_DB_DIRECT:-}" = "1" ] || [ "$(id -un)" = "postgres" ]; then "$@"; elif [ "$(id -u)" = 0 ]; then su postgres -c "$(printf '%q ' "$@")"; else sudo -u postgres "$@"; fi; }
 as_pg createdb "$DB"
 trap 'as_pg dropdb --if-exists "$DB"' EXIT
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
