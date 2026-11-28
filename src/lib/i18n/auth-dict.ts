@@ -2,7 +2,7 @@ import type { Locale } from "./dict";
 const en = {
   brandLine: "Collect memories, one experience at a time.",
   login: "Log in", signup: "Create my account", haveAccount: "I already have an account", noAccount: "New here? Create an account",
-  email: "Email", password: "Password", displayName: "Display name", forgot: "Forgot password?", google: "Continue with Google", apple: "Apple sign-in — coming later", facebook: "Continue with Facebook", usePhone: "Continue with phone number", useEmail: "Use email instead",
+  email: "Email", password: "Password", displayName: "Display name", forgot: "Forgot password?", google: "Continue with Google", apple: "Apple sign-in — coming later", facebook: "Continue with Facebook", privacyNote: "We keep only what your account needs, never sell it, and you can delete it any time.", privacyLink: "Privacy policy", usePhone: "Continue with phone number", useEmail: "Use email instead",
   phoneTitle: "Sign in with your phone", phoneIntro: "We text you a 6-digit code. New numbers get an account automatically; your guest progress is kept.", phone: "Phone number (e.g. 0912 345 678)", sendCode: "Text me a code", verifyCode: "Sign in", codeSent: "Code sent to {phone}. It expires in a few minutes.", badPhone: "Please enter a valid mobile number, e.g. 0912 345 678.", badCode: "That code isn't right or has expired. Check it, or send a new one.", changeNumber: "Change number", resendCode: "Send a new code",
   or: "or", sendReset: "Send reset link", resetSent: "If an account exists for this email, a reset link is on its way.", newPassword: "New password", savePassword: "Save new password",
   passwordSaved: "Password updated. You're signed in.", verifyEmail: "Check your inbox to verify your email, then log in.", signingIn: "Signing you in…",
@@ -20,7 +20,7 @@ const en = {
 const vi: typeof en = {
   brandLine: "Lưu giữ kỷ niệm, từng trải nghiệm một.",
   login: "Đăng nhập", signup: "Tạo tài khoản", haveAccount: "Tôi đã có tài khoản", noAccount: "Chưa có tài khoản? Tạo ngay",
-  email: "Email", password: "Mật khẩu", displayName: "Tên hiển thị", forgot: "Quên mật khẩu?", google: "Tiếp tục với Google", apple: "Đăng nhập Apple — sắp có", facebook: "Tiếp tục với Facebook", usePhone: "Tiếp tục với số điện thoại", useEmail: "Dùng email",
+  email: "Email", password: "Mật khẩu", displayName: "Tên hiển thị", forgot: "Quên mật khẩu?", google: "Tiếp tục với Google", apple: "Đăng nhập Apple — sắp có", facebook: "Tiếp tục với Facebook", privacyNote: "Chúng tôi chỉ lưu những gì tài khoản cần, không bán dữ liệu, và bạn có thể xóa bất cứ lúc nào.", privacyLink: "Chính sách quyền riêng tư", usePhone: "Tiếp tục với số điện thoại", useEmail: "Dùng email",
   phoneTitle: "Đăng nhập bằng số điện thoại", phoneIntro: "Chúng tôi gửi mã 6 số qua SMS. Số mới sẽ tự tạo tài khoản; tiến trình khách vẫn được giữ.", phone: "Số điện thoại (vd. 0912 345 678)", sendCode: "Gửi mã cho tôi", verifyCode: "Đăng nhập", codeSent: "Đã gửi mã tới {phone}. Mã hết hạn sau vài phút.", badPhone: "Vui lòng nhập số di động hợp lệ, vd. 0912 345 678.", badCode: "Mã không đúng hoặc đã hết hạn. Kiểm tra lại hoặc gửi mã mới.", changeNumber: "Đổi số", resendCode: "Gửi mã mới",
   or: "hoặc", sendReset: "Gửi liên kết đặt lại", resetSent: "Nếu email này có tài khoản, liên kết đặt lại mật khẩu đang được gửi.", newPassword: "Mật khẩu mới", savePassword: "Lưu mật khẩu mới",
   passwordSaved: "Đã cập nhật mật khẩu. Bạn đã đăng nhập.", verifyEmail: "Hãy kiểm tra hộp thư để xác minh email, rồi đăng nhập.", signingIn: "Đang đăng nhập…",

@@ -140,7 +140,7 @@ export function SettingsView() {
           <Button asChild variant="outline"><Link href="/admin/" data-testid="admin-link"><ShieldCheck /> {t("nav.admin")}</Link></Button>
         </Card>)}
         <Card title={t("settings.reset")}>
-          <p className="mb-3 text-xs text-muted">{t("settings.resetBody")}</p>
+          <p className="mb-3 text-xs text-muted">{t("settings.resetBody")} <Link href="/privacy/" className="underline" data-testid="privacy-link">{locale === "vi" ? "Quyền riêng tư" : "Privacy"}</Link> · <Link href="/data-deletion/" className="underline">{locale === "vi" ? "Xóa dữ liệu" : "Delete your data"}</Link></p>
           <Button variant="outline" onClick={() => confirm(t("settings.resetBody")) && u.reset()}>{t("settings.reset")}</Button>
         </Card>
       </div>
