@@ -132,6 +132,12 @@ Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-ca
 - Intake evidence: apply against the old CC-BARS-003 snapshot **refused** before any write; fresh dry run pins Bùi Viện `exact · supplied` (OSM node 13541335701) and Phú Mỹ Hưng `building · supplied` (OSM way 1510577907); CC-BARS-003 apply still **held**. Throwaway CC-TEST-996: dry-run pins == applied establishments (building 10.7248058,106.7208204; geocoded exact 10.803692,106.735325), then rolled back, artifacts removed, data identical to HEAD.
 - `npm run qa` exit 0: unit **16 files / 148** · Food e2e **91** · account e2e **28** · module e2e **42**; `npm run test:db` **46 checks, ALL PASSED**. Live Supabase: unverified.
 
+## CC-BARS-003 applied (2026-11-28, production branch)
+- `npm run intake -- research-exchange/inbox/CC-BARS-003.json --apply`: 2 accepted, 0 rejected; "pins reused from the dry run of 2026-11-28T05:57:07Z (no new Nominatim queries; supplied coordinates verified unchanged)".
+- Stored: `pasteur-street-craft-beer-bui-vien-212-de-tham` **exact** 10.7673944, 106.6940607 (OSM node 13541335701); `pasteur-street-craft-beer-phu-my-hung-cr5-01` **building** 10.7248058, 106.7208204 (OSM way 1510577907, shown as "building-level location"). Brand attribute + official directory source on both.
+- Net: Bars establishments 28 → **30** (+2 distinct); Bars offerings 28 → **30** (+2 craft-beer links); Craft Beer venues 26 → **28**. All experiences: 168 → 170 establishments, 180 → 182 offerings (exchange export). Hoàng Sa still withheld.
+- `npm run qa` exit 0: unit **16 / 148** · Food e2e **91** · account e2e **28** · module e2e **42**; `npm run test:db` ALL PASSED.
+
 ## Thảo Điền sprint round 1 (2026-11-28, branch `claude/neighbourhood-audit`, original commit f0e062b — rebased onto 8982520)
 - Intake: CC-TDCOFFEE-001 dry run 2/1 → after the new approved-area pin rule 1/2; apply 1/2 (geocodes reused from the dry run). CC-TDSPORT-001 dry run 2/0 → 1/1; apply 1/1. Imported: Anh Coffee Matcha Bar, UFiTU Pilates+ Thảo Điền. Withheld with reasons: Cafe 1/4, Olaben (pins outside the approved area), The Snap Cafe (address conflict). Spa / bars: 0 eligible (recorded in queue.json).
 - Defect found and fixed: two numbered-street geocodes ("Đường số 38", "Đường số 10") landed outside Thảo Đien but passed the 6 km district check → new rule (pin must be inside the approved neighbourhood polygon).

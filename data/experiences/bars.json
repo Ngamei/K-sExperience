@@ -1494,6 +1494,90 @@
         ],
         "brand": "Reham Saigon Taproom"
       }
+    },
+    {
+      "id": "pasteur-street-craft-beer-bui-vien-212-de-tham",
+      "name": "Pasteur Street Craft Beer – Bùi Viện",
+      "isSample": false,
+      "address": "212 Đề Thám",
+      "neighbourhood": "Quận 1",
+      "coordinates": [
+        106.6940607,
+        10.7673944
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Street%20Craft%20Beer%20%E2%80%93%20B%C3%B9i%20Vi%E1%BB%87n%2C%20212%20%C4%90%E1%BB%81%20Th%C3%A1m",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "pasteurstreet.com",
+          "url": "https://www.pasteurstreet.com/taprooms",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "openstreetmap.org",
+          "url": "https://www.openstreetmap.org/node/13541335701",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      }
+    },
+    {
+      "id": "pasteur-street-craft-beer-phu-my-hung-cr5-01",
+      "name": "Pasteur Street Craft Beer – Phú Mỹ Hưng",
+      "isSample": false,
+      "address": "CR5-01, Crescent Residence 5, 8 Trần Văn Trà",
+      "neighbourhood": "Quận 7",
+      "coordinates": [
+        106.7208204,
+        10.7248058
+      ],
+      "coordinatePrecision": "building",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Street%20Craft%20Beer%20%E2%80%93%20Ph%C3%BA%20M%E1%BB%B9%20H%C6%B0ng%2C%20CR5-01%2C%20Crescent%20Residence%205%2C%208%20Tr%E1%BA%A7n%20V%C4%83n%20Tr%C3%A0",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "pasteurstreet.com",
+          "url": "https://www.pasteurstreet.com/taprooms",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "openstreetmap.org",
+          "url": "https://www.openstreetmap.org/way/1510577907",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      }
     }
   ],
   "offerings": [
@@ -1830,6 +1914,30 @@
         "type": "published-source",
         "note": "saigon-scene.com lists Reham Saigon Taproom (165/37 Nguyễn Thái Bình) as a taproom of Reham Saigon Taproom serving Bia thủ công. Secondary guide; corroborate with current official listing.",
         "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "pasteur-street-craft-beer-bui-vien-212-de-tham",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "The official Pasteur Street taproom directory lists the Bùi Viện Taproom & Restaurant at 212 Đề Thám, Bến Thành Ward, serving its craft beer.",
+        "url": "https://www.pasteurstreet.com/taprooms"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "pasteur-street-craft-beer-phu-my-hung-cr5-01",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "The official Pasteur Street taproom directory lists the Phu My Hung Taproom & Restaurant at CR5-01, Crescent Residence 5 (near Crescent Mall and SECC), serving its craft beer.",
+        "url": "https://www.pasteurstreet.com/taprooms"
       },
       "lastVerified": "2026-11-28"
     }

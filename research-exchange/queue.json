@@ -336,18 +336,18 @@
         ]
       },
       "assignedTo": "claude-code",
-      "status": "validated",
+      "status": "imported",
       "sources": [
         "https://www.pasteurstreet.com/taprooms",
         "https://www.openstreetmap.org/node/13541335701",
         "https://www.openstreetmap.org/way/1510577907"
       ],
-      "importStatus": "dry run only",
+      "importStatus": "imported 2026-11-28 (2 venues)",
       "validation": {
         "at": "2026-11-28",
         "accepted": 2,
         "rejected": 0,
-        "warnings": 0,
+        "warnings": 1,
         "report": "research-exchange/reports/CC-BARS-003.md"
       },
       "updatedAt": "2026-11-28",

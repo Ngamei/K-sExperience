@@ -16,10 +16,10 @@ Result: valid; 4 added, 0 updated, 65 unchanged; nothing deleted.
 - skipped venue — Deme Brewing Taproom: intake GPT-BARS-001: coordinates: street-level pin (house number not located) lies nearer Quận 1 than Quận 3 — exact location unconfirmed
 
 ### Added (4)
-- establishment test-bar-building-8-tran-van-tra
-- establishment test-bar-geocoded-100-xuan-thuy
-- offering craft-beer@test-bar-building-8-tran-van-tra
-- offering craft-beer@test-bar-geocoded-100-xuan-thuy
+- establishment pasteur-street-craft-beer-bui-vien-212-de-tham
+- establishment pasteur-street-craft-beer-phu-my-hung-cr5-01
+- offering craft-beer@pasteur-street-craft-beer-bui-vien-212-de-tham
+- offering craft-beer@pasteur-street-craft-beer-phu-my-hung-cr5-01
 
 ### Updated (0)
 - none
