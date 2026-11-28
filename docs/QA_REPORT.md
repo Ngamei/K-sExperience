@@ -23,6 +23,7 @@ Environment: Linux cloud container, Node 22.23.5, headless Chromium (Playwright)
 | Concurrency race (two `psql` sessions, scratch DB, 19 saved, both insert the 20th inside a transaction with `pg_sleep(1)`) | ✅ one committed, the other `quota_exceeded:saved_references:20`; final count **20** (script recorded in the session; not part of `npm run test:db`) |
 | `npx vitest run` | ✅ 21 files, **167 tests** (+ quota parity: `plans.ts` LIMITS = migration 0014 seed, 15 values) |
 | `npx playwright test` / `test:e2e-auth` / `test:e2e-modules` | ✅ **103** (1 pre-existing skip) / **46** / **46** — + usage meter (guest saving 1 dish → "1 / 20", collections "0 / 2") |
+| **After merging `main` (`ea6c287`, Facebook/phone sign-in)** — typecheck, lint, `vitest`, `test:db`, all three browser suites | ✅ tsc 0 · lint 0 errors · **22 files / 170 tests** · ALL DB TESTS PASSED · **103** / **50** / **46** |
 
 ### Addendum — membership pricing & benefits (D71, D72, D74, D75)
 | Command | Result |
