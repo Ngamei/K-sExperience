@@ -1,0 +1,19 @@
+{
+  "at": "2026-11-28T05:43:12.299Z",
+  "geocodes": {
+    "UFiTU Pilates+ (Thảo Điền)|3/38 Quốc Hương|Thảo Điền": {
+      "lon": 106.730888,
+      "lat": 10.807384,
+      "precision": "street",
+      "ward": "Phường An Khánh",
+      "displayName": "Quốc Hương, Khu phố 7, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
+    },
+    "Olaben Studio|1M Đường số 10|Thảo Điền": {
+      "lon": 106.727666,
+      "lat": 10.82473,
+      "precision": "street",
+      "ward": "Phường Hiệp Bình",
+      "displayName": "Đường số 10, Khu phố 33, Phường Hiệp Bình, Thành phố Hồ Chí Minh, 71318, Việt Nam"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Neighbourhood-first growth — audit, data model proposal and page requirements
 
-_Status: **proposal for Business/Product validation** (PO request 2026-11-28). Nothing user-facing is implemented; no existing record is removed. Coverage numbers: `docs/NEIGHBOURHOOD_COVERAGE.md` (`npm run data:neighbourhoods`)._
+_Status: search areas **approved by the PO (2026-11-28)**; Thảo Điền research started. Pages/analytics still need §6 decisions._ _(Original: proposal for Business/Product validation, PO request 2026-11-28.) Nothing user-facing is implemented; no existing record is removed. Coverage numbers: `docs/NEIGHBOURHOOD_COVERAGE.md` (`npm run data:neighbourhoods`)._
 
 ## 1. Current geographic model (reviewed before any change)
 
@@ -70,3 +70,14 @@ Targets are recalculated after each batch from `docs/NEIGHBOURHOOD_COVERAGE.md`;
 3. Analytics tool and consent model; shareable-collection privacy.
 4. ChatGPT assignments for Phan Xích Long, Phú Mỹ Hưng and Vinhomes Central Park.
 5. Validate segments and growth channels (Business/Growth) — out of scope for engineering.
+
+## 7. Thảo Điền sprint — round 1 (2026-11-28)
+
+| Batch | Result | Imported | Withheld / not eligible (reason) |
+| --- | --- | --- | --- |
+| CC-TDCOFFEE-001 | 1 / 3 | Anh Coffee Matcha Bar, 37 Thảo Điền (matcha latte; street-level pin) | Cafe 1/4, 19 Đường số 38 — pin geocoded ~2 km south, outside the approved area (numbered street repeats); The Snap Cafe — source says 32 Trần Ngọc Diện but OSM maps No. 32 as another business and the café ~350 m east |
+| CC-TDSPORT-001 | 1 / 2 | UFiTU Pilates+ Thảo Điền, 3/38 Quốc Hương (reformer; street-level pin) | Olaben Studio, 1M Đường số 10 — pin geocoded in Phường Hiệp Bình, outside the area |
+| CC-TDSPA-001 | 0 | — | Mộc Hương (61 vs 104 Xuân Thủy conflict); Thao Dien Spa, Mojo Spa, Eggsy Nails (no named treatment or no address) |
+| CC-TDBARS-001 | 0 | — | Lost Birds, Dram Bar, 86 Proof (no catalogue drink named in sources) |
+
+New intake rule: a venue stated to be in an approved neighbourhood (`intakeAliases`) must be pinned inside that polygon. Thảo Điền now: 8 venues (craft beer 4, sport 3, coffee 1). The binding constraint is item-level evidence: most Thảo Điền guides give addresses but not services; next round uses official menus/booking pages.

@@ -1,0 +1,71 @@
+{
+  "batchId": "CC-TDSPORT-001",
+  "experience": "sport",
+  "kind": "venues",
+  "agent": "claude-code",
+  "researchedOn": "2026-11-28",
+  "method": "Neighbourhood-first research (Thảo Điền, approved search area). Desk research from guides/official pages naming the venue AND the exact item (search-result excerpts; direct fetches blocked — spot-check). Coordinates: OpenStreetMap; venues with conflicting addresses withheld.",
+  "venues": [
+    {
+      "name": "UFiTU Pilates+ (Thảo Điền)",
+      "address": "3/38 Quốc Hương",
+      "district": "Thảo Điền",
+      "venueType": "pilates studio",
+      "sources": [
+        "https://business.mammothtimes.com/mammothtimes/article/abnewswire-2026-2-4-ufitu-pilates-named-best-reformer-pilates-studio-in-ho-chi-minh-city-vietnam"
+      ],
+      "offerings": [
+        {
+          "item": "reformer-pilates",
+          "evidence": "Press release (Feb 2026) on UFiTU Pilates+, a reformer Pilates studio, lists its Thảo Điền studio at 3/38 Quốc Hương.",
+          "url": "https://business.mammothtimes.com/mammothtimes/article/abnewswire-2026-2-4-ufitu-pilates-named-best-reformer-pilates-studio-in-ho-chi-minh-city-vietnam"
+        }
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pilates-studio"
+        ]
+      },
+      "id": "ufitu-pilates-thao-dien-3-38-quoc-huong"
+    },
+    {
+      "name": "Olaben Studio",
+      "address": "1M Đường số 10",
+      "district": "Thảo Điền",
+      "venueType": "pilates studio",
+      "sources": [
+        "https://olaben.com/pages/olaben-studio",
+        "https://olaben.com/en-gb/pages/olaben-store-location"
+      ],
+      "offerings": [
+        {
+          "item": "reformer-pilates",
+          "evidence": "Olaben's official studio page: five spaces in Thảo Điền (1M Đường số 10) offering reformer Pilates.",
+          "url": "https://olaben.com/pages/olaben-studio"
+        },
+        {
+          "item": "mat-pilates",
+          "evidence": "Olaben's official studio page lists mat Pilates classes at the Thảo Điền studio.",
+          "url": "https://olaben.com/pages/olaben-studio"
+        },
+        {
+          "item": "pilates-apparatus",
+          "evidence": "Olaben's official studio page lists Cadillac Pilates at the Thảo Điền studio.",
+          "url": "https://olaben.com/pages/olaben-studio"
+        }
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pilates-studio"
+        ],
+        "equipment": [
+          "reformer",
+          "mat",
+          "cadillac"
+        ]
+      },
+      "id": "olaben-studio-1m-duong-so-10",
+      "excluded": "intake CC-TDSPORT-001: coordinates: pin (Đường số 10, Khu phố 33, Phường Hiệp Bình, Thành phố Hồ Chí Minh, 71318, Việt Nam) is outside the approved Thảo Điền area — street name likely repeats elsewhere"
+    }
+  ]
+}

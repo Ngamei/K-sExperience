@@ -519,6 +519,42 @@
           "outdoor"
         ]
       }
+    },
+    {
+      "id": "ufitu-pilates-thao-dien-3-38-quoc-huong",
+      "name": "UFiTU Pilates+ (Thảo Điền)",
+      "isSample": false,
+      "address": "3/38 Quốc Hương",
+      "neighbourhood": "Phường An Khánh",
+      "coordinates": [
+        106.730888,
+        10.807384
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=UFiTU%20Pilates%2B%20(Th%E1%BA%A3o%20%C4%90i%E1%BB%81n)%2C%203%2F38%20Qu%E1%BB%91c%20H%C6%B0%C6%A1ng",
+      "venueType": "pilates studio",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "business.mammothtimes.com",
+          "url": "https://business.mammothtimes.com/mammothtimes/article/abnewswire-2026-2-4-ufitu-pilates-named-best-reformer-pilates-studio-in-ho-chi-minh-city-vietnam",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "sport"
+      ],
+      "attributes": {
+        "venueKinds": [
+          "pilates-studio"
+        ]
+      }
     }
   ],
   "offerings": [
@@ -627,6 +663,18 @@
         "type": "published-source",
         "note": "mia.vn: Gym One Pickleball offers classes for beginners.",
         "url": "https://mia.vn/cam-nang-du-lich/san-pickleball-quan-3-20408"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "reformer-pilates",
+      "establishmentId": "ufitu-pilates-thao-dien-3-38-quoc-huong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Press release (Feb 2026) on UFiTU Pilates+, a reformer Pilates studio, lists its Thảo Điền studio at 3/38 Quốc Hương.",
+        "url": "https://business.mammothtimes.com/mammothtimes/article/abnewswire-2026-2-4-ufitu-pilates-named-best-reformer-pilates-studio-in-ho-chi-minh-city-vietnam"
       },
       "lastVerified": "2026-11-28"
     }

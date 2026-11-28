@@ -839,6 +839,42 @@
           "concept"
         ]
       }
+    },
+    {
+      "id": "anh-coffee-matcha-bar-37-thao-dien",
+      "name": "Anh Coffee Matcha Bar",
+      "isSample": false,
+      "address": "37 Thảo Điền",
+      "neighbourhood": "Phường An Khánh",
+      "coordinates": [
+        106.738253,
+        10.801316
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Anh%20Coffee%20Matcha%20Bar%2C%2037%20Th%E1%BA%A3o%20%C4%90i%E1%BB%81n",
+      "venueType": "café",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "matchaplaces.com",
+          "url": "https://matchaplaces.com/places/plc_016b5fb361-anh-coffee-matcha-bar-wx9hk8",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "coffee"
+      ],
+      "attributes": {
+        "cafeTypes": [
+          "specialty"
+        ]
+      }
     }
   ],
   "offerings": [
@@ -947,6 +983,18 @@
         "type": "published-source",
         "note": "Vietnam Airlines' egg-coffee guide lists Runam (Runam Bistro, 2-4-6 Đồng Khởi) for egg coffee; Wandering Wheatleys also recommends Runam's egg coffee in District 1.",
         "url": "https://www.vietnamairlines.com/en/useful-information/travel-guide/egg-coffee-saigon"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "matcha-latte",
+      "establishmentId": "anh-coffee-matcha-bar-37-thao-dien",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Matchaplaces lists Anh Coffee Matcha Bar at 37 Thảo Điền as a matcha bar (matcha drinks), open about 8:00–21:00/22:00.",
+        "url": "https://matchaplaces.com/places/plc_016b5fb361-anh-coffee-matcha-bar-wx9hk8"
       },
       "lastVerified": "2026-11-28"
     }

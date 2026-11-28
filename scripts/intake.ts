@@ -17,7 +17,7 @@ import os from "node:os";
 import path from "node:path";
 import { BatchSchema, geocodeProblem, pinKey, resolvePins, snapshotMismatches, validateVenues, type Batch, type ExistingEstablishment, type FailedPin, type Pin, type VenueVerdict } from "../src/lib/data/exchange";
 import { overlaps, queueMarkdown, readQueue, upsertEntry, writeQueue } from "../src/lib/data/exchange-queue";
-import { haversineKm, type LngLat } from "../src/lib/geo/geo";
+import { haversineKm, pointInGeometry, type GeoJsonGeometry, type LngLat } from "../src/lib/geo/geo";
 
 const root = path.resolve(__dirname, "..");
 const X = path.join(root, "research-exchange");
@@ -36,6 +36,9 @@ const DISTRICTS: Record<string, LngLat> = {
   "Quận 8": [106.655, 10.738], "Quận 10": [106.667, 10.773], "Quận 11": [106.650, 10.763], "Quận 12": [106.654, 10.867], "Bình Thạnh": [106.709, 10.810], "Phú Nhuận": [106.680, 10.800],
   "Tân Bình": [106.652, 10.801], "Tân Phú": [106.628, 10.791], "Gò Vấp": [106.665, 10.838], "Bình Tân": [106.603, 10.765], "Thủ Đức": [106.762, 10.850], "Thảo Điền": [106.733, 10.805], "Thủ Thiêm": [106.720, 10.775], "An Phú": [106.748, 10.800], "Nhà Bè": [106.730, 10.695], "Bình Chánh": [106.590, 10.730],
 };
+
+const NEIGHBOURHOODS: { id: string; name: { vi: string }; intakeAliases?: string[]; searchArea: GeoJsonGeometry }[] =
+  existsSync(path.join(root, "data/neighbourhoods/neighbourhoods.json")) ? readJson("data/neighbourhoods/neighbourhoods.json").neighbourhoods : [];
 
 // ---- rollback ---------------------------------------------------------------------------------------
 if (args[0] === "--rollback") {
@@ -147,6 +150,18 @@ venuesAll.forEach((v, i) => {
   }
   const prob = geocodeProblem(v, geo[pinKey(v)], DISTRICTS);
   if (prob) { vd.decision = "reject"; vd.action = "none"; vd.reasons.push(`coordinates: ${prob}`); }
+});
+// Neighbourhood-first: a venue stated to be in an approved neighbourhood must be pinned inside its polygon
+// (numbered streets such as "Đường số 10" repeat across the city and can geocode elsewhere). Applies to supplied pins too.
+venuesAll.forEach((v, i) => {
+  const vd = verdicts[i];
+  const p = pins[pinKey(v)];
+  if (vd.decision !== "accept" || !p || "failed" in p) return;
+  const area = NEIGHBOURHOODS.find((n) => n.intakeAliases?.includes(v.district ?? ""));
+  if (area && !pointInGeometry([p.lon, p.lat], area.searchArea)) {
+    vd.decision = "reject"; vd.action = "none";
+    vd.reasons.push(`coordinates: pin (${p.origin === "supplied" ? p.sourceRef ?? "supplied" : p.displayName || "geocoded"}) is outside the approved ${area.name.vi} area — street name likely repeats elsewhere`);
+  }
 });
 // KEX-QA-02: a street-level geocode is a street-segment point, so different addresses on one street can get the
 // identical point. Flag it (never presented as exact; the UI labels street-level pins as approximate).

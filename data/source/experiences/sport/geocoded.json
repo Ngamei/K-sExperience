@@ -1,72 +1,86 @@
 {
- "Court One Club (New World Saigon Hotel)|76 Lê Lai, Quận 1, TP. Hồ Chí Minh|Quận 1": {
-  "lon": 106.694532,
-  "lat": 10.770794,
-  "precision": "exact",
-  "ward": "Phường Bến Thành",
-  "displayName": "New World Hotel, 76, Lê Lai, Khu phố 3, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
- },
- "Nhà Văn hóa Lao động TP.HCM (pickleball)|55B Nguyễn Thị Minh Khai, Quận 1, TP. Hồ Chí Minh|Quận 1": {
-  "lon": 106.693128,
-  "lat": 10.776738,
-  "precision": "exact",
-  "ward": "Phường Bến Thành",
-  "displayName": "Cung Văn Hóa Lao Động, 55B, Nguyễn Thị Minh Khai, Khu phố 2, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
- },
- "PickoLand Thảo Điền Pickleball Club|188A6 Nguyễn Văn Hưởng, Thủ Đức, TP. Hồ Chí Minh|Thủ Đức": {
-  "lon": 106.728262,
-  "lat": 10.81642,
-  "precision": "street",
-  "ward": "Phường An Khánh",
-  "displayName": "Nguyễn Văn Hưởng, Khu phố 10, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
- },
- "Rudal Pickleball Center|28 Đường số 12, An Khánh, Thủ Đức, TP. Hồ Chí Minh|Thủ Đức": {
-  "lon": 106.770567,
-  "lat": 10.825681,
-  "precision": "exact",
-  "ward": "Phường Phước Long",
-  "displayName": "B28, Đường Số 12, Khu phố 19, Phường Phước Long, Thành phố Hồ Chí Minh, 71211, Việt Nam"
- },
- "HitPark Pickleball|1 Đường số 26, An Khánh, Thủ Đức, TP. Hồ Chí Minh|Thủ Đức": {
-  "lon": 106.731227,
-  "lat": 10.832048,
-  "precision": "street",
-  "ward": "Phường Hiệp Bình",
-  "displayName": "Đường số 26, Khu phố 37, Phường Hiệp Bình, Thành phố Hồ Chí Minh, 71318, Việt Nam"
- },
- "Bang Bang Pickleball Club|247 Nguyễn Văn Hưởng, Thủ Đức, TP. Hồ Chí Minh|Thủ Đức": {
-  "lon": 106.728262,
-  "lat": 10.81642,
-  "precision": "street",
-  "ward": "Phường An Khánh",
-  "displayName": "Nguyễn Văn Hưởng, Khu phố 10, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
- },
- "Olaben Studio|1M Đường số 10, Thảo Điền, Thủ Đức, TP. Hồ Chí Minh|Thủ Đức": {
-  "lon": 106.727666,
-  "lat": 10.82473,
-  "precision": "street",
-  "ward": "Phường Hiệp Bình",
-  "displayName": "Đường số 10, Khu phố 33, Phường Hiệp Bình, Thành phố Hồ Chí Minh, 71318, Việt Nam"
- },
- "UFiTU Pilates+ (Đặng Thị Nhu)|41 Đặng Thị Nhu, Quận 1, TP. Hồ Chí Minh|Quận 1": {
-  "lon": 106.697306,
-  "lat": 10.769364,
-  "precision": "street",
-  "ward": "Phường Bến Thành",
-  "displayName": "Đặng Thị Nhu, Khu phố 15, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
- },
- "Gym One Pickleball|26A Lê Quý Đôn, Quận 3, TP. Hồ Chí Minh|Quận 3": {
-  "lon": 106.689952,
-  "lat": 10.782135,
-  "precision": "street",
-  "ward": "Phường Xuân Hòa",
-  "displayName": "Lê Quý Đôn, Khu phố 2, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
- },
- "Kira Pilates|Shophouse 7, Hưng Phúc Premier, Phú Mỹ Hưng, Quận 7, TP. Hồ Chí Minh|Quận 7": {
-  "lon": 106.708749,
-  "lat": 10.730524,
-  "precision": "street",
-  "ward": "Phường Tân Hưng",
-  "displayName": "Nhà Thuốc An Khang, 7, Bùi Bằng Đoàn, Khu phố 33, Khu phố ẨM THỰC ĐÊM Phú Mỹ Hưng -Sky Garden, Phường Tân Hưng, Nhà Bè, Thành phố Hồ Chí Minh, 72912, Việt Nam"
- }
+  "Court One Club (New World Saigon Hotel)|76 Lê Lai, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+    "lon": 106.694532,
+    "lat": 10.770794,
+    "precision": "exact",
+    "ward": "Phường Bến Thành",
+    "displayName": "New World Hotel, 76, Lê Lai, Khu phố 3, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "Nhà Văn hóa Lao động TP.HCM (pickleball)|55B Nguyễn Thị Minh Khai, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+    "lon": 106.693128,
+    "lat": 10.776738,
+    "precision": "exact",
+    "ward": "Phường Bến Thành",
+    "displayName": "Cung Văn Hóa Lao Động, 55B, Nguyễn Thị Minh Khai, Khu phố 2, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "PickoLand Thảo Điền Pickleball Club|188A6 Nguyễn Văn Hưởng, Thủ Đức, TP. Hồ Chí Minh|Thủ Đức": {
+    "lon": 106.728262,
+    "lat": 10.81642,
+    "precision": "street",
+    "ward": "Phường An Khánh",
+    "displayName": "Nguyễn Văn Hưởng, Khu phố 10, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
+  },
+  "Rudal Pickleball Center|28 Đường số 12, An Khánh, Thủ Đức, TP. Hồ Chí Minh|Thủ Đức": {
+    "lon": 106.770567,
+    "lat": 10.825681,
+    "precision": "exact",
+    "ward": "Phường Phước Long",
+    "displayName": "B28, Đường Số 12, Khu phố 19, Phường Phước Long, Thành phố Hồ Chí Minh, 71211, Việt Nam"
+  },
+  "HitPark Pickleball|1 Đường số 26, An Khánh, Thủ Đức, TP. Hồ Chí Minh|Thủ Đức": {
+    "lon": 106.731227,
+    "lat": 10.832048,
+    "precision": "street",
+    "ward": "Phường Hiệp Bình",
+    "displayName": "Đường số 26, Khu phố 37, Phường Hiệp Bình, Thành phố Hồ Chí Minh, 71318, Việt Nam"
+  },
+  "Bang Bang Pickleball Club|247 Nguyễn Văn Hưởng, Thủ Đức, TP. Hồ Chí Minh|Thủ Đức": {
+    "lon": 106.728262,
+    "lat": 10.81642,
+    "precision": "street",
+    "ward": "Phường An Khánh",
+    "displayName": "Nguyễn Văn Hưởng, Khu phố 10, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
+  },
+  "Olaben Studio|1M Đường số 10, Thảo Điền, Thủ Đức, TP. Hồ Chí Minh|Thủ Đức": {
+    "lon": 106.727666,
+    "lat": 10.82473,
+    "precision": "street",
+    "ward": "Phường Hiệp Bình",
+    "displayName": "Đường số 10, Khu phố 33, Phường Hiệp Bình, Thành phố Hồ Chí Minh, 71318, Việt Nam"
+  },
+  "UFiTU Pilates+ (Đặng Thị Nhu)|41 Đặng Thị Nhu, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+    "lon": 106.697306,
+    "lat": 10.769364,
+    "precision": "street",
+    "ward": "Phường Bến Thành",
+    "displayName": "Đặng Thị Nhu, Khu phố 15, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "Gym One Pickleball|26A Lê Quý Đôn, Quận 3, TP. Hồ Chí Minh|Quận 3": {
+    "lon": 106.689952,
+    "lat": 10.782135,
+    "precision": "street",
+    "ward": "Phường Xuân Hòa",
+    "displayName": "Lê Quý Đôn, Khu phố 2, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+  },
+  "Kira Pilates|Shophouse 7, Hưng Phúc Premier, Phú Mỹ Hưng, Quận 7, TP. Hồ Chí Minh|Quận 7": {
+    "lon": 106.708749,
+    "lat": 10.730524,
+    "precision": "street",
+    "ward": "Phường Tân Hưng",
+    "displayName": "Nhà Thuốc An Khang, 7, Bùi Bằng Đoàn, Khu phố 33, Khu phố ẨM THỰC ĐÊM Phú Mỹ Hưng -Sky Garden, Phường Tân Hưng, Nhà Bè, Thành phố Hồ Chí Minh, 72912, Việt Nam"
+  },
+  "UFiTU Pilates+ (Thảo Điền)|3/38 Quốc Hương|Thảo Điền": {
+    "lon": 106.730888,
+    "lat": 10.807384,
+    "precision": "street",
+    "ward": "Phường An Khánh",
+    "displayName": "Quốc Hương, Khu phố 7, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
+  },
+  "Olaben Studio|1M Đường số 10|Thảo Điền": {
+    "lon": 106.727666,
+    "lat": 10.82473,
+    "precision": "street",
+    "ward": "Phường Hiệp Bình",
+    "displayName": "Đường số 10, Khu phố 33, Phường Hiệp Bình, Thành phố Hồ Chí Minh, 71318, Việt Nam"
+  }
 }

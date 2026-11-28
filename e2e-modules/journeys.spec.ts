@@ -66,8 +66,13 @@ test("real Coffee data: sourced cafés per drink, establishment filters, no unve
   if (isMobile) await page.getByTestId("open-filters").click();
   await page.getByTestId("filter-est-cafeTypes-specialty").filter({ visible: true }).first().click();
   if (isMobile) await page.keyboard.press("Escape");
-  await expect(page.getByTestId("item-count")).toHaveText("1/13 coffees"); // matching / total
-  await expect(page.getByTestId("item-card")).toHaveAttribute("data-item-id", "pour-over");
+  // expected = drinks offered by at least one café tagged "specialty" (derived from the data, not hard-coded)
+  const coffee = JSON.parse(readFileSync("data/experiences/coffee.json", "utf8"));
+  const specialty = new Set(coffee.establishments.filter((e: { attributes?: { cafeTypes?: string[] } }) => e.attributes?.cafeTypes?.includes("specialty")).map((e: { id: string }) => e.id));
+  const expected = [...new Set(coffee.offerings.filter((o: { establishmentId: string }) => specialty.has(o.establishmentId)).map((o: { itemId: string }) => o.itemId))].sort();
+  await expect(page.getByTestId("item-count")).toHaveText(`${expected.length}/${coffee.items.length} coffees`); // matching / total
+  expect((await page.getByTestId("item-card").evaluateAll((xs) => xs.map((x) => x.getAttribute("data-item-id")))).sort()).toEqual(expected);
+  expect(expected).toContain("pour-over");
   await page.getByTestId("clear-filters").first().click();
   await expect(page.getByTestId("item-count")).toHaveText("13 coffees");
   // café page shows its characteristics separately from its drinks

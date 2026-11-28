@@ -364,11 +364,22 @@
         ]
       },
       "assignedTo": "claude-code",
-      "status": "planned",
-      "sources": [],
-      "importStatus": "not imported",
+      "status": "imported",
+      "sources": [
+        "https://matchaplaces.com/places/plc_016b5fb361-anh-coffee-matcha-bar-wx9hk8",
+        "https://vietcetera.com/en/a-day-in-thao-dien-saigons-cool-neighborhood",
+        "https://au.trip.com/travel-guide/foods/Ho%20Chi%20Minh%20City-434-restaurant/The%20Snap%20Cafe-17201440"
+      ],
+      "importStatus": "imported 2026-11-28 (1 venues)",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 1,
+        "rejected": 2,
+        "warnings": 1,
+        "report": "research-exchange/reports/CC-TDCOFFEE-001.md"
+      },
       "updatedAt": "2026-11-28",
-      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+      "notes": "Started 2026-11-28 after PO approved the search areas."
     },
     {
       "batchId": "CC-TDSPA-001",
@@ -381,11 +392,11 @@
         ]
       },
       "assignedTo": "claude-code",
-      "status": "planned",
+      "status": "in-progress",
       "sources": [],
       "importStatus": "not imported",
       "updatedAt": "2026-11-28",
-      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+      "notes": "Round 1 (2026-11-28): 0 eligible — Mộc Hương Spa Thảo Điền has conflicting addresses (61 vs 104 Xuân Thủy); Thao Dien Spa (47/1/13 Quốc Hương), Mojo Spa, Eggsy Nails: no named treatment or no address in sources. Next: official menus/booking pages."
     },
     {
       "batchId": "CC-TDSPORT-001",
@@ -398,11 +409,22 @@
         ]
       },
       "assignedTo": "claude-code",
-      "status": "planned",
-      "sources": [],
-      "importStatus": "not imported",
+      "status": "imported",
+      "sources": [
+        "https://business.mammothtimes.com/mammothtimes/article/abnewswire-2026-2-4-ufitu-pilates-named-best-reformer-pilates-studio-in-ho-chi-minh-city-vietnam",
+        "https://olaben.com/pages/olaben-studio",
+        "https://olaben.com/en-gb/pages/olaben-store-location"
+      ],
+      "importStatus": "imported 2026-11-28 (1 venues)",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 1,
+        "rejected": 1,
+        "warnings": 1,
+        "report": "research-exchange/reports/CC-TDSPORT-001.md"
+      },
       "updatedAt": "2026-11-28",
-      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+      "notes": "Started 2026-11-28 after PO approved the search areas."
     },
     {
       "batchId": "CC-TDBARS-001",
@@ -415,11 +437,11 @@
         ]
       },
       "assignedTo": "claude-code",
-      "status": "planned",
+      "status": "in-progress",
       "sources": [],
       "importStatus": "not imported",
       "updatedAt": "2026-11-28",
-      "notes": "Planned per docs/NEIGHBOURHOODS.md; starts after Business/Product validation of the areas."
+      "notes": "Round 1 (2026-11-28): 0 eligible — Lost Birds (24A Xuân Thủy), Dram Bar (2 Đặng Hữu Phổ), 86 Proof (109 Xuân Thủy): sources name no specific drink from the catalogue. Next: official menus."
     },
     {
       "batchId": "CC-SALACOFFEE-001",

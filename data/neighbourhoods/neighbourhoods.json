@@ -1,5 +1,5 @@
 {
-  "note": "PROVISIONAL neighbourhood search areas for the neighbourhood-first strategy (PO, 2026-11-28). Each area is a simple polygon drawn around the PO's named streets/landmarks for COVERAGE AUDIT ONLY — not reviewed boundaries, not shown to users. Membership is decided by establishment coordinates inside the polygon (never by district name); street-level pins are reported separately as approximate. Current wards are derived from geocoded establishments in the audit, not asserted here.",
+  "note": "Neighbourhood search areas for the neighbourhood-first strategy (PO, 2026-11-28). Each area is a simple polygon drawn around the PO's named streets/landmarks approved by the PO on 2026-11-28 for coverage audit and research targeting (not yet shown to users). Membership is decided by establishment coordinates inside the polygon (never by district name); street-level pins are reported separately as approximate. Current wards are derived from geocoded establishments in the audit, not asserted here. `intakeAliases`: when a research batch states one of these as a venue's area, intake requires the pin to fall inside this polygon.",
   "neighbourhoods": [
     {
       "id": "thao-dien",
@@ -38,7 +38,9 @@
             ]
           ]
         ],
-        "status": "provisional"
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
       },
       "tags": [
         "international",
@@ -59,7 +61,10 @@
         "bars": 20,
         "spa": 25,
         "sport": 15
-      }
+      },
+      "intakeAliases": [
+        "Thảo Điền"
+      ]
     },
     {
       "id": "sala-thu-thiem",
@@ -98,7 +103,9 @@
             ]
           ]
         ],
-        "status": "provisional"
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
       },
       "tags": [
         "residential",
@@ -117,7 +124,11 @@
         "bars": 10,
         "spa": 15,
         "sport": 10
-      }
+      },
+      "intakeAliases": [
+        "Sala",
+        "Thủ Thiêm"
+      ]
     },
     {
       "id": "q1-cbd",
@@ -155,7 +166,9 @@
             ]
           ]
         ],
-        "status": "provisional"
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
       },
       "tags": [
         "office-lunch",
@@ -214,7 +227,9 @@
             ]
           ]
         ],
-        "status": "provisional"
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
       },
       "tags": [
         "family",
@@ -233,7 +248,10 @@
         "bars": 15,
         "spa": 35,
         "sport": 20
-      }
+      },
+      "intakeAliases": [
+        "Phú Mỹ Hưng"
+      ]
     },
     {
       "id": "vinhomes-central-park",
@@ -271,7 +289,9 @@
             ]
           ]
         ],
-        "status": "provisional"
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
       },
       "tags": [
         "residential",
@@ -289,7 +309,10 @@
         "bars": 10,
         "spa": 20,
         "sport": 10
-      }
+      },
+      "intakeAliases": [
+        "Vinhomes Central Park"
+      ]
     },
     {
       "id": "phan-xich-long",
@@ -327,7 +350,9 @@
             ]
           ]
         ],
-        "status": "provisional"
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
       },
       "tags": [
         "everyday-dining",
@@ -346,7 +371,10 @@
         "bars": 15,
         "spa": 30,
         "sport": 10
-      }
+      },
+      "intakeAliases": [
+        "Phan Xích Long"
+      ]
     },
     {
       "id": "pham-viet-chanh",
@@ -384,7 +412,9 @@
             ]
           ]
         ],
-        "status": "provisional"
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
       },
       "tags": [
         "japanese-dining",
@@ -432,14 +462,19 @@
             ]
           ]
         ],
-        "status": "provisional"
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
       },
       "tags": [
         "residential",
         "family",
         "pilates"
       ],
-      "landmarks": []
+      "landmarks": [],
+      "intakeAliases": [
+        "An Phú"
+      ]
     },
     {
       "id": "ho-con-rua-q3",
@@ -477,7 +512,9 @@
             ]
           ]
         ],
-        "status": "provisional"
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
       },
       "tags": [
         "students",
@@ -524,7 +561,9 @@
             ]
           ]
         ],
-        "status": "provisional"
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
       },
       "tags": [
         "street-food",
@@ -571,7 +610,9 @@
             ]
           ]
         ],
-        "status": "provisional"
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
       },
       "tags": [
         "street-food",
@@ -618,7 +659,9 @@
             ]
           ]
         ],
-        "status": "provisional"
+        "status": "approved",
+        "approvedBy": "product-owner",
+        "approvedOn": "2026-11-28"
       },
       "tags": [
         "residential",

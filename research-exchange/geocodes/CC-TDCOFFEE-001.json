@@ -1,0 +1,19 @@
+{
+  "at": "2026-11-28T05:43:08.058Z",
+  "geocodes": {
+    "Anh Coffee Matcha Bar|37 Thảo Điền|Thảo Điền": {
+      "lon": 106.738253,
+      "lat": 10.801316,
+      "precision": "street",
+      "ward": "Phường An Khánh",
+      "displayName": "Thảo Điền, Khu phố 3, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
+    },
+    "Cafe 1/4 (Oishi Town)|19 Đường số 38|Thảo Điền": {
+      "lon": 106.726202,
+      "lat": 10.788117,
+      "precision": "street",
+      "ward": "Phường An Khánh",
+      "displayName": "Đường Số 38, Khu phố 21, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
+    }
+  }
+}
