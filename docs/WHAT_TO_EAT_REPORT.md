@@ -29,11 +29,11 @@ Dishes recommendable with at least one real HCMC venue: **39 / 138**. All 138 di
 
 | Attribute | Known | Coverage |
 | --- | ---: | ---: |
-| Price range | 1 / 383 | 0% |
-| Opening hours | 135 / 383 | 35% |
+| Price range | 22 / 383 | 6% |
+| Opening hours | 161 / 383 | 42% |
 | Delivery links | 0 / 383 | 0% |
 | Dining attributes (atmosphere, occasions) | 0 / 383 | 0% |
-| Dish price at venue (link) | 1 / 388 | 0% |
+| Dish price at venue (link) | 27 / 388 | 7% |
 
 Unknown venue values never exclude a dish: budget, open-now, delivery and atmosphere filters add a caution instead.
 
@@ -58,10 +58,10 @@ Unknown venue values never exclude a dish: budget, open-now, delivery and atmosp
 | goal | protein | 112 | 38 | derived from contains-* tags |
 | goal | quick | 76 | 20 |  |
 | goal | budget | 91 | 32 | dish type only — prices mostly unknown |
-| budget | u30 | 0 | 0 | dishes with a RECORDED price in range |
-| budget | u50 | 1 | 1 | dishes with a RECORDED price in range |
-| budget | u100 | 1 | 1 | dishes with a RECORDED price in range |
-| budget | 100-300 | 0 | 0 | dishes with a RECORDED price in range |
+| budget | u30 | 6 | 6 | dishes with a RECORDED price in range |
+| budget | u50 | 8 | 8 | dishes with a RECORDED price in range |
+| budget | u100 | 10 | 10 | dishes with a RECORDED price in range |
+| budget | 100-300 | 2 | 2 | dishes with a RECORDED price in range |
 | budget | 300+ | 0 | 0 | dishes with a RECORDED price in range |
 | spice | recorded (0–3) | 138 | 39 |  |
 | spice | no spice (0) | 78 | 20 | unknown intensity never matches |

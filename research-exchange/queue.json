@@ -701,6 +701,154 @@
         "report": "research-exchange/reports/CC-FOOD-010.md"
       },
       "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-ENRICH-Q1Q3PNBT-001",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Business-profile enrichment of existing Food venues in former Quận 1, Quận 3, Phú Nhuận, Bình Thạnh — phone, opening hours, operating status, price range, published dish prices (first pass: venues lacking hours/phone, most-linked first)",
+      "claims": {
+        "districts": [
+          "Quận 1",
+          "Quận 3",
+          "Phú Nhuận",
+          "Bình Thạnh"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-ngon-pho-minh-sai-gon-16016",
+        "https://mia.vn/cam-nang-du-lich/top-quan-pho-quan-1-16083",
+        "https://guide.michelin.com/be/fr/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-minh",
+        "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hoa-pasteur",
+        "https://www.falstaff.com/en/restaurants/pho-hoa-pasteur-ho-chi-minh-stadt",
+        "https://mia.vn/cam-nang-du-lich/banh-xeo-46a-dinh-cong-trang-18183",
+        "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/banh-xeo-46a",
+        "https://guide.michelin.com/hk/zh_HK/ho-chi-minh/ho-chi-minh_2978179/restaurant/cuc-gach-quan",
+        "https://guide.michelin.com/ar/es/ho-chi-minh/ho-chi-minh_2978179/restaurante/hong-phat-district-3",
+        "https://guide.michelin.com/ar/es/ho-chi-minh/ho-chi-minh_2978179/restaurante/com-tam-ba-ghien",
+        "https://guide.michelin.com/br/pt_BR/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hung",
+        "https://mia.vn/cam-nang-du-lich/top-quan-pho-sai-gon-18417",
+        "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hung",
+        "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-huong-binh",
+        "https://www.enprimeurclub.com/restaurants/pho-huong-binh-ho-chi-minh-city-restaurant",
+        "https://guide.michelin.com/vn/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/bun-bo-hue-co-nhu",
+        "https://mia.vn/cam-nang-du-lich/bun-bo-hue-mo-noi-co-nhu-17406",
+        "https://www.grab.com/vn/en/food-blog/merchant-story/tp-hcm-to-pho-nuoc-trong-dam-vi-hon-60-nam-thom-khoi-cui-o-sai-gon/",
+        "https://mia.vn/cam-nang-du-lich/banh-mi-huynh-hoa-20296",
+        "https://uk.trip.com/restaurant/vietnam/ho-chi-minh-city/detail/bnh-m-huynh-hoa-15012972",
+        "https://mia.vn/cam-nang-du-lich/bun-rieu-ganh-cho-ben-thanh-17591",
+        "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
+        "https://mia.vn/cam-nang-du-lich/banh-mi-110-18255",
+        "https://mia.vn/cam-nang-du-lich/banh-mi-hoang-lam-phu-nhuan-20293",
+        "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885",
+        "https://mia.vn/cam-nang-du-lich/bo-tui-quan-oc-quan-1-ngon-nuc-tieng-14880",
+        "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085",
+        "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113",
+        "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156",
+        "https://toplist.vn/top-list/quan-com-tam-ngon-nhat-quan-phu-nhuan-tp-hcm-54541.htm",
+        "https://www.greensm.com/vn-vi/news/com-tam-phu-nhuan",
+        "https://vinwonders.com/vi/wonderpedia/news/bun-thang-sai-gon/",
+        "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544",
+        "https://mia.vn/cam-nang-du-lich/top-quan-oc-sai-gon-13895",
+        "https://mia.vn/cam-nang-du-lich/banh-trang-tron-sai-gon-13907",
+        "https://mia.vn/cam-nang-du-lich/top-quan-banh-xeo-mien-tay-sai-gon-15454"
+      ],
+      "importStatus": "imported 2026-11-28 (52 venues)",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 52,
+        "rejected": 0,
+        "warnings": 2,
+        "report": "research-exchange/reports/CC-ENRICH-Q1Q3PNBT-001.md"
+      },
+      "updatedAt": "2026-11-28",
+      "notes": "PO geographic split for business-profile enrichment (2026-11-28): Claude Code = former Quận 1, Quận 3, Phú Nhuận, Bình Thạnh; ChatGPT = Thảo Điền, An Phú, Sala, Thủ Thiêm, Quận 7 / Phú Mỹ Hưng; Codex = independent validation. Enrich EXISTING venues only (templates/enrich-batch.json: enrich:true + existing id); phone / openingHours / priceRange / closure / link priceVnd, each with fieldSources; never fabricate, omit unknowns, list 'searched, not found' per venue/field in docs/handover/<batchId>.md."
+    },
+    {
+      "batchId": "CC-ENRICH-Q1Q3PNBT-002",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Business-profile enrichment, second pass: remaining existing Food venues in former Quận 1, Quận 3, Phú Nhuận, Bình Thạnh not completed in CC-ENRICH-Q1Q3PNBT-001 (see its handover not-found list), plus coffee/bars/spa/sport establishments there once module enrichment is supported",
+      "claims": {
+        "districts": [
+          "Quận 1",
+          "Quận 3",
+          "Phú Nhuận",
+          "Bình Thạnh"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "PO geographic split for business-profile enrichment (2026-11-28): Claude Code = former Quận 1, Quận 3, Phú Nhuận, Bình Thạnh; ChatGPT = Thảo Điền, An Phú, Sala, Thủ Thiêm, Quận 7 / Phú Mỹ Hưng; Codex = independent validation. Enrich EXISTING venues only (templates/enrich-batch.json: enrich:true + existing id); phone / openingHours / priceRange / closure / link priceVnd, each with fieldSources; never fabricate, omit unknowns, list 'searched, not found' per venue/field in docs/handover/<batchId>.md."
+    },
+    {
+      "batchId": "GPT-ENRICH-TDAP-001",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Business-profile enrichment of existing venues in Thảo Điền and An Phú (former Quận 2) — phone, opening hours, operating status, price range, published dish prices",
+      "claims": {
+        "districts": [
+          "Thảo Điền",
+          "An Phú"
+        ]
+      },
+      "assignedTo": "chatgpt",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "PO geographic split for business-profile enrichment (2026-11-28): Claude Code = former Quận 1, Quận 3, Phú Nhuận, Bình Thạnh; ChatGPT = Thảo Điền, An Phú, Sala, Thủ Thiêm, Quận 7 / Phú Mỹ Hưng; Codex = independent validation. Enrich EXISTING venues only (templates/enrich-batch.json: enrich:true + existing id); phone / openingHours / priceRange / closure / link priceVnd, each with fieldSources; never fabricate, omit unknowns, list 'searched, not found' per venue/field in docs/handover/<batchId>.md."
+    },
+    {
+      "batchId": "GPT-ENRICH-SALA-001",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Business-profile enrichment of existing venues in Sala and Thủ Thiêm (former Quận 2) — phone, opening hours, operating status, price range, published dish prices",
+      "claims": {
+        "districts": [
+          "Thủ Thiêm"
+        ]
+      },
+      "assignedTo": "chatgpt",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "PO geographic split for business-profile enrichment (2026-11-28): Claude Code = former Quận 1, Quận 3, Phú Nhuận, Bình Thạnh; ChatGPT = Thảo Điền, An Phú, Sala, Thủ Thiêm, Quận 7 / Phú Mỹ Hưng; Codex = independent validation. Enrich EXISTING venues only (templates/enrich-batch.json: enrich:true + existing id); phone / openingHours / priceRange / closure / link priceVnd, each with fieldSources; never fabricate, omit unknowns, list 'searched, not found' per venue/field in docs/handover/<batchId>.md. Sala venues are recorded with district 'Thủ Thiêm' (intake DISTRICTS has no separate Sala entry)."
+    },
+    {
+      "batchId": "GPT-ENRICH-Q7PMH-001",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Business-profile enrichment of existing venues in Quận 7 and Phú Mỹ Hưng — phone, opening hours, operating status, price range, published dish prices",
+      "claims": {
+        "districts": [
+          "Quận 7"
+        ]
+      },
+      "assignedTo": "chatgpt",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "PO geographic split for business-profile enrichment (2026-11-28): Claude Code = former Quận 1, Quận 3, Phú Nhuận, Bình Thạnh; ChatGPT = Thảo Điền, An Phú, Sala, Thủ Thiêm, Quận 7 / Phú Mỹ Hưng; Codex = independent validation. Enrich EXISTING venues only (templates/enrich-batch.json: enrich:true + existing id); phone / openingHours / priceRange / closure / link priceVnd, each with fieldSources; never fabricate, omit unknowns, list 'searched, not found' per venue/field in docs/handover/<batchId>.md."
+    },
+    {
+      "batchId": "CX-VALIDATE-ENRICH-001",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Independent source validation of the enrichment batches (CC-ENRICH-*, GPT-ENRICH-*): re-open the cited fieldSources and spot-check at least 20% of added fields (phone, hours, price range, closure, dish prices) per batch; report mismatches per venue/field in research-exchange/reports/CX-VALIDATE-ENRICH-001.md",
+      "assignedTo": "codex",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "PO geographic split for business-profile enrichment (2026-11-28): Claude Code = former Quận 1, Quận 3, Phú Nhuận, Bình Thạnh; ChatGPT = Thảo Điền, An Phú, Sala, Thủ Thiêm, Quận 7 / Phú Mỹ Hưng; Codex = independent validation. Validation only — no data changes; flag fields to remove/correct for the owning agent."
     }
   ]
 }

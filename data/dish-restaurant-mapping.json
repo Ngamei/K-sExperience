@@ -518,8 +518,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “80 năm Phở Minh nghi ngút hương thơm bên con hẻm nhỏ” (2024-07-03) lists Phở Minh at 63/6 Pasteur, phường Bến Nghé, quận 1 for this dish. Regional style not confirmed.",
+        "note": "mia.vn guide “80 năm Phở Minh nghi ngút hương thơm bên con hẻm nhỏ” (2024-07-03) lists Phở Minh at 63/6 Pasteur, phường Bến Nghé, quận 1 for this dish. Regional style not confirmed. Price 70.000–90.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/quan-ngon-pho-minh-sai-gon-16016"
+      },
+      "priceVnd": {
+        "min": 70000,
+        "max": 90000
       },
       "lastVerified": "2026-11-27"
     },
@@ -578,8 +582,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "Listed for this dish by a published HCMC food guide. Source lists hours 08:00–23:00.",
+        "note": "Listed for this dish by a published HCMC food guide. Source lists hours 08:00–23:00. Price 30.000–130.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      },
+      "priceVnd": {
+        "min": 30000,
+        "max": 130000
       },
       "lastVerified": "2026-11-27"
     },
@@ -1094,8 +1102,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "Listed for this dish by a published HCMC food guide. Source: MICHELIN Guide 'Selected' in 2024; in an alley.",
+        "note": "Listed for this dish by a published HCMC food guide. Source: MICHELIN Guide 'Selected' in 2024; in an alley. Price 40.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/bun-bo-hue-mo-noi-co-nhu-17406"
+      },
+      "priceVnd": {
+        "min": 40000,
+        "max": 40000
       },
       "lastVerified": "2026-11-27"
     },
@@ -1142,8 +1154,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "Listed for this dish by a published HCMC food guide.",
+        "note": "Listed for this dish by a published HCMC food guide. Price 22.000–30.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://toplist.vn/top-list/quan-banh-mi-ngon-nhat-quan-phu-nhuan-tp-hcm-54624.htm"
+      },
+      "priceVnd": {
+        "min": 22000,
+        "max": 30000
       },
       "lastVerified": "2026-11-27"
     },
@@ -1154,8 +1170,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "Listed for this dish by a published HCMC food guide. Source lists hours 10:00–19:30, Monday–Saturday.",
+        "note": "Listed for this dish by a published HCMC food guide. Source lists hours 10:00–19:30, Monday–Saturday. Price 40.000–53.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/banh-mi-hoang-lam-phu-nhuan-20293"
+      },
+      "priceVnd": {
+        "min": 40000,
+        "max": 53000
       },
       "lastVerified": "2026-11-27"
     },
@@ -1478,8 +1498,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Ghé ngay 7 quán cơm tấm Quận 1 để được thưởng thức món ngon đậm chất Sài Gòn” (2023-08-29) lists Quán Bụi at 100 Thạch Thị Thanh, Quận 1 for this dish.",
+        "note": "mia.vn guide “Ghé ngay 7 quán cơm tấm Quận 1 để được thưởng thức món ngon đậm chất Sài Gòn” (2023-08-29) lists Quán Bụi at 100 Thạch Thị Thanh, Quận 1 for this dish. Price 30.000–55.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544"
+      },
+      "priceVnd": {
+        "min": 30000,
+        "max": 55000
       },
       "lastVerified": "2026-11-27"
     },
@@ -1490,8 +1514,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Ghé ngay 7 quán cơm tấm Quận 1 để được thưởng thức món ngon đậm chất Sài Gòn” (2023-08-29) lists Cơm tấm 74 Nguyễn Văn Cừ at 74 Nguyễn Văn Cừ, Quận 1 for this dish.",
+        "note": "mia.vn guide “Ghé ngay 7 quán cơm tấm Quận 1 để được thưởng thức món ngon đậm chất Sài Gòn” (2023-08-29) lists Cơm tấm 74 Nguyễn Văn Cừ at 74 Nguyễn Văn Cừ, Quận 1 for this dish. Price 50.000–110.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544"
+      },
+      "priceVnd": {
+        "min": 50000,
+        "max": 110000
       },
       "lastVerified": "2026-11-27"
     },
@@ -1502,8 +1530,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Ghé ngay 7 quán cơm tấm Quận 1 để được thưởng thức món ngon đậm chất Sài Gòn” (2023-08-29) lists Cơm tấm 86 at 151 Cô Giang, Quận 1 for this dish.",
+        "note": "mia.vn guide “Ghé ngay 7 quán cơm tấm Quận 1 để được thưởng thức món ngon đậm chất Sài Gòn” (2023-08-29) lists Cơm tấm 86 at 151 Cô Giang, Quận 1 for this dish. Price 35.000–55.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544"
+      },
+      "priceVnd": {
+        "min": 35000,
+        "max": 55000
       },
       "lastVerified": "2026-11-27"
     },
@@ -1514,8 +1546,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Ghé ngay 7 quán cơm tấm Quận 1 để được thưởng thức món ngon đậm chất Sài Gòn” (2023-08-29) lists Cota Subicha at 161 Nguyễn Văn Thủ, Quận 1 for this dish.",
+        "note": "mia.vn guide “Ghé ngay 7 quán cơm tấm Quận 1 để được thưởng thức món ngon đậm chất Sài Gòn” (2023-08-29) lists Cota Subicha at 161 Nguyễn Văn Thủ, Quận 1 for this dish. Price 48.000–77.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544"
+      },
+      "priceVnd": {
+        "min": 48000,
+        "max": 77000
       },
       "lastVerified": "2026-11-27"
     },
@@ -1526,8 +1562,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Ghé ngay 7 quán cơm tấm Quận 1 để được thưởng thức món ngon đậm chất Sài Gòn” (2023-08-29) lists Quán cơm Ba Cường at 263 Đường Trần Quang Khải, Quận 1 for this dish.",
+        "note": "mia.vn guide “Ghé ngay 7 quán cơm tấm Quận 1 để được thưởng thức món ngon đậm chất Sài Gòn” (2023-08-29) lists Quán cơm Ba Cường at 263 Đường Trần Quang Khải, Quận 1 for this dish. Price 45.000–80.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544"
+      },
+      "priceVnd": {
+        "min": 45000,
+        "max": 80000
       },
       "lastVerified": "2026-11-27"
     },
@@ -1670,8 +1710,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Top 14 quán ốc Sài Gòn ngon bổ rẻ tha hồ lai rai với hội bạn” (2023-12-05) lists Quán ốc Mắm Sữa at 282/6 Bùi Hữu Nghĩa, Phường 2, Bình Thạnh for this dish.",
+        "note": "mia.vn guide “Top 14 quán ốc Sài Gòn ngon bổ rẻ tha hồ lai rai với hội bạn” (2023-12-05) lists Quán ốc Mắm Sữa at 282/6 Bùi Hữu Nghĩa, Phường 2, Bình Thạnh for this dish. Price 30.000–44.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/top-quan-oc-sai-gon-13895"
+      },
+      "priceVnd": {
+        "min": 30000,
+        "max": 44000
       },
       "lastVerified": "2026-11-27"
     },
@@ -1718,8 +1762,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Bánh tráng trộn Sài Gòn, món ăn vặt chưa bao giờ giảm nhiệt” (2023-12-06) lists Bánh tráng trộn Chú Viên at 38 Nguyễn Thượng Hiền, phường 5, Quận 3 for this dish.",
+        "note": "mia.vn guide “Bánh tráng trộn Sài Gòn, món ăn vặt chưa bao giờ giảm nhiệt” (2023-12-06) lists Bánh tráng trộn Chú Viên at 38 Nguyễn Thượng Hiền, phường 5, Quận 3 for this dish. Price 10.000–25.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/banh-trang-tron-sai-gon-13907"
+      },
+      "priceVnd": {
+        "min": 10000,
+        "max": 25000
       },
       "lastVerified": "2026-11-27"
     },
@@ -1730,8 +1778,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Bánh tráng trộn Sài Gòn, món ăn vặt chưa bao giờ giảm nhiệt” (2023-12-06) lists Bánh tráng trộn Dì Hồng at 25 đường số 11, phường 4, Quận 3 for this dish.",
+        "note": "mia.vn guide “Bánh tráng trộn Sài Gòn, món ăn vặt chưa bao giờ giảm nhiệt” (2023-12-06) lists Bánh tráng trộn Dì Hồng at 25 đường số 11, phường 4, Quận 3 for this dish. Price 15.000–20.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/banh-trang-tron-sai-gon-13907"
+      },
+      "priceVnd": {
+        "min": 15000,
+        "max": 20000
       },
       "lastVerified": "2026-11-27"
     },
@@ -2210,8 +2262,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “8 quán hủ tiếu Nam Vang ngon nức tiếng đất Sài thành” (2024-03-12) lists Hủ tiếu Nam Vang Nhân Quán at 122D Cách Mạng Tháng Tám, Phường Xuân Hòa, quận 3 for this dish.",
+        "note": "mia.vn guide “8 quán hủ tiếu Nam Vang ngon nức tiếng đất Sài thành” (2024-03-12) lists Hủ tiếu Nam Vang Nhân Quán at 122D Cách Mạng Tháng Tám, Phường Xuân Hòa, quận 3 for this dish. Price 50.000–70.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      },
+      "priceVnd": {
+        "min": 50000,
+        "max": 70000
       },
       "lastVerified": "2026-11-27"
     },
@@ -2234,8 +2290,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “8 quán hủ tiếu Nam Vang ngon nức tiếng đất Sài thành” (2024-03-12) lists Hủ tiếu Nam Vang Nhân quán at 122D Cách mạng tháng 8, phường 7, quận 3 for this dish.",
+        "note": "mia.vn guide “8 quán hủ tiếu Nam Vang ngon nức tiếng đất Sài thành” (2024-03-12) lists Hủ tiếu Nam Vang Nhân quán at 122D Cách mạng tháng 8, phường 7, quận 3 for this dish. Price 50.000–70.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      },
+      "priceVnd": {
+        "min": 50000,
+        "max": 70000
       },
       "lastVerified": "2026-11-27"
     },
@@ -2246,8 +2306,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “8 quán hủ tiếu Nam Vang ngon nức tiếng đất Sài thành” (2024-03-12) lists Hủ tiếu Nam Vang Quốc Ký at 24 Ký Con, phường Nguyễn Thái Bình, quận 1 for this dish.",
+        "note": "mia.vn guide “8 quán hủ tiếu Nam Vang ngon nức tiếng đất Sài thành” (2024-03-12) lists Hủ tiếu Nam Vang Quốc Ký at 24 Ký Con, phường Nguyễn Thái Bình, quận 1 for this dish. Price 25.000–50.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      },
+      "priceVnd": {
+        "min": 25000,
+        "max": 50000
       },
       "lastVerified": "2026-11-27"
     },
@@ -2258,8 +2322,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “8 quán hủ tiếu Nam Vang ngon nức tiếng đất Sài thành” (2024-03-12) lists Hủ tiếu Nam Vang Hồng Phát at 389 - 391 Võ Văn Tần, phường 5, quận 3 for this dish.",
+        "note": "mia.vn guide “8 quán hủ tiếu Nam Vang ngon nức tiếng đất Sài thành” (2024-03-12) lists Hủ tiếu Nam Vang Hồng Phát at 389 - 391 Võ Văn Tần, phường 5, quận 3 for this dish. Price 60.000–100.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      },
+      "priceVnd": {
+        "min": 60000,
+        "max": 100000
       },
       "lastVerified": "2026-11-27"
     },
@@ -2282,8 +2350,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Top 10 quán bánh xèo miền Tây giòn thơm nổi tiếng Sài Gòn” (2024-05-04) lists Bánh xèo miền Tây Bà Hai at 49 Nguyễn Trọng Tuyển, phường 15, quận Phú Nhuận, TP. HCM for this dish. Regional style not confirmed.",
+        "note": "mia.vn guide “Top 10 quán bánh xèo miền Tây giòn thơm nổi tiếng Sài Gòn” (2024-05-04) lists Bánh xèo miền Tây Bà Hai at 49 Nguyễn Trọng Tuyển, phường 15, quận Phú Nhuận, TP. HCM for this dish. Regional style not confirmed. Price 35.000–66.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/top-quan-banh-xeo-mien-tay-sai-gon-15454"
+      },
+      "priceVnd": {
+        "min": 35000,
+        "max": 66000
       },
       "lastVerified": "2026-11-27"
     },
@@ -2534,8 +2606,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Top 10 quán bún chả quận 1 mang đậm dấu ấn ẩm thực thủ đô” (2024-07-10) lists Béo Ơi Quán at 15/20 Nguyễn Thị Minh Khai, phường Bến Nghé, Quận 1 for this dish. Regional style not confirmed.",
+        "note": "mia.vn guide “Top 10 quán bún chả quận 1 mang đậm dấu ấn ẩm thực thủ đô” (2024-07-10) lists Béo Ơi Quán at 15/20 Nguyễn Thị Minh Khai, phường Bến Nghé, Quận 1 for this dish. Regional style not confirmed. Price 55.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      },
+      "priceVnd": {
+        "min": 55000,
+        "max": 55000
       },
       "lastVerified": "2026-11-27"
     },
@@ -2546,8 +2622,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Top 10 quán bún chả quận 1 mang đậm dấu ấn ẩm thực thủ đô” (2024-07-10) lists Bún chả Bà Bính at 4 Nguyễn Trung Ngạn, phường Bến Nghé, Quận 1 for this dish. Regional style not confirmed.",
+        "note": "mia.vn guide “Top 10 quán bún chả quận 1 mang đậm dấu ấn ẩm thực thủ đô” (2024-07-10) lists Bún chả Bà Bính at 4 Nguyễn Trung Ngạn, phường Bến Nghé, Quận 1 for this dish. Regional style not confirmed. Price 65.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      },
+      "priceVnd": {
+        "min": 65000,
+        "max": 65000
       },
       "lastVerified": "2026-11-27"
     },
@@ -2558,8 +2638,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Top 10 quán bún chả quận 1 mang đậm dấu ấn ẩm thực thủ đô” (2024-07-10) lists Bún Chả Hồ Gươm at 82 Hồ Tùng Mậu, phường Bến Nghé, quận 1 for this dish. Regional style not confirmed.",
+        "note": "mia.vn guide “Top 10 quán bún chả quận 1 mang đậm dấu ấn ẩm thực thủ đô” (2024-07-10) lists Bún Chả Hồ Gươm at 82 Hồ Tùng Mậu, phường Bến Nghé, quận 1 for this dish. Regional style not confirmed. Price 60.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      },
+      "priceVnd": {
+        "min": 60000,
+        "max": 60000
       },
       "lastVerified": "2026-11-27"
     },
@@ -2570,8 +2654,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Top 10 quán bún chả quận 1 mang đậm dấu ấn ẩm thực thủ đô” (2024-07-10) lists Bún chả Đồng Xuân at 323 Lý Tự Trọng, phường Bến Thành, Quận 1 for this dish. Regional style not confirmed.",
+        "note": "mia.vn guide “Top 10 quán bún chả quận 1 mang đậm dấu ấn ẩm thực thủ đô” (2024-07-10) lists Bún chả Đồng Xuân at 323 Lý Tự Trọng, phường Bến Thành, Quận 1 for this dish. Regional style not confirmed. Price 75.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      },
+      "priceVnd": {
+        "min": 75000,
+        "max": 75000
       },
       "lastVerified": "2026-11-27"
     },
@@ -2582,8 +2670,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Top 10 quán bún chả quận 1 mang đậm dấu ấn ẩm thực thủ đô” (2024-07-10) lists Quán Ngon at 209 Đề Thám, phường Phạm Ngũ Lão, Quận 1 for this dish. Regional style not confirmed.",
+        "note": "mia.vn guide “Top 10 quán bún chả quận 1 mang đậm dấu ấn ẩm thực thủ đô” (2024-07-10) lists Quán Ngon at 209 Đề Thám, phường Phạm Ngũ Lão, Quận 1 for this dish. Regional style not confirmed. Price 80.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      },
+      "priceVnd": {
+        "min": 80000,
+        "max": 80000
       },
       "lastVerified": "2026-11-27"
     },
@@ -3014,8 +3106,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “Check ngay 8 quán cơm tấm đêm cho hội cú đêm Sài Gòn” (2024-07-14) lists Quán at 269 Đề Thám, phường Bến Thành (quận 1 cũ), Thành phố Hồ Chí Minh for this dish.",
+        "note": "mia.vn guide “Check ngay 8 quán cơm tấm đêm cho hội cú đêm Sài Gòn” (2024-07-14) lists Quán at 269 Đề Thám, phường Bến Thành (quận 1 cũ), Thành phố Hồ Chí Minh for this dish. Price 30.000–45.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113"
+      },
+      "priceVnd": {
+        "min": 30000,
+        "max": 45000
       },
       "lastVerified": "2026-11-27"
     },
@@ -3662,8 +3758,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “8 hàng bún riêu quận 1 ngon nức tiếng bạn không nên bỏ qua” (2024-07-17) lists Quán bún riêu Trinh at 156 Trần Quang Khải, phường Tân Định, quận 1, Thành phố Hồ Chí Minh for this dish.",
+        "note": "mia.vn guide “8 hàng bún riêu quận 1 ngon nức tiếng bạn không nên bỏ qua” (2024-07-17) lists Quán bún riêu Trinh at 156 Trần Quang Khải, phường Tân Định, quận 1, Thành phố Hồ Chí Minh for this dish. Price 40.000–50.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156"
+      },
+      "priceVnd": {
+        "min": 40000,
+        "max": 50000
       },
       "lastVerified": "2026-11-27"
     },
@@ -3674,8 +3774,12 @@
       "isSample": false,
       "menuEvidence": {
         "type": "published-source",
-        "note": "mia.vn guide “8 hàng bún riêu quận 1 ngon nức tiếng bạn không nên bỏ qua” (2024-07-17) lists Bún riêu đường Nguyễn Trãi at 219 Nguyễn Trãi, quận 1, Thành phố Hồ Chí Minh for this dish.",
+        "note": "mia.vn guide “8 hàng bún riêu quận 1 ngon nức tiếng bạn không nên bỏ qua” (2024-07-17) lists Bún riêu đường Nguyễn Trãi at 219 Nguyễn Trãi, quận 1, Thành phố Hồ Chí Minh for this dish. Price 18.000–25.000 VND per mia.vn (checked 2026-11-28).",
         "url": "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156"
+      },
+      "priceVnd": {
+        "min": 18000,
+        "max": 25000
       },
       "lastVerified": "2026-11-27"
     },

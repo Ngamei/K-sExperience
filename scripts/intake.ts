@@ -115,25 +115,28 @@ if (existsSync(cache)) copyFileSync(cache, path.join(scratch, "geocoded.json"));
 // the apply reuses that snapshot without new Nominatim queries and refuses if the batch no longer matches it.
 const snapshot = path.join(X, "geocodes", `${batch.batchId}.json`);
 const venuesAll = batch.venues ?? [];
+// Enrichment venues (existing ids, profile fields only) keep the existing record's coordinates: never geocoded or pinned.
+const enrichVenue = (v: { enrich?: boolean }) => v.enrich === true;
+const venuesPinned = venuesAll.filter((v) => !enrichVenue(v));
 let pins: Record<string, Pin | FailedPin>;
 const snap = apply && existsSync(snapshot) ? (JSON.parse(readFileSync(snapshot, "utf8")) as { at: string; pins?: Record<string, Pin | FailedPin> }) : null;
 if (apply && !snap?.pins) { console.error(`✗ ${batch.batchId}: no dry-run pin snapshot (research-exchange/geocodes/${batch.batchId}.json) — run the dry run first`); process.exit(1); }
 if (snap?.pins) {
-  const mism = snapshotMismatches(venuesAll.filter((_, i) => verdicts[i].decision === "accept"), snap.pins);
+  const mism = snapshotMismatches(venuesAll.filter((v, i) => verdicts[i].decision === "accept" && !enrichVenue(v)), snap.pins);
   if (mism.length) { console.error(`✗ ${batch.batchId}: batch differs from its dry run — re-run the dry run:\n  ${mism.join("\n  ")}`); process.exit(1); }
   pins = snap.pins;
   warnings.push(`pins reused from the dry run of ${snap.at} (no new Nominatim queries; supplied coordinates verified unchanged)`);
 } else {
-  const toGeocode = venuesAll.filter((v, i) => verdicts[i].decision === "accept" && (v.lon == null || v.lat == null));
+  const toGeocode = venuesAll.filter((v, i) => verdicts[i].decision === "accept" && !enrichVenue(v) && (v.lon == null || v.lat == null));
   writeFileSync(path.join(scratch, "batch-intake.json"), JSON.stringify({ researchedOn: batch.researchedOn, venues: toGeocode }));
   if (toGeocode.length) {
     try { execFileSync("node", [path.join(root, "scripts/geocode-venue-research.mjs"), scratch], { cwd: root, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, NODE_USE_ENV_PROXY: "1" } }); }
     catch (e) { warnings.push(`geocoder failed: ${(e as Error).message.split("\n")[0]} — venues without coordinates are rejected`); }
   }
   const cacheNow = existsSync(path.join(scratch, "geocoded.json")) ? JSON.parse(readFileSync(path.join(scratch, "geocoded.json"), "utf8")) : {};
-  pins = resolvePins(venuesAll, cacheNow);
+  pins = resolvePins(venuesPinned, cacheNow);
   mkdirSync(path.join(X, "geocodes"), { recursive: true });
-  writeFileSync(snapshot, JSON.stringify({ at: now(), pins: Object.fromEntries(venuesAll.map((v) => [pinKey(v), pins[pinKey(v)]]).filter(([, p]) => p)) }, null, 2) + "\n");
+  writeFileSync(snapshot, JSON.stringify({ at: now(), pins: Object.fromEntries(venuesPinned.map((v) => [pinKey(v), pins[pinKey(v)]]).filter(([, p]) => p)) }, null, 2) + "\n");
 }
 // `geo` = selected pins in the geocode-cache shape the importers read (precision preserved: exact | building | street)
 const geo: Record<string, { lon?: number; lat?: number; precision?: string; ward?: string | null; displayName?: string; failed?: boolean; reason?: string }> =
@@ -141,7 +144,7 @@ const geo: Record<string, { lon?: number; lat?: number; precision?: string; ward
 for (const [k, p] of Object.entries(pins)) geo[k] = "failed" in p ? { failed: true, reason: p.reason } : { lon: p.lon, lat: p.lat, precision: p.precision, ward: p.ward, displayName: p.displayName };
 venuesAll.forEach((v, i) => {
   const vd = verdicts[i];
-  if (vd.decision !== "accept") return;
+  if (vd.decision !== "accept" || enrichVenue(v)) return;
   const p = pins[pinKey(v)];
   if (p && !("failed" in p) && p.origin === "supplied") {
     const c = v.district ? DISTRICTS[v.district] : undefined;
@@ -210,7 +213,7 @@ finish({
       const bv = (batch.venues ?? [])[i];
       const g = bv ? geo[`${bv.name}|${bv.address}|${bv.district ?? ""}`] : undefined;
       const sel = bv ? pins[pinKey(bv)] : undefined;
-      const pin = sel && !("failed" in sel) ? `${sel.precision} · ${sel.origin} ${Number(sel.lat).toFixed(7)},${Number(sel.lon).toFixed(7)}` : "—";
+      const pin = bv && enrichVenue(bv) ? "existing record" : sel && !("failed" in sel) ? `${sel.precision} · ${sel.origin} ${Number(sel.lat).toFixed(7)},${Number(sel.lon).toFixed(7)}` : "—";
       return `| ${v.name} | \`${v.id}\` | ${v.decision === "accept" ? "✅ accept" : "❌ reject"} | ${v.action} | ${v.offerings} | ${v.priced} | ${pin} | ${String((sel && !("failed" in sel) ? sel.sourceRef ?? sel.displayName : g?.displayName) ?? "—").slice(0, 90).replace(/\|/g, "/")} | ${[...v.reasons, ...v.warnings].join("; ").replace(/\|/g, "/") || "—"} |`;
     }),
     ...(importOut ? ["", "## Importer output", "", "```", importOut.trim(), "```"] : []),
