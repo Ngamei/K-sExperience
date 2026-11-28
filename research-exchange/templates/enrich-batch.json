@@ -1,0 +1,92 @@
+{
+  "batchId": "CC-ENRICH-Q1-001",
+  "experience": "food",
+  "kind": "venues",
+  "agent": "claude-code",
+  "researchedOn": "YYYY-MM-DD",
+  "method": "Profile enrichment of EXISTING venues: official sites/pages, listings, guides. Unknown = omitted; record 'searched, not found' in the handover note.",
+  "venues": [
+    {
+      "id": "existing-establishment-id (exports/establishments.csv)",
+      "enrich": true,
+      "name": "Name as in the existing record",
+      "address": "Address as in the existing record",
+      "district": "Quận 1",
+      "sources": [
+        "https://page-the-phone-and-hours-were-read-from",
+        "https://menu-or-delivery-listing-with-prices"
+      ],
+      "contact": {
+        "phone": "+84 28 3829 7943",
+        "website": "https://official-site",
+        "social": "https://official-page"
+      },
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ]
+      },
+      "priceRange": "$",
+      "closure": {
+        "status": "permanently-closed",
+        "reportedOn": "YYYY-MM-DD",
+        "source": "https://page-reporting-the-closure"
+      },
+      "fieldSources": {
+        "phone": "https://page-the-phone-and-hours-were-read-from",
+        "openingHours": "https://page-the-phone-and-hours-were-read-from",
+        "priceRange": "https://menu-or-delivery-listing-with-prices"
+      },
+      "dishes": [
+        {
+          "dishId": "pho-sai-gon (already linked: adds the price; new: adds a link)",
+          "url": "https://menu-or-delivery-listing-with-prices",
+          "priceVnd": {
+            "min": 50000,
+            "max": 70000
+          }
+        }
+      ]
+    }
+  ],
+  "_rules": "enrich: true = update an existing establishment only (never creates, never re-geocodes; omit lon/lat). Every profile field needs fieldSources.<field>, and that URL must be in sources; it is stored on the venue's sources with a note naming the fields it supports. Dish prices need url. Omit every field you could not source; closure only when a source reports it."
+}

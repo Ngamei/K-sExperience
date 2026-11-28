@@ -65,20 +65,30 @@
           ]
         ]
       },
+      "contact": {
+        "phone": "+84 28 3829 7943"
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "MICHELIN Guide — Phở Hòa Pasteur (address, hours, Bib Gourmand, menu toppings)",
           "url": "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hoa-pasteur",
-          "accessed": "2026-11-27"
+          "accessed": "2026-11-27",
+          "note": "Source for: phone (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-27"
+        },
+        {
+          "title": "falstaff.com",
+          "url": "https://www.falstaff.com/en/restaurants/pho-hoa-pasteur-ho-chi-minh-stadt",
+          "accessed": "2026-11-28",
+          "note": "Corroborating source for this venue's enrichment (checked 2026-11-28)"
         }
       ],
-      "lastVerified": "2026-11-27"
+      "lastVerified": "2026-11-28"
     },
     {
       "id": "banh-mi-huynh-hoa",
@@ -97,6 +107,50 @@
         "Often has queues"
       ],
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
@@ -108,15 +162,21 @@
           "title": "mia.vn — Bánh mì Huỳnh Hoa (address 26 & 32 Lê Thị Riêng, price range)",
           "url": "https://mia.vn/cam-nang-du-lich/banh-mi-huynh-hoa-20296",
           "accessed": "2026-11-27",
-          "note": "Opening hours differ between sources, so they are omitted."
+          "note": "Opening hours differ between sources, so they are omitted.; Source for: opening hours (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-27"
+        },
+        {
+          "title": "uk.trip.com",
+          "url": "https://uk.trip.com/restaurant/vietnam/ho-chi-minh-city/detail/bnh-m-huynh-hoa-15012972",
+          "accessed": "2026-11-28",
+          "note": "Corroborating source for this venue's enrichment (checked 2026-11-28)"
         }
       ],
-      "lastVerified": "2026-11-27"
+      "lastVerified": "2026-11-28"
     },
     {
       "id": "com-tam-ba-ghien",
@@ -135,6 +195,9 @@
         "Family-run broken-rice specialist"
       ],
       "venueType": "eatery",
+      "contact": {
+        "phone": "+84 28 3846 1073"
+      },
       "deliveryLinks": [],
       "sources": [
         {
@@ -151,9 +214,15 @@
           "title": "OpenStreetMap / Nominatim (street-level coordinates only)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-27"
+        },
+        {
+          "title": "guide.michelin.com",
+          "url": "https://guide.michelin.com/ar/es/ho-chi-minh/ho-chi-minh_2978179/restaurante/com-tam-ba-ghien",
+          "accessed": "2026-11-28",
+          "note": "Source for: phone (checked 2026-11-28)"
         }
       ],
-      "lastVerified": "2026-11-27"
+      "lastVerified": "2026-11-28"
     },
     {
       "id": "banh-xeo-46a",
@@ -172,6 +241,81 @@
       ],
       "venueType": "eatery",
       "priceRange": "$",
+      "openingHours": {
+        "mon": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ]
+      },
+      "contact": {
+        "phone": "+84 28 3824 1110"
+      },
       "deliveryLinks": [],
       "sources": [
         {
@@ -188,9 +332,15 @@
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-27"
+        },
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/banh-xeo-46a-dinh-cong-trang-18183",
+          "accessed": "2026-11-28",
+          "note": "Source for: phone, opening hours (checked 2026-11-28)"
         }
       ],
-      "lastVerified": "2026-11-27"
+      "lastVerified": "2026-11-28"
     },
     {
       "id": "hu-tieu-hong-phat",
@@ -209,6 +359,9 @@
         "Serving hủ tiếu Nam Vang since 1975 (per Michelin)"
       ],
       "venueType": "restaurant",
+      "contact": {
+        "phone": "+84 28 3839 0187"
+      },
       "deliveryLinks": [],
       "sources": [
         {
@@ -225,9 +378,15 @@
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-27"
+        },
+        {
+          "title": "guide.michelin.com",
+          "url": "https://guide.michelin.com/ar/es/ho-chi-minh/ho-chi-minh_2978179/restaurante/hong-phat-district-3",
+          "accessed": "2026-11-28",
+          "note": "Source for: phone (checked 2026-11-28)"
         }
       ],
-      "lastVerified": "2026-11-27"
+      "lastVerified": "2026-11-28"
     },
     {
       "id": "bun-bo-hue-hanh-135-banh-van-tran",
@@ -723,12 +882,57 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20Ri%C3%AAu%20G%C3%A1nh%20Ch%E1%BB%A3%20B%E1%BA%BFn%20Th%C3%A0nh%2C%20163%20L%C3%AA%20Th%C3%A1nh%20T%C3%B4n%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ],
+        "tue": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ],
+        "wed": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ],
+        "thu": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ],
+        "fri": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ],
+        "sat": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ],
+        "sun": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/bun-rieu-ganh-cho-ben-thanh-17591",
-          "accessed": "2026-11-27"
+          "accessed": "2026-11-27",
+          "note": "Source for: opening hours (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -736,7 +940,7 @@
           "accessed": "2026-11-27"
         }
       ],
-      "lastVerified": "2026-11-27"
+      "lastVerified": "2026-11-28"
     },
     {
       "id": "bun-rieu-co-beo-139-42-dinh-bo-linh",
@@ -1143,6 +1347,50 @@
       "coordinatePrecision": "exact",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ph%E1%BB%9F%20Cao%20V%C3%A2n%2C%2025%20M%E1%BA%A1c%20%C4%90%C4%A9nh%20Chi%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
@@ -1154,9 +1402,21 @@
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-27"
+        },
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/top-quan-pho-quan-1-16083",
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours (checked 2026-11-28)"
+        },
+        {
+          "title": "grab.com",
+          "url": "https://www.grab.com/vn/en/food-blog/merchant-story/tp-hcm-to-pho-nuoc-trong-dam-vi-hon-60-nam-thom-khoi-cui-o-sai-gon/",
+          "accessed": "2026-11-28",
+          "note": "Corroborating source for this venue's enrichment (checked 2026-11-28)"
         }
       ],
-      "lastVerified": "2026-11-27"
+      "lastVerified": "2026-11-28"
     },
     {
       "id": "pho-trang-since-1936-420-pham-thai-buong",
@@ -1260,12 +1520,61 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://maps.app.goo.gl/kuEdWn1oTppCga5c6",
       "venueType": "eatery",
+      "priceRange": "$$",
+      "openingHours": {
+        "mon": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ]
+      },
+      "contact": {
+        "phone": "+84 28 3822 0345"
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/quan-ngon-pho-minh-sai-gon-16016",
-          "accessed": "2026-11-27"
+          "accessed": "2026-11-27",
+          "note": "Source for: phone, price range, price of pho-sai-gon (checked 2026-11-28)"
         },
         {
           "title": "znews.vn",
@@ -1276,9 +1585,21 @@
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-27"
+        },
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/top-quan-pho-quan-1-16083",
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours (checked 2026-11-28)"
+        },
+        {
+          "title": "guide.michelin.com",
+          "url": "https://guide.michelin.com/be/fr/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-minh",
+          "accessed": "2026-11-28",
+          "note": "Corroborating source for this venue's enrichment (checked 2026-11-28)"
         }
       ],
-      "lastVerified": "2026-11-27"
+      "lastVerified": "2026-11-28"
     },
     {
       "id": "banh-mi-nhu-lan-68-ham-nghi",
@@ -1410,7 +1731,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
-          "accessed": "2026-11-27"
+          "accessed": "2026-11-27",
+          "note": "Source for: price of hu-tieu-nam-vang (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -1418,7 +1740,7 @@
           "accessed": "2026-11-27"
         }
       ],
-      "lastVerified": "2026-11-27"
+      "lastVerified": "2026-11-28"
     },
     {
       "id": "hu-tieu-tai-anh-494-nguyen-thi-thap",
@@ -2530,20 +2852,75 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20B%C3%B2%20M%E1%BB%A1%20N%E1%BB%95i%20C%C3%B4%20Nh%C6%B0%2C%20274%2F29%20V%C3%B5%20V%C4%83n%20T%E1%BA%A7n%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
+      "openingHours": {
+        "mon": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "tue": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "wed": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "thu": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "fri": [
+          [
+            "11:00",
+            "20:30"
+          ]
+        ],
+        "sat": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "sun": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ]
+      },
+      "contact": {
+        "phone": "+84 93 793 78 18"
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/bun-bo-hue-mo-noi-co-nhu-17406",
-          "accessed": "2026-11-27"
+          "accessed": "2026-11-27",
+          "note": "Source for: opening hours, price range, price of bun-bo-hue (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-27"
+        },
+        {
+          "title": "guide.michelin.com",
+          "url": "https://guide.michelin.com/vn/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/bun-bo-hue-co-nhu",
+          "accessed": "2026-11-28",
+          "note": "Source for: phone (checked 2026-11-28)"
         }
       ],
-      "lastVerified": "2026-11-27"
+      "lastVerified": "2026-11-28"
     },
     {
       "id": "bun-bo-hue-kim-huong-rach-bung-binh-17-rach-bung-binh",
@@ -2647,6 +3024,79 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20M%C3%AC%20110%2C%20110%20Ho%C3%A0ng%20V%C4%83n%20Th%E1%BB%A5%2C%20Ph%C3%BA%20Nhu%E1%BA%ADn%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
+      "openingHours": {
+        "mon": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ],
+        "tue": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ],
+        "wed": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ],
+        "thu": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ],
+        "fri": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ],
+        "sat": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ],
+        "sun": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
@@ -2658,9 +3108,15 @@
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-27"
+        },
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/banh-mi-110-18255",
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours, price range, price of banh-mi-sai-gon (checked 2026-11-28)"
         }
       ],
-      "lastVerified": "2026-11-27"
+      "lastVerified": "2026-11-28"
     },
     {
       "id": "banh-mi-hoang-lam-168-nguyen-thuong-hien",
@@ -2675,12 +3131,18 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20M%C3%AC%20Ho%C3%A0ng%20Lam%2C%20168%20Nguy%E1%BB%85n%20Th%C6%B0%E1%BB%A3ng%20Hi%E1%BB%81n%2C%20Ph%C3%BA%20Nhu%E1%BA%ADn%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
+      "contact": {
+        "phone": "090 667 36 09",
+        "social": "https://www.facebook.com/banhmihoanglam"
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/banh-mi-hoang-lam-phu-nhuan-20293",
-          "accessed": "2026-11-27"
+          "accessed": "2026-11-27",
+          "note": "Source for: phone, social, price range, price of banh-mi-sai-gon (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -2688,7 +3150,7 @@
           "accessed": "2026-11-27"
         }
       ],
-      "lastVerified": "2026-11-27"
+      "lastVerified": "2026-11-28"
     },
     {
       "id": "oc-bac-351-nguyen-thuong-hien",
@@ -2787,12 +3249,60 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E1%BB%90c%20Ch%E1%BB%8B%20H%E1%BB%93ng%2C%20210%2F15%20C%C3%A1ch%20M%E1%BA%A1ng%20Th%C3%A1ng%208%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ]
+      },
+      "contact": {
+        "phone": "0938 178 667"
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885",
-          "accessed": "2026-11-27"
+          "accessed": "2026-11-27",
+          "note": "Source for: phone, opening hours (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -2800,7 +3310,7 @@
           "accessed": "2026-11-27"
         }
       ],
-      "lastVerified": "2026-11-27"
+      "lastVerified": "2026-11-28"
     },
     {
       "id": "bun-rieu-co-huong-beo-110-cao-thang",
@@ -3396,6 +3906,9 @@
           ]
         ]
       },
+      "contact": {
+        "phone": "+84 28 3848 0144"
+      },
       "deliveryLinks": [],
       "sources": [
         {
@@ -3412,6 +3925,12 @@
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-28"
+        },
+        {
+          "title": "guide.michelin.com",
+          "url": "https://guide.michelin.com/hk/zh_HK/ho-chi-minh/ho-chi-minh_2978179/restaurant/cuc-gach-quan",
+          "accessed": "2026-11-28",
+          "note": "Source for: phone (checked 2026-11-28)"
         }
       ],
       "lastVerified": "2026-11-28"
@@ -3529,6 +4048,7 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Qu%C3%A1n%20B%E1%BB%A5i%2C%20100%20Th%E1%BA%A1ch%20Th%E1%BB%8B%20Thanh%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
       "openingHours": {
         "mon": [
           [
@@ -3578,7 +4098,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price range, price of com-tam-sai-gon (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -3650,7 +4171,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price of com-tam-sai-gon (checked 2026-11-28)"
         },
         {
           "title": "mia.vn",
@@ -3678,6 +4200,7 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=C%C6%A1m%20t%E1%BA%A5m%2086%2C%20151%20C%C3%B4%20Giang%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
       "openingHours": {
         "mon": [
           [
@@ -3727,7 +4250,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price range, price of com-tam-sai-gon (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -3799,7 +4323,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price of com-tam-sai-gon (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -3876,7 +4401,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price of com-tam-sai-gon (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -4628,6 +5154,7 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Qu%C3%A1n%20%E1%BB%91c%20M%E1%BA%AFm%20S%E1%BB%AFa%2C%20282%2F6%20B%C3%B9i%20H%E1%BB%AFu%20Ngh%C4%A9a%2C%20B%C3%ACnh%20Th%E1%BA%A1nh%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
       "openingHours": {
         "mon": [
           [
@@ -4677,7 +5204,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/top-quan-oc-sai-gon-13895",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price range, price of oc-sai-gon (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -4926,6 +5454,7 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20tr%C3%A1ng%20tr%E1%BB%99n%20Ch%C3%BA%20Vi%C3%AAn%2C%2038%20Nguy%E1%BB%85n%20Th%C6%B0%E1%BB%A3ng%20Hi%E1%BB%81n%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
       "openingHours": {
         "mon": [
           [
@@ -4975,7 +5504,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/banh-trang-tron-sai-gon-13907",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price range, price of banh-trang-tron (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -4998,6 +5528,7 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20tr%C3%A1ng%20tr%E1%BB%99n%20D%C3%AC%20H%E1%BB%93ng%2C%2025%20%C4%90%C6%B0%E1%BB%9Dng%20s%E1%BB%91%2011%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
       "openingHours": {
         "mon": [
           [
@@ -5047,7 +5578,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/banh-trang-tron-sai-gon-13907",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price range, price of banh-trang-tron (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -6034,12 +6566,16 @@
           ]
         ]
       },
+      "contact": {
+        "phone": "0932 387 773"
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/bo-tui-quan-oc-quan-1-ngon-nuc-tieng-14880",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: phone (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -6815,12 +7351,60 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Qu%C3%A1n%20%E1%BB%90c%20Ph%C6%B0%E1%BB%9Bc%20%C4%90%E1%BA%A1t%2C%2084%20Nguy%E1%BB%85n%20Th%C3%B4ng%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ],
+        "tue": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ],
+        "wed": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ],
+        "thu": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ],
+        "fri": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ],
+        "sat": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ],
+        "sun": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ]
+      },
+      "contact": {
+        "phone": "0382 884 334"
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: phone, opening hours (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -6843,12 +7427,60 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Qu%C3%A1n%20%E1%BB%90c%20H%E1%BB%93ng%20Ng%E1%BB%8Dc%2C%2013%20V%C6%B0%E1%BB%9Dn%20Chu%E1%BB%91i%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ],
+        "tue": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ],
+        "wed": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ],
+        "thu": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ],
+        "fri": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ],
+        "sat": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ],
+        "sun": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ]
+      },
+      "contact": {
+        "phone": "0975 012 754"
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: phone, opening hours (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -6915,12 +7547,16 @@
           ]
         ]
       },
+      "contact": {
+        "phone": "0973 708 814"
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: phone (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -6987,12 +7623,16 @@
           ]
         ]
       },
+      "contact": {
+        "phone": "0908 697 277"
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: phone (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -7015,12 +7655,60 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E1%BB%90c%20Mint%2C%20170%20%C4%90%E1%BB%97%20Th%E1%BB%8B%20L%E1%BB%9Di%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ],
+        "tue": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ],
+        "wed": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ],
+        "thu": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ],
+        "fri": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ],
+        "sat": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ],
+        "sun": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ]
+      },
+      "contact": {
+        "phone": "0909 651 686"
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: phone, opening hours (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -7239,12 +7927,57 @@
       "coordinatePrecision": "exact",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%E1%BB%A7%20ti%E1%BA%BFu%20Nam%20Vang%20Th%C3%A0nh%20%C4%90%E1%BA%A1t%2C%2034%20C%C3%B4%20B%E1%BA%AFc%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ],
+        "tue": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ],
+        "wed": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ],
+        "thu": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ],
+        "fri": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ],
+        "sat": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ],
+        "sun": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -7267,12 +8000,57 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%E1%BB%A7%20ti%E1%BA%BFu%20Nam%20Vang%20Nh%C3%A2n%20Qu%C3%A1n%2C%20122D%20C%C3%A1ch%20M%E1%BA%A1ng%20Th%C3%A1ng%20T%C3%A1m%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "tue": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "wed": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "thu": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "fri": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "sat": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "sun": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours, price of hu-tieu-nam-vang (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -7295,12 +8073,57 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%E1%BB%A7%20ti%E1%BA%BFu%20Nam%20Vang%20Trung%20C%C3%B2i%2C%2080%20Cao%20Th%E1%BA%AFng%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ],
+        "tue": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ],
+        "wed": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ],
+        "thu": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ],
+        "fri": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ],
+        "sat": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ],
+        "sun": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -7323,12 +8146,57 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%E1%BB%A7%20ti%E1%BA%BFu%20Nam%20Vang%20Nh%C3%A2n%20qu%C3%A1n%2C%20122D%20C%C3%A1ch%20m%E1%BA%A1ng%20th%C3%A1ng%208%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "tue": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "wed": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "thu": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "fri": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "sat": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "sun": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours, price of hu-tieu-nam-vang (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -7351,12 +8219,58 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%E1%BB%A7%20ti%E1%BA%BFu%20Nam%20Vang%20Qu%E1%BB%91c%20K%C3%BD%2C%2024%20K%C3%BD%20Con%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours, price range, price of hu-tieu-nam-vang (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -7379,12 +8293,14 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%E1%BB%A7%20ti%E1%BA%BFu%20Nam%20Vang%20H%E1%BB%93ng%20Ph%C3%A1t%2C%20391%20V%C3%B5%20V%C4%83n%20T%E1%BA%A7n%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$$",
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price range, price of hu-tieu-nam-vang (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -7533,7 +8449,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/top-quan-banh-xeo-mien-tay-sai-gon-15454",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price of banh-xeo-nam-bo (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -7628,6 +8545,7 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20x%C3%A8o%20rau%20r%E1%BB%ABng%20Anh%20Ti%E1%BA%BFn%2C%20356%20Phan%20V%C4%83n%20Tr%E1%BB%8B%2C%20B%C3%ACnh%20Th%E1%BA%A1nh%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$$",
       "openingHours": {
         "mon": [
           [
@@ -7677,7 +8595,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/top-quan-banh-xeo-mien-tay-sai-gon-15454",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price range (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -8214,6 +9133,53 @@
       "coordinatePrecision": "exact",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ph%E1%BB%9F%20H%C3%B9ng%20qu%E1%BA%ADn%201%2C%20243%20Nguy%E1%BB%85n%20Tr%C3%A3i%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ]
+      },
+      "contact": {
+        "phone": "+84 28 3838 5089"
+      },
       "deliveryLinks": [],
       "sources": [
         {
@@ -8224,12 +9190,25 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/top-quan-pho-sai-gon-18417",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-28"
+        },
+        {
+          "title": "guide.michelin.com",
+          "url": "https://guide.michelin.com/br/pt_BR/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hung",
+          "accessed": "2026-11-28",
+          "note": "Source for: phone (checked 2026-11-28)"
+        },
+        {
+          "title": "guide.michelin.com",
+          "url": "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hung",
+          "accessed": "2026-11-28",
+          "note": "Corroborating source for this venue's enrichment (checked 2026-11-28)"
         }
       ],
       "lastVerified": "2026-11-28"
@@ -8884,6 +9863,7 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A9o%20%C6%A0i%20Qu%C3%A1n%2C%2015%2F20%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Minh%20Khai%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
       "openingHours": {
         "mon": [
           [
@@ -8933,7 +9913,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price range, price of bun-cha-ha-noi (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -8956,6 +9937,7 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20ch%E1%BA%A3%20B%C3%A0%20B%C3%ADnh%2C%204%20Nguy%E1%BB%85n%20Trung%20Ng%E1%BA%A1n%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$$",
       "openingHours": {
         "mon": [
           [
@@ -9005,7 +9987,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price range, price of bun-cha-ha-noi (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -9028,6 +10011,7 @@
       "coordinatePrecision": "exact",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20Ch%E1%BA%A3%20H%E1%BB%93%20G%C6%B0%C6%A1m%2C%2082%20H%E1%BB%93%20T%C3%B9ng%20M%E1%BA%ADu%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$$",
       "openingHours": {
         "mon": [
           [
@@ -9077,7 +10061,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price range, price of bun-cha-ha-noi (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -9100,6 +10085,7 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20ch%E1%BA%A3%20%C4%90%E1%BB%93ng%20Xu%C3%A2n%2C%20323%20L%C3%BD%20T%E1%BB%B1%20Tr%E1%BB%8Dng%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$$",
       "openingHours": {
         "mon": [
           [
@@ -9149,7 +10135,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price range, price of bun-cha-ha-noi (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -9172,6 +10159,7 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Qu%C3%A1n%20Ngon%2C%20209%20%C4%90%E1%BB%81%20Th%C3%A1m%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$$",
       "openingHours": {
         "mon": [
           [
@@ -9221,7 +10209,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: price range, price of bun-cha-ha-noi (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -9244,12 +10233,85 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20Ch%E1%BA%A3%20B%C3%A0%20Lan%20%22Th%E1%BA%ADn%2C%209B%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Minh%20Khai%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -10240,6 +11302,9 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ph%E1%BB%9F%20H%C6%B0%C6%A1ng%20B%C3%ACnh%2C%20148%20V%C3%B5%20Th%E1%BB%8B%20S%C3%A1u%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "contact": {
+        "phone": "+84 788 897 777"
+      },
       "deliveryLinks": [],
       "sources": [
         {
@@ -10251,6 +11316,18 @@
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-28"
+        },
+        {
+          "title": "guide.michelin.com",
+          "url": "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-huong-binh",
+          "accessed": "2026-11-28",
+          "note": "Source for: phone (checked 2026-11-28)"
+        },
+        {
+          "title": "enprimeurclub.com",
+          "url": "https://www.enprimeurclub.com/restaurants/pho-huong-binh-ho-chi-minh-city-restaurant",
+          "accessed": "2026-11-28",
+          "note": "Corroborating source for this venue's enrichment (checked 2026-11-28)"
         }
       ],
       "lastVerified": "2026-11-28"
@@ -10324,6 +11401,50 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ph%E1%BB%9F%20Anh%2C%2008%20K%E1%BB%B3%20%C4%90%E1%BB%93ng%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
@@ -10334,7 +11455,8 @@
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/top-quan-pho-sai-gon-18417",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -10553,12 +11675,58 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Qu%C3%A1n%20c%C6%A1m%20t%E1%BA%A5m%20%C4%91%C3%AAm%20Cu%20Bo%2C%20122%20Nguy%E1%BB%85n%20C%C6%B0%20Trinh%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
+      "openingHours": {
+        "mon": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ],
+        "tue": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ],
+        "wed": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ],
+        "thu": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ],
+        "fri": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ],
+        "sat": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ],
+        "sun": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours, price range (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -10581,12 +11749,58 @@
       "coordinatePrecision": "exact",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Qu%C3%A1n%2C%20269%20%C4%90%E1%BB%81%20Th%C3%A1m%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
+      "openingHours": {
+        "mon": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ],
+        "tue": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ],
+        "wed": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ],
+        "thu": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ],
+        "fri": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ],
+        "sat": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ],
+        "sun": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours, price range, price of com-tam-sai-gon (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -13082,12 +14296,57 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20ri%C3%AAu%20C%C3%B4%20H%C6%B0%C6%A1ng%20B%C3%A9o%2C%2019B%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Minh%20Khai%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ],
+        "tue": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ],
+        "wed": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ],
+        "thu": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ],
+        "fri": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ],
+        "sat": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -13110,12 +14369,58 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Qu%C3%A1n%20b%C3%BAn%20ri%C3%AAu%20Trinh%2C%20156%20Tr%E1%BA%A7n%20Quang%20Kh%E1%BA%A3i%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
+      "openingHours": {
+        "mon": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ],
+        "tue": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ],
+        "wed": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ],
+        "thu": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ],
+        "fri": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ],
+        "sat": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ],
+        "sun": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours, price range, price of bun-rieu-cua (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -13138,12 +14443,58 @@
       "coordinatePrecision": "exact",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%BAn%20ri%C3%AAu%20%C4%91%C6%B0%E1%BB%9Dng%20Nguy%E1%BB%85n%20Tr%C3%A3i%2C%20219%20Nguy%E1%BB%85n%20Tr%C3%A3i%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "priceRange": "$",
+      "openingHours": {
+        "mon": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
           "title": "mia.vn",
           "url": "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156",
-          "accessed": "2026-11-28"
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours, price range, price of bun-rieu-cua (checked 2026-11-28)"
         },
         {
           "title": "OpenStreetMap / Nominatim (coordinates)",
@@ -14155,6 +15506,50 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=C%C6%A1m%20t%E1%BA%A5m%20Cali%2C%2082%20Nguy%E1%BB%85n%20V%C4%83n%20Tr%E1%BB%97i%2C%20Ph%C3%BA%20Nhu%E1%BA%ADn%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ],
+        "tue": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ],
+        "wed": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ],
+        "thu": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ],
+        "fri": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ],
+        "sat": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ],
+        "sun": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ]
+      },
       "deliveryLinks": [],
       "sources": [
         {
@@ -14166,6 +15561,18 @@
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-28"
+        },
+        {
+          "title": "toplist.vn",
+          "url": "https://toplist.vn/top-list/quan-com-tam-ngon-nhat-quan-phu-nhuan-tp-hcm-54541.htm",
+          "accessed": "2026-11-28",
+          "note": "Source for: opening hours (checked 2026-11-28)"
+        },
+        {
+          "title": "greensm.com",
+          "url": "https://www.greensm.com/vn-vi/news/com-tam-phu-nhuan",
+          "accessed": "2026-11-28",
+          "note": "Corroborating source for this venue's enrichment (checked 2026-11-28)"
         }
       ],
       "lastVerified": "2026-11-28"
@@ -15195,6 +16602,53 @@
       "coordinatePrecision": "street",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Qu%C3%A1n%20b%C3%BAn%20thang%20Madame%20Th%E1%BA%A3o%2C%20157%2F20%20Nguy%E1%BB%85n%20Gia%20Tr%C3%AD%2C%20B%C3%ACnh%20Th%E1%BA%A1nh%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ]
+      },
+      "contact": {
+        "phone": "0348 489 559"
+      },
       "deliveryLinks": [],
       "sources": [
         {
@@ -15206,6 +16660,12 @@
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-28"
+        },
+        {
+          "title": "vinwonders.com",
+          "url": "https://vinwonders.com/vi/wonderpedia/news/bun-thang-sai-gon/",
+          "accessed": "2026-11-28",
+          "note": "Source for: phone, opening hours (checked 2026-11-28)"
         }
       ],
       "lastVerified": "2026-11-28"

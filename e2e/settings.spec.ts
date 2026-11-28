@@ -38,10 +38,18 @@ test.describe("customer Settings", () => {
     await expect(page.getByTestId("benefit-plus-favourites")).toHaveText("150 favourites per experience");
     await expect(page.getByTestId("benefit-premium-favourites")).toHaveText("Unlimited favourites");
     // Unbuilt benefits are labelled "Coming", never shown as available.
-    for (const id of ["free-menuViews", "plus-nutrition", "plus-advancedPrefs", "plus-menuViews", "premium-menuPrices", "premium-priceCompare"]) {
+    for (const id of ["free-menuUnlocks", "plus-nutrition", "plus-advancedPrefs", "plus-menuUnlocks", "premium-menuPrices", "premium-priceCompare"]) {
       await expect(page.getByTestId(`benefit-${id}`)).toHaveAttribute("data-available", "false");
       await expect(page.getByTestId(`benefit-${id}`)).toContainText("Coming");
     }
+    await expect(page.getByTestId("benefit-free-menuUnlocks")).toContainText("5 complete establishment menu unlocks per month");
+    await expect(page.getByTestId("benefit-plus-menuUnlocks")).toContainText("30 complete establishment menu unlocks per month");
+    // Founding Member programme (PO-approved) is shown by default; without accounts nobody can claim; guests have no unlock meter.
+    await expect(page.getByTestId("founding-programme")).toContainText("K's Founding Member");
+    await expect(page.getByTestId("founding-no-charge")).toContainText("No automatic charge afterwards");
+    await expect(page.getByTestId("founding-no-accounts")).toBeVisible();
+    await expect(page.getByTestId("founding-join")).toHaveCount(0);
+    await expect(page.getByTestId("usage-menu-unlocks")).toHaveCount(0);
     await expect(page.getByTestId("membership-currency-note")).toContainText("US dollars");
     await expect(page.getByRole("button", { name: /subscribe|buy|checkout/i })).toHaveCount(0);
   });
@@ -103,7 +111,7 @@ test.describe("Privacy & Data (guest)", () => {
 });
 
 test.describe("Admin Portal (local mode)", () => {
-  test("all eleven modules render; overview shows live coverage; deep links work", async ({ page }) => {
+  test("all twelve modules render; overview shows live coverage; deep links work", async ({ page }) => {
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message));
     await page.goto("/admin/");
@@ -111,7 +119,7 @@ test.describe("Admin Portal (local mode)", () => {
     await expect(page.getByTestId("kpi-provinces")).toContainText(/\d+\/63/);
     await expect(page.getByTestId("kpi-dishes-with-places")).toContainText(/\d+(\.\d)?%/);
     for (const id of ["food", "bars", "coffee", "spa", "sport"]) await expect(page.getByTestId(`coverage-${id}`)).toContainText(/\d+\/\d+/);
-    const expected: Record<string, string> = { business: "restaurant-name", catalogue: "dish-editor-select", menus: "evidence-status", nutrition: "admin-nutrition", research: "import-tool", quality: "admin-review", users: "admin-users", billing: "admin-billing", system: "admin-system", audit: "admin" };
+    const expected: Record<string, string> = { business: "restaurant-name", catalogue: "dish-editor-select", menus: "evidence-status", nutrition: "admin-nutrition", research: "import-tool", quality: "admin-review", reports: "admin-reports-local", users: "admin-users", billing: "admin-billing", system: "admin-system", audit: "admin" };
     for (const [s, id] of Object.entries(expected)) {
       await page.getByTestId(`admin-section-${s}`).click();
       await expect(page).toHaveURL(new RegExp(`#${s}$`));

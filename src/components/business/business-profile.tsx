@@ -6,7 +6,7 @@
  */
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowLeft, Bookmark, Images, Check, Clock, ExternalLink, Flag, Globe, Lock, MapPin, Navigation, Phone, Share2, Store, TriangleAlert } from "lucide-react";
+import { ArrowLeft, Bookmark, Images, Check, Clock, ExternalLink, Globe, Lock, MapPin, Navigation, Phone, Share2, Store, TriangleAlert } from "lucide-react";
 import { loc, themeVars } from "@/experiences/registry";
 import { BUSINESS_TYPE_DEFS, formatVnd, priceAccess, type BusinessProfileModel, type BusinessTypeDef, type ProfileOffering } from "@/lib/business/profile";
 import { businessDict, type BusinessStrings } from "@/lib/i18n/business-dict";
@@ -18,6 +18,9 @@ import { Button } from "@/components/ui/button";
 import { SampleBadge, StatusDot } from "@/components/food/badges";
 import { useAuth } from "@/components/shell/auth-provider";
 import { useVenuePhotos } from "./venue-photos";
+import { InfoStateLabel, restrictedText } from "./info-state-label";
+import { infoState } from "@/lib/membership/plans";
+import { ReportButton } from "./report-dialog";
 import { cn } from "@/lib/utils";
 
 const DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] as const;
@@ -87,14 +90,21 @@ function Fact({ icon: Icon, label, children, testid, known }: { icon: typeof Pho
   );
 }
 
-/** PriceEntitlement: the one place that decides what a viewer sees of a detailed price. */
+/**
+ * PriceEntitlement: the one place that decides what a viewer sees of a complete-menu price. "No price recorded"
+ * (unavailable) and "your plan does not include it" (restricted) are always labelled differently.
+ */
 function PriceEntitlement({ o, s }: { o: ProfileOffering; s: BusinessStrings }) {
   const { membership, status } = useAuth();
-  const access = priceAccess(status === "signed-in" ? membership : null, { unlocked: false, usedUnlocks: 0 });
-  if (!o.priceVnd) return <span className="text-xs text-muted" data-testid="offering-price" data-state="unknown">{s.priceNotRecorded}</span>;
-  if (access === "full") return <span className="font-semibold tabular-nums text-forest" data-testid="offering-price" data-state="shown">{formatVnd(o.priceVnd)}{o.priceUnit ? <span className="block text-right text-[11px] font-normal text-muted">{o.priceUnit}</span> : null}</span>;
-  // Enforcement path (KEX-MEM-04): unlocking is recorded server-side; until that exists the control is inert.
-  return <Button size="sm" variant="outline" disabled data-testid="offering-price" data-state={access}><Lock /> {access === "unlockable" ? s.unlockPrice : s.premiumPrice}</Button>;
+  const tier = status === "signed-in" ? membership : null;
+  // Unlock state per establishment is not loaded yet: harmless while limits are not enforced (everything is available).
+  const state = infoState("completeMenuPrices", tier, { hasData: !!o.priceVnd, unlocked: false, usedUnlocks: 0 });
+  if (state === "unavailable" || !o.priceVnd) return <InfoStateLabel state="unavailable" testid="offering-price" legacyState="unknown">{s.priceNotRecorded}</InfoStateLabel>;
+  if (state === "available") return <span className="font-semibold tabular-nums text-forest" data-testid="offering-price" data-state="shown" data-info="available">{formatVnd(o.priceVnd)}{o.priceUnit ? <span className="block text-right text-[11px] font-normal text-muted">{o.priceUnit}</span> : null}</span>;
+  const access = priceAccess(tier, { unlocked: false, usedUnlocks: 0 });
+  // Enforcement path (KEX-MEM-04): unlocking goes through the unlock_menu RPC (0016); until it is wired the control is inert.
+  if (access === "unlockable") return <Button size="sm" variant="outline" disabled data-testid="offering-price" data-state={access} data-info="restricted"><Lock /> {s.unlockPrice}</Button>;
+  return <InfoStateLabel state="restricted" testid="offering-price" legacyState={access}>{restrictedText("completeMenuPrices", tier, s)}</InfoStateLabel>;
 }
 
 function OfferingList({ items, s, testid, thumb }: { items: ProfileOffering[]; s: BusinessStrings; testid: string; thumb?: (id: string) => React.ReactNode }) {
@@ -229,10 +239,9 @@ export function BusinessProfile({ model: m, back, actions, offeringTestId = "off
             </ul>
           </div>
           <div className="space-y-2 rounded-3xl border border-line/80 bg-paper p-5 text-sm" data-testid="profile-footer-actions">
-            {[[Flag, s.report, "action-report"], [Store, s.claim, "action-claim"]].map(([Icon, label, id]) => {
-              const I = Icon as typeof Flag;
-              return <div key={id as string} className="flex items-center justify-between gap-2 opacity-70" data-testid={id as string} aria-disabled><span className="flex items-center gap-2"><I className="size-4" aria-hidden /> {label as string}</span><Badge tone="outline">{s.soon}</Badge></div>;
-            })}
+            {/* Fictional sample venues have nothing real to correct. */}
+            <ReportButton target={{ establishmentId: m.id, establishmentName: m.name, experience: def.experience }} disabled={m.isSample} />
+            <div className="flex items-center justify-between gap-2 opacity-70" data-testid="action-claim" aria-disabled><span className="flex items-center gap-2"><Store className="size-4" aria-hidden /> {s.claim}</span><Badge tone="outline">{s.soon}</Badge></div>
           </div>
         </aside>
       </div>

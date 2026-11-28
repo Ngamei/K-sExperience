@@ -13,6 +13,7 @@ import path from "node:path";
 import { DishRestaurantLinkSchema, RestaurantSchema, type DishRestaurantLink, type Restaurant } from "../src/lib/data/schema";
 import { pointInGeometry, type GeoJsonGeometry } from "../src/lib/geo/geo";
 import { googleMapsLink, isGoogleMapsPlaceUrl } from "../src/lib/geo/maps-link";
+import { applyEnrichment, type EnrichableRecord, type EnrichVenue } from "../src/lib/data/enrich";
 
 const root = path.resolve(__dirname, "..");
 const read = (p: string) => JSON.parse(readFileSync(path.join(root, p), "utf8"));
@@ -27,7 +28,7 @@ const errors: string[] = [];
 /** A dish entry is a dish id (generic evidence) or an object with its own evidence, price and photo (research exchange format). */
 type BatchDish = string | { dishId: string; evidence?: string; url?: string; priceVnd?: { min: number; max: number }; photo?: unknown; status?: string; evidenceType?: string };
 type BatchVenue = { id?: string; name: string; address: string; district?: string; dishes: BatchDish[]; sources: string[]; note?: string; styleNote?: boolean; excluded?: string;
-  venueType?: string; priceRange?: string; openingHours?: unknown; contact?: unknown; highlights?: string[]; googleMapsUrl?: string; closure?: unknown };
+  venueType?: string; priceRange?: string; openingHours?: unknown; contact?: unknown; highlights?: string[]; googleMapsUrl?: string; closure?: unknown; enrich?: boolean };
 const geocoded = read("data/source/venue-research/geocoded.json") as Record<string, { failed?: boolean; reason?: string; lon: number; lat: number; precision: "exact" | "building" | "street"; ward: string | null }>;
 const batchFiles = readdirSync(path.join(root, "data/source/venue-research")).filter((f) => /^batch-[\w-]+\.json$/.test(f)).sort();
 const skipped: string[] = [];
@@ -37,6 +38,7 @@ for (const f of batchFiles) {
   const batch = read(`data/source/venue-research/${f}`) as { researchedOn: string; venues: BatchVenue[] };
   for (const v of batch.venues) {
     if (v.excluded) { skipped.push(`${v.name} (${v.address}) — ${v.excluded}`); continue; }
+    if (v.enrich) continue; // second pass, after every batch has created its venues
     const g = geocoded[`${v.name}|${v.address}|${v.district ?? ""}`];
     if (!g || g.failed) { skipped.push(`${v.name} (${v.address}) — ${g?.reason ?? "not geocoded yet"}`); continue; }
     const id = v.id ?? slugify(`${v.name} ${v.address.split(",")[0]}`); // intake sets id (e.g. a legacy id it merges into)
@@ -69,6 +71,18 @@ for (const f of batchFiles) {
       lastVerified: batch.researchedOn,
       dishes,
     });
+  }
+}
+// ---- Second pass: enrichment of existing venues (contact, hours, price range, closure, dish prices) ----------
+const enriched: string[] = [];
+for (const f of batchFiles) {
+  const batch = read(`data/source/venue-research/${f}`) as { researchedOn: string; venues: BatchVenue[] };
+  for (const v of batch.venues) {
+    if (!v.enrich || v.excluded) continue;
+    const existing = v.id ? byId.get(v.id) : undefined;
+    if (!existing) { errors.push(`${f}: enrich venue ${v.name} — no existing establishment "${v.id}"`); continue; }
+    const changes = applyEnrichment(existing as unknown as EnrichableRecord, v as unknown as EnrichVenue, batch.researchedOn);
+    if (changes.length) enriched.push(`${v.id}: ${changes.join(", ")}`);
   }
 }
 src.restaurants = [...byId.values()];
@@ -109,6 +123,7 @@ for (const r of src.restaurants) {
 }
 
 skipped.forEach((e) => console.log("· skipped", e));
+enriched.forEach((e) => console.log("+ enriched", e));
 errors.forEach((e) => console.log("✗", e));
 if (errors.length) process.exit(1);
 

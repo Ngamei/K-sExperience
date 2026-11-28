@@ -20,7 +20,8 @@ test("restaurant profile: shared components, unknown contact shown honestly, onl
   const priced = page.locator('[data-testid=place-offering][data-offering="banh-mi-sai-gon"]');
   await expect(priced.getByTestId("offering-price")).toHaveText("38.000–78.000₫");
   await expect(priced.getByTestId("offering-price")).toHaveAttribute("data-state", "shown");
-  for (const id of ["action-report", "action-claim"]) await expect(page.getByTestId(id)).toContainText("Coming soon");
+  await expect(page.getByTestId("action-claim")).toContainText("Coming soon");
+  await expect(page.getByTestId("action-report")).toContainText("Report incorrect information"); // KEX-BIZ-04: live (e2e/report-info.spec.ts)
   await expect(page.getByTestId("place-sources")).not.toBeEmpty();
   await page.getByTestId("save-venue").click();
   await expect(page.getByTestId("save-venue")).toHaveAttribute("aria-pressed", "true");

@@ -42,6 +42,9 @@ What they change: 0009 makes `dishes.spice_level` nullable (unknown ≠ 0; the 0
 - **0014** `0014_membership_quotas.sql` (D76): `membership_settings` (enforce_limits = false), `membership_limits` seed, `member_tier()`, `member_limit()`, quota trigger on `saved_experiences`. No data changes; enforcement stays off. After apply: `select enforce_limits from membership_settings` → false; 15 rows in `membership_limits`.
 - **0015** `0015_venue_photos.sql` (D78): table `venue_photos` (public read, editors write, audited, https + credit + kind checks). The seed replaces its rows from `data/venue-photos.json`; parity checks the count.
 
+- **0016** `0016_menu_unlocks.sql` (D82, D83, D88): `menu_unlocks` + `unlock_menu()` / `menu_unlock_usage()`, quota key `menu_views` → `menu_unlocks`, `membership_settings.default_tier` = `'plus'`, `member_tier()`, Founding Member (`founding_programme` enabled, cap 100, 90 days; `founding_claims`; `claim_founding_membership()`, `founding_places_left()`). After apply: as anon, `select founding_places_left()` → 100; direct insert into `menu_unlocks` refused.
+- **0017** `0017_info_reports.sql` (D84): `info_reports` + private bucket `report-evidence`. After apply: as anon, inserting a `status='new'` report succeeds and select returns 0 rows; a non-staff update changes nothing.
+
 ## 3. Seed + parity
 
 1. Run `supabase/seed.sql` (idempotent — the local test runs it twice).

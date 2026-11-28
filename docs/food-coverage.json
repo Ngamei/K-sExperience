@@ -608,7 +608,7 @@
       "venues": 33,
       "venuesIncludingTemporarilyUnavailable": 33,
       "bucket": "5+",
-      "pricedVenues": 0,
+      "pricedVenues": 1,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
@@ -626,7 +626,7 @@
       "venues": 21,
       "venuesIncludingTemporarilyUnavailable": 21,
       "bucket": "5+",
-      "pricedVenues": 0,
+      "pricedVenues": 5,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
@@ -662,7 +662,7 @@
       "venues": 23,
       "venuesIncludingTemporarilyUnavailable": 23,
       "bucket": "5+",
-      "pricedVenues": 0,
+      "pricedVenues": 2,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
@@ -1580,7 +1580,7 @@
       "venues": 47,
       "venuesIncludingTemporarilyUnavailable": 47,
       "bucket": "5+",
-      "pricedVenues": 0,
+      "pricedVenues": 1,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
@@ -2282,7 +2282,7 @@
       "venues": 19,
       "venuesIncludingTemporarilyUnavailable": 19,
       "bucket": "5+",
-      "pricedVenues": 1,
+      "pricedVenues": 3,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
@@ -2300,7 +2300,7 @@
       "venues": 65,
       "venuesIncludingTemporarilyUnavailable": 65,
       "bucket": "5+",
-      "pricedVenues": 0,
+      "pricedVenues": 6,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
@@ -2318,7 +2318,7 @@
       "venues": 16,
       "venuesIncludingTemporarilyUnavailable": 16,
       "bucket": "5+",
-      "pricedVenues": 0,
+      "pricedVenues": 5,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
@@ -2354,7 +2354,7 @@
       "venues": 7,
       "venuesIncludingTemporarilyUnavailable": 7,
       "bucket": "5+",
-      "pricedVenues": 0,
+      "pricedVenues": 2,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
@@ -2390,7 +2390,7 @@
       "venues": 54,
       "venuesIncludingTemporarilyUnavailable": 54,
       "bucket": "5+",
-      "pricedVenues": 0,
+      "pricedVenues": 1,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,
@@ -2624,7 +2624,7 @@
       "venues": 21,
       "venuesIncludingTemporarilyUnavailable": 21,
       "bucket": "5+",
-      "pricedVenues": 0,
+      "pricedVenues": 1,
       "byArea": {
         "thao-dien": 0,
         "sala-thu-thiem": 0,

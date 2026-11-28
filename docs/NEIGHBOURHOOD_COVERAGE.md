@@ -21,16 +21,16 @@ Generated 2026-11-28 by `npm run data:neighbourhoods` from the canonical data. D
 | --- | ---: | --- | --- | --- | --- | --- | ---: | ---: | ---: | --- |
 | Thảo Điền | 1 | 0 | 1 (0 exact · 1 approx) | 4 (1 exact · 3 approx) | 0 | 3 (0 exact · 3 approx) | 0 | 0 | 0 | Phường An Khánh |
 | Sala – Thủ Thiêm | 1 | 0 | 0 | 2 (1 exact · 1 approx) | 0 | 0 | 0 | 0 | 0 | Phường An Khánh |
-| Quận 1 – Trung tâm | 1 | 32 (10 exact · 22 approx) | 5 (3 exact · 2 approx) | 14 (8 exact · 6 approx) | 0 | 3 (2 exact · 1 approx) | 17 | 1 | 10 | Phường Bến Thành, Phường Sài Gòn, Phường Xuân Hòa, Quận 1 |
+| Quận 1 – Trung tâm | 1 | 32 (10 exact · 22 approx) | 5 (3 exact · 2 approx) | 14 (8 exact · 6 approx) | 0 | 3 (2 exact · 1 approx) | 17 | 7 | 15 | Phường Bến Thành, Phường Sài Gòn, Phường Xuân Hòa, Quận 1 |
 | Phú Mỹ Hưng | 1 | 21 (5 exact · 16 approx) | 0 | 2 (0 exact · 1 approx) | 0 | 0 | 10 | 0 | 6 | Phường Tân Hưng, Phường Tân Thuận, Quận 7, Xã Nhà Bè |
 | Vinhomes Central Park – Nguyễn Hữu Cảnh | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
-| Phan Xích Long – Phú Nhuận | 1 | 3 (1 exact · 2 approx) | 0 | 0 | 0 | 0 | 3 | 0 | 1 | Phường Cầu Kiệu, Phường Gia Định |
+| Phan Xích Long – Phú Nhuận | 1 | 3 (1 exact · 2 approx) | 0 | 0 | 0 | 0 | 3 | 1 | 1 | Phường Cầu Kiệu, Phường Gia Định |
 | Phạm Viết Chánh | 2 | 2 (1 exact · 1 approx) | 0 | 2 (1 exact · 1 approx) | 0 | 0 | 2 | 0 | 0 | Phường Sài Gòn, Phường Thạnh Mỹ Tây |
 | An Phú – An Khánh | 2 | 0 | 1 (0 exact · 1 approx) | 0 | 0 | 0 | 0 | 0 | 0 | Phường An Khánh |
-| Hồ Con Rùa – Quận 3 | 2 | 15 (4 exact · 11 approx) | 0 | 1 (0 exact · 1 approx) | 0 | 1 (0 exact · 1 approx) | 10 | 0 | 6 | Phường Sài Gòn, Phường Tân Định, Phường Xuân Hòa |
-| Bến Vân Đồn – Quận 4 | 2 | 37 (6 exact · 31 approx) | 0 | 1 (0 exact · 1 approx) | 0 | 0 | 10 | 0 | 14 | Phường Cầu Ông Lãnh, Phường Khánh Hội, Phường Vĩnh Hội, Phường Xóm Chiếu |
-| Hồ Thị Kỷ – Quận 10 | 2 | 13 (3 exact · 10 approx) | 0 | 0 | 0 | 0 | 11 | 0 | 4 | Phường Bàn Cờ, Phường Chợ Quán, Phường Cầu Ông Lãnh, Phường Vườn Lài |
-| Ba Son – Golden River | 2 | 2 (1 exact · 1 approx) | 0 | 1 (1 exact · 0 approx) | 0 | 0 | 2 | 0 | 1 | Phường Sài Gòn |
+| Hồ Con Rùa – Quận 3 | 2 | 15 (4 exact · 11 approx) | 0 | 1 (0 exact · 1 approx) | 0 | 1 (0 exact · 1 approx) | 10 | 2 | 8 | Phường Sài Gòn, Phường Tân Định, Phường Xuân Hòa |
+| Bến Vân Đồn – Quận 4 | 2 | 37 (6 exact · 31 approx) | 0 | 1 (0 exact · 1 approx) | 0 | 0 | 10 | 1 | 15 | Phường Cầu Ông Lãnh, Phường Khánh Hội, Phường Vĩnh Hội, Phường Xóm Chiếu |
+| Hồ Thị Kỷ – Quận 10 | 2 | 13 (3 exact · 10 approx) | 0 | 0 | 0 | 0 | 11 | 0 | 5 | Phường Bàn Cờ, Phường Chợ Quán, Phường Cầu Ông Lãnh, Phường Vườn Lài |
+| Ba Son – Golden River | 2 | 2 (1 exact · 1 approx) | 0 | 1 (1 exact · 0 approx) | 0 | 0 | 2 | 1 | 1 | Phường Sài Gòn |
 
 ## Category-level coverage (establishments offering ≥1 item in the category)
 

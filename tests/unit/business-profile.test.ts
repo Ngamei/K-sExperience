@@ -55,6 +55,12 @@ describe("PriceEntitlement rule", () => {
     expect(priceAccess("plus", { unlocked: false, usedUnlocks: 29 }, true)).toBe("unlockable");
     expect(priceAccess("free", { unlocked: true, usedUnlocks: 5 }, true)).toBe("full");
   });
+  it("menu unlock model: guests cannot unlock; Plus locked at 30; an unlocked menu never needs quota", () => {
+    expect(priceAccess(null, { unlocked: false, usedUnlocks: 0 }, true)).toBe("locked"); // guest: no complete prices
+    expect(priceAccess("plus", { unlocked: false, usedUnlocks: 30 }, true)).toBe("locked");
+    expect(priceAccess("plus", { unlocked: true, usedUnlocks: 30 }, true)).toBe("full");
+    expect(priceAccess("free", { unlocked: false, usedUnlocks: 0 }, true)).toBe("unlockable");
+  });
   it("formats VND", () => {
     expect(formatVnd({ min: 38000, max: 78000 })).toBe("38.000–78.000₫");
     expect(formatVnd({ min: 55000, max: 55000 })).toBe("55.000₫");

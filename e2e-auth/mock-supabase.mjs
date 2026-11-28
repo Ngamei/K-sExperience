@@ -11,7 +11,7 @@ const PK = {
   user_profiles: ["user_id"],
 };
 let db;
-const reset = () => { db = { users: [], roles: {}, memberships: {}, refresh: {}, fail: false, tables: { saved_experiences: [], experience_history: [], tasting_notes: [], user_profiles: [] } }; };
+const reset = () => { db = { users: [], roles: {}, memberships: {}, refresh: {}, fail: false, reports: [], objects: {}, tables: { saved_experiences: [], experience_history: [], tasting_notes: [], user_profiles: [] } }; };
 reset();
 
 const b64 = (o) => Buffer.from(JSON.stringify(o)).toString("base64url");
@@ -105,6 +105,49 @@ createServer(async (req, res) => {
   }
   if (p === "/auth/v1/logout") return send(res, 204);
   if (p === "/auth/v1/recover") return send(res, 200, {});
+  // ---- 0017 info reports: storage (private bucket report-evidence) + table ----------------------
+  if (p === "/__reports") return send(res, 200, { reports: db.reports, objects: Object.keys(db.objects) });
+  const isStaff = (sub) => Boolean(sub && ["admin", "editor", "researcher", "reviewer"].includes(db.roles[sub]));
+  const SIGN = "/storage/v1/object/sign/report-evidence/";
+  if (p.startsWith("/storage/v1/object/report-evidence/") && req.method === "POST") { // own-folder upload, signed-in only
+    const sub = subOf(req), path = decodeURIComponent(p.slice("/storage/v1/object/report-evidence/".length));
+    const chunks = []; for await (const c of req) chunks.push(c);
+    if (!sub || path.split("/")[0] !== sub) return send(res, 403, { statusCode: "403", error: "Unauthorized", message: "new row violates row-level security policy" });
+    db.objects[path] = Buffer.concat(chunks);
+    return send(res, 200, { Key: `report-evidence/${path}`, Id: randomUUID() });
+  }
+  if (p.startsWith(SIGN) && req.method === "POST") { // signed URL: staff only
+    const path = decodeURIComponent(p.slice(SIGN.length));
+    if (!isStaff(subOf(req)) || !db.objects[path]) return send(res, 400, { statusCode: "404", error: "not_found", message: "Object not found" });
+    return send(res, 200, { signedURL: `/object/sign/report-evidence/${path}?token=mock` });
+  }
+  if (p.startsWith(SIGN) && req.method === "GET") { // serves a tiny PNG for any stored evidence object
+    res.writeHead(200, { "content-type": "image/png", "access-control-allow-origin": "*" });
+    return res.end(Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==", "base64"));
+  }
+  if (p === "/rest/v1/info_reports") { // emulates the 0017 RLS: anyone inserts a NEW report; reporter reads own; staff read + triage
+    const sub = subOf(req), staff = isStaff(sub);
+    if (req.method === "POST") {
+      if (db.fail) return send(res, 503, { message: "mock outage" });
+      const body = await readBody(req);
+      for (const r of Array.isArray(body) ? body : [body]) {
+        const forged = (r.status && r.status !== "new") || r.reviewed_by || r.reviewed_at || r.resolution_note || (r.reporter_id && r.reporter_id !== sub)
+          || (r.evidence_photo_path && (!sub || r.evidence_photo_path.split("/")[0] !== sub));
+        if (forged) return send(res, 403, { code: "42501", message: "new row violates row-level security policy for table \"info_reports\"" });
+        db.reports.push({ ...r, reporter_id: sub ?? null, status: "new", resolution_note: null, reviewed_by: null, reviewed_at: null, created_at: new Date().toISOString() });
+      }
+      return send(res, 201);
+    }
+    const visible = db.reports.filter((r) => staff || (sub && r.reporter_id === sub));
+    if (req.method === "GET") return send(res, 200, visible.filter((r) => match(r, filters(url))).sort((a, b) => b.created_at.localeCompare(a.created_at)));
+    if (req.method === "PATCH") {
+      const body = await readBody(req);
+      if (!staff) return send(res, 204); // RLS: zero rows updated
+      for (const r of visible.filter((x) => match(x, filters(url)))) Object.assign(r, { status: body.status, resolution_note: body.resolution_note ?? null, reviewed_by: sub, reviewed_at: new Date().toISOString() });
+      return send(res, 204);
+    }
+    return send(res, 403, { code: "42501", message: "permission denied" }); // no delete
+  }
   // ---- rest ---------------------------------------------------------------------------------
   if (p === "/rest/v1/rpc/delete_my_account") {
     const sub = subOf(req);
@@ -112,6 +155,28 @@ createServer(async (req, res) => {
     db.users = db.users.filter((u) => u.id !== sub);
     for (const t of Object.keys(db.tables)) db.tables[t] = db.tables[t].filter((r) => r.user_id !== sub);
     return send(res, 204);
+  }
+  // 0016 Founding Member programme (cap 100, 90 days; the real rules are tested in PostgreSQL)
+  if (p === "/rest/v1/rpc/founding_places_left") return send(res, 200, 100 - Object.keys(db.founding ?? {}).length);
+  if (p === "/rest/v1/rpc/claim_founding_membership") {
+    const sub = subOf(req);
+    if (!sub) return send(res, 401, { message: "not_authenticated" });
+    db.founding ??= {};
+    const refuse = (r) => send(res, 400, { code: "P0001", message: `founding_refused:${r}`, details: null, hint: null });
+    if (db.founding[sub]) return refuse("already_claimed");
+    const m = db.memberships[sub];
+    if (m && m.tier !== "free" && (!m.valid_until || new Date(m.valid_until) > new Date())) return refuse("already_member");
+    const valid_until = new Date(Date.now() + 90 * 86400e3).toISOString();
+    db.founding[sub] = valid_until;
+    db.memberships[sub] = { user_id: sub, tier: "premium", source: "founding", valid_until, updated_at: new Date().toISOString() };
+    return send(res, 200, { claimed: true, tier: "premium", valid_until });
+  }
+  if (p === "/rest/v1/rpc/menu_unlock_usage") { // 0016: the member's unlocks this period (the mock records none) + quota
+    const sub = subOf(req);
+    if (!sub) return send(res, 401, { message: "not_authenticated" });
+    const m = db.memberships[sub], tier = m && (!m.valid_until || new Date(m.valid_until) > new Date()) ? m.tier : "plus"; // default tier (0016)
+    const now = new Date(Date.now() + 7 * 3600e3); // Ho Chi Minh City calendar month
+    return send(res, 200, { used: 0, limit: { free: 5, plus: 30, premium: null }[tier], period_start: `${now.toISOString().slice(0, 7)}-01`, enforced: false });
   }
   const table = p.replace("/rest/v1/", "");
   const one = (rows) => (req.headers.accept ?? "").includes("vnd.pgrst.object")

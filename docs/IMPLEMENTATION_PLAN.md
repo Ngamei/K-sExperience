@@ -73,6 +73,7 @@ Legend: ✅ done and verified by automated test and/or browser evidence · 🟡 
 9. SEO: dish body text is client-rendered after `/data/food.json` loads (metadata is server-rendered). Consider server-rendering dish text if organic search matters.
 
 ## Next actions (proposed)
+- **Sprint 4 — launch readiness (PO 2026-11-28, D81–D87):** parallel workstreams in `docs/BACKLOG.md` → *Sprint 4*. Auth + security are launch blockers (`docs/AUTH_CHECKLIST.md`); data enrichment runs concurrently, measured by `npm run data:profile-completeness` (baseline: 0/435 launch-ready); membership entitlements + Founding Member implemented but off; report-incorrect-information queue; independent QA per `docs/QA_HANDOVER.md`. Live payments stay off.
 - **Settings/Admin separation (2026-11-28):** done on `claude/gifted-franklin-iltr35` — needs Codex access-control review, PO decisions D71/D72, PO approval to merge (applies migration 0013). Real hosted account creation + cross-device persistence still unverified (KEX-AUTH-01).
 1. ChatGPT exports the master catalogue in the import format → `npm run data:import -- master.csv --dataset master --dry-run`, fix, import.
 2. ~~PO decisions~~ — done (D4, D6, D13, D14 confirmed).
