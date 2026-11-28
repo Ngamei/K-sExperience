@@ -23,6 +23,7 @@ export type ExperienceStatus = "active" | "coming-soon" | "pilot-planned";
 
 
 /** Navigation slots shared by every module — same positions, module-specific labels. */
+export const EXPLORE_SHORT = { en: "Explore", vi: "Khám phá" };
 export const NAV_SLOTS = ["map", "discover", "catalogue", "nearby", "passport", "saved"] as const;
 export type NavSlot = (typeof NAV_SLOTS)[number];
 
@@ -49,7 +50,7 @@ export interface ExperienceModule {
   featureFlag: string | null;
   /** Extra navigation entries for this module only. */
   extraNav?: ExtraNav[];
-  /** Visual identity: accent colour for markers, medallion rings and category dots (design-token palette). */
+  /** Visual identity: accent colour for markers, medallion rings and category dots (= theme.accent). */
   accent: string;
   /** PO decision: open this pilot to everyone without a flag (shown with a "Pilot" badge). */
   enabledByDefault?: boolean;
@@ -90,13 +91,35 @@ export interface ExperienceModule {
 /** A rendered navigation entry (built from the shared slots — same positions in every module). */
 export interface NavItem { slot: NavSlot | string; href: string; label: L; short: L; icon: string; mobile: boolean }
 /** A module-specific navigation entry inserted after a shared slot (Food: Hôm nay ăn gì?). */
+/**
+ * Pastel experience themes (PO decision): subtle background tint, soft selection colour, readable darker accent.
+ * Applied by the app shell as CSS variables over the shared design tokens (globals.css), so every component
+ * (buttons, chips, navigation, cards, markers) follows the active experience. Accents keep ≥ 4.5:1 contrast on the tint.
+ */
+export interface ExperienceTheme { name: string; accent: string; accentSoft: string; tint: string; tintDeep: string; soft: string; mid: string; line: string }
+export const THEMES: Record<string, ExperienceTheme> = {
+  food: { name: "sage green", accent: "#2F5A45", accentSoft: "#46705A", tint: "#F3F5EF", tintDeep: "#E8EDE2", soft: "#E0E9DA", mid: "#C3D2BC", line: "#DDE3D5" },
+  bars: { name: "dusty lilac", accent: "#5E4B78", accentSoft: "#77639A", tint: "#F6F3F8", tintDeep: "#ECE6F1", soft: "#E8E1F0", mid: "#CFC3DD", line: "#E2DAEA" },
+  coffee: { name: "warm milk-tea beige", accent: "#6E4F35", accentSoft: "#8A6A4E", tint: "#F8F3EC", tintDeep: "#EFE6DA", soft: "#EFE4D4", mid: "#DCCBB4", line: "#E6DACA" },
+  spa: { name: "pastel aqua", accent: "#2E6664", accentSoft: "#47817E", tint: "#F1F8F7", tintDeep: "#E3F0EE", soft: "#DDF0EE", mid: "#B7DCD9", line: "#D3E6E3" },
+  shopping: { name: "soft blush", accent: "#8A4954", accentSoft: "#A6636E", tint: "#FBF4F4", tintDeep: "#F4E8E8", soft: "#F7E6E7", mid: "#EBC9CD", line: "#EDDCDD" },
+  sport: { name: "fresh mint-cyan", accent: "#22665A", accentSoft: "#3A8274", tint: "#F0F8F6", tintDeep: "#E1F1ED", soft: "#DDF3EE", mid: "#B3E3D8", line: "#D0E8E2" },
+};
+/** CSS variables that re-tint the shared tokens for one experience. */
+export const themeVars = (id: string): Record<string, string> => {
+  const t = THEMES[id] ?? THEMES.food;
+  return { "--forest": t.accent, "--forest-soft": t.accentSoft, "--ivory": t.tint, "--ivory-deep": t.tintDeep, "--sage-soft": t.soft, "--sage": t.mid, "--line": t.line, "--sea": t.tintDeep };
+};
+
 export interface ExtraNav { id: string; after: NavSlot; href: string; label: L; short: L; icon: string }
 const SLOT_ICON: Record<NavSlot, string> = { map: "map", discover: "compass", catalogue: "book", nearby: "pin", passport: "stamp", saved: "bookmark" };
 
 /** The module's navigation: shared slots and icons, module labels and routes. Saved stays shared. */
 export const navFor = (m: ExperienceModule): NavItem[] =>
   NAV_SLOTS.flatMap((slot) => [
-    { slot, href: m.routes[slot], label: m.navLabels[slot], short: m.navShort[slot] ?? m.navLabels[slot], icon: SLOT_ICON[slot], mobile: slot !== "saved" },
+    // Mobile (PO decision): Discover lives inside Explore (Map | Discover switch), so the bottom bar is
+    // Explore · [module extras, e.g. Eat today] · Catalogue · Nearby · Passport. Desktop keeps every slot.
+    { slot, href: m.routes[slot], label: m.navLabels[slot], short: slot === "map" ? EXPLORE_SHORT : m.navShort[slot] ?? m.navLabels[slot], icon: SLOT_ICON[slot], mobile: slot !== "saved" && slot !== "discover" },
     ...(m.extraNav ?? []).filter((x) => x.after === slot).map((x) => ({ slot: x.id, href: x.href, label: x.label, short: x.short, icon: x.icon, mobile: true })),
   ]);
 
@@ -116,7 +139,7 @@ const nav = (map: L, catalogue: L, passport: L): Record<NavSlot, L> => ({
 export const EXPERIENCES: ExperienceModule[] = [
   {
     id: "food", labelKey: "exp.food", name: { en: "Vietnamese Food", vi: "Ẩm thực Việt Nam" }, status: "active", icon: "utensils",
-    implemented: true, featureFlag: null, accent: "#294C3D", extraNav: [{ id: "what-to-eat", after: "discover", href: "/what-to-eat/", label: { en: "What to eat", vi: "Hôm nay ăn gì?" }, short: { en: "Eat today", vi: "Ăn gì?" }, icon: "sparkles" }], basePath: "/",
+    implemented: true, featureFlag: null, accent: "#2F5A45", extraNav: [{ id: "what-to-eat", after: "discover", href: "/what-to-eat/", label: { en: "What to eat", vi: "Hôm nay ăn gì?" }, short: { en: "Eat today", vi: "Ăn gì?" }, icon: "sparkles" }], basePath: "/",
     navLabels: nav({ en: "Food Map", vi: "Bản đồ ẩm thực" }, { en: "Food Catalogue", vi: "Danh mục món ăn" }, { en: "Food Passport", vi: "Hộ chiếu ẩm thực" }),
     navShort: { map: { en: "Explore", vi: "Bản đồ" }, catalogue: { en: "Catalogue", vi: "Món ăn" }, passport: SHORT.passport },
     routes: { map: "/", discover: "/discover/", catalogue: "/catalogue/", nearby: "/nearby/", passport: "/passport/", saved: "/saved/", item: "/dishes/", establishment: "/places/" },
@@ -149,7 +172,7 @@ export const EXPERIENCES: ExperienceModule[] = [
   },
   {
     id: "bars", labelKey: "exp.bars", name: { en: "Bars", vi: "Quán bar" }, status: "coming-soon", icon: "wine",
-    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_BARS", enabledByDefault: true, accent: "#8E4F38", basePath: "/bars/",
+    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_BARS", enabledByDefault: true, accent: "#5E4B78", basePath: "/bars/",
     navLabels: nav({ en: "Bar Map", vi: "Bản đồ quán bar" }, { en: "Drinks Catalogue", vi: "Danh mục đồ uống" }, { en: "Bar Passport", vi: "Hộ chiếu quán bar" }),
     navShort: SHORT,
     routes: routesFor("/bars/"),
@@ -186,7 +209,7 @@ export const EXPERIENCES: ExperienceModule[] = [
   {
     id: "coffee", labelKey: "exp.coffee", name: { en: "Coffee", vi: "Cà phê" }, status: "coming-soon", icon: "coffee",
     // Reference pilot of the shared engine: screens exist; selectable only with NEXT_PUBLIC_FEATURE_COFFEE=1.
-    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_COFFEE", enabledByDefault: true, accent: "#A9603F", basePath: "/coffee/",
+    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_COFFEE", enabledByDefault: true, accent: "#6E4F35", basePath: "/coffee/",
     navLabels: nav({ en: "Café Map", vi: "Bản đồ cà phê" }, { en: "Coffee Catalogue", vi: "Danh mục cà phê" }, { en: "Coffee Passport", vi: "Hộ chiếu cà phê" }),
     navShort: SHORT,
     routes: routesFor("/coffee/"),
@@ -229,7 +252,7 @@ export const EXPERIENCES: ExperienceModule[] = [
   },
   {
     id: "spa", labelKey: "exp.spa", name: { en: "Spa", vi: "Spa & chăm sóc sức khỏe" }, status: "coming-soon", icon: "flower",
-    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_SPA", enabledByDefault: true, accent: "#7FA7B8", basePath: "/spa/",
+    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_SPA", enabledByDefault: true, accent: "#2E6664", basePath: "/spa/",
     navLabels: nav({ en: "Spa Map", vi: "Bản đồ spa" }, { en: "Treatment Catalogue", vi: "Danh mục liệu trình" }, { en: "Wellness Passport", vi: "Hộ chiếu chăm sóc" }),
     navShort: SHORT,
     routes: routesFor("/spa/"),
@@ -267,7 +290,7 @@ export const EXPERIENCES: ExperienceModule[] = [
   },
   {
     id: "shopping", labelKey: "exp.shopping", name: { en: "Shopping", vi: "Mua sắm" }, status: "coming-soon", icon: "bag",
-    implemented: false, featureFlag: null, accent: "#C4923A", basePath: "/shopping/",
+    implemented: false, featureFlag: null, accent: "#8A4954", basePath: "/shopping/",
     navLabels: nav({ en: "Shopping Map", vi: "Bản đồ mua sắm" }, { en: "Shopping Catalogue", vi: "Danh mục mua sắm" }, { en: "Shopping Passport", vi: "Hộ chiếu mua sắm" }),
     navShort: SHORT,
     routes: routesFor("/shopping/"),
@@ -289,7 +312,7 @@ export const EXPERIENCES: ExperienceModule[] = [
   },
   {
     id: "sport", labelKey: "exp.sport", name: { en: "Sport", vi: "Thể thao" }, status: "pilot-planned", icon: "activity",
-    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_SPORT", enabledByDefault: true, accent: "#294C3D", basePath: "/sport/",
+    implemented: true, featureFlag: "NEXT_PUBLIC_FEATURE_SPORT", enabledByDefault: true, accent: "#22665A", basePath: "/sport/",
     navLabels: nav({ en: "Sport Map", vi: "Bản đồ thể thao" }, { en: "Activity Catalogue", vi: "Danh mục hoạt động" }, { en: "Sport Passport", vi: "Hộ chiếu thể thao" }),
     navShort: SHORT,
     routes: routesFor("/sport/"),

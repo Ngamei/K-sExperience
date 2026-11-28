@@ -51,6 +51,8 @@ Unzip, run `node serve.mjs` inside the folder, open http://localhost:4173 (Node 
 | `npm run test:db` | Apply Supabase migrations + seed to a throwaway local PostgreSQL/PostGIS DB and run RLS/integrity tests |
 | `npm run db:seed-sql` | Regenerate `supabase/seed.sql` from the repository data |
 | `npm run db:export` | Export the live Supabase catalogue to `backups/` (needs public URL + anon key) |
+| `npm run exchange:export` | Regenerate the research contract, templates and duplicate-check exports in `research-exchange/` |
+| `npm run intake -- <batch.json> [--apply]` / `-- --rollback <batchId>` | Validate (dry run) / import / roll back a research batch (see `research-exchange/README.md`) |
 | `npm run data:what-to-eat` | Hôm nay ăn gì? attribute completeness → `docs/WHAT_TO_EAT_REPORT.md` |
 | `npm run data:report` | Regenerate `docs/DATA_REPORT.md` (catalogue, photo, venue completeness; priority-50 progress) |
 | `npm run data:import -- <file.json\|csv> --dataset master` | Import the master catalogue |

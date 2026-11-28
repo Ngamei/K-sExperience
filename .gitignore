@@ -48,3 +48,6 @@ next-env.d.ts
 /backups/
 /out-auth/
 /out-modules/
+
+# research exchange: backups are local recovery copies
+research-exchange/backups/

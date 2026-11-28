@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "mon": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          },
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          }
+        ],
+        "items": false,
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "tue": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          },
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          }
+        ],
+        "items": false,
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "wed": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          },
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          }
+        ],
+        "items": false,
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "thu": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          },
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          }
+        ],
+        "items": false,
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "fri": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          },
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          }
+        ],
+        "items": false,
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "sat": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          },
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          }
+        ],
+        "items": false,
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "sun": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          },
+          {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          }
+        ],
+        "items": false,
+        "minItems": 2,
+        "maxItems": 2
+      }
+    }
+  },
+  "required": [
+    "mon",
+    "tue",
+    "wed",
+    "thu",
+    "fri",
+    "sat",
+    "sun"
+  ]
+}

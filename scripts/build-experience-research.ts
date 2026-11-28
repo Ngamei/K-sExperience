@@ -22,11 +22,12 @@ const read = (f: string) => JSON.parse(readFileSync(path.join(dir, f), "utf8"));
 const catalogue = existsSync(path.join(dir, "catalogue.json")) ? read("catalogue.json") : { items: [] };
 const geo: Record<string, { lon?: number; lat?: number; precision?: string; ward?: string | null; failed?: boolean; reason?: string }> = existsSync(path.join(dir, "geocoded.json")) ? read("geocoded.json") : {};
 
-interface Venue { id: string; name: string; address: string; district?: string; venueType: string; sources: string[]; attributes?: Record<string, unknown>; offerings: { item: string; evidence: string; url: string }[]; excluded?: string }
+interface Venue { id: string; name: string; address: string; district?: string; venueType: string; sources: string[]; attributes?: Record<string, unknown>; openingHours?: unknown; priceRange?: string;
+  offerings: { item: string; evidence: string; url: string; price?: { minVnd: number; maxVnd: number; unit: string }; photo?: unknown }[]; excluded?: string }
 const skipped: string[] = [];
 const establishments: unknown[] = [];
 const offerings: unknown[] = [];
-for (const f of readdirSync(dir).filter((x) => /^batch-\d+\.json$/.test(x)).sort()) {
+for (const f of readdirSync(dir).filter((x) => /^batch-[\w-]+\.json$/.test(x)).sort()) {
   const batch = read(f) as { researchedOn: string; venues: Venue[] };
   for (const v of batch.venues) {
     if (v.excluded) { skipped.push(`${v.name}: ${v.excluded}`); continue; }
@@ -37,6 +38,7 @@ for (const f of readdirSync(dir).filter((x) => /^batch-\d+\.json$/.test(x)).sort
       coordinates: [g.lon, g.lat], coordinatePrecision: g.precision, venueType: v.venueType,
       googleMapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${v.name}, ${v.address}`)}`,
       deliveryLinks: [], experiences: [m.id], attributes: v.attributes ?? {},
+      ...(v.openingHours ? { openingHours: v.openingHours } : {}), ...(v.priceRange ? { priceRange: v.priceRange } : {}),
       sources: [
         ...v.sources.map((url) => ({ title: new URL(url).hostname.replace(/^www\./, ""), url, accessed: batch.researchedOn })),
         { title: "OpenStreetMap / Nominatim (coordinates)", url: "https://www.openstreetmap.org/", accessed: batch.researchedOn },
@@ -44,7 +46,8 @@ for (const f of readdirSync(dir).filter((x) => /^batch-\d+\.json$/.test(x)).sort
       lastVerified: batch.researchedOn,
     });
     for (const o of v.offerings)
-      offerings.push({ itemId: o.item, establishmentId: v.id, status: "source-listed", isSample: false, menuEvidence: { type: "published-source", note: o.evidence, url: o.url }, lastVerified: batch.researchedOn });
+      offerings.push({ itemId: o.item, establishmentId: v.id, status: "source-listed", isSample: false, menuEvidence: { type: "published-source", note: o.evidence, url: o.url }, lastVerified: batch.researchedOn,
+        ...(o.price ? { price: o.price } : {}), ...(o.photo ? { photo: o.photo } : {}) });
   }
 }
 const dataFile = path.join(root, `data/experiences/${m.id}.json`);

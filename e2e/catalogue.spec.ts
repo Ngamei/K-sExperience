@@ -40,5 +40,5 @@ test("saved dishes, tried dishes and passport progress", async ({ page }) => {
   await page.goto("/catalogue/");
   if (isMobile(page)) await page.getByTestId("open-filters").click();
   await page.getByTestId("filter-panel").filter({ visible: true }).getByRole("button", { name: "Tried", exact: true }).click();
-  await expect(visible(page, "result-count")).toHaveText("1 dishes");
+  await expect(visible(page, "result-count")).toHaveText("1 of 138 dishes");
 });

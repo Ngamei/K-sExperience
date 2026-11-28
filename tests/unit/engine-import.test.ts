@@ -41,6 +41,19 @@ describe("module import (dry run + non-destructive merge)", () => {
     expect(patch.merged.items).toHaveLength(2);
     expect(importIntoModule(coffee, base, ITEMS, "items", hcmc).unchanged).toHaveLength(2);
   });
+  it("never overwrites stronger evidence with weaker evidence (a closure update is still allowed)", () => {
+    const a = importIntoModule(coffee, empty, ITEMS, "items", hcmc).merged;
+    const b = importIntoModule(coffee, a, ESTS, "establishments", hcmc).merged;
+    const strong = importIntoModule(coffee, b, `item_id,establishment_id,status,evidence_type,evidence_note,evidence_url,last_verified
+ca-phe-muoi,cafe-a,menu-confirmed,official-menu,Menu lists salt coffee,https://example.org/menu,2026-11-27`, "offerings", hcmc);
+    expect(strong.errors).toEqual([]);
+    const weak = importIntoModule(coffee, strong.merged, OFFS, "offerings", hcmc);
+    expect(weak.merged.offerings[0].status).toBe("menu-confirmed");
+    expect(weak.warnings.join()).toMatch(/kept stronger evidence/);
+    const closed = importIntoModule(coffee, strong.merged, `item_id,establishment_id,status,evidence_type,evidence_note,evidence_url,last_verified
+ca-phe-muoi,cafe-a,temporarily-unavailable,official-menu,Removed from menu,https://example.org/menu,2026-12-01`, "offerings", hcmc);
+    expect(closed.merged.offerings[0].status).toBe("temporarily-unavailable");
+  });
   it("detects duplicates, invalid vocabularies, wrong record types and places outside HCMC", () => {
     const dupe = importIntoModule(coffee, empty, `${ITEMS}\nca-phe-muoi-2,Cà phê muối,Salt coffee 2,vietnamese-coffee,phin,,,,,`, "items", hcmc);
     expect(dupe.warnings.join()).toMatch(/possible duplicate items/);

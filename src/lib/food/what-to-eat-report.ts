@@ -7,11 +7,16 @@ import type { Dish, DishRestaurantLink, Restaurant } from "../data/schema";
 import { buildAvailabilityIndex } from "./availability";
 import { eatingProfile, type Provenance } from "./eating";
 import { HCMC_CENTER } from "./hcmc";
-import { DEFAULT_WTE, recommend } from "./what-to-eat";
+import { BUDGET_PRESETS, DEFAULT_WTE, GOALS, recommend, type Meal } from "./what-to-eat";
+import { DIET_PREFS, dishMatchesDiet, type DietPref } from "./filters";
 import { PRESETS, applyPreset } from "./what-to-eat-presets";
 
 export interface CoverageRow { attribute: string; sourced: number; estimate: number; derived: number; unknown: number; total: number }
+export interface FilterSupport { filter: string; value: string; dishes: number; withPlaces: number; note?: string }
+export interface ZeroCombo { meal: string; diet: string; eligible: number; withPlaces: number }
 export interface WteReport {
+  filters: FilterSupport[];
+  zeroCombos: ZeroCombo[];
   dishes: CoverageRow[];
   venues: { attribute: string; known: number; total: number }[];
   presets: { id: string; name: string; eligible: number; shown: number }[];
@@ -43,7 +48,39 @@ export function whatToEatReport(dishes: Dish[], restaurants: Restaurant[], links
   const realLinks = links.filter((l) => !l.isSample);
   const availability = buildAvailabilityIndex(restaurants, links, { includeSamples: false });
   const ctx = { availability, origin: HCMC_CENTER, now, dishById: new Map(dishes.map((d) => [d.id, d])), history: { tried: {}, saved: [], ratings: {}, notInterested: new Set<string>() } };
+  // ---- how many dishes support each filter value (and how many of those have a real HCMC place)
+  const placed = new Set(links.filter((l) => !l.isSample && real.some((r) => r.id === l.restaurantId)).map((l) => l.dishId));
+  const sup = (filter: string, value: string, pred: (d: Dish) => boolean, note?: string): FilterSupport => {
+    const ds = dishes.filter(pred);
+    return { filter, value, dishes: ds.length, withPlaces: ds.filter((d) => placed.has(d.id)).length, ...(note ? { note } : {}) };
+  };
+  const meals: Exclude<Meal, "any">[] = ["breakfast", "lunch", "dinner", "snack", "late-night"];
+  const mealTag: Record<string, string> = { breakfast: "breakfast", lunch: "lunch", dinner: "dinner", snack: "afternoon", "late-night": "late-night" };
+  const prof = new Map(dishes.map((d) => [d.id, eatingProfile(d)]));
+  const filters: FilterSupport[] = [
+    ...meals.map((m) => sup("meal", m, (d) => d.mealTimes.includes(mealTag[m] as never) || (m === "snack" && d.category === "snack"))),
+    ...(Object.keys(DIET_PREFS) as DietPref[]).map((p) => sup("diet", p, (d) => dishMatchesDiet(d, [p]), p === "vegetarian" ? "includes dishes with a common vegetarian version" : undefined)),
+    sup("goal", "balanced", (d) => { const p = prof.get(d.id)!; return p.vegetables.value === "high" || d.taste.includes("fresh") || d.taste.includes("herbal") || (p.cookingMethods.value ?? []).some((c) => ["simmered", "steamed", "raw-fresh"].includes(c)); }, "derived from taste/cooking tags"),
+    sup("goal", "weight", (d) => { const p = prof.get(d.id)!; const c = p.cookingMethods.value ?? []; return d.category !== "sweet" && !c.includes("fried") && (p.vegetables.value === "high" || d.taste.includes("fresh") || c.some((x) => ["simmered", "steamed", "raw-fresh"].includes(x))); }, "derived; no calorie data"),
+    sup("goal", "protein", (d) => (prof.get(d.id)!.proteins.value ?? []).length > 0, "derived from contains-* tags"),
+    sup("goal", "quick", (d) => ["bread", "rolls", "banh", "rice", "noodles", "porridge"].includes(d.dishType) || prof.get(d.id)!.portion.value === "light"),
+    sup("goal", "budget", (d) => ["bread", "rolls", "banh", "rice", "noodles", "noodle-soup", "porridge"].includes(d.dishType) || d.category === "snack", "dish type only — prices mostly unknown"),
+    ...BUDGET_PRESETS.filter((b) => b.id !== "any").map((b) => sup("budget", b.id, (d) => links.some((l) => l.dishId === d.id && !l.isSample && l.priceVnd && (b.max === null || l.priceVnd.min <= b.max) && (b.min === null || l.priceVnd.max >= b.min)), "dishes with a RECORDED price in range")),
+    sup("allergens", "known (derived)", (d) => prof.get(d.id)!.allergens.provenance !== "unknown"),
+    sup("allergens", "complete (sourced)", (d) => prof.get(d.id)!.allergens.complete),
+    sup("occasion", "special dining (needs a place)", (d) => placed.has(d.id)),
+    sup("atmosphere", "recorded", (d) => links.some((l) => l.dishId === d.id && real.find((r) => r.id === l.restaurantId)?.dining)),
+    sup("nutrition", "recorded", (d) => prof.get(d.id)!.nutrition.provenance !== "unknown"),
+  ];
+  void GOALS;
+  // ---- meal × diet combinations that produce zero results (strict meal) or zero actionable results
+  const zeroCombos: ZeroCombo[] = [];
+  for (const m of meals) for (const p of Object.keys(DIET_PREFS) as DietPref[]) {
+    const r = recommend(dishes, { ...DEFAULT_WTE, meal: m, strictMeal: true, diet: [p] }, ctx);
+    if (r.eligible === 0 || r.withVenue === 0) zeroCombos.push({ meal: m, diet: p, eligible: r.eligible, withPlaces: r.withVenue });
+  }
   return {
+    filters, zeroCombos,
     dishes: Object.entries(facts).map(([attribute, xs]) => ({ attribute, sourced: count(xs, "sourced"), estimate: count(xs, "estimate"), derived: count(xs, "derived"), unknown: count(xs, "unknown"), total: xs.length })),
     venues: [
       { attribute: "Price range", known: real.filter((r) => r.priceRange).length, total: real.length },
@@ -83,6 +120,20 @@ export function reportMarkdown(r: WteReport, generated: string) {
     ...r.venues.map((x) => `| ${x.attribute} | ${x.known} / ${x.total} | ${pct(x.known, x.total)} |`),
     "",
     "Unknown venue values never exclude a dish: budget, open-now, delivery and atmosphere filters add a caution instead.",
+    "",
+    "## Dishes supporting each recommendation filter",
+    "",
+    "| Filter | Value | Dishes | With an HCMC place | Note |",
+    "| --- | --- | ---: | ---: | --- |",
+    ...r.filters.map((x) => `| ${x.filter} | ${x.value} | ${x.dishes} | ${x.withPlaces} | ${x.note ?? ""} |`),
+    "",
+    "## Meal × diet combinations with no results (meal set to “only this meal”)",
+    "",
+    "By default meal time only ranks, so these combinations still return dishes; they show where metadata or venue research is missing. Dietary restrictions are never relaxed.",
+    "",
+    "| Meal | Diet | Eligible dishes | With an HCMC place |",
+    "| --- | --- | ---: | ---: |",
+    ...r.zeroCombos.map((x) => `| ${x.meal} | ${x.diet} | ${x.eligible} | ${x.withPlaces} |`),
     "",
     "## Collections and modes (default context: central HCMC, no history)",
     "",

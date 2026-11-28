@@ -5,7 +5,7 @@ import { buildAvailabilityIndex } from "@/lib/food/availability";
 import { eatingProfile } from "@/lib/food/eating";
 import { dishMatchesDiet } from "@/lib/food/filters";
 import { HCMC_CENTER } from "@/lib/food/hcmc";
-import { DEFAULT_WTE, evaluate, explainEmpty, recommend, surprise, tierForBudget, type WhatToEatFilters, type WteContext } from "@/lib/food/what-to-eat";
+import { DEFAULT_WTE, evaluate, explainEmpty, rankAll, recommend, surprise, tierForBudget, type WhatToEatFilters, type WteContext } from "@/lib/food/what-to-eat";
 import { COLLECTIONS, MODES, PRESETS, applyPreset } from "@/lib/food/what-to-eat-presets";
 
 const data = getFoodData();
@@ -20,18 +20,34 @@ const ids = (r: ReturnType<typeof recommend>) => r.results.map((x) => x.dish.id)
 const byId = (id: string) => data.dishes.find((d) => d.id === id)!;
 
 describe("Hôm nay ăn gì? — PO scenarios on the real dataset", () => {
-  it("no filters → several suitable dishes, places first", () => {
+  it("no filters → several dishes with places, more without, unique counts", () => {
     const r = recommend(data.dishes, f(), mk());
     expect(r.results).toHaveLength(6);
-    expect(r.results[0].venues.length).toBeGreaterThan(0); // dishes with a listed place rank first
+    for (const x of r.results) expect(x.venues.length).toBeGreaterThan(0);
+    for (const x of r.withoutPlaces) expect(x.venues).toHaveLength(0);
     expect(r.eligible).toBe(data.dishes.length); // nothing is hidden just because a place is not listed
+    expect(r.withVenue + r.withoutVenue).toBe(r.eligible);
+    const realIds = new Set(data.restaurants.filter((x) => !x.isSample).map((x) => x.id));
+    const linked = new Set(data.links.filter((l) => !l.isSample && realIds.has(l.restaurantId)).map((l) => l.restaurantId));
+    expect(r.establishments).toBe(linked.size); // deduplicated
+  });
+
+  it("meal time ranks by default and is strict only when asked", () => {
+    const soft = recommend(data.dishes, f({ meal: "breakfast" }), mk());
+    expect(soft.eligible).toBe(data.dishes.length);
+    expect(soft.results[0].dish.mealTimes).toContain("breakfast");
+    const strict = recommend(data.dishes, f({ meal: "breakfast", strictMeal: true }), mk());
+    expect(strict.eligible).toBeLessThan(soft.eligible);
+    for (const x of [...strict.results, ...strict.withoutPlaces]) expect(x.dish.mealTimes).toContain("breakfast");
+    const off = rankAll(data.dishes, f({ meal: "breakfast" }), mk()).find((x) => !x.dish.mealTimes.includes("breakfast"))!;
+    expect(off.cautions.map((c) => c.en).join()).toMatch(/Usually eaten at/);
   });
 
   it("lunch + under 50k → lunch dishes; unknown prices are flagged, never 'within budget'", () => {
     const r = recommend(data.dishes, f({ meal: "lunch", budgetMaxVnd: 50_000 }), mk());
     expect(r.results.length).toBeGreaterThanOrEqual(3);
-    for (const x of r.results) {
-      expect(x.dish.mealTimes).toContain("lunch");
+    for (const x of r.results.slice(0, 3)) expect(x.dish.mealTimes).toContain("lunch");
+    for (const x of [...r.results, ...r.withoutPlaces]) {
       const priced = x.venues.some((v) => v.priceVnd || v.restaurant.priceRange);
       if (!priced) expect(x.reasons.map((y) => y.en).join()).not.toMatch(/Within your budget/);
       if (!priced) expect(x.cautions.map((y) => y.en).join(" ")).toMatch(/Price not confirmed|No price information/);
@@ -50,19 +66,20 @@ describe("Hôm nay ăn gì? — PO scenarios on the real dataset", () => {
 
   it("vegan → only dishes tagged vegan (never relaxed), even without a listed place", () => {
     const r = recommend(data.dishes, f({ diet: ["vegan"] }), mk());
-    expect(r.results.length).toBeGreaterThan(0);
-    for (const x of r.results) expect(x.dish.dietary).toContain("vegan");
-    expect(r.results.some((x) => !x.venues.length && x.cautions.some((c) => c.en.startsWith("No HCMC place listed")))).toBe(true);
+    expect(r.results.length + r.withoutPlaces.length).toBeGreaterThan(0);
+    for (const x of [...r.results, ...r.withoutPlaces]) expect(x.dish.dietary).toContain("vegan");
+    expect(r.withoutPlaces.every((x) => x.cautions.some((c) => c.en.startsWith("No HCMC place listed")))).toBe(true);
   });
 
   it("saved Vegan + No pork at lunch (the reported bug) → real vegan lunch dishes, diet never relaxed", () => {
     const r = recommend(data.dishes, f({ meal: "lunch", diet: ["vegan", "no-pork"] }), mk());
-    expect(r.results.length).toBeGreaterThan(0); // was 0: the old engine required a listed place
-    for (const x of r.results) { expect(dishMatchesDiet(x.dish, ["vegan", "no-pork"])).toBe(true); expect(x.dish.mealTimes).toContain("lunch"); }
+    expect(r.eligible).toBeGreaterThan(0); // was 0: the old engine required a listed place
+    for (const x of [...r.results, ...r.withoutPlaces]) expect(dishMatchesDiet(x.dish, ["vegan", "no-pork"])).toBe(true);
+    expect(r.withoutPlaces[0].dish.mealTimes).toContain("lunch"); // lunch dishes rank first
   });
 
   it("zero results are explained: which filters restrict, and how many dishes each would give", () => {
-    const filters = f({ meal: "lunch", diet: ["vegan", "no-pork"], service: "dine-in" });
+    const filters = f({ meal: "lunch", strictMeal: true, diet: ["vegan", "no-pork"], service: "dine-in" });
     expect(recommend(data.dishes, filters, mk()).eligible).toBe(0);
     const why = explainEmpty(data.dishes, filters, mk());
     expect(why.map((b) => b.id)).toEqual(expect.arrayContaining(["meal", "diet:vegan", "diet:no-pork", "place"]));
@@ -70,7 +87,7 @@ describe("Hôm nay ăn gì? — PO scenarios on the real dataset", () => {
     expect(why.find((b) => b.id === "diet:vegan")!.hard).toBe(true);
     // "Remove place requirement" keeps the diet
     for (const x of recommend(data.dishes, { ...filters, service: "any" }, mk()).results) expect(dishMatchesDiet(x.dish, ["vegan", "no-pork"])).toBe(true);
-    const late = explainEmpty(data.dishes, f({ meal: "late-night", diet: ["vegan"] }), mk());
+    const late = explainEmpty(data.dishes, f({ meal: "late-night", strictMeal: true, diet: ["vegan"] }), mk());
     expect(late[0]).toMatchObject({ id: "meal" });
     expect(late[0].without).toBeGreaterThan(0);
   });
@@ -85,19 +102,18 @@ describe("Hôm nay ăn gì? — PO scenarios on the real dataset", () => {
   });
 
   it("surprise picks an eligible dish and avoids ones already shown", () => {
-    const filters = f({ meal: "breakfast" });
+    const filters = f({ meal: "breakfast", strictMeal: true });
     const shown = ids(recommend(data.dishes, filters, mk()));
     for (let i = 0; i < 10; i++) {
       const s = surprise(data.dishes, filters, mk(), () => i / 10, shown)!;
       expect(s.dish.mealTimes).toContain("breakfast");
       expect(shown).not.toContain(s.dish.id);
     }
-    expect(surprise(data.dishes, f({ meal: "breakfast", maxSpice: -1 }), mk())).toBeNull();
+    expect(surprise(data.dishes, f({ meal: "breakfast", strictMeal: true, maxSpice: -1 }), mk())).toBeNull();
   });
 
   it("missing restaurant data → dish suggestions with honest availability", () => {
-    const noPlace = recommend(data.dishes, f({ meal: "breakfast" }), mk()).alternatives.find((x) => !x.venues.length)
-      ?? recommend(data.dishes, f({ diet: ["vegan"] }), mk()).results.find((x) => !x.venues.length)!;
+    const noPlace = recommend(data.dishes, f({ meal: "breakfast" }), mk()).withoutPlaces[0];
     expect(noPlace.cautions.map((c) => c.en).join()).toMatch(/No HCMC place listed yet/);
   });
 });
@@ -116,7 +132,7 @@ describe("Hôm nay ăn gì? engine rules", () => {
   });
 
   it("hard constraints: meal, diet, spice, regions, allergens, ingredient words", () => {
-    for (const x of recommend(data.dishes, f({ meal: "breakfast" }), mk()).results) expect(x.dish.mealTimes).toContain("breakfast");
+    for (const x of recommend(data.dishes, f({ meal: "breakfast", strictMeal: true }), mk()).results) expect(x.dish.mealTimes).toContain("breakfast");
     for (const x of recommend(data.dishes, f({ maxSpice: 0 }), mk()).results) expect(x.dish.spiceLevel).toBe(0);
     for (const x of recommend(data.dishes, f({ diet: ["no-pork"] }), mk()).results) expect(x.dish.dietary).not.toContain("contains-pork");
     for (const x of recommend(data.dishes, f({ regions: ["mien-bac"] }), mk()).results) expect(x.dish.regionIds).toContain("mien-bac");

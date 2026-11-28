@@ -106,7 +106,7 @@ export function useChipLabel() {
 }
 
 /** Food's active filters, rendered by the shared ActiveFilterBar. */
-export function ActiveChips({ count, className }: { count: number; className?: string }) {
+export function ActiveChips({ count, total, className }: { count: number; total?: number; className?: string }) {
   const { t } = useT();
   const filters = useFilters((s) => s.filters);
   const replace = useFilters((s) => s.replace);
@@ -116,7 +116,7 @@ export function ActiveChips({ count, className }: { count: number; className?: s
   return (
     <ActiveFilterBar
       className={className}
-      countLabel={t("common.results", { n: count })}
+      countLabel={total !== undefined && count < total ? t("common.resultsOf", { n: count, total }) : t("common.results", { n: count })}
       chips={chips.map((c) => ({ key: `${c.key}-${c.value}`, label: c.label, onRemove: () => replace(removeChip(filters, c)) }))}
       onClear={clear}
       clearLabel={t("common.clearAll")}

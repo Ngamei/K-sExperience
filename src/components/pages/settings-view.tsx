@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Check, Lock, ShieldCheck } from "lucide-react";
-import { EXPERIENCES, isPilot, isSelectable, loc } from "@/experiences/registry";
+import { EXPERIENCES, isPilot, isSelectable, loc, themeVars } from "@/experiences/registry";
 import { NAV_ICONS } from "@/components/shell/icons";
 import { CATEGORIES, MEAL_TIMES } from "@/lib/data/schema";
 import { DIET_PREFS, type DietPref, toggleIn } from "@/lib/food/filters";
@@ -17,6 +17,7 @@ import { AccountCard } from "@/components/auth/account-card";
 import { cn } from "@/lib/utils";
 import { ItemArt } from "@/components/engine/item-art";
 import { DEV_DATA } from "@/lib/env";
+import { PlatformSummary } from "@/components/engine/platform-summary";
 
 function Card({ title, children, id }: { title: string; children: React.ReactNode; id?: string }) {
   return (
@@ -49,20 +50,20 @@ export function SettingsView() {
             const soon = !isSelectable(e);
             const other = locale === "en" ? "vi" : "en";
             return (
-              <li key={e.id}>
+              <li key={e.id} style={themeVars(e.id) as React.CSSProperties /* each card previews its own pastel theme */}>
                 <button
                   type="button"
                   disabled={soon}
                   onClick={() => { u.setExperience(e.id); if (u.experience !== e.id) router.push(e.routes.map); }}
                   className={cn(
                     "flex w-full items-center gap-3 rounded-2xl border p-3.5 text-left transition-colors",
-                    active ? "border-forest bg-forest/5" : "border-line",
+                    active ? "border-forest bg-sage-soft/60" : "border-line bg-ivory",
                     soon ? "cursor-not-allowed opacity-60" : "hover:border-forest/40",
                   )}
                   data-testid={`experience-${e.id}`}
                   aria-pressed={active}
                 >
-                  <span className={cn("flex size-10 items-center justify-center rounded-full", active ? "bg-forest text-ivory" : "bg-ivory-deep text-charcoal")}><Icon className="size-5" /></span>
+                  <span className={cn("flex size-10 items-center justify-center rounded-full", active ? "bg-forest text-ivory" : "bg-sage-soft text-forest")}><Icon className="size-5" /></span>
                   <span className="min-w-0 flex-1">
                     <span className="block font-medium">{loc(e.name, locale)}</span>
                     <span className="block text-xs text-muted" lang={other}>{loc(e.name, other)}</span>
@@ -141,6 +142,10 @@ export function SettingsView() {
           <Button variant="outline" onClick={() => confirm(t("settings.resetBody")) && u.reset()}>{t("settings.reset")}</Button>
         </Card>
       </div>
+      <Card title={locale === "vi" ? "Giới thiệu · Dữ liệu hiện có" : "About · Data on the platform"} id="settings-about">
+        <p className="mb-3 text-xs text-muted">{locale === "vi" ? "Số liệu tính trực tiếp từ dữ liệu, chỉ gồm cơ sở thật có nguồn (không gồm dữ liệu mẫu)." : "Counted live from the data — real, sourced establishments only (no samples)."}</p>
+        <PlatformSummary />
+      </Card>
     </div>
   );
 }

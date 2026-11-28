@@ -111,3 +111,9 @@ Route `/what-to-eat/`, in Food navigation right after Discover ("What to eat" / 
 - **Personalisation:** Settings diet + max spice always applied; saved, tried dates and ratings shape ranking; guests can use everything.
 - **Safety & honesty:** no calorie targets, no food-shaming; allergy filtering is best-effort and every page says to confirm with the venue; prices, hours, nutrition shown only when recorded.
 - **Admin:** dish "Hôm nay ăn gì? attributes" and establishment "Dining attributes" (optional, need a source); Recommendations tab with completeness; importer columns (DATA_SOURCES.md); `npm run data:what-to-eat` → `docs/WHAT_TO_EAT_REPORT.md`.
+
+## Navigation, themes and data counts (2026-11-28)
+- **Mobile navigation:** Food — Explore · Eat today · Catalogue · Nearby · Passport; other modes — Explore · Catalogue · Nearby · Passport. Explore has a Map / Discover switch. Desktop navigation unchanged.
+- **Themes:** each experience has a pastel theme (Food sage, Bars dusty lilac, Coffee milk-tea beige, Spa aqua, Shopping blush, Sport mint-cyan) with readable darker accents; Settings previews each mode in its own colours.
+- **Hôm nay ăn gì?:** meal time ranks unless "Only <meal>" is on; results show dishes with HCMC places first, then suitable dishes without listed places; counts: eligible dishes, dishes with places, matching places (unique), dishes without places.
+- **Live data counts:** catalogue shows "N of total dishes", a coverage line (dishes, provinces, regions, dishes with HCMC places, places) and "N HCMC places" on each dish card; Settings → About shows a per-experience summary and unique establishments across experiences; Admin → Overview shows detailed coverage (links, priced, photographed).

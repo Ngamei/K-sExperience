@@ -33,7 +33,8 @@ describe("experience registry", () => {
     const food = navFor(EXPERIENCES[0]);
     // Food adds one module-specific entry ("Hôm nay ăn gì?") after Discover; the shared slots are unchanged.
     expect(food.map((n) => n.href)).toEqual(["/", "/discover/", "/what-to-eat/", "/catalogue/", "/nearby/", "/passport/", "/saved/"]);
-    expect(food.filter((n) => n.mobile).map((n) => n.short.en)).toEqual(["Explore", "Discover", "Eat today", "Catalogue", "Nearby", "Passport"]);
+    expect(food.filter((n) => n.mobile).map((n) => n.short.en)).toEqual(["Explore", "Eat today", "Catalogue", "Nearby", "Passport"]); // Discover lives inside Explore on mobile
+    expect(navFor(EXPERIENCES.find((e) => e.id === "coffee")!).filter((n) => n.mobile).map((n) => n.short.en)).toEqual(["Explore", "Catalogue", "Nearby", "Passport"]);
     const shared = (e: (typeof EXPERIENCES)[number]) => navFor(e).filter((x) => (NAV_SLOTS as readonly string[]).includes(x.slot));
     for (const e of EXPERIENCES) {
       const n = shared(e);

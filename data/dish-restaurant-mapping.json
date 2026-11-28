@@ -1422,6 +1422,42 @@
         "url": "https://mia.vn/cam-nang-du-lich/dac-san-bun-do-dak-lak-14200"
       },
       "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "canh-chua-ca-loc",
+      "restaurantId": "cuc-gach-quan-10-dang-tat",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn lists canh chua cá lóc on Cục Gạch Quán's menu (10 Đặng Tất); the Michelin Guide entry (Bib Gourmand) mentions its signature canh chua but names the fish cá hú — spot-check the fish.",
+        "url": "https://mia.vn/cam-nang-du-lich/nha-hang-cuc-gach-quan-19864"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-canh-trang-bang",
+      "restaurantId": "banh-canh-trang-bang-ba-xi-135-vo-van-tan",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "VnExpress reports the Ba Xi bánh canh Trảng Bàng shop opening at 135 Võ Văn Tần, Quận 3. Article is from 2011 — current operation unconfirmed, spot-check.",
+        "url": "https://vnexpress.net/banh-canh-trang-bang-ba-xi-2307735.html"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-canh-trang-bang",
+      "restaurantId": "banh-canh-trang-bang-ong-cao-4d-vo-van-van",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Mytour's Bình Chánh breakfast list names Ông Cáo – Bánh Canh Trảng Bàng at 4D Võ Văn Vân (Vĩnh Lộc B), open 6:00–21:00.",
+        "url": "https://mytour.vn/en/blog/xep-hang/top-11-best-breakfast-spots-in-binh-chanh-district-ho-chi-minh-city-mytour.html"
+      },
+      "lastVerified": "2026-11-27"
     }
   ]
 }

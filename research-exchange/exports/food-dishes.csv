@@ -1,0 +1,139 @@
+id,nameVi,nameEn,altNames,family,category,dishType,origins,mealTimes,dietary,verification,dataset
+pho-bo-ha-noi,Phở bò Hà Nội,Hanoi beef phở,,pho,savory,noodle-soup,ha-noi,breakfast|lunch|late-night,contains-beef,seed-unverified,seed
+pho-ga-ha-noi,Phở gà Hà Nội,Hanoi chicken phở,,pho,savory,noodle-soup,ha-noi,breakfast|lunch,contains-poultry,seed-unverified,seed
+pho-bo-nam-dinh,Phở bò Nam Định,Nam Định beef phở,,pho,savory,noodle-soup,nam-dinh,breakfast|lunch,contains-beef,seed-unverified,seed
+pho-cuon,Phở cuốn,Phở rolls,,pho,savory,rolls,ha-noi,lunch|afternoon|dinner,contains-beef,seed-unverified,seed
+pho-chua-lang-son,Phở chua Lạng Sơn,Lạng Sơn sour phở,,pho,savory,noodles,lang-son,lunch,contains-pork|contains-offal|contains-peanut,seed-unverified,seed
+pho-kho-gia-lai,Phở khô Gia Lai,Gia Lai dry phở (two-bowl phở),,pho,savory,noodles,gia-lai,breakfast|lunch,contains-pork|contains-beef,seed-unverified,seed
+pho-sai-gon,Phở Sài Gòn,Saigon-style phở,,pho,savory,noodle-soup,ho-chi-minh,breakfast|lunch|late-night,contains-beef,seed-unverified,seed
+bun-cha-ha-noi,Bún chả Hà Nội,Hanoi grilled pork with noodles,,,savory,noodles,ha-noi,lunch,contains-pork,seed-unverified,seed
+bun-thang,Bún thang,Bún thang,,,savory,noodle-soup,ha-noi,breakfast|lunch,contains-poultry|contains-egg|contains-pork,seed-unverified,seed
+bun-rieu-cua,Bún riêu cua,Crab paste noodle soup,,,savory,noodle-soup,ha-noi|region:mien-bac,breakfast|lunch,contains-seafood,seed-unverified,seed
+cha-ca-la-vong,Chả cá Lã Vọng,Lã Vọng turmeric fish,,,savory,grilled,ha-noi,lunch|dinner,contains-fish|contains-peanut,seed-unverified,seed
+banh-cuon-thanh-tri,Bánh cuốn Thanh Trì,Thanh Trì steamed rice rolls,,banh-cuon,savory,banh,ha-noi,breakfast,contains-pork,seed-unverified,seed
+bun-dau-mam-tom,Bún đậu mắm tôm,Noodles with fried tofu and shrimp paste,,,savory,noodles,ha-noi,lunch|afternoon,contains-seafood|contains-pork|vegetarian-version-common,seed-unverified,seed
+bun-oc-ha-noi,Bún ốc Hà Nội,Hanoi snail noodle soup,,,savory,noodle-soup,ha-noi,breakfast|lunch,contains-seafood,seed-unverified,seed
+xoi-xeo,Xôi xéo,Turmeric sticky rice with mung bean,,,savory,rice,ha-noi,breakfast,contains-egg|vegetarian-version-common,seed-unverified,seed
+banh-tom-ho-tay,Bánh tôm Hồ Tây,West Lake shrimp fritters,,,snack,fried,ha-noi,afternoon,contains-seafood,seed-unverified,seed
+com-lang-vong,Cốm làng Vòng,Vòng village green rice flakes,,,snack,confection,ha-noi,afternoon,vegan,seed-unverified,seed
+banh-troi-banh-chay,Bánh trôi bánh chay,Floating rice dumplings,,,sweet,dessert,ha-noi|region:mien-bac,afternoon,vegan,seed-unverified,seed
+o-mai-hang-duong,Ô mai Hàng Đường,Hanoi preserved fruits,,,snack,confection,ha-noi,afternoon,vegan,seed-unverified,seed
+banh-khuc,Bánh khúc,Cudweed sticky rice cake,,,snack,banh,ha-noi|region:mien-bac,breakfast|late-night,contains-pork,seed-unverified,seed
+banh-da-cua-hai-phong,Bánh đa cua Hải Phòng,Hải Phòng crab noodle soup,,,savory,noodle-soup,hai-phong,breakfast|lunch,contains-seafood|contains-pork,seed-unverified,seed
+nem-cua-be-hai-phong,Nem cua bể Hải Phòng,Hải Phòng sea crab spring rolls,,,savory,fried,hai-phong,lunch|dinner,contains-seafood|contains-pork,seed-unverified,seed
+banh-mi-que-hai-phong,Bánh mì que Hải Phòng,Hải Phòng baguette sticks,,,snack,bread,hai-phong,afternoon|late-night,contains-pork,seed-unverified,seed
+bun-ca-cay-hai-phong,Bún cá cay Hải Phòng,Hải Phòng spicy fish noodles,,,savory,noodle-soup,hai-phong,breakfast|lunch,contains-fish,seed-unverified,seed
+cha-muc-ha-long,Chả mực Hạ Long,Hạ Long squid cakes,,,savory,seafood,quang-ninh,lunch|dinner,contains-seafood,seed-unverified,seed
+banh-dau-xanh-hai-duong,Bánh đậu xanh Hải Dương,Hải Dương mung bean cakes,,,sweet,confection,hai-duong,afternoon,vegetarian,seed-unverified,seed
+banh-gai-ninh-giang,Bánh gai Ninh Giang,Ninh Giang ramie leaf cake,,banh-gai,sweet,banh,hai-duong,afternoon,contains-pork,seed-unverified,seed
+banh-cay-thai-binh,Bánh cáy Thái Bình,Thái Bình crab-roe sweets,,,sweet,confection,thai-binh,afternoon,vegetarian,seed-unverified,seed
+canh-ca-quynh-coi,Canh cá Quỳnh Côi,Quỳnh Côi fish noodle soup,,,savory,noodle-soup,thai-binh,breakfast|lunch,contains-fish,seed-unverified,seed
+ca-kho-lang-vu-dai,Cá kho làng Vũ Đại,Vũ Đại village braised fish,,,savory,stew,ha-nam,lunch|dinner,contains-fish|contains-pork,seed-unverified,seed
+nem-nam-giao-thuy,Nem nắm Giao Thủy,Giao Thủy fermented pork balls,,,snack,cured,nam-dinh,afternoon,contains-pork,seed-unverified,seed
+com-chay-ninh-binh,Cơm cháy Ninh Bình,Ninh Bình crispy rice,,,savory,rice,ninh-binh,lunch|dinner,contains-goat,seed-unverified,seed
+de-nui-ninh-binh,Dê núi Ninh Bình,Ninh Bình mountain goat,,,savory,grilled,ninh-binh,lunch|dinner,contains-goat,seed-unverified,seed
+banh-phu-the-dinh-bang,Bánh phu thê Đình Bảng,Đình Bảng husband-and-wife cake,,,sweet,banh,bac-ninh,afternoon,vegan,seed-unverified,seed
+ga-dong-tao,Gà Đông Tảo,Đông Tảo chicken,,,savory,stew,hung-yen,lunch|dinner,contains-poultry,seed-unverified,seed
+thang-co,Thắng cố,Thắng cố highland stew,,,savory,hotpot,lao-cai|ha-giang,lunch|dinner,contains-offal|contains-game,seed-unverified,seed
+chao-au-tau,Cháo ấu tẩu,Ấu tẩu porridge,,,savory,porridge,ha-giang,dinner|late-night,contains-pork,seed-unverified,seed
+banh-cuon-cao-bang,Bánh cuốn Cao Bằng,Cao Bằng rice rolls in broth,,banh-cuon,savory,banh,cao-bang,breakfast,contains-pork,seed-unverified,seed
+vit-quay-lang-son,Vịt quay Lạng Sơn,Lạng Sơn roast duck,,,savory,grilled,lang-son,lunch|dinner,contains-poultry,seed-unverified,seed
+khau-nhuc,Khâu nhục,Khâu nhục braised pork belly,,,savory,stew,lang-son,lunch|dinner,contains-pork,seed-unverified,seed
+xoi-ngu-sac,Xôi ngũ sắc,Five-colour sticky rice,,,savory,rice,tuyen-quang|ha-giang|bac-kan,breakfast|lunch,vegan,seed-unverified,seed
+banh-cooc-mo,Bánh coóc mò,Coóc mò cake,,,sweet,banh,bac-kan,afternoon,vegan,seed-unverified,seed
+pa-pinh-top,Pa pỉnh tộp,Thái-style folded grilled fish,,,savory,grilled,son-la|dien-bien,lunch|dinner,contains-fish,seed-unverified,seed
+nam-pia,Nậm pịa,Nậm pịa,,,savory,stew,son-la,lunch|dinner,contains-offal|contains-beef,seed-unverified,seed
+thit-trau-gac-bep,Thịt trâu gác bếp,Smoked dried buffalo,,,snack,cured,dien-bien|son-la|lai-chau,afternoon|dinner,contains-beef,seed-unverified,seed
+xoi-tu-le,Xôi Tú Lệ,Tú Lệ sticky rice,,,savory,rice,yen-bai,breakfast,vegan,seed-unverified,seed
+com-lam-hoa-binh,Cơm lam Hòa Bình,Hòa Bình bamboo rice,,com-lam,savory,rice,hoa-binh,lunch|dinner,vegan,seed-unverified,seed
+banh-chung,Bánh chưng,Square sticky rice cake,,,savory,banh,phu-tho|region:mien-bac,lunch|dinner,contains-pork,seed-unverified,seed
+thit-chua-thanh-son,Thịt chua Thanh Sơn,Thanh Sơn fermented pork,,,snack,cured,phu-tho,afternoon,contains-pork,seed-unverified,seed
+banh-da-ke,Bánh đa Kế,Kế village rice crackers,,,snack,confection,bac-giang,afternoon,vegan,seed-unverified,seed
+ca-thinh-lap-thach,Cá thính Lập Thạch,Lập Thạch fermented fish,,,savory,cured,vinh-phuc,lunch|dinner,contains-fish,seed-unverified,seed
+nem-chua-thanh-hoa,Nem chua Thanh Hóa,Thanh Hóa fermented pork rolls,,,snack,cured,thanh-hoa,afternoon|late-night,contains-pork,seed-unverified,seed
+banh-gai-tu-tru,Bánh gai Tứ Trụ,Tứ Trụ ramie leaf cake,,banh-gai,sweet,banh,thanh-hoa,afternoon,contains-pork,seed-unverified,seed
+chao-luon-nghe-an,Cháo lươn Nghệ An,Nghệ An eel porridge,,,savory,porridge,nghe-an,breakfast|dinner,contains-fish,seed-unverified,seed
+banh-muot-nghe-an,Bánh mướt Nghệ An,Nghệ An thin rice sheets,,,savory,banh,nghe-an,breakfast,contains-pork,seed-unverified,seed
+keo-cu-do-ha-tinh,Kẹo cu đơ Hà Tĩnh,Hà Tĩnh peanut brittle,,,sweet,confection,ha-tinh,afternoon,vegan|contains-peanut,seed-unverified,seed
+ram-ha-tinh,Ram Hà Tĩnh,Hà Tĩnh crispy rolls,,,snack,fried,ha-tinh,afternoon,contains-pork,seed-unverified,seed
+chao-canh-quang-binh,Cháo canh Quảng Bình,Quảng Bình noodle soup,,,savory,noodle-soup,quang-binh,breakfast|dinner,contains-fish|contains-pork,seed-unverified,seed
+khoai-deo,Khoai deo,Dried sweet potato,,,snack,confection,quang-binh|quang-tri,afternoon,vegan,seed-unverified,seed
+chao-vat-giuong,Cháo vạt giường,Cháo vạt giường,,,savory,noodle-soup,quang-tri,breakfast|lunch,contains-fish,seed-unverified,seed
+bun-bo-hue,Bún bò Huế,Huế spicy beef noodle soup,,,savory,noodle-soup,thua-thien-hue,breakfast|lunch,contains-beef|contains-pork,seed-unverified,seed
+com-hen,Cơm hến,Huế baby clam rice,,,savory,rice,thua-thien-hue,breakfast|lunch,contains-seafood|contains-peanut,seed-unverified,seed
+banh-beo-hue,Bánh bèo Huế,Huế water fern cakes,,,snack,banh,thua-thien-hue,afternoon,contains-seafood,seed-unverified,seed
+banh-khoai,Bánh khoái,Huế crispy pancake,,,savory,fried,thua-thien-hue,dinner,contains-seafood|contains-pork|contains-peanut,seed-unverified,seed
+banh-nam,Bánh nậm,Bánh nậm,,,snack,banh,thua-thien-hue,afternoon,contains-seafood|contains-pork,seed-unverified,seed
+banh-bot-loc-hue,Bánh bột lọc Huế,Huế tapioca dumplings,,,snack,banh,thua-thien-hue,afternoon,contains-seafood|contains-pork,seed-unverified,seed
+che-hat-sen-long-nhan,Chè hạt sen long nhãn,Lotus seed and longan sweet soup,,,sweet,che,thua-thien-hue,afternoon,vegan,seed-unverified,seed
+me-xung-hue,Mè xửng Huế,Huế sesame candy,,,sweet,confection,thua-thien-hue,afternoon,vegan|contains-peanut,seed-unverified,seed
+banh-canh-nam-pho,Bánh canh Nam Phổ,Nam Phổ noodle soup,,,savory,noodle-soup,thua-thien-hue,breakfast,contains-seafood,seed-unverified,seed
+mi-quang,Mì Quảng,Quảng-style turmeric noodles,,,savory,noodles,quang-nam,breakfast|lunch,contains-pork|contains-seafood|contains-peanut,seed-unverified,seed
+cao-lau-hoi-an,Cao lầu Hội An,Hội An cao lầu,,,savory,noodles,quang-nam,lunch|dinner,contains-pork,seed-unverified,seed
+com-ga-hoi-an,Cơm gà Hội An,Hội An chicken rice,,,savory,rice,quang-nam,lunch,contains-poultry,seed-unverified,seed
+banh-mi-hoi-an,Bánh mì Hội An,Hội An bánh mì,,,savory,bread,quang-nam,breakfast|lunch,contains-pork|contains-egg,seed-unverified,seed
+che-bap-cam-nam,Chè bắp Cẩm Nam,Cẩm Nam sweet corn pudding,,,sweet,che,quang-nam,afternoon,vegan,seed-unverified,seed
+banh-trang-cuon-thit-heo,Bánh tráng cuốn thịt heo,Rice paper rolls with pork,,,savory,rolls,da-nang,lunch|dinner,contains-pork|contains-fish,seed-unverified,seed
+bun-cha-ca-da-nang,Bún chả cá Đà Nẵng,Đà Nẵng fish cake noodle soup,,bun-cha-ca,savory,noodle-soup,da-nang,breakfast|lunch,contains-fish,seed-unverified,seed
+goi-ca-nam-o,Gỏi cá Nam Ô,Nam Ô raw fish salad,,,savory,salad,da-nang,lunch|dinner,contains-fish|contains-peanut,seed-unverified,seed
+don-quang-ngai,Don Quảng Ngãi,Quảng Ngãi don clam soup,,,savory,soup,quang-ngai,breakfast,contains-seafood,seed-unverified,seed
+ca-bong-song-tra,Cá bống sông Trà,Trà river goby,,,savory,stew,quang-ngai,lunch|dinner,contains-fish,seed-unverified,seed
+keo-guong-quang-ngai,Kẹo gương Quảng Ngãi,Quảng Ngãi mirror candy,,,sweet,confection,quang-ngai,afternoon,vegan|contains-peanut,seed-unverified,seed
+banh-xeo-tom-nhay-quy-nhon,Bánh xèo tôm nhảy Quy Nhơn,Quy Nhơn jumping-shrimp pancakes,,banh-xeo,savory,fried,binh-dinh,dinner,contains-seafood,seed-unverified,seed
+bun-cha-ca-quy-nhon,Bún chả cá Quy Nhơn,Quy Nhơn fish cake noodle soup,,bun-cha-ca,savory,noodle-soup,binh-dinh,breakfast|lunch,contains-fish,seed-unverified,seed
+banh-it-la-gai-binh-dinh,Bánh ít lá gai Bình Định,Bình Định ramie dumplings,,,sweet,banh,binh-dinh,afternoon,vegan,seed-unverified,seed
+nem-cho-huyen,Nem chợ Huyện,Chợ Huyện fermented pork,,,snack,cured,binh-dinh,afternoon,contains-pork,seed-unverified,seed
+banh-hoi-chao-long,Bánh hỏi cháo lòng,Woven rice noodles with offal porridge,,,savory,noodles,binh-dinh,breakfast,contains-pork|contains-offal,seed-unverified,seed
+mat-ca-ngu-dai-duong,Mắt cá ngừ đại dương,Ocean tuna eye stew,,,savory,stew,phu-yen,dinner,contains-fish,seed-unverified,seed
+banh-canh-he-phu-yen,Bánh canh hẹ Phú Yên,Phú Yên chive noodle soup,,,savory,noodle-soup,phu-yen,breakfast|dinner,contains-fish,seed-unverified,seed
+bun-sua-nha-trang,Bún sứa Nha Trang,Nha Trang jellyfish noodle soup,,,savory,noodle-soup,khanh-hoa,breakfast|lunch,contains-seafood|contains-fish,seed-unverified,seed
+nem-nuong-ninh-hoa,Nem nướng Ninh Hòa,Ninh Hòa grilled pork rolls,,,savory,grilled,khanh-hoa,lunch|dinner,contains-pork,seed-unverified,seed
+banh-can,Bánh căn,Bánh căn mini rice cakes,,,savory,banh,ninh-thuan|lam-dong,breakfast|dinner,contains-egg|contains-seafood,seed-unverified,seed
+thit-de-phan-rang,Thịt dê Phan Rang,Phan Rang goat,,,savory,grilled,ninh-thuan,dinner,contains-goat,seed-unverified,seed
+banh-canh-cha-ca-phan-thiet,Bánh canh chả cá Phan Thiết,Phan Thiết fish cake noodle soup,,,savory,noodle-soup,binh-thuan,breakfast,contains-fish,seed-unverified,seed
+goi-ca-mai,Gỏi cá mai,Silver anchovy salad,,,savory,salad,binh-thuan,lunch|dinner,contains-fish|contains-peanut,seed-unverified,seed
+goi-la-kon-tum,Gỏi lá Kon Tum,Kon Tum leaf salad,,,savory,salad,kon-tum,lunch|dinner,contains-pork|contains-seafood,seed-unverified,seed
+com-lam-ga-nuong-tay-nguyen,Cơm lam gà nướng Tây Nguyên,Highland bamboo rice with grilled chicken,,com-lam,savory,grilled,dak-lak|kon-tum|gia-lai,lunch|dinner,contains-poultry,seed-unverified,seed
+bun-do-buon-ma-thuot,Bún đỏ Buôn Ma Thuột,Buôn Ma Thuột red noodle soup,,,savory,noodle-soup,dak-lak,breakfast|dinner,contains-seafood|contains-egg,seed-unverified,seed
+banh-trang-nuong-da-lat,Bánh tráng nướng Đà Lạt,Đà Lạt grilled rice paper,,,snack,fried,lam-dong,afternoon|late-night,contains-egg|contains-pork,seed-unverified,seed
+lau-ga-la-e,Lẩu gà lá é,Chicken hotpot with lá é,,,savory,hotpot,lam-dong,dinner,contains-poultry,seed-unverified,seed
+kem-bo-da-lat,Kem bơ Đà Lạt,Đà Lạt avocado ice cream,,,sweet,dessert,lam-dong,afternoon,vegetarian|contains-dairy,seed-unverified,seed
+banh-mi-sai-gon,Bánh mì Sài Gòn,Saigon bánh mì,,,savory,bread,ho-chi-minh,breakfast|lunch|late-night,contains-pork|vegetarian-version-common,seed-unverified,seed
+com-tam-sai-gon,Cơm tấm Sài Gòn,Saigon broken rice,,,savory,rice,ho-chi-minh,breakfast|lunch|dinner|late-night,contains-pork|contains-egg,seed-unverified,seed
+hu-tieu-nam-vang,Hủ tiếu Nam Vang,Phnom Penh-style noodle soup,,hu-tieu,savory,noodle-soup,ho-chi-minh,breakfast|lunch,contains-pork|contains-seafood|contains-offal,seed-unverified,seed
+bot-chien,Bột chiên,Fried rice flour cake,,,snack,fried,ho-chi-minh,afternoon|late-night,contains-egg,seed-unverified,seed
+banh-trang-tron,Bánh tráng trộn,Rice paper salad,,,snack,salad,ho-chi-minh|tay-ninh,afternoon,contains-egg|contains-seafood,seed-unverified,seed
+bo-bia,Bò bía,Bò bía rolls,,,snack,rolls,ho-chi-minh,afternoon,contains-pork|contains-egg|contains-peanut,seed-unverified,seed
+oc-sai-gon,Ốc Sài Gòn,Saigon snail feast,,,snack,seafood,ho-chi-minh,dinner|late-night,contains-seafood,seed-unverified,seed
+banh-flan,Bánh flan,Vietnamese crème caramel,,,sweet,dessert,ho-chi-minh,afternoon,contains-egg|contains-dairy,seed-unverified,seed
+che-ba-mau,Chè ba màu,Three-colour sweet soup,,,sweet,che,ho-chi-minh|region:dong-nam-bo,afternoon,vegan,seed-unverified,seed
+sam-bo-luong,Sâm bổ lượng,Sâm bổ lượng cooling sweet soup,,,sweet,che,region:dong-nam-bo|region:tay-nam-bo,afternoon,vegan,seed-unverified,seed
+banh-khot-vung-tau,Bánh khọt Vũng Tàu,Vũng Tàu crispy mini pancakes,,banh-xeo,snack,fried,ba-ria-vung-tau,afternoon|dinner,contains-seafood,seed-unverified,seed
+banh-canh-ghe-vung-tau,Bánh canh ghẹ Vũng Tàu,Vũng Tàu crab noodle soup,,,savory,noodle-soup,ba-ria-vung-tau,lunch|dinner,contains-seafood,seed-unverified,seed
+banh-trang-phoi-suong-trang-bang,Bánh tráng phơi sương Trảng Bàng,Trảng Bàng dew-dried rice paper,,,savory,rolls,tay-ninh,lunch|dinner,contains-pork,seed-unverified,seed
+banh-canh-trang-bang,Bánh canh Trảng Bàng,Trảng Bàng noodle soup,,,savory,noodle-soup,tay-ninh,breakfast|lunch,contains-pork,seed-unverified,seed
+goi-ga-mang-cut-lai-thieu,Gỏi gà măng cụt Lái Thiêu,Lái Thiêu mangosteen chicken salad,,,savory,salad,binh-duong,lunch,contains-poultry,seed-unverified,seed
+hat-dieu-rang-muoi-binh-phuoc,Hạt điều rang muối Bình Phước,Bình Phước salt-roasted cashews,,,snack,confection,binh-phuoc,afternoon,vegan,seed-unverified,seed
+hu-tieu-my-tho,Hủ tiếu Mỹ Tho,Mỹ Tho noodle soup,,hu-tieu,savory,noodle-soup,tien-giang,breakfast|lunch,contains-pork|contains-seafood,seed-unverified,seed
+hu-tieu-sa-dec,Hủ tiếu Sa Đéc,Sa Đéc noodle soup,,hu-tieu,savory,noodle-soup,dong-thap,breakfast,contains-pork,seed-unverified,seed
+nem-lai-vung,Nem Lai Vung,Lai Vung fermented pork,,,snack,cured,dong-thap,afternoon,contains-pork,seed-unverified,seed
+banh-xeo-nam-bo,Bánh xèo Nam Bộ,Southern crispy pancake,,banh-xeo,savory,fried,region:tay-nam-bo|region:dong-nam-bo,lunch|dinner,contains-pork|contains-seafood,seed-unverified,seed
+lau-mam,Lẩu mắm,Fermented fish hotpot,,,savory,hotpot,can-tho|soc-trang|an-giang,dinner,contains-fish|contains-pork|contains-seafood,seed-unverified,seed
+canh-chua-ca-loc,Canh chua cá lóc,Sour snakehead fish soup,,,savory,soup,region:tay-nam-bo,lunch|dinner,contains-fish,seed-unverified,seed
+ca-kho-to,Cá kho tộ,Clay pot caramelised fish,,,savory,stew,region:tay-nam-bo,lunch|dinner,contains-fish|contains-pork,seed-unverified,seed
+ca-loc-nuong-trui,Cá lóc nướng trui,Straw-roasted snakehead fish,,,savory,grilled,region:tay-nam-bo|dong-thap,lunch|dinner,contains-fish,seed-unverified,seed
+bun-nuoc-leo-soc-trang,Bún nước lèo Sóc Trăng,Sóc Trăng Khmer fish noodle soup,,,savory,noodle-soup,soc-trang,breakfast|lunch,contains-fish|contains-pork,seed-unverified,seed
+banh-pia-soc-trang,Bánh pía Sóc Trăng,Sóc Trăng flaky pastry,,,sweet,banh,soc-trang,afternoon,contains-pork|contains-egg,seed-unverified,seed
+banh-tam-bi-bac-lieu,Bánh tằm bì Bạc Liêu,Bạc Liêu silkworm noodles with pork skin,,,savory,noodles,bac-lieu,breakfast|lunch,contains-pork,seed-unverified,seed
+ba-khia-muoi-rach-goc,Ba khía muối Rạch Gốc,Rạch Gốc salted marsh crabs,,,savory,cured,ca-mau,lunch|dinner,contains-seafood,seed-unverified,seed
+bun-ca-chau-doc,Bún cá Châu Đốc,Châu Đốc fish noodle soup,,,savory,noodle-soup,an-giang,breakfast,contains-fish,seed-unverified,seed
+banh-bo-thot-not,Bánh bò thốt nốt,Palm sugar sponge cake,,,sweet,banh,an-giang,afternoon,vegan,seed-unverified,seed
+bun-ken-phu-quoc,Bún kèn Phú Quốc,Phú Quốc bún kèn,,,savory,noodles,kien-giang,breakfast,contains-fish,seed-unverified,seed
+goi-ca-trich-phu-quoc,Gỏi cá trích Phú Quốc,Phú Quốc herring salad,,,savory,salad,kien-giang,lunch|dinner,contains-fish|contains-peanut,seed-unverified,seed
+keo-dua-ben-tre,Kẹo dừa Bến Tre,Bến Tre coconut candy,,,sweet,confection,ben-tre,afternoon,vegetarian,seed-unverified,seed
+banh-tet-tra-cuon,Bánh tét Trà Cuôn,Trà Cuôn cylindrical rice cake,,,savory,banh,tra-vinh,lunch,contains-pork|contains-egg,seed-unverified,seed
+banh-canh-ben-co,Bánh canh Bến Có,Bến Có noodle soup,,,savory,noodle-soup,tra-vinh,breakfast,contains-pork|contains-seafood,seed-unverified,seed
+ca-tai-tuong-chien-xu,Cá tai tượng chiên xù,Crispy elephant-ear fish,,,savory,fried,vinh-long,lunch|dinner,contains-fish,seed-unverified,seed
+lap-xuong-can-duoc,Lạp xưởng Cần Đước,Cần Đước Chinese sausage,,,savory,cured,long-an,lunch|dinner,contains-pork,seed-unverified,seed
+banh-chuoi-nuong,Bánh chuối nướng,Baked banana cake,,,sweet,banh,region:tay-nam-bo|region:dong-nam-bo,afternoon,vegetarian|contains-dairy,seed-unverified,seed
+banh-da-lon,Bánh da lợn,Steamed layer cake,,,sweet,banh,region:dong-nam-bo|region:tay-nam-bo,afternoon,vegan,seed-unverified,seed

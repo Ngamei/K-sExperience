@@ -100,3 +100,8 @@ Establishments can belong to several modes (`establishment_experiences`, migrati
 - `lib/food/what-to-eat-presets.ts` — 12 collections + 6 modes as filter presets. `lib/food/what-to-eat-report.ts` — completeness (Admin tab + `scripts/what-to-eat-report.ts`).
 - UI: `components/food/what-to-eat-view.tsx` (zustand page state; shared `FilterDrawer`, `Sheet`, `DishThumb`, `DishArt`, `Button`, `Chip`; `useUser` for saved/tried/notes/preferences). Nav: registry `extraNav` inserts module-specific entries after a shared slot (`navFor`); mobile tab bar sizes its grid to the entries.
 - Data: migration 0008 adds nullable `dishes.eating` and `restaurants.dining` (jsonb; nutrition must name a source); mapped in `db-rows.ts`, `READ_COLUMNS`, seed generator, importer (`cookingMethods`, `proteins`, `allergens`, …) and merge (`eating` overwrites only when provided).
+
+## Themes, counts and research exchange (2026-11-28)
+- `experiences/registry.ts` — `THEMES`, `themeVars(id)`; `app-shell.tsx` applies them to the shell wrapper and `<html>` (`data-experience`), renders the mobile Explore switch; `navFor` marks Discover desktop-only and labels the map slot "Explore" on mobile.
+- `lib/data/platform-stats.ts` (`foodStats`, `moduleStats`, `uniqueEstablishments`) + `components/engine/platform-summary.tsx` (Settings → About, Admin → Overview).
+- Research exchange: `lib/data/exchange.ts` (batch schema, id rules, `validateVenues`, `geocodeProblem`), `lib/data/exchange-queue.ts` (queue schema, overlaps), `scripts/exchange-export.ts` (`npm run exchange:export`), `scripts/intake.ts` (`npm run intake`). Importers accept `batch-<batchId>.json`, per-dish evidence/price/photo objects, sourced hours/price range, and honour an intake-assigned `id`.

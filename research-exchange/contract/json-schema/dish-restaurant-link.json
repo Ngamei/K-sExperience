@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "dishId": {
+      "type": "string"
+    },
+    "restaurantId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "candidate",
+        "source-listed",
+        "menu-confirmed",
+        "directly-confirmed",
+        "visit-confirmed",
+        "temporarily-unavailable"
+      ]
+    },
+    "isSample": {
+      "type": "boolean"
+    },
+    "menuEvidence": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "search-result",
+            "published-source",
+            "official-menu",
+            "delivery-listing",
+            "menu-photo",
+            "phone-call",
+            "message",
+            "site-visit",
+            "user-visit",
+            "sample"
+          ]
+        },
+        "note": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "type",
+        "note"
+      ]
+    },
+    "priceVnd": {
+      "type": "object",
+      "properties": {
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "min",
+        "max"
+      ]
+    },
+    "lastVerified": {
+      "type": "string"
+    },
+    "photo": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "venue-specific",
+            "menu-photo",
+            "delivery-listing",
+            "generic-dish"
+          ]
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "attribution": {
+          "type": "string",
+          "minLength": 1
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lastCheckedAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+        }
+      },
+      "required": [
+        "url",
+        "kind",
+        "sourceUrl",
+        "attribution",
+        "license",
+        "lastCheckedAt"
+      ]
+    }
+  },
+  "required": [
+    "dishId",
+    "restaurantId",
+    "status",
+    "isSample"
+  ]
+}

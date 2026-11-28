@@ -113,10 +113,10 @@ export function DiscoverView() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-12 md:px-6">
-        <div className="flex flex-col items-start justify-between gap-4 rounded-3xl bg-forest p-6 text-ivory md:flex-row md:items-center md:p-8">
+        <div className="flex flex-col items-start justify-between gap-4 rounded-3xl border border-line/80 bg-sage-soft p-6 text-forest md:flex-row md:items-center md:p-8">
           <div>
             <h2 className="font-display text-3xl">{t("discover.passport")}</h2>
-            <p className="mt-1 text-sage">{progress.triedCount} / {progress.total} {t("passport.tried")} · {progress.provincesTried} {t("passport.provinces")}</p>
+            <p className="mt-1 text-forest/70">{progress.triedCount} / {progress.total} {t("passport.tried")} · {progress.provincesTried} {t("passport.provinces")}</p>
           </div>
           <Button asChild variant="accent"><Link href="/passport/">{t("discover.passportCta")}</Link></Button>
         </div>

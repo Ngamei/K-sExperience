@@ -1,0 +1,169 @@
+{
+  "batchId": "CC-FOOD-009",
+  "experience": "food",
+  "kind": "venues",
+  "agent": "claude-code",
+  "researchedOn": "2026-11-28",
+  "method": "Establishment-first desk research for home-style and regional dishes with 0 HCMC venues (Vietnamese queries; Michelin Guide, mia.vn, VnExpress, mytour, VinWonders). Pages read via search-result excerpts (direct fetches blocked) — spot-check. Hours only where the source states them; no prices because no source gives a dish price at these venues.",
+  "venues": [
+    {
+      "name": "Cục Gạch Quán",
+      "address": "10 Đặng Tất",
+      "district": "Quận 1",
+      "venueType": "restaurant",
+      "sources": [
+        "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/cuc-gach-quan",
+        "https://mia.vn/cam-nang-du-lich/nha-hang-cuc-gach-quan-19864"
+      ],
+      "dishes": [
+        {
+          "dishId": "canh-chua-ca-loc",
+          "evidence": "mia.vn lists canh chua cá lóc on Cục Gạch Quán's menu (10 Đặng Tất); the Michelin Guide entry (Bib Gourmand) mentions its signature canh chua but names the fish cá hú — spot-check the fish.",
+          "url": "https://mia.vn/cam-nang-du-lich/nha-hang-cuc-gach-quan-19864"
+        }
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ],
+        "tue": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ],
+        "wed": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ],
+        "thu": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ],
+        "fri": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ],
+        "sat": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ],
+        "sun": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ]
+      },
+      "note": "Hours 09:00–23:30 daily per the Michelin Guide. Not linked to cá kho tộ: the source names cá rô kho tộ (climbing perch), not the catalogue's catfish/snakehead dish.",
+      "id": "cuc-gach-quan-10-dang-tat"
+    },
+    {
+      "name": "Bánh canh Trảng Bàng Ba Xi",
+      "address": "135 Võ Văn Tần",
+      "district": "Quận 3",
+      "venueType": "eatery",
+      "sources": [
+        "https://vnexpress.net/banh-canh-trang-bang-ba-xi-2307735.html"
+      ],
+      "dishes": [
+        {
+          "dishId": "banh-canh-trang-bang",
+          "evidence": "VnExpress reports the Ba Xi bánh canh Trảng Bàng shop opening at 135 Võ Văn Tần, Quận 3. Article is from 2011 — current operation unconfirmed, spot-check.",
+          "url": "https://vnexpress.net/banh-canh-trang-bang-ba-xi-2307735.html"
+        }
+      ],
+      "id": "banh-canh-trang-bang-ba-xi-135-vo-van-tan"
+    },
+    {
+      "name": "Bánh canh Trảng Bàng Ông Cáo",
+      "address": "4D Võ Văn Vân",
+      "district": "Bình Chánh",
+      "venueType": "eatery",
+      "sources": [
+        "https://mytour.vn/en/blog/xep-hang/top-11-best-breakfast-spots-in-binh-chanh-district-ho-chi-minh-city-mytour.html"
+      ],
+      "dishes": [
+        {
+          "dishId": "banh-canh-trang-bang",
+          "evidence": "Mytour's Bình Chánh breakfast list names Ông Cáo – Bánh Canh Trảng Bàng at 4D Võ Văn Vân (Vĩnh Lộc B), open 6:00–21:00.",
+          "url": "https://mytour.vn/en/blog/xep-hang/top-11-best-breakfast-spots-in-binh-chanh-district-ho-chi-minh-city-mytour.html"
+        }
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ]
+      },
+      "id": "banh-canh-trang-bang-ong-cao-4d-vo-van-van"
+    },
+    {
+      "name": "Chè Hiển Khánh",
+      "address": "718 Nguyễn Đình Chiểu",
+      "district": "Quận 3",
+      "venueType": "cafe-dessert",
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/quan-che-ngon-o-sai-gon/"
+      ],
+      "dishes": [
+        {
+          "dishId": "banh-flan",
+          "evidence": "VinWonders' Saigon chè guide lists Chè Hiển Khánh (718 Nguyễn Đình Chiểu) serving bánh flan alongside xôi and rau câu.",
+          "url": "https://vinwonders.com/vi/wonderpedia/news/quan-che-ngon-o-sai-gon/"
+        }
+      ],
+      "excluded": "Geocoder placed No. 718 at the Quận 1 end of Nguyễn Đình Chiểu (street-level match, ~2 km off); not published until the exact location is confirmed.",
+      "id": "che-hien-khanh-718-nguyen-dinh-chieu"
+    }
+  ]
+}

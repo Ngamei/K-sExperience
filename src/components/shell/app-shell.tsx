@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { recordPath } from "@/lib/nav-history";
 import { usePathname } from "next/navigation";
 import { Settings } from "lucide-react";
-import { getExperience, loc, moduleForPath, navFor } from "@/experiences/registry";
+import { getExperience, loc, moduleForPath, navFor, themeVars } from "@/experiences/registry";
 import { useT } from "@/lib/i18n/use-t";
 import { useShowSamples, useUser } from "@/lib/store/user";
 import { cn } from "@/lib/utils";
@@ -16,6 +16,13 @@ export function Wordmark({ className }: { className?: string }) {
       K<span className="text-terracotta">’</span>s Experience
     </span>
   );
+}
+
+/** Puts the experience's theme variables on <html> (body background, sheets and dialogs rendered in portals). */
+function applyTheme(id: string) {
+  const el = document.documentElement;
+  for (const [k, v] of Object.entries(themeVars(id))) el.style.setProperty(k, v);
+  el.setAttribute("data-experience", id);
 }
 
 /** URLs that belong to the Food module (historical, unprefixed). */
@@ -41,11 +48,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const nav = navFor(exp);
   const setLocale = useUser((s) => s.setLocale);
   const showSamples = useShowSamples();
+  // Pastel theme of the active experience: shared tokens re-tinted (also on <html> for body + portals).
+  const vars = themeVars(exp.id);
+  useEffect(() => { applyTheme(exp.id); }, [exp.id]);
+  const onMap = path === "/" || path.startsWith("/explore") || (mod ? norm(path) === mod.routes.map : false);
+  const onDiscover = norm(path).startsWith(norm(exp.routes.discover));
   const fullBleed = path === "/" || path.startsWith("/explore") || path.startsWith("/nearby") ||
     Boolean(mod && (norm(path) === mod.routes.map || norm(path).startsWith(mod.routes.nearby))); // module establishment maps
 
   return (
-    <div className={cn("flex flex-col", fullBleed ? "h-dvh" : "min-h-dvh")}>
+    <div className={cn("flex flex-col bg-ivory", fullBleed ? "h-dvh" : "min-h-dvh")} style={vars as React.CSSProperties} data-experience={exp.id}>
       <header className="sticky top-0 z-40 border-b border-line/70 bg-ivory/90 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-7xl items-center gap-4 px-4 md:h-16 md:px-6">
           <Link href={exp.routes.map} className="flex items-baseline gap-2" aria-label="K's Experience home">
@@ -61,7 +73,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 href={n.href}
                 className={cn(
                   "rounded-full px-3 py-1.5 text-sm transition-colors",
-                  isActive(path, n.href, exp.basePath) ? "bg-forest text-ivory" : "text-charcoal/80 hover:bg-ivory-deep",
+                  isActive(path, n.href, exp.basePath) ? "bg-sage-soft font-medium text-forest" : "text-charcoal/80 hover:bg-ivory-deep",
                 )}
                 data-testid={`nav-${n.slot}`}
               >
@@ -101,6 +113,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </div>
         )}
       </header>
+      {(onMap || onDiscover) && (
+        /* Mobile: Discover lives inside Explore — one switch between the map and the discovery feed. */
+        <div className="z-30 border-b border-line/70 bg-ivory/95 px-4 py-2 lg:hidden" data-testid="explore-switch">
+          <div className="mx-auto flex max-w-lg rounded-full border border-line bg-paper p-0.5 text-sm" role="tablist" aria-label={locale === "vi" ? "Khám phá" : "Explore"}>
+            {[{ id: "map", href: exp.routes.map, label: loc(exp.navLabels.map, locale), on: onMap }, { id: "discover", href: exp.routes.discover, label: loc(exp.navLabels.discover, locale), on: onDiscover }].map((x) => (
+              <Link key={x.id} href={x.href} role="tab" aria-selected={x.on} className={cn("flex-1 rounded-full py-1.5 text-center font-medium transition-colors", x.on ? "bg-sage-soft text-forest" : "text-charcoal/70")} data-testid={`explore-${x.id}`}>{x.label}</Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       <main className={cn("flex-1", fullBleed ? "min-h-0 pb-[calc(57px+env(safe-area-inset-bottom))] lg:pb-0" : "pb-24 lg:pb-12")}>{children}</main>
 
@@ -111,9 +133,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <div className="mx-auto grid max-w-lg" style={{ gridTemplateColumns: `repeat(${nav.filter((n) => n.mobile).length}, minmax(0, 1fr))` }}>
           {nav.filter((n) => n.mobile).map((n) => {
             const Icon = NAV_ICONS[n.icon];
-            const active = isActive(path, n.href, exp.basePath);
+            const active = isActive(path, n.href, exp.basePath) || (n.slot === "map" && onDiscover);
             return (
-              <Link key={n.slot} href={n.href} className={cn("flex flex-col items-center gap-0.5 py-2 text-[10.5px]", active ? "text-terracotta" : "text-charcoal/70")} data-testid={`tab-${n.slot}`}>
+              <Link key={n.slot} href={n.href} className={cn("flex flex-col items-center gap-0.5 py-2 text-[10.5px]", active ? "font-semibold text-forest" : "text-charcoal/70")} aria-current={active ? "page" : undefined} data-testid={`tab-${n.slot}`}>
                 <Icon className="size-5" />
                 {loc(n.short, locale)}
               </Link>

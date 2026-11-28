@@ -23,25 +23,29 @@ const date: string = src.metadata.researchedOn;
 const errors: string[] = [];
 
 // ---- Merge research batches (data/source/venue-research/batch-*.json) -------------------------
-type BatchVenue = { name: string; address: string; district?: string; dishes: string[]; sources: string[]; note?: string; styleNote?: boolean };
+/** A dish entry is a dish id (generic evidence) or an object with its own evidence, price and photo (research exchange format). */
+type BatchDish = string | { dishId: string; evidence?: string; url?: string; priceVnd?: { min: number; max: number }; photo?: unknown; status?: string; evidenceType?: string };
+type BatchVenue = { id?: string; name: string; address: string; district?: string; dishes: BatchDish[]; sources: string[]; note?: string; styleNote?: boolean; excluded?: string;
+  venueType?: string; priceRange?: string; openingHours?: unknown; contact?: unknown; highlights?: string[] };
 const geocoded = read("data/source/venue-research/geocoded.json") as Record<string, { failed?: boolean; reason?: string; lon: number; lat: number; precision: "exact" | "street"; ward: string | null }>;
-const batchFiles = readdirSync(path.join(root, "data/source/venue-research")).filter((f) => /^batch-\d+\.json$/.test(f)).sort();
+const batchFiles = readdirSync(path.join(root, "data/source/venue-research")).filter((f) => /^batch-[\w-]+\.json$/.test(f)).sort();
 const skipped: string[] = [];
 const byId = new Map<string, Record<string, unknown> & { dishes: { dishId: string; evidence: string; url: string }[] }>();
 for (const r of src.restaurants) byId.set(r.id, r);
 for (const f of batchFiles) {
   const batch = read(`data/source/venue-research/${f}`) as { researchedOn: string; venues: BatchVenue[] };
   for (const v of batch.venues) {
+    if (v.excluded) { skipped.push(`${v.name} (${v.address}) — ${v.excluded}`); continue; }
     const g = geocoded[`${v.name}|${v.address}|${v.district ?? ""}`];
     if (!g || g.failed) { skipped.push(`${v.name} (${v.address}) — ${g?.reason ?? "not geocoded yet"}`); continue; }
-    const id = slugify(`${v.name} ${v.address.split(",")[0]}`);
+    const id = v.id ?? slugify(`${v.name} ${v.address.split(",")[0]}`); // intake sets id (e.g. a legacy id it merges into)
     const fullAddress = `${v.address.split(",")[0]}${v.district ? `, ${v.district}` : ""}, TP. Hồ Chí Minh`;
     const existing = byId.get(id);
-    const dishes = v.dishes.map((dishId) => ({
-      dishId,
+    const dishes = v.dishes.map((d) => typeof d === "string" ? {
+      dishId: d,
       evidence: `Listed for this dish by a published HCMC food guide${v.styleNote ? " (regional style not confirmed)" : ""}.${v.note ? " " + v.note : ""}`,
       url: v.sources[0],
-    }));
+    } : { ...d, evidence: d.evidence ?? `Listed for this dish by a published source.${v.note ? " " + v.note : ""}`, url: d.url ?? v.sources[0] });
     if (existing) { existing.dishes.push(...dishes.filter((d) => !existing.dishes.some((e) => e.dishId === d.dishId))); continue; }
     byId.set(id, {
       id,
@@ -50,7 +54,11 @@ for (const f of batchFiles) {
       neighbourhood: g.ward ?? v.district ?? "TP. Hồ Chí Minh",
       coordinates: [g.lon, g.lat],
       coordinatePrecision: g.precision,
-      venueType: "eatery",
+      venueType: v.venueType ?? "eatery",
+      ...(v.priceRange ? { priceRange: v.priceRange } : {}),
+      ...(v.openingHours ? { openingHours: v.openingHours } : {}),
+      ...(v.contact ? { contact: v.contact } : {}),
+      ...(v.highlights ? { highlights: v.highlights } : {}),
       sources: [
         ...v.sources.map((url) => ({ title: new URL(url).hostname.replace(/^www\./, ""), url, accessed: batch.researchedOn })),
         { title: "OpenStreetMap / Nominatim (coordinates)", url: "https://www.openstreetmap.org/", accessed: batch.researchedOn },

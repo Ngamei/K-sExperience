@@ -39,7 +39,7 @@ async function search(params, district) {
   return hits[0];
 }
 
-const venues = readdirSync(dir).filter((f) => /^batch-\d+\.json$/.test(f)).flatMap((f) => JSON.parse(readFileSync(`${dir}/${f}`, "utf8")).venues);
+const venues = readdirSync(dir).filter((f) => /^batch-[\w-]+\.json$/.test(f)).flatMap((f) => JSON.parse(readFileSync(`${dir}/${f}`, "utf8")).venues);
 let n = 0;
 for (const v of venues) {
   const key = `${v.name}|${v.address}|${v.district ?? ""}`;

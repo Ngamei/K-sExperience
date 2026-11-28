@@ -1,0 +1,474 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "nameVi": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nameEn": {
+      "type": "string",
+      "minLength": 1
+    },
+    "altNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "savory",
+        "sweet",
+        "snack"
+      ]
+    },
+    "dishType": {
+      "type": "string",
+      "enum": [
+        "noodle-soup",
+        "noodles",
+        "rice",
+        "banh",
+        "bread",
+        "rolls",
+        "hotpot",
+        "grilled",
+        "salad",
+        "stew",
+        "porridge",
+        "soup",
+        "che",
+        "dessert",
+        "fried",
+        "cured",
+        "seafood",
+        "confection"
+      ]
+    },
+    "family": {
+      "type": "string"
+    },
+    "origins": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "provinceId": {
+            "type": "string"
+          },
+          "regionId": {
+            "type": "string",
+            "enum": [
+              "mien-bac",
+              "bac-trung-bo",
+              "nam-trung-bo",
+              "tay-nguyen",
+              "dong-nam-bo",
+              "tay-nam-bo"
+            ]
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "primary",
+              "associated"
+            ]
+          }
+        },
+        "required": [
+          "regionId",
+          "role"
+        ]
+      }
+    },
+    "regionIds": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "mien-bac",
+          "bac-trung-bo",
+          "nam-trung-bo",
+          "tay-nguyen",
+          "dong-nam-bo",
+          "tay-nam-bo"
+        ]
+      }
+    },
+    "ingredients": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "taste": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "savory",
+          "sweet",
+          "sour",
+          "salty",
+          "spicy",
+          "bitter",
+          "umami",
+          "herbal",
+          "rich",
+          "light",
+          "smoky",
+          "fermented",
+          "fresh",
+          "creamy",
+          "crunchy",
+          "chewy",
+          "nutty",
+          "fragrant"
+        ]
+      }
+    },
+    "spiceLevel": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    },
+    "dietary": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "contains-pork",
+          "contains-beef",
+          "contains-poultry",
+          "contains-seafood",
+          "contains-fish",
+          "contains-egg",
+          "contains-dairy",
+          "contains-peanut",
+          "contains-offal",
+          "contains-goat",
+          "contains-game",
+          "vegetarian",
+          "vegan",
+          "vegetarian-version-common"
+        ]
+      }
+    },
+    "mealTimes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "breakfast",
+          "lunch",
+          "afternoon",
+          "dinner",
+          "late-night"
+        ]
+      }
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "vi": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "vi",
+        "en"
+      ]
+    },
+    "photos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "credit": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "url",
+          "credit",
+          "license"
+        ]
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "accessed": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title"
+        ]
+      }
+    },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "seed-unverified",
+            "pending-review",
+            "verified",
+            "rejected"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        },
+        "verifiedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "dataset": {
+      "type": "string",
+      "enum": [
+        "seed",
+        "master"
+      ]
+    },
+    "prominence": {
+      "anyOf": [
+        {
+          "type": "number",
+          "const": 1
+        },
+        {
+          "type": "number",
+          "const": 2
+        },
+        {
+          "type": "number",
+          "const": 3
+        }
+      ]
+    },
+    "eating": {
+      "type": "object",
+      "properties": {
+        "cookingMethods": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "grilled",
+              "fried",
+              "simmered",
+              "steamed",
+              "braised",
+              "stir-fried",
+              "raw-fresh",
+              "baked"
+            ]
+          }
+        },
+        "proteins": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "pork",
+              "beef",
+              "poultry",
+              "seafood",
+              "fish",
+              "egg",
+              "tofu",
+              "goat",
+              "offal"
+            ]
+          }
+        },
+        "allergens": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "peanut",
+              "egg",
+              "dairy",
+              "fish",
+              "shellfish",
+              "soy",
+              "gluten",
+              "sesame"
+            ]
+          }
+        },
+        "allergensComplete": {
+          "type": "boolean"
+        },
+        "vegetables": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "portion": {
+          "type": "string",
+          "enum": [
+            "light",
+            "regular",
+            "hearty"
+          ]
+        },
+        "occasions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "everyday",
+              "office-lunch",
+              "date",
+              "family",
+              "group",
+              "business",
+              "celebration",
+              "late-night"
+            ]
+          }
+        },
+        "serviceStyles": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "dine-in",
+              "takeaway",
+              "delivery",
+              "home-cooking"
+            ]
+          }
+        },
+        "customisation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nutrition": {
+          "type": "object",
+          "properties": {
+            "kcal": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "proteinG": {
+              "type": "number",
+              "minimum": 0
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sourced",
+                "estimate"
+              ]
+            }
+          },
+          "required": [
+            "source",
+            "confidence"
+          ]
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sourced",
+                "estimate"
+              ]
+            }
+          },
+          "required": [
+            "title",
+            "confidence"
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    "id",
+    "nameVi",
+    "nameEn",
+    "altNames",
+    "category",
+    "dishType",
+    "origins",
+    "regionIds",
+    "ingredients",
+    "taste",
+    "spiceLevel",
+    "dietary",
+    "mealTimes",
+    "description",
+    "photos",
+    "sources",
+    "verification",
+    "dataset",
+    "prominence"
+  ]
+}

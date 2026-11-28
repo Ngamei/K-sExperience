@@ -1,0 +1,30 @@
+{
+  "researchedOn": "2026-11-27",
+  "method": "Desk research from published guides naming the venue AND the exact item (pages read via search-result excerpts; direct fetches blocked in the research environment — spot-check). Coordinates: OpenStreetMap Nominatim. Status source-listed; no prices/hours/photos without a source. CC-16 re-search with Vietnamese queries.",
+  "venues": [
+    {
+      "name": "Xôi xéo Hà Nội",
+      "address": "81 Ngô Thời Nhiệm",
+      "district": "Quận 3",
+      "dishes": [
+        "xoi-xeo"
+      ],
+      "sources": [
+        "https://znews.vn/huong-vi-xoi-mien-bac-o-tphcm-post1130970.html"
+      ],
+      "note": "Znews: Hanoi-style xôi xéo at 81 Ngô Thời Nhiệm, Q3; 6:30–10:30, closed Sundays (per article)."
+    },
+    {
+      "name": "Bún Đỏ Bún Riêu Cô Bé Ban Mê",
+      "address": "40 Nguyễn Hồng Đào",
+      "district": "Tân Bình",
+      "dishes": [
+        "bun-do-buon-ma-thuot"
+      ],
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/dac-san-bun-do-dak-lak-14200"
+      ],
+      "note": "MIA.vn lists this HCMC shop for Buôn Ma Thuột bún đỏ (07:30–22:00 per article). Spot-check source."
+    }
+  ]
+}

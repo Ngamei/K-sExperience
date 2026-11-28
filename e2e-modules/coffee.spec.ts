@@ -51,13 +51,13 @@ test("switching experience mode changes the navigation, and switching back resto
   await page.getByTestId("experience-coffee").click();
   await expect(page).toHaveURL(/\/coffee\/$/);
   await expect(page.getByTestId("module-page")).toHaveAttribute("data-experience", "coffee");
-  await expect.poll(() => navLabels(page, isMobile)).toEqual(isMobile ? ["Map", "Discover", "Catalogue", "Nearby", "Passport"] : ["Café Map", "Discover", "Coffee Catalogue", "Nearby", "Coffee Passport", "Saved"]);
+  await expect.poll(() => navLabels(page, isMobile)).toEqual(isMobile ? ["Explore", "Catalogue", "Nearby", "Passport"] : ["Café Map", "Discover", "Coffee Catalogue", "Nearby", "Coffee Passport", "Saved"]);
 
   await page.goto("/settings/"); // shared page keeps the chosen mode's navigation
   await expect.poll(() => navLabels(page, isMobile)).toContain(isMobile ? "Map" : "Café Map");
   await page.getByTestId("experience-food").click();
   await expect(page).toHaveURL(/localhost:3600\/$/);
-  await expect.poll(() => navLabels(page, isMobile)).toEqual(isMobile ? ["Explore", "Discover", "Eat today", "Catalogue", "Nearby", "Passport"] : ["Food Map", "Discover", "What to eat", "Food Catalogue", "Nearby", "Food Passport", "Saved"]);
+  await expect.poll(() => navLabels(page, isMobile)).toEqual(isMobile ? ["Explore", "Eat today", "Catalogue", "Nearby", "Passport"] : ["Food Map", "Discover", "What to eat", "Food Catalogue", "Nearby", "Food Passport", "Saved"]);
 });
 
 test("Coffee catalogue: module categories, attributes and accent-insensitive search; no Food filters", async ({ page }) => {

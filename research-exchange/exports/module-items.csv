@@ -1,0 +1,38 @@
+experience,id,nameVi,nameEn,category,verification
+bars,espresso-martini,Espresso Martini,Espresso Martini,classic-cocktail,seed-unverified
+bars,negroni,Negroni,Negroni,classic-cocktail,seed-unverified
+bars,mojito,Mojito,Mojito,classic-cocktail,seed-unverified
+bars,old-fashioned,Old Fashioned,Old Fashioned,classic-cocktail,seed-unverified
+bars,margarita,Margarita,Margarita,classic-cocktail,seed-unverified
+bars,bia-hoi,Bia hơi,Draught beer (bia hơi),beer,seed-unverified
+bars,virgin-mojito,Mojito không cồn,Virgin mojito,mocktail,seed-unverified
+bars,stir-truffle-martini,Truffle Martini (Stir),Truffle Martini (Stir),signature-cocktail,seed-unverified
+bars,craft-beer,Bia thủ công,Craft beer,beer,seed-unverified
+coffee,ca-phe-sua-da,Cà phê sữa đá,Iced coffee with condensed milk,vietnamese-coffee,seed-unverified
+coffee,ca-phe-den-da,Cà phê đen đá,Iced black coffee,vietnamese-coffee,seed-unverified
+coffee,bac-xiu,Bạc xỉu,White coffee (bạc xỉu),vietnamese-coffee,seed-unverified
+coffee,ca-phe-trung,Cà phê trứng,Egg coffee,vietnamese-coffee,seed-unverified
+coffee,ca-phe-muoi,Cà phê muối,Salt coffee,vietnamese-coffee,seed-unverified
+coffee,ca-phe-cot-dua,Cà phê cốt dừa,Coconut coffee,vietnamese-coffee,seed-unverified
+coffee,ca-phe-vot,Cà phê vợt,Sock-filter coffee,vietnamese-coffee,seed-unverified
+coffee,espresso,Espresso,Espresso,espresso,seed-unverified
+coffee,cappuccino,Cappuccino,Cappuccino,espresso,seed-unverified
+coffee,pour-over,Cà phê pha thủ công (pour-over),Pour-over coffee,specialty,seed-unverified
+coffee,cold-brew,Cold brew,Cold brew,cold-brew,seed-unverified
+coffee,matcha-latte,Matcha latte,Matcha latte,matcha,seed-unverified
+coffee,tra-sen,Trà sen,Lotus tea,tea,seed-unverified
+spa,goi-dau-duong-sinh,Gội đầu dưỡng sinh,Vietnamese head spa,head-spa,seed-unverified
+spa,foot-reflexology,Massage chân (bấm huyệt),Foot reflexology,massage,seed-unverified
+spa,swedish-massage,Massage Thụy Điển,Swedish massage,massage,seed-unverified
+spa,hot-stone-massage,Massage đá nóng,Hot stone massage,massage,seed-unverified
+spa,facial,Chăm sóc da mặt,Facial,facial,seed-unverified
+spa,manicure,Làm móng tay,Manicure,nails,seed-unverified
+spa,pedicure,Làm móng chân,Pedicure,nails,seed-unverified
+spa,body-scrub,Tẩy tế bào chết toàn thân,Body scrub,body-care,seed-unverified
+sport,pickleball-court-rental,Thuê sân pickleball,Pickleball court rental,pickleball,seed-unverified
+sport,pickleball-coaching,Học pickleball có huấn luyện viên,Pickleball coaching,pickleball,seed-unverified
+sport,pickleball-social-play,Giao lưu pickleball,Pickleball social play,pickleball,seed-unverified
+sport,pickleball-equipment-rental,Thuê vợt và bóng pickleball,Pickleball equipment rental,pickleball,seed-unverified
+sport,reformer-pilates,Pilates Reformer,Reformer Pilates,pilates,seed-unverified
+sport,mat-pilates,Pilates Mat,Mat Pilates,pilates,seed-unverified
+sport,pilates-apparatus,"Pilates Cadillac, Chair & Barrel","Pilates on Cadillac, Chair and Barrel",pilates,seed-unverified

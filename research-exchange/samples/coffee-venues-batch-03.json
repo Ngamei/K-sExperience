@@ -1,0 +1,51 @@
+{
+ "researchedOn": "2026-11-28",
+ "method": "Desk research from published guides/directories naming the venue AND the exact item (pages read via search-result excerpts; direct page fetches were blocked in the research environment — PO/Codex should spot-check). Coordinates: OpenStreetMap Nominatim. Status source-listed; no prices/hours/photos added.",
+ "venues": [
+  {
+   "id": "ong-chu-cuoi-hem-cong-quynh",
+   "name": "Ông Chú Cuội Hẻm",
+   "address": "117/28A Cống Quỳnh, Quận 1, TP. Hồ Chí Minh",
+   "district": "Quận 1",
+   "venueType": "café",
+   "sources": [
+    "https://wanderingwheatleys.com/best-egg-coffee-in-saigon-vietnam-ho-chi-minh-city/"
+   ],
+   "attributes": {
+    "cafeTypes": [
+     "traditional"
+    ]
+   },
+   "offerings": [
+    {
+     "item": "ca-phe-trung",
+     "evidence": "Wandering Wheatleys' egg-coffee guide lists Ông Chú Cuội Hẻm (117/28A Cống Quỳnh) serving cà phê trứng in an egg-shaped glass.",
+     "url": "https://wanderingwheatleys.com/best-egg-coffee-in-saigon-vietnam-ho-chi-minh-city/"
+    }
+   ]
+  },
+  {
+   "id": "runam-bistro-dong-khoi",
+   "name": "Runam Bistro (Đồng Khởi)",
+   "address": "2-4-6 Đồng Khởi, Quận 1, TP. Hồ Chí Minh",
+   "district": "Quận 1",
+   "venueType": "café",
+   "sources": [
+    "https://www.vietnamairlines.com/en/useful-information/travel-guide/egg-coffee-saigon",
+    "https://wanderingwheatleys.com/best-egg-coffee-in-saigon-vietnam-ho-chi-minh-city/"
+   ],
+   "attributes": {
+    "cafeTypes": [
+     "concept"
+    ]
+   },
+   "offerings": [
+    {
+     "item": "ca-phe-trung",
+     "evidence": "Vietnam Airlines' egg-coffee guide lists Runam (Runam Bistro, 2-4-6 Đồng Khởi) for egg coffee; Wandering Wheatleys also recommends Runam's egg coffee in District 1.",
+     "url": "https://www.vietnamairlines.com/en/useful-information/travel-guide/egg-coffee-saigon"
+    }
+   ]
+  }
+ ]
+}

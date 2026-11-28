@@ -1,0 +1,36 @@
+{
+  "batchId": "GPT-FOOD-001",
+  "experience": "food",
+  "kind": "venues",
+  "agent": "chatgpt",
+  "researchedOn": "YYYY-MM-DD",
+  "method": "How the sources were found and read (e.g. official menu pages, delivery listings, food guides).",
+  "venues": [
+    {
+      "name": "Exact venue name as signed",
+      "address": "House number + street (no ward/district)",
+      "district": "Quận 1 (former district, used only to disambiguate geocoding)",
+      "venueType": "eatery",
+      "sources": [
+        "https://source-naming-the-venue-and-its-address"
+      ],
+      "dishes": [
+        {
+          "dishId": "pho-bo-ha-noi",
+          "evidence": "What the source says about this dish at this venue",
+          "url": "https://source-url",
+          "priceVnd": {
+            "min": 50000,
+            "max": 70000
+          }
+        }
+      ],
+      "lon": null,
+      "lat": null,
+      "openingHours": null,
+      "priceRange": null,
+      "note": ""
+    }
+  ],
+  "_rules": "dishes[] for Food (dish ids from contract/vocabularies.json); offerings[] {item, evidence, url, price{minVnd,maxVnd,unit}} for coffee/bars/spa/sport. Omit unknown fields; never estimate prices, hours or coordinates."
+}

@@ -1,0 +1,373 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "isSample": {
+      "type": "boolean"
+    },
+    "address": {
+      "type": "string",
+      "minLength": 1
+    },
+    "neighbourhood": {
+      "type": "string",
+      "minLength": 1
+    },
+    "coordinates": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        },
+        {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        }
+      ],
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "coordinatePrecision": {
+      "type": "string",
+      "enum": [
+        "exact",
+        "street"
+      ]
+    },
+    "googleMapsUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "highlights": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "venueType": {
+      "type": "string",
+      "enum": [
+        "street-stall",
+        "eatery",
+        "restaurant",
+        "market-stall",
+        "cafe-dessert",
+        "food-court"
+      ]
+    },
+    "priceRange": {
+      "type": "string",
+      "enum": [
+        "$",
+        "$$",
+        "$$$",
+        "$$$$"
+      ]
+    },
+    "openingHours": {
+      "type": "object",
+      "properties": {
+        "mon": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "tue": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "wed": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "thu": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "fri": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "sat": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "sun": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{2}:\\d{2}$"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        }
+      },
+      "required": [
+        "mon",
+        "tue",
+        "wed",
+        "thu",
+        "fri",
+        "sat",
+        "sun"
+      ]
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string",
+          "format": "uri"
+        },
+        "social": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "deliveryLinks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "provider",
+          "url"
+        ]
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "accessed": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title"
+        ]
+      }
+    },
+    "lastVerified": {
+      "type": "string"
+    },
+    "dining": {
+      "type": "object",
+      "properties": {
+        "atmosphere": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "casual",
+              "lively",
+              "quiet",
+              "romantic",
+              "family-friendly",
+              "upscale",
+              "outdoor"
+            ]
+          }
+        },
+        "serviceStyles": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "dine-in",
+              "takeaway",
+              "delivery",
+              "home-cooking"
+            ]
+          }
+        },
+        "occasions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "everyday",
+              "office-lunch",
+              "date",
+              "family",
+              "group",
+              "business",
+              "celebration",
+              "late-night"
+            ]
+          }
+        },
+        "maxGroupSize": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "title"
+          ]
+        }
+      },
+      "required": [
+        "source"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "isSample",
+    "address",
+    "neighbourhood",
+    "coordinates",
+    "venueType",
+    "deliveryLinks",
+    "sources"
+  ]
+}

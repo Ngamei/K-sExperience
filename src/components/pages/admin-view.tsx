@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { useFoodData } from "@/components/food/food-data";
 import { whatToEatReport } from "@/lib/food/what-to-eat-report";
+import { PlatformSummary } from "@/components/engine/platform-summary";
 import { DishEditor, EvidenceEditor, RestaurantEditor, field, label, type Saver } from "@/components/admin/admin-forms";
 import { ModuleAdmin } from "@/components/admin/module-admin";
 import { EXPERIENCES, isSelectable, loc, type ExperienceId } from "@/experiences/registry";
@@ -144,6 +145,10 @@ function Overview() {
             in with the non-destructive importer (IDs, photos and venue links preserved). Consumers see per-dish verification status, not this notice.
           </p>
         )}
+      </div>
+      <div className="mb-4 rounded-2xl border border-line/80 bg-paper p-4">
+        <h3 className="mb-2 font-display text-lg">Data coverage by experience</h3>
+        <PlatformSummary detailed />
       </div>
       <dl className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {stat("Dishes", dishes.length)}

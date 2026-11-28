@@ -31,6 +31,13 @@ Every dataset, where it came from, its licence and its verification status.
 - Regional-variant families kept as separate dishes: phở (7), bánh cuốn, bánh gai, cơm lam, bún chả cá, bánh xèo/khọt, hủ tiếu.
 - Prominence 1 (national-view) dishes: 11.
 
+## Research exchange (parallel research teams)
+All new research enters through `research-exchange/` and `npm run intake` (see `research-exchange/README.md`): generated contract (schema, JSON Schemas, vocabularies, id rules), templates, current exports for duplicate checks, the shared queue, per-batch reports and an audit log. Batches are stored next to the legacy batches as `batch-<batchId>.json`.
+
+| Batch | Experience | Status | Records |
+| --- | --- | --- | --- |
+| CC-FOOD-009 | food | imported 2026-11-28 | Cục Gạch Quán (canh chua cá lóc; hours per Michelin Guide), Bánh canh Trảng Bàng Ba Xi (VnExpress 2011 — operation unconfirmed), Bánh canh Trảng Bàng Ông Cáo (hours per Mytour); withheld: Chè Hiển Khánh (geocode at wrong end of the street) |
+
 ## Catalogue import format (for the ChatGPT master catalogue)
 JSON (array, or `{ "label", "dataset", "dishes": [...] }`) or CSV with a header row. One row = one dish **or regional variant**.
 

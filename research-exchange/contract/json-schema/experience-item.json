@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "experienceId": {
+      "type": "string",
+      "enum": [
+        "food",
+        "bars",
+        "coffee",
+        "spa",
+        "shopping",
+        "sport"
+      ]
+    },
+    "nameVi": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nameEn": {
+      "type": "string",
+      "minLength": 1
+    },
+    "altNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "attributes": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "vi": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "vi",
+        "en"
+      ]
+    },
+    "photos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "credit": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "url",
+          "credit",
+          "license"
+        ]
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "accessed": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title"
+        ]
+      }
+    },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "seed-unverified",
+            "pending-review",
+            "verified",
+            "rejected"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "dataset": {
+      "type": "string",
+      "enum": [
+        "seed",
+        "master"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "experienceId",
+    "nameVi",
+    "nameEn",
+    "altNames",
+    "category",
+    "attributes",
+    "description",
+    "photos",
+    "sources",
+    "verification",
+    "dataset"
+  ]
+}

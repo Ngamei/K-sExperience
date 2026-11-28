@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Bookmark, Check } from "lucide-react";
+import { Bookmark, Check, MapPin } from "lucide-react";
 import type { AvailabilityStatus, Dish } from "@/lib/data/schema";
 import { useT } from "@/lib/i18n/use-t";
 import { useUser } from "@/lib/store/user";
@@ -10,7 +10,7 @@ import { DishThumb } from "./dish-image";
 import { useFoodData } from "./food-data";
 import { CategoryBadge, StatusDot } from "./badges";
 
-export function DishCard({ dish, status, compact }: { dish: Dish; status?: AvailabilityStatus; compact?: boolean }) {
+export function DishCard({ dish, status, compact, places }: { dish: Dish; status?: AvailabilityStatus; compact?: boolean; /** Unique real HCMC establishments offering this dish. */ places?: number }) {
   const { t, locale } = useT();
   const { provinceById, regionById } = useFoodData();
   const saved = useUser((s) => s.saved.includes(dish.id));
@@ -42,6 +42,7 @@ export function DishCard({ dish, status, compact }: { dish: Dish; status?: Avail
           <CategoryBadge category={dish.category} />
           <Badge tone="outline">{place}</Badge>
           {status && status !== "none-found" && <StatusDot status={status} />}
+          {places !== undefined && places > 0 && <span className="inline-flex items-center gap-0.5 text-[11px] text-forest" data-testid="dish-places"><MapPin className="size-3" />{places === 1 ? t("common.place") : t("common.places", { n: places })}</span>}
         </div>
         {!compact && <p className="mt-1.5 line-clamp-2 text-[12.5px] leading-snug text-charcoal/75">{dish.description[locale]}</p>}
       </div>

@@ -1,0 +1,290 @@
+{
+  "note": "Shared research queue — edit entries here; intake updates status/import/validation. One agent per (item, district) claim.",
+  "batches": [
+    {
+      "batchId": "CC-FOOD-001",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Legacy Food venue research batch-01 (data/source/venue-research/batch-01.json)",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-FOOD-002",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Legacy Food venue research batch-02 (data/source/venue-research/batch-02.json)",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-FOOD-003",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Legacy Food venue research batch-03 (data/source/venue-research/batch-03.json)",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-FOOD-004",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Legacy Food venue research batch-04 (data/source/venue-research/batch-04.json)",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-FOOD-005",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Legacy Food venue research batch-05 (data/source/venue-research/batch-05.json)",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-FOOD-006",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Legacy Food venue research batch-06 (data/source/venue-research/batch-06.json)",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-FOOD-007",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Legacy Food venue research batch-07 (data/source/venue-research/batch-07.json)",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-FOOD-008",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Legacy Food venue research batch-08 (data/source/venue-research/batch-08.json)",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-COFFEE-001",
+      "experience": "coffee",
+      "kind": "venues",
+      "scope": "Legacy coffee venue research batch-01",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-COFFEE-002",
+      "experience": "coffee",
+      "kind": "venues",
+      "scope": "Legacy coffee venue research batch-02",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-COFFEE-003",
+      "experience": "coffee",
+      "kind": "venues",
+      "scope": "Legacy coffee venue research batch-03",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-BARS-001",
+      "experience": "bars",
+      "kind": "venues",
+      "scope": "Legacy bars venue research batch-01",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-BARS-002",
+      "experience": "bars",
+      "kind": "venues",
+      "scope": "Legacy bars venue research batch-02",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-SPA-001",
+      "experience": "spa",
+      "kind": "venues",
+      "scope": "Legacy spa venue research batch-01",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-SPA-002",
+      "experience": "spa",
+      "kind": "venues",
+      "scope": "Legacy spa venue research batch-02",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-SPORT-001",
+      "experience": "sport",
+      "kind": "venues",
+      "scope": "Legacy sport venue research batch-01",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-SPORT-002",
+      "experience": "sport",
+      "kind": "venues",
+      "scope": "Legacy sport venue research batch-02",
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [],
+      "importStatus": "imported before the exchange existed",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-FOOD-009",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Establishment-first: menus + prices + home-style dishes with 0–2 HCMC venues (canh chua cá lóc, cá kho tộ, bánh canh Trảng Bàng, bún cá Châu Đốc, gỏi gà măng cụt, bánh flan) and menu prices for cơm tấm / phở — Quận 1/3/5/10, Phú Nhuận",
+      "claims": {
+        "items": [
+          "canh-chua-ca-loc",
+          "ca-kho-to",
+          "banh-canh-trang-bang",
+          "bun-ca-chau-doc",
+          "goi-ga-mang-cut-lai-thieu",
+          "banh-flan",
+          "com-tam-sai-gon",
+          "pho-bo-ha-noi"
+        ],
+        "districts": [
+          "Quận 1",
+          "Quận 3",
+          "Quận 5",
+          "Quận 10",
+          "Phú Nhuận"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "imported",
+      "sources": [
+        "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/cuc-gach-quan",
+        "https://mia.vn/cam-nang-du-lich/nha-hang-cuc-gach-quan-19864",
+        "https://vnexpress.net/banh-canh-trang-bang-ba-xi-2307735.html",
+        "https://mytour.vn/en/blog/xep-hang/top-11-best-breakfast-spots-in-binh-chanh-district-ho-chi-minh-city-mytour.html",
+        "https://vinwonders.com/vi/wonderpedia/news/quan-che-ngon-o-sai-gon/"
+      ],
+      "importStatus": "imported 2026-11-28 (3 venues)",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 3,
+        "rejected": 1,
+        "warnings": 0,
+        "report": "research-exchange/reports/CC-FOOD-009.md"
+      },
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "CC-COFFEE-004",
+      "experience": "coffee",
+      "kind": "venues",
+      "scope": "Specialty cafés with published menus (pour-over, espresso, cold brew, salt coffee) in Quận 1/3",
+      "claims": {
+        "items": [
+          "pour-over",
+          "espresso",
+          "cold-brew",
+          "ca-phe-muoi"
+        ],
+        "districts": [
+          "Quận 1",
+          "Quận 3"
+        ]
+      },
+      "assignedTo": "claude-code",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "GPT-CAT-001",
+      "experience": "food",
+      "kind": "catalogue",
+      "scope": "Master catalogue: everyday HCMC meals missing from the atlas (cơm phần, cơm chay, bún chay, cháo, xôi, hủ tiếu variants, office-lunch dishes) with eating attributes and sources",
+      "assignedTo": "chatgpt",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28",
+      "notes": "Dish names/ids must not collide with contract/exports/food-dishes.csv; regional variants stay separate (family)."
+    },
+    {
+      "batchId": "GPT-FOOD-001",
+      "experience": "food",
+      "kind": "venues",
+      "scope": "Establishment scouting for dishes with 0 HCMC venues (see docs/WHAT_TO_EAT_REPORT.md → dishes without places) in Bình Thạnh, Gò Vấp, Tân Bình, Tân Phú, Thủ Đức",
+      "claims": {
+        "districts": [
+          "Bình Thạnh",
+          "Gò Vấp",
+          "Tân Bình",
+          "Tân Phú",
+          "Thủ Đức"
+        ]
+      },
+      "assignedTo": "chatgpt",
+      "status": "planned",
+      "sources": [],
+      "importStatus": "not imported",
+      "updatedAt": "2026-11-28"
+    }
+  ]
+}

@@ -3333,6 +3333,183 @@
         }
       ],
       "lastVerified": "2026-11-27"
+    },
+    {
+      "id": "cuc-gach-quan-10-dang-tat",
+      "name": "Cục Gạch Quán",
+      "isSample": false,
+      "address": "10 Đặng Tất, Quận 1, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Tân Định",
+      "coordinates": [
+        106.68893,
+        10.793
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%A5c%20G%E1%BA%A1ch%20Qu%C3%A1n%2C%2010%20%C4%90%E1%BA%B7ng%20T%E1%BA%A5t%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "restaurant",
+      "openingHours": {
+        "mon": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ],
+        "tue": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ],
+        "wed": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ],
+        "thu": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ],
+        "fri": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ],
+        "sat": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ],
+        "sun": [
+          [
+            "09:00",
+            "23:30"
+          ]
+        ]
+      },
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "guide.michelin.com",
+          "url": "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/cuc-gach-quan",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "mia.vn",
+          "url": "https://mia.vn/cam-nang-du-lich/nha-hang-cuc-gach-quan-19864",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "id": "banh-canh-trang-bang-ba-xi-135-vo-van-tan",
+      "name": "Bánh canh Trảng Bàng Ba Xi",
+      "isSample": false,
+      "address": "135 Võ Văn Tần, Quận 3, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Xuân Hòa",
+      "coordinates": [
+        106.691761,
+        10.778178
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20canh%20Tr%E1%BA%A3ng%20B%C3%A0ng%20Ba%20Xi%2C%20135%20V%C3%B5%20V%C4%83n%20T%E1%BA%A7n%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "vnexpress.net",
+          "url": "https://vnexpress.net/banh-canh-trang-bang-ba-xi-2307735.html",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "id": "banh-canh-trang-bang-ong-cao-4d-vo-van-van",
+      "name": "Bánh canh Trảng Bàng Ông Cáo",
+      "isSample": false,
+      "address": "4D Võ Văn Vân, Bình Chánh, TP. Hồ Chí Minh",
+      "neighbourhood": "Phường Bình Tân",
+      "coordinates": [
+        106.567946,
+        10.763361
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20canh%20Tr%E1%BA%A3ng%20B%C3%A0ng%20%C3%94ng%20C%C3%A1o%2C%204D%20V%C3%B5%20V%C4%83n%20V%C3%A2n%2C%20B%C3%ACnh%20Ch%C3%A1nh%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "venueType": "eatery",
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ]
+      },
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "mytour.vn",
+          "url": "https://mytour.vn/en/blog/xep-hang/top-11-best-breakfast-spots-in-binh-chanh-district-ho-chi-minh-city-mytour.html",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28"
     }
   ]
 }

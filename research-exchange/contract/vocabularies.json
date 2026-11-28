@@ -1,0 +1,1110 @@
+{
+  "food": {
+    "categories": [
+      "savory",
+      "sweet",
+      "snack"
+    ],
+    "dishTypes": [
+      "noodle-soup",
+      "noodles",
+      "rice",
+      "banh",
+      "bread",
+      "rolls",
+      "hotpot",
+      "grilled",
+      "salad",
+      "stew",
+      "porridge",
+      "soup",
+      "che",
+      "dessert",
+      "fried",
+      "cured",
+      "seafood",
+      "confection"
+    ],
+    "tastes": [
+      "savory",
+      "sweet",
+      "sour",
+      "salty",
+      "spicy",
+      "bitter",
+      "umami",
+      "herbal",
+      "rich",
+      "light",
+      "smoky",
+      "fermented",
+      "fresh",
+      "creamy",
+      "crunchy",
+      "chewy",
+      "nutty",
+      "fragrant"
+    ],
+    "dietary": [
+      "contains-pork",
+      "contains-beef",
+      "contains-poultry",
+      "contains-seafood",
+      "contains-fish",
+      "contains-egg",
+      "contains-dairy",
+      "contains-peanut",
+      "contains-offal",
+      "contains-goat",
+      "contains-game",
+      "vegetarian",
+      "vegan",
+      "vegetarian-version-common"
+    ],
+    "mealTimes": [
+      "breakfast",
+      "lunch",
+      "afternoon",
+      "dinner",
+      "late-night"
+    ],
+    "verificationStatuses": [
+      "seed-unverified",
+      "pending-review",
+      "verified",
+      "rejected"
+    ],
+    "regions": [
+      "mien-bac",
+      "bac-trung-bo",
+      "nam-trung-bo",
+      "tay-nguyen",
+      "dong-nam-bo",
+      "tay-nam-bo"
+    ],
+    "provinces": [
+      {
+        "id": "ha-giang",
+        "nameVi": "Hà Giang",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "cao-bang",
+        "nameVi": "Cao Bằng",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "bac-kan",
+        "nameVi": "Bắc Kạn",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "tuyen-quang",
+        "nameVi": "Tuyên Quang",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "lao-cai",
+        "nameVi": "Lào Cai",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "yen-bai",
+        "nameVi": "Yên Bái",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "thai-nguyen",
+        "nameVi": "Thái Nguyên",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "lang-son",
+        "nameVi": "Lạng Sơn",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "bac-giang",
+        "nameVi": "Bắc Giang",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "phu-tho",
+        "nameVi": "Phú Thọ",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "quang-ninh",
+        "nameVi": "Quảng Ninh",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "dien-bien",
+        "nameVi": "Điện Biên",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "lai-chau",
+        "nameVi": "Lai Châu",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "son-la",
+        "nameVi": "Sơn La",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "hoa-binh",
+        "nameVi": "Hòa Bình",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "ha-noi",
+        "nameVi": "Hà Nội",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "hai-phong",
+        "nameVi": "Hải Phòng",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "vinh-phuc",
+        "nameVi": "Vĩnh Phúc",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "bac-ninh",
+        "nameVi": "Bắc Ninh",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "hung-yen",
+        "nameVi": "Hưng Yên",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "hai-duong",
+        "nameVi": "Hải Dương",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "thai-binh",
+        "nameVi": "Thái Bình",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "ha-nam",
+        "nameVi": "Hà Nam",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "nam-dinh",
+        "nameVi": "Nam Định",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "ninh-binh",
+        "nameVi": "Ninh Bình",
+        "regionId": "mien-bac"
+      },
+      {
+        "id": "thanh-hoa",
+        "nameVi": "Thanh Hóa",
+        "regionId": "bac-trung-bo"
+      },
+      {
+        "id": "nghe-an",
+        "nameVi": "Nghệ An",
+        "regionId": "bac-trung-bo"
+      },
+      {
+        "id": "ha-tinh",
+        "nameVi": "Hà Tĩnh",
+        "regionId": "bac-trung-bo"
+      },
+      {
+        "id": "quang-binh",
+        "nameVi": "Quảng Bình",
+        "regionId": "bac-trung-bo"
+      },
+      {
+        "id": "quang-tri",
+        "nameVi": "Quảng Trị",
+        "regionId": "bac-trung-bo"
+      },
+      {
+        "id": "thua-thien-hue",
+        "nameVi": "Thừa Thiên Huế",
+        "regionId": "bac-trung-bo"
+      },
+      {
+        "id": "da-nang",
+        "nameVi": "Đà Nẵng",
+        "regionId": "nam-trung-bo"
+      },
+      {
+        "id": "quang-nam",
+        "nameVi": "Quảng Nam",
+        "regionId": "nam-trung-bo"
+      },
+      {
+        "id": "quang-ngai",
+        "nameVi": "Quảng Ngãi",
+        "regionId": "nam-trung-bo"
+      },
+      {
+        "id": "binh-dinh",
+        "nameVi": "Bình Định",
+        "regionId": "nam-trung-bo"
+      },
+      {
+        "id": "phu-yen",
+        "nameVi": "Phú Yên",
+        "regionId": "nam-trung-bo"
+      },
+      {
+        "id": "khanh-hoa",
+        "nameVi": "Khánh Hòa",
+        "regionId": "nam-trung-bo"
+      },
+      {
+        "id": "ninh-thuan",
+        "nameVi": "Ninh Thuận",
+        "regionId": "nam-trung-bo"
+      },
+      {
+        "id": "binh-thuan",
+        "nameVi": "Bình Thuận",
+        "regionId": "nam-trung-bo"
+      },
+      {
+        "id": "kon-tum",
+        "nameVi": "Kon Tum",
+        "regionId": "tay-nguyen"
+      },
+      {
+        "id": "gia-lai",
+        "nameVi": "Gia Lai",
+        "regionId": "tay-nguyen"
+      },
+      {
+        "id": "dak-lak",
+        "nameVi": "Đắk Lắk",
+        "regionId": "tay-nguyen"
+      },
+      {
+        "id": "dak-nong",
+        "nameVi": "Đắk Nông",
+        "regionId": "tay-nguyen"
+      },
+      {
+        "id": "lam-dong",
+        "nameVi": "Lâm Đồng",
+        "regionId": "tay-nguyen"
+      },
+      {
+        "id": "ho-chi-minh",
+        "nameVi": "TP. Hồ Chí Minh",
+        "regionId": "dong-nam-bo"
+      },
+      {
+        "id": "binh-duong",
+        "nameVi": "Bình Dương",
+        "regionId": "dong-nam-bo"
+      },
+      {
+        "id": "binh-phuoc",
+        "nameVi": "Bình Phước",
+        "regionId": "dong-nam-bo"
+      },
+      {
+        "id": "tay-ninh",
+        "nameVi": "Tây Ninh",
+        "regionId": "dong-nam-bo"
+      },
+      {
+        "id": "dong-nai",
+        "nameVi": "Đồng Nai",
+        "regionId": "dong-nam-bo"
+      },
+      {
+        "id": "ba-ria-vung-tau",
+        "nameVi": "Bà Rịa – Vũng Tàu",
+        "regionId": "dong-nam-bo"
+      },
+      {
+        "id": "long-an",
+        "nameVi": "Long An",
+        "regionId": "tay-nam-bo"
+      },
+      {
+        "id": "tien-giang",
+        "nameVi": "Tiền Giang",
+        "regionId": "tay-nam-bo"
+      },
+      {
+        "id": "ben-tre",
+        "nameVi": "Bến Tre",
+        "regionId": "tay-nam-bo"
+      },
+      {
+        "id": "tra-vinh",
+        "nameVi": "Trà Vinh",
+        "regionId": "tay-nam-bo"
+      },
+      {
+        "id": "vinh-long",
+        "nameVi": "Vĩnh Long",
+        "regionId": "tay-nam-bo"
+      },
+      {
+        "id": "dong-thap",
+        "nameVi": "Đồng Tháp",
+        "regionId": "tay-nam-bo"
+      },
+      {
+        "id": "an-giang",
+        "nameVi": "An Giang",
+        "regionId": "tay-nam-bo"
+      },
+      {
+        "id": "kien-giang",
+        "nameVi": "Kiên Giang",
+        "regionId": "tay-nam-bo"
+      },
+      {
+        "id": "can-tho",
+        "nameVi": "Cần Thơ",
+        "regionId": "tay-nam-bo"
+      },
+      {
+        "id": "hau-giang",
+        "nameVi": "Hậu Giang",
+        "regionId": "tay-nam-bo"
+      },
+      {
+        "id": "soc-trang",
+        "nameVi": "Sóc Trăng",
+        "regionId": "tay-nam-bo"
+      },
+      {
+        "id": "bac-lieu",
+        "nameVi": "Bạc Liêu",
+        "regionId": "tay-nam-bo"
+      },
+      {
+        "id": "ca-mau",
+        "nameVi": "Cà Mau",
+        "regionId": "tay-nam-bo"
+      }
+    ],
+    "eating": {
+      "cookingMethods": [
+        "grilled",
+        "fried",
+        "simmered",
+        "steamed",
+        "braised",
+        "stir-fried",
+        "raw-fresh",
+        "baked"
+      ],
+      "proteins": [
+        "pork",
+        "beef",
+        "poultry",
+        "seafood",
+        "fish",
+        "egg",
+        "tofu",
+        "goat",
+        "offal"
+      ],
+      "allergens": [
+        "peanut",
+        "egg",
+        "dairy",
+        "fish",
+        "shellfish",
+        "soy",
+        "gluten",
+        "sesame"
+      ],
+      "occasions": [
+        "everyday",
+        "office-lunch",
+        "date",
+        "family",
+        "group",
+        "business",
+        "celebration",
+        "late-night"
+      ],
+      "serviceStyles": [
+        "dine-in",
+        "takeaway",
+        "delivery",
+        "home-cooking"
+      ],
+      "portion": [
+        "light",
+        "regular",
+        "hearty"
+      ],
+      "vegetables": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "confidence": [
+        "sourced",
+        "estimate"
+      ]
+    },
+    "venueTypes": [
+      "street-stall",
+      "eatery",
+      "restaurant",
+      "market-stall",
+      "cafe-dessert",
+      "food-court"
+    ],
+    "priceRanges": {
+      "values": [
+        "$",
+        "$$",
+        "$$$",
+        "$$$$"
+      ],
+      "vndPerPerson": {
+        "$": "< 60,000",
+        "$$": "60,000–150,000",
+        "$$$": "150,000–400,000",
+        "$$$$": "> 400,000"
+      }
+    },
+    "dishIds": [
+      "pho-bo-ha-noi",
+      "pho-ga-ha-noi",
+      "pho-bo-nam-dinh",
+      "pho-cuon",
+      "pho-chua-lang-son",
+      "pho-kho-gia-lai",
+      "pho-sai-gon",
+      "bun-cha-ha-noi",
+      "bun-thang",
+      "bun-rieu-cua",
+      "cha-ca-la-vong",
+      "banh-cuon-thanh-tri",
+      "bun-dau-mam-tom",
+      "bun-oc-ha-noi",
+      "xoi-xeo",
+      "banh-tom-ho-tay",
+      "com-lang-vong",
+      "banh-troi-banh-chay",
+      "o-mai-hang-duong",
+      "banh-khuc",
+      "banh-da-cua-hai-phong",
+      "nem-cua-be-hai-phong",
+      "banh-mi-que-hai-phong",
+      "bun-ca-cay-hai-phong",
+      "cha-muc-ha-long",
+      "banh-dau-xanh-hai-duong",
+      "banh-gai-ninh-giang",
+      "banh-cay-thai-binh",
+      "canh-ca-quynh-coi",
+      "ca-kho-lang-vu-dai",
+      "nem-nam-giao-thuy",
+      "com-chay-ninh-binh",
+      "de-nui-ninh-binh",
+      "banh-phu-the-dinh-bang",
+      "ga-dong-tao",
+      "thang-co",
+      "chao-au-tau",
+      "banh-cuon-cao-bang",
+      "vit-quay-lang-son",
+      "khau-nhuc",
+      "xoi-ngu-sac",
+      "banh-cooc-mo",
+      "pa-pinh-top",
+      "nam-pia",
+      "thit-trau-gac-bep",
+      "xoi-tu-le",
+      "com-lam-hoa-binh",
+      "banh-chung",
+      "thit-chua-thanh-son",
+      "banh-da-ke",
+      "ca-thinh-lap-thach",
+      "nem-chua-thanh-hoa",
+      "banh-gai-tu-tru",
+      "chao-luon-nghe-an",
+      "banh-muot-nghe-an",
+      "keo-cu-do-ha-tinh",
+      "ram-ha-tinh",
+      "chao-canh-quang-binh",
+      "khoai-deo",
+      "chao-vat-giuong",
+      "bun-bo-hue",
+      "com-hen",
+      "banh-beo-hue",
+      "banh-khoai",
+      "banh-nam",
+      "banh-bot-loc-hue",
+      "che-hat-sen-long-nhan",
+      "me-xung-hue",
+      "banh-canh-nam-pho",
+      "mi-quang",
+      "cao-lau-hoi-an",
+      "com-ga-hoi-an",
+      "banh-mi-hoi-an",
+      "che-bap-cam-nam",
+      "banh-trang-cuon-thit-heo",
+      "bun-cha-ca-da-nang",
+      "goi-ca-nam-o",
+      "don-quang-ngai",
+      "ca-bong-song-tra",
+      "keo-guong-quang-ngai",
+      "banh-xeo-tom-nhay-quy-nhon",
+      "bun-cha-ca-quy-nhon",
+      "banh-it-la-gai-binh-dinh",
+      "nem-cho-huyen",
+      "banh-hoi-chao-long",
+      "mat-ca-ngu-dai-duong",
+      "banh-canh-he-phu-yen",
+      "bun-sua-nha-trang",
+      "nem-nuong-ninh-hoa",
+      "banh-can",
+      "thit-de-phan-rang",
+      "banh-canh-cha-ca-phan-thiet",
+      "goi-ca-mai",
+      "goi-la-kon-tum",
+      "com-lam-ga-nuong-tay-nguyen",
+      "bun-do-buon-ma-thuot",
+      "banh-trang-nuong-da-lat",
+      "lau-ga-la-e",
+      "kem-bo-da-lat",
+      "banh-mi-sai-gon",
+      "com-tam-sai-gon",
+      "hu-tieu-nam-vang",
+      "bot-chien",
+      "banh-trang-tron",
+      "bo-bia",
+      "oc-sai-gon",
+      "banh-flan",
+      "che-ba-mau",
+      "sam-bo-luong",
+      "banh-khot-vung-tau",
+      "banh-canh-ghe-vung-tau",
+      "banh-trang-phoi-suong-trang-bang",
+      "banh-canh-trang-bang",
+      "goi-ga-mang-cut-lai-thieu",
+      "hat-dieu-rang-muoi-binh-phuoc",
+      "hu-tieu-my-tho",
+      "hu-tieu-sa-dec",
+      "nem-lai-vung",
+      "banh-xeo-nam-bo",
+      "lau-mam",
+      "canh-chua-ca-loc",
+      "ca-kho-to",
+      "ca-loc-nuong-trui",
+      "bun-nuoc-leo-soc-trang",
+      "banh-pia-soc-trang",
+      "banh-tam-bi-bac-lieu",
+      "ba-khia-muoi-rach-goc",
+      "bun-ca-chau-doc",
+      "banh-bo-thot-not",
+      "bun-ken-phu-quoc",
+      "goi-ca-trich-phu-quoc",
+      "keo-dua-ben-tre",
+      "banh-tet-tra-cuon",
+      "banh-canh-ben-co",
+      "ca-tai-tuong-chien-xu",
+      "lap-xuong-can-duoc",
+      "banh-chuoi-nuong",
+      "banh-da-lon"
+    ]
+  },
+  "evidence": {
+    "linkStatuses": [
+      "candidate",
+      "source-listed",
+      "menu-confirmed",
+      "directly-confirmed",
+      "visit-confirmed",
+      "temporarily-unavailable"
+    ],
+    "evidenceTypes": [
+      "search-result",
+      "published-source",
+      "official-menu",
+      "delivery-listing",
+      "menu-photo",
+      "phone-call",
+      "message",
+      "site-visit",
+      "user-visit",
+      "sample"
+    ],
+    "allowedEvidencePerStatus": {
+      "candidate": [
+        "search-result",
+        "published-source"
+      ],
+      "source-listed": [
+        "published-source"
+      ],
+      "menu-confirmed": [
+        "official-menu",
+        "delivery-listing",
+        "menu-photo"
+      ],
+      "directly-confirmed": [
+        "phone-call",
+        "message"
+      ],
+      "visit-confirmed": [
+        "site-visit",
+        "user-visit"
+      ],
+      "temporarily-unavailable": [
+        "official-menu",
+        "delivery-listing",
+        "menu-photo",
+        "phone-call",
+        "message",
+        "site-visit",
+        "user-visit",
+        "published-source"
+      ]
+    },
+    "photoKinds": [
+      "venue-specific",
+      "menu-photo",
+      "delivery-listing",
+      "generic-dish"
+    ]
+  },
+  "modules": {
+    "bars": {
+      "implemented": true,
+      "categories": [
+        "classic-cocktail",
+        "signature-cocktail",
+        "wine",
+        "beer",
+        "mocktail"
+      ],
+      "pricingUnits": [
+        "drink"
+      ],
+      "itemIds": [
+        "espresso-martini",
+        "negroni",
+        "mojito",
+        "old-fashioned",
+        "margarita",
+        "bia-hoi",
+        "virgin-mojito",
+        "stir-truffle-martini",
+        "craft-beer"
+      ],
+      "itemAttributes": [
+        {
+          "id": "ingredients",
+          "kind": "list"
+        },
+        {
+          "id": "taste",
+          "kind": "list",
+          "options": [
+            "sweet",
+            "sour",
+            "bitter",
+            "herbal",
+            "fruity",
+            "strong",
+            "creamy"
+          ]
+        },
+        {
+          "id": "abv",
+          "kind": "text",
+          "options": [
+            "none",
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      ],
+      "establishmentAttributes": [
+        {
+          "id": "barTypes",
+          "kind": "list",
+          "options": [
+            "cocktail-bar",
+            "wine-bar",
+            "craft-beer",
+            "rooftop",
+            "speakeasy",
+            "hotel-bar"
+          ]
+        },
+        {
+          "id": "atmosphere",
+          "kind": "list",
+          "options": [
+            "quiet",
+            "lively",
+            "live-music",
+            "view"
+          ]
+        },
+        {
+          "id": "smoking",
+          "kind": "text",
+          "options": [
+            "no-smoking",
+            "smoking-area",
+            "smoking-allowed"
+          ]
+        }
+      ]
+    },
+    "coffee": {
+      "implemented": true,
+      "categories": [
+        "vietnamese-coffee",
+        "espresso",
+        "specialty",
+        "cold-brew",
+        "matcha",
+        "tea",
+        "non-coffee"
+      ],
+      "pricingUnits": [
+        "cup"
+      ],
+      "itemIds": [
+        "ca-phe-sua-da",
+        "ca-phe-den-da",
+        "bac-xiu",
+        "ca-phe-trung",
+        "ca-phe-muoi",
+        "ca-phe-cot-dua",
+        "ca-phe-vot",
+        "espresso",
+        "cappuccino",
+        "pour-over",
+        "cold-brew",
+        "matcha-latte",
+        "tra-sen"
+      ],
+      "itemAttributes": [
+        {
+          "id": "coffeeType",
+          "kind": "text",
+          "options": [
+            "robusta",
+            "arabica",
+            "blend",
+            "matcha",
+            "tea",
+            "none"
+          ]
+        },
+        {
+          "id": "flavour",
+          "kind": "list",
+          "options": [
+            "strong",
+            "sweet",
+            "milky",
+            "salty",
+            "fruity",
+            "creamy",
+            "bitter"
+          ]
+        },
+        {
+          "id": "preparation",
+          "kind": "text",
+          "options": [
+            "phin",
+            "espresso",
+            "pour-over",
+            "cold-brew",
+            "whisked",
+            "brewed"
+          ]
+        },
+        {
+          "id": "served",
+          "kind": "list",
+          "options": [
+            "hot",
+            "iced"
+          ]
+        }
+      ],
+      "establishmentAttributes": [
+        {
+          "id": "cafeTypes",
+          "kind": "list",
+          "options": [
+            "book",
+            "working",
+            "garden",
+            "concept",
+            "scenic",
+            "specialty",
+            "traditional"
+          ]
+        },
+        {
+          "id": "wifi",
+          "kind": "boolean"
+        },
+        {
+          "id": "powerSockets",
+          "kind": "boolean"
+        },
+        {
+          "id": "seating",
+          "kind": "list",
+          "options": [
+            "indoor",
+            "outdoor",
+            "rooftop",
+            "sidewalk",
+            "large-tables"
+          ]
+        },
+        {
+          "id": "noise",
+          "kind": "text",
+          "options": [
+            "quiet",
+            "moderate",
+            "lively"
+          ]
+        },
+        {
+          "id": "smoking",
+          "kind": "text",
+          "options": [
+            "no-smoking",
+            "smoking-area",
+            "smoking-allowed"
+          ]
+        }
+      ]
+    },
+    "spa": {
+      "implemented": true,
+      "categories": [
+        "massage",
+        "head-spa",
+        "facial",
+        "nails",
+        "hair",
+        "body-care",
+        "wellness"
+      ],
+      "pricingUnits": [
+        "session",
+        "package"
+      ],
+      "itemIds": [
+        "goi-dau-duong-sinh",
+        "foot-reflexology",
+        "swedish-massage",
+        "hot-stone-massage",
+        "facial",
+        "manicure",
+        "pedicure",
+        "body-scrub"
+      ],
+      "itemAttributes": [
+        {
+          "id": "treatmentType",
+          "kind": "text"
+        },
+        {
+          "id": "durationMin",
+          "kind": "text"
+        },
+        {
+          "id": "focus",
+          "kind": "list",
+          "options": [
+            "relaxation",
+            "pain-relief",
+            "skin",
+            "hair-scalp",
+            "nails",
+            "wellbeing"
+          ]
+        }
+      ],
+      "establishmentAttributes": [
+        {
+          "id": "spaTypes",
+          "kind": "list",
+          "options": [
+            "day-spa",
+            "hotel-spa",
+            "head-spa",
+            "nail-salon",
+            "hair-salon",
+            "wellness-centre"
+          ]
+        },
+        {
+          "id": "privateRooms",
+          "kind": "boolean"
+        },
+        {
+          "id": "couplesRoom",
+          "kind": "boolean"
+        },
+        {
+          "id": "shower",
+          "kind": "boolean"
+        }
+      ]
+    },
+    "shopping": {
+      "implemented": false,
+      "categories": [],
+      "pricingUnits": [
+        "item"
+      ],
+      "itemIds": [],
+      "itemAttributes": [],
+      "establishmentAttributes": []
+    },
+    "sport": {
+      "implemented": true,
+      "categories": [
+        "pickleball",
+        "pilates"
+      ],
+      "pricingUnits": [
+        "session",
+        "class",
+        "package",
+        "court-hour"
+      ],
+      "itemIds": [
+        "pickleball-court-rental",
+        "pickleball-coaching",
+        "pickleball-social-play",
+        "pickleball-equipment-rental",
+        "reformer-pilates",
+        "mat-pilates",
+        "pilates-apparatus"
+      ],
+      "itemAttributes": [
+        {
+          "id": "sport",
+          "kind": "text",
+          "options": [
+            "pickleball",
+            "pilates"
+          ]
+        },
+        {
+          "id": "format",
+          "kind": "list",
+          "options": [
+            "court-rental",
+            "coaching",
+            "social",
+            "equipment-rental",
+            "trial",
+            "private",
+            "group"
+          ]
+        },
+        {
+          "id": "equipment",
+          "kind": "list",
+          "options": [
+            "reformer",
+            "mat",
+            "cadillac",
+            "chair",
+            "barrel",
+            "paddle-ball"
+          ]
+        },
+        {
+          "id": "level",
+          "kind": "list",
+          "options": [
+            "beginner",
+            "intermediate",
+            "advanced",
+            "all-levels"
+          ]
+        }
+      ],
+      "establishmentAttributes": [
+        {
+          "id": "venueKinds",
+          "kind": "list",
+          "options": [
+            "pickleball-courts",
+            "sports-club",
+            "pilates-studio"
+          ]
+        },
+        {
+          "id": "indoorOutdoor",
+          "kind": "list",
+          "options": [
+            "indoor",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "courtSurface",
+          "kind": "text",
+          "options": [
+            "acrylic",
+            "concrete",
+            "modular",
+            "other"
+          ]
+        },
+        {
+          "id": "facilities",
+          "kind": "list",
+          "options": [
+            "shower",
+            "changing-room",
+            "parking",
+            "lockers"
+          ]
+        },
+        {
+          "id": "instructorLanguages",
+          "kind": "list",
+          "options": [
+            "vi",
+            "en"
+          ]
+        }
+      ]
+    }
+  },
+  "identifiers": {
+    "dish": "slug of nameVi without diacritics (slugify), unique; regional variants get their own id (e.g. pho-bo-nam-dinh), linked by `family`. Existing ids never change.",
+    "establishment": "slug of `<name> <house number + street>` (e.g. bun-cha-145-145-bui-vien); the same venue in another batch merges into the same id. Branches are separate establishments.",
+    "moduleItem": "slug of the English or Vietnamese name, unique within the experience (e.g. ca-phe-trung).",
+    "offering": "<item or dish id>@<establishment id> — one record per pair; evidence only moves up (src/lib/data/evidence.ts STATUS_RANK), except a newer temporarily-unavailable.",
+    "batch": "<AGENT>-<SCOPE>-<NNN>, AGENT = CC (Claude Code) | GPT (ChatGPT) | CX (Codex) | PO; e.g. CC-FOOD-009, GPT-CAT-001."
+  }
+}

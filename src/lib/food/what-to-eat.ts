@@ -31,6 +31,8 @@ export const isSpecialOccasion = (o: Occasion) => o === "date" || o === "family"
 
 export interface WhatToEatFilters {
   meal: Meal;
+  /** PO decision: meal suitability ranks by default; true = only dishes typically eaten at this meal. */
+  strictMeal: boolean;
   occasion: Occasion;
   people: number;
   /** Budget per person in VND (null = open-ended). A total group budget is converted with `people` by the caller. */
@@ -62,7 +64,7 @@ export interface WhatToEatFilters {
 }
 
 export const DEFAULT_WTE: WhatToEatFilters = {
-  meal: "any", occasion: "everyday", people: 1, budgetMinVnd: null, budgetMaxVnd: null, goals: [], diet: [], allergens: [], excludeIngredients: "",
+  meal: "any", strictMeal: false, occasion: "everyday", people: 1, budgetMinVnd: null, budgetMaxVnd: null, goals: [], diet: [], allergens: [], excludeIngredients: "",
   tastes: [], cooking: [], avoidCooking: [], proteins: [], portion: null, moreVeg: false, maxSpice: 3, regions: [], maxDistanceKm: null,
   openNow: false, service: "any", atmosphere: [], excludeRecentDays: 0, newOnly: false, savedOnly: false,
 };
@@ -153,7 +155,7 @@ function venuesFor(d: Dish, f: WhatToEatFilters, ctx: WteContext, cautions: L[])
 
 /** Hard constraints on the dish itself (not on places). Returns the id of the first failing constraint, or null. */
 export function dishBlocker(d: Dish, f: WhatToEatFilters, ctx: WteContext): string | null {
-  if (!mealFits(d, f.meal)) return "meal";
+  if (f.strictMeal && !mealFits(d, f.meal)) return "meal";
   for (const p of f.diet) if (!dishMatchesDiet(d, [p])) return `diet:${p}`;
   if (d.spiceLevel > f.maxSpice) return "maxSpice";
   if (f.regions.length && !d.regionIds.some((x) => f.regions.includes(x))) return "regions";
@@ -185,7 +187,10 @@ export function evaluate(d: Dish, f: WhatToEatFilters, ctx: WteContext): Recomme
 
   // ---- ranking (soft)
   let s = 1;
-  if (f.meal !== "any") { s += 2; reasons.push(r(`Suits ${f.meal === "snack" ? "a snack" : f.meal === "late-night" ? "a late-night meal" : f.meal}`, `Hợp cho ${MEAL_VI[f.meal]}`)); }
+  if (f.meal !== "any") {
+    if (mealFits(d, f.meal)) { s += 2.5; reasons.push(r(`Suits ${f.meal === "snack" ? "a snack" : f.meal === "late-night" ? "a late-night meal" : f.meal}`, `Hợp cho ${MEAL_VI[f.meal]}`)); }
+    else { s -= 1.5; cautions.push(r(`Usually eaten at: ${d.mealTimes.join(", ")}`, `Thường ăn vào: ${d.mealTimes.map((m) => ({ breakfast: "bữa sáng", lunch: "bữa trưa", afternoon: "buổi chiều", dinner: "bữa tối", "late-night": "ăn khuya" } as Record<string, string>)[m] ?? m).join(", ")}`)); }
+  }
   const tasteHits = f.tastes.filter((t) => d.taste.includes(t));
   if (tasteHits.length) { s += 0.8 * tasteHits.length; reasons.push(r(`Matches your taste: ${tasteHits.join(", ")}`, `Đúng khẩu vị: ${tasteHits.join(", ")}`)); }
   const prot = prof.proteins.value ?? [];
@@ -291,11 +296,19 @@ export function rankAll(dishes: Dish[], f: WhatToEatFilters, ctx: WteContext) {
     .sort((a, b) => b.score - a.score || a.dish.nameVi.localeCompare(b.dish.nameVi, "vi"));
 }
 
+/**
+ * PO decision: actionable first. `results` = dishes with a matching HCMC place; `withoutPlaces` = other suitable
+ * dishes with no listed place (never implied to be available). Counts are unique (dishes, establishments).
+ */
 export function recommend(dishes: Dish[], f: WhatToEatFilters, ctx: WteContext, n = 6) {
   const eligible = rankAll(dishes, f, ctx);
-  const top = diverse(eligible, n);
-  const alternatives = diverse(eligible, n, new Set(top.map((x) => x.dish.id)));
-  return { results: top, alternatives, eligible: eligible.length, withVenue: eligible.filter((x) => x.venues.length).length };
+  const placed = eligible.filter((x) => x.venues.length);
+  const unplaced = eligible.filter((x) => !x.venues.length);
+  const top = diverse(placed, n);
+  const withoutPlaces = diverse(unplaced, n);
+  const alternatives = diverse(placed, n, new Set(top.map((x) => x.dish.id)));
+  const establishments = new Set(placed.flatMap((x) => x.venues.map((v) => v.restaurant.id))).size;
+  return { results: top, withoutPlaces, alternatives, eligible: eligible.length, withVenue: placed.length, withoutVenue: unplaced.length, establishments };
 }
 
 /** "Surprise me": a weighted random pick among eligible dishes, avoiding `exclude` when possible (rand injectable). */
@@ -320,7 +333,7 @@ const DIET_L: Record<string, L> = {
 function without(f: WhatToEatFilters, id: string): WhatToEatFilters {
   if (id.startsWith("diet:")) return { ...f, diet: f.diet.filter((x) => x !== id.slice(5)) };
   switch (id) {
-    case "meal": return { ...f, meal: "any" };
+    case "meal": return { ...f, strictMeal: false };
     case "maxSpice": return { ...f, maxSpice: 3 };
     case "regions": return { ...f, regions: [] };
     case "savedOnly": return { ...f, savedOnly: false };
@@ -335,7 +348,7 @@ function without(f: WhatToEatFilters, id: string): WhatToEatFilters {
   }
 }
 const BLOCKER_L: Record<string, L> = {
-  meal: r("Meal time", "Bữa ăn"), maxSpice: r("Spice limit", "Giới hạn độ cay"), regions: r("Regions", "Vùng miền"), savedOnly: r("Saved only", "Chỉ món đã lưu"),
+  meal: r("Only this meal", "Chỉ bữa này"), maxSpice: r("Spice limit", "Giới hạn độ cay"), regions: r("Regions", "Vùng miền"), savedOnly: r("Saved only", "Chỉ món đã lưu"),
   newOnly: r("Not tried yet", "Món chưa thử"), excludeRecentDays: r("Skip recently eaten", "Bỏ món đã ăn gần đây"), excludeIngredients: r("Excluded ingredients", "Thành phần loại trừ"),
   avoidCooking: r("Avoided cooking styles", "Cách nấu cần tránh"), allergens: r("Allergens", "Dị ứng"), budget: r("Budget (places with a recorded price outside it)", "Ngân sách (quán có giá ngoài khoảng)"),
   place: r("Needs a listed place (dine-in / distance / open now / special dining)", "Cần quán trong dữ liệu (ăn tại quán / khoảng cách / đang mở / dịp đặc biệt)"),
@@ -344,7 +357,7 @@ const HARD = (id: string) => id.startsWith("diet:") || id === "allergens" || id 
 
 export function activeConstraints(f: WhatToEatFilters, ctx: WteContext): string[] {
   const ids: string[] = [];
-  if (f.meal !== "any") ids.push("meal");
+  if (f.meal !== "any" && f.strictMeal) ids.push("meal");
   for (const d of f.diet) ids.push(`diet:${d}`);
   if (f.maxSpice < 3) ids.push("maxSpice");
   if (f.regions.length) ids.push("regions");

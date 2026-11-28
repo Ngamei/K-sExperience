@@ -51,3 +51,12 @@ test("venue cards never show the bare pin icon when an illustration exists; refe
     }
   }
 });
+
+test("each experience applies its own pastel theme (shared tokens)", async ({ page }) => {
+  const expected = { bars: "#5e4b78", coffee: "#6e4f35", spa: "#2e6664", sport: "#22665a" } as const;
+  for (const [id, accent] of Object.entries(expected)) {
+    await page.goto(`/${id}/catalogue/`);
+    await expect(page.locator("html")).toHaveAttribute("data-experience", id);
+    await expect.poll(() => page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue("--forest").trim().toLowerCase())).toBe(accent);
+  }
+});

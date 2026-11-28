@@ -409,14 +409,14 @@ export function ModulePassport({ d }: { d: ModuleData }) {
   const Icon = NAV_ICONS[m.icon];
   return (
     <div className="mx-auto max-w-4xl px-4 py-6 md:px-6 md:py-10">
-      <div className="paper-grain rounded-[2rem] bg-forest p-6 text-ivory md:p-10" data-testid="module-passport">
-        <Icon className="size-7 text-sage" />
+      <div className="paper-grain rounded-[2rem] border border-line/80 bg-sage-soft p-6 text-forest md:p-10" data-testid="module-passport">
+        <Icon className="size-7 text-forest/70" />
         <h1 className="font-display text-4xl">{loc(m.passport.name, locale)}</h1>
-        <p className="text-sage">{loc(m.passport.summary, locale)}</p>
+        <p className="text-forest/70">{loc(m.passport.summary, locale)}</p>
         <dl className="mt-6 grid grid-cols-3 gap-4">
-          <div><dt className="text-xs text-sage">{loc(m.terms.completed, locale)}</dt><dd className="font-display text-4xl" data-testid="module-passport-tried">{Object.keys(p.tried).length}<span className="text-lg text-sage">/{d.items.length}</span></dd></div>
-          <div><dt className="text-xs text-sage">{loc(COPY.visited, locale)}</dt><dd className="font-display text-4xl" data-testid="module-passport-visited">{Object.keys(p.visited).length}</dd></div>
-          <div><dt className="text-xs text-sage">{loc(COPY.saved, locale)}</dt><dd className="font-display text-4xl">{p.saved.length}</dd></div>
+          <div><dt className="text-xs text-forest/70">{loc(m.terms.completed, locale)}</dt><dd className="font-display text-4xl" data-testid="module-passport-tried">{Object.keys(p.tried).length}<span className="text-lg text-forest/70">/{d.items.length}</span></dd></div>
+          <div><dt className="text-xs text-forest/70">{loc(COPY.visited, locale)}</dt><dd className="font-display text-4xl" data-testid="module-passport-visited">{Object.keys(p.visited).length}</dd></div>
+          <div><dt className="text-xs text-forest/70">{loc(COPY.saved, locale)}</dt><dd className="font-display text-4xl">{p.saved.length}</dd></div>
         </dl>
       </div>
       <h2 className="mt-8 font-display text-2xl text-forest">{loc(m.terms.completed, locale)}</h2>

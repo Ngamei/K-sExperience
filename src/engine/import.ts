@@ -8,6 +8,7 @@
  *     price units, HCMC boundary)
  */
 import type { ExperienceModule } from "@/experiences/registry";
+import { STATUS_RANK } from "@/lib/data/evidence";
 import { parseCsv } from "@/lib/data/importer";
 import { normalizeVi } from "@/lib/search/normalize";
 import { pointInGeometry, type GeoJsonGeometry } from "@/lib/geo/geo";
@@ -152,6 +153,13 @@ export function importIntoModule(m: ExperienceModule, current: ExperienceData, r
       if (seen.has(key)) { errors.push(`${what} row ${p.row}: duplicate ${key} in this file`); continue; }
       seen.add(key);
       const before = map.get(key);
+      // Never overwrite stronger evidence with weaker evidence (offerings / links).
+      const rank = (x: unknown) => STATUS_RANK[(x as { status?: keyof typeof STATUS_RANK })?.status as keyof typeof STATUS_RANK] ?? -1;
+      if (before && "status" in before && p.provided.includes("status") && p.record.status !== "temporarily-unavailable" && rank(p.record) < rank(before)) {
+        warnings.push(`${what} ${key}: kept stronger evidence (${(before as { status: string }).status}) — incoming ${String(p.record.status)} ignored`);
+        unchanged.push(`${what} ${key}`);
+        continue;
+      }
       const merged = mergeOne(before, p.record, p.provided, defaults);
       const r = schema.safeParse(merged);
       if (!r.success) { errors.push(`${what} ${key}: ${r.error!.issues.map((i) => `${i.path.join(".") || "record"} ${i.message}`).join("; ")}`); continue; }

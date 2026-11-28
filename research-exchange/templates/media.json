@@ -1,0 +1,11 @@
+{
+  "_rules": "Photos live on the dish/item–establishment link and must show this exact item at this establishment (kind venue-specific | menu-photo | delivery-listing). Reference photos (generic-dish) are labelled 'not from this venue'. Licence + attribution + source page + last-checked date are required.",
+  "photo": {
+    "url": "https://…",
+    "kind": "menu-photo",
+    "sourceUrl": "https://page-showing-the-photo",
+    "attribution": "Author / venue",
+    "license": "CC BY-SA 4.0 | permission: <who, when>",
+    "lastCheckedAt": "YYYY-MM-DD"
+  }
+}

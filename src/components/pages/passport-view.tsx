@@ -23,20 +23,20 @@ export function PassportView() {
     <div className="mx-auto max-w-6xl px-4 py-6 md:px-6 md:py-10">
       <ExperienceModules />
       <PassportAccountBar stats={{ tried: p.triedCount, provinces: p.provincesTried, regions: p.regionsExplored }} />
-      <div className="paper-grain rounded-[2rem] bg-forest p-6 text-ivory md:p-10">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-sage">K’s Experience</p>
+      <div className="paper-grain rounded-[2rem] border border-line/80 bg-sage-soft p-6 text-forest md:p-10">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-forest/70">K’s Experience</p>
         <h1 className="font-display text-4xl md:text-5xl">{t("passport.title")}</h1>
-        <p className="mt-1 text-sage">{t("passport.subtitle")}</p>
+        <p className="mt-1 text-forest/70">{t("passport.subtitle")}</p>
         <dl className="mt-6 grid grid-cols-3 gap-4" data-testid="passport-stats">
-          <div><dt className="text-xs text-sage">{t("passport.tried")}</dt><dd className="font-display text-4xl" data-testid="passport-tried">{p.triedCount}<span className="text-lg text-sage">/{p.total}</span></dd></div>
-          <div><dt className="text-xs text-sage">{t("passport.provinces")}</dt><dd className="font-display text-4xl">{p.provincesTried}<span className="text-lg text-sage">/63</span></dd></div>
-          <div><dt className="text-xs text-sage">{t("passport.regionsDone")}</dt><dd className="font-display text-4xl">{p.regionsCompleted}<span className="text-lg text-sage">/6</span></dd></div>
+          <div><dt className="text-xs text-forest/70">{t("passport.tried")}</dt><dd className="font-display text-4xl" data-testid="passport-tried">{p.triedCount}<span className="text-lg text-forest/70">/{p.total}</span></dd></div>
+          <div><dt className="text-xs text-forest/70">{t("passport.provinces")}</dt><dd className="font-display text-4xl">{p.provincesTried}<span className="text-lg text-forest/70">/63</span></dd></div>
+          <div><dt className="text-xs text-forest/70">{t("passport.regionsDone")}</dt><dd className="font-display text-4xl">{p.regionsCompleted}<span className="text-lg text-forest/70">/6</span></dd></div>
         </dl>
-        <dl className="mt-4 grid grid-cols-2 gap-4 border-t border-ivory/15 pt-4 text-sm sm:grid-cols-4" data-testid="passport-more-stats">
-          <div><dt className="text-xs text-sage">Regions explored</dt><dd className="font-display text-2xl" data-testid="passport-regions-explored">{p.regionsExplored}/6</dd></div>
-          <div><dt className="text-xs text-sage">Venues visited</dt><dd className="font-display text-2xl" data-testid="passport-visited">{Object.keys(visited).length}</dd></div>
-          <div><dt className="text-xs text-sage">Saved</dt><dd className="font-display text-2xl">{savedCount}</dd></div>
-          <div><dt className="text-xs text-sage">Tasting notes</dt><dd className="font-display text-2xl" data-testid="passport-notes">{Object.keys(notes).length}</dd></div>
+        <dl className="mt-4 grid grid-cols-2 gap-4 border-t border-forest/15 pt-4 text-sm sm:grid-cols-4" data-testid="passport-more-stats">
+          <div><dt className="text-xs text-forest/70">Regions explored</dt><dd className="font-display text-2xl" data-testid="passport-regions-explored">{p.regionsExplored}/6</dd></div>
+          <div><dt className="text-xs text-forest/70">Venues visited</dt><dd className="font-display text-2xl" data-testid="passport-visited">{Object.keys(visited).length}</dd></div>
+          <div><dt className="text-xs text-forest/70">Saved</dt><dd className="font-display text-2xl">{savedCount}</dd></div>
+          <div><dt className="text-xs text-forest/70">Tasting notes</dt><dd className="font-display text-2xl" data-testid="passport-notes">{Object.keys(notes).length}</dd></div>
         </dl>
       </div>
 

@@ -40,7 +40,11 @@ const T = {
   offNote: { en: "Switched off for this meal — still saved in Settings.", vi: "Đã tắt cho bữa này — vẫn lưu trong Cài đặt." },
   find: { en: "Find something to eat", vi: "Gợi ý món ăn" }, surprise: { en: "Surprise me", vi: "Gợi ý bất ngờ" }, advanced: { en: "Advanced filters", vi: "Bộ lọc nâng cao" },
   reset: { en: "Reset", vi: "Đặt lại" }, results: { en: "Suggestions for you", vi: "Gợi ý cho bạn" }, surprisePick: { en: "Surprise pick", vi: "Gợi ý bất ngờ" },
-  eligible: { en: "{n} dishes fit · {v} with a listed HCMC place", vi: "{n} món phù hợp · {v} món có quán ở TP.HCM" },
+  withPlaces: { en: "With places in Ho Chi Minh City", vi: "Có quán ở TP.HCM" },
+  noPlacesHead: { en: "More suitable dishes — no HCMC place listed yet", vi: "Thêm món phù hợp — chưa có quán ở TP.HCM trong dữ liệu" },
+  noPlacesNote: { en: "Shown for ideas or cooking at home. We list a place only with a published source, so availability is not implied.", vi: "Gợi ý để tham khảo hoặc tự nấu. Chỉ liệt kê quán có nguồn, nên không ngụ ý là có bán." },
+  noPlacedMatch: { en: "No dish with a listed HCMC place matches these filters — see the suitable dishes below.", vi: "Không có món có quán ở TP.HCM khớp bộ lọc — xem các món phù hợp bên dưới." },
+  onlyMeal: { en: "Only {m}", vi: "Chỉ {m}" },
   alternatives: { en: "Show other suggestions", vi: "Xem gợi ý khác" }, back: { en: "Back to top suggestions", vi: "Quay lại gợi ý chính" },
   why: { en: "Why this dish", vi: "Vì sao gợi ý" }, note: { en: "Good to know", vi: "Lưu ý" },
   details: { en: "View details", vi: "Xem chi tiết" }, nearby: { en: "Find nearby", vi: "Tìm quán gần" }, save: { en: "Save", vi: "Lưu" }, savedBtn: { en: "Saved", vi: "Đã lưu" },
@@ -162,7 +166,7 @@ export function WhatToEatView() {
   const removeBlocker = (id: string) => {
     if (id.startsWith("diet:")) { const d = id.slice(5) as DietPref; if (prefs.diet.includes(d)) setUi({ savedOff: [...st.savedOff, d] }); else set({ diet: f.diet.filter((x) => x !== d) }); return; }
     const map: Record<string, Partial<WhatToEatFilters>> = {
-      meal: { meal: "any" }, maxSpice: { maxSpice: 3 }, regions: { regions: [] }, savedOnly: { savedOnly: false }, newOnly: { newOnly: false },
+      meal: { strictMeal: false }, maxSpice: { maxSpice: 3 }, regions: { regions: [] }, savedOnly: { savedOnly: false }, newOnly: { newOnly: false },
       excludeRecentDays: { excludeRecentDays: 0 }, excludeIngredients: { excludeIngredients: "" }, avoidCooking: { avoidCooking: [] }, allergens: { allergens: [] },
       place: { service: "any", maxDistanceKm: null, openNow: false, atmosphere: [], occasion: "everyday" },
     };
@@ -219,6 +223,12 @@ export function WhatToEatView() {
           <section className="min-w-0 space-y-4 rounded-3xl border border-line/80 bg-paper p-4 shadow-sm lg:sticky lg:top-24" data-testid="wte-controls">
             <Row label={t("meal", l)}>
               {MEALS.map((m) => <Pill key={m} active={f.meal === m} onClick={() => set({ meal: f.meal === m ? "any" : m })} testid={`wte-meal-${m}`}>{MEAL_L[m][l]}</Pill>)}
+              {f.meal !== "any" && (
+                <button type="button" onClick={() => set({ strictMeal: !f.strictMeal })} aria-pressed={f.strictMeal} data-testid="wte-strict-meal"
+                  className={cn("inline-flex h-9 shrink-0 items-center gap-1 rounded-full border border-dashed px-3 text-[12px]", f.strictMeal ? "border-forest/60 bg-sage-soft text-forest" : "border-line text-muted")}>
+                  {f.strictMeal && <Check className="size-3.5" />}{t("onlyMeal", l, { m: MEAL_L[f.meal as Exclude<Meal, "any">][l].toLowerCase() })}
+                </button>
+              )}
             </Row>
             <Row label={t("occasion", l)}>
               {OCCASIONS.map((o) => <Pill key={o} active={f.occasion === o} onClick={() => set({ occasion: o, ...(o === "date" && f.people < 2 ? { people: 2 } : {}), ...(o === "family" && f.people < 3 ? { people: 4 } : {}) })} testid={`wte-occasion-${o}`}>{OCCASION_L[o][l]}</Pill>)}
@@ -269,7 +279,7 @@ export function WhatToEatView() {
               <Button className="h-11 w-full text-[15px]" onClick={() => { setUi({ showAlt: false, picked: null }); scrollToResults(); }} data-testid="wte-find"><Sparkles /> {t("find", l)}</Button>
               <div className="flex flex-wrap gap-2">
                 <Button variant="outline" size="sm" onClick={() => {
-                  const s = surprise(dishes, filters, ctx, Math.random, [...st.seenSurprise, ...res.results.map((x) => x.dish.id)]);
+                  const s = surprise(dishes, filters, ctx, Math.random, [...st.seenSurprise, ...res.results.map((x) => x.dish.id), ...res.withoutPlaces.map((x) => x.dish.id)]);
                   setPickedState(s); setUi({ picked: s?.dish.id ?? null, showAlt: false, seenSurprise: s ? [...st.seenSurprise, s.dish.id] : st.seenSurprise }); scrollToResults();
                 }} data-testid="wte-surprise"><Shuffle /> {t("surprise", l)}</Button>
                 <Button variant="outline" size="sm" onClick={() => setOpen(true)} data-testid="wte-more"><SlidersHorizontal /> {t("advanced", l)}{advancedCount > 0 && <span className="ml-0.5 rounded-full bg-forest px-1.5 text-[10px] text-ivory" data-testid="wte-advanced-count">{advancedCount}</span>}</Button>
@@ -282,21 +292,40 @@ export function WhatToEatView() {
           <section ref={resultsRef} className="min-w-0 scroll-mt-20" aria-live="polite" data-testid="wte-results-section">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <h2 className="font-display text-2xl text-forest">{picked ? t("surprisePick", l) : t("results", l)}</h2>
-              <p className="text-xs text-muted" data-testid="wte-eligible">{t("eligible", l, { n: res.eligible, v: res.withVenue })}</p>
             </div>
+            <dl className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted" data-testid="wte-counts">
+              <div><dt className="inline">{l === "vi" ? "Món phù hợp" : "Eligible dishes"}: </dt><dd className="inline font-semibold text-charcoal" data-testid="wte-count-eligible">{res.eligible}</dd></div>
+              <div><dt className="inline">{l === "vi" ? "Có quán" : "With HCMC places"}: </dt><dd className="inline font-semibold text-charcoal" data-testid="wte-count-placed">{res.withVenue}</dd></div>
+              <div><dt className="inline">{l === "vi" ? "Quán phù hợp" : "Matching places"}: </dt><dd className="inline font-semibold text-charcoal" data-testid="wte-count-places">{res.establishments}</dd></div>
+              <div><dt className="inline">{l === "vi" ? "Chưa có quán" : "Without listed places"}: </dt><dd className="inline font-semibold text-charcoal" data-testid="wte-count-unplaced">{res.withoutVenue}</dd></div>
+            </dl>
             {filters.budgetMaxVnd !== null || filters.budgetMinVnd !== null ? <p className="mt-1 flex items-start gap-1 text-[11.5px] text-muted" data-testid="wte-budget-note"><Info className="mt-0.5 size-3.5 shrink-0" />{t("budgetNote", l)}</p> : null}
-            {shown.length === 0 ? (
+            {res.eligible === 0 ? (
               <EmptyState l={l} blockers={blockers} prefsDiet={prefs.diet} onRemove={removeBlocker}
                 dataNote={dietNote ? t("dataNote", l, { n: dietCoverage(dishes, dietNote), t: dishes.length, x: lbl(DIET_LABELS, dietNote, l) }) : null} />
             ) : (
-              <div className="mt-3 grid gap-3 sm:grid-cols-2" data-testid="wte-results">
-                {shown.map((x) => <RecCard key={x.dish.id} rec={x} l={l} onNotInterested={() => setUi({ notInterested: [...st.notInterested, x.dish.id], picked: null })} />)}
-              </div>
+              <>
+                {!picked && <h3 className="mt-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-forest" data-testid="wte-placed-heading">{t("withPlaces", l)} · {res.withVenue}</h3>}
+                {shown.length === 0
+                  ? <p className="mt-2 rounded-2xl border border-dashed border-line bg-paper p-4 text-sm text-muted" data-testid="wte-no-placed">{t("noPlacedMatch", l)}</p>
+                  : <div className="mt-2 grid gap-3 sm:grid-cols-2" data-testid="wte-results">
+                      {shown.map((x) => <RecCard key={x.dish.id} rec={x} l={l} onNotInterested={() => setUi({ notInterested: [...st.notInterested, x.dish.id], picked: null })} />)}
+                    </div>}
+              </>
             )}
             <div className="mt-3 flex flex-wrap gap-2">
               {picked ? <Button variant="outline" size="sm" onClick={() => setUi({ picked: null })}>{t("back", l)}</Button>
                 : res.alternatives.length > 0 && <Button variant="outline" size="sm" onClick={() => setUi({ showAlt: !st.showAlt })} data-testid="wte-alternatives"><RefreshCw /> {st.showAlt ? t("back", l) : t("alternatives", l)}</Button>}
             </div>
+            {!picked && res.withoutPlaces.length > 0 && (
+              <div className="mt-6" data-testid="wte-unplaced">
+                <h3 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">{t("noPlacesHead", l)} · {res.withoutVenue}</h3>
+                <p className="mt-0.5 text-[11.5px] text-muted">{t("noPlacesNote", l)}</p>
+                <div className="mt-2 grid gap-3 sm:grid-cols-2">
+                  {res.withoutPlaces.map((x) => <RecCard key={x.dish.id} rec={x} l={l} onNotInterested={() => setUi({ notInterested: [...st.notInterested, x.dish.id], picked: null })} />)}
+                </div>
+              </div>
+            )}
             <p className="mt-3 text-[11px] text-muted" data-testid="wte-disclaimer">{t("disclaimer", l)}</p>
           </section>
         </div>

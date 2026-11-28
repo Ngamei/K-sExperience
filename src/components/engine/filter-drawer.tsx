@@ -78,8 +78,10 @@ export function ActiveFilterBar({ countLabel, chips, onClear, clearLabel, countT
 }
 
 /** The catalogue page frame shared by every experience. */
-export function CatalogueLayout({ eyebrow, title, filters, search, chipsRow, activeBar, filtersLabel, children, empty, resultsTestId = "catalogue-results" }: {
+export function CatalogueLayout({ eyebrow, title, summary, filters, search, chipsRow, activeBar, filtersLabel, children, empty, resultsTestId = "catalogue-results" }: {
   eyebrow: string; title: string;
+  /** Optional live data summary under the title (counts). */
+  summary?: React.ReactNode;
   /** Filter drawer content (desktop sidebar + mobile sheet). */
   filters: React.ReactNode;
   search: React.ReactNode; chipsRow?: React.ReactNode;
@@ -93,6 +95,7 @@ export function CatalogueLayout({ eyebrow, title, filters, search, chipsRow, act
       <header className="mb-6">
         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-terracotta">{eyebrow}</p>
         <h1 className="font-display text-4xl text-forest md:text-5xl">{title}</h1>
+        {summary && <div className="mt-1">{summary}</div>}
       </header>
       <div className="grid gap-8 lg:grid-cols-[300px_1fr]">
         <aside className="hidden lg:block">

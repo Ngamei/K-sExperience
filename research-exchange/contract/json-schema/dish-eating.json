@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "cookingMethods": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "grilled",
+          "fried",
+          "simmered",
+          "steamed",
+          "braised",
+          "stir-fried",
+          "raw-fresh",
+          "baked"
+        ]
+      }
+    },
+    "proteins": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "pork",
+          "beef",
+          "poultry",
+          "seafood",
+          "fish",
+          "egg",
+          "tofu",
+          "goat",
+          "offal"
+        ]
+      }
+    },
+    "allergens": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "peanut",
+          "egg",
+          "dairy",
+          "fish",
+          "shellfish",
+          "soy",
+          "gluten",
+          "sesame"
+        ]
+      }
+    },
+    "allergensComplete": {
+      "type": "boolean"
+    },
+    "vegetables": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "portion": {
+      "type": "string",
+      "enum": [
+        "light",
+        "regular",
+        "hearty"
+      ]
+    },
+    "occasions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "everyday",
+          "office-lunch",
+          "date",
+          "family",
+          "group",
+          "business",
+          "celebration",
+          "late-night"
+        ]
+      }
+    },
+    "serviceStyles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "dine-in",
+          "takeaway",
+          "delivery",
+          "home-cooking"
+        ]
+      }
+    },
+    "customisation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "nutrition": {
+      "type": "object",
+      "properties": {
+        "kcal": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "proteinG": {
+          "type": "number",
+          "minimum": 0
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "sourced",
+            "estimate"
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "confidence"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "sourced",
+            "estimate"
+          ]
+        }
+      },
+      "required": [
+        "title",
+        "confidence"
+      ]
+    }
+  }
+}

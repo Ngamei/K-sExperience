@@ -1,6 +1,6 @@
 # QA report
 
-_Run date: 2026-11-28 (re-run after Hôm nay ăn gì? CC-30) · Branch `claude/trusting-clarke-44sf7b` · Environment: Linux cloud container, Node 22.23.5, npm 10.9.9,
+_Run date: 2026-11-28 (re-run after PO decisions D55–D58: mobile nav, soft meal time, pastel themes, research exchange) · Branch `claude/trusting-clarke-44sf7b` · Environment: Linux cloud container, Node 22.23.5, npm 10.9.9,
 headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is the branch head that contains this file.
 
 ## Commands and results (clean checkout)
@@ -10,13 +10,13 @@ headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is
 | 1 | `npm ci` | ✅ installed, **0 vulnerabilities**; postinstall copied MapLibre worker |
 | 2 | `npm run typecheck` (`next typegen && tsc --noEmit`) | ✅ exit 0 |
 | 3 | `npm run lint` | ✅ exit 0, 0 errors, 0 warnings |
-| 4–5 | `npx vitest run` (unit + integration; integration = `npm run data:validate`) | ✅ **13 files, 120 tests passed** (+ Hôm nay ăn gì? engine/provenance/importer) — + shared engine rows round-trip, module rules (item vs establishment attributes, vocabularies, categories, price units), writes never report false success (failing client), module import (CSV/JSON, merge, duplicates, HCMC boundary, evidence), pilot data sources |
-| 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **40 checks** — migrations 0001–0008 (eating/dining attributes, nutrition must cite a source) + seed ×2 (incl. pilot data); establishment attributes; no implicit Food tag; tag audit; every establishment has an experience tag; seeded coffee offerings readable by anon; items/offerings rules; plus all earlier RLS/account/evidence checks |
+| 4–5 | `npx vitest run` (unit + integration; integration = `npm run data:validate`) | ✅ **14 files, 129 tests passed** (+ research exchange validation, evidence guard, platform counts, meal-time ranking) (+ Hôm nay ăn gì? engine/provenance/importer) — + shared engine rows round-trip, module rules (item vs establishment attributes, vocabularies, categories, price units), writes never report false success (failing client), module import (CSV/JSON, merge, duplicates, HCMC boundary, evidence), pilot data sources |
+| 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **40 checks — re-run 2026-11-28 against the new seed (118 venues, 121 links), not assumed** — migrations 0001–0008 (eating/dining attributes, nutrition must cite a source) + seed ×2 (incl. pilot data); establishment attributes; no implicit Food tag; tag audit; every establishment has an experience tag; seeded coffee offerings readable by anon; items/offerings rules; plus all earlier RLS/account/evidence checks |
 | 6 | `npm run build` (production config) | ✅ exit 0 — no sample venues in `/data/food.json` |
 | 6b | `npm run build:e2e` (`NEXT_PUBLIC_DEV_DATA=1`) | ✅ exit 0 |
-| 7 | `npx playwright test` (against `next start`) | ✅ **84 passed** (42 Food + cross-module scenarios incl. 10 Hôm nay ăn gì? × desktop + Pixel 7) |
+| 7 | `npx playwright test` (against `next start`) | ✅ **91 passed** (incl. 14 Hôm nay ăn gì?, mobile nav, theme and live-count scenarios × desktop + Pixel 7; first run 89/91 — 2 expected failures from the new "1 of 138 dishes" count label, expectation updated and re-run) |
 | 7b | `npm run build:auth-test && npm run test:e2e-auth` (**mock** Supabase Auth + REST; Coffee flag on) | ✅ **28 passed** (14 scenarios × desktop + Pixel 7) |
-| 7c | `npm run build:modules-test && npm run test:e2e-modules` (production-like static build, Coffee flag on, real pilot data; real service worker in cache.spec) | ✅ **36 passed** (18 scenarios × desktop + Pixel 7, incl. visual parity) |
+| 7c | `npm run build:modules-test && npm run test:e2e-modules` (production-like static build, Coffee flag on, real pilot data; real service worker in cache.spec) | ✅ **37 passed** (incl. visual parity + per-experience pastel theme check; mobile labels Explore · Catalogue · Nearby · Passport) |
 | 8–9 | `NEXT_PUBLIC_DEV_DATA=1 STATIC_EXPORT=1 npx next build` + `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` | ✅ **76 passed** (offline static export) |
 
 **Mock vs real:** every account/passport browser test runs against `e2e-auth/mock-supabase.mjs` (GoTrue + PostgREST subset, owner-only RLS emulated). Real Postgres RLS/constraints are covered by `npm run test:db`. **Not yet tested against a live Supabase project:** Google OAuth round-trip, real verification/recovery emails, network latency — pending provisioning (docs/PREVIEW_CHECKLIST.md).
@@ -124,6 +124,14 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 | Failed writes never report success | unit "writes never report false success"; Admin shows ✗ with the database message |
 
 Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-catalogue`, `*-food-dish`, `*-settings`, `*-settings-account-guest`, `*-passport-gate`, `*-coffee-map`, `*-coffee-catalogue`, `*-coffee-item`, `*-coffee-cafe`.
+
+## PO decisions D55–D58 + data scaling (2026-11-28)
+- **Mobile nav (D55):** `e2e/what-to-eat.spec.ts` "Food: five tabs; Explore switches between Map and Discover" (Pixel 7): bottom bar = Explore · Eat today · Catalogue · Nearby · Passport; Explore stays active on Discover; deep link `/discover/` selects Discover. Module modes: Explore · Catalogue · Nearby · Passport (`e2e-modules/coffee.spec.ts`, `journeys.spec.ts`). Desktop nav unchanged (`e2e/experiences.spec.ts`).
+- **Meal time (D56):** unit "meal time ranks by default and is strict only when asked"; e2e zero-result test now needs "Only late night"; results split (`wte-results` with places, `wte-unplaced` without) with eligible = with places + without places and unique place count (unit compares with deduplicated links).
+- **Themes (D57):** `e2e-modules/visual.spec.ts` checks `--forest` per mode (bars #5e4b78, coffee #6e4f35, spa #2e6664, sport #22665a); Food `--ivory` #f3f5ef. Screenshots `docs/screenshots/themes/`.
+- **Counts:** catalogue "1 of 138 dishes", coverage line and per-dish place counts; Settings → About and Admin coverage (e2e "live data counts").
+- **Research exchange:** `tests/unit/exchange.test.ts` (schema, unknown ids, outside HCMC, duplicate vs legacy id merge, module items, photo metadata, geocode sanity incl. the Kira Pilates wrong-business case, queue overlap); `engine-import.test.ts` evidence guard. Intake end-to-end: CC-FOOD-009 dry run → apply → **rollback (12 files restored, data identical to git)** → re-apply with Chè Hiển Khánh excluded → 118 venues / 121 links; reports regenerated.
+- **Supabase:** real project still not provisioned — **live Supabase integration remains unverified**; DB behaviour verified on local PostgreSQL only.
 
 ## Hôm nay ăn gì? P0 fix (EAT-01…08) — reproduced, root-caused, fixed
 **Reproduced** on the deployed commit (`60bb14f`, production build, Pixel 7 + desktop, clock 12:00 HCMC) with saved preferences Vegan + No pork: **0 cards**, empty state below a full-screen panel, 0 console errors → `docs/screenshots/what-to-eat/p0/before-*`.
