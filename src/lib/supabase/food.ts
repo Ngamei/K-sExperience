@@ -10,6 +10,7 @@ export const READ_COLUMNS = {
   dishes: "id,name_vi,name_en,alt_names,category,dish_type,family,ingredients,taste,spice_level,dietary,meal_times,description_vi,description_en,prominence,dataset,verification_status,verification_notes,verified_at,eating",
   dish_origins: "dish_id,province_id,region_id,role,sort_order",
   dish_photos: "dish_id,url,credit,license,source_url,sort_order",
+  venue_photos: "establishment_id,url,kind,source_url,attribution,license,last_checked_at,caption,sort_order",
   dish_sources: "dish_id,title,url,accessed,note",
   restaurants: "id,name,is_sample,address,neighbourhood,lon,lat,coordinate_precision,google_maps_url,closure,highlights,venue_type,price_range,opening_hours,contact,delivery_links,last_verified,attributes,dining",
   restaurant_sources: "restaurant_id,title,url,accessed,note",

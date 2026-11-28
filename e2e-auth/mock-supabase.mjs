@@ -11,11 +11,11 @@ const PK = {
   user_profiles: ["user_id"],
 };
 let db;
-const reset = () => { db = { users: [], roles: {}, refresh: {}, fail: false, tables: { saved_experiences: [], experience_history: [], tasting_notes: [], user_profiles: [] } }; };
+const reset = () => { db = { users: [], roles: {}, memberships: {}, refresh: {}, fail: false, tables: { saved_experiences: [], experience_history: [], tasting_notes: [], user_profiles: [] } }; };
 reset();
 
 const b64 = (o) => Buffer.from(JSON.stringify(o)).toString("base64url");
-const publicUser = (u) => ({ id: u.id, aud: "authenticated", role: "authenticated", email: u.email, email_confirmed_at: u.created_at, created_at: u.created_at, app_metadata: { provider: "email", providers: ["email"] }, user_metadata: u.meta ?? {}, identities: [{ id: u.id, provider: "email", identity_data: { email: u.email } }] });
+const publicUser = (u) => { const p = u.phone ? "phone" : "email"; return { id: u.id, aud: "authenticated", role: "authenticated", email: u.email ?? "", phone: u.phone ?? "", email_confirmed_at: u.email ? u.created_at : undefined, phone_confirmed_at: u.phone ? u.created_at : undefined, created_at: u.created_at, app_metadata: { provider: p, providers: [p] }, user_metadata: u.meta ?? {}, identities: [{ id: u.id, provider: p, identity_data: u.phone ? { phone: u.phone } : { email: u.email } }] }; };
 const session = (u) => {
   const exp = Math.floor(Date.now() / 1000) + 3600;
   const access_token = `${b64({ alg: "HS256", typ: "JWT" })}.${b64({ sub: u.id, email: u.email, role: "authenticated", aud: "authenticated", exp })}.mock`;
@@ -49,7 +49,13 @@ createServer(async (req, res) => {
     db.roles[u.id] = url.searchParams.get("role");
     return send(res, 200, { ok: true });
   }
-  if (p === "/__db") return send(res, 200, { users: db.users.map((u) => ({ id: u.id, email: u.email })), ...db.tables });
+  if (p === "/__membership") { // test entitlement (stands in for an admin writing user_memberships)
+    const u = db.users.find((x) => x.email === url.searchParams.get("email"));
+    if (!u) return send(res, 404, { message: "no such user" });
+    db.memberships[u.id] = { user_id: u.id, tier: url.searchParams.get("tier"), source: "test", valid_until: null, updated_at: new Date().toISOString() };
+    return send(res, 200, { ok: true });
+  }
+  if (p === "/__db") return send(res, 200, { users: db.users.map((u) => ({ id: u.id, email: u.email, phone: u.phone })), ...db.tables });
   // ---- auth ---------------------------------------------------------------------------------
   if (p === "/auth/v1/signup" && req.method === "POST") {
     const { email, password, data } = await readBody(req);
@@ -77,6 +83,26 @@ createServer(async (req, res) => {
     if (req.method === "PUT") { const b = await readBody(req); if (b.password) u.password = b.password; }
     return send(res, 200, publicUser(u));
   }
+  // Phone sign-in: any valid E.164 number gets code 123456 (stands in for the SMS provider).
+  if (p === "/auth/v1/otp" && req.method === "POST") {
+    const { phone } = await readBody(req);
+    if (!/^\+?\d{8,15}$/.test(phone ?? "")) return send(res, 422, { code: 422, error_code: "validation_failed", msg: "Invalid phone number format" });
+    db.otp = { ...(db.otp ?? {}), [phone.replace(/^\+/, "")]: "123456" };
+    return send(res, 200, {});
+  }
+  if (p === "/auth/v1/verify" && req.method === "POST") {
+    const { phone, token, type } = await readBody(req);
+    const key = (phone ?? "").replace(/^\+/, "");
+    if (type !== "sms" || db.otp?.[key] !== token) return send(res, 403, { code: 403, error_code: "otp_expired", msg: "Token has expired or is invalid" });
+    let u = db.users.find((x) => x.phone === key);
+    if (!u) {
+      u = { id: randomUUID(), phone: key, password: null, meta: {}, created_at: new Date().toISOString() };
+      db.users.push(u);
+      db.tables.user_profiles.push({ user_id: u.id, display_name: null, avatar_url: null, locale: "en", share_passport: false, created_at: u.created_at });
+    }
+    delete db.otp[key];
+    return send(res, 200, session(u));
+  }
   if (p === "/auth/v1/logout") return send(res, 204);
   if (p === "/auth/v1/recover") return send(res, 200, {});
   // ---- rest ---------------------------------------------------------------------------------
@@ -88,6 +114,17 @@ createServer(async (req, res) => {
     return send(res, 204);
   }
   const table = p.replace("/rest/v1/", "");
+  const one = (rows) => (req.headers.accept ?? "").includes("vnd.pgrst.object")
+    ? (rows.length === 1 ? send(res, 200, rows[0]) : send(res, 406, { code: "PGRST116", message: "0 rows", details: "", hint: null })) : send(res, 200, rows);
+  if (table === "user_roles" && req.method !== "GET") return send(res, 403, { code: "42501", message: "new row violates row-level security policy for table \"user_roles\"" }); // no client write policy
+  if (table === "user_memberships") { // 0013: read own (admins read all); writes by admins only
+    const sub = subOf(req), admin = sub && db.roles[sub] === "admin";
+    if (req.method === "GET") return one(Object.values(db.memberships).filter((m) => (admin || m.user_id === sub) && match(m, filters(url))));
+    if (!admin) return send(res, 403, { code: "42501", message: "new row violates row-level security policy for table \"user_memberships\"" });
+    const body = await readBody(req);
+    for (const r of Array.isArray(body) ? body : [body]) db.memberships[r.user_id] = { valid_until: null, source: "test", ...r };
+    return send(res, 201);
+  }
   if (table === "user_roles") { // "read own role" policy: a user sees only their own row
     const sub = subOf(req), role = sub && db.roles[sub];
     const rows = role && match({ user_id: sub }, filters(url)) ? [{ role }] : [];

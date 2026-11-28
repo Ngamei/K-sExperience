@@ -123,7 +123,7 @@ test("Settings shows Account first: sign in / sign up for guests, profile and lo
   await expect(page.getByTestId("experience-mode")).toBeVisible();
   const sections = await page.locator("[data-testid=account-section], [data-testid=experience-mode]").evaluateAll((els) => els.map((e) => e.getAttribute("data-testid")));
   expect(sections).toEqual(["account-section", "experience-mode"]);
-  await expect(page.getByTestId("account-guest")).toContainText("synced across your devices");
+  await expect(page.getByTestId("account-guest")).toContainText("Save your discoveries and make them yours.");
   await page.getByTestId("account-signup").click();
   await expect(gate(page).getByTestId("auth-panel")).toHaveAttribute("data-mode", "signup");
   const email = unique("settings");
@@ -233,7 +233,7 @@ test("password recovery and reset", async ({ page }) => {
 
 // KEX-SEC-01: /admin/ fails closed — guests and signed-in non-editors get no editor tools; editors do.
 // (Writes are also refused by RLS for non-editors, whatever the UI does: tests/db/rls.sql.)
-const ADMIN_TOOLS = ["admin-modes", "admin-tab-dishes", "admin-tab-import", "admin-save", "admin-coverage"];
+const ADMIN_TOOLS = ["admin-nav", "admin-section-overview", "admin-kpis", "admin-modes", "admin-tab-dishes", "admin-save", "admin-coverage", "admin-system", "admin-users"];
 test("admin: a guest sees only the editor sign-in, no tools", async ({ page }) => {
   await page.goto("/admin/");
   await expect(page.getByTestId("admin-locked")).toHaveAttribute("data-state", "guest");
@@ -246,7 +246,7 @@ test("admin: a guest sees only the editor sign-in, no tools", async ({ page }) =
 test("admin: a signed-in non-editor is refused, no tools", async ({ page }) => {
   await signup(page, unique("plain"));
   await page.goto("/admin/");
-  await expect(page.getByTestId("admin-auth")).toContainText("not an editor");
+  await expect(page.getByTestId("admin-auth")).toContainText("not staff");
   await expect(page.getByTestId("admin-locked")).toHaveAttribute("data-state", "not-editor");
   for (const id of ADMIN_TOOLS) await expect(page.getByTestId(id)).toHaveCount(0);
 });
@@ -258,7 +258,7 @@ test("admin: an authorized editor gets the tools with database saving", async ({
   await page.goto("/admin/");
   await expect(page.getByTestId("admin-auth")).toContainText("editor");
   await expect(page.getByTestId("admin-locked")).toHaveCount(0);
-  await page.getByTestId("admin-tab-dishes").click();
+  await page.getByTestId("admin-section-catalogue").click();
   await page.getByTestId("dish-editor-select").selectOption("mi-quang");
   await expect(page.getByTestId("admin-save")).toHaveText("Save to database");
 });
@@ -322,4 +322,42 @@ test("Coffee Passport is behind the same sign-in gate", async ({ page }) => {
   await page.goto("/coffee/passport/");
   await expect(page.getByTestId("auth-dialog")).toBeVisible();
   await expect(page.getByTestId("module-passport")).toHaveCount(0);
+});
+
+// Facebook + phone (SMS code) sign-in — enabled in this build with NEXT_PUBLIC_AUTH_METHODS=google,facebook,phone.
+test("phone sign-in: Vietnamese number, wrong code refused, right code signs in and keeps guest progress", async ({ page }) => {
+  await tryDish(page, "bun-cha-ha-noi");
+  const local = `09${String(Date.now()).slice(-8)}`; // unique per run
+  const e164 = `+84${local.slice(1)}`;
+  await page.goto("/login/?next=/passport/");
+  await page.getByTestId("phone-login").click();
+  await expect(page.getByTestId("phone-panel")).toBeVisible();
+  await page.getByTestId("phone-number").fill("12345");
+  await page.getByTestId("phone-send").click();
+  await expect(page.getByTestId("auth-message")).toContainText("valid mobile number");
+  await page.getByTestId("phone-number").fill(local.replace(/(\d{4})(\d{3})(\d{3})/, "$1 $2 $3"));
+  await page.getByTestId("phone-send").click();
+  await expect(page.getByTestId("auth-message")).toContainText(`Code sent to ${e164}`);
+  await page.getByTestId("phone-code").fill("000000");
+  await page.getByTestId("phone-verify").click();
+  await expect(page.getByTestId("auth-message")).toContainText("isn't right or has expired");
+  await page.getByTestId("phone-code").fill("123456");
+  await page.getByTestId("phone-verify").click();
+  await expect(page).toHaveURL(/\/passport\/$/);
+  await expect(page.getByTestId("passport-account")).toBeVisible();
+  await expect(page.getByTestId("migration-running")).toHaveCount(0);
+  const d = await db();
+  const uid = (d.users as { id: string; phone?: string }[]).find((u) => u.phone === e164.slice(1))?.id;
+  expect(uid).toBeTruthy();
+  await expect.poll(async () => (await db()).experience_history.filter((r) => r.user_id === uid).map((r) => r.item_id)).toContain("bun-cha-ha-noi");
+});
+
+test("Facebook and Google buttons start their provider's sign-in, returning to the requested page", async ({ page }) => {
+  await page.goto("/login/?next=/passport/");
+  await expect(page.getByTestId("google-login")).toBeVisible();
+  await page.route("**/auth/v1/authorize**", (r) => r.fulfill({ status: 200, body: "provider page (stub)" }));
+  const [req] = await Promise.all([page.waitForRequest("**/auth/v1/authorize**"), page.getByTestId("facebook-login").click()]);
+  const url = new URL(req.url());
+  expect(url.searchParams.get("provider")).toBe("facebook");
+  expect(url.searchParams.get("redirect_to")).toContain("/auth/callback/?next=%2Fpassport%2F");
 });

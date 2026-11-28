@@ -47,12 +47,20 @@ interface UserState {
   toggleModuleSaved: (exp: ExperienceId, itemId: string) => void;
   toggleModuleTried: (exp: ExperienceId, itemId: string) => void;
   toggleModuleVisited: (exp: ExperienceId, establishmentId: string) => void;
+  toggleModuleSavedVenue: (exp: ExperienceId, establishmentId: string) => void;
   /** Replace personal data of every experience (after sign-in/merge) and set its owner. */
   loadPassport: (owner: string | null, all: Passports) => void;
   /** Clear personal data from this device (sign-out); preferences/language stay. */
   clearPersonal: () => void;
   setSync: (sync: UserState["sync"], syncError?: string | null) => void;
-  reset: () => void;
+  /** Privacy & Data → reset diet / budget / interest preferences only. Passport and saved items are untouched. */
+  resetPreferences: () => void;
+  /**
+   * Privacy & Data → clear everything this browser stores for the app (language stays). The device copy is
+   * detached from any account first (ownerId → null) so the account sync can never read the empty device as
+   * "the user deleted everything": cloud Passport history is not touched.
+   */
+  clearDevice: () => void;
 }
 
 /** Sample venues are shown only in development/test builds (DEV_DATA) and only when the toggle is on. */
@@ -148,6 +156,7 @@ export const useUser = create<UserState>()(
       },
       toggleModuleSaved: (exp, itemId) => set({ modulePassports: { ...get().modulePassports, [exp]: modulePatch(get().modulePassports[exp], (p) => ({ ...p, saved: p.saved.includes(itemId) ? p.saved.filter((x) => x !== itemId) : [...p.saved, itemId] })) } }),
       toggleModuleTried: (exp, itemId) => set({ modulePassports: { ...get().modulePassports, [exp]: modulePatch(get().modulePassports[exp], (p) => ({ ...p, tried: toggleDate(p.tried, itemId) })) } }),
+      toggleModuleSavedVenue: (exp, id) => set({ modulePassports: { ...get().modulePassports, [exp]: modulePatch(get().modulePassports[exp], (p) => ({ ...p, savedVenues: p.savedVenues.includes(id) ? p.savedVenues.filter((x) => x !== id) : [...p.savedVenues, id] })) } }),
       toggleModuleVisited: (exp, id) => set({ modulePassports: { ...get().modulePassports, [exp]: modulePatch(get().modulePassports[exp], (p) => ({ ...p, visited: toggleDate(p.visited, id) })) } }),
       loadPassport: (owner, all) => {
         const p = all[FOOD] ?? EMPTY_PASSPORT;
@@ -159,7 +168,8 @@ export const useUser = create<UserState>()(
       },
       clearPersonal: () => set({ ownerId: null, ...EMPTY_PASSPORT, collections: [], modulePassports: {}, sync: "idle", syncError: null }),
       setSync: (sync, syncError = null) => set({ sync, syncError }),
-      reset: () => set({ ...initial, locale: get().locale, ownerId: get().ownerId }),
+      resetPreferences: () => set({ preferences: DEFAULT_PREFERENCES }),
+      clearDevice: () => set({ ...initial, locale: get().locale, ownerId: null, sync: "idle", syncError: null }),
     }),
     {
       name: "ks-experience-user",

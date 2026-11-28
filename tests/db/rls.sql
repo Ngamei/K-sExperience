@@ -250,5 +250,150 @@ do $$ begin
   insert into results values ('invalid closure rejected', false);
 exception when check_violation then insert into results values ('invalid closure rejected', true); end $$;
 
+-- 0013 (KEX-SEC-02): membership tiers are entitlements, never permissions; nobody self-grants a role or a tier.
+reset role;
+insert into auth.users values ('00000000-0000-0000-0000-000000000006'), ('00000000-0000-0000-0000-000000000007'), ('00000000-0000-0000-0000-000000000008'), ('00000000-0000-0000-0000-000000000009');
+insert into user_roles values ('00000000-0000-0000-0000-000000000007', 'admin'), ('00000000-0000-0000-0000-000000000008', 'reviewer');
+-- (a) a customer cannot grant themselves Premium or a staff role
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000006';
+do $$ begin
+  begin insert into user_memberships (user_id, tier) values ('00000000-0000-0000-0000-000000000006', 'premium'); exception when others then null; end;
+  begin insert into user_roles values ('00000000-0000-0000-0000-000000000006', 'admin'); exception when others then null; end;
+end $$;
+reset role;
+insert into results select 'customer cannot self-assign a membership', count(*) = 0 from user_memberships where user_id = '00000000-0000-0000-0000-000000000006';
+insert into results select 'customer cannot self-assign a staff role', count(*) = 0 from user_roles where user_id = '00000000-0000-0000-0000-000000000006';
+-- (b) an admin grants a test entitlement (audited)
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000007';
+insert into user_memberships (user_id, tier, source, updated_by) values ('00000000-0000-0000-0000-000000000006', 'premium', 'test', '00000000-0000-0000-0000-000000000007');
+insert into user_memberships (user_id, tier, source) values ('00000000-0000-0000-0000-000000000009', 'plus', 'test');
+reset role;
+insert into results select 'admin grants a test membership', tier = 'premium' from user_memberships where user_id = '00000000-0000-0000-0000-000000000006';
+insert into results select 'membership change audited with the admin', count(*) = 1 from content_audit where table_name = 'user_memberships' and row_key = '00000000-0000-0000-0000-000000000006' and changed_by = '00000000-0000-0000-0000-000000000007';
+-- (c) a Premium customer is still not staff: no catalogue writes, no audit, no other users' memberships, cannot upgrade/extend
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000006';
+insert into results select 'premium customer is not an editor', not is_editor();
+insert into results select 'premium customer is not staff', not is_staff();
+insert into results select 'premium customer reads own membership only', count(*) = 1 and bool_and(user_id = '00000000-0000-0000-0000-000000000006') from user_memberships;
+insert into results select 'premium customer cannot read the audit trail', count(*) = 0 from content_audit;
+update dishes set name_en = 'premium-edit' where id = 'mi-quang';
+update user_memberships set tier = 'premium', valid_until = '2099-01-01' where user_id = '00000000-0000-0000-0000-000000000009';
+update user_memberships set valid_until = '2099-01-01' where user_id = '00000000-0000-0000-0000-000000000006';
+reset role;
+insert into results select 'premium customer catalogue update had no effect', name_en <> 'premium-edit' from dishes where id = 'mi-quang';
+insert into results select 'customer cannot change memberships (own or others)', (select tier from user_memberships where user_id = '00000000-0000-0000-0000-000000000009') = 'plus' and (select valid_until from user_memberships where user_id = '00000000-0000-0000-0000-000000000006') is null;
+-- (d) a reviewer is read-only staff: reads the audit trail, cannot write the catalogue or memberships
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000008';
+insert into results select 'reviewer is staff but not an editor', is_staff() and not is_editor();
+insert into results select 'reviewer reads the audit trail', count(*) > 0 from content_audit;
+insert into results select 'reviewer cannot read customer memberships', count(*) = 0 from user_memberships;
+update dishes set name_en = 'reviewer-edit' where id = 'mi-quang';
+reset role;
+insert into results select 'reviewer catalogue update had no effect', name_en <> 'reviewer-edit' from dishes where id = 'mi-quang';
+do $$ begin
+  insert into user_roles values ('00000000-0000-0000-0000-000000000006', 'superuser');
+  insert into results values ('unknown staff role rejected', false);
+exception when check_violation then insert into results values ('unknown staff role rejected', true); end $$;
+
+-- 0014 (KEX-MEM-04): membership quotas enforced in the database, off by default.
+reset role;
+insert into auth.users values ('00000000-0000-0000-0000-000000000010'), ('00000000-0000-0000-0000-000000000011');
+-- (a) enforcement off: a Free member may save more than 20 references
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000010';
+insert into saved_experiences (user_id, experience_id, item_type, item_id) select '00000000-0000-0000-0000-000000000010', 'food', 'dish', 'q-' || g from generate_series(1, 22) g;
+reset role;
+insert into results select 'quotas off by default (Free saved 22)', count(*) = 22 from saved_experiences where user_id = '00000000-0000-0000-0000-000000000010';
+insert into results select 'proposed limits seeded (free 20 / plus 150 / premium unlimited)', (select value from membership_limits where tier = 'free' and limit_key = 'saved_references') = 20 and (select value from membership_limits where tier = 'plus' and limit_key = 'saved_references') = 150 and (select value from membership_limits where tier = 'premium' and limit_key = 'saved_references') is null;
+-- (b) a customer cannot switch enforcement or change quotas
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000010';
+update membership_settings set enforce_limits = true;
+update membership_limits set value = 9999 where tier = 'free';
+reset role;
+insert into results select 'customer cannot change quota settings', not enforce_limits from membership_settings;
+insert into results select 'customer cannot change quota values', (select value from membership_limits where tier = 'free' and limit_key = 'saved_references') = 20;
+-- (c) admin switches enforcement on
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000007';
+update membership_settings set enforce_limits = true;
+reset role;
+insert into results select 'admin can switch enforcement on', enforce_limits from membership_settings;
+-- (d) Free member over quota: new reference refused; existing saves kept (downgrade retention); re-save into a collection allowed
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000010';
+do $$ begin
+  insert into saved_experiences (user_id, experience_id, item_type, item_id) values ('00000000-0000-0000-0000-000000000010', 'food', 'dish', 'q-new');
+  insert into results values ('new reference above Free quota refused', false);
+exception when others then insert into results values ('new reference above Free quota refused', sqlerrm like 'quota_exceeded:saved_references:20%'); end $$;
+insert into saved_experiences (user_id, experience_id, item_type, item_id, collection) values ('00000000-0000-0000-0000-000000000010', 'food', 'dish', 'q-1', 'Weekend');
+insert into results select 'existing reference can go into a collection (not counted twice)', count(*) = 1 from saved_experiences where item_id = 'q-1' and collection = 'Weekend';
+insert into saved_experiences (user_id, experience_id, item_type, item_id, collection) values ('00000000-0000-0000-0000-000000000010', 'food', 'dish', 'q-2', 'Office');
+do $$ begin
+  insert into saved_experiences (user_id, experience_id, item_type, item_id, collection) values ('00000000-0000-0000-0000-000000000010', 'food', 'dish', 'q-3', 'Third');
+  insert into results values ('third collection above Free quota refused', false);
+exception when others then insert into results values ('third collection above Free quota refused', sqlerrm like 'quota_exceeded:collections:2%'); end $$;
+-- quotas are per experience: Coffee still has room
+insert into saved_experiences (user_id, experience_id, item_type, item_id) values ('00000000-0000-0000-0000-000000000010', 'coffee', 'item', 'ca-phe-sua-da');
+insert into results select 'quota is per experience', count(*) = 1 from saved_experiences where user_id = '00000000-0000-0000-0000-000000000010' and experience_id = 'coffee';
+-- Passport history is never limited
+insert into experience_history (user_id, experience_id, item_type, item_id, action) select '00000000-0000-0000-0000-000000000010', 'food', 'dish', 'h-' || g, 'tried' from generate_series(1, 40) g;
+reset role;
+insert into results select 'Passport history unlimited with quotas on', count(*) = 40 from experience_history where user_id = '00000000-0000-0000-0000-000000000010';
+insert into results select 'over-quota saves retained (downgrade retention)', count(distinct item_id) = 22 from saved_experiences where user_id = '00000000-0000-0000-0000-000000000010' and experience_id = 'food';
+-- (e) Premium (admin-granted test tier): unlimited; expired Premium falls back to Free
+insert into user_memberships (user_id, tier, source) values ('00000000-0000-0000-0000-000000000011', 'premium', 'test');
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000011';
+insert into saved_experiences (user_id, experience_id, item_type, item_id) select '00000000-0000-0000-0000-000000000011', 'food', 'dish', 'p-' || g from generate_series(1, 200) g;
+reset role;
+insert into results select 'Premium saves beyond the Plus quota', count(*) = 200 from saved_experiences where user_id = '00000000-0000-0000-0000-000000000011';
+update user_memberships set valid_until = now() - interval '1 day' where user_id = '00000000-0000-0000-0000-000000000011';
+insert into results select 'expired Premium is Free', member_tier('00000000-0000-0000-0000-000000000011') = 'free';
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000011';
+do $$ begin
+  insert into saved_experiences (user_id, experience_id, item_type, item_id) values ('00000000-0000-0000-0000-000000000011', 'food', 'dish', 'p-new');
+  insert into results values ('after downgrade: no new saves above quota', false);
+exception when others then insert into results values ('after downgrade: no new saves above quota', true); end $$;
+reset role;
+insert into results select 'after downgrade: all 200 saves kept', count(*) = 200 from saved_experiences where user_id = '00000000-0000-0000-0000-000000000011';
+update membership_settings set enforce_limits = false;
+
+-- 0015 (KEX-BIZ-03): venue photos — public read, editors write, constraints, audit.
+reset role;
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000001';
+insert into venue_photos (establishment_id, url, kind, source_url, attribution, license, last_checked_at) values ('pho-hoa-pasteur', 'https://upload.wikimedia.org/x.jpg', 'exterior', 'https://commons.wikimedia.org/wiki/File:X.jpg', 'Author', 'CC BY-SA 4.0', '2026-11-28');
+reset role;
+insert into results select 'editor adds a venue photo (audited)', count(*) = 1 from content_audit where table_name = 'venue_photos' and row_key = 'pho-hoa-pasteur';
+set role anon;
+insert into results select 'anon reads venue photos', count(*) >= 1 from venue_photos where establishment_id = 'pho-hoa-pasteur';
+do $$ begin
+  begin insert into venue_photos (establishment_id, url, kind, source_url, attribution, license, last_checked_at) values ('pho-hoa-pasteur', 'https://x.test/a.jpg', 'exterior', 'https://x.test', 'A', 'CC0', '2026-11-28'); exception when others then null; end;
+end $$;
+reset role;
+insert into results select 'anon cannot add venue photos', count(*) = 0 from venue_photos where url = 'https://x.test/a.jpg';
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000006';
+do $$ begin
+  begin insert into venue_photos (establishment_id, url, kind, source_url, attribution, license, last_checked_at) values ('pho-hoa-pasteur', 'https://x.test/b.jpg', 'exterior', 'https://x.test', 'A', 'CC0', '2026-11-28'); exception when others then null; end;
+end $$;
+reset role;
+insert into results select 'customer (even Premium) cannot add venue photos', count(*) = 0 from venue_photos where url = 'https://x.test/b.jpg';
+do $$ begin
+  insert into venue_photos (establishment_id, url, kind, source_url, attribution, license, last_checked_at) values ('pho-hoa-pasteur', 'http://insecure.test/c.jpg', 'exterior', 'https://x.test', 'A', 'CC0', '2026-11-28');
+  insert into results values ('non-https / uncredited venue photo rejected', false);
+exception when check_violation then insert into results values ('non-https / uncredited venue photo rejected', true); end $$;
+do $$ begin
+  insert into venue_photos (establishment_id, url, kind, source_url, attribution, license, last_checked_at) values ('pho-hoa-pasteur', 'https://x.test/d.jpg', 'stock', 'https://x.test', 'A', 'CC0', '2026-11-28');
+  insert into results values ('unknown photo kind rejected', false);
+exception when check_violation then insert into results values ('unknown photo kind rejected', true); end $$;
+delete from venue_photos where url = 'https://upload.wikimedia.org/x.jpg';
+
 select (case when ok then 'PASS ' else 'FAIL ' end) || name from results;
 select case when bool_and(ok) then 'ALL DB TESTS PASSED' else 'DB TESTS FAILED' end from results;

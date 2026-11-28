@@ -27,6 +27,7 @@ const field = "h-10 w-full rounded-xl border border-line bg-paper px-3 text-sm";
 const label = "mb-1 block text-[11px] font-semibold uppercase tracking-[0.12em] text-muted";
 const TABS = ["Overview", "Items", "Establishments", "Offerings", "Import"] as const;
 type Tab = (typeof TABS)[number];
+export type ModuleTab = Tab;
 type Attr = ExperienceItem["attributes"][string];
 
 function download(name: string, data: unknown) {
@@ -83,11 +84,13 @@ function SaveBar({ disabled, canPersist, onSave, msg }: { disabled: boolean; can
   );
 }
 
-export function ModuleAdmin({ id, canPersist, inHcmc }: { id: ExperienceId; canPersist: boolean; inHcmc: (p: [number, number]) => boolean | null }) {
+/** `tab` set = controlled by the Admin Portal section (no own tab bar); unset = standalone with its own tabs. */
+export function ModuleAdmin({ id, canPersist, inHcmc, tab: fixedTab }: { id: ExperienceId; canPersist: boolean; inHcmc: (p: [number, number]) => boolean | null; tab?: Tab }) {
   const m = EXPERIENCES.find((e) => e.id === id)!;
   const qc = useQueryClient();
   const { data, error, refetch } = useQuery({ queryKey: ["experience-data", id], queryFn: () => fetchExperienceData(id), staleTime: Infinity });
-  const [tab, setTab] = useState<Tab>("Overview");
+  const [ownTab, setTab] = useState<Tab>("Overview");
+  const tab = fixedTab ?? ownTab;
   const persist = async (save: () => Promise<void>, fallbackName: string, record: unknown) => {
     if (!canPersist) { download(fallbackName, record); return "Downloaded validated JSON (local mode — nothing saved)."; }
     await save(); // throws on any database error → shown as a failure, never as success
@@ -98,9 +101,9 @@ export function ModuleAdmin({ id, canPersist, inHcmc }: { id: ExperienceId; canP
   if (!data) return <p className="text-sm text-muted">Loading…</p>;
   return (
     <section className="space-y-4" data-testid="module-admin" data-experience={id}>
-      <nav className="no-scrollbar flex gap-2 overflow-x-auto" aria-label={`${m.id} admin sections`}>
+      {!fixedTab && <nav className="no-scrollbar flex gap-2 overflow-x-auto" aria-label={`${m.id} admin sections`}>
         {TABS.map((t) => <Chip key={t} active={tab === t} onClick={() => setTab(t)} data-testid={`module-admin-tab-${t.toLowerCase()}`}>{t}</Chip>)}
-      </nav>
+      </nav>}
       {tab === "Overview" && <ModuleOverview m={m} d={data} />}
       {tab === "Items" && <ItemEditor m={m} d={data} canPersist={canPersist} persist={persist} />}
       {tab === "Establishments" && <EstablishmentEditor m={m} d={data} canPersist={canPersist} persist={persist} inHcmc={inHcmc} />}

@@ -1,27 +1,32 @@
 "use client";
+import { contactOf, displayNameOf } from "@/lib/auth/methods";
 import Link from "next/link";
 import { LogOut } from "lucide-react";
 import { useState } from "react";
 import { supabaseEnabled } from "@/lib/supabase/client";
 import { authDict } from "@/lib/i18n/auth-dict";
+import { settingsDict } from "@/lib/i18n/settings-dict";
 import { useT } from "@/lib/i18n/use-t";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/components/shell/auth-provider";
 import { AuthDialog } from "./auth-gate";
 import type { AuthMode } from "./auth-forms";
 
-/** Settings → Account (first section). Ordinary accounts only; admin roles are managed separately (user_roles). */
+/** Settings → Account (first section). Customer accounts only; staff roles are managed separately (user_roles) and never shown here. */
 export function AccountCard() {
   const { locale } = useT();
   const a = authDict(locale);
+  const st = settingsDict(locale);
   const { status, user, profile, signOut } = useAuth();
   const [dialog, setDialog] = useState<AuthMode | null>(null);
-  const name = profile?.display_name || user?.email?.split("@")[0] || "";
+  const name = displayNameOf(user, profile?.display_name);
   return (
-    <section className="rounded-3xl border border-line/80 bg-paper p-5 md:p-6" data-testid="account-section">
-      <h2 className="mb-3 font-display text-xl text-forest">{a.account}</h2>
+    <section className="paper-grain rounded-3xl border border-line/80 bg-paper p-5 md:p-6" data-testid="account-section" aria-label={a.account}>
       {!supabaseEnabled ? (
-        <p className="text-sm text-muted">{a.disabled}</p>
+        <div>
+          <h2 className="font-display text-2xl text-forest">{st.welcome}</h2>
+          <p className="mt-1 text-sm text-muted">{a.disabled}</p>
+        </div>
       ) : status === "signed-in" && user ? (
         <div className="flex flex-wrap items-center gap-3" data-testid="account-signed-in">
           {profile?.avatar_url ? (
@@ -32,7 +37,7 @@ export function AccountCard() {
           )}
           <div className="min-w-0 flex-1 text-sm">
             <strong className="block truncate" data-testid="account-name">{name}</strong>
-            <span className="block truncate text-muted" data-testid="account-email">{user.email}</span>
+            <span className="block truncate text-muted" data-testid="account-email">{contactOf(user)}</span>
           </div>
           <div className="flex w-full gap-2 sm:w-auto">
             <Button asChild variant="outline" className="flex-1 sm:flex-none"><Link href="/profile/" data-testid="account-profile-link">{a.manage}</Link></Button>
@@ -43,7 +48,10 @@ export function AccountCard() {
         <p className="text-sm text-muted">{a.wait}</p>
       ) : (
         <div className="space-y-3" data-testid="account-guest">
-          <p className="text-sm text-charcoal/80">{a.benefits}</p>
+          <div>
+            <h2 className="font-display text-2xl text-forest">{st.welcome}</h2>
+            <p className="mt-1 text-sm text-charcoal/80">{st.welcomeBody}</p>
+          </div>
           <div className="flex gap-2">
             <Button className="flex-1 sm:flex-none" onClick={() => setDialog("login")} data-testid="account-login">{a.signIn}</Button>
             <Button variant="outline" className="flex-1 sm:flex-none" onClick={() => setDialog("signup")} data-testid="account-signup">{a.signUp}</Button>

@@ -101,7 +101,7 @@ test("dish page lists real HCMC venues with Google Maps links and a licensed pho
 
 test("Admin import validator rejects bad rows and accepts good ones", async ({ page }) => {
   await page.goto("/admin/");
-  await page.getByTestId("admin-tab-import").click();
+  await page.getByTestId("admin-section-research").click();
   await page.getByTestId("import-text").fill(JSON.stringify([
     { nameVi: "Phở bò Nam Định", nameEn: "Nam Dinh pho", category: "Món mặn", dishType: "noodle-soup", origins: "Nam Định" },
     { nameVi: "Món lạ", nameEn: "Unknown", category: "drinks", dishType: "noodle-soup", origins: "Atlantis" },
@@ -117,14 +117,14 @@ test.describe("Admin CMS (local mode)", () => {
   test("Review lists the four provinces without dishes", async ({ page }) => {
     await page.goto("/admin/");
     await expect(page.getByTestId("admin-auth")).toContainText("Local mode");
-    await page.getByTestId("admin-tab-review").click();
+    await page.getByTestId("admin-section-quality").click();
     const review = page.getByTestId("admin-review");
     for (const p of ["Thái Nguyên", "Đắk Nông", "Đồng Nai", "Hậu Giang"]) await expect(review).toContainText(p);
   });
 
   test("dish editor validates and downloads a valid record", async ({ page }) => {
     await page.goto("/admin/");
-    await page.getByTestId("admin-tab-dishes").click();
+    await page.getByTestId("admin-section-catalogue").click();
     await page.getByTestId("dish-editor-select").selectOption("mi-quang");
     await expect(page.getByTestId("dish-nameVi")).toHaveValue("Mì Quảng");
     await page.getByTestId("dish-nameEn").fill("");
@@ -138,7 +138,7 @@ test.describe("Admin CMS (local mode)", () => {
 
   test("establishment editor enforces sources and the HCMC boundary", async ({ page }) => {
     await page.goto("/admin/");
-    await page.getByTestId("admin-tab-establishments").click();
+    await page.getByTestId("admin-section-business").click();
     await page.getByTestId("new-restaurant").click();
     await page.getByTestId("restaurant-name").fill("Test Quán");
     await page.getByTestId("restaurant-address").fill("1 Hàng Bông");
@@ -157,7 +157,7 @@ test.describe("Admin CMS (local mode)", () => {
 
   test("evidence editor only offers evidence types that can justify the chosen level", async ({ page }) => {
     await page.goto("/admin/");
-    await page.getByTestId("admin-tab-evidence").click();
+    await page.getByTestId("admin-section-menus").click();
     await page.getByTestId("evidence-status").selectOption("menu-confirmed");
     const types = await page.getByTestId("evidence-type").locator("option").allTextContents();
     expect(types).toEqual(["official-menu", "delivery-listing", "menu-photo"]);
