@@ -5,7 +5,10 @@ test("restaurant profile: shared components, unknown contact shown honestly, onl
   await page.goto("/places/banh-mi-huynh-hoa/");
   const p = page.getByTestId("place-detail");
   await expect(p).toHaveAttribute("data-business-type", "restaurant");
-  await expect(page.getByTestId("hero-media")).toContainText("Illustration · not a photo of this place");
+  await expect(page.getByTestId("hero-media")).toContainText("Illustrative image · not this place");
+  await expect(page.getByTestId("hero-media")).toHaveAttribute("data-default", "image");
+  await expect(page.getByTestId("hero-default-image")).toHaveAttribute("src", "/images/business-defaults/restaurant.webp");
+  expect(await page.getByTestId("hero-default-image").evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth)).toBeGreaterThan(0);
   await expect(page.getByTestId("profile-management")).toContainText("Managed by K's Experience");
   await expect(page.getByTestId("fact-phone")).toHaveAttribute("data-known", "false");
   await expect(page.getByTestId("fact-phone")).toContainText("Not published yet");
