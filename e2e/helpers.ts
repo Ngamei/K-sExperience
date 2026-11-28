@@ -45,7 +45,8 @@ export async function clickLngLat(page: Page, lng: number, lat: number) {
 }
 
 export async function enableSamples(page: Page) {
-  await page.goto("/settings/");
+  // Sample data diagnostics live in Admin → System Health (dev/test builds only; never in customer Settings).
+  await page.goto("/admin/#system");
   const box = page.getByTestId("toggle-samples");
   await box.check();
   await expect(page.getByTestId("data-banner")).toContainText("Sample");

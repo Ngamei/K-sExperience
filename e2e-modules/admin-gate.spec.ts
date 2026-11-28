@@ -7,7 +7,7 @@ import { expect, test } from "@playwright/test";
 test("public local-data build: /admin/ is unavailable and shows no editor tools", async ({ page }) => {
   await page.goto("/admin/");
   await expect(page.getByTestId("admin-unavailable")).toContainText("Admin is not available on this deployment");
-  for (const id of ["admin", "admin-auth", "admin-modes", "admin-tab-dishes", "admin-tab-import", "admin-save", "admin-coverage"]) {
+  for (const id of ["admin", "admin-auth", "admin-nav", "admin-section-overview", "admin-kpis", "admin-modes", "admin-tab-dishes", "admin-save", "admin-coverage", "admin-system", "admin-users"]) {
     await expect(page.getByTestId(id)).toHaveCount(0);
   }
   await expect(page.getByText("Download validated JSON")).toHaveCount(0);

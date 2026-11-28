@@ -7,6 +7,8 @@ import type { SupabaseClient, User } from "@supabase/supabase-js";
 import { DishRestaurantLinkSchema, DishSchema, RestaurantSchema, type Dish, type DishRestaurantLink, type Restaurant } from "../data/schema";
 import { toDishRow, toLinkRow, toOriginRows, toRestaurantRow, toRestaurantSourceRows } from "../data/db-rows";
 import { mergeCatalogues } from "../data/merge";
+import { canEdit, isStaffRole, type StaffRole } from "../admin/access";
+import { isTier, type Tier } from "../membership/plans";
 
 const check = <T,>(r: { success: true; data: T } | { success: false; error: { issues: { path: PropertyKey[]; message: string }[] } }): T => {
   if (!r.success) throw new Error(r.error.issues.map((i) => `${i.path.join(".") || "record"}: ${i.message}`).join("; "));
@@ -17,10 +19,28 @@ const fail = (what: string, e: { message: string } | null) => { if (e) throw new
 export async function currentUser(sb: SupabaseClient): Promise<User | null> {
   return (await sb.auth.getUser()).data.user ?? null;
 }
+/** The signed-in user's staff role, or null. Reads only the caller's own row ("read own role" RLS). Never a membership tier. */
+export async function staffRole(sb: SupabaseClient, user: User | null): Promise<StaffRole | null> {
+  if (!user) return null;
+  const { data, error } = await sb.from("user_roles").select("role").eq("user_id", user.id).maybeSingle();
+  if (error) throw new Error(`role: ${error.message}`);
+  return isStaffRole(data?.role) ? data.role : null;
+}
 export async function isEditor(sb: SupabaseClient, user: User | null): Promise<boolean> {
-  if (!user) return false;
-  const { data } = await sb.from("user_roles").select("role").eq("user_id", user.id).maybeSingle();
-  return data?.role === "admin" || data?.role === "editor";
+  return canEdit(await staffRole(sb, user));
+}
+
+/** Users & Memberships (admins only — RLS refuses everyone else). Test entitlements until billing exists. */
+export interface MembershipRow { user_id: string; tier: Tier; source: string; valid_until: string | null; updated_at: string }
+export async function listMemberships(sb: SupabaseClient): Promise<MembershipRow[]> {
+  const { data, error } = await sb.from("user_memberships").select("user_id,tier,source,valid_until,updated_at").order("updated_at", { ascending: false }).limit(200);
+  fail("memberships", error);
+  return (data ?? []) as MembershipRow[];
+}
+export async function grantTestMembership(sb: SupabaseClient, userId: string, tier: Tier, by: string) {
+  if (!/^[0-9a-f-]{36}$/i.test(userId.trim())) throw new Error("user ID: expected the account's UUID");
+  if (!isTier(tier)) throw new Error("tier: unknown");
+  fail("membership", (await sb.from("user_memberships").upsert({ user_id: userId.trim(), tier, source: "test", updated_by: by, updated_at: new Date().toISOString() })).error);
 }
 export async function signInWithEmail(sb: SupabaseClient, email: string) {
   const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: `${location.origin}/admin/` } });
