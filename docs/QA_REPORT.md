@@ -16,6 +16,16 @@ Environment: Linux cloud container, Node 22.23.5, headless Chromium (Playwright)
 
 **Bug fixed:** the old Settings "Reset my data" (`useUser.reset()`) kept `ownerId`, so for a signed-in user the diff sync treated the emptied device as deletions and removed the account's Passport. Replaced by `clearDevice()` (detaches the device copy first) + `reloadFromAccount()`; the debounced sync also aborts if the device data no longer belongs to the account. Covered by test 6.
 
+### Addendum — default header banners + Google Maps photos link (D80)
+| Command | Result |
+| --- | --- |
+| `npx tsc --noEmit` · `npm run lint` · `npm run build` | ✅ · ✅ 0 errors · ✅ |
+| `npx vitest run` | ✅ **178 tests** (+ every business type has an existing banner) |
+| `npx playwright test` | ✅ **113 passed**, 1 pre-existing skip. One unidentified failure in an earlier run (log not captured) did not reproduce: full suite re-run 113/113, and `business-profile` + `settings` specs ×3 repeats = 60/60 |
+| `npm run test:e2e-modules` | ✅ **62 passed** (banner loads for café, bar, head spa, spa, Pilates, pickleball; Maps link visible; no overflow at 390 px) |
+
+Screenshots: `docs/screenshots/business-profiles/*-desktop.png`, `*-mobile.png`. Visible "Illustrative image" label removed at the PO's request (screen-reader text kept).
+
 ### Addendum — venue photos in the profile header (D78, KEX-BIZ-03)
 | Command | Result |
 | --- | --- |
@@ -26,7 +36,7 @@ Environment: Linux cloud container, Node 22.23.5, headless Chromium (Playwright)
 | `test:e2e-auth` / `test:e2e-modules` | ✅ 50 / 62 (run on the header code before the photo data was added; data change touches one Food venue) |
 | Real photo in the browser (`next start`) | ✅ Bánh Mì Như Lan header loads the Commons photo (naturalWidth 960) on desktop + Pixel 7 — `docs/screenshots/business-profiles/restaurant-photo-*.png` |
 
-**Research (Wikimedia Commons, 28 Nov 2026):** file search for 28 well-known venues + category search (in progress; Commons rate-limits this environment to roughly one request every few minutes). **Accepted:** Bánh Mì Như Lan — 2 exterior photos (Feb 2015, trungydang, CC BY 3.0), each opened and matched to the shop at Hàm Nghi (sign "NHƯ LAN · BÁNH MÌ THỊT NGUỘI"). **Rejected:** "Bánh Canh Cua" (different stall), two Tết flower-market photos returned for Nhà Văn hóa Lao động. No freely licensed photos found for the other 26 searched venues; most venues will need owner permission (KEX-BIZ-04).
+**Research (Wikimedia Commons, 28 Nov 2026):** file search for 28 well-known venues + category search (in progress; Commons rate-limits this environment to roughly one request every few minutes). **Accepted:** Bánh Mì Như Lan — 2 exterior photos (Feb 2015, trungydang, CC BY 3.0), each opened and matched to the shop at Hàm Nghi (sign "NHƯ LAN · BÁNH MÌ THỊT NGUỘI"). **Rejected:** "Bánh Canh Cua" (different stall), two Tết flower-market photos returned for Nhà Văn hóa Lao động. No freely licensed photos found for the other 26 searched venues; most venues will need owner permission (KEX-BIZ-04). **Category search (49 venue names, completed):** only two relevant categories, both rejected — *Labor Cultural Palace of Ho Chi Minh City* (1920s–30s "Cercle sportif" archive photos and the Rồng Vàng water-puppet theatre: not today's pickleball venue) and *Cộng Cà Phê* (Hanoi branches, a drink from an unknown branch, the chain logo: none shows the Lý Tự Trọng branch). Ben Thanh Market photos do not show the bún riêu stall inside it. Wikimedia Commons is exhausted for the current venue list; further photos need owner permission or our own photography (KEX-BIZ-04).
 
 ### Addendum — Business Profile Engine (D77, KEX-BIZ-02)
 | Command | Result |

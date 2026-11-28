@@ -17,6 +17,10 @@ for (const [url, type, section, art] of CASES) {
     await expect(p).toHaveAttribute("data-business-type", type);
     await expect(page.getByRole("heading", { level: 2, name: section })).toBeVisible();
     await expect(page.getByTestId("hero-media")).toHaveAttribute("data-art", art);
+    // PO default banner per business type (no venue photo yet).
+    await expect(page.getByTestId("hero-media")).toHaveAttribute("data-default", "image");
+    await expect(page.getByTestId("hero-default-image")).toHaveAttribute("src", `/images/business-defaults/${type}.webp`);
+    expect(await page.getByTestId("hero-default-image").evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth)).toBeGreaterThan(0);
     await expect(page.getByTestId("establishment-offering").first()).toBeVisible();
     for (const id of ["branch-identity", "contact-facts", "contact-actions", "hours-panel", "source-freshness", "profile-footer-actions"]) await expect(page.getByTestId(id)).toBeVisible();
     await expect(page.getByTestId("fact-phone")).toContainText("Not published yet"); // no phone recorded for any venue yet
@@ -36,4 +40,5 @@ test("profile layout has no horizontal overflow on mobile", async ({ page }) => 
   await page.goto("/spa/nearby/?id=mam-xoi-do-hair-spa");
   await expect(page.getByTestId("establishment-detail")).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+  await expect(page.getByTestId("maps-photos-link")).toBeVisible();
 });

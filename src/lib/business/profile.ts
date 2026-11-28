@@ -23,17 +23,19 @@ export interface BusinessTypeDef {
   art: "plate" | "cups" | "glass" | "nails" | "massage" | "pilates" | "court" | "bags";
   /** Future scope: rendered but not activated (Shopping). */
   future?: boolean;
+  /** Default header image (PO-supplied, illustrative — never this venue) when the venue has no photo of its own. */
+  defaultImage?: string;
 }
 export const BUSINESS_TYPE_DEFS: Record<BusinessType, BusinessTypeDef> = {
-  restaurant: { id: "restaurant", experience: "food", label: { en: "Vietnamese restaurant", vi: "Quán ăn Việt" }, offeringsTitle: { en: "Menu", vi: "Thực đơn" }, art: "plate" },
-  cafe: { id: "cafe", experience: "coffee", label: { en: "Café", vi: "Quán cà phê" }, offeringsTitle: { en: "Drinks & food", vi: "Đồ uống & món ăn" }, art: "cups" },
-  bar: { id: "bar", experience: "bars", label: { en: "Bar & craft beer", vi: "Quán bar & bia thủ công" }, offeringsTitle: { en: "Drinks menu", vi: "Thực đơn đồ uống" }, art: "glass" },
-  "nail-salon": { id: "nail-salon", experience: "spa", label: { en: "Nail salon", vi: "Tiệm nail" }, offeringsTitle: { en: "Services & portfolio", vi: "Dịch vụ & mẫu" }, art: "nails" },
-  spa: { id: "spa", experience: "spa", label: { en: "Spa & massage", vi: "Spa & massage" }, offeringsTitle: { en: "Treatment menu", vi: "Liệu trình" }, art: "massage" },
-  "head-spa": { id: "head-spa", experience: "spa", label: { en: "Head spa · gội đầu dưỡng sinh", vi: "Gội đầu dưỡng sinh" }, offeringsTitle: { en: "Service menu", vi: "Dịch vụ" }, art: "massage" },
-  pilates: { id: "pilates", experience: "sport", label: { en: "Pilates studio", vi: "Studio Pilates" }, offeringsTitle: { en: "Classes & memberships", vi: "Lớp học & gói tập" }, art: "pilates" },
-  pickleball: { id: "pickleball", experience: "sport", label: { en: "Pickleball venue", vi: "Sân pickleball" }, offeringsTitle: { en: "Courts & services", vi: "Sân & dịch vụ" }, art: "court" },
-  boutique: { id: "boutique", experience: "shopping", label: { en: "Boutique", vi: "Cửa hàng" }, offeringsTitle: { en: "Product catalogue", vi: "Danh mục sản phẩm" }, art: "bags", future: true },
+  restaurant: { id: "restaurant", experience: "food", label: { en: "Vietnamese restaurant", vi: "Quán ăn Việt" }, offeringsTitle: { en: "Menu", vi: "Thực đơn" }, defaultImage: "/images/business-defaults/restaurant.webp", art: "plate" },
+  cafe: { id: "cafe", experience: "coffee", label: { en: "Café", vi: "Quán cà phê" }, offeringsTitle: { en: "Drinks & food", vi: "Đồ uống & món ăn" }, defaultImage: "/images/business-defaults/cafe.webp", art: "cups" },
+  bar: { id: "bar", experience: "bars", label: { en: "Bar & craft beer", vi: "Quán bar & bia thủ công" }, offeringsTitle: { en: "Drinks menu", vi: "Thực đơn đồ uống" }, defaultImage: "/images/business-defaults/bar.webp", art: "glass" },
+  "nail-salon": { id: "nail-salon", experience: "spa", label: { en: "Nail salon", vi: "Tiệm nail" }, offeringsTitle: { en: "Services & portfolio", vi: "Dịch vụ & mẫu" }, defaultImage: "/images/business-defaults/nail-salon.webp", art: "nails" },
+  spa: { id: "spa", experience: "spa", label: { en: "Spa & massage", vi: "Spa & massage" }, offeringsTitle: { en: "Treatment menu", vi: "Liệu trình" }, defaultImage: "/images/business-defaults/spa.webp", art: "massage" },
+  "head-spa": { id: "head-spa", experience: "spa", label: { en: "Head spa · gội đầu dưỡng sinh", vi: "Gội đầu dưỡng sinh" }, offeringsTitle: { en: "Service menu", vi: "Dịch vụ" }, defaultImage: "/images/business-defaults/head-spa.webp", art: "massage" },
+  pilates: { id: "pilates", experience: "sport", label: { en: "Pilates studio", vi: "Studio Pilates" }, offeringsTitle: { en: "Classes & memberships", vi: "Lớp học & gói tập" }, defaultImage: "/images/business-defaults/pilates.webp", art: "pilates" },
+  pickleball: { id: "pickleball", experience: "sport", label: { en: "Pickleball venue", vi: "Sân pickleball" }, offeringsTitle: { en: "Courts & services", vi: "Sân & dịch vụ" }, defaultImage: "/images/business-defaults/pickleball.webp", art: "court" },
+  boutique: { id: "boutique", experience: "shopping", label: { en: "Boutique", vi: "Cửa hàng" }, offeringsTitle: { en: "Product catalogue", vi: "Danh mục sản phẩm" }, defaultImage: "/images/business-defaults/boutique.webp", art: "bags", future: true },
 };
 
 /**
