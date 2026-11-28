@@ -25,7 +25,8 @@ export function CatalogueView() {
       activeBar={<ActiveChips count={dishes.length} total={stats.items} />}
       summary={
         <p className="text-sm text-muted" data-testid="catalogue-coverage">
-          {stats.items} {locale === "vi" ? "món" : "dishes"} · {stats.provinces!.covered}/{stats.provinces!.total} {locale === "vi" ? "tỉnh" : "provinces"} · {stats.regions!.covered}/{stats.regions!.total} {locale === "vi" ? "vùng" : "regions"} · {stats.itemsWithEstablishments} {locale === "vi" ? "món có quán ở TP.HCM" : "with HCMC places"} · {stats.linkedEstablishments} {locale === "vi" ? "quán" : "places"}
+          {/* Discovery counts only; completeness fractions (provinces, items with places) are in Admin → Overview. */}
+          {stats.items} {locale === "vi" ? "món" : "dishes"} · {stats.linkedEstablishments} {locale === "vi" ? "quán ở TP.HCM" : "HCMC places"}
         </p>
       }
       filtersLabel={t("common.filters")}

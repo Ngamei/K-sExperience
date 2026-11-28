@@ -35,6 +35,7 @@ const checks: [string, string, number][] = [
   ["street-precision pins (0010)", "select count(*) from restaurants where coordinate_precision = 'street'", precision("street")],
   ["building-precision pins (0010)", "select count(*) from restaurants where coordinate_precision = 'building' and id <> 'test-cafe'", precision("building")],
   ["no sample establishments in the database", "select count(*) from restaurants where is_sample", 0],
+  ["venue photos (0015)", "select count(*) from venue_photos", read("data/venue-photos.json").photos.length],
 ];
 console.log("-- seed parity (read-only)");
 console.log("select * from (values");

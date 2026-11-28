@@ -1,153 +1,140 @@
 "use client";
-import { adminGate } from "@/lib/admin/access";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Check, Lock, ShieldCheck } from "lucide-react";
+import { Bell, Bookmark, Check, CircleHelp, FileText, Flag, Gem, Globe, Home, Info, Lock, MessageSquare, Palette, ShieldCheck, SlidersHorizontal, Stamp } from "lucide-react";
 import { EXPERIENCES, isPilot, isSelectable, loc, themeVars } from "@/experiences/registry";
 import { NAV_ICONS } from "@/components/shell/icons";
-import { CATEGORIES, MEAL_TIMES } from "@/lib/data/schema";
-import { DIET_PREFS, type DietPref, toggleIn } from "@/lib/food/filters";
-import { DIET_LABELS, lbl, MEAL_LABELS, SPICE_LABELS } from "@/lib/i18n/labels";
 import { useT } from "@/lib/i18n/use-t";
+import { settingsDict } from "@/lib/i18n/settings-dict";
 import { useUser } from "@/lib/store/user";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
-import { useFoodData } from "@/components/food/food-data";
 import { AccountCard } from "@/components/auth/account-card";
+import { useAuth } from "@/components/shell/auth-provider";
 import { cn } from "@/lib/utils";
 import { ItemArt } from "@/components/engine/item-art";
-import { DEV_DATA } from "@/lib/env";
-import { PlatformSummary } from "@/components/engine/platform-summary";
+import { LOWEST_PAID_MONTHLY, PLANS, usd } from "@/lib/membership/plans";
+import { SettingsBlock, SettingsRow, SettingsSection } from "@/components/settings/settings-ui";
 
-function Card({ title, children, id }: { title: string; children: React.ReactNode; id?: string }) {
+/**
+ * Customer Settings (KEX-SET-01): Account → Membership → Your experience → App preferences → Help & information.
+ * Nothing here exposes infrastructure, data-completeness or administration — those live in the restricted Admin Portal.
+ */
+export function SettingsView() {
+  const { t, locale } = useT();
+  const s = settingsDict(locale);
+  const u = useUser();
+  const router = useRouter();
+  const current = EXPERIENCES.find((e) => e.id === u.experience) ?? EXPERIENCES[0];
+
   return (
-    <section className="rounded-3xl border border-line/80 bg-paper p-5 md:p-6" data-testid={id}>
-      <h2 className="mb-4 font-display text-xl text-forest">{title}</h2>
-      {children}
-    </section>
+    <div className="mx-auto max-w-3xl space-y-6 px-4 py-6 md:px-6 md:py-10" data-testid="settings">
+      <header>
+        <h1 className="font-display text-4xl text-forest">{s.title}</h1>
+        <p className="text-sm text-muted">{s.tagline}</p>
+      </header>
+
+      <AccountCard />
+      <MembershipCard />
+
+      <SettingsSection title={s.yourExperience} id="your-experience">
+        <SettingsBlock id="experience-mode">
+          <h3 className="mb-1 font-medium">{s.experienceMode}</h3>
+          <p className="mb-3 text-xs text-muted">{t("settings.experienceIntro")}</p>
+          <ul className="grid gap-2 sm:grid-cols-2">
+            {EXPERIENCES.map((e) => {
+              const Icon = NAV_ICONS[e.icon];
+              const active = u.experience === e.id;
+              const soon = !isSelectable(e);
+              const other = locale === "en" ? "vi" : "en";
+              return (
+                <li key={e.id} style={themeVars(e.id) as React.CSSProperties /* each card previews its own pastel theme */}>
+                  <button
+                    type="button"
+                    disabled={soon}
+                    onClick={() => { u.setExperience(e.id); if (u.experience !== e.id) router.push(e.routes.map); }}
+                    className={cn(
+                      "flex w-full items-center gap-3 rounded-2xl border p-3.5 text-left transition-colors",
+                      active ? "border-forest bg-sage-soft/60" : "border-line bg-ivory",
+                      soon ? "cursor-not-allowed opacity-60" : "hover:border-forest/40",
+                    )}
+                    data-testid={`experience-${e.id}`}
+                    aria-pressed={active}
+                  >
+                    <span className={cn("flex size-10 items-center justify-center rounded-full", active ? "bg-forest text-ivory" : "bg-sage-soft text-forest")}><Icon className="size-5" /></span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-medium">{loc(e.name, locale)}</span>
+                      <span className="block text-xs text-muted" lang={other}>{loc(e.name, other)}</span>
+                      {e.pilots && (
+                        <span className="mt-1 flex flex-wrap gap-1" data-testid={`pilots-${e.id}`} aria-label={t("settings.pilots")}>
+                          {e.pilots.map((pl) => <span key={pl.id} className="inline-flex items-center gap-1 rounded-full bg-ivory-deep py-0.5 pl-0.5 pr-2 text-[10.5px] text-charcoal/80" title={loc(pl.offerings, locale)}><ItemArt moduleId={e.id} category={pl.id} accent={e.accent} size={18} />{loc(pl.name, locale)}</span>)}
+                        </span>
+                      )}
+                    </span>
+                    {soon ? <Badge tone="outline"><Lock className="size-3" /> {e.status === "pilot-planned" ? t("settings.pilot") : t("settings.soon")}</Badge> : active ? <Badge tone="forest"><Check className="size-3" /> {t("settings.active")}</Badge> : isPilot(e) ? <Badge tone="outline" data-testid={`pilot-badge-${e.id}`}>{t("settings.pilotBadge")}</Badge> : null}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </SettingsBlock>
+        <SettingsRow icon={Stamp} title={s.passport} subtitle={s.passportSub} href={current.routes.passport} testId="settings-passport" />
+        <SettingsRow icon={Bookmark} title={s.saved} subtitle={s.savedSub} href="/saved/" testId="settings-saved" />
+        <SettingsRow icon={SlidersHorizontal} title={s.preferences} subtitle={s.preferencesSub} href="/settings/preferences/" testId="settings-preferences" />
+        <SettingsRow icon={Home} title={s.homeWork} subtitle={s.homeWorkSub} soon soonLabel={s.soon} testId="settings-home-work" />
+      </SettingsSection>
+
+      <SettingsSection title={s.appPrefs} id="app-preferences">
+        <SettingsBlock id="language" className="flex flex-wrap items-center gap-3">
+          <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-sage-soft text-forest"><Globe className="size-[18px]" aria-hidden /></span>
+          <span className="flex-1 font-medium">{s.language}</span>
+          <span className="flex gap-2">
+            <Chip active={locale === "en"} onClick={() => u.setLocale("en")} data-testid="locale-en">English</Chip>
+            <Chip active={locale === "vi"} onClick={() => u.setLocale("vi")} data-testid="locale-vi">Tiếng Việt</Chip>
+          </span>
+        </SettingsBlock>
+        <SettingsRow icon={Bell} title={s.notifications} subtitle={s.notificationsSub} soon soonLabel={s.soon} testId="settings-notifications" />
+        <SettingsRow icon={Palette} title={s.appearance} subtitle={s.appearanceSub} soon soonLabel={s.soon} testId="settings-appearance" />
+      </SettingsSection>
+
+      <SettingsSection title={s.help} id="help-information">
+        <SettingsRow icon={CircleHelp} title={s.helpCentre} soon soonLabel={s.soon} testId="settings-help" />
+        <SettingsRow icon={MessageSquare} title={s.feedback} soon soonLabel={s.soon} testId="settings-feedback" />
+        <SettingsRow icon={Flag} title={s.report} soon soonLabel={s.soon} testId="settings-report" />
+        <SettingsRow icon={ShieldCheck} title={s.privacy} subtitle={s.privacySub} href="/settings/privacy/" testId="settings-privacy" />
+        <SettingsRow icon={FileText} title={s.terms} soon soonLabel={s.soon} testId="settings-terms" />
+        <SettingsRow icon={Info} title={s.about} href="/about/" testId="settings-about" />
+      </SettingsSection>
+
+      <p className="pb-4 text-center text-xs text-muted">{s.footer}</p>
+      <p className="-mt-2 pb-4 text-center text-xs text-muted">
+        <Link href="/privacy/" className="underline" data-testid="privacy-link">{locale === "vi" ? "Chính sách quyền riêng tư" : "Privacy policy"}</Link>
+        {" · "}
+        <Link href="/data-deletion/" className="underline">{locale === "vi" ? "Xóa dữ liệu" : "Delete your data"}</Link>
+      </p>
+    </div>
   );
 }
 
-export function SettingsView() {
-  const { t, locale } = useT();
-  const { regions, source } = useFoodData();
-  const u = useUser();
-  const p = u.preferences;
-  const router = useRouter();
-
+/** K's Membership teaser (guest) or current plan (signed in). Test entitlements only — no live payments. */
+function MembershipCard() {
+  const { locale } = useT();
+  const s = settingsDict(locale);
+  const { status, membership } = useAuth();
+  const tier = status === "signed-in" ? membership : null;
   return (
-    <div className="mx-auto max-w-3xl space-y-5 px-4 py-6 md:px-6 md:py-10">
-      <h1 className="font-display text-4xl text-forest">{t("settings.title")}</h1>
-
-      <AccountCard />
-
-      <Card title={t("settings.experience")} id="experience-mode">
-        <p className="-mt-2 mb-3 text-sm text-muted">{t("settings.experienceIntro")}</p>
-        <ul className="grid gap-2 sm:grid-cols-2">
-          {EXPERIENCES.map((e) => {
-            const Icon = NAV_ICONS[e.icon];
-            const active = u.experience === e.id;
-            const soon = !isSelectable(e);
-            const other = locale === "en" ? "vi" : "en";
-            return (
-              <li key={e.id} style={themeVars(e.id) as React.CSSProperties /* each card previews its own pastel theme */}>
-                <button
-                  type="button"
-                  disabled={soon}
-                  onClick={() => { u.setExperience(e.id); if (u.experience !== e.id) router.push(e.routes.map); }}
-                  className={cn(
-                    "flex w-full items-center gap-3 rounded-2xl border p-3.5 text-left transition-colors",
-                    active ? "border-forest bg-sage-soft/60" : "border-line bg-ivory",
-                    soon ? "cursor-not-allowed opacity-60" : "hover:border-forest/40",
-                  )}
-                  data-testid={`experience-${e.id}`}
-                  aria-pressed={active}
-                >
-                  <span className={cn("flex size-10 items-center justify-center rounded-full", active ? "bg-forest text-ivory" : "bg-sage-soft text-forest")}><Icon className="size-5" /></span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block font-medium">{loc(e.name, locale)}</span>
-                    <span className="block text-xs text-muted" lang={other}>{loc(e.name, other)}</span>
-                    {e.pilots && (
-                      <span className="mt-1 flex flex-wrap gap-1" data-testid={`pilots-${e.id}`} aria-label={t("settings.pilots")}>
-                        {e.pilots.map((pl) => <span key={pl.id} className="inline-flex items-center gap-1 rounded-full bg-ivory-deep py-0.5 pl-0.5 pr-2 text-[10.5px] text-charcoal/80" title={loc(pl.offerings, locale)}><ItemArt moduleId={e.id} category={pl.id} accent={e.accent} size={18} />{loc(pl.name, locale)}</span>)}
-                      </span>
-                    )}
-                  </span>
-                  {soon ? <Badge tone="outline"><Lock className="size-3" /> {e.status === "pilot-planned" ? t("settings.pilot") : t("settings.soon")}</Badge> : active ? <Badge tone="forest"><Check className="size-3" /> {t("settings.active")}</Badge> : isPilot(e) ? <Badge tone="outline" data-testid={`pilot-badge-${e.id}`}>{t("settings.pilotBadge")}</Badge> : null}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </Card>
-
-      <Card title={t("settings.language")} id="language">
-        <div className="flex gap-2">
-          <Chip active={locale === "en"} onClick={() => u.setLocale("en")} data-testid="locale-en">English</Chip>
-          <Chip active={locale === "vi"} onClick={() => u.setLocale("vi")} data-testid="locale-vi">Tiếng Việt</Chip>
-        </div>
-      </Card>
-
-      {DEV_DATA && <Card title={t("settings.samples")} id="samples">
-        <label className="flex cursor-pointer items-start gap-3">
-          <input type="checkbox" className="mt-1 size-5 accent-[#294C3D]" checked={u.showSamples} onChange={(e) => u.setShowSamples(e.target.checked)} data-testid="toggle-samples" />
-          <span className="text-sm text-charcoal/80">{t("settings.samplesBody")}</span>
-        </label>
-      </Card>}
-
-      <Card title={t("settings.preferences")} id="preferences">
-        <div className="space-y-4 text-sm">
-          <div>
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">{t("filters.category")}</p>
-            <div className="flex flex-wrap gap-1.5">{CATEGORIES.map((c) => <Chip key={c} active={p.categories.includes(c)} onClick={() => u.setPreferences({ categories: toggleIn(p.categories, c) })}>{t(`cat.${c}`)}</Chip>)}</div>
-          </div>
-          <div>
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">{t("filters.region")}</p>
-            <div className="flex flex-wrap gap-1.5">{regions.map((r) => <Chip key={r.id} active={p.regions.includes(r.id)} onClick={() => u.setPreferences({ regions: toggleIn(p.regions, r.id) })}>{r.nameVi}</Chip>)}</div>
-          </div>
-          <div>
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">{t("filters.spice")}</p>
-            <div className="flex flex-wrap gap-1.5">{[0, 1, 2, 3].map((n) => <Chip key={n} active={p.maxSpice === n} onClick={() => u.setPreferences({ maxSpice: n })} data-testid={`pref-spice-${n}`}>{lbl(SPICE_LABELS, String(n), locale)}</Chip>)}</div>
-          </div>
-          <div>
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">{t("filters.diet")}</p>
-            <div className="flex flex-wrap gap-1.5">{(Object.keys(DIET_PREFS) as DietPref[]).map((d) => <Chip key={d} active={p.diet.includes(d)} onClick={() => u.setPreferences({ diet: toggleIn(p.diet, d) })}>{lbl(DIET_LABELS, d, locale)}</Chip>)}</div>
-          </div>
-          <div>
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">{t("filters.meal")}</p>
-            <div className="flex flex-wrap gap-1.5">
-              <Chip active={p.mealTime === "any"} onClick={() => u.setPreferences({ mealTime: "any" })}>{t("common.any")}</Chip>
-              {MEAL_TIMES.map((m) => <Chip key={m} active={p.mealTime === m} onClick={() => u.setPreferences({ mealTime: m })}>{lbl(MEAL_LABELS, m, locale)}</Chip>)}
-            </div>
-          </div>
-        </div>
-      </Card>
-
-      <Card title={t("settings.dataMode")} id="data-mode">
-        <p className="text-sm text-charcoal/80">
-          {source === "supabase"
-            ? "Supabase — catalogue and venues are read live from the database."
-            : source === "local-fallback"
-              ? "Supabase is configured but could not be reached — showing the bundled data."
-              : "Local mode — data is read from the repository's JSON files; your saved dishes and passport live in this browser only."}
-        </p>
-      </Card>
-
-      <div className="grid gap-5 sm:grid-cols-2">
-        {adminGate() !== "unavailable" && ( // KEX-SEC-01: no Admin entry point on public deployments without the database
-        <Card title={t("settings.admin")}>
-          <Button asChild variant="outline"><Link href="/admin/" data-testid="admin-link"><ShieldCheck /> {t("nav.admin")}</Link></Button>
-        </Card>)}
-        <Card title={t("settings.reset")}>
-          <p className="mb-3 text-xs text-muted">{t("settings.resetBody")} <Link href="/privacy/" className="underline" data-testid="privacy-link">{locale === "vi" ? "Quyền riêng tư" : "Privacy"}</Link> · <Link href="/data-deletion/" className="underline">{locale === "vi" ? "Xóa dữ liệu" : "Delete your data"}</Link></p>
-          <Button variant="outline" onClick={() => confirm(t("settings.resetBody")) && u.reset()}>{t("settings.reset")}</Button>
-        </Card>
-      </div>
-      <Card title={locale === "vi" ? "Giới thiệu · Dữ liệu hiện có" : "About · Data on the platform"} id="settings-about">
-        <p className="mb-3 text-xs text-muted">{locale === "vi" ? "Số liệu tính trực tiếp từ dữ liệu, chỉ gồm cơ sở thật có nguồn (không gồm dữ liệu mẫu)." : "Counted live from the data — real, sourced establishments only (no samples)."}</p>
-        <PlatformSummary />
-      </Card>
-    </div>
+    <Link href="/membership/" className="flex items-center gap-4 rounded-3xl border border-line/80 bg-sage-soft/50 p-5 transition-colors hover:border-forest/40 md:p-6" data-testid="membership-card">
+      <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-forest text-ivory"><Gem className="size-5" aria-hidden /></span>
+      <span className="min-w-0 flex-1">
+        <span className="block font-display text-xl text-forest">{s.membership}</span>
+        {tier ? (
+          <span className="block text-sm text-charcoal/80">{s.yourPlan}: <strong data-testid="membership-tier">{PLANS[tier].name}</strong></span>
+        ) : (
+          <span className="block text-sm text-charcoal/80">{s.membershipTeaser}</span>
+        )}
+        <span className="block text-xs text-muted">{s.plansFrom.replace("{price}", usd(LOWEST_PAID_MONTHLY))}</span>
+      </span>
+      <span className="hidden rounded-full border border-line bg-paper px-3 py-1.5 text-sm sm:inline">{s.viewPlans}</span>
+    </Link>
   );
 }

@@ -152,3 +152,27 @@ describe("experience module data (shared engine)", () => {
     });
   }
 });
+
+describe("venue photos (KEX-BIZ-03, D78)", () => {
+  it("are valid, licensed, and belong to real establishments only", async () => {
+    const { readFileSync, readdirSync } = await import("node:fs");
+    const { VenuePhotoFileSchema } = await import("@/lib/data/venue-photos");
+    const read = (p: string) => JSON.parse(readFileSync(p, "utf8"));
+    const file = VenuePhotoFileSchema.parse(read("data/venue-photos.json"));
+    const rs = read("data/hcmc-restaurants.json");
+    const real = new Set<string>((rs.restaurants ?? rs).filter((r: { isSample?: boolean }) => !r.isSample).map((r: { id: string }) => r.id));
+    for (const f of readdirSync("data/experiences").filter((x) => x.endsWith(".json")))
+      for (const e of read(`data/experiences/${f}`).establishments) if (!e.isSample) real.add(e.id);
+    const seen = new Set<string>();
+    for (const p of file.photos) {
+      expect(real.has(p.venueId), `${p.venueId}: not a real establishment`).toBe(true);
+      expect(seen.has(`${p.venueId}|${p.url}`), `duplicate ${p.url}`).toBe(false);
+      seen.add(`${p.venueId}|${p.url}`);
+    }
+  });
+  it("licence rule accepts Commons licences and refuses unlicensed or all-rights-reserved photos", async () => {
+    const { isAllowedLicense } = await import("@/lib/data/venue-photos");
+    for (const ok of ["CC BY-SA 4.0", "CC BY 2.0", "CC0", "Public domain", "CC BY-SA 3.0 vn", "Owner permission (email 2026-11-28)"]) expect(isAllowedLicense(ok), ok).toBe(true);
+    for (const bad of ["", "All rights reserved", "Google Maps", "CC BY-NC 4.0", "Fair use"]) expect(isAllowedLicense(bad), bad).toBe(false);
+  });
+});

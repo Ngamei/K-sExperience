@@ -176,6 +176,7 @@ test.describe("Hôm nay ăn gì?", () => {
 
   test("Admin shows recommendation data completeness", async ({ page }) => {
     await page.goto("/admin/");
+    await page.getByTestId("admin-section-quality").click();
     await page.getByTestId("admin-tab-recommendations").click();
     await expect(page.getByTestId("admin-recommendations")).toContainText("Allergen list complete");
     await expect(page.getByTestId("admin-presets").locator("tbody tr")).toHaveCount(18);
@@ -205,16 +206,21 @@ test.describe("mobile navigation (PO decision: Discover inside Explore)", () => 
 });
 
 test.describe("live data counts", () => {
-  test("catalogue shows matching/total counts and places per dish; Settings → About and Admin summarise coverage", async ({ page }) => {
+  test("catalogue shows discovery counts (no completeness fractions); Admin Overview summarises coverage", async ({ page }) => {
     await page.goto("/catalogue/");
     const coverage = page.getByTestId("catalogue-coverage").filter({ visible: true });
-    await expect(coverage).toContainText(/138 dishes · \d+\/63 provinces · 6\/6 regions · \d+ with HCMC places · \d+ places/);
+    await expect(coverage).toHaveText(/^138 dishes · \d+ HCMC places$/);
+    await expect(coverage).not.toContainText("/63");
     await expect(page.locator('[data-dish-id="bun-bo-hue"]').filter({ visible: true }).getByTestId("dish-places")).toContainText(/\d+ HCMC places/);
     await page.goto("/settings/");
-    await expect(page.getByTestId("stat-food-items")).toHaveText("138");
-    await expect(page.getByTestId("stat-unique-places")).toHaveText(/^\d+$/);
-    await expect(page.getByTestId("stat-row-coffee")).not.toContainText("Loading");
+    await expect(page.getByTestId("settings")).toBeVisible();
+    await expect(page.getByTestId("stat-food-items")).toHaveCount(0);
     await page.goto("/admin/");
+    await expect(page.getByTestId("kpi-dishes")).toContainText("138");
+    await expect(page.getByTestId("kpi-provinces")).toContainText(/\d+\/63/);
+    await expect(page.getByTestId("kpi-unique-places")).toContainText(/\d+/);
+    await expect(page.getByTestId("coverage-coffee")).toContainText(/\d+\/\d+/);
+    await expect(page.getByTestId("admin-coverage").getByTestId("stat-food-items")).toHaveText("138");
     await expect(page.getByTestId("admin-coverage").getByTestId("stat-row-food")).toBeVisible();
   });
 });

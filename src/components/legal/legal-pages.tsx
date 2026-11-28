@@ -28,11 +28,11 @@ export function PrivacyPolicy() {
       <h2>Dữ liệu chúng tôi lưu khi bạn có tài khoản</h2>
       <ul>
         <li>Thông tin đăng nhập: email hoặc số điện thoại; nếu dùng Google/Facebook, tên và ảnh đại diện mà dịch vụ đó cung cấp.</li>
-        <li>Hồ sơ: tên hiển thị, ngôn ngữ, lựa chọn riêng tư.</li>
+        <li>Hồ sơ: tên hiển thị, ngôn ngữ, lựa chọn riêng tư; gói thành viên của bạn.</li>
         <li>Nội dung của bạn: món/địa điểm đã lưu, Hộ chiếu (món đã thử, nơi đã đến), ghi chú và đánh giá, sở thích ăn uống.</li>
       </ul>
       <h2>Cách chúng tôi dùng dữ liệu</h2>
-      <p>Chỉ để vận hành tài khoản của bạn và đồng bộ giữa các thiết bị. Không bán dữ liệu, không quảng cáo, không dùng công cụ theo dõi hay phân tích. Người khác (kể cả biên tập viên) không xem được dữ liệu cá nhân của bạn.</p>
+      <p>Chỉ để vận hành tài khoản của bạn và đồng bộ giữa các thiết bị. Không bán dữ liệu, không quảng cáo, không dùng công cụ theo dõi hay phân tích. Người khác (kể cả biên tập viên) không xem được Hộ chiếu, mục đã lưu, ghi chú hay sở thích của bạn; quản trị viên K’s Experience chỉ xem được gói thành viên để quản lý gói.</p>
       <h2>Lưu trữ</h2>
       <p>Dữ liệu được lưu trên Supabase (máy chủ tại Tokyo, Nhật Bản), bảo vệ bằng phân quyền theo từng người dùng. Đăng nhập Google/Facebook và mã SMS do các nhà cung cấp đó xử lý theo chính sách của họ.</p>
       <h2>Quyền của bạn</h2>
@@ -47,11 +47,11 @@ export function PrivacyPolicy() {
       <h2>What we store when you have an account</h2>
       <ul>
         <li>Sign-in details: your email or phone number; with Google or Facebook, the name and profile picture that service shares.</li>
-        <li>Profile: display name, language, privacy choices.</li>
+        <li>Profile: display name, language, privacy choices; your membership plan.</li>
         <li>Your content: saved dishes and places, your Passport (dishes tried, places visited), notes and ratings, food preferences.</li>
       </ul>
       <h2>How we use it</h2>
-      <p>Only to run your account and sync it across your devices. We do not sell data, show ads, or use tracking or analytics tools. Nobody else — editors included — can see your personal data.</p>
+      <p>Only to run your account and sync it across your devices. We do not sell data, show ads, or use tracking or analytics tools. Nobody else — editors included — can see your Passport, saved items, notes or preferences; K’s Experience administrators can see only your membership plan, to manage plans.</p>
       <h2>Where it is kept</h2>
       <p>On Supabase (servers in Tokyo, Japan), protected per user. Google and Facebook sign-in and SMS codes are handled by those providers under their own policies.</p>
       <h2>Your choices</h2>
@@ -70,7 +70,7 @@ export function DataDeletion() {
         <li>Mở <Link className="text-forest underline" href="/profile/">Hồ sơ</Link> → <b>Xóa tài khoản</b>.</li>
         <li>Gõ <b>DELETE</b> để xác nhận.</li>
       </ol>
-      <p>Tài khoản và toàn bộ dữ liệu cá nhân (hồ sơ, Hộ chiếu, mục đã lưu, ghi chú, sở thích) bị xóa ngay và vĩnh viễn. Dữ liệu chỉ lưu trên thiết bị (khi dùng với tư cách khách) có thể xóa trong <Link className="text-forest underline" href="/settings/">Cài đặt</Link> → Xóa dữ liệu của tôi.</p>
+      <p>Tài khoản và toàn bộ dữ liệu cá nhân (hồ sơ, gói thành viên, Hộ chiếu, mục đã lưu, ghi chú, sở thích) bị xóa ngay và vĩnh viễn. Dữ liệu chỉ lưu trên thiết bị (khi dùng với tư cách khách) được xóa khi bạn xóa dữ liệu trang web này trong cài đặt trình duyệt.</p>
       <p>Nếu bạn đã đăng nhập bằng Facebook, bạn cũng có thể gỡ K’s Experience trong cài đặt Facebook (Ứng dụng và trang web); việc này không tự xóa dữ liệu ở đây — hãy làm theo các bước trên.</p>
       {CONTACT && <p>Không đăng nhập được? Gửi email tới <a className="text-forest underline" href={`mailto:${CONTACT}`}>{CONTACT}</a> từ email hoặc cho biết số điện thoại của tài khoản.</p>}
     </Page>
@@ -82,7 +82,7 @@ export function DataDeletion() {
         <li>Open <Link className="text-forest underline" href="/profile/">Profile</Link> → <b>Delete my account</b>.</li>
         <li>Type <b>DELETE</b> to confirm.</li>
       </ol>
-      <p>Your account and all personal data (profile, Passport, saved items, notes, preferences) are deleted immediately and permanently. Data kept only on your device (guest use) can be cleared in <Link className="text-forest underline" href="/settings/">Settings</Link> → Reset my data.</p>
+      <p>Your account and all personal data (profile, membership plan, Passport, saved items, notes, preferences) are deleted immediately and permanently. Data kept only on your device (guest use) is removed by clearing this site’s data in your browser settings.</p>
       <p>If you signed in with Facebook you can also remove K’s Experience in your Facebook settings (Apps and websites); that does not delete your data here — use the steps above.</p>
       {CONTACT && <p>Can’t sign in? Email <a className="text-forest underline" href={`mailto:${CONTACT}`}>{CONTACT}</a> from the account’s email address, or tell us the account’s phone number.</p>}
     </Page>
