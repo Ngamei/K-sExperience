@@ -3,7 +3,7 @@
     "experienceId": "spa",
     "note": "spa pilot: catalogue items from published references (seed, not yet reviewed); venues and offerings from desk research — every offering cites a published source; status source-listed. Built by scripts/build-experience-research.ts.",
     "dataset": "seed",
-    "generatedAt": "2026-11-27"
+    "generatedAt": "2026-11-28"
   },
   "items": [
     {
@@ -276,7 +276,7 @@
         10.785864
       ],
       "coordinatePrecision": "street",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=An%20Mi%C3%AAn%20Spa%2C%2016%2F22B%20%C4%90inh%20Ti%C3%AAn%20Ho%C3%A0ng%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=An%20Mi%C3%AAn%20Spa%2C%2016%2F22B%20%C4%90inh%20Ti%C3%AAn%20Ho%C3%A0ng%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "spa",
       "deliveryLinks": [],
       "sources": [
@@ -312,7 +312,7 @@
         10.792858
       ],
       "coordinatePrecision": "street",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=D%C6%B0%E1%BB%A1ng%20Sinh%20C%C3%B4%20Ba%20(Nguy%E1%BB%85n%20B%E1%BB%89nh%20Khi%C3%AAm)%2C%2025%2F65%20Nguy%E1%BB%85n%20B%E1%BB%89nh%20Khi%C3%AAm%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=D%C6%B0%E1%BB%A1ng%20Sinh%20C%C3%B4%20Ba%2C%2025%2F65%20Nguy%E1%BB%85n%20B%E1%BB%89nh%20Khi%C3%AAm%2C%20Qu%E1%BA%ADn%201%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "spa",
       "deliveryLinks": [],
       "sources": [
@@ -348,7 +348,7 @@
         10.771487
       ],
       "coordinatePrecision": "street",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=D%C6%B0%E1%BB%A1ng%20Sinh%20C%C3%B4%20Ba%20(V%C3%B5%20V%C4%83n%20T%E1%BA%A7n)%2C%2059%20V%C3%B5%20V%C4%83n%20T%E1%BA%A7n%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=D%C6%B0%E1%BB%A1ng%20Sinh%20C%C3%B4%20Ba%2C%2059%20V%C3%B5%20V%C4%83n%20T%E1%BA%A7n%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "spa",
       "deliveryLinks": [],
       "sources": [
@@ -384,7 +384,7 @@
         10.789617
       ],
       "coordinatePrecision": "street",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=M%C3%A2m%20X%C3%B4i%20%C4%90%E1%BB%8F%20Hair%20Spa%2C%20211A%20Nam%20K%E1%BB%B3%20Kh%E1%BB%9Fi%20Ngh%C4%A9a%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=M%C3%A2m%20X%C3%B4i%20%C4%90%E1%BB%8F%20Hair%20Spa%2C%20211A%20Nam%20K%E1%BB%B3%20Kh%E1%BB%9Fi%20Ngh%C4%A9a%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "hair spa",
       "deliveryLinks": [],
       "sources": [
@@ -425,7 +425,7 @@
         10.781287
       ],
       "coordinatePrecision": "street",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=La%20Maison%20de%20L'Apothiquaire%2C%2064A%20Tr%C6%B0%C6%A1ng%20%C4%90%E1%BB%8Bnh%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=La%20Maison%20de%20L'Apothiquaire%2C%2064A%20Tr%C6%B0%C6%A1ng%20%C4%90%E1%BB%8Bnh%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "day spa",
       "deliveryLinks": [],
       "sources": [
@@ -461,7 +461,7 @@
         10.769203
       ],
       "coordinatePrecision": "street",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Le%20Spa%20des%20Artistes%20by%20L'Apothiquaire%20(H%C3%B4tel%20des%20Arts%20Saigon)%2C%2076-78%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Minh%20Khai%2C%20Qu%E1%BA%ADn%203%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Le%20Spa%20des%20Artistes%20by%20L'Apothiquaire%2C%2076-78%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Minh%20Khai%2C%20Qu%E1%BA%ADn%203%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh",
       "venueType": "hotel spa",
       "deliveryLinks": [],
       "sources": [

@@ -2,7 +2,7 @@
 
 File: `data/source/experiences/sport/` · kind: bundle · rows: 24 · written · 2026-11-28
 
-Result: valid; 2 added, 0 updated, 22 unchanged; nothing deleted.
+Result: valid; 0 added, 7 updated, 17 unchanged; nothing deleted.
 
 ### Errors (0)
 - none
@@ -14,10 +14,15 @@ Result: valid; 2 added, 0 updated, 22 unchanged; nothing deleted.
 - skipped venue — Kira Pilates: Geocoding matched an unrelated business (7 Bùi Bằng Đoàn), not the Hưng Phúc Premier shophouse. Not published until coordinates are confirmed (official listing or first-hand).
 - skipped venue — Olaben Studio: intake CC-TDSPORT-001: coordinates: pin (Đường số 10, Khu phố 33, Phường Hiệp Bình, Thành phố Hồ Chí Minh, 71318, Việt Nam) is outside the approved Thảo Điền area — street name likely repeats elsewhere
 
-### Added (2)
-- establishment ufitu-pilates-thao-dien-3-38-quoc-huong
-- offering reformer-pilates@ufitu-pilates-thao-dien-3-38-quoc-huong
-
-### Updated (0)
+### Added (0)
 - none
+
+### Updated (7)
+- establishment court-one-club-new-world-saigon
+- establishment hcmc-cultural-palace-for-labors
+- establishment pickoland-thao-dien
+- establishment bang-bang-pickleball-club
+- establishment ufitu-pilates-dang-thi-nhu
+- establishment gym-one-pickleball-le-quy-don
+- establishment ufitu-pilates-thao-dien-3-38-quoc-huong
 

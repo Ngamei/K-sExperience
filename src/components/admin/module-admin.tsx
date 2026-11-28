@@ -1,4 +1,5 @@
 "use client";
+import { googleMapsLink } from "@/lib/geo/maps-link";
 /**
  * Admin for shared-engine modules (Bars, Coffee, Spa, Sport) — the same Admin screen, configured by the
  * registry: categories, item attributes, establishment attributes, pricing units and evidence rules.
@@ -193,7 +194,7 @@ function EstablishmentEditor({ m, d, canPersist, persist, inHcmc }: { m: Experie
   const [msg, setMsg] = useState("");
   const record: Establishment = {
     ...e, id: e.id || slugify(`${e.name} ${e.address}`).slice(0, 80),
-    googleMapsUrl: e.googleMapsUrl || (e.name && e.address ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${e.name}, ${e.address}`)}` : undefined),
+    googleMapsUrl: e.name && e.address ? googleMapsLink(e.name, e.address, { placeUrl: e.googleMapsUrl }) : e.googleMapsUrl,
     sources: src.title ? [...e.sources.filter((s) => s.title !== src.title), { title: src.title, ...(src.url ? { url: src.url } : {}), accessed: new Date().toISOString().slice(0, 10) }] : e.sources,
   };
   const hcmc = inHcmc(record.coordinates);

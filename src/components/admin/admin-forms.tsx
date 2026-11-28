@@ -1,4 +1,5 @@
 "use client";
+import { googleMapsLink } from "@/lib/geo/maps-link";
 import { useState } from "react";
 import { ALLERGENS, COOKING_METHODS, OCCASIONS, PROTEINS, SERVICE_STYLES, DishEatingSchema, type DishEating, CATEGORIES, DIETARY, DISH_TYPES, MEAL_TIMES, PRICE_RANGES, TASTES, VENUE_TYPES, DishRestaurantLinkSchema, DishSchema, LINK_PHOTO_KINDS, type LinkPhotoKind, RestaurantSchema, type Dish, type DishRestaurantLink, type Restaurant } from "@/lib/data/schema";
 import { ALLOWED_EVIDENCE, LINK_STATUSES, type EvidenceType, type LinkStatus } from "@/lib/data/evidence";
@@ -229,13 +230,12 @@ export function RestaurantEditor({ onSave, canPersist, inHcmc }: { onSave: Saver
   const base = real.find((x) => x.id === id);
   const record = (() => {
     const name = f.name ?? "";
-    const q = `${name}, ${f.address ?? ""}`;
     return {
       ...(base ?? { deliveryLinks: [] }),
       id: base?.id ?? slugify(`${name} ${(f.address ?? "").split(",")[0]}`),
       name, isSample: false, address: f.address ?? "", neighbourhood: f.neighbourhood ?? "",
       coordinates: [Number(f.lon), Number(f.lat)] as [number, number], coordinatePrecision: f.precision as "exact" | "building" | "street",
-      googleMapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`,
+      googleMapsUrl: googleMapsLink(name, f.address ?? "", { placeUrl: base?.googleMapsUrl }),
       venueType: f.venueType as Restaurant["venueType"], ...(f.priceRange ? { priceRange: f.priceRange as Restaurant["priceRange"] } : { priceRange: undefined }),
       highlights: list(f.highlights ?? "").length ? (f.highlights ?? "").split("\n").map((x) => x.trim()).filter(Boolean) : undefined,
       sources: (f.sources ?? "").split("\n").map((x) => x.trim()).filter(Boolean).map((line) => { const [title, url] = line.split("|").map((x) => x.trim()); return url ? { title: title || url, url } : { title }; }),

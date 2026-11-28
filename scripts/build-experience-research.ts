@@ -9,6 +9,7 @@
  */
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { googleMapsLink } from "../src/lib/geo/maps-link";
 import { EXPERIENCES, type ExperienceId } from "../src/experiences/registry";
 import { ExperienceDataSchema } from "../src/engine/schema";
 import { importIntoModule, importReportMarkdown } from "../src/engine/import";
@@ -22,7 +23,7 @@ const read = (f: string) => JSON.parse(readFileSync(path.join(dir, f), "utf8"));
 const catalogue = existsSync(path.join(dir, "catalogue.json")) ? read("catalogue.json") : { items: [] };
 const geo: Record<string, { lon?: number; lat?: number; precision?: string; ward?: string | null; failed?: boolean; reason?: string }> = existsSync(path.join(dir, "geocoded.json")) ? read("geocoded.json") : {};
 
-interface Venue { id: string; name: string; address: string; district?: string; venueType: string; sources: string[]; attributes?: Record<string, unknown>; openingHours?: unknown; priceRange?: string;
+interface Venue { id: string; name: string; address: string; district?: string; googleMapsUrl?: string; venueType: string; sources: string[]; attributes?: Record<string, unknown>; openingHours?: unknown; priceRange?: string;
   offerings: { item: string; evidence: string; url: string; price?: { minVnd: number; maxVnd: number; unit: string }; photo?: unknown }[]; excluded?: string }
 const skipped: string[] = [];
 type Row = Record<string, unknown>;
@@ -47,7 +48,7 @@ for (const f of readdirSync(dir).filter((x) => /^batch-[\w-]+\.json$/.test(x)).s
     establishments.push({
       id: v.id, name: v.name, isSample: false, address: v.address, neighbourhood: g.ward ?? v.district ?? "TP. Hồ Chí Minh",
       coordinates: [g.lon, g.lat], coordinatePrecision: g.precision, venueType: v.venueType,
-      googleMapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${v.name}, ${v.address}`)}`,
+      googleMapsUrl: googleMapsLink(v.name, v.address, { placeUrl: v.googleMapsUrl, district: v.district }),
       deliveryLinks: [], experiences: [m.id], attributes: v.attributes ?? {},
       ...(v.openingHours ? { openingHours: v.openingHours } : {}), ...(v.priceRange ? { priceRange: v.priceRange } : {}),
       sources: [

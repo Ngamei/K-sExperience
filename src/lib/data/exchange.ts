@@ -3,6 +3,7 @@
  * validation used by `npm run intake` (scripts/intake.ts). Nothing here writes files.
  * See research-exchange/README.md.
  */
+import { isGoogleMapsPlaceUrl } from "../geo/maps-link";
 import { z } from "zod";
 import { normalizeVi, slugify } from "../search/normalize";
 import { pointInGeometry, haversineKm, type GeoJsonGeometry, type LngLat } from "../geo/geo";
@@ -40,6 +41,8 @@ export const BatchVenueSchema = z.object({
   coordinatePrecision: z.enum(["exact", "building", "street"]).optional(),
   /** Source of supplied coordinates (e.g. https://www.openstreetmap.org/node/…). Required with lon/lat. */
   coordinateSource: Https.optional(),
+  /** Exact Google Maps place link (Google Maps → Share), checked by a person. Optional; otherwise a search link is built. */
+  googleMapsUrl: Https.refine(isGoogleMapsPlaceUrl, "googleMapsUrl must be a Google Maps place link (google.com/maps/place/…, maps.app.goo.gl/…)").optional(),
 }).superRefine((v, ctx) => {
   if (v.lon != null && v.lat != null && (!v.coordinatePrecision || !v.coordinateSource))
     ctx.addIssue({ code: "custom", path: ["coordinatePrecision"], message: "supplied coordinates need coordinatePrecision (exact | building | street) and coordinateSource" });
