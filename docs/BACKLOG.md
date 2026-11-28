@@ -115,7 +115,7 @@ Owners: **CC** Claude Code · **CX** Codex · **GPT** ChatGPT · **PO** Product 
 | S4-DATA-04 | P0 | GPT | Vietnamese food master catalogue 138 → 500 dishes (PR #12) | intake dry run clean; regional variants separate (`family`) | 🔄 GPT |
 | S4-DATA-05 | P0 | CX | Independent source validation of enrichment batches (≥ 20 % of fields) | CX-VALIDATE-ENRICH-001 report | ⬜ |
 | S4-MEM-01 | P1 | CC → CX | Menu-unlock entitlements (one unlock = one establishment's full menu per period, idempotent), visibility matrix, unavailable vs restricted, migration 0016 | unit + DB tests; limits still off | 🔄 |
-| S4-MEM-02 | P1 | CC → PO | Founding Member programme (100 users, 90 days Premium, no auto-billing), configurable, **off** | DB tests (cap, double claim, disabled); PO approval to enable (D83) | 🔄 |
+| S4-MEM-02 | P1 | CC → PO | Founding Member programme (100 users, 90 days Premium, no auto-billing), configurable, **enabled** (PO approved D83) | DB tests (cap, double claim, disabled) | 🔄 |
 | S4-RPT-01 | P1 | CC | Report incorrect information form (9 categories, evidence URL/photo) → restricted Admin review queue; migration 0017 | unit + DB + e2e (local + mock auth) | 🔄 |
 | S4-UX-01 | P1 | GPT + users | Usability QA + simulated users on the six journeys in `docs/QA_HANDOVER.md` §2 | results per journey | ⬜ |
 | S4-UX-02 | P1 | CX / PO | Visual fidelity review vs PO mockups (390 px + 1280 px) | deviation list | ⬜ |
