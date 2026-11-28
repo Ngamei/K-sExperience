@@ -90,6 +90,9 @@ Establishments can belong to several modes (`establishment_experiences`, migrati
 ## Business Profile Engine (D77)
 `lib/business/profile.ts` — `BusinessProfileModel` (identity, contact, hours, offerings with recorded VND prices + evidence), 9 `BUSINESS_TYPE_DEFS`, `businessTypeOf(experience, venueType, categories)`, `priceAccess(tier, unlocks)`. `components/business/business-profile.tsx` renders every profile; adapters: Food `nearby/place-view.tsx`, modules `engine/module-views.tsx` (`EstablishmentsView` detail). Theme comes from the type's experience (`themeVars`).
 
+### Venue photos (D78)
+`lib/data/venue-photos.ts` (schema, licence rule, row mapping) · `data/venue-photos.json` (canonical) · `/data/venue-photos.json` (static route) · table `venue_photos` (0015) · `components/business/venue-photos.tsx` (`useVenuePhotos`: Supabase first, static file fallback) · `HeroMedia` in `business-profile.tsx` (photo + credit, illustration fallback).
+
 ## Shared engine — current shape (CC-22 / CC-25)
 - **Shared UI:** `components/engine/filter-drawer.tsx` (FilterDrawer, ActiveFilterBar, CatalogueLayout), `detail.tsx` (DetailBlock, OfferingsSection), `offering-row.tsx`, `module-views.tsx`, `module-page.tsx`. Food's `CatalogueView` and `DishDetail` render through them.
 - **Data:** `engine/schema.ts` (items, establishments with `attributes`, offerings), `engine/validate.ts` (registry rules; item vs establishment attributes), `engine/filters.ts`, `engine/import.ts` (CSV/JSON → dry run → non-destructive merge → report), `engine/db-rows.ts`.
