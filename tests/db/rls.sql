@@ -236,5 +236,12 @@ update restaurants set name = name where id = 'pho-hoa-pasteur';
 reset role;
 insert into results select 'authorized editor write succeeds and is audited', count(*) = 1 from content_audit where table_name = 'experience_items' and row_key = 'sec-editor-item' and changed_by = '00000000-0000-0000-0000-000000000001';
 
+-- 0011: advisor hardening — trigger functions and account deletion are not callable by anon; no FOR ALL editor policy left
+insert into results select 'trigger functions + delete_my_account not executable by anon',
+  not has_function_privilege('anon', 'audit_content()', 'execute') and not has_function_privilege('anon', 'handle_new_user()', 'execute')
+  and not has_function_privilege('anon', 'delete_my_account()', 'execute') and has_function_privilege('authenticated', 'delete_my_account()', 'execute')
+  and has_function_privilege('anon', 'is_editor()', 'execute');
+insert into results select 'editor policies split (no FOR ALL "editors write")', count(*) = 0 from pg_policies where policyname = 'editors write';
+
 select (case when ok then 'PASS ' else 'FAIL ' end) || name from results;
 select case when bool_and(ok) then 'ALL DB TESTS PASSED' else 'DB TESTS FAILED' end from results;

@@ -28,7 +28,7 @@ Local mode remains the default and keeps working without Supabase.
    (accounts & Experience Passport), `0004_link_photos.sql` (dish-at-place photos), `0005_multi_experience.sql`
    (six experience modes incl. Sport, establishments in several modes), `0006_experience_items_offerings.sql`
    (shared engine items + offerings), `0007_establishment_attributes.sql` (establishment attributes; explicit
-   experience tags), `0008_what_to_eat.sql` (eating/dining attributes), `0009_unknown_spice.sql` (nullable spice level = unknown), `0010_pin_precision.sql` (building-level pins) — **then** `supabase/seed.sql` (the seed needs 0005–0010; it also loads the Coffee/Bars/Spa/Sport pilot data).
+   experience tags), `0008_what_to_eat.sql` (eating/dining attributes), `0009_unknown_spice.sql` (nullable spice level = unknown), `0010_pin_precision.sql` (building-level pins), `0011_advisor_hardening.sql` (Supabase advisor fixes; no data change) — **then** `supabase/seed.sql` (the seed needs 0005–0010; it also loads the Coffee/Bars/Spa/Sport pilot data).
 3. Authentication settings:
    Authentication → URL configuration: Site URL = production URL; Redirect URLs for each environment: `/auth/callback/`, `/reset-password/` and `/admin/` on the production domain, on previews (`https://*-<team>.vercel.app/...`) and on `http://localhost:3000/...`.
    Authentication → Providers: **Email** enabled with "Confirm email" ON; **Google** enabled (Google Cloud Console → OAuth client "Web", authorised redirect URI = `https://<project-ref>.supabase.co/auth/v1/callback`; paste client ID/secret into Supabase — the secret stays in Supabase, never in the app). Apple: later.

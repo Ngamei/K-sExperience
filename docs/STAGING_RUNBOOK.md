@@ -9,6 +9,8 @@ Ordered steps for an **authorized Supabase staging project** and a **Vercel prev
 | Item | State |
 | --- | --- |
 | Staging project | **`aibainipwgqbluhnqepu`**: the PO's only project, designated staging (empty, no real users). Connect it to Vercel **Preview** only. Production stays in local mode until launch; then reuse this project after clearing test accounts and re-seeding, or create a second free project for production. |
+| Migration 0011 (advisor hardening) | ⏳ written + tested locally (`npm run test:db`); apply to staging only with PO approval (Supabase connector `apply_migration`, or SQL editor). |
+| Read-only re-check via Supabase connector (2026-11-28) | ✅ project ACTIVE_HEALTHY (Postgres 17, ap-northeast-1); parity 10/10 PASS; 23/23 public tables RLS on; 0 auth users, 0 roles; buckets dish-photos (public) + user-media. Advisors: 6 security warnings + performance notes → 0011. |
 | Steps 1–3 | ✅ **Done by the PO's operator assistant in the Supabase SQL editor, from commit `8f429f1`** (reported; Claude Code has no access to the project and did not re-check it): migrations 0001–0010 once each, in order, no errors; pre-flight query all `true`; RLS on for all 23 public tables; `seed.sql` OK; parity **10/10 PASS** (138 · 0 · 170 · 170 · 121 · 37 · 61 · 126 · 1 · 0). The dashboard's risk warnings on 0001 and 0005–0007 were expected: 0001 enables RLS itself, and the "destructive" statements only drop empty tables or constraints/policies/triggers that are recreated straight away. The "main · PRODUCTION" badge is Supabase's default branch name, not this app's production. |
 | Step 4 (Vercel Preview env) | ⏳ PO: `NEXT_PUBLIC_DATA_MODE=supabase`, `NEXT_PUBLIC_SUPABASE_URL=https://aibainipwgqbluhnqepu.supabase.co`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` = the **publishable** key (`sb_publishable_…`; supabase-js 2.119 supports it). Preview only. |
 | Redirect URLs | ⏳ PO: Authentication → URL Configuration — add the preview domain's `/auth/callback/`, `/reset-password/` and `/admin/`. |
@@ -24,7 +26,7 @@ Ordered steps for an **authorized Supabase staging project** and a **Vercel prev
 
 | Database state | Run |
 | --- | --- |
-| Empty (current `aibainipwgqbluhnqepu`) | `0001` → `0002` → … → `0008` → **`0009_unknown_spice.sql`** → **`0010_pin_precision.sql`** |
+| Empty (current `aibainipwgqbluhnqepu`) | `0001` → `0002` → … → `0008` → **`0009_unknown_spice.sql`** → **`0010_pin_precision.sql`** | → `0011_advisor_hardening.sql`
 | Already at 0008 | **`0009_unknown_spice.sql`** then **`0010_pin_precision.sql`** |
 
 Either paste each file into the SQL editor in order, or `supabase link --project-ref <staging-ref>` + `supabase db push` from a trusted machine. Evidence: no error per file; the pre-flight query (step 1.3) returns all `true`.
