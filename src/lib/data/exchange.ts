@@ -8,6 +8,7 @@ import { z } from "zod";
 import { normalizeVi, slugify } from "../search/normalize";
 import { pointInGeometry, haversineKm, type GeoJsonGeometry, type LngLat } from "../geo/geo";
 import { LinkPhotoSchema, OpeningHoursSchema, PRICE_RANGES, VENUE_TYPES } from "./schema";
+import { enrichProblems } from "./enrich";
 
 export const EXCHANGE_EXPERIENCES = ["food", "coffee", "bars", "spa", "sport"] as const;
 export const AGENTS = ["claude-code", "chatgpt", "codex", "product-owner"] as const;
@@ -45,14 +46,27 @@ export const BatchVenueSchema = z.object({
   googleMapsUrl: Https.refine(isGoogleMapsPlaceUrl, "googleMapsUrl must be a Google Maps place link (google.com/maps/place/…, maps.app.goo.gl/…)").optional(),
   /** D67 — reported closure (kept as a record, never recommended). */
   closure: z.object({ status: z.enum(["temporarily-closed", "permanently-closed"]), reportedOn: z.string(), source: z.string().min(3) }).optional(),
+  /** Business contact as published by the venue or a listing (phone in international or local format). */
+  contact: z.object({
+    phone: z.string().regex(/^\+?[0-9][0-9 ().-]{7,19}$/, "phone: digits, spaces, + ( ) . - only").optional(),
+    website: Https.optional(), social: Https.optional(),
+  }).optional(),
+  /**
+   * Enrichment of an EXISTING establishment (`id` required): adds contact / openingHours / priceRange / closure and
+   * dish-link prices without re-geocoding or creating anything. See src/lib/data/enrich.ts.
+   */
+  enrich: z.boolean().optional(),
+  /** Field-level provenance: the URL each profile field was read from (must also be in `sources`). */
+  fieldSources: z.object({ phone: Https, website: Https, social: Https, openingHours: Https, priceRange: Https, closure: Https }).partial().optional(),
 }).superRefine((v, ctx) => {
+  if (v.contact?.phone && !v.fieldSources?.phone) ctx.addIssue({ code: "custom", path: ["fieldSources", "phone"], message: "a phone number needs fieldSources.phone (the URL it was read from)" });
   if (v.lon != null && v.lat != null && (!v.coordinatePrecision || !v.coordinateSource))
     ctx.addIssue({ code: "custom", path: ["coordinatePrecision"], message: "supplied coordinates need coordinatePrecision (exact | building | street) and coordinateSource" });
 });
 export const BatchSchema = z.object({
   /** Id given by an external research team (e.g. BAR-CRAFT-20261128-01), kept for traceability. */
   externalBatchId: z.string().optional(),
-  batchId: z.string().regex(/^(CC|GPT|CX|PO)-[A-Z]+-\d{3}$/, "e.g. GPT-FOOD-001 (agent prefix, scope, number)"),
+  batchId: z.string().regex(/^(CC|GPT|CX|PO)-[A-Z][A-Z0-9]*(?:-[A-Z][A-Z0-9]*)*-\d{3}$/, "e.g. GPT-FOOD-001 or CC-ENRICH-Q1Q3PNBT-001 (agent prefix, scope, number)"),
   experience: z.enum(EXCHANGE_EXPERIENCES),
   kind: z.enum(["venues", "catalogue"]),
   agent: z.enum(AGENTS),
@@ -89,8 +103,8 @@ export interface ValidationCtx {
 }
 export interface VenueVerdict {
   name: string; id: string; decision: "accept" | "reject";
-  /** "new" or "merge" (same id already exists → offerings are added, evidence never weakened). */
-  action: "new" | "merge" | "none";
+  /** "new" or "merge" (same id already exists → offerings are added, evidence never weakened); "enrich" = profile fields of an existing record. */
+  action: "new" | "merge" | "enrich" | "none";
   reasons: string[]; warnings: string[]; offerings: number; priced: number;
 }
 
@@ -103,6 +117,20 @@ export function validateVenues(batch: Batch, ctx: ValidationCtx): VenueVerdict[]
     if (v.excluded) return { name: v.name, id, decision: "reject" as const, action: "none" as const, reasons: [`excluded by researcher: ${v.excluded}`], warnings, offerings: 0, priced: 0 };
     if (seen.has(id)) reasons.push("duplicate venue within this batch");
     seen.add(id);
+    if (v.enrich) {
+      reasons.push(...enrichProblems(v));
+      if (batch.experience !== "food") reasons.push("enrich venues are supported for Food establishments only (module establishments: not yet)");
+      const ex = ctx.establishments.find((e) => e.id === v.id && e.experience === batch.experience);
+      if (v.id && !ex) reasons.push(`enrich: no existing ${batch.experience} establishment with id "${v.id}"`);
+      let offerings = 0, priced = 0;
+      for (const d of v.dishes ?? []) {
+        const dishId = typeof d === "string" ? d : d.dishId;
+        if (!ctx.dishIds.has(dishId)) { reasons.push(`unknown dish id "${dishId}"`); continue; }
+        offerings++;
+        if (typeof d !== "string" && d.priceVnd) priced++;
+      }
+      return { name: v.name, id, decision: reasons.length ? "reject" as const : "accept" as const, action: reasons.length ? "none" as const : "enrich" as const, reasons, warnings, offerings, priced };
+    }
     let offerings = 0, priced = 0;
     if (batch.experience === "food") {
       if (!v.dishes?.length) reasons.push("no dishes — a Food venue needs at least one dish with evidence");

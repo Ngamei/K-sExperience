@@ -7,7 +7,7 @@
     },
     "batchId": {
       "type": "string",
-      "pattern": "^(CC|GPT|CX|PO)-[A-Z]+-\\d{3}$"
+      "pattern": "^(CC|GPT|CX|PO)-[A-Z][A-Z0-9]*(?:-[A-Z][A-Z0-9]*)*-\\d{3}$"
     },
     "experience": {
       "type": "string",
@@ -407,6 +407,55 @@
               "reportedOn",
               "source"
             ]
+          },
+          "contact": {
+            "type": "object",
+            "properties": {
+              "phone": {
+                "type": "string",
+                "pattern": "^\\+?[0-9][0-9 ().-]{7,19}$"
+              },
+              "website": {
+                "type": "string",
+                "pattern": "^https:\\/\\/[^\\s]+\\.[^\\s]+"
+              },
+              "social": {
+                "type": "string",
+                "pattern": "^https:\\/\\/[^\\s]+\\.[^\\s]+"
+              }
+            }
+          },
+          "enrich": {
+            "type": "boolean"
+          },
+          "fieldSources": {
+            "type": "object",
+            "properties": {
+              "phone": {
+                "type": "string",
+                "pattern": "^https:\\/\\/[^\\s]+\\.[^\\s]+"
+              },
+              "website": {
+                "type": "string",
+                "pattern": "^https:\\/\\/[^\\s]+\\.[^\\s]+"
+              },
+              "social": {
+                "type": "string",
+                "pattern": "^https:\\/\\/[^\\s]+\\.[^\\s]+"
+              },
+              "openingHours": {
+                "type": "string",
+                "pattern": "^https:\\/\\/[^\\s]+\\.[^\\s]+"
+              },
+              "priceRange": {
+                "type": "string",
+                "pattern": "^https:\\/\\/[^\\s]+\\.[^\\s]+"
+              },
+              "closure": {
+                "type": "string",
+                "pattern": "^https:\\/\\/[^\\s]+\\.[^\\s]+"
+              }
+            }
           }
         },
         "required": [

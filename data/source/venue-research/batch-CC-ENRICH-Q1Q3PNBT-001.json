@@ -1,0 +1,2323 @@
+{
+  "batchId": "CC-ENRICH-Q1Q3PNBT-001",
+  "experience": "food",
+  "kind": "venues",
+  "agent": "claude-code",
+  "researchedOn": "2026-11-28",
+  "method": "Business-profile enrichment of EXISTING Food venues in former Quận 1, Quận 3, Phú Nhuận and Bình Thạnh (enrich: true; no new venues, no coordinates). mia.vn articles already cited by these venues were re-fetched (robots.txt allows Claude) and each venue block (matched by house number + street) re-read for Điện thoại / Giờ mở cửa / Giá; MICHELIN Guide, Grab food blog, VinWonders, Toplist, Falstaff, En Primeur Club were read through web-search extracts (their pages are not fetchable from the sandbox). Acceptance: phone from MICHELIN, a mia.vn venue block, or one guide naming this venue+address with no conflicting number; hours only for venues without hours and only when no consulted source conflicts (conflicts are listed in docs/handover/CC-ENRICH-Q1Q3PNBT-001.md, not stored); dish prices only with both ends of the range stated (a lone \"from X\" is not stored); priceRange only when the whole stated range lies in one contract bucket ($ <60k, $$ 60–150k VND). Foody.vn listings were checked but not used (hours/prices visibly stale). Every value carries fieldSources; access date 2026-11-28; nothing verified by phone or visit.",
+  "venues": [
+    {
+      "id": "pho-minh-63-6-pasteur",
+      "name": "Phở Minh",
+      "address": "63/6 Pasteur",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-ngon-pho-minh-sai-gon-16016",
+        "https://mia.vn/cam-nang-du-lich/top-quan-pho-quan-1-16083",
+        "https://guide.michelin.com/be/fr/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-minh"
+      ],
+      "dishes": [
+        {
+          "dishId": "pho-sai-gon",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-ngon-pho-minh-sai-gon-16016",
+          "priceVnd": {
+            "min": 70000,
+            "max": 90000
+          }
+        }
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:30",
+            "10:00"
+          ]
+        ]
+      },
+      "priceRange": "$$",
+      "note": "Phone 028 3822 0345 in the mia.vn venue article (2024-07-04) and on the MICHELIN Guide page. Hours 6h30–10h00 per mia.vn top-quan-pho-quan-1 (2024-07-10), matching MICHELIN 06:30–10:00 daily (the 2024 venue article says 6h30–9h45). 2024 price: small bowl 70,000, large 90,000 VND.",
+      "contact": {
+        "phone": "+84 28 3822 0345"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://mia.vn/cam-nang-du-lich/quan-ngon-pho-minh-sai-gon-16016",
+        "openingHours": "https://mia.vn/cam-nang-du-lich/top-quan-pho-quan-1-16083",
+        "priceRange": "https://mia.vn/cam-nang-du-lich/quan-ngon-pho-minh-sai-gon-16016"
+      }
+    },
+    {
+      "id": "pho-hoa-pasteur",
+      "name": "Phở Hòa Pasteur",
+      "address": "260C Pasteur",
+      "district": "Quận 3",
+      "sources": [
+        "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hoa-pasteur",
+        "https://www.falstaff.com/en/restaurants/pho-hoa-pasteur-ho-chi-minh-stadt"
+      ],
+      "note": "Phone on the MICHELIN Guide page; same number on Falstaff and Trip.com.",
+      "contact": {
+        "phone": "+84 28 3829 7943"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hoa-pasteur"
+      }
+    },
+    {
+      "id": "banh-xeo-46a",
+      "name": "Bánh Xèo 46A",
+      "address": "46A Đinh Công Tráng",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/banh-xeo-46a-dinh-cong-trang-18183",
+        "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/banh-xeo-46a"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:00",
+            "14:00"
+          ],
+          [
+            "16:00",
+            "21:00"
+          ]
+        ]
+      },
+      "note": "Phone 028 3824 1110 and hours 10:00–14:00, 16:00–21:00 in the mia.vn venue article (2025-04-08); MICHELIN Guide lists the same number and two daily sittings.",
+      "contact": {
+        "phone": "+84 28 3824 1110"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://mia.vn/cam-nang-du-lich/banh-xeo-46a-dinh-cong-trang-18183",
+        "openingHours": "https://mia.vn/cam-nang-du-lich/banh-xeo-46a-dinh-cong-trang-18183"
+      }
+    },
+    {
+      "id": "cuc-gach-quan-10-dang-tat",
+      "name": "Cục Gạch Quán",
+      "address": "10 Đặng Tất",
+      "district": "Quận 1",
+      "sources": [
+        "https://guide.michelin.com/hk/zh_HK/ho-chi-minh/ho-chi-minh_2978179/restaurant/cuc-gach-quan"
+      ],
+      "note": "Phone from the MICHELIN Guide listing (single source).",
+      "contact": {
+        "phone": "+84 28 3848 0144"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://guide.michelin.com/hk/zh_HK/ho-chi-minh/ho-chi-minh_2978179/restaurant/cuc-gach-quan"
+      }
+    },
+    {
+      "id": "hu-tieu-hong-phat",
+      "name": "Hủ Tiếu Hồng Phát",
+      "address": "389–391 Võ Văn Tần",
+      "district": "Quận 3",
+      "sources": [
+        "https://guide.michelin.com/ar/es/ho-chi-minh/ho-chi-minh_2978179/restaurante/hong-phat-district-3"
+      ],
+      "note": "Phone from the MICHELIN Guide listing (single source). Hours NOT added: MICHELIN 06:30–22:30 daily vs mia.vn 2026 07:00–20:00 (conflict).",
+      "contact": {
+        "phone": "+84 28 3839 0187"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://guide.michelin.com/ar/es/ho-chi-minh/ho-chi-minh_2978179/restaurante/hong-phat-district-3"
+      }
+    },
+    {
+      "id": "com-tam-ba-ghien",
+      "name": "Cơm Tấm Ba Ghiền",
+      "address": "84 Đặng Văn Ngữ",
+      "district": "Phú Nhuận",
+      "sources": [
+        "https://guide.michelin.com/ar/es/ho-chi-minh/ho-chi-minh_2978179/restaurante/com-tam-ba-ghien"
+      ],
+      "note": "Phone from the MICHELIN Guide listing. Hours NOT added: Time Out 8:00–20:30, mia.vn 2026 07:00–20:30, MICHELIN 08:00–22:00 (conflict).",
+      "contact": {
+        "phone": "+84 28 3846 1073"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://guide.michelin.com/ar/es/ho-chi-minh/ho-chi-minh_2978179/restaurante/com-tam-ba-ghien"
+      }
+    },
+    {
+      "id": "pho-hung-quan-1-243-nguyen-trai",
+      "name": "Phở Hùng quận 1",
+      "address": "243 Nguyễn Trãi",
+      "district": "Quận 1",
+      "sources": [
+        "https://guide.michelin.com/br/pt_BR/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hung",
+        "https://mia.vn/cam-nang-du-lich/top-quan-pho-sai-gon-18417",
+        "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hung"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "03:00"
+          ]
+        ]
+      },
+      "note": "Phone from the MICHELIN Guide listing (241–243 Nguyễn Trãi). Hours 6h–3h (overnight) per mia.vn top-quan-pho-sai-gon (2025-05-12), matching MICHELIN 06:00–03:00 daily. Price only \"from 70,000 VND/bowl\" (no max) — not stored.",
+      "contact": {
+        "phone": "+84 28 3838 5089"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://guide.michelin.com/br/pt_BR/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hung",
+        "openingHours": "https://mia.vn/cam-nang-du-lich/top-quan-pho-sai-gon-18417"
+      }
+    },
+    {
+      "id": "pho-huong-binh-148-vo-thi-sau",
+      "name": "Phở Hương Bình",
+      "address": "148 Võ Thị Sáu",
+      "district": "Quận 3",
+      "sources": [
+        "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-huong-binh",
+        "https://www.enprimeurclub.com/restaurants/pho-huong-binh-ho-chi-minh-city-restaurant"
+      ],
+      "note": "Phone on the MICHELIN Guide page, En Primeur Club and Foodle. Hours NOT added: MICHELIN pages show 06:30–22:30 and 06:30–21:00 (conflict).",
+      "contact": {
+        "phone": "+84 788 897 777"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-huong-binh"
+      }
+    },
+    {
+      "id": "bun-bo-mo-noi-co-nhu-274-29-vo-van-tan",
+      "name": "Bún Bò Mỡ Nổi Cô Như",
+      "address": "274/29 Võ Văn Tần",
+      "district": "Quận 3",
+      "sources": [
+        "https://guide.michelin.com/vn/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/bun-bo-hue-co-nhu",
+        "https://mia.vn/cam-nang-du-lich/bun-bo-hue-mo-noi-co-nhu-17406"
+      ],
+      "dishes": [
+        {
+          "dishId": "bun-bo-hue",
+          "url": "https://mia.vn/cam-nang-du-lich/bun-bo-hue-mo-noi-co-nhu-17406",
+          "priceVnd": {
+            "min": 40000,
+            "max": 40000
+          }
+        }
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "tue": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "wed": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "thu": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "fri": [
+          [
+            "11:00",
+            "20:30"
+          ]
+        ],
+        "sat": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "sun": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ]
+      },
+      "priceRange": "$",
+      "note": "Phone from the MICHELIN Guide listing (Foodle same). Hours 11h–20h, Friday to 20h30 in the mia.vn venue article (2024-12-10), matching MICHELIN regional pages. 2024 price 40,000 VND/bowl.",
+      "contact": {
+        "phone": "+84 93 793 78 18"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://guide.michelin.com/vn/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/bun-bo-hue-co-nhu",
+        "openingHours": "https://mia.vn/cam-nang-du-lich/bun-bo-hue-mo-noi-co-nhu-17406",
+        "priceRange": "https://mia.vn/cam-nang-du-lich/bun-bo-hue-mo-noi-co-nhu-17406"
+      }
+    },
+    {
+      "id": "pho-cao-van-25-mac-dinh-chi",
+      "name": "Phở Cao Vân",
+      "address": "25 Mạc Đĩnh Chi",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/top-quan-pho-quan-1-16083",
+        "https://www.grab.com/vn/en/food-blog/merchant-story/tp-hcm-to-pho-nuoc-trong-dam-vi-hon-60-nam-thom-khoi-cui-o-sai-gon/"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "21:00"
+          ]
+        ]
+      },
+      "note": "Hours 6h00–21h00 per mia.vn (2024-07-10) and the Grab food blog (\"06h00 đến 21h00 mỗi ngày\").",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/top-quan-pho-quan-1-16083"
+      }
+    },
+    {
+      "id": "banh-mi-huynh-hoa",
+      "name": "Bánh Mì Huỳnh Hoa",
+      "address": "26 Lê Thị Riêng",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/banh-mi-huynh-hoa-20296",
+        "https://uk.trip.com/restaurant/vietnam/ho-chi-minh-city/detail/bnh-m-huynh-hoa-15012972"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ]
+      },
+      "note": "Hours 6h–22h in the mia.vn venue article (2026-04-16, the most recent source); Trip.com, Foodle and Toplist also give 06:00–22:00. An older mia.vn listicle (13:00–23:00) and Airbnb (14:30–23:00) differ.",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/banh-mi-huynh-hoa-20296"
+      }
+    },
+    {
+      "id": "bun-rieu-ganh-cho-ben-thanh-163-le-thanh-ton",
+      "name": "Bún Riêu Gánh Chợ Bến Thành",
+      "address": "163 Lê Thánh Tôn",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/bun-rieu-ganh-cho-ben-thanh-17591"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ],
+        "tue": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ],
+        "wed": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ],
+        "thu": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ],
+        "fri": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ],
+        "sat": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ],
+        "sun": [
+          [
+            "07:00",
+            "19:00"
+          ]
+        ]
+      },
+      "note": "Hours \"từ 7h sáng đến 19h tối\" in the mia.vn venue article (2025-01-14). Price given only as \"khoảng 60.000 đồng/tô\" (approximate) — not stored.",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/bun-rieu-ganh-cho-ben-thanh-17591"
+      }
+    },
+    {
+      "id": "hu-tieu-nam-vang-lien-hua-381-vo-van-tan",
+      "name": "Hủ Tiếu Nam Vang Liến Húa",
+      "address": "381 Võ Văn Tần",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      ],
+      "dishes": [
+        {
+          "dishId": "hu-tieu-nam-vang",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
+          "priceVnd": {
+            "min": 30000,
+            "max": 130000
+          }
+        }
+      ],
+      "note": "2026 price 30,000–130,000 VND/bowl per mia.vn (2026-07-27). Hours NOT added: mia.vn 08:00–23:00 vs Vinpearl 6:00–23:00 (conflict).",
+      "enrich": true,
+      "fieldSources": {}
+    },
+    {
+      "id": "banh-mi-110-110-hoang-van-thu",
+      "name": "Bánh Mì 110",
+      "address": "110 Hoàng Văn Thụ",
+      "district": "Phú Nhuận",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/banh-mi-110-18255"
+      ],
+      "dishes": [
+        {
+          "dishId": "banh-mi-sai-gon",
+          "url": "https://mia.vn/cam-nang-du-lich/banh-mi-110-18255",
+          "priceVnd": {
+            "min": 22000,
+            "max": 30000
+          }
+        }
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ],
+        "tue": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ],
+        "wed": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ],
+        "thu": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ],
+        "fri": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ],
+        "sat": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ],
+        "sun": [
+          [
+            "05:00",
+            "11:00"
+          ],
+          [
+            "15:00",
+            "23:30"
+          ]
+        ]
+      },
+      "priceRange": "$",
+      "note": "Hours 5h–11h and 15h–23h30, 2025 price 22,000–30,000 VND in the mia.vn venue article (2025-09-04).",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/banh-mi-110-18255",
+        "priceRange": "https://mia.vn/cam-nang-du-lich/banh-mi-110-18255"
+      }
+    },
+    {
+      "id": "banh-mi-hoang-lam-168-nguyen-thuong-hien",
+      "name": "Bánh Mì Hoàng Lam",
+      "address": "168 Nguyễn Thượng Hiền",
+      "district": "Phú Nhuận",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/banh-mi-hoang-lam-phu-nhuan-20293"
+      ],
+      "dishes": [
+        {
+          "dishId": "banh-mi-sai-gon",
+          "url": "https://mia.vn/cam-nang-du-lich/banh-mi-hoang-lam-phu-nhuan-20293",
+          "priceVnd": {
+            "min": 40000,
+            "max": 53000
+          }
+        }
+      ],
+      "priceRange": "$",
+      "note": "Phone, fanpage and price (40,000–53,000 VND per loaf) in the mia.vn venue article (2026-04-15). Hours NOT added: source gives 10:00–19:30 Mon–Sat only; Sunday unknown.",
+      "contact": {
+        "phone": "090 667 36 09",
+        "social": "https://www.facebook.com/banhmihoanglam"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://mia.vn/cam-nang-du-lich/banh-mi-hoang-lam-phu-nhuan-20293",
+        "social": "https://mia.vn/cam-nang-du-lich/banh-mi-hoang-lam-phu-nhuan-20293",
+        "priceRange": "https://mia.vn/cam-nang-du-lich/banh-mi-hoang-lam-phu-nhuan-20293"
+      }
+    },
+    {
+      "id": "oc-chi-hong-210-15-cach-mang-thang-8",
+      "name": "Ốc Chị Hồng",
+      "address": "210/15 Cách Mạng Tháng 8",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ]
+      },
+      "note": "mia.vn Quận 3 ốc guide (2024-03-01).",
+      "contact": {
+        "phone": "0938 178 667"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885",
+        "openingHours": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"
+      }
+    },
+    {
+      "id": "quan-oc-phuoc-dat-84-nguyen-thong",
+      "name": "Quán Ốc Phước Đạt",
+      "address": "84 Nguyễn Thông",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ],
+        "tue": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ],
+        "wed": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ],
+        "thu": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ],
+        "fri": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ],
+        "sat": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ],
+        "sun": [
+          [
+            "17:00",
+            "03:00"
+          ]
+        ]
+      },
+      "note": "mia.vn Quận 3 ốc guide (2024-03-01); hours run past midnight.",
+      "contact": {
+        "phone": "0382 884 334"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885",
+        "openingHours": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"
+      }
+    },
+    {
+      "id": "quan-oc-hong-ngoc-13-vuon-chuoi",
+      "name": "Quán Ốc Hồng Ngọc",
+      "address": "13 Vườn Chuối",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ],
+        "tue": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ],
+        "wed": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ],
+        "thu": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ],
+        "fri": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ],
+        "sat": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ],
+        "sun": [
+          [
+            "16:00",
+            "00:00"
+          ]
+        ]
+      },
+      "note": "mia.vn Quận 3 ốc guide (2024-03-01).",
+      "contact": {
+        "phone": "0975 012 754"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885",
+        "openingHours": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"
+      }
+    },
+    {
+      "id": "oc-mint-170-do-thi-loi",
+      "name": "Ốc Mint",
+      "address": "170 Đỗ Thị Lời",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ],
+        "tue": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ],
+        "wed": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ],
+        "thu": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ],
+        "fri": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ],
+        "sat": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ],
+        "sun": [
+          [
+            "14:00",
+            "01:00"
+          ]
+        ]
+      },
+      "note": "mia.vn Quận 3 ốc guide (2024-03-01); hours run past midnight.",
+      "contact": {
+        "phone": "0909 651 686"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885",
+        "openingHours": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"
+      }
+    },
+    {
+      "id": "oc-195-195-56-tran-van-dang",
+      "name": "Ốc 195",
+      "address": "195/56 Trần Văn Đang",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"
+      ],
+      "note": "mia.vn Quận 3 ốc guide (2024-03-01).",
+      "contact": {
+        "phone": "0973 708 814"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"
+      }
+    },
+    {
+      "id": "quan-oc-lan-2-18-nguyen-dinh-chieu",
+      "name": "Quán Ốc Lan 2",
+      "address": "18 Nguyễn Đình Chiểu",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"
+      ],
+      "note": "mia.vn Quận 3 ốc guide (2024-03-01).",
+      "contact": {
+        "phone": "0908 697 277"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://mia.vn/cam-nang-du-lich/kham-pha-quan-oc-quan-3-14885"
+      }
+    },
+    {
+      "id": "quan-oc-van-cho-ben-thanh-23-nguyen-an-ninh",
+      "name": "Quán Ốc Vân Chợ Bến Thành",
+      "address": "23 Nguyễn An Ninh",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/bo-tui-quan-oc-quan-1-ngon-nuc-tieng-14880"
+      ],
+      "note": "mia.vn Quận 1 ốc guide (2025-01-08).",
+      "contact": {
+        "phone": "0932 387 773"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://mia.vn/cam-nang-du-lich/bo-tui-quan-oc-quan-1-ngon-nuc-tieng-14880"
+      }
+    },
+    {
+      "id": "hu-tieu-nam-vang-thanh-dat-34-co-bac",
+      "name": "Hủ tiếu Nam Vang Thành Đạt",
+      "address": "34 Cô Bắc",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ],
+        "tue": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ],
+        "wed": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ],
+        "thu": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ],
+        "fri": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ],
+        "sat": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ],
+        "sun": [
+          [
+            "00:00",
+            "23:59"
+          ]
+        ]
+      },
+      "note": "mia.vn (2026-07-27): open \"24/24 tất cả các ngày trong tuần\" (stored 00:00–23:59). Price only \"from 35,000\" — not stored.",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      }
+    },
+    {
+      "id": "hu-tieu-nam-vang-nhan-quan-122d-cach-mang-thang-tam",
+      "name": "Hủ tiếu Nam Vang Nhân Quán",
+      "address": "122D Cách Mạng Tháng Tám",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      ],
+      "dishes": [
+        {
+          "dishId": "hu-tieu-nam-vang",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
+          "priceVnd": {
+            "min": 50000,
+            "max": 70000
+          }
+        }
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "tue": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "wed": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "thu": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "fri": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "sat": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "sun": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ]
+      },
+      "note": "mia.vn (2026-07-27): daily 05:00–23:00, 50,000–70,000 VND/bowl. Possible duplicate record of hu-tieu-nam-vang-nhan-quan-122d-cach-mang-thang-8 (same venue).",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      }
+    },
+    {
+      "id": "hu-tieu-nam-vang-nhan-quan-122d-cach-mang-thang-8",
+      "name": "Hủ tiếu Nam Vang Nhân quán",
+      "address": "122D Cách mạng tháng 8",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      ],
+      "dishes": [
+        {
+          "dishId": "hu-tieu-nam-vang",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
+          "priceVnd": {
+            "min": 50000,
+            "max": 70000
+          }
+        }
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "tue": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "wed": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "thu": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "fri": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "sat": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ],
+        "sun": [
+          [
+            "05:00",
+            "23:00"
+          ]
+        ]
+      },
+      "note": "mia.vn (2026-07-27): daily 05:00–23:00, 50,000–70,000 VND/bowl. Possible duplicate record of hu-tieu-nam-vang-nhan-quan-122d-cach-mang-thang-tam (same venue).",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      }
+    },
+    {
+      "id": "hu-tieu-nam-vang-trung-coi-80-cao-thang",
+      "name": "Hủ tiếu Nam Vang Trung Còi",
+      "address": "80 Cao Thắng",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ],
+        "tue": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ],
+        "wed": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ],
+        "thu": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ],
+        "fri": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ],
+        "sat": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ],
+        "sun": [
+          [
+            "07:00",
+            "22:30"
+          ]
+        ]
+      },
+      "note": "mia.vn (2026-07-27): daily 07:00–22:30. Price only \"from 50,000\" — not stored.",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      }
+    },
+    {
+      "id": "hu-tieu-nam-vang-quoc-ky-24-ky-con",
+      "name": "Hủ tiếu Nam Vang Quốc Ký",
+      "address": "24 Ký Con",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      ],
+      "dishes": [
+        {
+          "dishId": "hu-tieu-nam-vang",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
+          "priceVnd": {
+            "min": 25000,
+            "max": 50000
+          }
+        }
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "23:00"
+          ]
+        ]
+      },
+      "priceRange": "$",
+      "note": "mia.vn (2026-07-27): daily 06:00–23:00, 25,000–50,000 VND/bowl.",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
+        "priceRange": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      }
+    },
+    {
+      "id": "hu-tieu-nam-vang-hong-phat-391-vo-van-tan",
+      "name": "Hủ tiếu Nam Vang Hồng Phát",
+      "address": "391 Võ Văn Tần",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      ],
+      "dishes": [
+        {
+          "dishId": "hu-tieu-nam-vang",
+          "url": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993",
+          "priceVnd": {
+            "min": 60000,
+            "max": 100000
+          }
+        }
+      ],
+      "priceRange": "$$",
+      "note": "mia.vn (2026-07-27): 60,000–100,000 VND/bowl. Hours NOT added (mia 07:00–20:00 vs MICHELIN 06:30–22:30). Likely the same venue as hu-tieu-hong-phat (389–391 Võ Văn Tần).",
+      "enrich": true,
+      "fieldSources": {
+        "priceRange": "https://mia.vn/cam-nang-du-lich/quan-hu-tieu-nam-vang-sai-gon-14993"
+      }
+    },
+    {
+      "id": "bun-cha-ba-lan-than-9b-nguyen-thi-minh-khai",
+      "name": "Bún Chả Bà Lan \"Thận",
+      "address": "9B Nguyễn Thị Minh Khai",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "07:00",
+            "14:00"
+          ],
+          [
+            "17:00",
+            "21:00"
+          ]
+        ]
+      },
+      "note": "mia.vn bún chả Quận 1 guide (2025-04-02). Its price line (\"50.000 VND/đêm\") is ambiguous — not stored.",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      }
+    },
+    {
+      "id": "pho-anh-08-ky-dong",
+      "name": "Phở Anh",
+      "address": "08 Kỳ Đồng",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/top-quan-pho-sai-gon-18417"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ]
+      },
+      "note": "mia.vn (2025-05-12): 6h–22h. Price only \"from 63,000\" — not stored.",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/top-quan-pho-sai-gon-18417"
+      }
+    },
+    {
+      "id": "quan-com-tam-dem-cu-bo-122-nguyen-cu-trinh",
+      "name": "Quán cơm tấm đêm Cu Bo",
+      "address": "122 Nguyễn Cư Trinh",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ],
+        "tue": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ],
+        "wed": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ],
+        "thu": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ],
+        "fri": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ],
+        "sat": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ],
+        "sun": [
+          [
+            "17:30",
+            "03:00"
+          ]
+        ]
+      },
+      "priceRange": "$",
+      "note": "mia.vn night cơm tấm guide (2025-07-04): daily 17:30–03:00, 20,000–30,000 VND per item.",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113",
+        "priceRange": "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113"
+      }
+    },
+    {
+      "id": "quan-269-de-tham",
+      "name": "Quán",
+      "address": "269 Đề Thám",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113"
+      ],
+      "dishes": [
+        {
+          "dishId": "com-tam-sai-gon",
+          "url": "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113",
+          "priceVnd": {
+            "min": 30000,
+            "max": 45000
+          }
+        }
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ],
+        "tue": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ],
+        "wed": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ],
+        "thu": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ],
+        "fri": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ],
+        "sat": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ],
+        "sun": [
+          [
+            "18:00",
+            "05:00"
+          ]
+        ]
+      },
+      "priceRange": "$",
+      "note": "mia.vn night cơm tấm guide (2025-07-04) calls it \"Quán Giá Hẹ\": daily 18:00–05:00, 30,000–45,000 VND per plate. The record name \"Quán\" looks truncated.",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113",
+        "priceRange": "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113"
+      }
+    },
+    {
+      "id": "bun-rieu-co-huong-beo-19b-nguyen-thi-minh-khai",
+      "name": "Bún riêu Cô Hương Béo",
+      "address": "19B Nguyễn Thị Minh Khai",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ],
+        "tue": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ],
+        "wed": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ],
+        "thu": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ],
+        "fri": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ],
+        "sat": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "08:00",
+            "22:00"
+          ]
+        ]
+      },
+      "note": "mia.vn bún riêu Quận 1 guide (2025-01-11). Price only \"from 45,000\" — not stored.",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156"
+      }
+    },
+    {
+      "id": "quan-bun-rieu-trinh-156-tran-quang-khai",
+      "name": "Quán bún riêu Trinh",
+      "address": "156 Trần Quang Khải",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156"
+      ],
+      "dishes": [
+        {
+          "dishId": "bun-rieu-cua",
+          "url": "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156",
+          "priceVnd": {
+            "min": 40000,
+            "max": 50000
+          }
+        }
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ],
+        "tue": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ],
+        "wed": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ],
+        "thu": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ],
+        "fri": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ],
+        "sat": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ],
+        "sun": [
+          [
+            "07:00",
+            "14:00"
+          ]
+        ]
+      },
+      "priceRange": "$",
+      "note": "mia.vn bún riêu Quận 1 guide (2025-01-11): daily 07:00–14:00, 40,000–50,000 VND/bowl.",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156",
+        "priceRange": "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156"
+      }
+    },
+    {
+      "id": "bun-rieu-duong-nguyen-trai-219-nguyen-trai",
+      "name": "Bún riêu đường Nguyễn Trãi",
+      "address": "219 Nguyễn Trãi",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156"
+      ],
+      "dishes": [
+        {
+          "dishId": "bun-rieu-cua",
+          "url": "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156",
+          "priceVnd": {
+            "min": 18000,
+            "max": 25000
+          }
+        }
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:00",
+            "17:00"
+          ]
+        ]
+      },
+      "priceRange": "$",
+      "note": "mia.vn bún riêu Quận 1 guide (2025-01-11): daily 10:00–17:00, 18,000–25,000 VND/bowl.",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156",
+        "priceRange": "https://mia.vn/cam-nang-du-lich/top-quan-bun-rieu-quan-1-16156"
+      }
+    },
+    {
+      "id": "com-tam-cali-82-nguyen-van-troi",
+      "name": "Cơm tấm Cali",
+      "address": "82 Nguyễn Văn Trỗi",
+      "district": "Phú Nhuận",
+      "sources": [
+        "https://toplist.vn/top-list/quan-com-tam-ngon-nhat-quan-phu-nhuan-tp-hcm-54541.htm",
+        "https://www.greensm.com/vn-vi/news/com-tam-phu-nhuan"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ],
+        "tue": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ],
+        "wed": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ],
+        "thu": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ],
+        "fri": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ],
+        "sat": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ],
+        "sun": [
+          [
+            "07:30",
+            "20:30"
+          ]
+        ]
+      },
+      "note": "Hours 07:30–20:30 per Toplist and GreenSM (Mar 2025). Branch phone (Toplist only) not added.",
+      "enrich": true,
+      "fieldSources": {
+        "openingHours": "https://toplist.vn/top-list/quan-com-tam-ngon-nhat-quan-phu-nhuan-tp-hcm-54541.htm"
+      }
+    },
+    {
+      "id": "quan-bun-thang-madame-thao-157-20-nguyen-gia-tri",
+      "name": "Quán bún thang Madame Thảo",
+      "address": "157/20 Nguyễn Gia Trí",
+      "district": "Bình Thạnh",
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/bun-thang-sai-gon/"
+      ],
+      "openingHours": {
+        "mon": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ]
+      },
+      "note": "Phone and \"giờ mở cửa tham khảo\" 06:00–22:00 from the VinWonders bún thang guide (single source, read via search extract).",
+      "contact": {
+        "phone": "0348 489 559"
+      },
+      "enrich": true,
+      "fieldSources": {
+        "phone": "https://vinwonders.com/vi/wonderpedia/news/bun-thang-sai-gon/",
+        "openingHours": "https://vinwonders.com/vi/wonderpedia/news/bun-thang-sai-gon/"
+      }
+    },
+    {
+      "id": "quan-bui-100-thach-thi-thanh",
+      "name": "Quán Bụi",
+      "address": "100 Thạch Thị Thanh",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544"
+      ],
+      "dishes": [
+        {
+          "dishId": "com-tam-sai-gon",
+          "url": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544",
+          "priceVnd": {
+            "min": 30000,
+            "max": 55000
+          }
+        }
+      ],
+      "priceRange": "$",
+      "note": "mia.vn cơm tấm Quận 1 guide (2025-01-08): 30,000–55,000 VND.",
+      "enrich": true,
+      "fieldSources": {
+        "priceRange": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544"
+      }
+    },
+    {
+      "id": "com-tam-74-nguyen-van-cu-74-nguyen-van-cu",
+      "name": "Cơm tấm 74 Nguyễn Văn Cừ",
+      "address": "74 Nguyễn Văn Cừ",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544"
+      ],
+      "dishes": [
+        {
+          "dishId": "com-tam-sai-gon",
+          "url": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544",
+          "priceVnd": {
+            "min": 50000,
+            "max": 110000
+          }
+        }
+      ],
+      "note": "mia.vn cơm tấm Quận 1 guide (2025-01-08): 50,000–110,000 VND. Existing hours 07:00–15:30 kept; mia.vn 2026 says 06:30–15:00.",
+      "enrich": true,
+      "fieldSources": {}
+    },
+    {
+      "id": "com-tam-86-151-co-giang",
+      "name": "Cơm tấm 86",
+      "address": "151 Cô Giang",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544"
+      ],
+      "dishes": [
+        {
+          "dishId": "com-tam-sai-gon",
+          "url": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544",
+          "priceVnd": {
+            "min": 35000,
+            "max": 55000
+          }
+        }
+      ],
+      "priceRange": "$",
+      "note": "mia.vn cơm tấm Quận 1 guide (2025-01-08): 35,000–55,000 VND.",
+      "enrich": true,
+      "fieldSources": {
+        "priceRange": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544"
+      }
+    },
+    {
+      "id": "cota-subicha-161-nguyen-van-thu",
+      "name": "Cota Subicha",
+      "address": "161 Nguyễn Văn Thủ",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544"
+      ],
+      "dishes": [
+        {
+          "dishId": "com-tam-sai-gon",
+          "url": "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544",
+          "priceVnd": {
+            "min": 48000,
+            "max": 77000
+          }
+        }
+      ],
+      "note": "mia.vn cơm tấm Quận 1 guide (2025-01-08): 48,000–77,000 VND.",
+      "enrich": true,
+      "fieldSources": {}
+    },
+    {
+      "id": "quan-com-ba-cuong-263-tran-quang-khai",
+      "name": "Quán cơm Ba Cường",
+      "address": "263 Trần Quang Khải",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113",
+        "https://mia.vn/cam-nang-du-lich/7-quan-com-tam-quan-1-12544"
+      ],
+      "dishes": [
+        {
+          "dishId": "com-tam-sai-gon",
+          "url": "https://mia.vn/cam-nang-du-lich/com-tam-dem-sai-gon-16113",
+          "priceVnd": {
+            "min": 45000,
+            "max": 80000
+          }
+        }
+      ],
+      "note": "45,000–80,000 VND per plate in two mia.vn guides (2025-01-08, 2025-07-04).",
+      "enrich": true,
+      "fieldSources": {}
+    },
+    {
+      "id": "quan-oc-mam-sua-282-6-bui-huu-nghia",
+      "name": "Quán ốc Mắm Sữa",
+      "address": "282/6 Bùi Hữu Nghĩa",
+      "district": "Bình Thạnh",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/top-quan-oc-sai-gon-13895"
+      ],
+      "dishes": [
+        {
+          "dishId": "oc-sai-gon",
+          "url": "https://mia.vn/cam-nang-du-lich/top-quan-oc-sai-gon-13895",
+          "priceVnd": {
+            "min": 30000,
+            "max": 44000
+          }
+        }
+      ],
+      "priceRange": "$",
+      "note": "mia.vn ốc guide (2025-01-07): 30,000–44,000 VND.",
+      "enrich": true,
+      "fieldSources": {
+        "priceRange": "https://mia.vn/cam-nang-du-lich/top-quan-oc-sai-gon-13895"
+      }
+    },
+    {
+      "id": "banh-trang-tron-chu-vien-38-nguyen-thuong-hien",
+      "name": "Bánh tráng trộn Chú Viên",
+      "address": "38 Nguyễn Thượng Hiền",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/banh-trang-tron-sai-gon-13907"
+      ],
+      "dishes": [
+        {
+          "dishId": "banh-trang-tron",
+          "url": "https://mia.vn/cam-nang-du-lich/banh-trang-tron-sai-gon-13907",
+          "priceVnd": {
+            "min": 10000,
+            "max": 25000
+          }
+        }
+      ],
+      "priceRange": "$",
+      "note": "mia.vn bánh tráng trộn guide (2023-12-06): 10,000–25,000 VND.",
+      "enrich": true,
+      "fieldSources": {
+        "priceRange": "https://mia.vn/cam-nang-du-lich/banh-trang-tron-sai-gon-13907"
+      }
+    },
+    {
+      "id": "banh-trang-tron-di-hong-25-duong-so-11",
+      "name": "Bánh tráng trộn Dì Hồng",
+      "address": "25 Đường số 11",
+      "district": "Quận 3",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/banh-trang-tron-sai-gon-13907"
+      ],
+      "dishes": [
+        {
+          "dishId": "banh-trang-tron",
+          "url": "https://mia.vn/cam-nang-du-lich/banh-trang-tron-sai-gon-13907",
+          "priceVnd": {
+            "min": 15000,
+            "max": 20000
+          }
+        }
+      ],
+      "priceRange": "$",
+      "note": "mia.vn bánh tráng trộn guide (2023-12-06): 15,000–20,000 VND.",
+      "enrich": true,
+      "fieldSources": {
+        "priceRange": "https://mia.vn/cam-nang-du-lich/banh-trang-tron-sai-gon-13907"
+      }
+    },
+    {
+      "id": "banh-xeo-mien-tay-ba-hai-49-nguyen-trong-tuyen",
+      "name": "Bánh xèo miền Tây Bà Hai",
+      "address": "49 Nguyễn Trọng Tuyển",
+      "district": "Phú Nhuận",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/top-quan-banh-xeo-mien-tay-sai-gon-15454"
+      ],
+      "dishes": [
+        {
+          "dishId": "banh-xeo-nam-bo",
+          "url": "https://mia.vn/cam-nang-du-lich/top-quan-banh-xeo-mien-tay-sai-gon-15454",
+          "priceVnd": {
+            "min": 35000,
+            "max": 66000
+          }
+        }
+      ],
+      "note": "mia.vn bánh xèo guide (2025-01-07): 35,000–66,000 VND.",
+      "enrich": true,
+      "fieldSources": {}
+    },
+    {
+      "id": "banh-xeo-rau-rung-anh-tien-356-phan-van-tri",
+      "name": "Bánh xèo rau rừng Anh Tiến",
+      "address": "356 Phan Văn Trị",
+      "district": "Bình Thạnh",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/top-quan-banh-xeo-mien-tay-sai-gon-15454"
+      ],
+      "priceRange": "$$",
+      "note": "mia.vn bánh xèo guide (2025-01-07): about 100,000 VND per person.",
+      "enrich": true,
+      "fieldSources": {
+        "priceRange": "https://mia.vn/cam-nang-du-lich/top-quan-banh-xeo-mien-tay-sai-gon-15454"
+      }
+    },
+    {
+      "id": "beo-oi-quan-15-20-nguyen-thi-minh-khai",
+      "name": "Béo Ơi Quán",
+      "address": "15/20 Nguyễn Thị Minh Khai",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      ],
+      "dishes": [
+        {
+          "dishId": "bun-cha-ha-noi",
+          "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085",
+          "priceVnd": {
+            "min": 55000,
+            "max": 55000
+          }
+        }
+      ],
+      "priceRange": "$",
+      "note": "mia.vn bún chả Quận 1 guide (2025-04-02): 55,000 VND/portion.",
+      "enrich": true,
+      "fieldSources": {
+        "priceRange": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      }
+    },
+    {
+      "id": "bun-cha-ba-binh-4-nguyen-trung-ngan",
+      "name": "Bún chả Bà Bính",
+      "address": "4 Nguyễn Trung Ngạn",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      ],
+      "dishes": [
+        {
+          "dishId": "bun-cha-ha-noi",
+          "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085",
+          "priceVnd": {
+            "min": 65000,
+            "max": 65000
+          }
+        }
+      ],
+      "priceRange": "$$",
+      "note": "mia.vn bún chả Quận 1 guide (2025-04-02): 65,000 VND.",
+      "enrich": true,
+      "fieldSources": {
+        "priceRange": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      }
+    },
+    {
+      "id": "bun-cha-ho-guom-82-ho-tung-mau",
+      "name": "Bún Chả Hồ Gươm",
+      "address": "82 Hồ Tùng Mậu",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      ],
+      "dishes": [
+        {
+          "dishId": "bun-cha-ha-noi",
+          "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085",
+          "priceVnd": {
+            "min": 60000,
+            "max": 60000
+          }
+        }
+      ],
+      "priceRange": "$$",
+      "note": "mia.vn bún chả Quận 1 guide (2025-04-02): 60,000 VND/portion.",
+      "enrich": true,
+      "fieldSources": {
+        "priceRange": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      }
+    },
+    {
+      "id": "bun-cha-dong-xuan-323-ly-tu-trong",
+      "name": "Bún chả Đồng Xuân",
+      "address": "323 Lý Tự Trọng",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      ],
+      "dishes": [
+        {
+          "dishId": "bun-cha-ha-noi",
+          "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085",
+          "priceVnd": {
+            "min": 75000,
+            "max": 75000
+          }
+        }
+      ],
+      "priceRange": "$$",
+      "note": "mia.vn bún chả Quận 1 guide (2025-04-02): 75,000 VND/portion.",
+      "enrich": true,
+      "fieldSources": {
+        "priceRange": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      }
+    },
+    {
+      "id": "quan-ngon-209-de-tham",
+      "name": "Quán Ngon",
+      "address": "209 Đề Thám",
+      "district": "Quận 1",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      ],
+      "dishes": [
+        {
+          "dishId": "bun-cha-ha-noi",
+          "url": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085",
+          "priceVnd": {
+            "min": 80000,
+            "max": 80000
+          }
+        }
+      ],
+      "priceRange": "$$",
+      "note": "mia.vn bún chả Quận 1 guide (2025-04-02): 80,000 VND/portion.",
+      "enrich": true,
+      "fieldSources": {
+        "priceRange": "https://mia.vn/cam-nang-du-lich/bun-cha-quan-1-16085"
+      }
+    }
+  ]
+}

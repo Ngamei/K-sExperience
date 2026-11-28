@@ -9,7 +9,7 @@ Shared hand-off point between **Claude Code** (establishment-first research, men
 | `contract/schema.sql` | Current database schema (all migrations in order) | `npm run exchange:export` |
 | `contract/json-schema/*.json` | JSON Schemas: dish, dish-eating, restaurant, opening-hours, dish-restaurant-link, link-photo, experience-item, establishment, offering, **research-batch** | generated from the app's Zod schemas |
 | `contract/vocabularies.json` | Every valid value: categories, dish types, tastes, dietary tags, meal times, regions + 63 provinces, eating attributes, venue types, price ranges, link statuses + allowed evidence per status, photo kinds, module categories/attributes/pricing units/item ids, **identifier rules** | generated |
-| `templates/` | `venues-batch.json`, `catalogue-batch.json`, `catalogue-import.csv`, `module-*.csv`, `media.json` | generated |
+| `templates/` | `venues-batch.json`, `enrich-batch.json` (business-profile enrichment of an EXISTING Food venue: `enrich: true` + its id; contact / openingHours / priceRange / closure / dish `priceVnd`, each with `fieldSources`; never creates or re-geocodes), `catalogue-batch.json`, `catalogue-import.csv`, `module-*.csv`, `media.json` | generated |
 | `samples/` | Real, already-imported batches (Food, Bars, Coffee) | copied |
 | `exports/*.csv` | Current dishes, establishments (all experiences), offerings (dish/item × establishment) and module items — **check these for duplicates before researching** | generated |
 | `briefs/<batchId>.md` | Research brief for a handed-over batch (scope, priorities, leads to confirm) | assigning agent |
