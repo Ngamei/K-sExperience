@@ -18,6 +18,14 @@ describe("Business Profile Engine — business types", () => {
     for (const t of BUSINESS_TYPES) expect(EXPERIENCES.some((e) => e.id === BUSINESS_TYPE_DEFS[t].experience)).toBe(true);
     expect(BUSINESS_TYPES.filter((t) => BUSINESS_TYPE_DEFS[t].future)).toEqual(["boutique"]);
   });
+  it("every business type has a default header image that exists in public/", async () => {
+    const { existsSync } = await import("node:fs");
+    for (const t of BUSINESS_TYPES) {
+      const img = BUSINESS_TYPE_DEFS[t].defaultImage;
+      expect(img, t).toMatch(/^\/images\/business-defaults\/[\w-]+\.webp$/);
+      expect(existsSync(`public${img}`), `${t}: ${img}`).toBe(true);
+    }
+  });
   it("real establishments map to the expected profile types", () => {
     expect(new Set(Object.values(typesOf("coffee")))).toEqual(new Set(["cafe"]));
     expect(new Set(Object.values(typesOf("bars")))).toEqual(new Set(["bar"]));

@@ -94,4 +94,5 @@ The links staged in commit `b4684d7` are alternate references for three venues. 
 | Metropole | [20 Nguyễn Thiện Thành](https://maps.app.goo.gl/S3nii48mVGjLvyVD8) |
 | Thảo Điền | [120 Xuân Thủy](https://goo.gl/maps/vEf8J6TxYzJo6pCK7) |
 - **2026-11-28 · Claude Code — Facebook + phone sign-in (D69)** — Auth panel offers Google, Facebook and phone (SMS code) next to email, each shown only when in `NEXT_PUBLIC_AUTH_METHODS`; account card/profile show the phone or provider name for accounts without email. Mock Supabase handles `/auth/v1/otp` + `/verify` (code 123456). Setup steps for the PO: `docs/AUTH_SETUP.md`. Live sign-in still needs the Supabase providers + Vercel env (PO).
+- **2026-11-28 · Claude Code — privacy + data-deletion pages** — `/privacy/` and `/data-deletion/` (EN/VI, factual: what is stored, Supabase Tokyo, no ads/analytics, in-app deletion via `delete_my_account`), linked from Settings and the sign-in panel; required by Facebook Login and Google branding. Optional `NEXT_PUBLIC_CONTACT_EMAIL`. Not legal advice — PO may want a review against Vietnam's personal-data rules.
 

@@ -6,7 +6,7 @@
  */
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowLeft, Bookmark, Check, Clock, ExternalLink, Flag, Globe, Lock, MapPin, Navigation, Phone, Share2, Store, TriangleAlert } from "lucide-react";
+import { ArrowLeft, Bookmark, Images, Check, Clock, ExternalLink, Flag, Globe, Lock, MapPin, Navigation, Phone, Share2, Store, TriangleAlert } from "lucide-react";
 import { loc, themeVars } from "@/experiences/registry";
 import { BUSINESS_TYPE_DEFS, formatVnd, priceAccess, type BusinessProfileModel, type BusinessTypeDef, type ProfileOffering } from "@/lib/business/profile";
 import { businessDict, type BusinessStrings } from "@/lib/i18n/business-dict";
@@ -23,7 +23,7 @@ import { cn } from "@/lib/utils";
 const DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] as const;
 
 /** Schematic illustration per business type — always labelled, never presented as the venue. */
-function HeroIllustration({ def, s }: { def: BusinessTypeDef; s: BusinessStrings }) {
+function HeroIllustration({ def, s, mapsUrl }: { def: BusinessTypeDef; s: BusinessStrings; mapsUrl?: string }) {
   const stroke = { fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
   const art: Record<BusinessTypeDef["art"], React.ReactNode> = {
     plate: <><circle cx="100" cy="50" r="30" {...stroke} /><circle cx="100" cy="50" r="18" {...stroke} /><path d="M52 24v52M46 24v14a6 6 0 0 0 12 0V24M148 24c-8 6-8 26 0 30v22" {...stroke} /></>,
@@ -35,10 +35,22 @@ function HeroIllustration({ def, s }: { def: BusinessTypeDef; s: BusinessStrings
     court: <><rect x="50" y="18" width="100" height="62" {...stroke} /><path d="M50 49h100M86 18v62M114 18v62" {...stroke} /></>,
     bags: <>{[55, 90, 125].map((x) => <g key={x}><rect x={x} y="34" width="26" height="44" rx="2" {...stroke} /><path d={`M${x + 6} 34v-6a7 7 0 0 1 14 0v6`} {...stroke} /></g>)}</>,
   };
+  const [imgFailed, setImgFailed] = useState(false);
+  const image = def.defaultImage && !imgFailed ? def.defaultImage : null;
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-sage-soft/70 text-forest" data-testid="hero-media" data-art={def.art} data-media="illustration">
-      <svg viewBox="0 0 200 100" className="mx-auto h-32 w-full max-w-sm md:h-40" role="img" aria-label={s.illustration}>{art[def.art]}</svg>
-      <span className="absolute bottom-2 left-3 rounded-full bg-paper/90 px-2 py-0.5 text-[10.5px] font-semibold uppercase tracking-wider text-muted">{s.illustration}</span>
+    <div className="relative overflow-hidden rounded-2xl bg-sage-soft/70 text-forest" data-testid="hero-media" data-art={def.art} data-media="illustration" data-default={image ? "image" : "drawing"}>
+      {image ? (
+        // eslint-disable-next-line @next/next/no-img-element -- static default banner shipped with the app
+        <img src={image} alt="" className="h-40 w-full object-cover md:h-56" onError={() => setImgFailed(true)} data-testid="hero-default-image" />
+      ) : (
+        <svg viewBox="0 0 200 100" className="mx-auto h-32 w-full max-w-sm md:h-40" role="img" aria-label={s.illustration}>{art[def.art]}</svg>
+      )}
+      <span className="sr-only" data-testid="hero-illustrative-label">{s.illustration}</span>
+      {mapsUrl && (
+        <a href={mapsUrl} target="_blank" rel="noreferrer" className="absolute bottom-2 right-3 inline-flex items-center gap-1 rounded-full bg-paper/95 px-2.5 py-1 text-xs font-medium text-forest shadow-sm hover:bg-paper" data-testid="maps-photos-link">
+          <Images className="size-3.5" aria-hidden /> {s.mapsPhotos}
+        </a>
+      )}
     </div>
   );
 }
@@ -47,12 +59,12 @@ function HeroIllustration({ def, s }: { def: BusinessTypeDef; s: BusinessStrings
  * HeroMedia: the venue's own credited photo (data/venue-photos.json · venue_photos) when one exists,
  * otherwise the labelled illustration. A photo that fails to load falls back to the illustration.
  */
-function HeroMedia({ def, s, venueId, name }: { def: BusinessTypeDef; s: BusinessStrings; venueId: string; name: string }) {
+function HeroMedia({ def, s, venueId, name, mapsUrl }: { def: BusinessTypeDef; s: BusinessStrings; venueId: string; name: string; mapsUrl?: string }) {
   const { locale } = useT();
   const photos = useVenuePhotos(venueId);
   const [failed, setFailed] = useState<string[]>([]);
   const photo = photos.find((p) => !failed.includes(p.url));
-  if (!photo) return <HeroIllustration def={def} s={s} />;
+  if (!photo) return <HeroIllustration def={def} s={s} mapsUrl={mapsUrl} />;
   const caption = photo.caption ? loc(photo.caption, locale) : s.photoKinds[photo.kind];
   return (
     <figure className="overflow-hidden rounded-2xl bg-ivory-deep" data-testid="hero-media" data-media="photo" data-kind={photo.kind}>
@@ -150,7 +162,7 @@ export function BusinessProfile({ model: m, back, actions, offeringTestId = "off
       )}
 
       <section className="space-y-4 rounded-3xl border border-line/80 bg-paper p-4 md:p-5">
-        <HeroMedia def={def} s={s} venueId={m.id} name={m.name} />
+        <HeroMedia def={def} s={s} venueId={m.id} name={m.name} mapsUrl={m.isSample ? undefined : m.mapsUrl} />
         <header data-testid="branch-identity">
           <h1 className="font-display text-3xl text-forest md:text-4xl">{m.name}</h1>
           <p className="mt-1 text-sm text-muted">{[m.area, loc(def.label, locale)].filter(Boolean).join(" · ")}</p>

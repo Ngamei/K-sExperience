@@ -107,6 +107,11 @@ export function SettingsView() {
       </SettingsSection>
 
       <p className="pb-4 text-center text-xs text-muted">{s.footer}</p>
+      <p className="-mt-2 pb-4 text-center text-xs text-muted">
+        <Link href="/privacy/" className="underline" data-testid="privacy-link">{locale === "vi" ? "Chính sách quyền riêng tư" : "Privacy policy"}</Link>
+        {" · "}
+        <Link href="/data-deletion/" className="underline">{locale === "vi" ? "Xóa dữ liệu" : "Delete your data"}</Link>
+      </p>
     </div>
   );
 }
