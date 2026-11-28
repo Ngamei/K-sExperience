@@ -8,7 +8,7 @@ set -euo pipefail
 SUPABASE="${SUPABASE_BIN:-supabase}"
 PSQL=(psql "$SUPABASE_DB_URL" -X -v ON_ERROR_STOP=1 -q -At)
 
-# One-time baseline: staging got 0001–0010 by hand in the SQL editor (2026-11-28, commit 8f429f1), so the
+# One-time baseline: the database (aibainipwgqbluhnqepu, production per D65) got 0001–0010 by hand in the SQL editor (2026-11-28, commit 8f429f1), so the
 # migration history is empty although the schema exists. Record exactly those as applied — never anything newer.
 HAS_SCHEMA=$("${PSQL[@]}" -c "select to_regclass('public.dishes') is not null")
 HAS_HISTORY=f
