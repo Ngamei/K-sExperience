@@ -1,4 +1,16 @@
 import { expect, type Page } from "@playwright/test";
+import { readFileSync } from "node:fs";
+import path from "node:path";
+
+/** Counts derived from the bundled data, so imports (new dishes) do not break hard-coded numbers. */
+const readData = (f: string) => JSON.parse(readFileSync(path.join(__dirname, "..", "data", f), "utf8"));
+const catalogue = readData("vietnamese-dishes.json") as { dishes: { origins: { provinceId?: string }[] }[] };
+export const DISH_COUNT = catalogue.dishes.length;
+const provincesRaw = readData("provinces.json");
+const provinces = (Array.isArray(provincesRaw) ? provincesRaw : provincesRaw.provinces) as { id: string; nameVi: string }[];
+const usedProvinces = new Set(catalogue.dishes.flatMap((d) => d.origins.map((o) => o.provinceId)));
+/** Provinces no dish names as an origin (Admin → Quality → Review). */
+export const PROVINCES_WITHOUT_DISHES = provinces.filter((p) => !usedProvinces.has(p.id)).map((p) => p.nameVi);
 
 export const isMobile = (page: Page) => (page.viewportSize()?.width ?? 1000) < 1024;
 

@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "dataset": "seed",
-    "label": "SEED DATA — demonstration catalogue authored by Claude Code from general culinary knowledge. Not yet verified against sources. To be replaced by the ChatGPT master catalogue.",
+    "dataset": "mixed",
+    "label": "Master catalogue merged with remaining seed dishes",
     "generatedAt": "2026-11-28",
-    "sourceFile": "data/source/seed-catalogue.json",
-    "recordCount": 138,
+    "sourceFile": "../../../tmp/intake-f4Uz5h/dishes.json",
+    "recordCount": 180,
     "seedCount": 138
   },
   "dishes": [
@@ -6977,6 +6977,1733 @@
         "status": "seed-unverified"
       },
       "dataset": "seed",
+      "prominence": 3
+    },
+    {
+      "id": "com-ga-xoi-mo",
+      "nameVi": "Cơm gà xối mỡ",
+      "nameEn": "Crisp-skinned chicken rice",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rice",
+      "origins": [
+        {
+          "provinceId": "ho-chi-minh",
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice",
+        "chicken",
+        "ginger dipping sauce",
+        "pickles",
+        "fresh greens"
+      ],
+      "taste": [
+        "crunchy"
+      ],
+      "dietary": [
+        "contains-poultry"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "description": {
+        "vi": "Cơm ăn với gà da giòn, nước chấm gừng và đồ chua. Cách chế biến này gắn với cộng đồng người Hoa ở Chợ Lớn.",
+        "en": "Crisp-skinned chicken served with rice, ginger dipping sauce and pickles. This Vietnamese preparation is associated with the Hoa community in Chợ Lớn."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Go Vietnam Travel — Cơm gà xối mỡ Thành phố Hồ Chí Minh",
+          "url": "https://govietnam.travel/food/com-ga-2/com-ga-xoi-mo/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3,
+      "eating": {
+        "proteins": [
+          "poultry"
+        ],
+        "portion": "hearty",
+        "source": {
+          "title": "Go Vietnam Travel — Cơm gà xối mỡ Thành phố Hồ Chí Minh",
+          "url": "https://govietnam.travel/food/com-ga-2/com-ga-xoi-mo/",
+          "confidence": "sourced"
+        }
+      }
+    },
+    {
+      "id": "bun-rieu-chay",
+      "nameVi": "Bún riêu chay",
+      "nameEn": "Vegetarian tomato and tofu noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "provinceId": "ho-chi-minh",
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice vermicelli",
+        "tofu",
+        "soy milk",
+        "tomato",
+        "vegetable broth",
+        "fresh herbs"
+      ],
+      "taste": [
+        "sour"
+      ],
+      "dietary": [
+        "vegetarian"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Bún với riêu đậu nành, cà chua và nước dùng rau củ. Món được ghi nhận trong dịp Vu Lan và có tên trong một bài giới thiệu quán chay tại TP.HCM.",
+        "en": "Rice vermicelli and soy curds in a tomato and vegetable broth. The preparation is documented for Vu Lan and is listed at a vegetarian restaurant in Ho Chi Minh City."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress Cooking — Cách làm bún riêu chay cho mùa Vu Lan",
+          "url": "https://vnexpress.net/doi-song-cooking-bun-rieu-chay-cho-mua-vu-lan-4644563.html",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "FPT Shop — Quán chay Tân Bình, Chay Quán Âm",
+          "url": "https://fptshop.com.vn/tin-tuc/dien-may/quan-chay-tan-binh-166331",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3,
+      "eating": {
+        "allergens": [
+          "soy"
+        ],
+        "source": {
+          "title": "VnExpress Cooking — Cách làm bún riêu chay cho mùa Vu Lan",
+          "url": "https://vnexpress.net/doi-song-cooking-bun-rieu-chay-cho-mua-vu-lan-4644563.html",
+          "confidence": "sourced"
+        }
+      }
+    },
+    {
+      "id": "goi-cuon",
+      "nameVi": "Gỏi cuốn",
+      "nameEn": "Fresh rice paper rolls",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rolls",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice paper",
+        "pork",
+        "shrimp",
+        "herbs"
+      ],
+      "taste": [],
+      "dietary": [
+        "contains-pork",
+        "contains-seafood"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Cuốn bánh tráng với rau, thịt và tôm.",
+        "en": "Rice paper rolls with herbs, pork and shrimp."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vietnam.travel/vi/things-to-do/21-must-try-vietnamese-dishes/",
+          "url": "https://vietnam.travel/vi/things-to-do/21-must-try-vietnamese-dishes/"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "bun-bo-cuon-la-lot",
+      "nameVi": "Bún bò cuốn lá lốt",
+      "nameEn": "Betel leaf beef with vermicelli",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodles",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "beef",
+        "betel leaves",
+        "rice vermicelli"
+      ],
+      "taste": [],
+      "dietary": [
+        "contains-beef"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Bún ăn cùng bò nướng lá lốt.",
+        "en": "Vermicelli served with grilled betel leaf beef."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vietnam.travel/vi/things-to-do/21-must-try-vietnamese-dishes/",
+          "url": "https://vietnam.travel/vi/things-to-do/21-must-try-vietnamese-dishes/"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "nom-hoa-chuoi",
+      "nameVi": "Nộm hoa chuối",
+      "nameEn": "Banana blossom salad",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "salad",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "banana blossom",
+        "herbs",
+        "peanuts"
+      ],
+      "taste": [],
+      "dietary": [
+        "contains-peanut"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Gỏi hoa chuối trộn rau thơm; nhân và nước trộn thay đổi.",
+        "en": "Banana blossom salad with herbs; toppings and dressing vary."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vietnam.travel/vi/things-to-do/21-must-try-vietnamese-dishes/",
+          "url": "https://vietnam.travel/vi/things-to-do/21-must-try-vietnamese-dishes/"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "xoi-man",
+      "nameVi": "Xôi mặn",
+      "nameEn": "Savory sticky rice",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "rice",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "sticky rice"
+      ],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Xôi với các loại nhân mặn tùy quán.",
+        "en": "Sticky rice with assorted savory toppings."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vietnam.travel/vi/things-to-do/21-must-try-vietnamese-dishes/",
+          "url": "https://vietnam.travel/vi/things-to-do/21-must-try-vietnamese-dishes/"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "dau-hu-sot-ca-chua",
+      "nameVi": "Đậu hũ sốt cà chua",
+      "nameEn": "Tofu in tomato sauce",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "tofu",
+        "tomato",
+        "scallion"
+      ],
+      "taste": [],
+      "dietary": [
+        "vegetarian-version-common"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Đậu hũ rim cà chua, gia vị tùy công thức.",
+        "en": "Tofu simmered in tomato sauce; seasonings vary."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vietnam.travel/vi/things-to-do/vietnamese-home-recipes/",
+          "url": "https://vietnam.travel/vi/things-to-do/vietnamese-home-recipes/"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "rau-muong-xao-toi",
+      "nameVi": "Rau muống xào tỏi",
+      "nameEn": "Garlic stir-fried water spinach",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "fried",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "water spinach",
+        "garlic"
+      ],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Rau muống xào tỏi, món ăn kèm cơm.",
+        "en": "Water spinach stir-fried with garlic."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vietnam.travel/vi/things-to-do/vietnamese-home-recipes/",
+          "url": "https://vietnam.travel/vi/things-to-do/vietnamese-home-recipes/"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "banh-mi-trung",
+      "nameVi": "Bánh mì trứng",
+      "nameEn": "Egg baguette",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "bread",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "baguette",
+        "egg"
+      ],
+      "taste": [],
+      "dietary": [
+        "contains-egg"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Bánh mì kẹp trứng.",
+        "en": "Baguette with cooked egg."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vietnam.travel/vi/things-to-do/vietnamese-home-recipes/",
+          "url": "https://vietnam.travel/vi/things-to-do/vietnamese-home-recipes/"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "pho-chay",
+      "nameVi": "Phở chay",
+      "nameEn": "Vegetarian phở",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice noodles"
+      ],
+      "taste": [],
+      "dietary": [
+        "vegetarian"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Phở phiên bản chay; nước dùng tùy quán.",
+        "en": "Vegetarian phở; broth varies."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vietnam.travel/things-to-do/vegetarian-guide-vietnam/",
+          "url": "https://vietnam.travel/things-to-do/vegetarian-guide-vietnam/"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "banh-mi-chay",
+      "nameVi": "Bánh mì chay",
+      "nameEn": "Vegetarian baguette",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "bread",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "baguette"
+      ],
+      "taste": [],
+      "dietary": [
+        "vegetarian"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Bánh mì với nhân chay.",
+        "en": "Baguette with vegetarian fillings."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vietnam.travel/things-to-do/vegetarian-guide-vietnam/",
+          "url": "https://vietnam.travel/things-to-do/vegetarian-guide-vietnam/"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "bo-kho",
+      "nameVi": "Bò kho",
+      "nameEn": "Vietnamese beef stew",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "beef"
+      ],
+      "taste": [],
+      "dietary": [
+        "contains-beef"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Bò hầm gia vị, thường ăn với bánh mì hoặc hủ tiếu.",
+        "en": "Spiced beef stew, often paired with bread or noodles."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vnexpress.net/doi-song/cooking/mon-ngon-cho-cuoi-tuan-25533-p11",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-cho-cuoi-tuan-25533-p11"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "bun-thit-nuong",
+      "nameVi": "Bún thịt nướng",
+      "nameEn": "Grilled pork vermicelli",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodles",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice vermicelli",
+        "grilled pork"
+      ],
+      "taste": [],
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Bún ăn cùng thịt heo nướng.",
+        "en": "Rice vermicelli with grilled pork."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vnexpress.net/doi-song/cooking/mon-ngon-cho-cuoi-tuan-25533-p11",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-cho-cuoi-tuan-25533-p11"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "thit-kho-trung",
+      "nameVi": "Thịt kho trứng",
+      "nameEn": "Braised pork and eggs",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "pork",
+        "eggs"
+      ],
+      "taste": [],
+      "dietary": [
+        "contains-pork",
+        "contains-egg"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Thịt kho cùng trứng, ăn với cơm.",
+        "en": "Pork and eggs braised together."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vnexpress.net/doi-song/cooking/mon-an/thit-kho-trung-27183",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-an/thit-kho-trung-27183"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "xiu-mai",
+      "nameVi": "Xíu mại",
+      "nameEn": "Vietnamese meatballs in tomato sauce",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "meatballs",
+        "tomato"
+      ],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Thịt viên sốt cà, ăn với bánh mì hoặc cơm.",
+        "en": "Meatballs in tomato sauce, served with rice or bread."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vnexpress.net/doi-song/cooking/mon-an/mon-ngon-hang-ngay-25532-p8",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-an/mon-ngon-hang-ngay-25532-p8"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "canh-hoa-thien-ly-nau-cua-dong",
+      "nameVi": "Canh hoa thiên lý nấu cua đồng",
+      "nameEn": "Crab and tonkin jasmine soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "soup",
+      "origins": [
+        {
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "field crab",
+        "tonkin jasmine flowers"
+      ],
+      "taste": [],
+      "dietary": [
+        "contains-seafood"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Canh cua đồng nấu hoa thiên lý.",
+        "en": "Field crab soup with tonkin jasmine flowers."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vnexpress.net/doi-song/cooking/mon-an/mon-ngon-hang-ngay-25532-p8",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-an/mon-ngon-hang-ngay-25532-p8"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "hoa-thien-ly-xao-thit-bo",
+      "nameVi": "Hoa thiên lý xào thịt bò",
+      "nameEn": "Stir-fried tonkin jasmine with beef",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "fried",
+      "origins": [
+        {
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "beef",
+        "tonkin jasmine flowers"
+      ],
+      "taste": [],
+      "dietary": [
+        "contains-beef"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Hoa thiên lý xào thịt bò.",
+        "en": "Beef stir-fried with tonkin jasmine flowers."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vnexpress.net/doi-song/cooking/mon-an/mon-ngon-hang-ngay-25532-p8",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-an/mon-ngon-hang-ngay-25532-p8"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "thit-kho-mang-kho",
+      "nameVi": "Thịt kho măng khô",
+      "nameEn": "Braised pork with dried bamboo shoots",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "regionId": "bac-trung-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "bac-trung-bo"
+      ],
+      "ingredients": [
+        "pork",
+        "dried bamboo shoots"
+      ],
+      "taste": [],
+      "dietary": [
+        "contains-pork"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Thịt kho cùng măng khô.",
+        "en": "Pork braised with dried bamboo shoots."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vnexpress.net/doi-song-cooking-thit-kho-mang-kho-4560595.html",
+          "url": "https://vnexpress.net/doi-song-cooking-thit-kho-mang-kho-4560595.html"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "hu-tieu-ho",
+      "nameVi": "Hủ tiếu hồ",
+      "nameEn": "Hủ tiếu hồ noodles",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice noodles"
+      ],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Món hủ tiếu kiểu Hoa phổ biến ở Sài Gòn.",
+        "en": "Chinese-Vietnamese noodle dish found in Saigon."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vnexpress.net/chu-de/mon-ngon-am-thuc-sai-gon-3514-p5",
+          "url": "https://vnexpress.net/chu-de/mon-ngon-am-thuc-sai-gon-3514-p5"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "hu-tieu-bo-kho",
+      "nameVi": "Hủ tiếu bò kho",
+      "nameEn": "Beef stew noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "rice noodles",
+        "beef"
+      ],
+      "taste": [],
+      "dietary": [
+        "contains-beef"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Hủ tiếu ăn với bò kho.",
+        "en": "Rice noodles served with beef stew."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vnexpress.net/chu-de/mon-ngon-am-thuc-sai-gon-3514-p5",
+          "url": "https://vnexpress.net/chu-de/mon-ngon-am-thuc-sai-gon-3514-p5"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "pho-chien-phong",
+      "nameVi": "Phở chiên phồng",
+      "nameEn": "Puffed fried phở noodles",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "fried",
+      "origins": [
+        {
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [
+        "rice noodles",
+        "beef",
+        "tomatoes"
+      ],
+      "taste": [],
+      "dietary": [
+        "contains-beef"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Bánh phở chiên phồng ăn cùng thịt bò và rau.",
+        "en": "Puffed fried phở squares with beef and vegetables."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vietnam.travel/things-to-do/noodles-of-vietnam/",
+          "url": "https://vietnam.travel/things-to-do/noodles-of-vietnam/"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "muop-xao-long-ga",
+      "nameVi": "Mướp xào lòng gà",
+      "nameEn": "Stir-fried luffa and chicken giblets",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "fried",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [
+        "luffa",
+        "chicken giblets"
+      ],
+      "taste": [],
+      "dietary": [
+        "contains-poultry",
+        "contains-offal"
+      ],
+      "mealTimes": [],
+      "description": {
+        "vi": "Mướp xào cùng lòng gà.",
+        "en": "Luffa stir-fried with chicken giblets."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p6",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p6"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "bun-bo-nam-bo",
+      "nameVi": "Bún bò Nam Bộ",
+      "nameEn": "Southern beef vermicelli",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodles",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Bún khô ăn cùng bò xào và nước trộn.",
+        "en": "Dry vermicelli with stir-fried beef and dressing."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Vietnam Tourism culinary guide",
+          "url": "https://vietnam.travel/things-to-do/explore-delicious-dishes-ho-chi-minh-city/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "mien-ga",
+      "nameVi": "Miến gà",
+      "nameEn": "Chicken glass noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Miến nước với thịt gà.",
+        "en": "Glass noodles in chicken soup."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Vietnam Tourism culinary guide",
+          "url": "https://vietnam.travel/things-to-do/noodles-of-vietnam/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "mien-luon-tron",
+      "nameVi": "Miến lươn trộn",
+      "nameEn": "Dry eel glass noodles",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodles",
+      "origins": [
+        {
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Miến trộn ăn cùng lươn giòn.",
+        "en": "Glass noodles tossed with crispy eel."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Vietnam Tourism culinary guide",
+          "url": "https://vietnam.travel/things-to-do/noodles-of-vietnam/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "mi-van-than",
+      "nameVi": "Mì vằn thắn",
+      "nameEn": "Wonton noodle soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "noodle-soup",
+      "origins": [
+        {
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Mì nước ăn cùng hoành thánh.",
+        "en": "Noodle soup with wontons."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Vietnam Tourism culinary guide",
+          "url": "https://vietnam.travel/things-to-do/noodles-of-vietnam/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "banh-goi",
+      "nameVi": "Bánh gối",
+      "nameEn": "Fried savory pastry",
+      "altNames": [],
+      "category": "snack",
+      "dishType": "banh",
+      "origins": [
+        {
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Bánh chiên nhân thịt và nấm.",
+        "en": "Fried pastry filled with meat and mushrooms."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "Vietnam Tourism culinary guide",
+          "url": "https://vietnam.travel/things-to-do/noodles-of-vietnam/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "ca-com-sua-rim-dau-phong",
+      "nameVi": "Cá cơm sữa rim đậu phộng",
+      "nameEn": "Braised anchovies with peanuts",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Cá cơm nhỏ rim với đậu phộng.",
+        "en": "Small anchovies braised with peanuts."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p29",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "canh-chua-dau-ca-dieu-hong-nau-dau-rong",
+      "nameVi": "Canh chua đầu cá diêu hồng nấu đậu rồng",
+      "nameEn": "Sour red tilapia and winged bean soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "soup",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Canh chua nấu đầu cá diêu hồng và đậu rồng.",
+        "en": "Sour soup with red tilapia head and winged beans."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p27",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "ca-trich-kho-ca-chua",
+      "nameVi": "Cá trích kho cà chua",
+      "nameEn": "Herring braised with tomatoes",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Cá trích kho cùng cà chua.",
+        "en": "Herring braised with tomatoes."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p6",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "canh-rau-san-nau-ca",
+      "nameVi": "Canh rau sắn nấu cá",
+      "nameEn": "Cassava leaf and fish soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "soup",
+      "origins": [
+        {
+          "provinceId": "phu-tho",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Canh rau sắn nấu cùng cá.",
+        "en": "Cassava leaf soup with fish."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p28",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "chan-ga-tron-xi-dau",
+      "nameVi": "Chân gà trộn xì dầu",
+      "nameEn": "Chicken feet with soy sauce",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "salad",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Chân gà trộn nước tương.",
+        "en": "Chicken feet tossed with soy sauce."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p28",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "bo-tai-chanh",
+      "nameVi": "Bò tái chanh",
+      "nameEn": "Lime-dressed beef",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "salad",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Thịt bò tái trộn với chanh.",
+        "en": "Rare beef dressed with lime."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p8",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "oc-om-chuoi-dau",
+      "nameVi": "Ốc om chuối đậu",
+      "nameEn": "Snail stew with green banana and tofu",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Ốc om với chuối xanh và đậu phụ.",
+        "en": "Snails stewed with green banana and tofu."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p8",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "tom-rang-thit-ba-chi",
+      "nameVi": "Tôm rang thịt ba chỉ",
+      "nameEn": "Shrimp and pork belly",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "fried",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Tôm rang cùng thịt ba chỉ.",
+        "en": "Shrimp cooked with pork belly."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p17",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "muc-nhoi-thit-sot-ca-chua",
+      "nameVi": "Mực nhồi thịt sốt cà chua",
+      "nameEn": "Stuffed squid in tomato sauce",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Mực nhồi thịt nấu sốt cà chua.",
+        "en": "Meat-stuffed squid in tomato sauce."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p9",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "ba-chi-rang-chay-canh",
+      "nameVi": "Ba chỉ rang cháy cạnh",
+      "nameEn": "Pan-fried pork belly",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "fried",
+      "origins": [
+        {
+          "regionId": "mien-bac",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Thịt ba chỉ rang vàng cạnh.",
+        "en": "Pork belly fried until browned at the edges."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p9",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "ca-loc-kho-tieu",
+      "nameVi": "Cá lóc kho tiêu",
+      "nameEn": "Pepper-braised snakehead fish",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Cá lóc kho với tiêu.",
+        "en": "Snakehead fish braised with pepper."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p9",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "ca-chim-sot-nam-linh-chi",
+      "nameVi": "Cá chim sốt nấm linh chi",
+      "nameEn": "Pomfret with mushroom sauce",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "stew",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Cá chim dùng với sốt nấm linh chi.",
+        "en": "Pomfret served with mushroom sauce."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p21",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "canh-bo-nau-khe",
+      "nameVi": "Canh bò nấu khế",
+      "nameEn": "Beef and starfruit soup",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "soup",
+      "origins": [
+        {
+          "regionId": "dong-nam-bo",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "dong-nam-bo"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Canh thịt bò nấu cùng khế.",
+        "en": "Beef soup with starfruit."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/doi-song/cooking/mon-ngon-hang-ngay-25532-p21",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "nham-tram",
+      "nameVi": "Nham trám",
+      "nameEn": "Black olive salad",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "salad",
+      "origins": [
+        {
+          "provinceId": "thai-nguyen",
+          "regionId": "mien-bac",
+          "role": "primary"
+        }
+      ],
+      "regionIds": [
+        "mien-bac"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Món nham làm từ quả trám đen ở Hà Châu.",
+        "en": "A black olive preparation from Hà Châu."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/nham-tram-dac-san-tru-danh-cua-thai-nguyen-4415739.html",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
+      "prominence": 3
+    },
+    {
+      "id": "goi-ca-dang",
+      "nameVi": "Gỏi cà đắng",
+      "nameEn": "Bitter eggplant salad",
+      "altNames": [],
+      "category": "savory",
+      "dishType": "salad",
+      "origins": [
+        {
+          "provinceId": "dak-nong",
+          "regionId": "tay-nguyen",
+          "role": "associated"
+        }
+      ],
+      "regionIds": [
+        "tay-nguyen"
+      ],
+      "ingredients": [],
+      "taste": [],
+      "dietary": [],
+      "mealTimes": [],
+      "description": {
+        "vi": "Gỏi cà đắng được giới thiệu trong ẩm thực Đắk Nông.",
+        "en": "Bitter eggplant salad associated with Đắk Nông."
+      },
+      "photos": [],
+      "sources": [
+        {
+          "title": "VnExpress culinary coverage",
+          "url": "https://vnexpress.net/ba-ngay-kham-pha-thien-nhien-dak-nong-dip-nam-moi-3334320.html",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verification": {
+        "status": "pending-review"
+      },
+      "dataset": "master",
       "prominence": 3
     }
   ]

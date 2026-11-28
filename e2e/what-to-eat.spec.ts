@@ -1,5 +1,6 @@
 /** Hôm nay ăn gì? — runs against the real bundled catalogue and HCMC venues (desktop + Pixel 7). */
 import { expect, test, type Page } from "@playwright/test";
+import { DISH_COUNT } from "./helpers";
 
 const setPrefs = async (page: Page, diet: string[], maxSpice = 3) => {
   await page.goto("/settings/");
@@ -209,18 +210,18 @@ test.describe("live data counts", () => {
   test("catalogue shows discovery counts (no completeness fractions); Admin Overview summarises coverage", async ({ page }) => {
     await page.goto("/catalogue/");
     const coverage = page.getByTestId("catalogue-coverage").filter({ visible: true });
-    await expect(coverage).toHaveText(/^138 dishes · \d+ HCMC places$/);
+    await expect(coverage).toHaveText(new RegExp(`^${DISH_COUNT} dishes · \\d+ HCMC places$`));
     await expect(coverage).not.toContainText("/63");
     await expect(page.locator('[data-dish-id="bun-bo-hue"]').filter({ visible: true }).getByTestId("dish-places")).toContainText(/\d+ HCMC places/);
     await page.goto("/settings/");
     await expect(page.getByTestId("settings")).toBeVisible();
     await expect(page.getByTestId("stat-food-items")).toHaveCount(0);
     await page.goto("/admin/");
-    await expect(page.getByTestId("kpi-dishes")).toContainText("138");
+    await expect(page.getByTestId("kpi-dishes")).toContainText(String(DISH_COUNT));
     await expect(page.getByTestId("kpi-provinces")).toContainText(/\d+\/63/);
     await expect(page.getByTestId("kpi-unique-places")).toContainText(/\d+/);
     await expect(page.getByTestId("coverage-coffee")).toContainText(/\d+\/\d+/);
-    await expect(page.getByTestId("admin-coverage").getByTestId("stat-food-items")).toHaveText("138");
+    await expect(page.getByTestId("admin-coverage").getByTestId("stat-food-items")).toHaveText(String(DISH_COUNT));
     await expect(page.getByTestId("admin-coverage").getByTestId("stat-row-food")).toBeVisible();
   });
 });

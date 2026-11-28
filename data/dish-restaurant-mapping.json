@@ -4766,6 +4766,678 @@
         "url": "https://mia.vn/cam-nang-du-lich/bo-bia-man-sai-gon-19292"
       },
       "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-trang-tron",
+      "restaurantId": "banh-trang-tron-cong-quynh-153-cong-quynh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “10 tiệm bánh tráng Sài Gòn phá đảo bản đồ ẩm thực của giới trẻ” (2023-12-10) lists “Bánh tráng trộn Cống Quỳnh” at 153 đường Cống Quỳnh, phường Nguyễn Cư Trinh, Quận 1; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/10-tiem-banh-trang-sai-gon-13982"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-trang-nuong-da-lat",
+      "restaurantId": "banh-trang-nuong-61-cao-thang-61-cao-thang",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “10 tiệm bánh tráng Sài Gòn phá đảo bản đồ ẩm thực của giới trẻ” (2023-12-10) lists “Bánh tráng nướng 61 Cao Thắng” at 61 đường Cao Thắng, phường 3, Quận 3,; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/10-tiem-banh-trang-sai-gon-13982"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "oc-nho-181-nguyen-thi-dang",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 10 quán ăn đêm Sài Gòn nổi tiếng nhất nhì Sài thành” (2023-09-23) lists “Ốc nhớ Sài Gòn” at Số 181 đường Nguyễn Thị Đặng, Tân Thới Hiệp, quận 12, Thành phố Hồ Chí Minh.; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/an-dem-sai-gon-12779"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-rieu-cua",
+      "restaurantId": "bay-bun-rieu-122-hau-giang",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 10 quán ăn đêm Sài Gòn nổi tiếng nhất nhì Sài thành” (2023-09-23) lists “Bảy bún riêu” at Số 122 đường Hậu Giang, phường 6, quận 6, Thành phố Hồ Chí Minh.; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/an-dem-sai-gon-12779"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-sai-gon",
+      "restaurantId": "banh-mi-xoi-ga-56-56-trinh-dinh-trong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 10 quán ăn đêm Sài Gòn nổi tiếng nhất nhì Sài thành” (2023-09-23) lists “Bánh mì xôi gà 56” at Số 56 đường Trịnh Đình Trọng, phường Phú Trung, quận Tân Phú, Thành phố Hồ Chí Minh.; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/an-dem-sai-gon-12779"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-dau-mam-tom",
+      "restaurantId": "bun-dau-mam-tom-01-nguyen-van-trang",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 10 quán bún đậu mắm tôm ngon 'nhứt nách' Sài Gòn” (2024-05-13) lists “Bún đậu mắm tôm” at 01 Nguyễn Văn Tráng, Phường Phạm Ngũ Lão, Quận 1, Thành phố Hồ Chí Minh.; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/bun-dau-mam-tom-sai-gon-15542"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "pho-sai-gon",
+      "restaurantId": "nha-hang-pho-79-5-pham-ngoc-thach",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Càn quét 15 quán ăn ngon quận 3 dành cho team mê khám phá ẩm thực” (2024-04-07) lists “Nhà hàng Phố 79” at 5 Phạm Ngọc Thạch, Phường 6, Quận 3, Thành phố Hồ Chí Minh; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/can-quet-quan-an-ngon-quan-3-15242"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "com-ga-hoi-an",
+      "restaurantId": "com-ga-hoi-an-me-vui-29-tran-quoc-toan",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Càn quét 15 quán ăn ngon quận 3 dành cho team mê khám phá ẩm thực” (2024-04-07) lists “Cơm gà Hội An Mệ Vui” at 29 Trần Quốc Toản, Phường 8, Quận 3, Thành phố Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/can-quet-quan-an-ngon-quan-3-15242"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "com-tam-sai-gon",
+      "restaurantId": "com-tam-bai-rac-77-le-van-linh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Cơm tấm “Sà Bì Chưởng”: Từ món ăn bình dân đến đệ nhất ẩm thực Sài Gòn” (2025-06-23) lists “Cơm tấm Bãi Rác” at 77 Lê Văn Linh, Quận 4, TP.HCM; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/com-tam-sa-bi-chuong-sai-gon-18750"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "pho-sai-gon",
+      "restaurantId": "bao-tang-lich-su-thanh-pho-ho-chi-minh-2-nguyen-binh-khiem",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “9 di tích lịch sử ở Thành phố Hồ Chí Minh sống mãi cùng thời gian” (2024-01-08) lists “Bảo tàng Lịch sử Thành phố Hồ Chí Minh” at Số 2 Đường Nguyễn Bỉnh Khiêm, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/di-tich-lich-su-o-thanh-pho-ho-chi-minh-14297"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "pho-sai-gon",
+      "restaurantId": "bao-tang-my-thuat-thanh-pho-ho-chi-minh-97a-pho-duc-chinh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “9 di tích lịch sử ở Thành phố Hồ Chí Minh sống mãi cùng thời gian” (2024-01-08) lists “Bảo tàng Mỹ thuật Thành phố Hồ Chí Minh” at Số 97A Đường Phó Đức Chính, Phường Nguyễn Thái Bình, Quận 1, Thành phố Hồ Chí Minh; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/di-tich-lich-su-o-thanh-pho-ho-chi-minh-14297"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-oc-ha-noi",
+      "restaurantId": "bun-oc-thanh-hai-12-ky-dong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Gợi ý 9 quán ăn sáng quận 3 chất lượng cho ngày mới” (2025-03-30) lists “Bún Ốc Thanh Hải” at 12 Kỳ Đồng, Phường 9, Quận 3, TP.HCM; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/goi-y-quan-an-sang-quan-3-18119"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-cha-ha-noi",
+      "restaurantId": "bun-cha-121-ly-tu-trong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Bắt đầu ngày mới với top 9 món ăn sáng Sài Gòn ngon mê mệt” (2023-09-10) lists “Bún chả” at 121 Lý Tự Trọng, phường Bến Nghé, quận 1, TP. HCM; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/mon-an-sang-sai-gon-12631"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-cha-ha-noi",
+      "restaurantId": "bun-cha-3-duong-so-41",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Bắt đầu ngày mới với top 9 món ăn sáng Sài Gòn ngon mê mệt” (2023-09-10) lists “Bún chả” at 3 đường số 41, phường 6, quận 4, TP. HCM; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/mon-an-sang-sai-gon-12631"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-cha-ha-noi",
+      "restaurantId": "bun-cha-30-cuu-long",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Bắt đầu ngày mới với top 9 món ăn sáng Sài Gòn ngon mê mệt” (2023-09-10) lists “Bún chả” at 30 Cửu Long, cư xá Bắc Hải, quận 10, TP. HCM; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/mon-an-sang-sai-gon-12631"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "hu-tieu-nam-vang",
+      "restaurantId": "hu-tieu-nam-vang-607-cach-mang-thang-8",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Bắt đầu ngày mới với top 9 món ăn sáng Sài Gòn ngon mê mệt” (2023-09-10) lists “Hủ tiếu Nam Vang” at 607 Cách Mạng Tháng 8, phường 15, quận 10, TP. HCM; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/mon-an-sang-sai-gon-12631"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "pho-sai-gon",
+      "restaurantId": "nha-hang-dong-pho-57-ho-xuan-huong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Gợi ý 5 nhà hàng món Huế quận 3 được nhiều thực khách yêu thích” (2025-12-09) lists “Nhà hàng Đông Phố” at 57 Hồ Xuân Hương, Phường 6, Quận 3, Thành phố Hồ Chí Minh; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/nha-hang-mon-hue-quan-3-19797"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-sai-gon",
+      "restaurantId": "banh-mi-nuong-muoi-ot-co-nam-281-duong-3-thang-2",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “8 quán bánh mì nướng muối ớt gói trọn hương vị đường phố Sài Gòn” (2025-04-12) lists “Bánh mì nướng muối ớt Cô Năm” at 281 đường 3 Tháng 2, Phường 10, Quận10, TP. HCM; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-banh-mi-nuong-muoi-ot-sai-gon-18222"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-sai-gon",
+      "restaurantId": "banh-mi-nuong-muoi-ot-sumi-27-39-26d-so-9",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “8 quán bánh mì nướng muối ớt gói trọn hương vị đường phố Sài Gòn” (2025-04-12) lists “Bánh mì nướng muối ớt Sumi” at 27/39/26D Đường Số 9, Quận Gò Vấp, TP. HCM; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-banh-mi-nuong-muoi-ot-sai-gon-18222"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-sai-gon",
+      "restaurantId": "banh-mi-nuong-ot-do-118-truong-vinh-ky",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “8 quán bánh mì nướng muối ớt gói trọn hương vị đường phố Sài Gòn” (2025-04-12) lists “Bánh mì nướng Ớt Đỏ” at 118 Trương Vĩnh Ký, Phường Tân Sơn Nhì, Quận Tân Phú, TP. HCM; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-banh-mi-nuong-muoi-ot-sai-gon-18222"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-sai-gon",
+      "restaurantId": "banh-mi-nuong-muoi-ot-minh-anh-384-31-4-ly-thai-to",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “8 quán bánh mì nướng muối ớt gói trọn hương vị đường phố Sài Gòn” (2025-04-12) lists “Bánh Mì Nướng Muối Ớt Minh Anh” at 384/31/4 Lý Thái Tổ, Quận 10, TP. HCM; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-banh-mi-nuong-muoi-ot-sai-gon-18222"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-sai-gon",
+      "restaurantId": "banh-mi-nuong-muoi-ot-di-nam-242-tan-huong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “8 quán bánh mì nướng muối ớt gói trọn hương vị đường phố Sài Gòn” (2025-04-12) lists “Bánh mì nướng muối ớt Dì Năm” at 242 Tân Hương, Phường Tân Quý, Quận Tân Phú, TP. HCM; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-banh-mi-nuong-muoi-ot-sai-gon-18222"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "lau-ga-la-e",
+      "restaurantId": "lau-ga-la-e-tao-ngo-79a-tran-quang-co",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 8 quán lẩu gà lá é Sài Gòn ngon nức mũi nhất định phải thử” (2024-08-05) lists “Lẩu gà lá é Tao Ngộ” at Số 79A đường Trần Quang Cơ, phường Phú Thạnh, quận Tân Phú; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-lau-ga-la-e-sai-gon-16354"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "lau-ga-la-e",
+      "restaurantId": "quan-lau-ga-la-e-han-thuyen-06-han-thuyen",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 8 quán lẩu gà lá é Sài Gòn ngon nức mũi nhất định phải thử” (2024-08-05) lists “Quán lẩu gà lá é Hàn Thuyên” at Số 06 đường Hàn Thuyên, phường Bình Thọ, TP Thủ Đức; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-lau-ga-la-e-sai-gon-16354"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "lau-ga-la-e",
+      "restaurantId": "quan-lau-ga-la-e-716-truong-sa-716-truong-sa",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 8 quán lẩu gà lá é Sài Gòn ngon nức mũi nhất định phải thử” (2024-08-05) lists “Quán lẩu gà lá é 716 Trường Sa” at Số 716 đường Trường Sa, phường 14, quận 3; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-lau-ga-la-e-sai-gon-16354"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "lau-ga-la-e",
+      "restaurantId": "quan-phan-la-e-02-nguyen-thi-minh-khai",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 8 quán lẩu gà lá é Sài Gòn ngon nức mũi nhất định phải thử” (2024-08-05) lists “Quán Phan Lá É” at Số 02 đường Nguyễn Thị Minh Khai, phường Bến Nghé, quận 1; the article is about this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-lau-ga-la-e-sai-gon-16354"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "lau-ga-la-e",
+      "restaurantId": "lau-ga-la-e-truong-vinh-ky-236-truong-vinh-ky",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 8 quán lẩu gà lá é Sài Gòn ngon nức mũi nhất định phải thử” (2024-08-05) lists “Lẩu gà lá é Trương Vĩnh Ký” at Số 236 đường Trương Vĩnh Ký, phường Tân Sơn Nhì, quận Tân Phú; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-lau-ga-la-e-sai-gon-16354"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "lau-ga-la-e",
+      "restaurantId": "lau-ga-la-e-205-pham-van-chieu-205-pham-van-chieu",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 8 quán lẩu gà lá é Sài Gòn ngon nức mũi nhất định phải thử” (2024-08-05) lists “Lẩu gà lá é 205 Phạm Văn Chiêu” at Số 205 đường Phạm Văn Chiêu, phường 9, quận Gò Vấp; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-lau-ga-la-e-sai-gon-16354"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "pho-sai-gon",
+      "restaurantId": "tra-chanh-bui-pho-84-nguyen-the-truyen",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 8 quán trà chanh Sài Gòn lý tưởng cho buổi tụ họp bạn bè” (2025-02-25) lists “Trà chanh Bụi Phố” at 84 Nguyễn Thế Truyện, Phường Tân Sơn Nhì, Quận Tân Phú, Thành phố Hồ Chí Minh; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-tra-chanh-sai-gon-17902"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-canh-ghe-vung-tau",
+      "restaurantId": "banh-canh-ghe-muoi-ot-xanh-nguyen-tri-phuong-484c-nguyen-tri-phuong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 10+ quán ăn ngon quận 10 nức lòng thực khách” (2024-04-05) lists “Bánh canh ghẹ muối ớt xanh Nguyễn Tri Phương” at 484c Đường Nguyễn Tri Phương, Phường 9, Quận 10, Thành phố Hồ Chí Minh; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-an-ngon-quan-10-15221"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "oc-nhi-2n-80-nguyen-bieu",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Bỏ túi ngay top 13 quán ăn ngon quận 5 nổi tiếng nhất” (2024-04-02) lists “Ốc Nhi 2N” at 80 Nguyễn Biểu, quận 5, thành phố Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-an-ngon-quan-5-15201"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-sai-gon",
+      "restaurantId": "banh-mi-ga-nguyen-thi-thap-518-nguyen-thi-thap",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Mách bạn 12 quán ăn ngon quận 7 ăn tới đâu ghiền tới đó” (2024-04-05) lists “Bánh mì gà Nguyễn Thị Thập” at 518 Nguyễn Thị Thập, Tân Quy, Quận 7, Thành phố Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-an-ngon-quan-7-15219"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "oc-lien-39-le-van-luong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Mách bạn 12 quán ăn ngon quận 7 ăn tới đâu ghiền tới đó” (2024-04-05) lists “Ốc Liên” at 39 Lê Văn Lương, Tân Kiểng, Quận 7, Thành phố Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-an-ngon-quan-7-15219"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-que-hai-phong",
+      "restaurantId": "quan-banh-mi-que-bmq-387-le-van-luong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Mách bạn 12 quán ăn ngon quận 7 ăn tới đâu ghiền tới đó” (2024-04-05) lists “Quán bánh mì que BMQ” at 387 Lê Văn Lương, Tân Hưng, Quận 7, Thành phố Hồ Chí Minh; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-an-ngon-quan-7-15219"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "quan-oc-sam-203-hoang-dieu-2",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 15+ quán ăn ngon Thủ Đức thu hút thực khách nhất” (2024-01-11) lists “Quán Ốc Sam” at 203 Đường Hoàng Diệu 2, Phường Linh Trung, Thành phố Thủ Đức, Thành phố Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-an-ngon-thu-duc-14329"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-bo-hue",
+      "restaurantId": "bun-bo-o-he-315-30-le-van-sy",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 10 quán ăn quận 3 đa dạng mỹ vị từ bình dân đến đắt đỏ” (2025-01-11) lists “Bún Bò O Hè” at 315/30 Lê Văn Sỹ, Phường 13, Quận 3, TP.HCM; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-an-quan-3-17571"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-rieu-cua",
+      "restaurantId": "canh-bun-bun-rieu-153-nam-ky-khoi-nghia",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 10 quán ăn quận 3 đa dạng mỹ vị từ bình dân đến đắt đỏ” (2025-01-11) lists “Canh Bún & Bún Riêu” at 153 Nam Kỳ Khởi Nghĩa, Phường 6, Quận 3, TP.HCM; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-an-quan-3-17571"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "oc-chi-em-6b-cong-truong-quoc-te",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 10 quán ăn quận 3 đa dạng mỹ vị từ bình dân đến đắt đỏ” (2025-01-11) lists “Ốc Chị Em” at 6B Công Trường Quốc Tế, Phường 6, Quận 3, Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-an-quan-3-17571"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "oc-sai-gon",
+      "restaurantId": "oc-tuan-cho-cao-dat-da-dang-cac-mon-197-cao-dat",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 13 quán ăn quận 5 nổi tiếng với người dân địa phương” (2024-12-29) lists “Ốc Tuấn Chợ Cao Đạt đa dạng các món” at 197 Cao Đạt, Phường 1, Quận 5, TP. Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-an-quan-5-17520"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "pho-sai-gon",
+      "restaurantId": "pho-le-dat-sao-michelin-danh-tieng-413-415-nguyen-trai",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 13 quán ăn quận 5 nổi tiếng với người dân địa phương” (2024-12-29) lists “Phở Lệ đạt sao Michelin danh tiếng” at 413-415 Nguyễn Trãi, Phường 7, Quận 5, TP. Hồ Chí Minh; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-an-quan-5-17520"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-bo-hue",
+      "restaurantId": "bun-bo-hue-ma-nau-192-tran-binh-trong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 7 quán ăn sáng quận 5 ngon miệng và đông khách” (2025-04-03) lists “Bún bò Huế Má Nấu” at 192 Trần Bình Trọng, Quận 5, Thành phố Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-an-sang-quan-5-ngon-18156"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "com-tam-sai-gon",
+      "restaurantId": "com-tam-an-duong-vuong-502-an-duong-vuong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 7 quán ăn sáng quận 5 ngon miệng và đông khách” (2025-04-03) lists “Cơm tấm An Dương Vương” at 502 An Dương Vương, Quận 5, Thành phố Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-an-sang-quan-5-ngon-18156"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-xeo-nam-bo",
+      "restaurantId": "banh-xeo-co-nga-39-van-an",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 5 quán bánh xèo quận 2 ngon chuẩn vị, giá hợp lý” (2025-03-31) lists “Bánh Xèo Cô Nga” at 39 Đường Văn An, An Phú, Quận 2 (TP. Thủ Đức), TP. Hồ Chí Minh; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-banh-xeo-quan-2-18131"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "com-tam-sai-gon",
+      "restaurantId": "com-tam-ngon-31-cong-hoa",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 20 quán cơm ngon 'chuẩn mẹ nấu' tại Sài Gòn” (2024-07-21) lists “Cơm Tấm Ngon” at Số 31 Cộng Hòa, P. 4, Quận Tân Bình, TP. HCM; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-com-ngon-sai-gon-16193"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "com-tam-sai-gon",
+      "restaurantId": "com-tam-thu-thao-461-le-dai-hanh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 20 quán cơm ngon 'chuẩn mẹ nấu' tại Sài Gòn” (2024-07-21) lists “Cơm Tấm Thu Thảo” at Số 461 Lê Đại Hành, P. 11, Quận 11, TP. HCM; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-com-ngon-sai-gon-16193"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "hu-tieu-nam-vang",
+      "restaurantId": "hu-tieu-nam-vang-232-bui-vien",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 9 quán hủ tiếu quận 1 ngon ngất ngây, giá bình dân” (2024-07-15) lists “Hủ tiếu Nam Vang” at 232 Đường Bùi Viện, Phường Phạm Ngũ Lão, Quận 1, Thành phố Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-hu-tieu-quan-1-16139"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "hu-tieu-nam-vang",
+      "restaurantId": "hu-tieu-nam-vang-kim-quan-28-pho-duc-chinh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 9 quán hủ tiếu quận 1 ngon ngất ngây, giá bình dân” (2024-07-15) lists “Hủ tiếu Nam Vang Kim Quán” at 28 Phó Đức Chính, Phường Nguyễn Thái Bình, Quận 1, Thành phố Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-hu-tieu-quan-1-16139"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "hu-tieu-nam-vang",
+      "restaurantId": "hu-tieu-nam-vang-hong-thinh-39-nguyen-van-dau",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 12 quán hủ tiếu Sài Gòn nổi tiếng được người dân địa phương yêu thích” (2024-07-12) lists “Hủ tiếu Nam Vang Hồng Thịnh” at 39 Nguyễn Văn Đậu, Quận Bình Thạnh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-hu-tieu-sai-gon-16100"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "pho-sai-gon",
+      "restaurantId": "bo-nuong-pho-195-binh-thoi",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Top 10+ quán nhậu quận 11 dành cho các cuộc tụ tập bạn bè” (2024-10-28) lists “Bò Nướng Phố” at 195 Bình Thới, Quận 11, Thành phố Hồ Chí Minh; the venue's name names this dish. Regional style not confirmed.",
+        "url": "https://mia.vn/cam-nang-du-lich/top-quan-nhau-quan-11-17142"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "xoi-xeo",
+      "restaurantId": "xoi-xeo-ha-noi-63-38-nguyen-bieu",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Ghé qua 10 hàng xôi đêm ngon nức tiếng tại Sài Gòn” (2024-11-13) lists “Xôi xéo Hà Nội” at 63/38 Nguyễn Biểu, Phường 1, Quận 5, TP. Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/xoi-dem-ngon-sai-gon-17289"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-thit-nuong",
+      "restaurantId": "bun-thit-nuong-chi-tuyen-175-co-giang",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Mách bạn 9 quán ăn sáng quận 1 ngon, bổ, rẻ” (2024-12-30) lists “Bún thịt nướng Chị Tuyền” at Số 175 Cô Giang, Quận 1, Thành phố Hồ Chí Minh; the venue's name names this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-an-sang-quan-1-17538"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "bun-thit-nuong",
+      "restaurantId": "vi-sai-gon-157-nguyen-van-thu",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "mia.vn guide “Điểm danh 6 quán bún thịt nướng ngon trứ danh Sài Gòn” (2024-08-05) lists “Vị Sài Gòn” at Số 157 đường Nguyễn Văn Thủ, phường Đa Kao, quận 1, Thành phố Hồ Chí Minh.; the article is about this dish.",
+        "url": "https://mia.vn/cam-nang-du-lich/quan-bun-thit-nuong-sai-gon-16349"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-que-hai-phong",
+      "restaurantId": "banh-mi-que-pate-gia-truyen-quan-mau-hai-phong-154-duong-so-2",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Google Maps listing “Bánh mì que - Pate gia truyền Quán Mau Hải Phòng” names bánh mì que Hải Phòng; chosen by the Product Owner from the dish page's Google Maps search (2026-11-28).",
+        "url": "https://maps.app.goo.gl/7Uqh8aQN8FxjN4kz5"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-que-hai-phong",
+      "restaurantId": "banh-mi-que-pate-hai-phong-me-nam-291-45-nguyen-hong-dao",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Google Maps listing “Bánh mì que pate Hải Phòng Mẹ Nấm” names bánh mì que Hải Phòng; chosen by the Product Owner from the dish page's Google Maps search (2026-11-28).",
+        "url": "https://maps.app.goo.gl/ERQUyUnmgXTgq2YJ9"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-que-hai-phong",
+      "restaurantId": "the-bready-banh-mi-pate-que-hai-phong-686-6-cach-mang-thang-8",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Google Maps listing “The Bready - Bánh Mì Pate Que Hải Phòng” names bánh mì que Hải Phòng; chosen by the Product Owner from the dish page's Google Maps search (2026-11-28).",
+        "url": "https://maps.app.goo.gl/BDZVVKJdeqGzgAqo8"
+      },
+      "lastVerified": "2026-11-27"
+    },
+    {
+      "dishId": "banh-mi-que-hai-phong",
+      "restaurantId": "tam-cook-plus-pate-cot-den-dac-san-hai-phong-banh-mi-va-banh-mi-que-100-pham-ngu-lao",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "Google Maps listing “Tâm cook Plus - Pate cột đèn đặc sản Hải Phòng, bánh mì và bánh mì que” names bánh mì que Hải Phòng; chosen by the Product Owner from the dish page's Google Maps search (2026-11-28).",
+        "url": "https://maps.app.goo.gl/rqww3LUXgKgQCsr86"
+      },
+      "lastVerified": "2026-11-27"
     }
   ]
 }

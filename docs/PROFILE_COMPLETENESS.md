@@ -4,23 +4,23 @@ Generated 2026-11-28 by `npm run data:profile-completeness` from the canonical d
 
 **Targets** are the PO's proposed launch quality standard (2026-11-28) — target coverage, not measured coverage. **Current** is measured from the records; a field counts only if the record carries it. Real records only (no samples). ✅ meets target · 🟡 at least half way · 🔴 below half.
 
-**435 real establishments** (Food 383 · Coffee 9 · Bars 30 · Spa 6 · Sport 7). **Launch-ready profiles: 0** (every field with a target ≥ 70 % present). Median days since last check: 0; checked in the last 90 days: 100 %.
+**491 real establishments** (Food 439 · Coffee 9 · Bars 30 · Spa 6 · Sport 7). **Launch-ready profiles: 0** (every field with a target ≥ 70 % present). Median days since last check: 0; checked in the last 90 days: 100 %.
 
 ## Overall vs launch standard
 
 | Field | Target | Current | Count | |
 | --- | --- | --- | --- | --- |
-| Business name & category | 100 % | 100 % | 435/435 | ✅ |
-| Verified address | 100 % | 100 % | 435/435 | ✅ |
-| Validated location | 100 % | 19.5 % | 85/435 | 🔴 |
-| Operating status | 90 % | 31.7 % | 138/435 | 🔴 |
-| Phone or contact channel | 85 % | 0 % | 0/435 | 🔴 |
-| Opening hours | 80 % | 31 % | 135/435 | 🔴 |
-| Menu or service list | 80 % | 0 % | 0/435 | 🔴 |
-| Published prices | 70 % | 0.2 % | 1/435 | 🔴 |
-| Actual business photography | 50 % | 0.2 % | 1/435 | 🔴 |
-| ↳ of which phone number | — | 0 % | 0/435 | |
-| Source freshness (≤ 90 days) | — | 100 % | 435/435 | |
+| Business name & category | 100 % | 100 % | 491/491 | ✅ |
+| Verified address | 100 % | 100 % | 491/491 | ✅ |
+| Validated location | 100 % | 19.6 % | 96/491 | 🔴 |
+| Operating status | 90 % | 40.9 % | 201/491 | 🔴 |
+| Phone or contact channel | 85 % | 3.7 % | 18/491 | 🔴 |
+| Opening hours | 80 % | 39.5 % | 194/491 | 🔴 |
+| Menu or service list | 80 % | 0 % | 0/491 | 🔴 |
+| Published prices | 70 % | 5.5 % | 27/491 | 🔴 |
+| Actual business photography | 50 % | 0.2 % | 1/491 | 🔴 |
+| ↳ of which phone number | — | 3.7 % | 18/491 | |
+| Source freshness (≤ 90 days) | — | 100 % | 491/491 | |
 
 ## By research area
 
@@ -30,10 +30,10 @@ Areas follow the PO's research split. An establishment is counted in the first a
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Thảo Điền & An Phú | ChatGPT | 8 | 0 | 100 % | 100 % | 12.5 % | 0 % | 0 % | 0 % | 0 % | 0 % | 0 % | 0 % | 100 % |
 | Sala & Thủ Thiêm | ChatGPT | 2 | 0 | 100 % | 100 % | 50 % | 0 % | 0 % | 0 % | 0 % | 0 % | 0 % | 0 % | 100 % |
-| Q7 & Phú Mỹ Hưng | ChatGPT | 30 | 0 | 100 % | 100 % | 23.3 % | 26.7 % | 0 % | 26.7 % | 0 % | 0 % | 0 % | 0 % | 100 % |
-| Q1 & Q3 | Claude Code | 150 | 0 | 100 % | 100 % | 26 % | 27.3 % | 0 % | 25.3 % | 0 % | 0.7 % | 0.7 % | 0 % | 100 % |
-| Phú Nhuận & Bình Thạnh | Claude Code | 27 | 0 | 100 % | 100 % | 0 % | 33.3 % | 0 % | 33.3 % | 0 % | 0 % | 0 % | 0 % | 100 % |
-| Other districts | unassigned | 188 | 0 | 100 % | 100 % | 13.8 % | 42.6 % | 0 % | 42.6 % | 0 % | 0 % | 0 % | 0 % | 100 % |
+| Q7 & Phú Mỹ Hưng | ChatGPT | 33 | 0 | 100 % | 100 % | 21.2 % | 33.3 % | 0 % | 33.3 % | 0 % | 0 % | 0 % | 0 % | 100 % |
+| Q1 & Q3 | Claude Code | 169 | 0 | 100 % | 100 % | 25.4 % | 44.4 % | 8.9 % | 41.4 % | 0 % | 13.6 % | 0.6 % | 8.9 % | 100 % |
+| Phú Nhuận & Bình Thạnh | Claude Code | 28 | 0 | 100 % | 100 % | 0 % | 50 % | 10.7 % | 42.9 % | 0 % | 14.3 % | 0 % | 10.7 % | 100 % |
+| Other districts | unassigned | 221 | 0 | 100 % | 100 % | 14.9 % | 45.7 % | 0 % | 45.7 % | 0 % | 0 % | 0 % | 0 % | 100 % |
 | District not in address | unassigned | 30 | 0 | 100 % | 100 % | 36.7 % | 0 % | 0 % | 0 % | 0 % | 0 % | 0 % | 0 % | 100 % |
 
 Columns: Name = Business name & category (target 100 %) · Address = Verified address (target 100 %) · Pin = Validated location (target 100 %) · Status = Operating status (target 90 %) · Contact = Phone or contact channel (target 85 %) · Hours = Opening hours (target 80 %) · Menu = Menu or service list (target 80 %) · Prices = Published prices (target 70 %) · Photo = Actual business photography (target 50 %).
@@ -42,7 +42,7 @@ Columns: Name = Business name & category (target 100 %) · Address = Verified ad
 
 | Experience | Profiles | Launch-ready | Name | Address | Pin | Status | Contact | Hours | Menu | Prices | Photo |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| food | 383 | 0 | 100 % | 100 % | 17.2 % | 35.5 % | 0 % | 35.2 % | 0 % | 0.3 % | 0.3 % |
+| food | 439 | 0 | 100 % | 100 % | 17.5 % | 45.3 % | 4.1 % | 44.2 % | 0 % | 6.2 % | 0.2 % |
 | coffee | 9 | 0 | 100 % | 100 % | 33.3 % | 11.1 % | 0 % | 0 % | 0 % | 0 % | 0 % |
 | bars | 30 | 0 | 100 % | 100 % | 46.7 % | 0 % | 0 % | 0 % | 0 % | 0 % | 0 % |
 | spa | 6 | 0 | 100 % | 100 % | 0 % | 16.7 % | 0 % | 0 % | 0 % | 0 % | 0 % |
@@ -86,7 +86,7 @@ Existing profiles first (PO: enrich before adding). Ordered by number of linked 
 | Pasteur Street Craft Beer – Metropole (`pasteur-street-craft-beer-metropole-20-nguyen-thien-thanh`) | bars | 1 | location, status, contact, hours, menu, prices |
 | Pasteur Street Craft Beer – Sala (`pasteur-street-craft-beer-sala-74-nguyen-co-thach`) | bars | 1 | status, contact, hours, menu, prices |
 
-### Q7 & Phú Mỹ Hưng — ChatGPT (30 profiles missing fields)
+### Q7 & Phú Mỹ Hưng — ChatGPT (33 profiles missing fields)
 
 | Venue | Experience | Links | Missing |
 | --- | --- | --- | --- |
@@ -106,7 +106,7 @@ Existing profiles first (PO: enrich before adding). Ordered by number of linked 
 | Phở Định quận 7 (`pho-dinh-quan-7-3-1a-nguyen-cao`) | food | 1 | location, status, contact, hours, menu, prices |
 | Phở Thìn quận 7 (`pho-thin-quan-7-53-nguyen-duc-canh`) | food | 1 | location, status, contact, hours, menu, prices |
 
-### Q1 & Q3 — Claude Code (150 profiles missing fields)
+### Q1 & Q3 — Claude Code (169 profiles missing fields)
 
 | Venue | Experience | Links | Missing |
 | --- | --- | --- | --- |
@@ -116,8 +116,8 @@ Existing profiles first (PO: enrich before adding). Ordered by number of linked 
 | Bún riêu cua ốc Cô Thủy (`bun-rieu-cua-oc-co-thuy-287-66-nguyen-dinh-chieu`) | food | 2 | location, status, contact, hours, menu, prices |
 | Góc Huế – Kỳ Đồng (`goc-hue-ky-dong-41-ky-dong`) | food | 2 | location, status, contact, hours, menu, prices |
 | Góc Huế – Nguyễn Thái Bình (`goc-hue-nguyen-thai-binh-155-nguyen-thai-binh`) | food | 2 | location, status, contact, hours, menu, prices |
-| Phở Minh (`pho-minh-63-6-pasteur`) | food | 2 | location, status, contact, hours, menu, prices |
 | Okkio Caffe (Lê Lợi) (`okkio-caffe-le-loi`) | coffee | 2 | status, contact, hours, menu, prices |
+| Phở Minh (`pho-minh-63-6-pasteur`) | food | 2 | location, menu |
 | An Miên Spa (`an-mien-spa-dinh-tien-hoang`) | spa | 1 | location, status, contact, hours, menu, prices |
 | Bánh Bèo Huế O Trinh (`banh-beo-hue-o-trinh-126-bui-thi-xuan`) | food | 1 | location, status, contact, hours, menu, prices |
 | Bánh Bèo Huế Thùy Linh (`banh-beo-hue-thuy-linh-209-le-van-sy`) | food | 1 | location, status, contact, hours, menu, prices |
@@ -126,22 +126,22 @@ Existing profiles first (PO: enrich before adding). Ordered by number of linked 
 | Bánh mì Bà Huynh (`banh-mi-ba-huynh-197a-nguyen-trai`) | food | 1 | location, status, contact, hours, menu, prices |
 | Bánh Mì Chim Chạy (`banh-mi-chim-chay-147d-nguyen-thi-minh-khai`) | food | 1 | location, status, contact, hours, menu, prices |
 
-### Phú Nhuận & Bình Thạnh — Claude Code (27 profiles missing fields)
+### Phú Nhuận & Bình Thạnh — Claude Code (28 profiles missing fields)
 
 | Venue | Experience | Links | Missing |
 | --- | --- | --- | --- |
-| Bánh Mì 110 (`banh-mi-110-110-hoang-van-thu`) | food | 1 | location, status, contact, hours, menu, prices |
-| Bánh Mì Hoàng Lam (`banh-mi-hoang-lam-168-nguyen-thuong-hien`) | food | 1 | location, status, contact, hours, menu, prices |
 | Bột Chiên 51 (`bot-chien-51-51-nguyen-van-lac`) | food | 1 | location, status, contact, hours, menu, prices |
 | Bún Nước Lèo Sóc Trăng – Lê Quang Định (`bun-nuoc-leo-soc-trang-le-quang-dinh-401-le-quang-dinh`) | food | 1 | location, status, contact, hours, menu, prices |
 | Bún Ốc Song Anh (`bun-oc-song-anh-100-nguyen-van-dau`) | food | 1 | location, status, contact, hours, menu, prices |
 | Chè Đèn Dầu (`che-den-dau-504-nguyen-kiem`) | food | 1 | location, status, contact, hours, menu, prices |
 | Cơm tấm Bà Chị Hai (`com-tam-ba-chi-hai-51-dang-van-ngu`) | food | 1 | location, status, contact, hours, menu, prices |
-| Cơm Tấm Ba Ghiền (`com-tam-ba-ghien`) | food | 1 | location, status, contact, hours, menu, prices |
 | Cơm tấm Bà Ròm (`com-tam-ba-rom-55-phan-dinh-phung`) | food | 1 | location, status, contact, hours, menu, prices |
-| Cơm tấm Cali (`com-tam-cali-82-nguyen-van-troi`) | food | 1 | location, status, contact, hours, menu, prices |
 | Cơm Tấm Hẻm 33 (`com-tam-hem-33-33-16-nguyen-dinh-chinh`) | food | 1 | location, status, contact, hours, menu, prices |
 | Cơm Tấm Mây (`com-tam-may-26-truong-quoc-dung`) | food | 1 | location, status, contact, hours, menu, prices |
 | Cơm tấm Sườn Chéo (`com-tam-suon-cheo-203-huynh-van-banh`) | food | 1 | location, status, contact, hours, menu, prices |
 | Cơm tấm Thành Râu (`com-tam-thanh-rau-119-phung-van-cung`) | food | 1 | location, status, contact, hours, menu, prices |
+| Hủ tiếu Nam Vang Hồng Thịnh (`hu-tieu-nam-vang-hong-thinh-39-nguyen-van-dau`) | food | 1 | location, status, contact, hours, menu, prices |
 | Hương Bún Thang (`huong-bun-thang-50-ho-bieu-chanh`) | food | 1 | location, status, contact, hours, menu, prices |
+| Mì Quảng Ếch (`mi-quang-ech-233-nguyen-trong-tuyen`) | food | 1 | location, status, contact, hours, menu, prices |
+| Quán Cơm Tấm Mén (`quan-com-tam-men-39-4b-huynh-van-banh`) | food | 1 | location, status, contact, hours, menu, prices |
+| Bánh mì Dì Oanh (`banh-mi-di-oanh-229-53-bui-dinh-tuy`) | food | 1 | location, contact, menu, prices |

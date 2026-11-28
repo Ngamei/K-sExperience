@@ -23,7 +23,7 @@ The callback address the providers below ask for is always: `https://aibainipwgq
 
 ## 2. Google
 
-1. console.cloud.google.com → choose or create a project (no billing needed for sign-in) → APIs & Services → **OAuth consent screen**: app name "K's Experience", support email, the domain `k-s-experience.vercel.app`; audience External; publish.
+1. console.cloud.google.com → choose or create a project (no billing needed for sign-in) → APIs & Services → **OAuth consent screen**: app name "K's Experience", support email, home page `https://k-s-experience.vercel.app/`, privacy policy `https://k-s-experience.vercel.app/privacy/`, authorised domain `k-s-experience.vercel.app`; audience External; publish.
 2. APIs & Services → Credentials → **Create credentials → OAuth client ID** → Web application.
    - Authorised JavaScript origins: `https://k-s-experience.vercel.app`
    - Authorised redirect URIs: `https://aibainipwgqbluhnqepu.supabase.co/auth/v1/callback`
@@ -33,7 +33,7 @@ The callback address the providers below ask for is always: `https://aibainipwgq
 
 1. developers.facebook.com → My Apps → **Create app** → use case "Authenticate and request data from users with Facebook Login" → name "K's Experience".
 2. Facebook Login → Settings → **Valid OAuth Redirect URIs:** `https://aibainipwgqbluhnqepu.supabase.co/auth/v1/callback`.
-3. App settings → Basic: add the privacy policy URL and app domain; switch the app to **Live** (in Development mode only you and testers can sign in).
+3. App settings → Basic: **Privacy Policy URL** `https://k-s-experience.vercel.app/privacy/`, **User data deletion** → *Data deletion instructions URL* `https://k-s-experience.vercel.app/data-deletion/`, app domain `k-s-experience.vercel.app`; switch the app to **Live** (in Development mode only you and testers can sign in).
 4. Copy the **App ID** and **App secret** into Supabase → Sign In / Providers → **Facebook** → enable → save.
 
 ## 4. Phone (SMS code)
@@ -58,3 +58,5 @@ Redeploy. The site then reads its data from the database (identical to the repos
 ## 6. Test together, then clean up
 
 On a Preview first, then production: sign up by email (confirm the email), Google, Facebook, phone; record a Passport action and see it on a second device; sign out; reset a password; delete the test accounts (Profile → Delete my account). Record results in `docs/QA_REPORT.md`.
+
+Optional Vercel setting `NEXT_PUBLIC_CONTACT_EMAIL`: a public contact address shown on the privacy and data-deletion pages (leave unset to offer in-app deletion only).

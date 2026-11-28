@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { enableSamples, stubCommonsPhotos } from "./helpers";
+import { PROVINCES_WITHOUT_DISHES, enableSamples, stubCommonsPhotos } from "./helpers";
 
 test("Vietnamese localisation", async ({ page }) => {
   await page.goto("/settings/");
@@ -114,12 +114,13 @@ test("Admin import validator rejects bad rows and accepts good ones", async ({ p
 });
 
 test.describe("Admin CMS (local mode)", () => {
-  test("Review lists the four provinces without dishes", async ({ page }) => {
+  test("Review lists the provinces without dishes", async ({ page }) => {
     await page.goto("/admin/");
     await expect(page.getByTestId("admin-auth")).toContainText("Local mode");
     await page.getByTestId("admin-section-quality").click();
     const review = page.getByTestId("admin-review");
-    for (const p of ["Thái Nguyên", "Đắk Nông", "Đồng Nai", "Hậu Giang"]) await expect(review).toContainText(p);
+    expect(PROVINCES_WITHOUT_DISHES.length).toBeGreaterThan(0);
+    for (const p of PROVINCES_WITHOUT_DISHES) await expect(review).toContainText(p);
   });
 
   test("dish editor validates and downloads a valid record", async ({ page }) => {

@@ -3300,5 +3300,524 @@
     "precision": "street",
     "ward": "Phường Linh Xuân",
     "displayName": "Đường Phạm Văn Đồng, Khu phố 17, Phường Linh Xuân, Thành phố Hồ Chí Minh, 71309, Việt Nam"
+  },
+  "Bánh mì que - Pate gia truyền Quán Mau Hải Phòng|154 Đường Số 2|Gò Vấp": {
+    "lon": 106.6621091,
+    "lat": 10.8499385,
+    "precision": "exact",
+    "ward": null,
+    "displayName": "supplied (exact): https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+que+-+Pate+gia+truy%E1%BB%81n+Qu%C3%A1n+Mau+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x317529001eb08f29:0x99fc92fb973ed978!8m2!3d10.8499385!4d106.6621091"
+  },
+  "Bánh mì que pate Hải Phòng Mẹ Nấm|291/45 Nguyễn Hồng Đào|Tân Bình": {
+    "lon": 106.6433419,
+    "lat": 10.7954887,
+    "precision": "exact",
+    "ward": null,
+    "displayName": "supplied (exact): https://www.google.com/maps/place/B%C3%A1nh+m%C3%AC+que+pate+H%E1%BA%A3i+Ph%C3%B2ng+M%E1%BA%B9+N%E1%BA%A5m/data=!4m7!3m6!1s0x317529003e25c7ff:0xf858c6093ace0482!8m2!3d10.7954887!4d106.6433419"
+  },
+  "The Bready - Bánh Mì Pate Que Hải Phòng|686/6 Cách Mạng Tháng 8|Tân Bình": {
+    "lon": 106.6639547,
+    "lat": 10.7875303,
+    "precision": "exact",
+    "ward": null,
+    "displayName": "supplied (exact): https://www.google.com/maps/place/The+Bready+-+B%C3%A1nh+M%C3%AC+Pate+Que+H%E1%BA%A3i+Ph%C3%B2ng/data=!4m7!3m6!1s0x31752fef9835006f:0xccea92def9e67286!8m2!3d10.7875303!4d106.6639547"
+  },
+  "Tâm cook Plus - Pate cột đèn đặc sản Hải Phòng, bánh mì và bánh mì que|100 Phạm Ngũ Lão|Gò Vấp": {
+    "lon": 106.6822585,
+    "lat": 10.8227371,
+    "precision": "exact",
+    "ward": null,
+    "displayName": "supplied (exact): https://www.google.com/maps/place/T%C3%A2m+cook+Plus-+Pate+c%E1%BB%99t+%C4%91%C3%A8n+%C4%91%E1%BA%B7c+s%E1%BA%A3n+H%E1%BA%A3i+ph%C3%B2ng,+b%C3%A1nh+m%C3%AC+v%C3%A0+b%C3%A1nh+m%C3%AC+que,+100+Ph%E1%BA%A1m+Ng%C5%A9+L%C3%A3o/data=!4m7!3m6!1s0x317529b4bc0f4ed7:0xe0170124c0792260!8m2!3d10.8227371!4d106.6822585"
+  },
+  "Bánh tráng trộn Cống Quỳnh|153 Cống Quỳnh|Quận 1": {
+    "lon": 106.684742,
+    "lat": 10.768231,
+    "precision": "street",
+    "ward": "Phường Cầu Ông Lãnh",
+    "displayName": "Cống Quỳnh, Khu phố 1, Phường Cầu Ông Lãnh, Thành phố Hồ Chí Minh, 71011, Việt Nam"
+  },
+  "Bánh tráng nướng 61 Cao Thắng|61 Cao Thắng|Quận 3": {
+    "lon": 106.674822,
+    "lat": 10.774892,
+    "precision": "street",
+    "ward": "Phường Hòa Hưng",
+    "displayName": "Cao Thắng, Khu phố 26, Phường Hòa Hưng, Thành phố Hồ Chí Minh, 72523, Việt Nam"
+  },
+  "Ốc nhớ|181 Nguyễn Thị Đặng|Quận 12": {
+    "lon": 106.644726,
+    "lat": 10.872898,
+    "precision": "street",
+    "ward": "Phường Tân Thới Hiệp",
+    "displayName": "Nguyễn Thị Đặng, Khu phố 14, Phường Tân Thới Hiệp, Thành phố Hồ Chí Minh, 71500, Việt Nam"
+  },
+  "Bảy bún riêu|122 Hậu Giang|Quận 6": {
+    "lon": 106.645073,
+    "lat": 10.749685,
+    "precision": "street",
+    "ward": "Phường Bình Tây",
+    "displayName": "Hậu Giang, Khu phố 7, Phường Bình Tây, Thành phố Hồ Chí Minh, 73121, Việt Nam"
+  },
+  "Bánh mì xôi gà 56|56 Trịnh Đình Trọng|Tân Phú": {
+    "lon": 106.641024,
+    "lat": 10.775878,
+    "precision": "street",
+    "ward": "Phường Tân Phú",
+    "displayName": "Trịnh Đình Trọng, Khu phố 20, Phường Tân Phú, Thành phố Hồ Chí Minh, 72017, Việt Nam"
+  },
+  "Bún đậu mắm tôm|01 Nguyễn Văn Tráng|Quận 1": {
+    "lon": 106.692363,
+    "lat": 10.770009,
+    "precision": "street",
+    "ward": "Phường Bến Thành",
+    "displayName": "Nguyễn Văn Tráng, Khu phố 6, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "Nhà hàng Phố 79|5 Phạm Ngọc Thạch|Quận 3": {
+    "lon": 106.691973,
+    "lat": 10.786248,
+    "precision": "street",
+    "ward": "Phường Xuân Hòa",
+    "displayName": "Phạm Ngọc Thạch, Khu phố 5, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+  },
+  "Cơm gà Hội An Mệ Vui|29 Trần Quốc Toản|Quận 3": {
+    "lon": 106.689479,
+    "lat": 10.789654,
+    "precision": "street",
+    "ward": "Phường Xuân Hòa",
+    "displayName": "Trần Quốc Toản, Khu phố 9, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+  },
+  "Cơm tấm Bãi Rác|77 Lê Văn Linh|Quận 4": {
+    "lon": 106.706983,
+    "lat": 10.764103,
+    "precision": "street",
+    "ward": "Phường Xóm Chiếu",
+    "displayName": "Lê Văn Linh, Phường Xóm Chiếu, Thành phố Hồ Chí Minh, 72823, Việt Nam"
+  },
+  "Bảo tàng Lịch sử Thành phố Hồ Chí Minh|2 Nguyễn Bỉnh Khiêm|Quận 1": {
+    "lon": 106.704042,
+    "lat": 10.788443,
+    "precision": "exact",
+    "ward": "Phường Sài Gòn",
+    "displayName": "Trường Tiểu học Nguyễn Bỉnh Khiêm, 2 Bis, Nguyễn Bỉnh Khiêm, Khu phố 1, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+  },
+  "Bảo tàng Mỹ thuật Thành phố Hồ Chí Minh|97A Phó Đức Chính|Quận 1": {
+    "lon": 106.69927,
+    "lat": 10.769596,
+    "precision": "exact",
+    "ward": "Phường Bến Thành",
+    "displayName": "Bảo tàng Mỹ thuật Thành phố Hồ Chí Minh, 97A, Phó Đức Chính, Khu phố 16, Phường Bến Thành, Thành phố Hồ Chí Minh, 71010, Việt Nam"
+  },
+  "Bún Ốc Thanh Hải|12 Kỳ Đồng|Quận 3": {
+    "lon": 106.681284,
+    "lat": 10.780893,
+    "precision": "street",
+    "ward": "Phường Nhiêu Lộc",
+    "displayName": "Kỳ Đồng, Khu phố 2, Phường Nhiêu Lộc, Thành phố Hồ Chí Minh, 72422, Việt Nam"
+  },
+  "Quán ốc Bà Cô Lốc Cốc|40a Trần Cao Vân|Quận 3": {
+    "lon": 106.697031,
+    "lat": 10.783781,
+    "precision": "street",
+    "ward": "Phường Xuân Hòa",
+    "displayName": "Trần Cao Vân, Khu phố 4, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+  },
+  "Quán ốc Tuyết quận 8|432A/43B Dương Bá Trạc|Quận 8": {
+    "lon": 106.690736,
+    "lat": 10.745232,
+    "precision": "street",
+    "ward": "Phường Chánh Hưng",
+    "displayName": "Dương Bá Trạc, Khu phố 15, Phường Chánh Hưng, Thành phố Hồ Chí Minh, 73023, Việt Nam"
+  },
+  "Bún chả|121 Lý Tự Trọng|Quận 1": {
+    "lon": 106.7016,
+    "lat": 10.77857,
+    "precision": "street",
+    "ward": "Phường Sài Gòn",
+    "displayName": "Lý Tự Trọng, Khu phố 3, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+  },
+  "Bún chả|3 Đường số 41|Quận 4": {
+    "lon": 106.701498,
+    "lat": 10.75925,
+    "precision": "street",
+    "ward": "Phường Khánh Hội",
+    "displayName": "Đường số 41, Khu phố 9, Phường Khánh Hội, Thành phố Hồ Chí Minh, 72822, Việt Nam"
+  },
+  "Bún chả|30 Cửu Long|Quận 10": {
+    "lon": 106.662246,
+    "lat": 10.781616,
+    "precision": "street",
+    "ward": "Phường Hòa Hưng",
+    "displayName": "Cửu Long, Khu phố 15, Phường Hòa Hưng, Thành phố Hồ Chí Minh, 72523, Việt Nam"
+  },
+  "Hủ tiếu Nam Vang|607 Cách Mạng Tháng 8|Quận 10": {
+    "lon": 106.664116,
+    "lat": 10.788507,
+    "precision": "street",
+    "ward": "Phường Tân Sơn Nhất",
+    "displayName": "Hẻm 686/17 Cách Mạng Tháng 8, Khu phố 14, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh, 72121, Việt Nam"
+  },
+  "Nhà hàng Đông Phố|57 Hồ Xuân Hương|Quận 3": {
+    "lon": 106.687543,
+    "lat": 10.776462,
+    "precision": "exact",
+    "ward": "Phường Xuân Hòa",
+    "displayName": "the flying rice 🍚Com Niue Sai Gon, 57, Hồ Xuân Hương, Khu phố 1, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+  },
+  "Cơm tấm Ba Đạt|01 Quốc Hương|Thủ Đức": {
+    "failed": true,
+    "reason": "not found"
+  },
+  "Bánh cuốn bà Năm|93 Trần Não|Thủ Đức": {
+    "failed": true,
+    "reason": "not found"
+  },
+  "Bánh mì nướng muối ớt Cô Năm|281 Đường 3 Tháng 2|Quận 10": {
+    "lon": 106.675755,
+    "lat": 10.772524,
+    "precision": "street",
+    "ward": "Phường Vườn Lài",
+    "displayName": "3 Tháng 2, Khu phố 30, Phường Vườn Lài, Thành phố Hồ Chí Minh, 72522, Việt Nam"
+  },
+  "Bánh mì nướng muối ớt Sumi|27/39/26D Số 9|Gò Vấp": {
+    "lon": 106.668425,
+    "lat": 10.844886,
+    "precision": "street",
+    "ward": "Phường An Hội Đông",
+    "displayName": "Đường số 9, Khu phố 10, Phường An Hội Đông, Thành phố Hồ Chí Minh, 71425, Việt Nam"
+  },
+  "Bánh mì nướng Ớt Đỏ|118 Trương Vĩnh Ký|Tân Phú": {
+    "lon": 106.633557,
+    "lat": 10.793822,
+    "precision": "street",
+    "ward": "Phường Tân Sơn Nhì",
+    "displayName": "Trương Vĩnh Ký, Khu phố 46, Phường Tân Sơn Nhì, Thành phố Hồ Chí Minh, 72008, Việt Nam"
+  },
+  "Bánh Mì Nướng Muối Ớt Minh Anh|384/31/4 Lý Thái Tổ|Quận 10": {
+    "lon": 106.676673,
+    "lat": 10.767038,
+    "precision": "street",
+    "ward": "Phường Bàn Cờ",
+    "displayName": "Lý Thái Tổ, Khu phố 24, Phường Bàn Cờ, Thành phố Hồ Chí Minh, 72420, Việt Nam"
+  },
+  "Bánh mì nướng muối ớt Dì Năm|242 Tân Hương|Tân Phú": {
+    "lon": 106.618865,
+    "lat": 10.789851,
+    "precision": "street",
+    "ward": "Phường Phú Thọ Hòa",
+    "displayName": "Tân Hương, Khu phố 26, Phường Phú Thọ Hòa, Thành phố Hồ Chí Minh, 72012, Việt Nam"
+  },
+  "Lẩu gà lá é Tao Ngộ|79A Trần Quang Cơ|Tân Phú": {
+    "lon": 106.624295,
+    "lat": 10.778013,
+    "precision": "street",
+    "ward": "Phường Phú Thạnh",
+    "displayName": "Trần Quang Cơ, Khu phố 15, Phường Phú Thạnh, Thành phố Hồ Chí Minh, 72013, Việt Nam"
+  },
+  "Quán lẩu gà lá é Hàn Thuyên|06 Hàn Thuyên|Thủ Đức": {
+    "lon": 106.769302,
+    "lat": 10.846629,
+    "precision": "street",
+    "ward": "Phường Thủ Đức",
+    "displayName": "Hàn Thuyên, Khu phố 30, Phường Thủ Đức, Thành phố Hồ Chí Minh, 71319, Việt Nam"
+  },
+  "Quán lẩu gà lá é 716 Trường Sa|716 Trường Sa|Quận 3": {
+    "lon": 106.683873,
+    "lat": 10.79276,
+    "precision": "street",
+    "ward": "Phường Phú Nhuận",
+    "displayName": "Trường Sa, Khu phố 24, Phường Phú Nhuận, Thành phố Hồ Chí Minh, 72221, Việt Nam"
+  },
+  "Quán Phan Lá É|02 Nguyễn Thị Minh Khai|Quận 1": {
+    "lon": 106.699399,
+    "lat": 10.784273,
+    "precision": "street",
+    "ward": "Phường Sài Gòn",
+    "displayName": "Nguyễn Thị Minh Khai, Khu phố 10, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+  },
+  "Lẩu gà lá é Anh Bảy|04 Đường 46|Thủ Đức": {
+    "lon": 106.722433,
+    "lat": 10.830459,
+    "precision": "street",
+    "ward": "Phường Hiệp Bình",
+    "displayName": "Đường Số 46, Khu phố 28, Phường Hiệp Bình, Thành phố Hồ Chí Minh, 71318, Việt Nam"
+  },
+  "Lẩu gà lá é Trương Vĩnh Ký|236 Trương Vĩnh Ký|Tân Phú": {
+    "lon": 106.633557,
+    "lat": 10.793822,
+    "precision": "street",
+    "ward": "Phường Tân Sơn Nhì",
+    "displayName": "Trương Vĩnh Ký, Khu phố 46, Phường Tân Sơn Nhì, Thành phố Hồ Chí Minh, 72008, Việt Nam"
+  },
+  "Lẩu gà lá é 205 Phạm Văn Chiêu|205 Phạm Văn Chiêu|Gò Vấp": {
+    "lon": 106.658208,
+    "lat": 10.851637,
+    "precision": "street",
+    "ward": "Phường An Hội Đông",
+    "displayName": "Phạm Văn Chiêu, Khu phố 20, Phường An Hội Đông, Thành phố Hồ Chí Minh, 71425, Việt Nam"
+  },
+  "Ốc Hòa Trường Sa|1432 Trường Sa|Tân Bình": {
+    "lon": 106.682451,
+    "lat": 10.788282,
+    "precision": "street",
+    "ward": "Phường Nhiêu Lộc",
+    "displayName": "Trường Sa, Khu phố 30, Phường Nhiêu Lộc, Thành phố Hồ Chí Minh, 72422, Việt Nam"
+  },
+  "Trà chanh Bụi Phố|84 Nguyễn Thế Truyện|Tân Phú": {
+    "lon": 106.632588,
+    "lat": 10.796721,
+    "precision": "exact",
+    "ward": "Phường Tân Sơn Nhì",
+    "displayName": "84, Nguyễn Thế Truyện, Khu phố 46, Phường Tân Sơn Nhì, Thành phố Hồ Chí Minh, 72000, Việt Nam"
+  },
+  "Bánh canh ghẹ muối ớt xanh Nguyễn Tri Phương|484c Nguyễn Tri Phương|Quận 10": {
+    "lon": 106.667042,
+    "lat": 10.767686,
+    "precision": "street",
+    "ward": "Phường Diên Hồng",
+    "displayName": "Nguyễn Tri Phương, Khu phố 4, Phường Diên Hồng, Thành phố Hồ Chí Minh, 72521, Việt Nam"
+  },
+  "Bún đậu mắm tôm Tiến Hải|409 Nguyễn Tri Phương|Quận 10": {
+    "lon": 106.669121,
+    "lat": 10.75863,
+    "precision": "street",
+    "ward": "Phường An Đông",
+    "displayName": "Nguyễn Tri Phương, Khu phố 19, Phường An Đông, Thành phố Hồ Chí Minh, 72721, Việt Nam"
+  },
+  "Ốc Nhi 2N|80 Nguyễn Biểu|Quận 5": {
+    "lon": 106.683124,
+    "lat": 10.757515,
+    "precision": "street",
+    "ward": "Phường Chợ Quán",
+    "displayName": "Nguyễn Biểu, Khu phố 10, Phường Chợ Quán, Thành phố Hồ Chí Minh, 72722, Việt Nam"
+  },
+  "Nem nướng Ninh Hòa Hoàng Phương|92/2 Đường số 15|Quận 7": {
+    "lon": 106.739359,
+    "lat": 10.765581,
+    "precision": "street",
+    "ward": "Phường Tân Thuận",
+    "displayName": "Đường số 15, Khu phố 3, Phường Tân Thuận, Thành phố Hồ Chí Minh, 72917, Việt Nam"
+  },
+  "Bánh mì gà Nguyễn Thị Thập|518 Nguyễn Thị Thập|Quận 7": {
+    "lon": 106.708278,
+    "lat": 10.739157,
+    "precision": "street",
+    "ward": "Phường Tân Hưng",
+    "displayName": "Nguyễn Thị Thập, Khu phố 28, Phường Tân Hưng, Thành phố Hồ Chí Minh, 72912, Việt Nam"
+  },
+  "Ốc Liên|39 Lê Văn Lương|Quận 7": {
+    "lon": 106.702916,
+    "lat": 10.708005,
+    "precision": "street",
+    "ward": "Xã Nhà Bè",
+    "displayName": "Lê Văn Lương, Ấp 31, Xã Nhà Bè, Thành phố Hồ Chí Minh, 73206, Việt Nam"
+  },
+  "Quán bánh mì que BMQ|387 Lê Văn Lương|Quận 7": {
+    "lon": 106.699973,
+    "lat": 10.716879,
+    "precision": "street",
+    "ward": "Xã Nhà Bè",
+    "displayName": "Lê Văn Lương, Ấp 30, Xã Nhà Bè, Thành phố Hồ Chí Minh, 73206, Việt Nam"
+  },
+  "Quán Ốc Sam|203 Hoàng Diệu 2|Thủ Đức": {
+    "lon": 106.769229,
+    "lat": 10.854287,
+    "precision": "street",
+    "ward": "Phường Linh Xuân",
+    "displayName": "Hoàng Diệu 2, Khu phố 13, Phường Linh Xuân, Thành phố Hồ Chí Minh, 71309, Việt Nam"
+  },
+  "Bún Bò O Hè|315/30 Lê Văn Sỹ|Quận 3": {
+    "lon": 106.681054,
+    "lat": 10.786106,
+    "precision": "street",
+    "ward": "Phường Nhiêu Lộc",
+    "displayName": "Lê Văn Sỹ, Khu phố 30, Phường Nhiêu Lộc, Thành phố Hồ Chí Minh, 72422, Việt Nam"
+  },
+  "Canh Bún & Bún Riêu|153 Nam Kỳ Khởi Nghĩa|Quận 3": {
+    "lon": 106.684051,
+    "lat": 10.789715,
+    "precision": "street",
+    "ward": "Phường Xuân Hòa",
+    "displayName": "Nam Kỳ Khởi Nghĩa, Khu phố 14, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+  },
+  "Ốc Chị Em|6B Công Trường Quốc Tế|Quận 3": {
+    "lon": 106.695613,
+    "lat": 10.783312,
+    "precision": "exact",
+    "ward": "Phường Xuân Hòa",
+    "displayName": "Quán Cà Phê Papa, 6B, Công trường Quốc Tế, Khu phố 4, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+  },
+  "Ốc Tuấn Chợ Cao Đạt đa dạng các món|197 Cao Đạt|Quận 5": {
+    "lon": 106.682279,
+    "lat": 10.754176,
+    "precision": "street",
+    "ward": "Phường Chợ Quán",
+    "displayName": "Cao Đạt, Khu phố 4, Phường Chợ Quán, Thành phố Hồ Chí Minh, 72722, Việt Nam"
+  },
+  "Phở Lệ đạt sao Michelin danh tiếng|413-415 Nguyễn Trãi|Quận 5": {
+    "lon": 106.673528,
+    "lat": 10.755249,
+    "precision": "exact",
+    "ward": "Phường An Đông",
+    "displayName": "Phở Lệ, 413-415, Nguyễn Trãi, Khu phố 12, Phường An Đông, Thành phố Hồ Chí Minh, 72721, Việt Nam"
+  },
+  "Bún bò Huế Má Nấu|192 Trần Bình Trọng|Quận 5": {
+    "lon": 106.679718,
+    "lat": 10.760947,
+    "precision": "street",
+    "ward": "Phường Chợ Quán",
+    "displayName": "Trần Bình Trọng, Khu phố 17, Phường Chợ Quán, Thành phố Hồ Chí Minh, 72722, Việt Nam"
+  },
+  "Cơm tấm An Dương Vương|502 An Dương Vương|Quận 5": {
+    "lon": 106.66715,
+    "lat": 10.756157,
+    "precision": "street",
+    "ward": "Phường An Đông",
+    "displayName": "An Dương Vương, Khu phố 15, Phường An Đông, Thành phố Hồ Chí Minh, 72721, Việt Nam"
+  },
+  "Bánh xèo Hẹn Hò Miền Tây|34L Đường số 7L|Quận 7": {
+    "lon": 106.687827,
+    "lat": 10.741429,
+    "precision": "street",
+    "ward": "Phường Chánh Hưng",
+    "displayName": "Đường số 9, Khu phố 27, Phường Chánh Hưng, Thành phố Hồ Chí Minh, 73023, Việt Nam"
+  },
+  "Quán Bánh Xèo Hương Lúa|361 Nguyễn Duy Trinh|Thủ Đức": {
+    "failed": true,
+    "reason": "not found"
+  },
+  "Quán Bánh Xèo Miền Trung|432 Nguyễn Duy Trinh|Thủ Đức": {
+    "failed": true,
+    "reason": "not found"
+  },
+  "Bánh Xèo Cô Nga|39 Văn An|Thủ Đức": {
+    "lon": 106.775061,
+    "lat": 10.840409,
+    "precision": "exact",
+    "ward": "Phường Tăng Nhơn Phú",
+    "displayName": "39F, Chu Văn An, Khu phố 53, Phường Tăng Nhơn Phú, Thành phố Hồ Chí Minh, 71211, Việt Nam"
+  },
+  "Bánh Xèo Ba Híu|12/46/9 Trần Não|Thủ Đức": {
+    "failed": true,
+    "reason": "not found"
+  },
+  "Bánh Xèo Cô Ba|304 Thân Văn Nhiếp|Thủ Đức": {
+    "failed": true,
+    "reason": "not found"
+  },
+  "Canh bún & Bún riêu bạch tuộc Chị Thủy|25F Nguyễn Thị Tần|Quận 8": {
+    "lon": 106.686115,
+    "lat": 10.74632,
+    "precision": "street",
+    "ward": "Phường Chánh Hưng",
+    "displayName": "Nguyễn Thị Tần, Khu phố 22, Phường Chánh Hưng, Thành phố Hồ Chí Minh, 73023, Việt Nam"
+  },
+  "Cơm Tấm Ngon|31 Cộng Hòa|Tân Bình": {
+    "lon": 106.638414,
+    "lat": 10.803232,
+    "precision": "street",
+    "ward": "Phường Tân Bình",
+    "displayName": "Cộng Hòa, Khu phố 15, Phường Tân Bình, Thành phố Hồ Chí Minh, 72123, Việt Nam"
+  },
+  "Cơm tấm Mộc|85 Lý Tự Trọng. P. Bến Thành|Quận 1": {
+    "lon": 106.69442,
+    "lat": 10.772127,
+    "precision": "street",
+    "ward": "Phường Bến Thành",
+    "displayName": "Lý Tự Trọng, Khu phố 2, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "Cơm Tấm Thu Thảo|461 Lê Đại Hành|Quận 11": {
+    "lon": 106.657928,
+    "lat": 10.760917,
+    "precision": "street",
+    "ward": "Phường Minh Phụng",
+    "displayName": "Lê Đại Hành, Khu phố 13, Phường Minh Phụng, Thành phố Hồ Chí Minh, 72624, Việt Nam"
+  },
+  "Hủ tiếu Nam Vang|232 Bùi Viện|Quận 1": {
+    "lon": 106.69436,
+    "lat": 10.767594,
+    "precision": "street",
+    "ward": "Phường Bến Thành",
+    "displayName": "Bùi Viện, Khu phố 12, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "Hủ tiếu Nam Vang Kim Quán|28 Phó Đức Chính|Quận 1": {
+    "lon": 106.700331,
+    "lat": 10.768757,
+    "precision": "street",
+    "ward": "Phường Bến Thành",
+    "displayName": "Phó Đức Chính, Khu phố 16, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "Hủ tiếu Sa Đéc & Bánh tằm Dì Năm|166 Bùi Thị Xuân|Quận 1": {
+    "lon": 106.665437,
+    "lat": 10.792243,
+    "precision": "street",
+    "ward": "Phường Tân Sơn Hòa",
+    "displayName": "Bùi Thị Xuân, Khu phố 4, Phường Tân Sơn Hòa, Thành phố Hồ Chí Minh, 72122, Việt Nam"
+  },
+  "Hủ tiếu Nam Vang Đạt Thành|607C Cách Mạng Tháng 8|Quận 10": {
+    "lon": 106.655134,
+    "lat": 10.790804,
+    "precision": "street",
+    "ward": "Phường Tân Sơn Nhất",
+    "displayName": "Hẻm 1073 Cách Mạng Tháng 8, Khu phố 19, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh, 72121, Việt Nam"
+  },
+  "Hủ tiếu Nam Vang Hồng Thịnh|39 Nguyễn Văn Đậu|Bình Thạnh": {
+    "lon": 106.693094,
+    "lat": 10.812343,
+    "precision": "street",
+    "ward": "Phường Bình Lợi Trung",
+    "displayName": "Nguyễn Văn Đậu, Khu phố 13, Phường Bình Lợi Trung, Thành phố Hồ Chí Minh, 72329, Việt Nam"
+  },
+  "Bò Nướng Phố|195 Bình Thới|Quận 11": {
+    "lon": 106.65175,
+    "lat": 10.768815,
+    "precision": "street",
+    "ward": "Phường Hòa Bình",
+    "displayName": "Bình Thới, Khu phố 19, Phường Hòa Bình, Thành phố Hồ Chí Minh, 72623, Việt Nam"
+  },
+  "Ốc Nho 88|178-180-182-190 Lê Quốc Hưng|Quận 4": {
+    "failed": true,
+    "reason": "not found"
+  },
+  "Ốc tự nhiên|536 Nguyễn Xiển|Thủ Đức": {
+    "failed": true,
+    "reason": "not found"
+  },
+  "Xôi xéo Hà Nội|63/38 Nguyễn Biểu|Quận 5": {
+    "lon": 106.683124,
+    "lat": 10.757515,
+    "precision": "street",
+    "ward": "Phường Chợ Quán",
+    "displayName": "Nguyễn Biểu, Khu phố 10, Phường Chợ Quán, Thành phố Hồ Chí Minh, 72722, Việt Nam"
+  },
+  "Bò Kho Gánh|029 Lô H chung cư Ngô Gia Tự|Quận 10": {
+    "failed": true,
+    "reason": "not found"
+  },
+  "Bún thịt nướng Chị Tuyền|175 Cô Giang|Quận 1": {
+    "lon": 106.694085,
+    "lat": 10.762408,
+    "precision": "street",
+    "ward": "Phường Cầu Ông Lãnh",
+    "displayName": "Cô Giang, Khu phố 17, Phường Cầu Ông Lãnh, Thành phố Hồ Chí Minh, 71011, Việt Nam"
+  },
+  "Vị Sài Gòn|157 Nguyễn Văn Thủ|Quận 1": {
+    "lon": 106.701032,
+    "lat": 10.792089,
+    "precision": "street",
+    "ward": "Phường Tân Định",
+    "displayName": "Nguyễn Văn Thủ, Khu phố 13, Phường Tân Định, Thành phố Hồ Chí Minh, 71008, Việt Nam"
+  },
+  "Quán bún thịt nướng Hải Đăng|149 Chấn Hưng|Tân Bình": {
+    "lon": 106.663173,
+    "lat": 10.786024,
+    "precision": "street",
+    "ward": "Phường Tân Hòa",
+    "displayName": "Chấn Hưng, Phường Tân Hòa, Thành phố Hồ Chí Minh, 72125, Việt Nam"
+  },
+  "Quán bún thịt nướng Cô Ba|65 Tân Thành|Tân Phú": {
+    "lon": 106.652354,
+    "lat": 10.755455,
+    "precision": "street",
+    "ward": "Phường Chợ Lớn",
+    "displayName": "Tân Thành, Khu phố 25, Phường Chợ Lớn, Thành phố Hồ Chí Minh, 72723, Việt Nam"
   }
 }

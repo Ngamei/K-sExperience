@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
-import { isMobile, visible } from "./helpers";
+import { DISH_COUNT, isMobile, visible } from "./helpers";
 
 test("accent-insensitive search, combined filters, chips and counts", async ({ page }) => {
   await page.goto("/catalogue/");
   const count = visible(page, "result-count");
-  await expect(count).toHaveText("138 dishes");
+  await expect(count).toHaveText(`${DISH_COUNT} dishes`);
   await visible(page, "search-input").fill("bun bo hue");
   await expect(page.getByTestId("catalogue-results").getByTestId("dish-card").first()).toContainText("Bún bò Huế");
 
@@ -12,7 +12,7 @@ test("accent-insensitive search, combined filters, chips and counts", async ({ p
   await visible(page, "cat-snack").click();
   const snackCount = Number((await count.textContent())!.split(" ")[0]);
   expect(snackCount).toBeGreaterThan(5);
-  expect(snackCount).toBeLessThan(138);
+  expect(snackCount).toBeLessThan(DISH_COUNT);
 
   if (isMobile(page)) await page.getByTestId("open-filters").click();
   const panel = page.getByTestId("filter-panel").filter({ visible: true });
@@ -23,7 +23,7 @@ test("accent-insensitive search, combined filters, chips and counts", async ({ p
   expect(combined).toBeLessThan(snackCount);
 
   await visible(page, "clear-filters").click();
-  await expect(count).toHaveText("138 dishes");
+  await expect(count).toHaveText(`${DISH_COUNT} dishes`);
 });
 
 test("saved dishes, tried dishes and passport progress", async ({ page }) => {
@@ -40,5 +40,5 @@ test("saved dishes, tried dishes and passport progress", async ({ page }) => {
   await page.goto("/catalogue/");
   if (isMobile(page)) await page.getByTestId("open-filters").click();
   await page.getByTestId("filter-panel").filter({ visible: true }).getByRole("button", { name: "Tried", exact: true }).click();
-  await expect(visible(page, "result-count")).toHaveText("1 of 138 dishes");
+  await expect(visible(page, "result-count")).toHaveText(`1 of ${DISH_COUNT} dishes`);
 });

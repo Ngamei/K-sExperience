@@ -1,24 +1,42 @@
 # Master catalogue import report
 
-_Generated 2026-11-28 from `../../../../tmp/intake-TSPQPf/dishes.json` (dry run — nothing written)._
+_Generated 2026-11-28 from `../../../tmp/intake-f4Uz5h/dishes.json`._
 
 | | Count |
 | --- | ---: |
-| Rows in file | 2 |
+| Rows in file | 20 |
 | Rejected rows (errors) | 0 |
 | Matched existing dishes | 0 (by id 0, by name 0) |
-| New dishes added | 2 |
-| Existing dishes kept (not in file) | 138 |
+| New dishes added | 20 |
+| Existing dishes kept (not in file) | 160 |
 | "verified" without sources → pending-review | 0 |
-| Total after merge | 140 |
+| Total after merge | 180 |
 | Restaurant links pointing to missing dishes | 0 (must be 0) |
 
 ## Matched (fields changed)
 none
 
 ## Added
-- `com-ga-xoi-mo`
-- `bun-rieu-chay`
+- `bun-bo-nam-bo`
+- `mien-ga`
+- `mien-luon-tron`
+- `mi-van-than`
+- `banh-goi`
+- `ca-com-sua-rim-dau-phong`
+- `canh-chua-dau-ca-dieu-hong-nau-dau-rong`
+- `ca-trich-kho-ca-chua`
+- `canh-rau-san-nau-ca`
+- `chan-ga-tron-xi-dau`
+- `bo-tai-chanh`
+- `oc-om-chuoi-dau`
+- `tom-rang-thit-ba-chi`
+- `muc-nhoi-thit-sot-ca-chua`
+- `ba-chi-rang-chay-canh`
+- `ca-loc-kho-tieu`
+- `ca-chim-sot-nam-linh-chi`
+- `canh-bo-nau-khe`
+- `nham-tram`
+- `goi-ca-dang`
 
 ## Kept, not in import (review)
 - `pho-bo-ha-noi`
@@ -159,7 +177,28 @@ none
 - `lap-xuong-can-duoc`
 - `banh-chuoi-nuong`
 - `banh-da-lon`
+- `com-ga-xoi-mo`
+- `bun-rieu-chay`
+- `goi-cuon`
+- `bun-bo-cuon-la-lot`
+- `nom-hoa-chuoi`
+- `xoi-man`
+- `dau-hu-sot-ca-chua`
+- `rau-muong-xao-toi`
+- `banh-mi-trung`
+- `pho-chay`
+- `banh-mi-chay`
+- `bo-kho`
+- `bun-thit-nuong`
+- `thit-kho-trung`
+- `xiu-mai`
+- `canh-hoa-thien-ly-nau-cua-dong`
+- `hoa-thien-ly-xao-thit-bo`
+- `thit-kho-mang-kho`
+- `hu-tieu-ho`
+- `hu-tieu-bo-kho`
+- `pho-chien-phong`
+- `muop-xao-long-ga`
 
 ## Issues
-- warning row 1 (Cơm gà xối mỡ): No primary origin; dish will be placed at its first associated origin
-- warning row 2 (Bún riêu chay): No primary origin; dish will be placed at its first associated origin
+- warning row 20 (Gỏi cà đắng): No primary origin; dish will be placed at its first associated origin

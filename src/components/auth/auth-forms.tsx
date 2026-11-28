@@ -168,7 +168,8 @@ export function AuthPanel({ initialMode = "login", next = "/passport/", onSigned
         <Button className="w-full" disabled={busy} data-testid={`${mode}-submit`}>{busy ? a.wait : mode === "login" ? a.login : mode === "signup" ? a.signup : a.sendReset}</Button>
       </form>
       <Message text={msg.t} ok={msg.ok} />
-      <div className="mt-4 flex flex-wrap justify-between gap-2 text-sm">
+      <p className="mt-4 text-[11px] text-muted" data-testid="auth-privacy">{a.privacyNote} <a href="/privacy/" target="_blank" className="underline">{a.privacyLink}</a></p>
+      <div className="mt-3 flex flex-wrap justify-between gap-2 text-sm">
         {mode === "login" && <><button type="button" onClick={() => go("forgot")} className="text-terracotta hover:underline" data-testid="auth-to-forgot">{a.forgot}</button><button type="button" onClick={() => go("signup")} className="text-forest hover:underline" data-testid="auth-to-signup">{a.noAccount}</button></>}
         {mode === "signup" && <button type="button" onClick={() => go("login")} className="text-forest hover:underline" data-testid="auth-to-login">{a.haveAccount}</button>}
         {mode === "forgot" && <button type="button" onClick={() => go("login")} className="text-forest hover:underline" data-testid="auth-to-login">{a.backToLogin}</button>}

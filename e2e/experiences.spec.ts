@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { DISH_COUNT } from "./helpers";
 
 test("Settings lists six experience modes in order; Sport is a pilot with Pickleball and Pilates", async ({ page }) => {
   await page.goto("/settings/");
@@ -30,7 +31,7 @@ test("Food navigation and passport are unchanged; all six passports listed, Shop
     const nav = page.getByRole("navigation", { name: "Main" });
     await expect(nav.getByRole("link")).toHaveText(["Food Map", "Discover", "What to eat", "Food Catalogue", "Nearby", "Food Passport", "Saved"]);
   }
-  await expect(page.getByTestId("result-count").filter({ visible: true }).first()).toHaveText("138 dishes");
+  await expect(page.getByTestId("result-count").filter({ visible: true }).first()).toHaveText(`${DISH_COUNT} dishes`);
   await page.goto("/passport/");
   const mods = page.getByTestId("experience-passports");
   await expect(mods.locator('[data-testid^="passport-module-"]')).toHaveCount(6);

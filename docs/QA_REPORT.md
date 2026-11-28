@@ -76,6 +76,20 @@ Screenshots: `docs/screenshots/settings-admin/after-membership-*.png`, `after-ad
 _Run date: 2026-11-28 (re-run after PO decisions D55–D58: mobile nav, soft meal time, pastel themes, research exchange) · Branch `claude/trusting-clarke-44sf7b` · Environment: Linux cloud container, Node 22.23.5, npm 10.9.9,
 headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is the branch head that contains this file.
 
+## 2026-11-28 · Master catalogue +42 dishes (GPT-CAT-001/002/003), CC-FOOD-012
+
+- `npm run intake -- … --apply` for GPT-CAT-001 (2), 002 (20), 003 (20): matched 0, added 42, kept 138, orphan links 0 → 180 dishes. CC-FOOD-012: 2 accepted / 4 rejected (pins).
+- Test fixes (data-driven instead of hard-coded): e2e dish counts now come from `data/vietnamese-dishes.json` (`DISH_COUNT` in `e2e/helpers.ts`; used by e2e, e2e-auth, e2e-modules); Admin Review test now derives the provinces without dishes from the data (Đồng Nai, Hậu Giang — Thái Nguyên and Đắk Nông now have dishes); `tests/unit/unknown-spice.test.ts` requires recorded spice levels only for seed dishes (master imports may leave spice unknown, KEX-IMPORT-01).
+- `npm run qa` → **exit 0**: vitest 23 files / 177 tests, e2e 113, e2e-auth 50, e2e-modules 62.
+- `npm run test:db` (CI `db-test`, PR #14) first failed on three hard-coded legacy assertions in `tests/db/rls.sql` (`anon reads 138 dishes`, eating defaults NULL for every dish, spice recorded for every dish). Now: anon reads every seeded dish (count captured as owner, ≥ 138); the NULL-eating and recorded-spice checks apply to `dataset = 'seed'` dishes. Local run (PostgreSQL 16 + PostGIS): **ALL DB TESTS PASSED**, parity 180 dishes / 491 establishments / 444 links.
+- Known: `npm run data:seed` would drop the 42 master dishes — do not run it (BACKLOG CC-PHOTO-01).
+
+## 2026-11-28 · CC-FOOD-011 + PO-GMAPS-001
+
+- `npm run intake` dry run + `--apply`: PO-GMAPS-001 4/4 accepted (exact supplied pins); CC-FOOD-011 50 accepted / 94 rejected (61 imprecise pins, 29 not geocoded or other street, 4 duplicates). Venues 383 → 437; links 388 → 442.
+- Regenerated: db:seed-sql, data:report (0 possible duplicates), data:coverage, data:experiences, data:what-to-eat (43/138), exchange:export, data:food-coverage (0 = 95 · 1–4 = 24 · 5+ = 19), data:neighbourhoods, data:maps-share-list.
+- `npm run qa` → **exit 0**: vitest 23 files / 177 tests, e2e 113, e2e-auth 50, e2e-modules 62.
+
 ## 2026-11-28 · 4 Commons dish photos
 
 - Added to `data/source/dish-photos.json` → `npm run data:seed` (138/138 imported) → dishes with a photo 45 → 49. `db:seed-sql`, `data:report`, `exchange:export` regenerated.
