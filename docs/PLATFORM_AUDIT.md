@@ -36,9 +36,9 @@ _28 Nov 2026 · Claude Code · branch `claude/gifted-franklin-iltr35` (not produ
 ### 03 · Public business page
 | Blueprint | Today | Gap |
 | --- | --- | --- |
-| One permanent page per real branch | Food: `/places/[id]` (static); other experiences: `/<exp>/nearby/?id=` | Two page shapes; no canonical slug; a branch in two experiences would need one record (today 170 unique establishments, no overlap) |
+| One permanent page per real branch | ✅ **one Business Profile Engine** (D77) renders Food `/places/[id]` and `/<exp>/nearby/?id=` | Canonical slug route; a branch in two experiences would need one record (today 170 unique establishments, no overlap) |
 | Name, address, verified coordinates | ✅ all 170; exact/building pins 44 / 170 | Street-level pins on the rest |
-| Phone, hours, website/social | Schema exists for Food only (`contact`, `openingHours`); **0 phones, 3 hours** recorded; module schema has no contact fields | Research data (never guessed) + module schema |
+| Phone, hours, website/social | Schema exists for every experience (module establishments extend the Food restaurant schema); **0 phones, 3 hours** recorded; profiles show "Not published yet" | Research data (never guessed) |
 | Menu / services with VND prices | Dish–venue links (121) and module offerings (61); **1 priced** | Menu/version/section entity; price evidence + observed date |
 | Nutrition tab | ❌ public | See 02 |
 | Source freshness, report correction, claim CTA | Sources + last-checked shown; report/claim ❌ | Report flow (KEX-SET-02), claim (merchant phase) |
@@ -85,7 +85,7 @@ _28 Nov 2026 · Claude Code · branch `claude/gifted-franklin-iltr35` (not produ
 | P0-b | Membership plans, benefits, currency, billing projection (D71–D75) | CC | ✅ |
 | P0-c | **Server-side quotas, off by default (0014)**; usage meter | CC | ✅ this increment |
 | P0-d | Real auth verification on hosted Supabase: 5 journeys, cross-device, guest migration | PO/CX | ⛔ test inboxes / profiles |
-| P0-e | Business page standardisation: shared `components/business/*` for Food + modules, contact/hours for all experiences, honest unknown states | CC | ⬜ next |
+| P0-e | Business page standardisation: shared `components/business/*` for Food + modules, honest unknown states (D77) | CC | ✅ |
 | P0-f | Research: phones, hours, menus with VND prices for Thảo Điền, Sala, Q1, Phú Mỹ Hưng, workplace catchments — sourced only | ChatGPT / CC research | ⬜ data is the main gap |
 | P1-a | Client EntitlementGate + upgrade prompt; switch on enforcement with checkout (KEX-MEM-04) | CC | ⬜ waits payment provider |
 | P1-b | Menu entity + menu unlocks (atomic RPC) + nutrition per offering; move paid fields behind RLS | CC | ⬜ |

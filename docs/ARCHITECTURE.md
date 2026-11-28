@@ -87,6 +87,9 @@ Establishments can belong to several modes (`establishment_experiences`, migrati
 - `/admin/` renders "Access denied" without tools for non-staff (client gate — sessions live in browser storage, so there is no server-side route check); all restricted data and writes are enforced by RLS.
 - Personal-data safety: `useUser.clearDevice()` detaches the device copy (`ownerId → null`) before clearing; the debounced account sync aborts when `ownerId` no longer matches; `reloadFromAccount()` re-adopts the account Passport.
 
+## Business Profile Engine (D77)
+`lib/business/profile.ts` — `BusinessProfileModel` (identity, contact, hours, offerings with recorded VND prices + evidence), 9 `BUSINESS_TYPE_DEFS`, `businessTypeOf(experience, venueType, categories)`, `priceAccess(tier, unlocks)`. `components/business/business-profile.tsx` renders every profile; adapters: Food `nearby/place-view.tsx`, modules `engine/module-views.tsx` (`EstablishmentsView` detail). Theme comes from the type's experience (`themeVars`).
+
 ## Shared engine — current shape (CC-22 / CC-25)
 - **Shared UI:** `components/engine/filter-drawer.tsx` (FilterDrawer, ActiveFilterBar, CatalogueLayout), `detail.tsx` (DetailBlock, OfferingsSection), `offering-row.tsx`, `module-views.tsx`, `module-page.tsx`. Food's `CatalogueView` and `DishDetail` render through them.
 - **Data:** `engine/schema.ts` (items, establishments with `attributes`, offerings), `engine/validate.ts` (registry rules; item vs establishment attributes), `engine/filters.ts`, `engine/import.ts` (CSV/JSON → dry run → non-destructive merge → report), `engine/db-rows.ts`.

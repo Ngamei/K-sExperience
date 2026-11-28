@@ -47,6 +47,7 @@ interface UserState {
   toggleModuleSaved: (exp: ExperienceId, itemId: string) => void;
   toggleModuleTried: (exp: ExperienceId, itemId: string) => void;
   toggleModuleVisited: (exp: ExperienceId, establishmentId: string) => void;
+  toggleModuleSavedVenue: (exp: ExperienceId, establishmentId: string) => void;
   /** Replace personal data of every experience (after sign-in/merge) and set its owner. */
   loadPassport: (owner: string | null, all: Passports) => void;
   /** Clear personal data from this device (sign-out); preferences/language stay. */
@@ -155,6 +156,7 @@ export const useUser = create<UserState>()(
       },
       toggleModuleSaved: (exp, itemId) => set({ modulePassports: { ...get().modulePassports, [exp]: modulePatch(get().modulePassports[exp], (p) => ({ ...p, saved: p.saved.includes(itemId) ? p.saved.filter((x) => x !== itemId) : [...p.saved, itemId] })) } }),
       toggleModuleTried: (exp, itemId) => set({ modulePassports: { ...get().modulePassports, [exp]: modulePatch(get().modulePassports[exp], (p) => ({ ...p, tried: toggleDate(p.tried, itemId) })) } }),
+      toggleModuleSavedVenue: (exp, id) => set({ modulePassports: { ...get().modulePassports, [exp]: modulePatch(get().modulePassports[exp], (p) => ({ ...p, savedVenues: p.savedVenues.includes(id) ? p.savedVenues.filter((x) => x !== id) : [...p.savedVenues, id] })) } }),
       toggleModuleVisited: (exp, id) => set({ modulePassports: { ...get().modulePassports, [exp]: modulePatch(get().modulePassports[exp], (p) => ({ ...p, visited: toggleDate(p.visited, id) })) } }),
       loadPassport: (owner, all) => {
         const p = all[FOOD] ?? EMPTY_PASSPORT;

@@ -16,6 +16,18 @@ Environment: Linux cloud container, Node 22.23.5, headless Chromium (Playwright)
 
 **Bug fixed:** the old Settings "Reset my data" (`useUser.reset()`) kept `ownerId`, so for a signed-in user the diff sync treated the emptied device as deletions and removed the account's Passport. Replaced by `clearDevice()` (detaches the device copy first) + `reloadFromAccount()`; the debounced sync also aborts if the device data no longer belongs to the account. Covered by test 6.
 
+### Addendum — Business Profile Engine (D77, KEX-BIZ-02)
+| Command | Result |
+| --- | --- |
+| `npx tsc --noEmit` · `npm run lint` | ✅ · ✅ 0 errors |
+| `npx vitest run` | ✅ **23 files, 175 tests** (+ `business-profile.test.ts`: 9 types tied to experiences, Shopping future-only; real establishments map to café/bar/head spa/spa/Pilates/pickleball; price-access rule off vs on; VND formatting) |
+| `npm run test:db` | ✅ ALL DB TESTS PASSED |
+| `npx playwright test` | ✅ **109 passed**, 1 pre-existing skip (+ `e2e/business-profile.spec.ts`: restaurant profile, honest unknown phone, disabled Call, recorded price 38.000–78.000₫ shown, "Price not recorded" elsewhere, hours panel, Report/Claim Coming soon, Vietnamese) |
+| `npm run test:e2e-auth` | ✅ **50 passed** |
+| `npm run test:e2e-modules` | ✅ **62 passed** (+ `business-profiles.spec.ts`: café, bar, head spa, spa, Pilates, pickleball through the shared engine × desktop + mobile; saving a Sport venue counts "1 / 20" on Membership; no horizontal overflow at 390 px) |
+
+Screenshots: `docs/screenshots/business-profiles/` (7 types desktop; restaurant, head spa, pickleball mobile). Every profile is illustrated with a labelled schematic — no venue photo is presented as the business.
+
 ### Addendum — server-side quotas (migration 0014, D76) + blueprint audit
 | Command | Result |
 | --- | --- |

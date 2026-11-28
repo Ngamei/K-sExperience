@@ -33,6 +33,8 @@ import { ItemArt } from "./item-art";
 import { itemSvg } from "./item-illustrations";
 import { HeroPhoto, PhotoThumb, VenueThumb } from "@/components/food/dish-image";
 import type { ModuleData } from "./experience-data";
+import { BusinessProfile } from "@/components/business/business-profile";
+import { businessTypeOf, type BusinessProfileModel } from "@/lib/business/profile";
 
 const HcmcMap = dynamic(() => import("@/components/nearby/hcmc-map").then((m) => m.HcmcMap), { ssr: false, loading: () => <div className="h-full w-full bg-sea" /> });
 
@@ -100,6 +102,7 @@ function usePassport(id: ExperienceId) {
     toggleSaved: (itemId: string) => useUser.getState().toggleModuleSaved(id, itemId),
     toggleTried: (itemId: string) => useUser.getState().toggleModuleTried(id, itemId),
     toggleVisited: (eid: string) => useUser.getState().toggleModuleVisited(id, eid),
+    toggleSavedVenue: (eid: string) => useUser.getState().toggleModuleSavedVenue(id, eid),
   };
 }
 
@@ -293,7 +296,7 @@ export function EstablishmentsView({ d, title }: { d: ModuleData; title: L }) {
   const router = useRouter();
   const id = useSearchParams().get("id");
   const [selected, setSelected] = useState<string | null>(null);
-  const { p, toggleVisited } = usePassport(m.id);
+  const { p, toggleVisited, toggleSavedVenue } = usePassport(m.id);
   const f = useModuleFilterState(m.id);
   const set = (patch: Partial<ModuleFilters>) => useModuleFilters.getState().set(m.id, patch);
   const list = useMemo(
@@ -304,47 +307,39 @@ export function EstablishmentsView({ d, title }: { d: ModuleData; title: L }) {
   const detail = id ? d.index.establishments.get(id) : undefined;
   if (detail) {
     const offers = d.index.byEstablishment.get(detail.id) ?? [];
-    return (
-      <div className="mx-auto max-w-3xl space-y-4 px-4 py-6 md:px-6 md:py-10" data-testid="establishment-detail">
-        <Header eyebrow={loc(m.terms.establishment, locale)} title={detail.name} sub={detail.address} />
-        {detail.coordinatePrecision === "street" && <p className="text-xs text-[#8a6420]" data-testid="approx-location">{loc(COPY.approxLocation, locale)}</p>}
-        {detail.coordinatePrecision === "building" && <p className="text-xs text-[#8a6420]" data-testid="building-location">{loc(COPY.buildingLocation, locale)}</p>}
-        <Button variant={p.visited[detail.id] ? "primary" : "outline"} size="sm" onClick={() => toggleVisited(detail.id)} data-testid="establishment-visited"><Check /> {loc(COPY.visited, locale)}</Button>
-        {m.establishmentAttributes.some((a) => attrValue(a, detail.attributes?.[a.id], locale)) && (
-          <DetailBlock title={loc(COPY.features, locale)} testid="establishment-features">
-            <dl className="grid gap-2 sm:grid-cols-2">
-              {m.establishmentAttributes.map((a) => {
-                const v = attrValue(a, detail.attributes?.[a.id], locale);
-                return v ? <div key={a.id} data-testid={`est-attr-${a.id}`}><dt className="text-xs text-muted">{loc(a.label, locale)}</dt><dd>{v}</dd></div> : null;
-              })}
-            </dl>
-          </DetailBlock>
-        )}
-        {detail.openingHours && (
-          <DetailBlock title={loc(COPY.hours, locale)} testid="establishment-hours">
-            <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
-              {(["mon", "tue", "wed", "thu", "fri", "sat", "sun"] as const).map((day) => (
-                <div key={day} className="contents"><dt className="text-muted">{day}</dt><dd>{detail.openingHours![day].map(([a, b]) => `${a}–${b}`).join(", ") || "—"}</dd></div>
-              ))}
-            </dl>
-          </DetailBlock>
-        )}
-        <p className="text-xs text-muted" data-testid="establishment-sources">{detail.sources.map((src) => src.url ? <a key={src.title} href={src.url} target="_blank" rel="noreferrer" className="mr-2 underline">{src.title}</a> : <span key={src.title} className="mr-2">{src.title}</span>)}{detail.lastVerified ? ` · ${loc(COPY.lastChecked, locale)} ${detail.lastVerified}` : ""}</p>
-        <h2 className="font-display text-xl text-forest">{loc(COPY.offers, locale)}</h2>
-        <div className="grid gap-2">
-          {offers.map((o) => {
-            const item = d.itemById.get(o.itemId);
-            return item ? (
-              <Link key={o.itemId} href={`${m.routes.item}?id=${item.id}`} className="flex items-center gap-3 rounded-2xl border border-line/80 bg-paper p-3 hover:border-forest/30" data-testid="establishment-offering">
-                <VenueOfferingThumb d={d} item={item} offering={o} />
-                <span className="min-w-0 flex-1"><span className="block font-medium">{item.nameVi}</span><span className="text-xs text-muted">{item.nameEn}{priceText(o) ? ` · ${priceText(o)}` : ""}</span></span>
-                <StatusDot status={o.status} />
-              </Link>
-            ) : null;
+    const cats = [...new Set(offers.map((o) => d.itemById.get(o.itemId)?.category).filter((c): c is string => Boolean(c)))];
+    const cardDefs = m.catalogue.cardAttributes.map((aid) => m.attributes.find((x) => x.id === aid)).filter((x): x is AttributeDef => Boolean(x));
+    const model: BusinessProfileModel = {
+      id: detail.id, type: businessTypeOf(m.id, detail.venueType, cats), name: detail.name, area: detail.neighbourhood, address: detail.address,
+      chips: cats.map((c) => loc(m.categories.find((x) => x.id === c)?.name ?? { en: c, vi: c }, locale)), priceRange: detail.priceRange,
+      phone: detail.contact?.phone, website: detail.contact?.website, social: detail.contact?.social, hours: detail.openingHours,
+      mapsUrl: detail.googleMapsUrl ?? `https://www.google.com/maps/search/?api=1&query=${detail.coordinates[1]},${detail.coordinates[0]}`,
+      links: detail.deliveryLinks.map((x) => ({ label: x.provider, url: x.url })),
+      precision: detail.coordinatePrecision, isSample: detail.isSample, closure: detail.closure,
+      sources: detail.sources, lastVerified: detail.lastVerified, management: "platform",
+      offerings: offers.flatMap((o) => {
+        const item = d.itemById.get(o.itemId);
+        if (!item) return [];
+        const facts = cardDefs.map((def) => attrValue(def, item.attributes[def.id], locale)).filter(Boolean);
+        return [{ id: item.id, name: item.nameVi, detail: [item.nameEn, ...facts].join(" · "), href: `${m.routes.item}?id=${item.id}`,
+          priceVnd: o.price ? { min: o.price.minVnd, max: o.price.maxVnd } : undefined, priceUnit: o.price?.unit, status: o.status, evidence: o.menuEvidence, lastVerified: o.lastVerified }];
+      }),
+    };
+    const features = m.establishmentAttributes.some((a) => attrValue(a, detail.attributes?.[a.id], locale)) ? (
+      <DetailBlock title={loc(COPY.features, locale)} testid="establishment-features">
+        <dl className="grid gap-2">
+          {m.establishmentAttributes.map((a) => {
+            const v = attrValue(a, detail.attributes?.[a.id], locale);
+            return v ? <div key={a.id} data-testid={`est-attr-${a.id}`}><dt className="text-xs text-muted">{loc(a.label, locale)}</dt><dd>{v}</dd></div> : null;
           })}
-        </div>
-        {detail.googleMapsUrl && <a href={detail.googleMapsUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 rounded-full bg-forest px-3 py-1.5 text-sm text-ivory"><MapPin className="size-4" /> Google Maps</a>}
-      </div>
+        </dl>
+      </DetailBlock>
+    ) : null;
+    return (
+      <BusinessProfile model={model} testid="establishment-detail" thumb={(itemId) => { const o = offers.find((x) => x.itemId === itemId); const item = d.itemById.get(itemId); return o && item ? <VenueOfferingThumb d={d} item={item} offering={o} /> : null; }} back={{ href: m.routes.nearby, label: loc(m.navLabels.nearby, locale) }} offeringTestId="establishment-offering"
+        actions={{ saved: p.savedVenues.includes(detail.id), onSave: () => toggleSavedVenue(detail.id), saveTestId: "establishment-save", visitedOn: p.visited[detail.id], onVisited: () => toggleVisited(detail.id), visitedTestId: "establishment-visited" }}>
+        {features}
+      </BusinessProfile>
     );
   }
   return (
