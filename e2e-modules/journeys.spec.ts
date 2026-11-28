@@ -8,7 +8,7 @@ const PNG = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR
 const stubCommons = (page: Page) => page.route(/wikimedia\.org/, (r) => r.fulfill({ status: 200, contentType: "image/png", body: PNG }));
 const navTexts = (page: Page, isMobile: boolean) =>
   isMobile ? page.locator('[aria-label="Main mobile"] a').allInnerTexts() : page.getByRole("navigation", { name: "Main" }).getByRole("link").allInnerTexts();
-const FOOD = { desktop: ["Food Map", "Discover", "Food Catalogue", "Nearby", "Food Passport", "Saved"], mobile: ["Explore", "Discover", "Catalogue", "Nearby", "Passport"] };
+const FOOD = { desktop: ["Food Map", "Discover", "What to eat", "Food Catalogue", "Nearby", "Food Passport", "Saved"], mobile: ["Explore", "Discover", "Eat today", "Catalogue", "Nearby", "Passport"] };
 const COFFEE = { desktop: ["Café Map", "Discover", "Coffee Catalogue", "Nearby", "Coffee Passport", "Saved"], mobile: ["Map", "Discover", "Catalogue", "Nearby", "Passport"] };
 
 test("switching repeatedly between Food and Coffee keeps navigation, data and URLs consistent", async ({ page, isMobile }) => {

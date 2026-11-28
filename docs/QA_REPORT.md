@@ -10,18 +10,18 @@ headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is
 | 1 | `npm ci` | ✅ installed, **0 vulnerabilities**; postinstall copied MapLibre worker |
 | 2 | `npm run typecheck` (`next typegen && tsc --noEmit`) | ✅ exit 0 |
 | 3 | `npm run lint` | ✅ exit 0, 0 errors, 0 warnings |
-| 4–5 | `npx vitest run` (unit + integration; integration = `npm run data:validate`) | ✅ **12 files, 102 tests passed** — + shared engine rows round-trip, module rules (item vs establishment attributes, vocabularies, categories, price units), writes never report false success (failing client), module import (CSV/JSON, merge, duplicates, HCMC boundary, evidence), pilot data sources |
-| 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **35 checks** — migrations 0001–0007 + seed ×2 (incl. pilot data); establishment attributes; no implicit Food tag; tag audit; every establishment has an experience tag; seeded coffee offerings readable by anon; items/offerings rules; plus all earlier RLS/account/evidence checks |
+| 4–5 | `npx vitest run` (unit + integration; integration = `npm run data:validate`) | ✅ **13 files, 117 tests passed** (+ Hôm nay ăn gì? engine/provenance/importer) — + shared engine rows round-trip, module rules (item vs establishment attributes, vocabularies, categories, price units), writes never report false success (failing client), module import (CSV/JSON, merge, duplicates, HCMC boundary, evidence), pilot data sources |
+| 5b | `npm run test:db` (local PostgreSQL 16 + PostGIS 3.4) | ✅ **40 checks** — migrations 0001–0008 (eating/dining attributes, nutrition must cite a source) + seed ×2 (incl. pilot data); establishment attributes; no implicit Food tag; tag audit; every establishment has an experience tag; seeded coffee offerings readable by anon; items/offerings rules; plus all earlier RLS/account/evidence checks |
 | 6 | `npm run build` (production config) | ✅ exit 0 — no sample venues in `/data/food.json` |
 | 6b | `npm run build:e2e` (`NEXT_PUBLIC_DEV_DATA=1`) | ✅ exit 0 |
-| 7 | `npx playwright test` (against `next start`) | ✅ **64 passed** (32 Food + cross-module scenarios × desktop + Pixel 7) |
+| 7 | `npx playwright test` (against `next start`) | ✅ **76 passed** (38 Food + cross-module scenarios incl. 6 Hôm nay ăn gì? × desktop + Pixel 7) |
 | 7b | `npm run build:auth-test && npm run test:e2e-auth` (**mock** Supabase Auth + REST; Coffee flag on) | ✅ **28 passed** (14 scenarios × desktop + Pixel 7) |
 | 7c | `npm run build:modules-test && npm run test:e2e-modules` (production-like static build, Coffee flag on, real pilot data; real service worker in cache.spec) | ✅ **36 passed** (18 scenarios × desktop + Pixel 7, incl. visual parity) |
-| 8–9 | `NEXT_PUBLIC_DEV_DATA=1 STATIC_EXPORT=1 npx next build` + `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` | ✅ **64 passed** (offline static export) |
+| 8–9 | `NEXT_PUBLIC_DEV_DATA=1 STATIC_EXPORT=1 npx next build` + `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` | ✅ **76 passed** (offline static export) |
 
 **Mock vs real:** every account/passport browser test runs against `e2e-auth/mock-supabase.mjs` (GoTrue + PostgREST subset, owner-only RLS emulated). Real Postgres RLS/constraints are covered by `npm run test:db`. **Not yet tested against a live Supabase project:** Google OAuth round-trip, real verification/recovery emails, network latency — pending provisioning (docs/PREVIEW_CHECKLIST.md).
 
-Shortcut: `npm run qa` runs 2 → 3 → 4/5 → 6 → 6b → 7 → 7b → 7c (5b needs local PostgreSQL).
+First `npm run qa` run on CC-30 failed 6 module e2e tests that still expected the old Food nav (no "What to eat"); expectations updated → 36/36. Shortcut: `npm run qa` runs 2 → 3 → 4/5 → 6 → 6b → 7 → 7b → 7c (5b needs local PostgreSQL).
 
 ## P0 accounts — acceptance criteria evidence
 | # | Criterion | Evidence |

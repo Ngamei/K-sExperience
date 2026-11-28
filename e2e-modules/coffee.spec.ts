@@ -57,7 +57,7 @@ test("switching experience mode changes the navigation, and switching back resto
   await expect.poll(() => navLabels(page, isMobile)).toContain(isMobile ? "Map" : "Café Map");
   await page.getByTestId("experience-food").click();
   await expect(page).toHaveURL(/localhost:3600\/$/);
-  await expect.poll(() => navLabels(page, isMobile)).toEqual(isMobile ? ["Explore", "Discover", "Catalogue", "Nearby", "Passport"] : ["Food Map", "Discover", "Food Catalogue", "Nearby", "Food Passport", "Saved"]);
+  await expect.poll(() => navLabels(page, isMobile)).toEqual(isMobile ? ["Explore", "Discover", "Eat today", "Catalogue", "Nearby", "Passport"] : ["Food Map", "Discover", "What to eat", "Food Catalogue", "Nearby", "Food Passport", "Saved"]);
 });
 
 test("Coffee catalogue: module categories, attributes and accent-insensitive search; no Food filters", async ({ page }) => {
