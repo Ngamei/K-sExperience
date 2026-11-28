@@ -55,6 +55,7 @@ Unzip, run `node serve.mjs` inside the folder, open http://localhost:4173 (Node 
 | `npm run intake -- <batch.json> [--apply]` / `-- --rollback <batchId>` | Validate (dry run) / import / roll back a research batch (see `research-exchange/README.md`) |
 | `npm run data:what-to-eat` | Hôm nay ăn gì? attribute completeness → `docs/WHAT_TO_EAT_REPORT.md` |
 | `npm run data:food-coverage` | Food coverage (0 / 1–4 / 5+ venues per dish, reconciled) → `docs/food-coverage.json`, `docs/FOOD_COVERAGE.md` |
+| `npm run hub:snapshot` | Public project status for FIRSTLAB Agent Hub → `public/hub/snapshot.json` (also runs before every build; served at `/hub/snapshot.json`) |
 | `npm run data:maps-share-list` | Venues whose Google Maps search link may open a list or another branch → `research-exchange/briefs/MAPS-SHARE-LINKS.md` / `.csv` (paste exact Share links) |
 | `npm run data:report` | Regenerate `docs/DATA_REPORT.md` (catalogue, photo, venue completeness; priority-50 progress) |
 | `npm run data:import -- <file.json\|csv> --dataset master` | Import the master catalogue |

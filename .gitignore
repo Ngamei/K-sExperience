@@ -51,3 +51,4 @@ next-env.d.ts
 
 # research exchange: backups are local recovery copies
 research-exchange/backups/
+public/hub/
