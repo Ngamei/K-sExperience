@@ -77,3 +77,27 @@ unknown provinces/categories/types and duplicate ids, warns on unknown vocabular
 `name, address, neighbourhood, coordinates (inside HCMC boundary), venueType, sources[], lastVerified` and, per dish
 link, `status` + `menuEvidence {type, note, url?}` + `lastVerified` for `verified-available`. Enforced by
 `tests/integration/data-integrity.test.ts` and by DB constraints/trigger in `supabase/migrations/0001_init.sql`.
+
+## 28 Nov 2026 · Research handoff reconciliation
+
+| Batch | Evidence and disposition |
+| --- | --- |
+| KE-FOOD-RESEARCH-001 | Legacy unwrapped JSON bypasses the exchange envelope. The existing catalogue importer accepts all 12 rows in a dry run, with 12 adds, zero existing matches and zero orphan links. Single-member family warnings need review. If later applied, the origins would fill the four uncovered historical province IDs. No production attempt or rejection log for this file was found. |
+| BAR-CRAFT-20261128-01 / GPT-BARS-001 | The flat CSV was converted to exchange JSON. The applied report reconciles 32 rows to 24 new branches, 2 merges and 6 coordinate rejects. Original Pasteur Street 144/3 versus a legacy 144 record exposed house-number normalization. The observed 27/5 trial changed to 26/6 when Nominatim returned a different street-level point for Tiệm Bia Gà Tên Lửa. Independent source checks and a shared-pin exception appear below. |
+| Nail scouting CSV | 23 rows, 13 brands, all 23 named Nail care, with empty coords, price and photo. 16 official-site, 6 directory, 1 owner-post source labels. Reviewed the Fame Nails branch directory and menu. The exact locations are supported for its three rows. The brand menu lists classic manicure and pedicure from 130,000 VND each, but branch applicability needs support before attaching prices. All 23 held as research candidates. |
+| Pilates scouting CSV | 28 rows, 9 brands, 26 official-site and 2 directory source labels. 24 use generic Pilates, 3 say Reformer Pilates, and 1 combines Reformer and Matwork. All lack coords and prices. Official CHI booking confirms the two addresses and advertises a Reformer group trial for 499,000 VND. Confirm which branch offers that trial before recording a branch price. MBS official branch pages corroborate 92 Nguyễn Hữu Cảnh and 205 Lạc Long Quân. All 28 held as research candidates. |
+| GPT-CAT-001 | First new slice, Cơm gà xối mỡ and Bún riêu chay. Two accepted by intake dry run with zero conflicts and zero orphaned links. Catalogue only. Chợ Lớn and the HCMC listing support associated geography. The importer defaults missing spice intensity to 0. Hold apply until strict no-spice filtering treats unknown accurately. |
+| GPT-FOOD-001 | Candidate only. [Chay Quán Âm, 210 Nguyễn Thái Bình](https://fptshop.com.vn/tin-tuc/dien-may/quan-chay-tan-binh-166331) appears in a dated guide with bún riêu chay. Exact coordinates, current status, and price need confirmation. No venue offering record was submitted. |
+
+### Craft Beer source spot checks
+
+- The [official taproom directory](https://www.pasteurstreet.com/taprooms) supports 212 Đề Thám for Bùi Viện, 221 Hoàng Sa, and CR5-01 Crescent Residence 5 for Phú Mỹ Hưng. The corresponding withheld rows have anchor evidence for a follow-up, with exact pins still needing validation.
+- Pasteur Street Thảo Điền at 120 Xuân Thủy and Tiệm Bia Gà Thảo Điền at 26B Xuân Thủy share the same street-level point in the bundled data. Verify each address pin before treating it as exact. Other accepted street-level pins need the same scrutiny, especially Pasteur Original, whose intake match names Phường Xuân Hòa.
+- Official directory links to individual dining menus were found. The imported branch-level craft-beer links remain source-listed until the menus themselves are reviewed for individual drinks and prices.
+
+### Intake mapping
+
+- Food catalogue and venue data use SQL tables `dishes`, `dish_origins`, `restaurants` and `dish_restaurant_links`. Data for the other experiences adds `experience_items`, `establishment_experiences` and `offerings` on the shared premises model. Food source tables and offering `menu_evidence` store provenance. Catalogue photos use source/credit/licence metadata, and offering photos carry a photo kind and provenance.
+- Intake requires batch ID, lowercase experience, agent, date, method, and the relevant rows. A venue needs name, street address, source URLs and a known item with offering-level evidence. Former district disambiguates addresses. Either supply both validated coordinates or allow the geocoder to resolve them. Prices, hours, media and module-specific attributes are optional with evidence.
+- Spa uses the `nails` category with separate `manicure` and `pedicure` catalogue IDs. Sport uses `pilates` with `reformer-pilates`, `mat-pilates` and `pilates-apparatus`. A branch label alone cannot establish those offerings. Map one branch to multiple canonical items only where source evidence names each. The prior CSV item text does not satisfy those references. No production import attempt for the Nail/Pilates sheets was found.
+- The generated [contract and templates](../research-exchange/README.md) contain exact enums, pricing units, attribute keys, slug ID rules and evidence levels. Validate boundary and branch pin, then review duplicate signals, sources, applicability of prices and media reuse. The intake dry run verifies structure and merges without publishing.

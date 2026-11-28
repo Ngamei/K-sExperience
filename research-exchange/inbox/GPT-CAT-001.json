@@ -1,0 +1,97 @@
+{
+  "batchId": "GPT-CAT-001",
+  "experience": "food",
+  "kind": "catalogue",
+  "agent": "chatgpt",
+  "researchedOn": "2026-11-28",
+  "method": "Read the original Vietnamese publications. Compare normalized names with the canonical catalogue. Use associated origins where the source describes a local preparation or regional use. This batch contains dishes only.",
+  "dishes": [
+    {
+      "nameVi": "Cơm gà xối mỡ",
+      "nameEn": "Crisp-skinned chicken rice",
+      "category": "Món mặn",
+      "dishType": "rice",
+      "origins": [
+        "~ho-chi-minh"
+      ],
+      "ingredients": [
+        "rice",
+        "chicken",
+        "ginger dipping sauce",
+        "pickles",
+        "fresh greens"
+      ],
+      "taste": [
+        "crunchy"
+      ],
+      "dietary": [
+        "contains-poultry"
+      ],
+      "mealTimes": [
+        "lunch",
+        "dinner"
+      ],
+      "descriptionEn": "Crisp-skinned chicken served with rice, ginger dipping sauce and pickles. This Vietnamese preparation is associated with the Hoa community in Chợ Lớn.",
+      "descriptionVi": "Cơm ăn với gà da giòn, nước chấm gừng và đồ chua. Cách chế biến này gắn với cộng đồng người Hoa ở Chợ Lớn.",
+      "sources": [
+        {
+          "title": "Go Vietnam Travel — Cơm gà xối mỡ Thành phố Hồ Chí Minh",
+          "url": "https://govietnam.travel/food/com-ga-2/com-ga-xoi-mo/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review",
+      "proteins": [
+        "poultry"
+      ],
+      "portion": "hearty",
+      "eatingSource": "Go Vietnam Travel — Cơm gà xối mỡ Thành phố Hồ Chí Minh",
+      "eatingSourceUrl": "https://govietnam.travel/food/com-ga-2/com-ga-xoi-mo/",
+      "eatingConfidence": "sourced"
+    },
+    {
+      "nameVi": "Bún riêu chay",
+      "nameEn": "Vegetarian tomato and tofu noodle soup",
+      "category": "Món mặn",
+      "dishType": "noodle-soup",
+      "origins": [
+        "~ho-chi-minh"
+      ],
+      "ingredients": [
+        "rice vermicelli",
+        "tofu",
+        "soy milk",
+        "tomato",
+        "vegetable broth",
+        "fresh herbs"
+      ],
+      "taste": [
+        "sour"
+      ],
+      "dietary": [
+        "vegetarian"
+      ],
+      "descriptionEn": "Rice vermicelli and soy curds in a tomato and vegetable broth. The preparation is documented for Vu Lan and is listed at a vegetarian restaurant in Ho Chi Minh City.",
+      "descriptionVi": "Bún với riêu đậu nành, cà chua và nước dùng rau củ. Món được ghi nhận trong dịp Vu Lan và có tên trong một bài giới thiệu quán chay tại TP.HCM.",
+      "sources": [
+        {
+          "title": "VnExpress Cooking — Cách làm bún riêu chay cho mùa Vu Lan",
+          "url": "https://vnexpress.net/doi-song-cooking-bun-rieu-chay-cho-mua-vu-lan-4644563.html",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "FPT Shop — Quán chay Tân Bình, Chay Quán Âm",
+          "url": "https://fptshop.com.vn/tin-tuc/dien-may/quan-chay-tan-binh-166331",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "verificationStatus": "pending-review",
+      "allergens": [
+        "soy"
+      ],
+      "eatingSource": "VnExpress Cooking — Cách làm bún riêu chay cho mùa Vu Lan",
+      "eatingSourceUrl": "https://vnexpress.net/doi-song-cooking-bun-rieu-chay-cho-mua-vu-lan-4644563.html",
+      "eatingConfidence": "sourced"
+    }
+  ]
+}
