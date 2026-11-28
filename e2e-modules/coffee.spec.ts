@@ -54,7 +54,7 @@ test("switching experience mode changes the navigation, and switching back resto
   await expect.poll(() => navLabels(page, isMobile)).toEqual(isMobile ? ["Explore", "Catalogue", "Nearby", "Passport"] : ["Café Map", "Discover", "Coffee Catalogue", "Nearby", "Coffee Passport", "Saved"]);
 
   await page.goto("/settings/"); // shared page keeps the chosen mode's navigation
-  await expect.poll(() => navLabels(page, isMobile)).toContain(isMobile ? "Map" : "Café Map");
+  await expect.poll(() => navLabels(page, isMobile)).toContain(isMobile ? "Explore" : "Café Map");
   await page.getByTestId("experience-food").click();
   await expect(page).toHaveURL(/localhost:3600\/$/);
   await expect.poll(() => navLabels(page, isMobile)).toEqual(isMobile ? ["Explore", "Eat today", "Catalogue", "Nearby", "Passport"] : ["Food Map", "Discover", "What to eat", "Food Catalogue", "Nearby", "Food Passport", "Saved"]);
@@ -70,7 +70,7 @@ test("Coffee catalogue: module categories, attributes and accent-insensitive sea
   await expect(page.getByTestId("module-filter-panel").first()).toBeAttached(); // the shared drawer with Coffee definitions
   await expect(page.getByText("Tây Nam Bộ")).toHaveCount(0);
   await page.getByTestId("item-search").fill("ca phe muoi");
-  await expect(page.getByTestId("item-count")).toHaveText("1 coffee");
+  await expect(page.getByTestId("item-count")).toHaveText("1/2 coffees"); // matching / total
   await expect(page.getByTestId("item-card")).toHaveAttribute("data-item-id", "test-ca-phe-muoi");
 });
 

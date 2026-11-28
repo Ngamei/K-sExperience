@@ -1,0 +1,27 @@
+{
+  "batch_id": "BAR-CRAFT-20261128-01",
+  "candidate_count": 32,
+  "first_hand_verified": 0,
+  "schema": "neutral research exchange; map to existing importer",
+  "excluded": [
+    {
+      "name": "7 Bridges Makers Yard Thảo Điền",
+      "reason": "Official site states opening December 2026; future as of research date"
+    },
+    {
+      "name": "Ong Cao; LAC taproom; Winking Seal taproom; Tê Tê Nguyễn Văn Thủ",
+      "reason": "September 2026 guide reports closed"
+    },
+    {
+      "name": "Broma",
+      "reason": "Craft beer offering unconfirmed"
+    }
+  ],
+  "instructions": [
+    "Deduplicate by normalized branch address and brand; preserve existing IDs.",
+    "Confirm coordinates and operating status before publication.",
+    "Only generic craft beer offering supported; do not infer individual beers or prices.",
+    "Do not upgrade evidence level without stronger evidence.",
+    "No production deployment."
+  ]
+}

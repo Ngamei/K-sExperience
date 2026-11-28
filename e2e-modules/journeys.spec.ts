@@ -65,7 +65,7 @@ test("real Coffee data: sourced cafés per drink, establishment filters, no unve
   if (isMobile) await page.getByTestId("open-filters").click();
   await page.getByTestId("filter-est-cafeTypes-specialty").filter({ visible: true }).first().click();
   if (isMobile) await page.keyboard.press("Escape");
-  await expect(page.getByTestId("item-count")).toHaveText("1 coffee");
+  await expect(page.getByTestId("item-count")).toHaveText("1/13 coffees"); // matching / total
   await expect(page.getByTestId("item-card")).toHaveAttribute("data-item-id", "pour-over");
   await page.getByTestId("clear-filters").first().click();
   await expect(page.getByTestId("item-count")).toHaveText("13 coffees");
@@ -99,4 +99,17 @@ test("production-like build: no fictional venues, no sample toggle, no developme
   await page.goto("/nearby/");
   await expect(page.getByTestId("enable-samples")).toHaveCount(0);
   await expect(page.getByTestId("data-banner")).toHaveCount(0);
+});
+
+test("Bars craft beer batch (GPT-BARS-001): live venue counts on catalogue, item and map", async ({ page }) => {
+  const data = JSON.parse(require("node:fs").readFileSync("data/experiences/bars.json", "utf8"));
+  const craft = new Set(data.offerings.filter((o: { itemId: string }) => o.itemId === "craft-beer").map((o: { establishmentId: string }) => o.establishmentId)).size;
+  await page.goto("/bars/catalogue/");
+  await expect(page.getByTestId("module-coverage").filter({ visible: true })).toContainText(`${data.establishments.length} HCMC places`);
+  await expect(page.locator('[data-item-id="craft-beer"]').getByTestId("item-places")).toHaveText(`${craft} HCMC places`);
+  await page.goto("/bars/item/?id=craft-beer");
+  await expect(page.getByTestId("section-offerings").getByTestId("venue-row")).toHaveCount(craft);
+  await page.goto("/bars/nearby/");
+  await expect(page.getByTestId("establishment-count")).toHaveText(String(data.establishments.length));
+  await expect(page.getByTestId("establishment-card")).toHaveCount(data.establishments.length);
 });

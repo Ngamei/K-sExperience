@@ -21,6 +21,7 @@ import { EMPTY_PASSPORT } from "@/lib/passport/model";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
+import { moduleStats } from "@/lib/data/platform-stats";
 import { ActiveFilterBar, CatalogueLayout, FilterDrawer, type ActiveChip, type FilterDef } from "./filter-drawer";
 import { DetailBlock, OfferingsSection } from "./detail";
 import { filterEstablishments, filterItems, type ModuleFilters } from "@/engine/filters";
@@ -154,7 +155,7 @@ function VenueOfferingThumb({ d, item, offering }: { d: ModuleData; item: Experi
   return <VenueThumb image={img && img.url !== failed ? img : null} alt={`${item.nameVi}`} onError={setFailed} fallback={<ItemArt moduleId={d.module.id} category={item.category} accent={d.module.accent} size={44} />} />;
 }
 
-export function ItemCard({ d, item }: { d: ModuleData; item: ExperienceItem }) {
+export function ItemCard({ d, item, places }: { d: ModuleData; item: ExperienceItem; /** Unique real establishments offering this item. */ places?: number }) {
   const { locale } = useT();
   const { p } = usePassport(d.module.id);
   const status = d.index.statusByItem.get(item.id) ?? "none-found";
@@ -177,6 +178,7 @@ export function ItemCard({ d, item }: { d: ModuleData; item: ExperienceItem }) {
           {defs.map((a) => { const v = attrValue(a, item.attributes[a.id], locale); return v ? <Badge key={a.id} tone="outline" data-testid={`card-attr-${a.id}`}>{v}</Badge> : null; })}
           {item.verification.status !== "verified" && <Badge tone="outline" data-testid="item-unverified">{loc(COPY.unverified, locale)}</Badge>}
           {status !== "none-found" && <StatusDot status={status} />}
+          {places !== undefined && places > 0 && <span className="inline-flex items-center gap-0.5 text-[11px] text-forest" data-testid="item-places"><MapPin className="size-3" />{places} {loc(places === 1 ? COPY.placeOne : COPY.placeMany, locale)}</span>}
         </div>
         <p className="mt-1.5 line-clamp-2 text-[12.5px] leading-snug text-charcoal/75">{item.description[locale]}</p>
       </div>
@@ -195,9 +197,15 @@ export function ItemCatalogue({ d }: { d: ModuleData }) {
     [m, d.items, d.index, f, p.saved, p.tried],
   );
   const items_ = loc(m.terms.items, locale);
+  const stats = useMemo(() => moduleStats(d), [d]);
   return (
     <CatalogueLayout
       eyebrow={loc(m.name, locale)}
+      summary={
+        <p className="text-sm text-muted" data-testid="module-coverage">
+          {stats.items} {items_} · {stats.linkedEstablishments} {loc(stats.linkedEstablishments === 1 ? COPY.placeOne : COPY.placeMany, locale)} · {stats.itemsWithEstablishments}/{stats.items} {loc(COPY.withPlaces, locale)}
+        </p>
+      }
       title={loc(m.navLabels.catalogue, locale)}
       filters={<FilterDrawer defs={defs} testid="module-filter-panel" />}
       search={<input type="search" value={f.query} onChange={(e) => set({ query: e.target.value })} placeholder={fill(loc(COPY.search, locale), { items: items_ })} className="h-11 w-full rounded-full border border-line bg-paper px-4 text-sm outline-none focus:border-forest/50" data-testid="item-search" aria-label={fill(loc(COPY.search, locale), { items: items_ })} />}
@@ -206,12 +214,12 @@ export function ItemCatalogue({ d }: { d: ModuleData }) {
           {m.categories.map((c) => <Chip key={c.id} active={f.categories.includes(c.id)} onClick={() => set({ categories: f.categories.includes(c.id) ? f.categories.filter((x) => x !== c.id) : [...f.categories, c.id] })} data-testid={`item-cat-${c.id}`}><ItemArt moduleId={m.id} category={c.id} accent={m.accent} size={20} className="-ml-1" />{loc(c.name, locale)}</Chip>)}
         </div>
       }
-      activeBar={<ActiveFilterBar countTestId="item-count" countLabel={fill(loc(COPY.results, locale), { n: items.length, items: items.length === 1 ? loc(m.terms.item, locale) : items_ })} chips={chips} onClear={clear} clearLabel={loc(COPY.clearAll, locale)} />}
+      activeBar={<ActiveFilterBar countTestId="item-count" countLabel={(items.length < d.items.length ? `${items.length}/` : "") + fill(loc(COPY.results, locale), { n: items.length < d.items.length ? d.items.length : items.length, items: items.length === 1 && items.length === d.items.length ? loc(m.terms.item, locale) : items_ })} chips={chips} onClear={clear} clearLabel={loc(COPY.clearAll, locale)} />}
       filtersLabel={loc(COPY.filters, locale)}
       resultsTestId="item-results"
       empty={d.items.length === 0 ? <div className="mt-4"><Empty text={fill(loc(COPY.emptyItems, locale), { items: items_ })} /></div> : items.length === 0 ? <p className="py-16 text-center text-muted" data-testid="item-no-match">{loc(COPY.noMatch, locale)}</p> : null}
     >
-      {items.map((i) => <ItemCard key={i.id} d={d} item={i} />)}
+      {items.map((i) => <ItemCard key={i.id} d={d} item={i} places={stats.placesByItem.get(i.id) ?? 0} />)}
     </CatalogueLayout>
   );
 }
@@ -345,7 +353,7 @@ export function EstablishmentsView({ d, title }: { d: ModuleData; title: L }) {
       </div>
       <section className="min-h-0 flex-1 overflow-y-auto px-4 py-4 lg:max-w-xl lg:px-6 lg:py-6">
         <h1 className="font-display text-3xl text-forest">{loc(title, locale)}</h1>
-        <p className="mb-3 text-sm text-muted">{loc(m.name, locale)} · {loc(m.terms.establishments, locale)}</p>
+        <p className="mb-3 text-sm text-muted">{loc(m.name, locale)} · <span data-testid="establishment-count">{list.length < d.index.establishments.size ? `${list.length}/${d.index.establishments.size}` : list.length}</span> {loc(m.terms.establishments, locale).toLowerCase()}</p>
         {estFilters.length > 0 && d.index.establishments.size > 0 && (
           <div className="no-scrollbar mb-3 flex gap-2 overflow-x-auto" data-testid="establishment-filters">
             {estFilters.flatMap((a) => (a.kind === "boolean" ? [{ v: "yes", l: loc(a.label, locale) }] : (a.options ?? []).map((o) => ({ v: o.id, l: loc(o.label, locale) }))).map(({ v, l }) => {

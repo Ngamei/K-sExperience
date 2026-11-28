@@ -34,7 +34,7 @@ const CANONICAL = ["data/vietnamese-dishes.json", "data/hcmc-restaurants.json", 
 const DISTRICTS: Record<string, LngLat> = {
   "Quận 1": [106.700, 10.776], "Quận 3": [106.684, 10.783], "Quận 4": [106.704, 10.759], "Quận 5": [106.667, 10.755], "Quận 6": [106.635, 10.747], "Quận 7": [106.722, 10.734],
   "Quận 8": [106.655, 10.738], "Quận 10": [106.667, 10.773], "Quận 11": [106.650, 10.763], "Quận 12": [106.654, 10.867], "Bình Thạnh": [106.709, 10.810], "Phú Nhuận": [106.680, 10.800],
-  "Tân Bình": [106.652, 10.801], "Tân Phú": [106.628, 10.791], "Gò Vấp": [106.665, 10.838], "Bình Tân": [106.603, 10.765], "Thủ Đức": [106.762, 10.850], "Nhà Bè": [106.730, 10.695], "Bình Chánh": [106.590, 10.730],
+  "Tân Bình": [106.652, 10.801], "Tân Phú": [106.628, 10.791], "Gò Vấp": [106.665, 10.838], "Bình Tân": [106.603, 10.765], "Thủ Đức": [106.762, 10.850], "Thảo Điền": [106.733, 10.805], "Thủ Thiêm": [106.720, 10.775], "An Phú": [106.748, 10.800], "Nhà Bè": [106.730, 10.695], "Bình Chánh": [106.590, 10.730],
 };
 
 // ---- rollback ---------------------------------------------------------------------------------------
@@ -66,7 +66,6 @@ if (!parsed.success) {
 const batch: Batch = parsed.data;
 let queue = readQueue(root);
 const entry = queue.batches.find((b) => b.batchId === batch.batchId);
-const lines: string[] = [];
 const warnings: string[] = [];
 if (!entry) warnings.push(`batch ${batch.batchId} is not in queue.json — add it (scope, assignee, claims) before importing`);
 else if (entry.assignedTo !== batch.agent) warnings.push(`queue assigns ${batch.batchId} to ${entry.assignedTo}, batch says ${batch.agent}`);
@@ -151,9 +150,14 @@ if (apply && accepted.length) {
 finish({
   accepted: accepted.length, rejected: rejected.length, ok,
   body: [
-    "| Venue | Id | Decision | Action | Offerings | Priced | Reasons / warnings |",
-    "| --- | --- | --- | --- | ---: | ---: | --- |",
-    ...verdicts.map((v: VenueVerdict) => `| ${v.name} | \`${v.id}\` | ${v.decision === "accept" ? "✅ accept" : "❌ reject"} | ${v.action} | ${v.offerings} | ${v.priced} | ${[...v.reasons, ...v.warnings].join("; ").replace(/\|/g, "/") || "—"} |`),
+    "| Venue | Id | Decision | Action | Offerings | Priced | Pin | Geocoder match | Reasons / warnings |",
+    "| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |",
+    ...verdicts.map((v: VenueVerdict, i: number) => {
+      const bv = (batch.venues ?? [])[i];
+      const g = bv ? geo[`${bv.name}|${bv.address}|${bv.district ?? ""}`] : undefined;
+      const pin = g?.lon !== undefined ? `${g.precision ?? ""} ${Number(g.lat).toFixed(5)},${Number(g.lon).toFixed(5)}` : "—";
+      return `| ${v.name} | \`${v.id}\` | ${v.decision === "accept" ? "✅ accept" : "❌ reject"} | ${v.action} | ${v.offerings} | ${v.priced} | ${pin} | ${String(g?.displayName ?? "—").slice(0, 90).replace(/\|/g, "/")} | ${[...v.reasons, ...v.warnings].join("; ").replace(/\|/g, "/") || "—"} |`;
+    }),
     ...(importOut ? ["", "## Importer output", "", "```", importOut.trim(), "```"] : []),
   ],
 });

@@ -285,6 +285,41 @@
       "sources": [],
       "importStatus": "not imported",
       "updatedAt": "2026-11-28"
+    },
+    {
+      "batchId": "GPT-BARS-001",
+      "experience": "bars",
+      "kind": "venues",
+      "scope": "BAR-CRAFT-20261128-01 — HCMC craft beer venues (32 source-listed candidates; branches as separate establishments with brand)",
+      "claims": {
+        "items": [
+          "craft-beer"
+        ]
+      },
+      "assignedTo": "chatgpt",
+      "status": "imported",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms",
+        "https://heartofdarknessbrewery.com/pages/taproom",
+        "https://saigon-scene.com/craft-breweries-in-saigon/",
+        "https://eastwestbrewing.vn/taproom/ho-chi-minh",
+        "https://www.7bridges.vn/",
+        "https://biacraft.com/locations/xuan-thuy",
+        "https://biacraft.com/contact",
+        "https://biacraft.com/locations/truong-sa",
+        "https://www.belgo.com.vn/belgobelgiancraftbeerbrewery",
+        "https://roosterbeverages.com/vi/tiem-bia-ga/"
+      ],
+      "importStatus": "imported 2026-11-28 (26 venues)",
+      "validation": {
+        "at": "2026-11-28",
+        "accepted": 26,
+        "rejected": 6,
+        "warnings": 0,
+        "report": "research-exchange/reports/GPT-BARS-001.md"
+      },
+      "updatedAt": "2026-11-28",
+      "notes": "External batch id BAR-CRAFT-20261128-01; raw files in research-exchange/incoming/BAR-CRAFT-20261128-01/. Excluded by researcher: 7 Bridges Makers Yard (opens Dec 2026), Ong Cao / LAC / Winking Seal / Tê Tê Nguyễn Văn Thủ (closed), Broma (craft beer unconfirmed)."
     }
   ]
 }

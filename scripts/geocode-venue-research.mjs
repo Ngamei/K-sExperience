@@ -16,7 +16,7 @@ const DISTRICTS = {
   "Quận 6": [106.635, 10.747], "Quận 7": [106.722, 10.734], "Quận 8": [106.655, 10.738], "Quận 10": [106.667, 10.773],
   "Quận 11": [106.650, 10.763], "Quận 12": [106.654, 10.867], "Bình Thạnh": [106.709, 10.810], "Phú Nhuận": [106.680, 10.800],
   "Tân Bình": [106.652, 10.801], "Tân Phú": [106.628, 10.791], "Gò Vấp": [106.665, 10.838], "Bình Tân": [106.603, 10.765],
-  "Thủ Đức": [106.762, 10.850], "Nhà Bè": [106.730, 10.695], "Bình Chánh": [106.590, 10.730],
+  "Thủ Đức": [106.762, 10.850], "Thảo Điền": [106.733, 10.805], "Thủ Thiêm": [106.720, 10.775], "An Phú": [106.748, 10.800], "Nhà Bè": [106.730, 10.695], "Bình Chánh": [106.590, 10.730],
 };
 const boxFor = (d) => { const c = DISTRICTS[d]; if (!c) throw new Error("unknown district " + d); const r = 0.04; return `${c[0]-r},${c[1]+r},${c[0]+r},${c[1]-r}`; };
 const km = (a, b) => { const R = 6371, t = (x) => x * Math.PI / 180; const h = Math.sin(t(b[1]-a[1])/2)**2 + Math.cos(t(a[1]))*Math.cos(t(b[1]))*Math.sin(t(b[0]-a[0])/2)**2; return 2*R*Math.asin(Math.sqrt(h)); };

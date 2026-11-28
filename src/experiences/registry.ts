@@ -186,6 +186,8 @@ export const EXPERIENCES: ExperienceModule[] = [
       { id: "barTypes", label: { en: "Bar type", vi: "Loại quán" }, kind: "list", filterable: true, options: [o("cocktail-bar", "Cocktail bar", "Cocktail bar"), o("wine-bar", "Wine bar", "Quán rượu vang"), o("craft-beer", "Craft beer", "Bia thủ công"), o("rooftop", "Rooftop", "Sân thượng"), o("speakeasy", "Speakeasy", "Speakeasy"), o("hotel-bar", "Hotel bar", "Bar khách sạn")] },
       { id: "atmosphere", label: { en: "Atmosphere", vi: "Không khí" }, kind: "list", filterable: true, options: [o("quiet", "Quiet", "Yên tĩnh"), o("lively", "Lively", "Sôi động"), o("live-music", "Live music", "Nhạc sống"), o("view", "City view", "View thành phố")] },
       { id: "smoking", label: { en: "Smoking policy", vi: "Hút thuốc" }, kind: "text", options: [o("no-smoking", "No smoking", "Không hút thuốc"), o("smoking-area", "Smoking area", "Khu hút thuốc"), o("smoking-allowed", "Smoking allowed", "Cho phép hút thuốc")] },
+      /** Parent brand of a branch (each physical branch is its own establishment). */
+      { id: "brand", label: { en: "Brand", vi: "Thương hiệu" }, kind: "text" },
     ],
     catalogue: { cardAttributes: ["taste", "abv"], sorts: ["name", "availability"] },
     detailSections: [

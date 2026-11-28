@@ -16,7 +16,7 @@ headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is
 | 6b | `npm run build:e2e` (`NEXT_PUBLIC_DEV_DATA=1`) | ✅ exit 0 |
 | 7 | `npx playwright test` (against `next start`) | ✅ **91 passed** (incl. 14 Hôm nay ăn gì?, mobile nav, theme and live-count scenarios × desktop + Pixel 7; first run 89/91 — 2 expected failures from the new "1 of 138 dishes" count label, expectation updated and re-run) |
 | 7b | `npm run build:auth-test && npm run test:e2e-auth` (**mock** Supabase Auth + REST; Coffee flag on) | ✅ **28 passed** (14 scenarios × desktop + Pixel 7) |
-| 7c | `npm run build:modules-test && npm run test:e2e-modules` (production-like static build, Coffee flag on, real pilot data; real service worker in cache.spec) | ✅ **37 passed** (incl. visual parity + per-experience pastel theme check; mobile labels Explore · Catalogue · Nearby · Passport) |
+| 7c | `npm run build:modules-test && npm run test:e2e-modules` (production-like static build, Coffee flag on, real pilot data; real service worker in cache.spec) | ✅ **40 passed** (incl. craft-beer live counts, visual parity + per-experience pastel theme check; mobile labels Explore · Catalogue · Nearby · Passport) |
 | 8–9 | `NEXT_PUBLIC_DEV_DATA=1 STATIC_EXPORT=1 npx next build` + `E2E_STATIC=1 E2E_PORT=3200 npx playwright test` | ✅ **76 passed** (offline static export) |
 
 **Mock vs real:** every account/passport browser test runs against `e2e-auth/mock-supabase.mjs` (GoTrue + PostgREST subset, owner-only RLS emulated). Real Postgres RLS/constraints are covered by `npm run test:db`. **Not yet tested against a live Supabase project:** Google OAuth round-trip, real verification/recovery emails, network latency — pending provisioning (docs/PREVIEW_CHECKLIST.md).
@@ -124,6 +124,13 @@ The real dataset has no venue photos yet, so the e2e test injects one venue-spec
 | Failed writes never report success | unit "writes never report false success"; Admin shows ✗ with the database message |
 
 Screenshots (desktop + Pixel 7) in `docs/screenshots/`: `*-food-map`, `*-food-catalogue`, `*-food-dish`, `*-settings`, `*-settings-account-guest`, `*-passport-gate`, `*-coffee-map`, `*-coffee-catalogue`, `*-coffee-item`, `*-coffee-cafe`.
+
+## Craft beer batch GPT-BARS-001 (BAR-CRAFT-20261128-01) — 2026-11-28
+- Converted with `npm run exchange:convert` (field mapping printed; 2 existing venues matched), dry run → apply via `npm run intake`; report `research-exchange/reports/GPT-BARS-001.md` (per venue: decision, pin precision, geocoder match, reasons).
+- Result: 32 received · 2 existing duplicates merged (ids, names, evidence kept; sources + brand added) · 24 new establishments · 6 rejected with reasons · 24 new offering links (craft-beer) · Bars: 28 unique venues, Craft beer: 26 venues · 0 prices · 0 photos.
+- Note: Nominatim returned a different street-level point for Tiệm Bia Gà – Tên Lửa between the dry run and the apply; the apply run rejected it (conservative).
+- Tests: `e2e-modules/journeys.spec.ts` "Bars craft beer batch: live venue counts" (catalogue coverage, item places, item venue rows, map list count = data) desktop + Pixel 7; module suite 40/40; Food 91/91; unit 129/129. Screenshots `docs/screenshots/bars-craft/`.
+- Copy fix: the pilot banner said "verified entries"; now "every entry cites a published source; most are not yet independently verified".
 
 ## PO decisions D55–D58 + data scaling (2026-11-28)
 - **Mobile nav (D55):** `e2e/what-to-eat.spec.ts` "Food: five tabs; Explore switches between Map and Discover" (Pixel 7): bottom bar = Explore · Eat today · Catalogue · Nearby · Passport; Explore stays active on Discover; deep link `/discover/` selects Discover. Module modes: Explore · Catalogue · Nearby · Passport (`e2e-modules/coffee.spec.ts`, `journeys.spec.ts`). Desktop nav unchanged (`e2e/experiences.spec.ts`).

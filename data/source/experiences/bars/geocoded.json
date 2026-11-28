@@ -1,30 +1,251 @@
 {
- "Stir Modern Classic Cocktail Bar|136 Lê Thánh Tôn, Quận 1, TP. Hồ Chí Minh|Quận 1": {
-  "lon": 106.705483,
-  "lat": 10.781661,
-  "precision": "exact",
-  "ward": "Phường Sài Gòn",
-  "displayName": "Cửa Hàng Thời Trang Mayhem Saigon, 136/1, Lê Thánh Tôn, Khu phố 4, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
- },
- "Pasteur Street Brewing Company|144 Pasteur, Quận 1, TP. Hồ Chí Minh|Quận 1": {
-  "lon": 106.700746,
-  "lat": 10.775184,
-  "precision": "exact",
-  "ward": "Phường Sài Gòn",
-  "displayName": "Công Ty Sản Xuất Bia Pasteur, 144, Pasteur, Khu phố 5, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
- },
- "East West Brewing Co.|181-185 Lý Tự Trọng, Quận 1, TP. Hồ Chí Minh|Quận 1": {
-  "lon": 106.695916,
-  "lat": 10.773065,
-  "precision": "exact",
-  "ward": "Phường Bến Thành",
-  "displayName": "East West Brewing Co., 181-185, Lý Tự Trọng, Khu phố 3, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
- },
- "Bia Saigon 73|73 Bùi Viện, Quận 1, TP. Hồ Chí Minh|Quận 1": {
-  "lon": 106.692668,
-  "lat": 10.766833,
-  "precision": "street",
-  "ward": "Phường Bến Thành",
-  "displayName": "Bùi Viện, Khu phố 11, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
- }
+  "Stir Modern Classic Cocktail Bar|136 Lê Thánh Tôn, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+    "lon": 106.705483,
+    "lat": 10.781661,
+    "precision": "exact",
+    "ward": "Phường Sài Gòn",
+    "displayName": "Cửa Hàng Thời Trang Mayhem Saigon, 136/1, Lê Thánh Tôn, Khu phố 4, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+  },
+  "Pasteur Street Brewing Company|144 Pasteur, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+    "lon": 106.700746,
+    "lat": 10.775184,
+    "precision": "exact",
+    "ward": "Phường Sài Gòn",
+    "displayName": "Công Ty Sản Xuất Bia Pasteur, 144, Pasteur, Khu phố 5, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+  },
+  "East West Brewing Co.|181-185 Lý Tự Trọng, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+    "lon": 106.695916,
+    "lat": 10.773065,
+    "precision": "exact",
+    "ward": "Phường Bến Thành",
+    "displayName": "East West Brewing Co., 181-185, Lý Tự Trọng, Khu phố 3, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "Bia Saigon 73|73 Bùi Viện, Quận 1, TP. Hồ Chí Minh|Quận 1": {
+    "lon": 106.692668,
+    "lat": 10.766833,
+    "precision": "street",
+    "ward": "Phường Bến Thành",
+    "displayName": "Bùi Viện, Khu phố 11, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "Pasteur Street Craft Beer – Original|144/3 Pasteur|Quận 1": {
+    "lon": 106.692738,
+    "lat": 10.783377,
+    "precision": "street",
+    "ward": "Phường Xuân Hòa",
+    "displayName": "Pasteur, Khu phố 4, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+  },
+  "Pasteur Street Craft Beer – Đồng Khởi|8 Ngô Đức Kế, Grand Hotel|Quận 1": {
+    "lon": 106.705743,
+    "lat": 10.773852,
+    "precision": "street",
+    "ward": "Phường Sài Gòn",
+    "displayName": "Ngô Đức Kế, Khu phố 9, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+  },
+  "Pasteur Street Craft Beer – Lý Tự Trọng|110-112 Lý Tự Trọng|Quận 1": {
+    "lon": 106.697119,
+    "lat": 10.774052,
+    "precision": "exact",
+    "ward": "Phường Bến Thành",
+    "displayName": "Pasteur Street Bewing Co, 110-112, Lý Tự Trọng, Khu phố 1, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "Pasteur Street Craft Beer – Lê Thánh Tôn|26A Lê Thánh Tôn|Quận 1": {
+    "lon": 106.702357,
+    "lat": 10.777877,
+    "precision": "street",
+    "ward": "Phường Sài Gòn",
+    "displayName": "Lê Thánh Tôn, Khu phố 3, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+  },
+  "Pasteur Street Craft Beer – Bùi Viện|212 Đề Thám|Quận 1": {
+    "lon": 106.696052,
+    "lat": 10.762988,
+    "precision": "street",
+    "ward": "Phường Cầu Ông Lãnh",
+    "displayName": "Đề Thám, Khu phố 14, Phường Cầu Ông Lãnh, Thành phố Hồ Chí Minh, 71011, Việt Nam"
+  },
+  "Pasteur Street Craft Beer – Hoàng Sa|221 Hoàng Sa|Quận 1": {
+    "lon": 106.675984,
+    "lat": 10.78519,
+    "precision": "street",
+    "ward": "Phường Nhiêu Lộc",
+    "displayName": "Hoàng Sa, Khu phố 16, Phường Nhiêu Lộc, Thành phố Hồ Chí Minh, 72422, Việt Nam"
+  },
+  "Pasteur Street Craft Beer – Ngô Thời Nhiệm|23A Ngô Thời Nhiệm|Quận 3": {
+    "lon": 106.690109,
+    "lat": 10.780754,
+    "precision": "street",
+    "ward": "Phường Xuân Hòa",
+    "displayName": "Ngô Thời Nhiệm, Khu phố 2, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+  },
+  "Pasteur Street Craft Beer – Thảo Điền|120 Xuân Thủy|Thảo Điền": {
+    "lon": 106.734706,
+    "lat": 10.803753,
+    "precision": "street",
+    "ward": "Phường An Khánh",
+    "displayName": "Xuân Thủy, Khu phố 6, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
+  },
+  "Pasteur Street Craft Beer – Metropole|20 Nguyễn Thiện Thành, C1.09, Galleria Metropole|Thủ Thiêm": {
+    "lon": 106.712037,
+    "lat": 10.767369,
+    "precision": "street",
+    "ward": "Phường An Khánh",
+    "displayName": "Nguyễn Thiện Thành, Khu phố 27, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
+  },
+  "Pasteur Street Craft Beer – Sala|74 Nguyễn Cơ Thạch, Sarimi|Thủ Thiêm": {
+    "lon": 106.724472,
+    "lat": 10.771162,
+    "precision": "exact",
+    "ward": "Phường An Khánh",
+    "displayName": "Cubes Asia, 74, Nguyễn Cơ Thạch, Khu phố 26, Phường An Khánh, Thành phố Hồ Chí Minh, 70000, Việt Nam"
+  },
+  "Pasteur Street Craft Beer – Phú Mỹ Hưng|CR5-01, Crescent Residence 5|Quận 7": {
+    "failed": true,
+    "reason": "not found"
+  },
+  "Pasteur Street Craft Beer – Nguyễn Đức Cảnh|123 Nguyễn Đức Cảnh|Quận 7": {
+    "lon": 106.709985,
+    "lat": 10.72265,
+    "precision": "street",
+    "ward": "Phường Tân Hưng",
+    "displayName": "Nguyễn Đức Cảnh, Khu phố 34, Phường Tân Hưng, Nhà Bè, Thành phố Hồ Chí Minh, 72912, Việt Nam"
+  },
+  "Heart of Darkness|31D Lý Tự Trọng|Quận 1": {
+    "lon": 106.7029,
+    "lat": 10.779714,
+    "precision": "exact",
+    "ward": "Phường Sài Gòn",
+    "displayName": "Nhà Hàng Heart Of Darkness Craft Brewery, 31D, Lý Tự Trọng, Khu phố 2, Phường Sài Gòn, Thành phố Hồ Chí Minh, 70000, Việt Nam"
+  },
+  "East West Brewing Co.|181-185 Lý Tự Trọng|Quận 1": {
+    "lon": 106.695916,
+    "lat": 10.773065,
+    "precision": "exact",
+    "ward": "Phường Bến Thành",
+    "displayName": "East West Brewing Co., 181-185, Lý Tự Trọng, Khu phố 3, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "7 Bridges – Đông Du|38 Đông Du|Quận 1": {
+    "lon": 106.704516,
+    "lat": 10.775895,
+    "precision": "street",
+    "ward": "Phường Sài Gòn",
+    "displayName": "Đông Du, Khu phố 5, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+  },
+  "7 Bridges – Little Japan|15B/12 Lê Thánh Tôn|Quận 1": {
+    "lon": 106.699295,
+    "lat": 10.774367,
+    "precision": "street",
+    "ward": "Phường Bến Thành",
+    "displayName": "Lê Thánh Tôn, Khu phố 1, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "BiaCraft – Thảo Điền|90 Xuân Thủy|Thảo Điền": {
+    "lon": 106.734531,
+    "lat": 10.803706,
+    "precision": "exact",
+    "ward": "Phường An Khánh",
+    "displayName": "Quán Bar Biacraft, 90, Xuân Thủy, Khu phố 6, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
+  },
+  "BiaCraft – Lê Ngô Cát|1 Lê Ngô Cát|Quận 3": {
+    "lon": 106.685587,
+    "lat": 10.776321,
+    "precision": "exact",
+    "ward": "Phường Xuân Hòa",
+    "displayName": "BiaCraft Artisan Ales, 1, Lê Ngô Cát, Khu phố 6, Phường Xuân Hòa, Thành phố Hồ Chí Minh, 72421, Việt Nam"
+  },
+  "BiaCraft – Trường Sa|300-304 Trường Sa|Phú Nhuận": {
+    "lon": 106.682451,
+    "lat": 10.788282,
+    "precision": "street",
+    "ward": "Phường Nhiêu Lộc",
+    "displayName": "Trường Sa, Khu phố 30, Phường Nhiêu Lộc, Thành phố Hồ Chí Minh, 72422, Việt Nam"
+  },
+  "Belgo|159A Nguyễn Văn Thủ|Quận 1": {
+    "lon": 106.697965,
+    "lat": 10.78877,
+    "precision": "exact",
+    "ward": "Phường Tân Định",
+    "displayName": "Belgo Nguyễn Văn Thủ - Belgian Craft Beer & Restaurant, 159A, Nguyễn Văn Thủ, Khu phố 14, Phường Tân Định, Thành phố Hồ Chí Minh, 71008, Việt Nam"
+  },
+  "Tiệm Bia Gà – Bùi Viện|40 Bùi Viện|Quận 1": {
+    "lon": 106.694505,
+    "lat": 10.767779,
+    "precision": "exact",
+    "ward": "Phường Bến Thành",
+    "displayName": "Khách Sạn An An, 40, Bùi Viện, Khu phố 12, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  },
+  "Tiệm Bia Gà – Thảo Điền|26B Xuân Thủy|Thảo Điền": {
+    "lon": 106.734706,
+    "lat": 10.803753,
+    "precision": "street",
+    "ward": "Phường An Khánh",
+    "displayName": "Xuân Thủy, Khu phố 6, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
+  },
+  "Tiệm Bia Gà – Khánh Hội|92 Khánh Hội|Quận 4": {
+    "lon": 106.700783,
+    "lat": 10.756668,
+    "precision": "street",
+    "ward": "Phường Khánh Hội",
+    "displayName": "Khánh Hội, Khu phố 9, Phường Khánh Hội, Thành phố Hồ Chí Minh, 72822, Việt Nam"
+  },
+  "Tiệm Bia Gà – Tên Lửa|362 Tên Lửa|Bình Tân": {
+    "lon": 106.61441,
+    "lat": 10.741281,
+    "precision": "street",
+    "ward": "Phường An Lạc",
+    "displayName": "Tên Lửa, Khu phố 16, Phường An Lạc, Thành phố Hồ Chí Minh, 71906, Việt Nam"
+  },
+  "Tiệm Bia Gà – Đồng Nai|29 Đồng Nai|Quận 10": {
+    "lon": 106.663588,
+    "lat": 10.778024,
+    "precision": "street",
+    "ward": "Phường Hòa Hưng",
+    "displayName": "Đồng Nai, Khu phố 16, Phường Hòa Hưng, Thành phố Hồ Chí Minh, 72523, Việt Nam"
+  },
+  "Tiệm Bia Gà – Phạm Viết Chánh|38 Phạm Viết Chánh|Bình Thạnh": {
+    "lon": 106.710264,
+    "lat": 10.790155,
+    "precision": "exact",
+    "ward": "Phường Thạnh Mỹ Tây",
+    "displayName": "Tiệm Bia Gà, 38, Phạm Viết Chánh, Khu phố 2, Phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh, 72331, Việt Nam"
+  },
+  "Belgica Brewpub|198A Nguyễn Văn Hưởng|Thảo Điền": {
+    "lon": 106.725718,
+    "lat": 10.806729,
+    "precision": "street",
+    "ward": "Phường An Khánh",
+    "displayName": "Nguyễn Văn Hưởng, Khu phố 13, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
+  },
+  "Steersman Brewery|84 Phạm Viết Chánh|Bình Thạnh": {
+    "lon": 106.710659,
+    "lat": 10.7902,
+    "precision": "street",
+    "ward": "Phường Thạnh Mỹ Tây",
+    "displayName": "Phạm Viết Chánh, Khu phố 2, Phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh, 72331, Việt Nam"
+  },
+  "Malt Saigon|46-48 Mạc Thị Bưởi|Quận 1": {
+    "lon": 106.704821,
+    "lat": 10.775475,
+    "precision": "exact",
+    "ward": "Phường Sài Gòn",
+    "displayName": "Malt Saigon Bar, 46-48, Mạc Thị Bưởi, Khu phố 5, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+  },
+  "Mighty Moon|27 Lý Văn Phức|Quận 1": {
+    "lon": 106.693915,
+    "lat": 10.791107,
+    "precision": "street",
+    "ward": "Phường Tân Định",
+    "displayName": "Lý Văn Phức, Khu phố 8, Phường Tân Định, Thành phố Hồ Chí Minh, 71008, Việt Nam"
+  },
+  "Deme Brewing Taproom|393/7 Hai Bà Trưng|Quận 3": {
+    "lon": 106.700351,
+    "lat": 10.780835,
+    "precision": "street",
+    "ward": "Phường Sài Gòn",
+    "displayName": "Hai Bà Trưng, Khu phố 3, Phường Sài Gòn, Thành phố Hồ Chí Minh, 71016, Việt Nam"
+  },
+  "Reham Saigon Taproom|165/37 Nguyễn Thái Bình|Quận 1": {
+    "lon": 106.700455,
+    "lat": 10.769915,
+    "precision": "street",
+    "ward": "Phường Bến Thành",
+    "displayName": "Nguyễn Thái Bình, Khu phố 17, Phường Bến Thành, Thành phố Hồ Chí Minh, 71009, Việt Nam"
+  }
 }

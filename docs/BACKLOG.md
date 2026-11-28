@@ -48,6 +48,8 @@ Status: ✅ done · 🔄 in progress · ⬜ todo · ⛔ blocked (reason).
 | DS-02 | P1 | CC | Live counts: catalogue matching/total + places per dish + coverage line; Settings → About summary; Admin coverage by experience | e2e | ✅ |
 | DS-03 | P1 | CC | Hôm nay ăn gì? filter-support table + meal×diet zero combinations in docs/WHAT_TO_EAT_REPORT.md | report | ✅ |
 | CC-FOOD-009 | P1 | CC | Establishment research: home-style/regional dishes with 0 venues (central districts) | intake report | ✅ 3 imported, 1 withheld (geocode) — Codex spot-check |
+| GPT-BARS-001 | P1 | CC | Import ChatGPT craft beer batch (BAR-CRAFT-20261128-01) via exchange:convert + intake; brand attribute; live venue counts on Bars catalogue / item / map | unit + e2e-modules (counts) + screenshots | ✅ 26 imported, 6 rejected — Codex review pending |
+| BAR-02 | P2 | ChatGPT/CC | Craft beer gaps: exact pins for 6 rejected branches; venue-level tap lists (individual beers); prices; licensed venue photos; operating-status confirmation | — | ⬜ |
 | GPT-CAT-001 / GPT-FOOD-001 | P0 | ChatGPT | Master catalogue (everyday meals, vegan/vegetarian main meals, office lunch, dinner) and outer-district venue scouting — see research-exchange/queue.json | intake dry run | ⬜ planned |
 | CX-09 | P1 | Codex | Source eating attributes (cooking method, portion, allergens) and venue dining data (price range, hours, atmosphere) — coverage in `docs/WHAT_TO_EAT_REPORT.md` | report coverage ↑ | ⬜ |
 | CC-31 | P2 | CC | Hôm nay ăn gì? v2: weather/time-aware boosts, weekly variety, optional AI explanations on top of the deterministic engine (after PO approval) | — | ⬜ later |

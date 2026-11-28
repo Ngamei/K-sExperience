@@ -445,6 +445,11 @@
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-27"
+        },
+        {
+          "title": "pasteurstreet.com",
+          "url": "https://www.pasteurstreet.com/taprooms",
+          "accessed": "2026-11-28"
         }
       ],
       "lastVerified": "2026-11-27",
@@ -454,7 +459,8 @@
       "attributes": {
         "barTypes": [
           "craft-beer"
-        ]
+        ],
+        "brand": "Pasteur Street Craft Beer"
       }
     },
     {
@@ -486,6 +492,16 @@
           "title": "OpenStreetMap / Nominatim (coordinates)",
           "url": "https://www.openstreetmap.org/",
           "accessed": "2026-11-28"
+        },
+        {
+          "title": "eastwestbrewing.vn",
+          "url": "https://eastwestbrewing.vn/taproom/ho-chi-minh",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
         }
       ],
       "lastVerified": "2026-11-28",
@@ -496,7 +512,8 @@
         "barTypes": [
           "craft-beer",
           "rooftop"
-        ]
+        ],
+        "brand": "East West Brewing Co."
       }
     },
     {
@@ -533,6 +550,949 @@
         "atmosphere": [
           "lively"
         ]
+      }
+    },
+    {
+      "id": "pasteur-street-craft-beer-dong-khoi-8-ngo-duc-ke",
+      "name": "Pasteur Street Craft Beer – Đồng Khởi",
+      "isSample": false,
+      "address": "8 Ngô Đức Kế, Grand Hotel",
+      "neighbourhood": "Phường Sài Gòn",
+      "coordinates": [
+        106.705743,
+        10.773852
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Street%20Craft%20Beer%20%E2%80%93%20%C4%90%E1%BB%93ng%20Kh%E1%BB%9Fi%2C%208%20Ng%C3%B4%20%C4%90%E1%BB%A9c%20K%E1%BA%BF%2C%20Grand%20Hotel",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "pasteurstreet.com",
+          "url": "https://www.pasteurstreet.com/taprooms",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      }
+    },
+    {
+      "id": "pasteur-street-craft-beer-ly-tu-trong-110-112-ly-tu-trong",
+      "name": "Pasteur Street Craft Beer – Lý Tự Trọng",
+      "isSample": false,
+      "address": "110-112 Lý Tự Trọng",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.697119,
+        10.774052
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Street%20Craft%20Beer%20%E2%80%93%20L%C3%BD%20T%E1%BB%B1%20Tr%E1%BB%8Dng%2C%20110-112%20L%C3%BD%20T%E1%BB%B1%20Tr%E1%BB%8Dng",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "pasteurstreet.com",
+          "url": "https://www.pasteurstreet.com/taprooms",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      }
+    },
+    {
+      "id": "pasteur-street-craft-beer-le-thanh-ton-26a-le-thanh-ton",
+      "name": "Pasteur Street Craft Beer – Lê Thánh Tôn",
+      "isSample": false,
+      "address": "26A Lê Thánh Tôn",
+      "neighbourhood": "Phường Sài Gòn",
+      "coordinates": [
+        106.702357,
+        10.777877
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Street%20Craft%20Beer%20%E2%80%93%20L%C3%AA%20Th%C3%A1nh%20T%C3%B4n%2C%2026A%20L%C3%AA%20Th%C3%A1nh%20T%C3%B4n",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "pasteurstreet.com",
+          "url": "https://www.pasteurstreet.com/taprooms",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      }
+    },
+    {
+      "id": "pasteur-street-craft-beer-ngo-thoi-nhiem-23a-ngo-thoi-nhiem",
+      "name": "Pasteur Street Craft Beer – Ngô Thời Nhiệm",
+      "isSample": false,
+      "address": "23A Ngô Thời Nhiệm",
+      "neighbourhood": "Phường Xuân Hòa",
+      "coordinates": [
+        106.690109,
+        10.780754
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Street%20Craft%20Beer%20%E2%80%93%20Ng%C3%B4%20Th%E1%BB%9Di%20Nhi%E1%BB%87m%2C%2023A%20Ng%C3%B4%20Th%E1%BB%9Di%20Nhi%E1%BB%87m",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "pasteurstreet.com",
+          "url": "https://www.pasteurstreet.com/taprooms",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      }
+    },
+    {
+      "id": "pasteur-street-craft-beer-thao-dien-120-xuan-thuy",
+      "name": "Pasteur Street Craft Beer – Thảo Điền",
+      "isSample": false,
+      "address": "120 Xuân Thủy",
+      "neighbourhood": "Phường An Khánh",
+      "coordinates": [
+        106.734706,
+        10.803753
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Street%20Craft%20Beer%20%E2%80%93%20Th%E1%BA%A3o%20%C4%90i%E1%BB%81n%2C%20120%20Xu%C3%A2n%20Th%E1%BB%A7y",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "pasteurstreet.com",
+          "url": "https://www.pasteurstreet.com/taprooms",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      }
+    },
+    {
+      "id": "pasteur-street-craft-beer-metropole-20-nguyen-thien-thanh",
+      "name": "Pasteur Street Craft Beer – Metropole",
+      "isSample": false,
+      "address": "20 Nguyễn Thiện Thành, C1.09, Galleria Metropole",
+      "neighbourhood": "Phường An Khánh",
+      "coordinates": [
+        106.712037,
+        10.767369
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Street%20Craft%20Beer%20%E2%80%93%20Metropole%2C%2020%20Nguy%E1%BB%85n%20Thi%E1%BB%87n%20Th%C3%A0nh%2C%20C1.09%2C%20Galleria%20Metropole",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "pasteurstreet.com",
+          "url": "https://www.pasteurstreet.com/taprooms",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      }
+    },
+    {
+      "id": "pasteur-street-craft-beer-sala-74-nguyen-co-thach",
+      "name": "Pasteur Street Craft Beer – Sala",
+      "isSample": false,
+      "address": "74 Nguyễn Cơ Thạch, Sarimi",
+      "neighbourhood": "Phường An Khánh",
+      "coordinates": [
+        106.724472,
+        10.771162
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Street%20Craft%20Beer%20%E2%80%93%20Sala%2C%2074%20Nguy%E1%BB%85n%20C%C6%A1%20Th%E1%BA%A1ch%2C%20Sarimi",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "pasteurstreet.com",
+          "url": "https://www.pasteurstreet.com/taprooms",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      }
+    },
+    {
+      "id": "pasteur-street-craft-beer-nguyen-duc-canh-123-nguyen-duc-canh",
+      "name": "Pasteur Street Craft Beer – Nguyễn Đức Cảnh",
+      "isSample": false,
+      "address": "123 Nguyễn Đức Cảnh",
+      "neighbourhood": "Phường Tân Hưng",
+      "coordinates": [
+        106.709985,
+        10.72265
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Street%20Craft%20Beer%20%E2%80%93%20Nguy%E1%BB%85n%20%C4%90%E1%BB%A9c%20C%E1%BA%A3nh%2C%20123%20Nguy%E1%BB%85n%20%C4%90%E1%BB%A9c%20C%E1%BA%A3nh",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "pasteurstreet.com",
+          "url": "https://www.pasteurstreet.com/taprooms",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      }
+    },
+    {
+      "id": "heart-of-darkness-31d-ly-tu-trong",
+      "name": "Heart of Darkness",
+      "isSample": false,
+      "address": "31D Lý Tự Trọng",
+      "neighbourhood": "Phường Sài Gòn",
+      "coordinates": [
+        106.7029,
+        10.779714
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Heart%20of%20Darkness%2C%2031D%20L%C3%BD%20T%E1%BB%B1%20Tr%E1%BB%8Dng",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "heartofdarknessbrewery.com",
+          "url": "https://heartofdarknessbrewery.com/pages/taproom",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Heart of Darkness"
+      }
+    },
+    {
+      "id": "7-bridges-dong-du-38-dong-du",
+      "name": "7 Bridges – Đông Du",
+      "isSample": false,
+      "address": "38 Đông Du",
+      "neighbourhood": "Phường Sài Gòn",
+      "coordinates": [
+        106.704516,
+        10.775895
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=7%20Bridges%20%E2%80%93%20%C4%90%C3%B4ng%20Du%2C%2038%20%C4%90%C3%B4ng%20Du",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "7bridges.vn",
+          "url": "https://www.7bridges.vn/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "7 Bridges"
+      }
+    },
+    {
+      "id": "7-bridges-little-japan-15b-12-le-thanh-ton",
+      "name": "7 Bridges – Little Japan",
+      "isSample": false,
+      "address": "15B/12 Lê Thánh Tôn",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.699295,
+        10.774367
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=7%20Bridges%20%E2%80%93%20Little%20Japan%2C%2015B%2F12%20L%C3%AA%20Th%C3%A1nh%20T%C3%B4n",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "7bridges.vn",
+          "url": "https://www.7bridges.vn/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "7 Bridges"
+      }
+    },
+    {
+      "id": "biacraft-thao-dien-90-xuan-thuy",
+      "name": "BiaCraft – Thảo Điền",
+      "isSample": false,
+      "address": "90 Xuân Thủy",
+      "neighbourhood": "Phường An Khánh",
+      "coordinates": [
+        106.734531,
+        10.803706
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=BiaCraft%20%E2%80%93%20Th%E1%BA%A3o%20%C4%90i%E1%BB%81n%2C%2090%20Xu%C3%A2n%20Th%E1%BB%A7y",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "biacraft.com",
+          "url": "https://biacraft.com/locations/xuan-thuy",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "BiaCraft"
+      }
+    },
+    {
+      "id": "biacraft-le-ngo-cat-1-le-ngo-cat",
+      "name": "BiaCraft – Lê Ngô Cát",
+      "isSample": false,
+      "address": "1 Lê Ngô Cát",
+      "neighbourhood": "Phường Xuân Hòa",
+      "coordinates": [
+        106.685587,
+        10.776321
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=BiaCraft%20%E2%80%93%20L%C3%AA%20Ng%C3%B4%20C%C3%A1t%2C%201%20L%C3%AA%20Ng%C3%B4%20C%C3%A1t",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "biacraft.com",
+          "url": "https://biacraft.com/contact",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "BiaCraft"
+      }
+    },
+    {
+      "id": "belgo-159a-nguyen-van-thu",
+      "name": "Belgo",
+      "isSample": false,
+      "address": "159A Nguyễn Văn Thủ",
+      "neighbourhood": "Phường Tân Định",
+      "coordinates": [
+        106.697965,
+        10.78877
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Belgo%2C%20159A%20Nguy%E1%BB%85n%20V%C4%83n%20Th%E1%BB%A7",
+      "venueType": "brewpub",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "belgo.com.vn",
+          "url": "https://www.belgo.com.vn/belgobelgiancraftbeerbrewery",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Belgo"
+      }
+    },
+    {
+      "id": "tiem-bia-ga-bui-vien-40-bui-vien",
+      "name": "Tiệm Bia Gà – Bùi Viện",
+      "isSample": false,
+      "address": "40 Bùi Viện",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.694505,
+        10.767779
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ti%E1%BB%87m%20Bia%20G%C3%A0%20%E2%80%93%20B%C3%B9i%20Vi%E1%BB%87n%2C%2040%20B%C3%B9i%20Vi%E1%BB%87n",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "roosterbeverages.com",
+          "url": "https://roosterbeverages.com/vi/tiem-bia-ga/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Tiệm Bia Gà"
+      }
+    },
+    {
+      "id": "tiem-bia-ga-thao-dien-26b-xuan-thuy",
+      "name": "Tiệm Bia Gà – Thảo Điền",
+      "isSample": false,
+      "address": "26B Xuân Thủy",
+      "neighbourhood": "Phường An Khánh",
+      "coordinates": [
+        106.734706,
+        10.803753
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ti%E1%BB%87m%20Bia%20G%C3%A0%20%E2%80%93%20Th%E1%BA%A3o%20%C4%90i%E1%BB%81n%2C%2026B%20Xu%C3%A2n%20Th%E1%BB%A7y",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "roosterbeverages.com",
+          "url": "https://roosterbeverages.com/vi/tiem-bia-ga/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Tiệm Bia Gà"
+      }
+    },
+    {
+      "id": "tiem-bia-ga-khanh-hoi-92-khanh-hoi",
+      "name": "Tiệm Bia Gà – Khánh Hội",
+      "isSample": false,
+      "address": "92 Khánh Hội",
+      "neighbourhood": "Phường Khánh Hội",
+      "coordinates": [
+        106.700783,
+        10.756668
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ti%E1%BB%87m%20Bia%20G%C3%A0%20%E2%80%93%20Kh%C3%A1nh%20H%E1%BB%99i%2C%2092%20Kh%C3%A1nh%20H%E1%BB%99i",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "roosterbeverages.com",
+          "url": "https://roosterbeverages.com/vi/tiem-bia-ga/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Tiệm Bia Gà"
+      }
+    },
+    {
+      "id": "tiem-bia-ga-dong-nai-29-dong-nai",
+      "name": "Tiệm Bia Gà – Đồng Nai",
+      "isSample": false,
+      "address": "29 Đồng Nai",
+      "neighbourhood": "Phường Hòa Hưng",
+      "coordinates": [
+        106.663588,
+        10.778024
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ti%E1%BB%87m%20Bia%20G%C3%A0%20%E2%80%93%20%C4%90%E1%BB%93ng%20Nai%2C%2029%20%C4%90%E1%BB%93ng%20Nai",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "roosterbeverages.com",
+          "url": "https://roosterbeverages.com/vi/tiem-bia-ga/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Tiệm Bia Gà"
+      }
+    },
+    {
+      "id": "tiem-bia-ga-pham-viet-chanh-38-pham-viet-chanh",
+      "name": "Tiệm Bia Gà – Phạm Viết Chánh",
+      "isSample": false,
+      "address": "38 Phạm Viết Chánh",
+      "neighbourhood": "Phường Thạnh Mỹ Tây",
+      "coordinates": [
+        106.710264,
+        10.790155
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ti%E1%BB%87m%20Bia%20G%C3%A0%20%E2%80%93%20Ph%E1%BA%A1m%20Vi%E1%BA%BFt%20Ch%C3%A1nh%2C%2038%20Ph%E1%BA%A1m%20Vi%E1%BA%BFt%20Ch%C3%A1nh",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "roosterbeverages.com",
+          "url": "https://roosterbeverages.com/vi/tiem-bia-ga/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Tiệm Bia Gà"
+      }
+    },
+    {
+      "id": "belgica-brewpub-198a-nguyen-van-huong",
+      "name": "Belgica Brewpub",
+      "isSample": false,
+      "address": "198A Nguyễn Văn Hưởng",
+      "neighbourhood": "Phường An Khánh",
+      "coordinates": [
+        106.725718,
+        10.806729
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Belgica%20Brewpub%2C%20198A%20Nguy%E1%BB%85n%20V%C4%83n%20H%C6%B0%E1%BB%9Fng",
+      "venueType": "brewpub",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Belgica Brewpub"
+      }
+    },
+    {
+      "id": "steersman-brewery-84-pham-viet-chanh",
+      "name": "Steersman Brewery",
+      "isSample": false,
+      "address": "84 Phạm Viết Chánh",
+      "neighbourhood": "Phường Thạnh Mỹ Tây",
+      "coordinates": [
+        106.710659,
+        10.7902
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Steersman%20Brewery%2C%2084%20Ph%E1%BA%A1m%20Vi%E1%BA%BFt%20Ch%C3%A1nh",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Steersman Brewery"
+      }
+    },
+    {
+      "id": "malt-saigon-46-48-mac-thi-buoi",
+      "name": "Malt Saigon",
+      "isSample": false,
+      "address": "46-48 Mạc Thị Bưởi",
+      "neighbourhood": "Phường Sài Gòn",
+      "coordinates": [
+        106.704821,
+        10.775475
+      ],
+      "coordinatePrecision": "exact",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Malt%20Saigon%2C%2046-48%20M%E1%BA%A1c%20Th%E1%BB%8B%20B%C6%B0%E1%BB%9Fi",
+      "venueType": "craft beer bar",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Malt Saigon"
+      }
+    },
+    {
+      "id": "mighty-moon-27-ly-van-phuc",
+      "name": "Mighty Moon",
+      "isSample": false,
+      "address": "27 Lý Văn Phức",
+      "neighbourhood": "Phường Tân Định",
+      "coordinates": [
+        106.693915,
+        10.791107
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mighty%20Moon%2C%2027%20L%C3%BD%20V%C4%83n%20Ph%E1%BB%A9c",
+      "venueType": "brewpub",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Mighty Moon"
+      }
+    },
+    {
+      "id": "reham-saigon-taproom-165-37-nguyen-thai-binh",
+      "name": "Reham Saigon Taproom",
+      "isSample": false,
+      "address": "165/37 Nguyễn Thái Bình",
+      "neighbourhood": "Phường Bến Thành",
+      "coordinates": [
+        106.700455,
+        10.769915
+      ],
+      "coordinatePrecision": "street",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Reham%20Saigon%20Taproom%2C%20165%2F37%20Nguy%E1%BB%85n%20Th%C3%A1i%20B%C3%ACnh",
+      "venueType": "taproom",
+      "deliveryLinks": [],
+      "sources": [
+        {
+          "title": "saigon-scene.com",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/",
+          "accessed": "2026-11-28"
+        },
+        {
+          "title": "OpenStreetMap / Nominatim (coordinates)",
+          "url": "https://www.openstreetmap.org/",
+          "accessed": "2026-11-28"
+        }
+      ],
+      "lastVerified": "2026-11-28",
+      "experiences": [
+        "bars"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Reham Saigon Taproom"
       }
     }
   ],
@@ -582,6 +1542,294 @@
         "type": "published-source",
         "note": "TourHero 'Beer in Saigon' lists Bia Saigon 73 (73 Bùi Viện) as a bia hơi spot on red plastic chairs, frequented by backpackers and locals.",
         "url": "https://www.tourhero.com/en/magazine/?p=3345"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "pasteur-street-craft-beer-dong-khoi-8-ngo-duc-ke",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "pasteurstreet.com lists Pasteur Street Craft Beer – Đồng Khởi (8 Ngô Đức Kế, Grand Hotel) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+        "url": "https://www.pasteurstreet.com/taprooms"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "pasteur-street-craft-beer-ly-tu-trong-110-112-ly-tu-trong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "pasteurstreet.com lists Pasteur Street Craft Beer – Lý Tự Trọng (110-112 Lý Tự Trọng) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+        "url": "https://www.pasteurstreet.com/taprooms"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "pasteur-street-craft-beer-le-thanh-ton-26a-le-thanh-ton",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "pasteurstreet.com lists Pasteur Street Craft Beer – Lê Thánh Tôn (26A Lê Thánh Tôn) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+        "url": "https://www.pasteurstreet.com/taprooms"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "pasteur-street-craft-beer-ngo-thoi-nhiem-23a-ngo-thoi-nhiem",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "pasteurstreet.com lists Pasteur Street Craft Beer – Ngô Thời Nhiệm (23A Ngô Thời Nhiệm) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+        "url": "https://www.pasteurstreet.com/taprooms"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "pasteur-street-craft-beer-thao-dien-120-xuan-thuy",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "pasteurstreet.com lists Pasteur Street Craft Beer – Thảo Điền (120 Xuân Thủy) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+        "url": "https://www.pasteurstreet.com/taprooms"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "pasteur-street-craft-beer-metropole-20-nguyen-thien-thanh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "pasteurstreet.com lists Pasteur Street Craft Beer – Metropole (20 Nguyễn Thiện Thành, C1.09, Galleria Metropole) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+        "url": "https://www.pasteurstreet.com/taprooms"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "pasteur-street-craft-beer-sala-74-nguyen-co-thach",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "pasteurstreet.com lists Pasteur Street Craft Beer – Sala (74 Nguyễn Cơ Thạch, Sarimi) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+        "url": "https://www.pasteurstreet.com/taprooms"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "pasteur-street-craft-beer-nguyen-duc-canh-123-nguyen-duc-canh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "pasteurstreet.com lists Pasteur Street Craft Beer – Nguyễn Đức Cảnh (123 Nguyễn Đức Cảnh) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+        "url": "https://www.pasteurstreet.com/taprooms"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "heart-of-darkness-31d-ly-tu-trong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "heartofdarknessbrewery.com lists Heart of Darkness (31D Lý Tự Trọng) as a taproom of Heart of Darkness serving Bia thủ công.",
+        "url": "https://heartofdarknessbrewery.com/pages/taproom"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "7-bridges-dong-du-38-dong-du",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "7bridges.vn lists 7 Bridges – Đông Du (38 Đông Du) as a taproom of 7 Bridges serving Bia thủ công.",
+        "url": "https://www.7bridges.vn/"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "7-bridges-little-japan-15b-12-le-thanh-ton",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "7bridges.vn lists 7 Bridges – Little Japan (15B/12 Lê Thánh Tôn) as a taproom of 7 Bridges serving Bia thủ công.",
+        "url": "https://www.7bridges.vn/"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "biacraft-thao-dien-90-xuan-thuy",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "biacraft.com lists BiaCraft – Thảo Điền (90 Xuân Thủy) as a taproom of BiaCraft serving Bia thủ công.",
+        "url": "https://biacraft.com/locations/xuan-thuy"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "biacraft-le-ngo-cat-1-le-ngo-cat",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "biacraft.com lists BiaCraft – Lê Ngô Cát (1 Lê Ngô Cát) as a taproom of BiaCraft serving Bia thủ công.",
+        "url": "https://biacraft.com/contact"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "belgo-159a-nguyen-van-thu",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "belgo.com.vn lists Belgo (159A Nguyễn Văn Thủ) as a brewpub of Belgo serving Bia thủ công.",
+        "url": "https://www.belgo.com.vn/belgobelgiancraftbeerbrewery"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "tiem-bia-ga-bui-vien-40-bui-vien",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "saigon-scene.com lists Tiệm Bia Gà – Bùi Viện (40 Bùi Viện) as a taproom of Tiệm Bia Gà serving Bia thủ công. Branch address from September 2026 guide; corroborate branch independently.",
+        "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "tiem-bia-ga-thao-dien-26b-xuan-thuy",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "saigon-scene.com lists Tiệm Bia Gà – Thảo Điền (26B Xuân Thủy) as a taproom of Tiệm Bia Gà serving Bia thủ công. Branch address from September 2026 guide; corroborate branch independently.",
+        "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "tiem-bia-ga-khanh-hoi-92-khanh-hoi",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "saigon-scene.com lists Tiệm Bia Gà – Khánh Hội (92 Khánh Hội) as a taproom of Tiệm Bia Gà serving Bia thủ công. Branch address from September 2026 guide; corroborate branch independently.",
+        "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "tiem-bia-ga-dong-nai-29-dong-nai",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "saigon-scene.com lists Tiệm Bia Gà – Đồng Nai (29 Đồng Nai) as a taproom of Tiệm Bia Gà serving Bia thủ công. Branch address from September 2026 guide; corroborate branch independently.",
+        "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "tiem-bia-ga-pham-viet-chanh-38-pham-viet-chanh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "saigon-scene.com lists Tiệm Bia Gà – Phạm Viết Chánh (38 Phạm Viết Chánh) as a taproom of Tiệm Bia Gà serving Bia thủ công. Branch address from September 2026 guide; corroborate branch independently.",
+        "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "belgica-brewpub-198a-nguyen-van-huong",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "saigon-scene.com lists Belgica Brewpub (198A Nguyễn Văn Hưởng) as a brewpub of Belgica Brewpub serving Bia thủ công. Secondary guide; corroborate with current official listing.",
+        "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "steersman-brewery-84-pham-viet-chanh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "saigon-scene.com lists Steersman Brewery (84 Phạm Viết Chánh) as a taproom of Steersman Brewery serving Bia thủ công. Secondary guide; corroborate with current official listing. Steersman old address must not be used.",
+        "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "malt-saigon-46-48-mac-thi-buoi",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "saigon-scene.com lists Malt Saigon (46-48 Mạc Thị Bưởi) as a craft beer bar of Malt Saigon serving Bia thủ công. Secondary guide; corroborate with current official listing.",
+        "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "mighty-moon-27-ly-van-phuc",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "saigon-scene.com lists Mighty Moon (27 Lý Văn Phức) as a brewpub of Mighty Moon serving Bia thủ công. Secondary guide; corroborate with current official listing.",
+        "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+      },
+      "lastVerified": "2026-11-28"
+    },
+    {
+      "itemId": "craft-beer",
+      "establishmentId": "reham-saigon-taproom-165-37-nguyen-thai-binh",
+      "status": "source-listed",
+      "isSample": false,
+      "menuEvidence": {
+        "type": "published-source",
+        "note": "saigon-scene.com lists Reham Saigon Taproom (165/37 Nguyễn Thái Bình) as a taproom of Reham Saigon Taproom serving Bia thủ công. Secondary guide; corroborate with current official listing.",
+        "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
       },
       "lastVerified": "2026-11-28"
     }

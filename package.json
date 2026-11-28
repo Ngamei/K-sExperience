@@ -31,6 +31,7 @@
     "data:what-to-eat": "tsx scripts/what-to-eat-report.ts",
     "exchange:export": "tsx scripts/exchange-export.ts",
     "intake": "tsx scripts/intake.ts",
+    "exchange:convert": "tsx scripts/exchange-convert.ts",
     "db:seed-sql": "tsx scripts/build-supabase-seed.ts",
     "test:db": "bash scripts/test-db.sh",
     "db:export": "tsx scripts/export-supabase.ts",

@@ -1,0 +1,763 @@
+{
+  "batchId": "GPT-BARS-001",
+  "externalBatchId": "BAR-CRAFT-20261128-01",
+  "experience": "bars",
+  "kind": "venues",
+  "agent": "chatgpt",
+  "researchedOn": "2026-11-28",
+  "method": "Converted from craft_beer_hcmc_venues.csv (BAR-CRAFT-20261128-01): 32 source-listed candidates, none first-hand verified; coordinates, prices and photos left blank by the researcher where not independently established.",
+  "venues": [
+    {
+      "id": "pasteur-street-brewing-pasteur",
+      "name": "Pasteur Street Craft Beer – Original",
+      "address": "144/3 Pasteur",
+      "district": "Quận 1",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "pasteurstreet.com lists Pasteur Street Craft Beer – Original (144/3 Pasteur) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Official branch directory; verify exact current menu before item-level upgrade. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Pasteur Street Craft Beer – Đồng Khởi",
+      "address": "8 Ngô Đức Kế, Grand Hotel",
+      "district": "Quận 1",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "pasteurstreet.com lists Pasteur Street Craft Beer – Đồng Khởi (8 Ngô Đức Kế, Grand Hotel) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Official branch directory; verify exact current menu before item-level upgrade. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Pasteur Street Craft Beer – Lý Tự Trọng",
+      "address": "110-112 Lý Tự Trọng",
+      "district": "Quận 1",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "pasteurstreet.com lists Pasteur Street Craft Beer – Lý Tự Trọng (110-112 Lý Tự Trọng) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Official branch directory; verify exact current menu before item-level upgrade. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Pasteur Street Craft Beer – Lê Thánh Tôn",
+      "address": "26A Lê Thánh Tôn",
+      "district": "Quận 1",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "pasteurstreet.com lists Pasteur Street Craft Beer – Lê Thánh Tôn (26A Lê Thánh Tôn) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Official branch directory; verify exact current menu before item-level upgrade. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Pasteur Street Craft Beer – Bùi Viện",
+      "address": "212 Đề Thám",
+      "district": "Quận 1",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "pasteurstreet.com lists Pasteur Street Craft Beer – Bùi Viện (212 Đề Thám) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Official branch directory; verify exact current menu before item-level upgrade. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Pasteur Street Craft Beer – Hoàng Sa",
+      "address": "221 Hoàng Sa",
+      "district": "Quận 1",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "pasteurstreet.com lists Pasteur Street Craft Beer – Hoàng Sa (221 Hoàng Sa) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Official branch directory; verify exact current menu before item-level upgrade. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Pasteur Street Craft Beer – Ngô Thời Nhiệm",
+      "address": "23A Ngô Thời Nhiệm",
+      "district": "Quận 3",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "pasteurstreet.com lists Pasteur Street Craft Beer – Ngô Thời Nhiệm (23A Ngô Thời Nhiệm) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Official branch directory; verify exact current menu before item-level upgrade. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Pasteur Street Craft Beer – Thảo Điền",
+      "address": "120 Xuân Thủy",
+      "district": "Thảo Điền",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "pasteurstreet.com lists Pasteur Street Craft Beer – Thảo Điền (120 Xuân Thủy) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Official branch directory; verify exact current menu before item-level upgrade. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Pasteur Street Craft Beer – Metropole",
+      "address": "20 Nguyễn Thiện Thành, C1.09, Galleria Metropole",
+      "district": "Thủ Thiêm",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "pasteurstreet.com lists Pasteur Street Craft Beer – Metropole (20 Nguyễn Thiện Thành, C1.09, Galleria Metropole) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Official branch directory; verify exact current menu before item-level upgrade. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Pasteur Street Craft Beer – Sala",
+      "address": "74 Nguyễn Cơ Thạch, Sarimi",
+      "district": "Thủ Thiêm",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "pasteurstreet.com lists Pasteur Street Craft Beer – Sala (74 Nguyễn Cơ Thạch, Sarimi) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Official branch directory; verify exact current menu before item-level upgrade. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Pasteur Street Craft Beer – Phú Mỹ Hưng",
+      "address": "CR5-01, Crescent Residence 5",
+      "district": "Quận 7",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "pasteurstreet.com lists Pasteur Street Craft Beer – Phú Mỹ Hưng (CR5-01, Crescent Residence 5) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Official branch directory; verify exact current menu before item-level upgrade. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Pasteur Street Craft Beer – Nguyễn Đức Cảnh",
+      "address": "123 Nguyễn Đức Cảnh",
+      "district": "Quận 7",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.pasteurstreet.com/taprooms"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Pasteur Street Craft Beer"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "pasteurstreet.com lists Pasteur Street Craft Beer – Nguyễn Đức Cảnh (123 Nguyễn Đức Cảnh) as a taproom of Pasteur Street Craft Beer serving Bia thủ công. Official branch directory; verify exact current menu before item-level upgrade.",
+          "url": "https://www.pasteurstreet.com/taprooms"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Official branch directory; verify exact current menu before item-level upgrade. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Heart of Darkness",
+      "address": "31D Lý Tự Trọng",
+      "district": "Quận 1",
+      "venueType": "taproom",
+      "sources": [
+        "https://heartofdarknessbrewery.com/pages/taproom",
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Heart of Darkness"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "heartofdarknessbrewery.com lists Heart of Darkness (31D Lý Tự Trọng) as a taproom of Heart of Darkness serving Bia thủ công.",
+          "url": "https://heartofdarknessbrewery.com/pages/taproom"
+        }
+      ],
+      "note": "operating status: not independently confirmed · evidence level from researcher: source-listed"
+    },
+    {
+      "id": "east-west-brewing-ly-tu-trong",
+      "name": "East West Brewing Co.",
+      "address": "181-185 Lý Tự Trọng",
+      "district": "Quận 1",
+      "venueType": "brewpub",
+      "sources": [
+        "https://eastwestbrewing.vn/taproom/ho-chi-minh",
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "East West Brewing Co."
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "eastwestbrewing.vn lists East West Brewing Co. (181-185 Lý Tự Trọng) as a brewpub of East West Brewing Co. serving Bia thủ công. Already reported in repo; merge only.",
+          "url": "https://eastwestbrewing.vn/taproom/ho-chi-minh"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Already reported in repo; merge only. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "7 Bridges – Đông Du",
+      "address": "38 Đông Du",
+      "district": "Quận 1",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.7bridges.vn/",
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "7 Bridges"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "7bridges.vn lists 7 Bridges – Đông Du (38 Đông Du) as a taproom of 7 Bridges serving Bia thủ công.",
+          "url": "https://www.7bridges.vn/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "7 Bridges – Little Japan",
+      "address": "15B/12 Lê Thánh Tôn",
+      "district": "Quận 1",
+      "venueType": "taproom",
+      "sources": [
+        "https://www.7bridges.vn/",
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "7 Bridges"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "7bridges.vn lists 7 Bridges – Little Japan (15B/12 Lê Thánh Tôn) as a taproom of 7 Bridges serving Bia thủ công.",
+          "url": "https://www.7bridges.vn/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "BiaCraft – Thảo Điền",
+      "address": "90 Xuân Thủy",
+      "district": "Thảo Điền",
+      "venueType": "taproom",
+      "sources": [
+        "https://biacraft.com/locations/xuan-thuy",
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "BiaCraft"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "biacraft.com lists BiaCraft – Thảo Điền (90 Xuân Thủy) as a taproom of BiaCraft serving Bia thủ công.",
+          "url": "https://biacraft.com/locations/xuan-thuy"
+        }
+      ],
+      "note": "operating status: not independently confirmed · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "BiaCraft – Lê Ngô Cát",
+      "address": "1 Lê Ngô Cát",
+      "district": "Quận 3",
+      "venueType": "taproom",
+      "sources": [
+        "https://biacraft.com/contact",
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "BiaCraft"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "biacraft.com lists BiaCraft – Lê Ngô Cát (1 Lê Ngô Cát) as a taproom of BiaCraft serving Bia thủ công.",
+          "url": "https://biacraft.com/contact"
+        }
+      ],
+      "note": "operating status: not independently confirmed · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "BiaCraft – Trường Sa",
+      "address": "300-304 Trường Sa",
+      "district": "Phú Nhuận",
+      "venueType": "taproom",
+      "sources": [
+        "https://biacraft.com/locations/truong-sa",
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "BiaCraft"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "biacraft.com lists BiaCraft – Trường Sa (300-304 Trường Sa) as a taproom of BiaCraft serving Bia thủ công.",
+          "url": "https://biacraft.com/locations/truong-sa"
+        }
+      ],
+      "note": "operating status: not independently confirmed · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Belgo",
+      "address": "159A Nguyễn Văn Thủ",
+      "district": "Quận 1",
+      "venueType": "brewpub",
+      "sources": [
+        "https://www.belgo.com.vn/belgobelgiancraftbeerbrewery",
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Belgo"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "belgo.com.vn lists Belgo (159A Nguyễn Văn Thủ) as a brewpub of Belgo serving Bia thủ công.",
+          "url": "https://www.belgo.com.vn/belgobelgiancraftbeerbrewery"
+        }
+      ],
+      "note": "operating status: not independently confirmed · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Tiệm Bia Gà – Bùi Viện",
+      "address": "40 Bùi Viện",
+      "district": "Quận 1",
+      "venueType": "taproom",
+      "sources": [
+        "https://saigon-scene.com/craft-breweries-in-saigon/",
+        "https://roosterbeverages.com/vi/tiem-bia-ga/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Tiệm Bia Gà"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "saigon-scene.com lists Tiệm Bia Gà – Bùi Viện (40 Bùi Viện) as a taproom of Tiệm Bia Gà serving Bia thủ công. Branch address from September 2026 guide; corroborate branch independently.",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Branch address from September 2026 guide; corroborate branch independently. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Tiệm Bia Gà – Thảo Điền",
+      "address": "26B Xuân Thủy",
+      "district": "Thảo Điền",
+      "venueType": "taproom",
+      "sources": [
+        "https://saigon-scene.com/craft-breweries-in-saigon/",
+        "https://roosterbeverages.com/vi/tiem-bia-ga/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Tiệm Bia Gà"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "saigon-scene.com lists Tiệm Bia Gà – Thảo Điền (26B Xuân Thủy) as a taproom of Tiệm Bia Gà serving Bia thủ công. Branch address from September 2026 guide; corroborate branch independently.",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Branch address from September 2026 guide; corroborate branch independently. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Tiệm Bia Gà – Khánh Hội",
+      "address": "92 Khánh Hội",
+      "district": "Quận 4",
+      "venueType": "taproom",
+      "sources": [
+        "https://saigon-scene.com/craft-breweries-in-saigon/",
+        "https://roosterbeverages.com/vi/tiem-bia-ga/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Tiệm Bia Gà"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "saigon-scene.com lists Tiệm Bia Gà – Khánh Hội (92 Khánh Hội) as a taproom of Tiệm Bia Gà serving Bia thủ công. Branch address from September 2026 guide; corroborate branch independently.",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Branch address from September 2026 guide; corroborate branch independently. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Tiệm Bia Gà – Tên Lửa",
+      "address": "362 Tên Lửa",
+      "district": "Bình Tân",
+      "venueType": "taproom",
+      "sources": [
+        "https://saigon-scene.com/craft-breweries-in-saigon/",
+        "https://roosterbeverages.com/vi/tiem-bia-ga/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Tiệm Bia Gà"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "saigon-scene.com lists Tiệm Bia Gà – Tên Lửa (362 Tên Lửa) as a taproom of Tiệm Bia Gà serving Bia thủ công. Branch address from September 2026 guide; corroborate branch independently.",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Branch address from September 2026 guide; corroborate branch independently. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Tiệm Bia Gà – Đồng Nai",
+      "address": "29 Đồng Nai",
+      "district": "Quận 10",
+      "venueType": "taproom",
+      "sources": [
+        "https://saigon-scene.com/craft-breweries-in-saigon/",
+        "https://roosterbeverages.com/vi/tiem-bia-ga/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Tiệm Bia Gà"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "saigon-scene.com lists Tiệm Bia Gà – Đồng Nai (29 Đồng Nai) as a taproom of Tiệm Bia Gà serving Bia thủ công. Branch address from September 2026 guide; corroborate branch independently.",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Branch address from September 2026 guide; corroborate branch independently. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Tiệm Bia Gà – Phạm Viết Chánh",
+      "address": "38 Phạm Viết Chánh",
+      "district": "Bình Thạnh",
+      "venueType": "taproom",
+      "sources": [
+        "https://saigon-scene.com/craft-breweries-in-saigon/",
+        "https://roosterbeverages.com/vi/tiem-bia-ga/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Tiệm Bia Gà"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "saigon-scene.com lists Tiệm Bia Gà – Phạm Viết Chánh (38 Phạm Viết Chánh) as a taproom of Tiệm Bia Gà serving Bia thủ công. Branch address from September 2026 guide; corroborate branch independently.",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Branch address from September 2026 guide; corroborate branch independently. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Belgica Brewpub",
+      "address": "198A Nguyễn Văn Hưởng",
+      "district": "Thảo Điền",
+      "venueType": "brewpub",
+      "sources": [
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Belgica Brewpub"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "saigon-scene.com lists Belgica Brewpub (198A Nguyễn Văn Hưởng) as a brewpub of Belgica Brewpub serving Bia thủ công. Secondary guide; corroborate with current official listing.",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Secondary guide; corroborate with current official listing. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Steersman Brewery",
+      "address": "84 Phạm Viết Chánh",
+      "district": "Bình Thạnh",
+      "venueType": "taproom",
+      "sources": [
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Steersman Brewery"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "saigon-scene.com lists Steersman Brewery (84 Phạm Viết Chánh) as a taproom of Steersman Brewery serving Bia thủ công. Secondary guide; corroborate with current official listing. Steersman old address must not be used.",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Secondary guide; corroborate with current official listing. Steersman old address must not be used. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Malt Saigon",
+      "address": "46-48 Mạc Thị Bưởi",
+      "district": "Quận 1",
+      "venueType": "craft beer bar",
+      "sources": [
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Malt Saigon"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "saigon-scene.com lists Malt Saigon (46-48 Mạc Thị Bưởi) as a craft beer bar of Malt Saigon serving Bia thủ công. Secondary guide; corroborate with current official listing.",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Secondary guide; corroborate with current official listing. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Mighty Moon",
+      "address": "27 Lý Văn Phức",
+      "district": "Quận 1",
+      "venueType": "brewpub",
+      "sources": [
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Mighty Moon"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "saigon-scene.com lists Mighty Moon (27 Lý Văn Phức) as a brewpub of Mighty Moon serving Bia thủ công. Secondary guide; corroborate with current official listing.",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Secondary guide; corroborate with current official listing. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Deme Brewing Taproom",
+      "address": "393/7 Hai Bà Trưng",
+      "district": "Quận 3",
+      "venueType": "taproom",
+      "sources": [
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Deme Brewing Taproom"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "saigon-scene.com lists Deme Brewing Taproom (393/7 Hai Bà Trưng) as a taproom of Deme Brewing Taproom serving Bia thủ công. Secondary guide; corroborate with current official listing.",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Secondary guide; corroborate with current official listing. · evidence level from researcher: source-listed"
+    },
+    {
+      "name": "Reham Saigon Taproom",
+      "address": "165/37 Nguyễn Thái Bình",
+      "district": "Quận 1",
+      "venueType": "taproom",
+      "sources": [
+        "https://saigon-scene.com/craft-breweries-in-saigon/"
+      ],
+      "attributes": {
+        "barTypes": [
+          "craft-beer"
+        ],
+        "brand": "Reham Saigon Taproom"
+      },
+      "offerings": [
+        {
+          "item": "craft-beer",
+          "evidence": "saigon-scene.com lists Reham Saigon Taproom (165/37 Nguyễn Thái Bình) as a taproom of Reham Saigon Taproom serving Bia thủ công. Secondary guide; corroborate with current official listing.",
+          "url": "https://saigon-scene.com/craft-breweries-in-saigon/"
+        }
+      ],
+      "note": "operating status: not independently confirmed · Secondary guide; corroborate with current official listing. · evidence level from researcher: source-listed"
+    }
+  ]
+}

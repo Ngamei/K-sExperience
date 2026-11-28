@@ -36,6 +36,7 @@ All new research enters through `research-exchange/` and `npm run intake` (see `
 
 | Batch | Experience | Status | Records |
 | --- | --- | --- | --- |
+| GPT-BARS-001 (external BAR-CRAFT-20261128-01, ChatGPT) | bars → Craft beer | imported 2026-11-28 | 32 candidates → 26 establishments (24 new + 2 merged: Pasteur Street original 144/3 Pasteur → `pasteur-street-brewing-pasteur`, East West → `east-west-brewing-ly-tu-trong`); 6 rejected (no street number: Pasteur Street Phú Mỹ Hưng; street-level pin in another district: Pasteur Street Bùi Viện/212 Đề Thám, Pasteur Street Hoàng Sa, BiaCraft Trường Sa, Tiệm Bia Gà Tên Lửa, Deme Brewing). All `source-listed` (official brand directories + saigon-scene.com Sept 2026 guide); brand stored as `attributes.brand`; no individual beers, prices or photos (not established). Raw files: `research-exchange/incoming/BAR-CRAFT-20261128-01/`. |
 | CC-FOOD-009 | food | imported 2026-11-28 | Cục Gạch Quán (canh chua cá lóc; hours per Michelin Guide), Bánh canh Trảng Bàng Ba Xi (VnExpress 2011 — operation unconfirmed), Bánh canh Trảng Bàng Ông Cáo (hours per Mytour); withheld: Chè Hiển Khánh (geocode at wrong end of the street) |
 
 ## Catalogue import format (for the ChatGPT master catalogue)

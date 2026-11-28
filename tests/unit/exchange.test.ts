@@ -64,6 +64,10 @@ describe("research exchange — batch validation", () => {
     expect(geocodeProblem({ address: "10 Nguyễn Văn Linh", district: "Quận 7" }, { lon: 106.9, lat: 10.9, displayName: "Nguyễn Văn Linh, …" }, centres)).toMatch(/km from Quận 7/);
     expect(geocodeProblem({ address: "10 Nguyễn Văn Linh", district: "Quận 7" }, { lon: 106.72, lat: 10.735, displayName: "Nguyễn Văn Linh, Tân Phong" }, centres)).toBeNull();
     expect(geocodeProblem({ address: "1 A" }, { failed: true, reason: "ambiguous" }, centres)).toMatch(/ambiguous/);
+    // street-level pin of "393/7 Hai Bà Trưng" (stated Quận 3) that lands in Quận 1
+    const two = { "Quận 1": [106.700, 10.776] as [number, number], "Quận 3": [106.684, 10.783] as [number, number] };
+    expect(geocodeProblem({ address: "393/7 Hai Bà Trưng", district: "Quận 3" }, { lon: 106.7004, lat: 10.7808, displayName: "Hai Bà Trưng, Sài Gòn", precision: "street" }, two)).toMatch(/nearer Quận 1/);
+    expect(geocodeProblem({ address: "393/7 Hai Bà Trưng", district: "Quận 3" }, { lon: 106.7004, lat: 10.7808, displayName: "Hai Bà Trưng, Sài Gòn", precision: "exact" }, two)).toBeNull();
   });
 
   it("queue: another agent's active claim on the same item + district is reported", () => {

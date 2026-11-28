@@ -25,13 +25,24 @@ const geo: Record<string, { lon?: number; lat?: number; precision?: string; ward
 interface Venue { id: string; name: string; address: string; district?: string; venueType: string; sources: string[]; attributes?: Record<string, unknown>; openingHours?: unknown; priceRange?: string;
   offerings: { item: string; evidence: string; url: string; price?: { minVnd: number; maxVnd: number; unit: string }; photo?: unknown }[]; excluded?: string }
 const skipped: string[] = [];
-const establishments: unknown[] = [];
-const offerings: unknown[] = [];
+type Row = Record<string, unknown>;
+const establishments: (Row & { id: string; sources: { url?: string }[]; attributes?: Record<string, unknown> })[] = [];
+const offerings: (Row & { itemId: string; establishmentId: string })[] = [];
 for (const f of readdirSync(dir).filter((x) => /^batch-[\w-]+\.json$/.test(x)).sort()) {
   const batch = read(f) as { researchedOn: string; venues: Venue[] };
   for (const v of batch.venues) {
     if (v.excluded) { skipped.push(`${v.name}: ${v.excluded}`); continue; }
     const g = geo[`${v.name}|${v.address}|${v.district ?? ""}`];
+    const prior = establishments.find((e) => e.id === v.id);
+    if (prior) {
+      // Same establishment in a later batch (intake merged it into the existing id): keep the first record's
+      // name/address/coordinates, add new sources and attributes, add offerings not already linked.
+      for (const url of v.sources) if (!prior.sources.some((s) => s.url === url)) prior.sources.push({ title: new URL(url).hostname.replace(/^www\./, ""), url, accessed: batch.researchedOn } as never);
+      prior.attributes = { ...(v.attributes ?? {}), ...(prior.attributes ?? {}) };
+      for (const o of v.offerings) if (!offerings.some((x) => x.itemId === o.item && x.establishmentId === v.id))
+        offerings.push({ itemId: o.item, establishmentId: v.id, status: "source-listed", isSample: false, menuEvidence: { type: "published-source", note: o.evidence, url: o.url }, lastVerified: batch.researchedOn } as never);
+      continue;
+    }
     if (!g || g.failed || g.lon === undefined || g.lat === undefined) { skipped.push(`${v.name}: not geocoded (${g?.reason ?? "run the geocoder"})`); continue; }
     establishments.push({
       id: v.id, name: v.name, isSample: false, address: v.address, neighbourhood: g.ward ?? v.district ?? "TP. Hồ Chí Minh",

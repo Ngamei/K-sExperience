@@ -35,6 +35,8 @@ export const BatchVenueSchema = z.object({
   confirmDistinct: z.boolean().optional(),
 });
 export const BatchSchema = z.object({
+  /** Id given by an external research team (e.g. BAR-CRAFT-20261128-01), kept for traceability. */
+  externalBatchId: z.string().optional(),
   batchId: z.string().regex(/^(CC|GPT|CX|PO)-[A-Z]+-\d{3}$/, "e.g. GPT-FOOD-001 (agent prefix, scope, number)"),
   experience: z.enum(EXCHANGE_EXPERIENCES),
   kind: z.enum(["venues", "catalogue"]),
@@ -57,8 +59,11 @@ export const ID_RULES = {
 
 /** Same rule as scripts/import-restaurants.ts. */
 export const establishmentId = (name: string, address: string) => slugify(`${name} ${address.split(",")[0]}`);
-const streetOf = (address: string) => normalizeVi(address.split(",")[0]).replace(/^[\d/a-z]*\d[\d/a-z]*\s+/, "").replace(/^(duong|so)\s+/, "").trim();
-const numberOf = (address: string) => (normalizeVi(address.split(",")[0]).match(/^[\d/]+[a-z]?/) ?? [""])[0];
+/** House number (raw, before normalising: "144/3", "181-185", "26A") and street name of the first address segment. */
+const HOUSE = /^\s*(\d[\dA-Za-z/\-–—.]*)\s+/;
+export const streetOf = (address: string) => normalizeVi(address.split(",")[0].replace(HOUSE, "")).replace(/^(duong|so)\s+/, "").trim();
+/** Base house number for matching branches of the same building ("144/3" ↔ "144", "181-185" ↔ "181"). */
+export const numberOf = (address: string) => ((address.split(",")[0].match(HOUSE)?.[1] ?? "").match(/^\d+/) ?? [""])[0];
 
 export interface ExistingEstablishment { id: string; experience: string; name: string; address: string; coordinates: LngLat }
 export interface ValidationCtx {
@@ -139,11 +144,19 @@ export function validateVenues(batch: Batch, ctx: ValidationCtx): VenueVerdict[]
 }
 
 /** Geocode sanity: the matched place must be on the stated street and near the stated former district. */
-export function geocodeProblem(v: Pick<BatchVenue, "address" | "district">, g: { lon?: number; lat?: number; failed?: boolean; reason?: string; displayName?: string } | undefined, districtCentres: Record<string, LngLat>): string | null {
+export function geocodeProblem(v: Pick<BatchVenue, "address" | "district">, g: { lon?: number; lat?: number; failed?: boolean; reason?: string; displayName?: string; precision?: string } | undefined, districtCentres: Record<string, LngLat>): string | null {
   if (!g || g.failed || g.lon === undefined || g.lat === undefined) return `not geocoded: ${g?.reason ?? "no result"}`;
   const street = streetOf(v.address);
   if (street && g.displayName && !normalizeVi(g.displayName).includes(street)) return `geocoder matched "${g.displayName}", which is not on ${v.address.split(",")[0]}`;
   const c = v.district ? districtCentres[v.district] : undefined;
   if (c && haversineKm(c, [g.lon, g.lat]) > 6) return `geocoded ${haversineKm(c, [g.lon, g.lat]).toFixed(1)} km from ${v.district}`;
+  // A street-level pin (house number not found) on a long street can land in another district: reject when the pin
+  // is clearly nearer another district's centre than the stated one (Thủ Đức-area names are one group).
+  if (c && g.precision === "street") {
+    const group = (n: string) => (["Thủ Đức", "Thảo Điền", "Thủ Thiêm", "An Phú"].includes(n) ? "thu-duc" : n);
+    const d0 = haversineKm(c, [g.lon, g.lat]);
+    const nearest = Object.entries(districtCentres).filter(([n]) => group(n) !== group(v.district!)).map(([n, p]) => [n, haversineKm(p, [g.lon!, g.lat!])] as const).sort((a, b) => a[1] - b[1])[0];
+    if (nearest && nearest[1] + 0.5 < d0) return `street-level pin (house number not located) lies nearer ${nearest[0]} than ${v.district} — exact location unconfirmed`;
+  }
   return null;
 }

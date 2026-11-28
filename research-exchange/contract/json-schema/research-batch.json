@@ -2,6 +2,9 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
+    "externalBatchId": {
+      "type": "string"
+    },
     "batchId": {
       "type": "string",
       "pattern": "^(CC|GPT|CX|PO)-[A-Z]+-\\d{3}$"
