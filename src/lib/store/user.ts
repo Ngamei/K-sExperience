@@ -52,7 +52,14 @@ interface UserState {
   /** Clear personal data from this device (sign-out); preferences/language stay. */
   clearPersonal: () => void;
   setSync: (sync: UserState["sync"], syncError?: string | null) => void;
-  reset: () => void;
+  /** Privacy & Data → reset diet / budget / interest preferences only. Passport and saved items are untouched. */
+  resetPreferences: () => void;
+  /**
+   * Privacy & Data → clear everything this browser stores for the app (language stays). The device copy is
+   * detached from any account first (ownerId → null) so the account sync can never read the empty device as
+   * "the user deleted everything": cloud Passport history is not touched.
+   */
+  clearDevice: () => void;
 }
 
 /** Sample venues are shown only in development/test builds (DEV_DATA) and only when the toggle is on. */
@@ -159,7 +166,8 @@ export const useUser = create<UserState>()(
       },
       clearPersonal: () => set({ ownerId: null, ...EMPTY_PASSPORT, collections: [], modulePassports: {}, sync: "idle", syncError: null }),
       setSync: (sync, syncError = null) => set({ sync, syncError }),
-      reset: () => set({ ...initial, locale: get().locale, ownerId: get().ownerId }),
+      resetPreferences: () => set({ preferences: DEFAULT_PREFERENCES }),
+      clearDevice: () => set({ ...initial, locale: get().locale, ownerId: null, sync: "idle", syncError: null }),
     }),
     {
       name: "ks-experience-user",

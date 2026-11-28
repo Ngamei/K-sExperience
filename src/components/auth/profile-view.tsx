@@ -2,9 +2,9 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { LogOut, Trash2, UserRound } from "lucide-react";
+import { LogOut, UserRound } from "lucide-react";
 import { getSupabase, supabaseEnabled } from "@/lib/supabase/client";
-import { deleteMyAccount, saveProfile } from "@/lib/supabase/passport";
+import { saveProfile } from "@/lib/supabase/passport";
 import { authDict } from "@/lib/i18n/auth-dict";
 import { useT } from "@/lib/i18n/use-t";
 import { useUser } from "@/lib/store/user";
@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { useAuth } from "@/components/shell/auth-provider";
 import { AuthCard } from "./auth-forms";
+import { DeleteAccount } from "./delete-account";
 
 const input = "h-10 w-full rounded-xl border border-line bg-paper px-3 text-sm";
 
@@ -43,7 +44,6 @@ function ProfileForm({ user, profile, refreshProfile, signOut }: Pick<ReturnType
   const [avatar, setAvatar] = useState(profile?.avatar_url ?? "");
   const [share, setShare] = useState(profile?.share_passport ?? false);
   const [msg, setMsg] = useState("");
-  const [confirm, setConfirm] = useState("");
   const sb = getSupabase()!;
   const providers = [...new Set((user.identities ?? []).map((i) => i.provider))];
 
@@ -80,15 +80,7 @@ function ProfileForm({ user, profile, refreshProfile, signOut }: Pick<ReturnType
 
       <section className="space-y-3 rounded-3xl border border-line/80 bg-paper p-5">
         <Button variant="outline" onClick={async () => { await signOut(); router.push("/"); }} data-testid="logout"><LogOut /> {a.logout}</Button>
-        <div className="border-t border-line pt-3">
-          <p className="text-sm text-muted">{a.deleteConfirm}</p>
-          <div className="mt-2 flex gap-2">
-            <input className={input + " max-w-40"} value={confirm} onChange={(e) => setConfirm(e.target.value)} placeholder="DELETE" data-testid="delete-confirm" />
-            <Button variant="accent" disabled={confirm !== "DELETE"} data-testid="delete-account" onClick={async () => {
-              try { await deleteMyAccount(sb); setMsg(a.deleted); router.push("/"); await signOut(); } catch (e) { setMsg((e as Error).message); }
-            }}><Trash2 /> {a.deleteAccount}</Button>
-          </div>
-        </div>
+        <div className="border-t border-line pt-3"><DeleteAccount /></div>
       </section>
     </div>
   );

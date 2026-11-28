@@ -1,5 +1,25 @@
 # QA report
 
+## KEX-SET-01 / KEX-SEC-02 — Customer Settings & Admin separation (2026-11-28, branch `claude/gifted-franklin-iltr35`)
+
+Environment: Linux cloud container, Node 22.23.5, headless Chromium (Playwright), local PostgreSQL 16 + PostGIS 3.
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | `npx tsc --noEmit` | ✅ exit 0 |
+| 2 | `npm run lint` | ✅ 0 errors; 1 pre-existing warning (`scripts/neighbourhood-coverage.ts`, untouched) |
+| 3 | `npx vitest run` | ✅ **21 files, 163 tests** (new `tests/unit/access-membership.test.ts`: no tier is a staff role or opens Admin; only admin/editor write; only admin manages members; tier expiry; proposed prices) |
+| 4 | `npm run test:db` | ✅ **ALL DB TESTS PASSED**, incl. 15 new 0013 checks: customer cannot self-assign a membership or a staff role; admin grants a test tier (audited); a Premium customer is not editor/staff, reads only their own membership, cannot read the audit trail, and their catalogue/membership updates have no effect; reviewer is read-only staff (reads audit, no writes, no customer memberships); unknown role rejected. Seed parity 10/10 |
+| 5 | `npm run build:e2e` + `npx playwright test` | ✅ **103 passed, 1 skipped (pre-existing)** — new `e2e/settings.spec.ts` × desktop + Pixel 7: section order; no Supabase / Data mode / admin / coverage text; Coming-soon rows non-interactive; row navigation; membership prices, no checkout; Vietnamese; guest Privacy (reset preferences keeps the Passport, cancel does nothing, clear device removes guest data and keeps the language); Admin Portal 11 modules + deep links + System Health. First run: 2 failures (test read the list before client render) → wait added |
+| 6 | `npm run build:auth-test` + `npm run test:e2e-auth` (**mock** Supabase) | ✅ **46 passed** — new `e2e-auth/access-control.spec.ts`: guest, Free, Plus, Premium (test entitlements), reviewer, admin; direct `/admin/#system`, `#users`, `#catalogue` denied for customers; customer REST writes to `user_roles` / `user_memberships` refused (403); admin grants Premium → the customer sees Premium and is still denied Admin; **signed-in "Clear data on this device" keeps the account Passport** (rows unchanged after the sync debounce; Passport reloaded). First run: 2 failures (old Settings copy assertion) → updated |
+| 7 | `npm run build:modules-test` + `npm run test:e2e-modules` | ✅ **46 passed** (public build: `/admin/` unavailable, no Admin entry in Settings) |
+
+**Bug fixed:** the old Settings "Reset my data" (`useUser.reset()`) kept `ownerId`, so for a signed-in user the diff sync treated the emptied device as deletions and removed the account's Passport. Replaced by `clearDevice()` (detaches the device copy first) + `reloadFromAccount()`; the debounced sync also aborts if the device data no longer belongs to the account. Covered by test 6.
+
+**Screenshots:** `docs/screenshots/settings-admin/` — `before-*` (old Settings with Data mode, Catalogue administration, coverage table) and `after-*` (guest + Premium Settings, Privacy guest/signed-in, Membership, Admin denied for guest and Premium, Admin Overview / Users & Memberships / System Health; desktop + mobile).
+
+**Not verified (blockers):** nothing ran against the live Supabase project; migration 0013 is not applied (a merge to `main` applies it, D65). Real account creation and cross-device persistence remain unverified on hosted Supabase (test inboxes and independent browser profiles unavailable — KEX-AUTH-01). Account tests use the mock; the RLS rules are proven only in local PostgreSQL. Codex independent review of the access control is still required.
+
 _Run date: 2026-11-28 (re-run after PO decisions D55–D58: mobile nav, soft meal time, pastel themes, research exchange) · Branch `claude/trusting-clarke-44sf7b` · Environment: Linux cloud container, Node 22.23.5, npm 10.9.9,
 headless Chromium (Playwright 1.63) with SwiftShader WebGL._ The exact commit is the branch head that contains this file.
 

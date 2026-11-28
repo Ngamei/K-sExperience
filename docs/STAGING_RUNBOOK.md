@@ -38,6 +38,8 @@ Either paste each file into the SQL editor in order, or `supabase link --project
 
 What they change: 0009 makes `dishes.spice_level` nullable (unknown ≠ 0; the 0–3 check stays). 0010 allows `coordinate_precision = 'building'`. Neither drops data. Both are safe to re-run (0009 only relaxes the column; 0010 drops the check `if exists` and re-adds it), but run them once and in order.
 
+- **0013** `0013_staff_roles_memberships.sql` (KEX-SEC-02): staff roles researcher/reviewer, `is_staff()`, `is_admin()`, `user_memberships` + audit trigger. No data changes. After apply: a non-admin `insert into user_memberships` / `user_roles` is refused; `select is_editor()` is false for a Premium test identity.
+
 ## 3. Seed + parity
 
 1. Run `supabase/seed.sql` (idempotent — the local test runs it twice).

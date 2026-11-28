@@ -203,7 +203,7 @@ export function ItemCatalogue({ d }: { d: ModuleData }) {
       eyebrow={loc(m.name, locale)}
       summary={
         <p className="text-sm text-muted" data-testid="module-coverage">
-          {stats.items} {items_} · {stats.linkedEstablishments} {loc(stats.linkedEstablishments === 1 ? COPY.placeOne : COPY.placeMany, locale)} · {stats.itemsWithEstablishments}/{stats.items} {loc(COPY.withPlaces, locale)}
+          {stats.items} {items_} · {stats.linkedEstablishments} {loc(stats.linkedEstablishments === 1 ? COPY.placeOne : COPY.placeMany, locale)}
         </p>
       }
       title={loc(m.navLabels.catalogue, locale)}

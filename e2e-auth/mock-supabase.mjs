@@ -11,7 +11,7 @@ const PK = {
   user_profiles: ["user_id"],
 };
 let db;
-const reset = () => { db = { users: [], roles: {}, refresh: {}, fail: false, tables: { saved_experiences: [], experience_history: [], tasting_notes: [], user_profiles: [] } }; };
+const reset = () => { db = { users: [], roles: {}, memberships: {}, refresh: {}, fail: false, tables: { saved_experiences: [], experience_history: [], tasting_notes: [], user_profiles: [] } }; };
 reset();
 
 const b64 = (o) => Buffer.from(JSON.stringify(o)).toString("base64url");
@@ -47,6 +47,12 @@ createServer(async (req, res) => {
     const u = db.users.find((x) => x.email === url.searchParams.get("email"));
     if (!u) return send(res, 404, { message: "no such user" });
     db.roles[u.id] = url.searchParams.get("role");
+    return send(res, 200, { ok: true });
+  }
+  if (p === "/__membership") { // test entitlement (stands in for an admin writing user_memberships)
+    const u = db.users.find((x) => x.email === url.searchParams.get("email"));
+    if (!u) return send(res, 404, { message: "no such user" });
+    db.memberships[u.id] = { user_id: u.id, tier: url.searchParams.get("tier"), source: "test", valid_until: null, updated_at: new Date().toISOString() };
     return send(res, 200, { ok: true });
   }
   if (p === "/__db") return send(res, 200, { users: db.users.map((u) => ({ id: u.id, email: u.email })), ...db.tables });
@@ -88,6 +94,17 @@ createServer(async (req, res) => {
     return send(res, 204);
   }
   const table = p.replace("/rest/v1/", "");
+  const one = (rows) => (req.headers.accept ?? "").includes("vnd.pgrst.object")
+    ? (rows.length === 1 ? send(res, 200, rows[0]) : send(res, 406, { code: "PGRST116", message: "0 rows", details: "", hint: null })) : send(res, 200, rows);
+  if (table === "user_roles" && req.method !== "GET") return send(res, 403, { code: "42501", message: "new row violates row-level security policy for table \"user_roles\"" }); // no client write policy
+  if (table === "user_memberships") { // 0013: read own (admins read all); writes by admins only
+    const sub = subOf(req), admin = sub && db.roles[sub] === "admin";
+    if (req.method === "GET") return one(Object.values(db.memberships).filter((m) => (admin || m.user_id === sub) && match(m, filters(url))));
+    if (!admin) return send(res, 403, { code: "42501", message: "new row violates row-level security policy for table \"user_memberships\"" });
+    const body = await readBody(req);
+    for (const r of Array.isArray(body) ? body : [body]) db.memberships[r.user_id] = { valid_until: null, source: "test", ...r };
+    return send(res, 201);
+  }
   if (table === "user_roles") { // "read own role" policy: a user sees only their own row
     const sub = subOf(req), role = sub && db.roles[sub];
     const rows = role && match({ user_id: sub }, filters(url)) ? [{ role }] : [];

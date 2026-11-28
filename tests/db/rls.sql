@@ -250,5 +250,54 @@ do $$ begin
   insert into results values ('invalid closure rejected', false);
 exception when check_violation then insert into results values ('invalid closure rejected', true); end $$;
 
+-- 0013 (KEX-SEC-02): membership tiers are entitlements, never permissions; nobody self-grants a role or a tier.
+reset role;
+insert into auth.users values ('00000000-0000-0000-0000-000000000006'), ('00000000-0000-0000-0000-000000000007'), ('00000000-0000-0000-0000-000000000008'), ('00000000-0000-0000-0000-000000000009');
+insert into user_roles values ('00000000-0000-0000-0000-000000000007', 'admin'), ('00000000-0000-0000-0000-000000000008', 'reviewer');
+-- (a) a customer cannot grant themselves Premium or a staff role
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000006';
+do $$ begin
+  begin insert into user_memberships (user_id, tier) values ('00000000-0000-0000-0000-000000000006', 'premium'); exception when others then null; end;
+  begin insert into user_roles values ('00000000-0000-0000-0000-000000000006', 'admin'); exception when others then null; end;
+end $$;
+reset role;
+insert into results select 'customer cannot self-assign a membership', count(*) = 0 from user_memberships where user_id = '00000000-0000-0000-0000-000000000006';
+insert into results select 'customer cannot self-assign a staff role', count(*) = 0 from user_roles where user_id = '00000000-0000-0000-0000-000000000006';
+-- (b) an admin grants a test entitlement (audited)
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000007';
+insert into user_memberships (user_id, tier, source, updated_by) values ('00000000-0000-0000-0000-000000000006', 'premium', 'test', '00000000-0000-0000-0000-000000000007');
+insert into user_memberships (user_id, tier, source) values ('00000000-0000-0000-0000-000000000009', 'plus', 'test');
+reset role;
+insert into results select 'admin grants a test membership', tier = 'premium' from user_memberships where user_id = '00000000-0000-0000-0000-000000000006';
+insert into results select 'membership change audited with the admin', count(*) = 1 from content_audit where table_name = 'user_memberships' and row_key = '00000000-0000-0000-0000-000000000006' and changed_by = '00000000-0000-0000-0000-000000000007';
+-- (c) a Premium customer is still not staff: no catalogue writes, no audit, no other users' memberships, cannot upgrade/extend
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000006';
+insert into results select 'premium customer is not an editor', not is_editor();
+insert into results select 'premium customer is not staff', not is_staff();
+insert into results select 'premium customer reads own membership only', count(*) = 1 and bool_and(user_id = '00000000-0000-0000-0000-000000000006') from user_memberships;
+insert into results select 'premium customer cannot read the audit trail', count(*) = 0 from content_audit;
+update dishes set name_en = 'premium-edit' where id = 'mi-quang';
+update user_memberships set tier = 'premium', valid_until = '2099-01-01' where user_id = '00000000-0000-0000-0000-000000000009';
+update user_memberships set valid_until = '2099-01-01' where user_id = '00000000-0000-0000-0000-000000000006';
+reset role;
+insert into results select 'premium customer catalogue update had no effect', name_en <> 'premium-edit' from dishes where id = 'mi-quang';
+insert into results select 'customer cannot change memberships (own or others)', (select tier from user_memberships where user_id = '00000000-0000-0000-0000-000000000009') = 'plus' and (select valid_until from user_memberships where user_id = '00000000-0000-0000-0000-000000000006') is null;
+-- (d) a reviewer is read-only staff: reads the audit trail, cannot write the catalogue or memberships
+set role authenticated;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000008';
+insert into results select 'reviewer is staff but not an editor', is_staff() and not is_editor();
+insert into results select 'reviewer reads the audit trail', count(*) > 0 from content_audit;
+insert into results select 'reviewer cannot read customer memberships', count(*) = 0 from user_memberships;
+update dishes set name_en = 'reviewer-edit' where id = 'mi-quang';
+reset role;
+insert into results select 'reviewer catalogue update had no effect', name_en <> 'reviewer-edit' from dishes where id = 'mi-quang';
+do $$ begin
+  insert into user_roles values ('00000000-0000-0000-0000-000000000006', 'superuser');
+  insert into results values ('unknown staff role rejected', false);
+exception when check_violation then insert into results values ('unknown staff role rejected', true); end $$;
+
 select (case when ok then 'PASS ' else 'FAIL ' end) || name from results;
 select case when bool_and(ok) then 'ALL DB TESTS PASSED' else 'DB TESTS FAILED' end from results;

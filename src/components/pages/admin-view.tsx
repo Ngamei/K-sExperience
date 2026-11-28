@@ -1,7 +1,8 @@
 "use client";
-import { Download, FileUp, LogOut, ShieldAlert, ShieldCheck } from "lucide-react";
+import { Activity, BookOpen, Building2, ClipboardList, CreditCard, Download, FileUp, FlaskConical, LayoutDashboard, LogOut, Salad, ShieldAlert, ShieldCheck, Tags, Users } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import type { User } from "@supabase/supabase-js";
 import { useT } from "@/lib/i18n/use-t";
 import { importCatalogue, parseCsv, type ImportResult } from "@/lib/data/importer";
@@ -9,18 +10,22 @@ import { mergeCatalogues } from "@/lib/data/merge";
 import { CATEGORIES, type Dish, type DishRestaurantLink, type Restaurant } from "@/lib/data/schema";
 import { normalizeVi } from "@/lib/search/normalize";
 import { pointInGeometry, type GeoJsonGeometry } from "@/lib/geo/geo";
-import { getSupabase, supabaseEnabled } from "@/lib/supabase/client";
-import { applyImport, currentUser, isEditor, recentAudit, saveDish, saveLink, saveRestaurant, signInWithEmail, uploadPhoto } from "@/lib/supabase/admin";
+import { getSupabase, SUPABASE_URL, supabaseEnabled } from "@/lib/supabase/client";
+import { applyImport, currentUser, grantTestMembership, listMemberships, recentAudit, saveDish, saveLink, saveRestaurant, signInWithEmail, staffRole, uploadPhoto } from "@/lib/supabase/admin";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { useFoodData } from "@/components/food/food-data";
 import { whatToEatReport } from "@/lib/food/what-to-eat-report";
-import { PlatformSummary } from "@/components/engine/platform-summary";
+import { PlatformSummary, usePlatformStats } from "@/components/engine/platform-summary";
 import { DishEditor, EvidenceEditor, RestaurantEditor, field, label, type Saver } from "@/components/admin/admin-forms";
-import { ModuleAdmin } from "@/components/admin/module-admin";
+import { ModuleAdmin, type ModuleTab } from "@/components/admin/module-admin";
 import { EXPERIENCES, isSelectable, loc, type ExperienceId } from "@/experiences/registry";
-import { adminAllowed, adminGate } from "@/lib/admin/access";
+import { adminAllowed, adminGate, canEdit, canManageMembers, localAdminAllowed, STAFF_ROLE_LABELS, STAFF_ROLES, type AdminGate, type StaffRole } from "@/lib/admin/access";
+import { PLANS, TIERS, usd, type Tier } from "@/lib/membership/plans";
+import { DEV_DATA } from "@/lib/env";
+import { useUser } from "@/lib/store/user";
+import { cn } from "@/lib/utils";
 
 function download(name: string, data: unknown) {
   const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));
@@ -29,8 +34,31 @@ function download(name: string, data: unknown) {
   URL.revokeObjectURL(url);
 }
 
-const TABS = ["Overview", "Review", "Dishes", "Establishments", "Evidence", "Photos", "Recommendations", "Import", "Audit"] as const;
-type Tab = (typeof TABS)[number];
+/**
+ * Admin Portal (KEX-ADM-01): the existing Admin tools organised into operations modules. One admin system —
+ * Food uses the dish/venue editors, other experiences reuse ModuleAdmin. Restricted: see src/lib/admin/access.ts.
+ */
+type SectionId = "overview" | "business" | "catalogue" | "menus" | "nutrition" | "research" | "quality" | "users" | "billing" | "system" | "audit";
+const SECTIONS: { id: SectionId; label: string; icon: LucideIcon; tabs?: { id: string; label: string }[]; module?: ModuleTab }[] = [
+  { id: "overview", label: "Overview", icon: LayoutDashboard },
+  { id: "business", label: "Business Directory", icon: Building2, tabs: [{ id: "establishments", label: "Establishments" }], module: "Establishments" },
+  { id: "catalogue", label: "Catalogue Management", icon: BookOpen, tabs: [{ id: "dishes", label: "Dishes" }, { id: "photos", label: "Photos" }], module: "Items" },
+  { id: "menus", label: "Menus & Pricing", icon: Tags, tabs: [{ id: "evidence", label: "Dish–venue evidence" }], module: "Offerings" },
+  { id: "nutrition", label: "Nutrition Database", icon: Salad },
+  { id: "research", label: "Research & Imports", icon: FlaskConical, tabs: [{ id: "import", label: "Import" }], module: "Import" },
+  { id: "quality", label: "Data Quality & Coverage", icon: ClipboardList, tabs: [{ id: "review", label: "Review queue" }, { id: "coverage", label: "Coverage" }, { id: "recommendations", label: "Recommendations" }], module: "Overview" },
+  { id: "users", label: "Users & Memberships", icon: Users },
+  { id: "billing", label: "Subscriptions & Billing", icon: CreditCard },
+  { id: "system", label: "System Health", icon: Activity },
+  { id: "audit", label: "Audit Logs", icon: ShieldCheck, tabs: [{ id: "audit", label: "Content audit" }] },
+];
+const sectionFromHash = (): SectionId => {
+  if (typeof window === "undefined") return "overview";
+  const h = window.location.hash.slice(1);
+  return SECTIONS.some((x) => x.id === h) ? (h as SectionId) : "overview";
+};
+
+const subscribeHash = (cb: () => void) => { window.addEventListener("hashchange", cb); return () => window.removeEventListener("hashchange", cb); };
 
 export function AdminView() {
   const { t } = useT();
@@ -38,20 +66,24 @@ export function AdminView() {
   const { source } = data;
   const qc = useQueryClient();
   const sb = getSupabase();
-  const [tab, setTab] = useState<Tab>("Overview");
+  // The open module lives in the URL hash (#catalogue …): deep-linkable, back button works, prerender = Overview.
+  const section = useSyncExternalStore(subscribeHash, sectionFromHash, () => "overview" as SectionId);
+  const [tabs, setTabs] = useState<Partial<Record<SectionId, string>>>({});
   const [mode, setMode] = useState<ExperienceId>("food");
   const [user, setUser] = useState<User | null>(null);
-  const [editor, setEditor] = useState(false);
+  const [role, setRole] = useState<StaffRole | null>(null);
   const [email, setEmail] = useState("");
   const [authMsg, setAuthMsg] = useState("");
   const [checked, setChecked] = useState(false);
   const gate = adminGate();
 
+  const setSection = (id: SectionId) => { window.history.pushState(null, "", `#${id}`); window.dispatchEvent(new HashChangeEvent("hashchange")); };
+
   useEffect(() => {
     if (!sb) return;
     const refresh = async () => {
-      try { const u = await currentUser(sb); setUser(u); setEditor(await isEditor(sb, u)); }
-      catch { setUser(null); setEditor(false); } // fail closed on any auth/role error
+      try { const u = await currentUser(sb); setUser(u); setRole(await staffRole(sb, u)); }
+      catch { setUser(null); setRole(null); } // fail closed on any auth/role error
       finally { setChecked(true); }
     };
     refresh();
@@ -59,8 +91,8 @@ export function AdminView() {
     return () => sub.subscription.unsubscribe();
   }, [sb]);
 
-  const canPersist = Boolean(sb && editor);
-  const allowed = adminAllowed(gate, editor);
+  const canPersist = Boolean(sb && canEdit(role));
+  const allowed = adminAllowed(gate, role);
   const hcmc = useQuery({ queryKey: ["geo", "hcmc"], queryFn: () => fetch("/geo/hcmc.json").then((r) => r.json()), enabled: allowed });
   // /geo/hcmc.json is a GeometryCollection (mapshaper dissolve); accept a FeatureCollection too.
   const inHcmc = (p: [number, number]) => {
@@ -84,15 +116,18 @@ export function AdminView() {
 
   const header = (
       <header>
-        <h1 className="font-display text-4xl text-forest">{t("admin.title")}</h1>
-        <p className="text-muted">{t("admin.subtitle")}</p>
+        <div className="flex flex-wrap items-center gap-2">
+          <h1 className="font-display text-4xl text-forest">K’s Experience Admin</h1>
+          <Badge tone="warn" data-testid="admin-restricted"><ShieldAlert className="size-3" /> Restricted</Badge>
+        </div>
+        <p className="text-muted">Internal operations workspace · {t("admin.subtitle")}</p>
         <div className="mt-3 rounded-2xl border border-line bg-paper p-3 text-sm" data-testid="admin-auth">
           {!supabaseEnabled ? (
             <p className="flex gap-2 text-[#8a3f26]"><ShieldAlert className="size-5 shrink-0" /> Local mode (development build only) — editors validate records and download them as JSON; saving to a database needs Supabase (docs/SUPABASE.md). Public deployments never show this screen.</p>
           ) : user ? (
             <div className="flex flex-wrap items-center gap-2">
               <ShieldCheck className="size-5 text-forest" /> Signed in as <strong>{user.email}</strong>
-              {editor ? <Badge tone="forest">editor</Badge> : <Badge tone="warn">not an editor — no access</Badge>}
+              {role ? <Badge tone="forest" data-testid="admin-role">{STAFF_ROLE_LABELS[role]}{canEdit(role) ? " · editor" : " · read-only"}</Badge> : <Badge tone="warn">not staff — no access</Badge>}
               <Button size="sm" variant="ghost" onClick={() => sb!.auth.signOut()}><LogOut /> Sign out</Button>
             </div>
           ) : (
@@ -103,7 +138,6 @@ export function AdminView() {
               {authMsg && <span className="text-xs text-muted">{authMsg}</span>}
             </form>
           )}
-          <p className="mt-1 text-xs text-muted">Data source: {source ?? "local"}</p>
         </div>
       </header>
   );
@@ -121,55 +155,99 @@ export function AdminView() {
     return (
       <div className="mx-auto max-w-6xl space-y-6 px-4 py-6 md:px-6 md:py-10" data-testid="admin">
         {header}
-        <p className="rounded-2xl border border-line bg-paper p-3 text-sm text-muted" data-testid="admin-locked" data-state={!checked ? "checking" : user ? "not-editor" : "guest"}>
-          {!checked ? "Checking access…" : user ? "This account does not have editor access. Ask an admin to grant the editor role." : "Sign in with an editor account to open the editing tools."}
+        <p role="alert" className="rounded-2xl border border-line bg-paper p-3 text-sm text-muted" data-testid="admin-locked" data-state={!checked ? "checking" : user ? "not-editor" : "guest"}>
+          {!checked ? "Checking access…" : user ? "Access denied. This account has no staff role — customer memberships (Plus, Premium) do not include administrative access." : "Access denied. Sign in with a staff account to open the Admin Portal."}
         </p>
       </div>
     );
   }
 
+  const sec = SECTIONS.find((x) => x.id === section)!;
+  const tab = tabs[section] ?? sec.tabs?.[0]?.id;
+  const usesModes = Boolean(sec.module);
+  const moduleMode = usesModes && mode !== "food";
   return (
-    <div className="mx-auto max-w-6xl space-y-6 px-4 py-6 md:px-6 md:py-10" data-testid="admin">
+    <div className="mx-auto max-w-7xl space-y-6 px-4 py-6 md:px-6 md:py-10" data-testid="admin" data-section={section}>
       {header}
-
-      <div className="flex flex-wrap items-center gap-2" data-testid="admin-modes" aria-label="Experience mode">
-        <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">Experience</span>
-        {EXPERIENCES.filter((e) => e.implemented).map((e) => (
-          <Chip key={e.id} active={mode === e.id} onClick={() => setMode(e.id)} data-testid={`admin-mode-${e.id}`}>
-            {loc(e.name, "en")}{e.id !== "food" && !isSelectable(e) ? " · hidden" : ""}
-          </Chip>
-        ))}
+      <div className="grid gap-6 md:grid-cols-[230px_minmax(0,1fr)]">
+        <nav aria-label="Admin modules" className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 md:mx-0 md:flex-col md:gap-0.5 md:overflow-visible md:px-0" data-testid="admin-nav">
+          {SECTIONS.map((x) => (
+            <button key={x.id} type="button" onClick={() => setSection(x.id)} aria-current={section === x.id ? "page" : undefined} data-testid={`admin-section-${x.id}`}
+              className={cn("flex shrink-0 items-center gap-2 rounded-full px-3 py-2 text-left text-sm transition-colors md:rounded-xl",
+                section === x.id ? "bg-forest text-ivory" : "bg-paper text-charcoal hover:bg-ivory-deep md:bg-transparent")}>
+              <x.icon className="size-4 shrink-0" aria-hidden /> <span className="whitespace-nowrap">{x.label}</span>
+            </button>
+          ))}
+        </nav>
+        <main className="min-w-0 space-y-4">
+          <h2 className="font-display text-3xl text-forest">{sec.label}</h2>
+          {usesModes && (
+            <div className="flex flex-wrap items-center gap-2" data-testid="admin-modes" aria-label="Experience mode">
+              <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">Experience</span>
+              {EXPERIENCES.filter((e) => e.implemented).map((e) => (
+                <Chip key={e.id} active={mode === e.id} onClick={() => setMode(e.id)} data-testid={`admin-mode-${e.id}`}>
+                  {loc(e.name, "en")}{e.id !== "food" && !isSelectable(e) ? " · hidden" : ""}
+                </Chip>
+              ))}
+            </div>
+          )}
+          {moduleMode ? <ModuleAdmin key={`${mode}-${sec.module}`} id={mode} canPersist={canPersist} inHcmc={inHcmc} tab={sec.module} /> : <>
+            {sec.tabs && sec.tabs.length > 1 && (
+              <nav className="no-scrollbar flex gap-2 overflow-x-auto" aria-label={`${sec.label} views`}>
+                {sec.tabs.map((x) => <Chip key={x.id} active={tab === x.id} onClick={() => setTabs({ ...tabs, [section]: x.id })} data-testid={`admin-tab-${x.id}`}>{x.label}</Chip>)}
+              </nav>
+            )}
+            {section === "overview" && <Overview />}
+            {tab === "dishes" && <DishEditor onSave={onSave} canPersist={canPersist} />}
+            {tab === "photos" && <Photos canPersist={canPersist} />}
+            {tab === "establishments" && <RestaurantEditor onSave={onSave} canPersist={canPersist} inHcmc={inHcmc} />}
+            {tab === "evidence" && <EvidenceEditor onSave={onSave} canPersist={canPersist} />}
+            {section === "nutrition" && <Nutrition />}
+            {tab === "import" && <ImportTool canPersist={canPersist} />}
+            {tab === "review" && <Review />}
+            {tab === "coverage" && <section className="rounded-2xl border border-line/80 bg-paper p-4"><h3 className="mb-2 font-display text-lg">Data coverage by experience</h3><PlatformSummary detailed /></section>}
+            {tab === "recommendations" && <RecommendationCoverage />}
+            {section === "users" && <UsersMemberships role={role} user={user} />}
+            {section === "billing" && <Billing />}
+            {section === "system" && <SystemHealth gate={gate} source={source ?? "local"} role={role} user={user} />}
+            {tab === "audit" && <Audit enabled={Boolean(sb && role)} />}
+          </>}
+        </main>
       </div>
-
-      {mode !== "food" ? <ModuleAdmin key={mode} id={mode} canPersist={canPersist} inHcmc={inHcmc} /> : <>
-      <nav className="no-scrollbar flex gap-2 overflow-x-auto" aria-label="Admin sections">
-        {TABS.map((x) => <Chip key={x} active={tab === x} onClick={() => setTab(x)} data-testid={`admin-tab-${x.toLowerCase()}`}>{x}</Chip>)}
-      </nav>
-
-      {tab === "Overview" && <Overview />}
-      {tab === "Review" && <Review />}
-      {tab === "Dishes" && <DishEditor onSave={onSave} canPersist={canPersist} />}
-      {tab === "Establishments" && <RestaurantEditor onSave={onSave} canPersist={canPersist} inHcmc={inHcmc} />}
-      {tab === "Evidence" && <EvidenceEditor onSave={onSave} canPersist={canPersist} />}
-      {tab === "Photos" && <Photos canPersist={canPersist} />}
-      {tab === "Recommendations" && <RecommendationCoverage />}
-      {tab === "Import" && <ImportTool canPersist={canPersist} />}
-      {tab === "Audit" && <Audit enabled={canPersist} />}
-      </>}
     </div>
   );
 }
 
+/** Overview dashboard: live counts (real, sourced records only — no samples). */
 function Overview() {
   const { t } = useT();
   const { dishes, regions, restaurants, links, catalogue } = useFoodData();
+  const { rows, unique } = usePlatformStats();
+  const food = rows[0].stats!;
   const covered = new Set(dishes.flatMap((d) => d.origins.map((o) => o.provinceId)).filter(Boolean));
   const real = restaurants.filter((r) => !r.isSample);
   const realLinks = links.filter((l) => !l.isSample);
-  const stat = (l: string, v: React.ReactNode) => <div key={l} className="rounded-2xl border border-line/80 bg-paper p-4"><dt className="text-xs text-muted">{l}</dt><dd className="font-display text-3xl text-forest">{v}</dd></div>;
+  const pct = food.items ? ((food.itemsWithEstablishments / food.items) * 100).toFixed(1) : "0";
+  const stat = (l: string, v: React.ReactNode, id?: string) => <div key={l} className="rounded-2xl border border-line/80 bg-paper p-4" data-testid={id}><dt className="text-xs text-muted">{l}</dt><dd className="font-display text-3xl text-forest">{v}</dd></div>;
   return (
-    <section>
-      <div className="mb-3 rounded-2xl border border-[#e9d9a6] bg-[#fbf3d9] p-3 text-sm text-[#5f4a0f]" data-testid="admin-data-quality">
+    <section className="space-y-4" data-testid="admin-overview">
+      <dl className="grid grid-cols-2 gap-3 lg:grid-cols-4" data-testid="admin-kpis">
+        {stat("Unique establishments", unique ?? "…", "kpi-unique-places")}
+        {stat("Vietnamese dishes", food.items, "kpi-dishes")}
+        {stat("Historical provinces covered", `${food.provinces!.covered}/${food.provinces!.total}`, "kpi-provinces")}
+        {stat("Dishes with listed places", `${pct}%`, "kpi-dishes-with-places")}
+      </dl>
+      <div className="rounded-2xl border border-line/80 bg-paper p-4">
+        <h3 className="mb-2 font-display text-lg">Catalogue coverage <span className="text-sm text-muted">(items with places / items)</span></h3>
+        <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5" data-testid="admin-catalogue-coverage">
+          {rows.map((r) => <li key={r.id} className="rounded-xl bg-ivory p-3" data-testid={`coverage-${r.id}`}><span className="block text-xs text-muted">{loc(r.name, "en")}</span><strong className="font-display text-xl">{r.stats ? `${r.stats.itemsWithEstablishments}/${r.stats.items}` : "…"}</strong></li>)}
+        </ul>
+      </div>
+      <div className="rounded-2xl border border-line/80 bg-paper p-4">
+        <h3 className="mb-2 font-display text-lg">Data coverage by experience</h3>
+        <PlatformSummary detailed />
+      </div>
+      <div className="rounded-2xl border border-[#e9d9a6] bg-[#fbf3d9] p-3 text-sm text-[#5f4a0f]" data-testid="admin-data-quality">
         <p><strong>Data quality</strong> · dataset <Badge tone="sample">{catalogue.dataset}</Badge> · {catalogue.label}</p>
         {catalogue.dataset !== "master" && (
           <p className="mt-1" data-testid="admin-seed-notice">
@@ -177,10 +255,6 @@ function Overview() {
             in with the non-destructive importer (IDs, photos and venue links preserved). Consumers see per-dish verification status, not this notice.
           </p>
         )}
-      </div>
-      <div className="mb-4 rounded-2xl border border-line/80 bg-paper p-4">
-        <h3 className="mb-2 font-display text-lg">Data coverage by experience</h3>
-        <PlatformSummary detailed />
       </div>
       <dl className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {stat("Dishes", dishes.length)}
@@ -190,7 +264,110 @@ function Overview() {
         {stat("Real HCMC venues", real.length)}
         {stat("Dish–venue links", realLinks.length)}
       </dl>
-      <div className="mt-3 grid gap-2 md:grid-cols-6">{regions.map((r) => <div key={r.id} className="rounded-xl bg-paper p-2 text-xs"><strong>{r.nameVi}</strong><br />{dishes.filter((d) => d.regionIds.includes(r.id)).length} dishes</div>)}</div>
+      <div className="grid gap-2 md:grid-cols-6">{regions.map((r) => <div key={r.id} className="rounded-xl bg-paper p-2 text-xs"><strong>{r.nameVi}</strong><br />{dishes.filter((d) => d.regionIds.includes(r.id)).length} dishes</div>)}</div>
+    </section>
+  );
+}
+
+/** Nutrition Database: what the catalogue records today (dish eating attributes). Editing is in Catalogue → Dishes. */
+function Nutrition() {
+  const { dishes } = useFoodData();
+  const withN = dishes.filter((d) => d.eating?.nutrition);
+  const sourced = withN.filter((d) => d.eating!.nutrition!.confidence === "sourced").length;
+  return (
+    <section className="space-y-3" data-testid="admin-nutrition">
+      <p className="text-sm text-muted">Nutrition is recorded per dish (kcal, protein) with a source and confidence; unknown values are never assumed. Edit values in Catalogue Management → Dishes or import them (docs/DATA_SOURCES.md). A dedicated nutrition database is not built yet.</p>
+      <dl className="grid grid-cols-3 gap-3">
+        <div className="rounded-2xl border border-line/80 bg-paper p-4"><dt className="text-xs text-muted">Dishes with nutrition</dt><dd className="font-display text-3xl text-forest" data-testid="nutrition-count">{withN.length}/{dishes.length}</dd></div>
+        <div className="rounded-2xl border border-line/80 bg-paper p-4"><dt className="text-xs text-muted">Sourced</dt><dd className="font-display text-3xl text-forest">{sourced}</dd></div>
+        <div className="rounded-2xl border border-line/80 bg-paper p-4"><dt className="text-xs text-muted">Estimates</dt><dd className="font-display text-3xl text-forest">{withN.length - sourced}</dd></div>
+      </dl>
+      {withN.length > 0 && (
+        <table className="w-full max-w-3xl text-sm"><thead><tr className="text-left text-muted"><th className="py-1">Dish</th><th>kcal</th><th>Protein (g)</th><th>Confidence</th><th>Source</th></tr></thead>
+          <tbody>{withN.map((d) => { const n = d.eating!.nutrition!; return <tr key={d.id} className="border-t border-line/60"><td className="py-1">{d.nameVi}</td><td>{n.kcal ?? "—"}</td><td>{n.proteinG ?? "—"}</td><td>{n.confidence}</td><td className="text-xs text-muted">{n.source}</td></tr>; })}</tbody></table>
+      )}
+    </section>
+  );
+}
+
+/** Users & Memberships: staff roles vs customer tiers. Admins grant test entitlements (RLS: admins only). */
+function UsersMemberships({ role, user }: { role: StaffRole | null; user: User | null }) {
+  const sb = getSupabase();
+  const admin = Boolean(sb && canManageMembers(role));
+  const qc = useQueryClient();
+  const q = useQuery({ queryKey: ["memberships"], queryFn: () => listMemberships(sb!), enabled: admin });
+  const [uid, setUid] = useState("");
+  const [tier, setTier] = useState<Tier>("plus");
+  const [msg, setMsg] = useState("");
+  const perms: Record<StaffRole, string> = { admin: "Everything, incl. memberships and roles", editor: "Edit catalogue, establishments, evidence, photos, imports", researcher: "Read-only portal: research, coverage, audit", reviewer: "Read-only portal: review queue, coverage, audit" };
+  return (
+    <section className="space-y-4" data-testid="admin-users">
+      <div className="rounded-2xl border border-line/80 bg-paper p-4 text-sm">
+        <h3 className="font-display text-lg">Two separate systems</h3>
+        <p className="mt-1 text-muted"><strong>Staff roles</strong> (table <code>user_roles</code>) grant Admin Portal access. <strong>Customer memberships</strong> (table <code>user_memberships</code>: Free, Plus, Premium) are entitlements only and never grant administrative access. Nobody can assign themselves either; roles are granted in the database by an administrator. Business-owner access (Business Portal) will be a third, separately scoped permission.</p>
+        <table className="mt-3 w-full max-w-2xl"><thead><tr className="text-left text-xs text-muted"><th className="py-1">Staff role</th><th>Permissions</th></tr></thead>
+          <tbody>{STAFF_ROLES.map((r) => <tr key={r} className="border-t border-line/60"><td className="py-1.5 pr-3">{STAFF_ROLE_LABELS[r]}{role === r && <Badge tone="forest" className="ml-2">you</Badge>}</td><td className="text-muted">{perms[r]}</td></tr>)}</tbody></table>
+      </div>
+      {!admin ? (
+        <p className="rounded-2xl border border-line bg-paper p-3 text-sm text-muted" data-testid="admin-users-restricted">Membership management is available to signed-in Admins on a database-connected deployment.</p>
+      ) : (
+        <div className="space-y-3 rounded-2xl border border-line/80 bg-paper p-4" data-testid="admin-memberships">
+          <h3 className="font-display text-lg">Test entitlements</h3>
+          <p className="text-sm text-muted">Billing is not live. Grant a test tier to an account by its user ID (UUID) to test Plus/Premium behaviour. Every change is audited.</p>
+          <form className="flex flex-wrap items-end gap-2" onSubmit={async (e) => { e.preventDefault(); try { await grantTestMembership(sb!, uid, tier, user!.id); setMsg("Saved ✓"); setUid(""); await qc.invalidateQueries({ queryKey: ["memberships"] }); } catch (err) { setMsg((err as Error).message); } }}>
+            <label className="text-sm"><span className={label}>User ID</span><input className={cn(field, "w-80")} value={uid} onChange={(e) => setUid(e.target.value)} placeholder="00000000-0000-0000-0000-000000000000" data-testid="membership-user" /></label>
+            <label className="text-sm"><span className={label}>Tier</span><select className={field} value={tier} onChange={(e) => setTier(e.target.value as Tier)} data-testid="membership-tier-select">{TIERS.map((x) => <option key={x} value={x}>{PLANS[x].name}</option>)}</select></label>
+            <Button type="submit" data-testid="membership-grant">Grant test tier</Button>
+            {msg && <span className="text-sm" data-testid="membership-message">{msg}</span>}
+          </form>
+          <table className="w-full text-sm"><thead><tr className="text-left text-xs text-muted"><th className="py-1">User</th><th>Tier</th><th>Source</th><th>Valid until</th><th>Updated</th></tr></thead>
+            <tbody>{(q.data ?? []).map((m) => <tr key={m.user_id} className="border-t border-line/60"><td className="py-1 font-mono text-xs">{m.user_id}</td><td>{PLANS[m.tier]?.name ?? m.tier}</td><td>{m.source}</td><td>{m.valid_until ? new Date(m.valid_until).toLocaleDateString() : "—"}</td><td>{new Date(m.updated_at).toLocaleString()}</td></tr>)}</tbody></table>
+          {q.error && <p className="text-sm text-[#8a3f26]">{(q.error as Error).message}</p>}
+        </div>
+      )}
+    </section>
+  );
+}
+
+function Billing() {
+  return (
+    <section className="space-y-3" data-testid="admin-billing">
+      <p className="rounded-2xl border border-[#e9d9a6] bg-[#fbf3d9] p-3 text-sm text-[#5f4a0f]">No live payments. Subscription payment integration is a P1 item awaiting Product Owner approval of a payment provider; until then tiers are test entitlements (Users &amp; Memberships).</p>
+      <table className="w-full max-w-xl text-sm"><thead><tr className="text-left text-xs text-muted"><th className="py-1">Plan</th><th>Monthly (USD)</th><th>Yearly (USD)</th></tr></thead>
+        <tbody>{TIERS.map((x) => <tr key={x} className="border-t border-line/60"><td className="py-1.5">{PLANS[x].name}</td><td>{PLANS[x].monthly === null ? "$0" : usd(PLANS[x].monthly!)}</td><td>{PLANS[x].yearly === null ? "$0" : usd(PLANS[x].yearly!)}</td></tr>)}</tbody></table>
+      <p className="text-xs text-muted">Proposed prices (docs/DECISIONS.md D70 — needs PO confirmation).</p>
+    </section>
+  );
+}
+
+/** System Health: infrastructure + diagnostics (moved here from customer Settings). */
+function SystemHealth({ gate, source, role, user }: { gate: AdminGate; source: string; role: StaffRole | null; user: User | null }) {
+  const { catalogue } = useFoodData();
+  const showSamples = useUser((s) => s.showSamples);
+  const setShowSamples = useUser((s) => s.setShowSamples);
+  const host = (() => { try { return SUPABASE_URL ? new URL(SUPABASE_URL).host : "—"; } catch { return "—"; } })();
+  const row = (k: string, v: React.ReactNode, id?: string) => <tr key={k} className="border-t border-line/60"><td className="py-1.5 pr-4 text-muted">{k}</td><td data-testid={id}>{v}</td></tr>;
+  return (
+    <section className="space-y-4" data-testid="admin-system">
+      <table className="w-full max-w-3xl text-sm"><tbody>
+        {row("Data mode", source === "supabase" ? "Supabase — catalogue and venues are read live from the database." : source === "local-fallback" ? "Supabase is configured but could not be reached — showing the bundled data." : "Local mode — data is read from the repository's JSON files; personal data lives in this browser only.", "system-data-mode")}
+        {row("Database configured", supabaseEnabled ? `yes (${host})` : "no")}
+        {row("Admin gate", gate)}
+        {row("Local admin build flag", localAdminAllowed ? "on (dev/test build only)" : "off")}
+        {row("Development data (samples)", DEV_DATA ? "on" : "off")}
+        {row("Catalogue dataset", `${catalogue.dataset} · ${catalogue.recordCount} records`)}
+        {row("Signed-in staff", user ? `${user.email} · ${role ? STAFF_ROLE_LABELS[role] : "none"}` : "—")}
+        {row("Build", process.env.NEXT_PUBLIC_BUILD_ID ?? "dev")}
+      </tbody></table>
+      {DEV_DATA && (
+        <div className="rounded-2xl border border-line/80 bg-paper p-4" data-testid="samples">
+          <h3 className="font-display text-lg">Sample data diagnostics</h3>
+          <label className="mt-2 flex cursor-pointer items-start gap-3">
+            <input type="checkbox" className="mt-1 size-5 accent-[#294C3D]" checked={showSamples} onChange={(e) => setShowSamples(e.target.checked)} data-testid="toggle-samples" />
+            <span className="text-sm text-charcoal/80">Show fictional demonstration venues (always labelled SAMPLE) in this browser. They are never used for recommendations. Development/test builds only.</span>
+          </label>
+        </div>
+      )}
     </section>
   );
 }
